@@ -5,10 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-// Match the exact yellow from the photo
-const BRAND_YELLOW = "#E8C72E";
-const BRAND_YELLOW_DARK = "#D4B429";
-
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMounted, setIsMounted] = useState(false);
@@ -18,8 +14,9 @@ export function StatementHero() {
         offset: ["start start", "end start"],
     });
 
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
     const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-    const contentY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-15%"]);
+    const contentY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-10%"]);
 
     useEffect(() => {
         setIsMounted(true);
@@ -28,24 +25,25 @@ export function StatementHero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex items-center overflow-hidden"
-            style={{ backgroundColor: BRAND_YELLOW }}
+            className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]"
         >
-            {/* Subtle grain texture */}
+            {/* Subtle grid pattern */}
             <div
-                className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-multiply"
+                className="absolute inset-0 opacity-[0.03]"
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                    backgroundSize: '60px 60px',
                 }}
             />
 
-            {/* Main content grid */}
+            {/* Main content */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-24 lg:py-0">
+                <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center min-h-screen py-24 lg:py-0">
 
                     {/* Left: Text content */}
                     <motion.div
-                        className="order-2 lg:order-1"
+                        className="order-2 lg:order-1 max-w-2xl"
                         style={{
                             opacity: isMounted ? contentOpacity : 1,
                             y: isMounted ? contentY : 0,
@@ -57,25 +55,27 @@ export function StatementHero() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
                             {/* Availability badge */}
-                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-black/20 bg-black/5">
+                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-50" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
                                 </span>
-                                <span className="text-sm text-black/80 font-medium">
+                                <span className="text-sm text-amber-200/90 font-medium">
                                     Available for new projects
                                 </span>
                             </div>
 
                             {/* Main headline */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black leading-[1.1] mb-6">
-                                I build websites
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
+                                I design and build
                                 <br />
-                                that convert.
+                                <span className="text-amber-400">
+                                    websites that convert.
+                                </span>
                             </h1>
 
                             {/* Subheadline */}
-                            <p className="text-lg md:text-xl text-black/70 max-w-lg mb-10 leading-relaxed">
+                            <p className="text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
                                 Strategy-led design and clean Next.js builds.
                                 Premium look, fast load, inevitable contact.
                             </p>
@@ -84,7 +84,7 @@ export function StatementHero() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/contact"
-                                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-black text-white font-semibold hover:bg-black/90 transition-all duration-300 hover:scale-[1.02]"
+                                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
                                 >
                                     <span>Start a Project</span>
                                     <svg
@@ -98,86 +98,87 @@ export function StatementHero() {
                                 </Link>
                                 <Link
                                     href="/work"
-                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 border-black/20 text-black font-medium hover:bg-black/5 hover:border-black/30 transition-all duration-300"
+                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
                                 >
                                     View Work
                                 </Link>
                             </div>
 
                             {/* Quick stats */}
-                            <div className="flex gap-8 mt-12 pt-8 border-t border-black/10">
+                            <div className="flex gap-10 mt-14 pt-8 border-t border-white/10">
                                 <div>
-                                    <div className="text-2xl font-bold text-black">4-6</div>
-                                    <div className="text-sm text-black/60">Week launches</div>
+                                    <div className="text-3xl font-bold text-white">4-6</div>
+                                    <div className="text-sm text-white/50 mt-1">Week launches</div>
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-black">95+</div>
-                                    <div className="text-sm text-black/60">Lighthouse scores</div>
+                                    <div className="text-3xl font-bold text-white">95+</div>
+                                    <div className="text-sm text-white/50 mt-1">Lighthouse scores</div>
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-black">100%</div>
-                                    <div className="text-sm text-black/60">Custom builds</div>
+                                    <div className="text-3xl font-bold text-white">100%</div>
+                                    <div className="text-sm text-white/50 mt-1">Custom builds</div>
                                 </div>
                             </div>
                         </motion.div>
                     </motion.div>
 
-                    {/* Right: Hero image - blends with background */}
+                    {/* Right: Hero image - bold yellow against dark */}
                     <motion.div
-                        className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="order-1 lg:order-2 relative"
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
                     >
-                        <div className="relative w-full max-w-md lg:max-w-lg">
-                            {/* The image - no container styling, just blends */}
-                            <Image
-                                src="/haydn.png"
-                                alt="Haydn - Web Designer & Developer"
-                                width={600}
-                                height={800}
-                                className="w-full h-auto"
-                                priority
-                                sizes="(min-width: 1024px) 40vw, 80vw"
-                            />
+                        <div className="relative">
+                            {/* Glow behind image */}
+                            <div className="absolute -inset-8 bg-amber-500/20 rounded-3xl blur-3xl" />
+
+                            {/* Image container */}
+                            <motion.div
+                                className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
+                                style={{ scale: isMounted ? imageScale : 1 }}
+                            >
+                                <Image
+                                    src="/haydn.png"
+                                    alt="Haydn - Web Designer & Developer"
+                                    width={480}
+                                    height={600}
+                                    className="w-full h-auto max-w-[400px] lg:max-w-[480px]"
+                                    priority
+                                    sizes="(min-width: 1024px) 480px, 400px"
+                                />
+                            </motion.div>
+
+                            {/* Floating badge */}
+                            <motion.div
+                                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm"
+                                animate={{ y: [0, -6, 0] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                                <span className="text-amber-400 font-semibold">Poconos, PA</span>
+                                <span className="text-white/60"> • Remote worldwide</span>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Bottom location tag */}
-            <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-black/50 text-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                style={{
-                    opacity: isMounted ? contentOpacity : 1,
-                }}
-            >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>Poconos, PA • Remote Worldwide</span>
-            </motion.div>
-
             {/* Scroll indicator */}
             <motion.div
-                className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                style={{
-                    opacity: isMounted ? contentOpacity : 1,
-                }}
+                style={{ opacity: isMounted ? contentOpacity : 1 }}
             >
+                <span className="text-xs text-white/40 uppercase tracking-widest">Scroll</span>
                 <motion.div
-                    className="w-2 h-2 rounded-full bg-black/40"
-                    animate={{ y: [0, 8, 0] }}
+                    className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
+                    animate={{ y: [0, 4, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                />
-                <div className="w-px h-12 bg-black/20" />
+                >
+                    <div className="w-1 h-1.5 rounded-full bg-amber-500" />
+                </motion.div>
             </motion.div>
         </section>
     );
