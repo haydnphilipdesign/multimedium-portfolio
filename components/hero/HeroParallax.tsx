@@ -77,8 +77,12 @@ export function HeroParallax() {
     if (prefersReducedMotion) {
         return (
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-                {/* Static background */}
-                <div className="absolute inset-0 bg-hero-gradient" />
+                {/* Static background with visible gradients */}
+                <div className="absolute inset-0">
+                    <div className="absolute top-[-10%] left-[5%] w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.4)_0%,_transparent_70%)]" />
+                    <div className="absolute top-[30%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(236,72,153,0.3)_0%,_transparent_70%)]" />
+                    <div className="absolute bottom-[-10%] left-[40%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.35)_0%,_transparent_70%)]" />
+                </div>
                 <div className="grain absolute inset-0" />
 
                 {/* Content */}
@@ -88,17 +92,17 @@ export function HeroParallax() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-border/50 bg-card/50 text-sm text-muted-foreground">
-                            <IconSparkles className="w-4 h-4 text-glow" stroke={1.5} />
+                        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200">
+                            <IconSparkles className="w-4 h-4 text-purple-400" stroke={1.5} />
                             <span>Haydn • Poconos, PA • Available for new builds</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]">
                             Websites that{" "}
-                            <span className="text-gradient">look premium</span>
+                            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">look premium</span>
                             <br />
                             and convert.
                         </h1>
-                        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+                        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
                             Strategy-led design and clean Next.js builds that ship fast, load fast,
                             and make contacting you feel inevitable.
                         </p>
@@ -122,43 +126,85 @@ export function HeroParallax() {
             onMouseMove={handleMouseMove}
             className="relative h-[120vh] flex items-start justify-center overflow-hidden bg-background"
         >
-            {/* Background Layer - Moves slowest on scroll */}
+            {/* Background Layer - Vibrant gradient orbs */}
             <motion.div
                 className="absolute inset-0"
                 style={{
                     y: backgroundY,
-                    x: useTransform(mouseXSpring, [-1, 1], ["-2%", "2%"]),
+                    x: useTransform(mouseXSpring, [-1, 1], ["-3%", "3%"]),
                 }}
             >
-                {/* Gradient orbs */}
-                <div className="absolute top-[-20%] left-[10%] w-[600px] h-[600px] rounded-full bg-gradient-radial from-[oklch(0.3_0.15_280/0.3)] to-transparent blur-3xl" />
-                <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-radial from-[oklch(0.25_0.12_320/0.25)] to-transparent blur-3xl" />
-                <div className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] rounded-full bg-gradient-radial from-[oklch(0.28_0.1_250/0.2)] to-transparent blur-3xl" />
+                {/* Large purple orb - top left */}
+                <div
+                    className="absolute top-[-15%] left-[0%] w-[800px] h-[800px] rounded-full blur-3xl"
+                    style={{
+                        background: "radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%)",
+                    }}
+                />
+                {/* Pink/magenta orb - right side */}
+                <div
+                    className="absolute top-[20%] right-[-10%] w-[700px] h-[700px] rounded-full blur-3xl"
+                    style={{
+                        background: "radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0.15) 40%, transparent 70%)",
+                    }}
+                />
+                {/* Blue orb - bottom center */}
+                <div
+                    className="absolute bottom-[0%] left-[30%] w-[600px] h-[600px] rounded-full blur-3xl"
+                    style={{
+                        background: "radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%)",
+                    }}
+                />
+                {/* Cyan accent - bottom right */}
+                <div
+                    className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full blur-3xl"
+                    style={{
+                        background: "radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, transparent 60%)",
+                    }}
+                />
             </motion.div>
 
-            {/* Midground Layer - Decorative shapes */}
+            {/* Midground Layer - Decorative elements */}
             <motion.div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     y: midgroundY,
-                    x: useTransform(mouseXSpring, [-1, 1], ["-4%", "4%"]),
+                    x: useTransform(mouseXSpring, [-1, 1], ["-5%", "5%"]),
                 }}
             >
-                {/* Floating geometric elements */}
-                <div className="absolute top-[15%] left-[15%] w-24 h-24 border border-border/20 rounded-2xl rotate-12 opacity-40" />
-                <div className="absolute top-[25%] right-[20%] w-16 h-16 bg-gradient-to-br from-glow/10 to-transparent rounded-full" />
-                <div className="absolute bottom-[30%] left-[25%] w-32 h-32 border border-glow/10 rounded-full opacity-30" />
-                <div className="absolute top-[40%] right-[10%] w-20 h-20 border border-border/15 rounded-lg -rotate-6 opacity-50" />
+                {/* Floating geometric elements with glow */}
+                <div className="absolute top-[12%] left-[12%] w-32 h-32 border-2 border-purple-500/40 rounded-3xl rotate-12 shadow-[0_0_30px_rgba(139,92,246,0.3)]" />
+                <div className="absolute top-[22%] right-[18%] w-24 h-24 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full shadow-[0_0_40px_rgba(236,72,153,0.2)]" />
+                <div className="absolute bottom-[35%] left-[20%] w-40 h-40 border border-blue-500/30 rounded-full shadow-[0_0_50px_rgba(59,130,246,0.2)]" />
+                <div className="absolute top-[45%] right-[8%] w-28 h-28 border border-cyan-500/25 rounded-2xl -rotate-12 shadow-[0_0_35px_rgba(34,211,238,0.15)]" />
+                <div className="absolute bottom-[25%] right-[25%] w-20 h-20 bg-gradient-to-br from-purple-500/15 to-blue-500/15 rounded-xl rotate-45" />
 
-                {/* Grid pattern overlay */}
+                {/* Animated floating dots */}
+                <motion.div
+                    className="absolute top-[30%] left-[8%] w-3 h-3 rounded-full bg-purple-400/60"
+                    animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                    className="absolute top-[50%] right-[15%] w-2 h-2 rounded-full bg-pink-400/50"
+                    animate={{ y: [0, -15, 0], opacity: [0.5, 0.9, 0.5] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                <motion.div
+                    className="absolute bottom-[40%] left-[35%] w-2.5 h-2.5 rounded-full bg-blue-400/50"
+                    animate={{ y: [0, -18, 0], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+
+                {/* Grid pattern overlay - slightly more visible */}
                 <div
-                    className="absolute inset-0 opacity-[0.02]"
+                    className="absolute inset-0 opacity-[0.04]"
                     style={{
                         backgroundImage: `
-              linear-gradient(oklch(1 0 0 / 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, oklch(1 0 0 / 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
             `,
-                        backgroundSize: "60px 60px",
+                        backgroundSize: "80px 80px",
                     }}
                 />
             </motion.div>
@@ -166,7 +212,7 @@ export function HeroParallax() {
             {/* Grain overlay */}
             <div className="grain absolute inset-0 pointer-events-none" />
 
-            {/* Foreground Layer - Text content, moves against scroll */}
+            {/* Foreground Layer - Text content */}
             <motion.div
                 className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-[20vh]"
                 style={{
@@ -184,9 +230,9 @@ export function HeroParallax() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-border/50 bg-card/50 backdrop-blur-sm text-sm text-muted-foreground"
+                        className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200"
                     >
-                        <IconSparkles className="w-4 h-4 text-glow" stroke={1.5} />
+                        <IconSparkles className="w-4 h-4 text-purple-400" stroke={1.5} />
                         <span>Haydn • Poconos, PA • Available for new builds</span>
                     </motion.div>
 
@@ -197,7 +243,14 @@ export function HeroParallax() {
                         className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-foreground mb-8 leading-[1.05]"
                     >
                         Websites that{" "}
-                        <span className="text-gradient glow-text">look premium</span>
+                        <span
+                            className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent"
+                            style={{
+                                textShadow: "0 0 80px rgba(139, 92, 246, 0.5), 0 0 40px rgba(236, 72, 153, 0.3)"
+                            }}
+                        >
+                            look premium
+                        </span>
                         <br />
                         and convert.
                     </motion.h1>
@@ -206,7 +259,7 @@ export function HeroParallax() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
+                        className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12"
                     >
                         Strategy-led design and clean Next.js builds that ship fast, load fast,
                         and make contacting you feel inevitable.
@@ -218,10 +271,16 @@ export function HeroParallax() {
                         transition={{ duration: 0.6, delay: 0.6 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        <Link href="/contact" className="btn-primary">
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-300 hover:scale-105"
+                        >
                             Start a Project
                         </Link>
-                        <Link href="/work" className="btn-secondary">
+                        <Link
+                            href="/work"
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-purple-500/30 bg-purple-500/10 text-white font-medium backdrop-blur-sm hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                        >
                             View Work
                         </Link>
                     </motion.div>
@@ -240,7 +299,7 @@ export function HeroParallax() {
                     <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="flex flex-col items-center gap-2 text-muted-foreground"
+                        className="flex flex-col items-center gap-2 text-purple-300/70"
                     >
                         <span className="text-xs uppercase tracking-widest">Scroll</span>
                         <IconArrowDown className="w-4 h-4" stroke={1.5} />
