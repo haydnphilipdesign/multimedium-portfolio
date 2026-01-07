@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
+// Match the exact yellow from the photo
+const BRAND_YELLOW = "#E8C72E";
+const BRAND_YELLOW_DARK = "#D4B429";
+
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
     const [isMounted, setIsMounted] = useState(false);
 
     const { scrollYProgress } = useScroll({
@@ -15,60 +18,30 @@ export function StatementHero() {
         offset: ["start start", "end start"],
     });
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-    const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-    const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-    const contentY = useTransform(scrollYProgress, [0, 0.3], ["0%", "-10%"]);
-
-    // Smooth spring for mouse tracking
-    const springConfig = { damping: 30, stiffness: 150 };
-    const mouseXSpring = useSpring(mousePosition.x, springConfig);
-    const mouseYSpring = useSpring(mousePosition.y, springConfig);
+    const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+    const contentY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-15%"]);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        setMousePosition({ x, y });
-    };
-
     return (
         <section
             ref={containerRef}
-            onMouseMove={handleMouseMove}
-            className="relative min-h-screen flex items-center overflow-hidden bg-black"
+            className="relative min-h-screen flex items-center overflow-hidden"
+            style={{ backgroundColor: BRAND_YELLOW }}
         >
-            {/* Background gradient - warm amber tones */}
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-950/40 via-black to-black" />
-
-            {/* Animated gradient orbs */}
-            <motion.div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    x: useTransform(mouseXSpring, [0, 1], ["-3%", "3%"]),
-                    y: useTransform(mouseYSpring, [0, 1], ["-3%", "3%"]),
-                }}
-            >
-                <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/10 blur-[100px]" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-yellow-500/8 blur-[80px]" />
-            </motion.div>
-
-            {/* Noise/grain overlay */}
+            {/* Subtle grain texture */}
             <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+                className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-multiply"
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
                 }}
             />
 
             {/* Main content grid */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-screen py-20 lg:py-0">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-24 lg:py-0">
 
                     {/* Left: Text content */}
                     <motion.div
@@ -84,27 +57,25 @@ export function StatementHero() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
                             {/* Availability badge */}
-                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 backdrop-blur-sm">
+                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-black/20 bg-black/5">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-50" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
                                 </span>
-                                <span className="text-sm text-amber-200/90 font-medium">
+                                <span className="text-sm text-black/80 font-medium">
                                     Available for new projects
                                 </span>
                             </div>
 
                             {/* Main headline */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black leading-[1.1] mb-6">
                                 I build websites
                                 <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">
-                                    that convert.
-                                </span>
+                                that convert.
                             </h1>
 
                             {/* Subheadline */}
-                            <p className="text-lg md:text-xl text-white/70 max-w-lg mb-10 leading-relaxed">
+                            <p className="text-lg md:text-xl text-black/70 max-w-lg mb-10 leading-relaxed">
                                 Strategy-led design and clean Next.js builds.
                                 Premium look, fast load, inevitable contact.
                             </p>
@@ -113,7 +84,7 @@ export function StatementHero() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/contact"
-                                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all duration-300 hover:scale-[1.02]"
+                                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-black text-white font-semibold hover:bg-black/90 transition-all duration-300 hover:scale-[1.02]"
                                 >
                                     <span>Start a Project</span>
                                     <svg
@@ -127,74 +98,47 @@ export function StatementHero() {
                                 </Link>
                                 <Link
                                     href="/work"
-                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/20 bg-white/5 text-white font-medium backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 border-black/20 text-black font-medium hover:bg-black/5 hover:border-black/30 transition-all duration-300"
                                 >
                                     View Work
                                 </Link>
                             </div>
 
                             {/* Quick stats */}
-                            <div className="flex gap-8 mt-12 pt-8 border-t border-white/10">
+                            <div className="flex gap-8 mt-12 pt-8 border-t border-black/10">
                                 <div>
-                                    <div className="text-2xl font-bold text-white">4-6</div>
-                                    <div className="text-sm text-white/50">Week launches</div>
+                                    <div className="text-2xl font-bold text-black">4-6</div>
+                                    <div className="text-sm text-black/60">Week launches</div>
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-white">95+</div>
-                                    <div className="text-sm text-white/50">Lighthouse scores</div>
+                                    <div className="text-2xl font-bold text-black">95+</div>
+                                    <div className="text-sm text-black/60">Lighthouse scores</div>
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-white">100%</div>
-                                    <div className="text-sm text-white/50">Custom builds</div>
+                                    <div className="text-2xl font-bold text-black">100%</div>
+                                    <div className="text-sm text-black/60">Custom builds</div>
                                 </div>
                             </div>
                         </motion.div>
                     </motion.div>
 
-                    {/* Right: Hero image */}
+                    {/* Right: Hero image - blends with background */}
                     <motion.div
-                        className="order-1 lg:order-2 relative"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] max-w-md lg:max-w-none mx-auto">
-                            {/* Glow effect behind image */}
-                            <div className="absolute inset-0 -m-4 rounded-3xl bg-gradient-to-br from-amber-500/20 via-yellow-500/10 to-transparent blur-2xl" />
-
-                            {/* Image container with mask */}
-                            <motion.div
-                                className="relative h-full rounded-2xl overflow-hidden"
-                                style={{
-                                    scale: isMounted ? imageScale : 1,
-                                    y: isMounted ? imageY : 0,
-                                }}
-                            >
-                                {/* Gradient overlay on image */}
-                                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-                                <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/30 via-transparent to-transparent lg:from-transparent" />
-
-                                {/* The image */}
-                                <Image
-                                    src="/haydn.png"
-                                    alt="Haydn - Web Designer & Developer"
-                                    fill
-                                    className="object-cover object-top"
-                                    priority
-                                    sizes="(min-width: 1024px) 50vw, 100vw"
-                                />
-                            </motion.div>
-
-                            {/* Floating accent elements */}
-                            <motion.div
-                                className="absolute -bottom-4 -left-4 w-24 h-24 rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-transparent backdrop-blur-sm"
-                                animate={{ y: [0, -8, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            />
-                            <motion.div
-                                className="absolute -top-4 -right-4 w-16 h-16 rounded-full border border-yellow-500/20 bg-gradient-to-br from-yellow-500/10 to-transparent backdrop-blur-sm"
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                        <div className="relative w-full max-w-md lg:max-w-lg">
+                            {/* The image - no container styling, just blends */}
+                            <Image
+                                src="/haydn.png"
+                                alt="Haydn - Web Designer & Developer"
+                                width={600}
+                                height={800}
+                                className="w-full h-auto"
+                                priority
+                                sizes="(min-width: 1024px) 40vw, 80vw"
                             />
                         </div>
                     </motion.div>
@@ -203,7 +147,7 @@ export function StatementHero() {
 
             {/* Bottom location tag */}
             <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-white/40 text-sm"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-black/50 text-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
@@ -228,12 +172,12 @@ export function StatementHero() {
                     opacity: isMounted ? contentOpacity : 1,
                 }}
             >
-                <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-500/50 to-transparent" />
                 <motion.div
-                    className="w-2 h-2 rounded-full bg-amber-500"
+                    className="w-2 h-2 rounded-full bg-black/40"
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                 />
+                <div className="w-px h-12 bg-black/20" />
             </motion.div>
         </section>
     );
