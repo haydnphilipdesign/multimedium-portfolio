@@ -135,15 +135,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Section size="wide" padding="none" className="mb-16 md:mb-24">
                 <AnimatedSection>
                     <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted border border-border/50">
-                        <div
-                            className="absolute inset-0"
-                            style={{
-                                background: `linear-gradient(135deg, ${project.color}22, ${project.color}08)`,
-                            }}
+                        <Image
+                            src={project.heroImage}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 1280px) 1200px, 100vw"
+                            priority
                         />
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 text-sm">
-                            Hero Image Placeholder
-                        </div>
                     </div>
                 </AnimatedSection>
             </Section>
@@ -205,15 +204,22 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                     </div>
                                     <div className={index % 2 === 1 ? "md:order-1" : ""}>
                                         <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/50">
-                                            <div
-                                                className="absolute inset-0"
-                                                style={{
-                                                    background: `linear-gradient(135deg, ${project.color}15, ${project.color}05)`,
-                                                }}
-                                            />
-                                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 text-sm">
-                                                Process Image {index + 1}
-                                            </div>
+                                            {project.images[index] ? (
+                                                <Image
+                                                    src={project.images[index]}
+                                                    alt={`${project.title} - ${step.title}`}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="(min-width: 768px) 50vw, 100vw"
+                                                />
+                                            ) : (
+                                                <div
+                                                    className="absolute inset-0"
+                                                    style={{
+                                                        background: `linear-gradient(135deg, ${project.color}15, ${project.color}05)`,
+                                                    }}
+                                                />
+                                            )}
                                         </div>
                                     </div>
                                 </div>
