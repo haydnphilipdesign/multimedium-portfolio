@@ -103,22 +103,6 @@ export function StatementHero() {
                                     View Work
                                 </Link>
                             </div>
-
-                            {/* Quick stats */}
-                            <div className="flex gap-10 mt-14 pt-8 border-t border-white/10">
-                                <div>
-                                    <div className="text-3xl font-bold text-white">4-6</div>
-                                    <div className="text-sm text-white/50 mt-1">Week launches</div>
-                                </div>
-                                <div>
-                                    <div className="text-3xl font-bold text-white">95+</div>
-                                    <div className="text-sm text-white/50 mt-1">Lighthouse scores</div>
-                                </div>
-                                <div>
-                                    <div className="text-3xl font-bold text-white">100%</div>
-                                    <div className="text-sm text-white/50 mt-1">Custom builds</div>
-                                </div>
-                            </div>
                         </motion.div>
                     </motion.div>
 
