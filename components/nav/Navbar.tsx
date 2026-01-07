@@ -1,0 +1,149 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IconMenu2, IconX } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
+
+const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/work", label: "Work" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+];
+
+export function Navbar() {
+    const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
+    return (
+        <header
+            className={cn(
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                isScrolled
+                    ? "bg-background/80 backdrop-blur-xl border-b border-border/40 py-4"
+                    : "bg-transparent py-6"
+            )}
+        >
+            <nav className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="flex items-center justify-between">
+                    {/* Logo */}
+                    <Link
+                        href="/"
+                        className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow"
+                    >
+                        Multimedium
+                    </Link>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-1">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={cn(
+                                    "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                                    pathname === link.href
+                                        ? "text-foreground"
+                                        : "text-muted-foreground hover:text-foreground"
+                                )}
+                            >
+                                {link.label}
+                                {pathname === link.href && (
+                                    <motion.div
+                                        layoutId="navbar-indicator"
+                                        className="absolute inset-0 bg-accent rounded-lg -z-10"
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 350,
+                                            damping: 30,
+                                        }}
+                                    />
+                                )}
+                            </Link>
+                        ))}
+                    </div>
+
+                    {/* CTA Button - Desktop */}
+                    <div className="hidden md:block">
+                        <Link
+                            href="/contact"
+                            className="btn-primary inline-flex items-center text-sm"
+                        >
+                            Start a Project
+                        </Link>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="md:hidden p-2 text-foreground hover:text-glow transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-background"
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
+                    >
+                        {isOpen ? (
+                            <IconX className="h-6 w-6" stroke={1.5} />
+                        ) : (
+                            <IconMenu2 className="h-6 w-6" stroke={1.5} />
+                        )}
+                    </button>
+                </div>
+
+                {/* Mobile Menu */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="md:hidden overflow-hidden"
+                        >
+                            <div className="pt-6 pb-4 space-y-2">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        className={cn(
+                                            "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
+                                            pathname === link.href
+                                                ? "text-foreground bg-accent"
+                                                : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                                        )}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                ))}
+                                <div className="pt-4">
+                                    <Link
+                                        href="/contact"
+                                        className="btn-primary w-full text-center block text-sm"
+                                    >
+                                        Start a Project
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </nav>
+        </header>
+    );
+}
