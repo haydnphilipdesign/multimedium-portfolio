@@ -93,7 +93,7 @@ export default function AboutPage() {
                     <AnimatedSection delay={0.2}>
                         <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-muted border border-border/50">
                             <Image
-                                src="/haydn.jpg"
+                                src="/haydn.png"
                                 alt="Haydn"
                                 fill
                                 className="object-cover"

@@ -1,4 +1,4 @@
-import { HeroParallax } from "@/components/hero/HeroParallax";
+import { StatementHero } from "@/components/hero/StatementHero";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getFeaturedProjects } from "@/content/projects";
@@ -83,7 +83,7 @@ export default function HomePage() {
     return (
         <>
             {/* Hero Section */}
-            <HeroParallax />
+            <StatementHero />
 
             {/* Proof Points */}
             <Section className="relative -mt-16 z-20" padding="none">
