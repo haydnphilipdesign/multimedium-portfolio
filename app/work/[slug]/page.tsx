@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { getProjectBySlug, getAllProjectSlugs, projects } from "@/content/projects";
-import { IconArrowLeft, IconArrowRight, IconQuote } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight, IconArrowUpRight, IconQuote } from "@tabler/icons-react";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -28,6 +28,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: project.title,
         description: project.description,
+        openGraph: {
+            title: project.title,
+            description: project.description,
+            images: [project.heroImage],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: project.title,
+            description: project.description,
+            images: [project.heroImage],
+        },
     };
 }
 
@@ -43,6 +54,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
     const currentIndex = projects.findIndex((p) => p.slug === slug);
     const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
     const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+
+    const toolsSummary =
+        project.tools.length <= 3
+            ? project.tools.join(", ")
+            : `${project.tools.slice(0, 3).join(", ")} +${project.tools.length - 3} more`;
 
     return (
         <>
@@ -114,16 +130,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
                             </div>
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Year
+                                    Live
                                 </p>
-                                <p className="text-sm font-medium text-foreground">{project.year}</p>
+                                {project.externalUrl ? (
+                                    <Link
+                                        href={project.externalUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-glow transition-colors"
+                                    >
+                                        Visit site
+                                        <IconArrowUpRight className="h-4 w-4" stroke={1.5} />
+                                    </Link>
+                                ) : (
+                                    <p className="text-sm text-muted-foreground">—</p>
+                                )}
                             </div>
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
                                     Tools
                                 </p>
                                 <p className="text-sm font-medium text-foreground">
-                                    {project.tools.slice(0, 3).join(", ")}
+                                    {toolsSummary}
                                 </p>
                             </div>
                         </div>
@@ -180,51 +208,55 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </AnimatedSection>
 
                     <div className="space-y-16">
-                        {project.process.map((step, index) => (
-                            <AnimatedSection key={index} delay={index * 0.1}>
-                                <div className="grid md:grid-cols-2 gap-8 items-center">
-                                    <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                                        <div className="flex items-center gap-4 mb-4">
-                                            <span
-                                                className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold"
-                                                style={{
-                                                    backgroundColor: `${project.color}20`,
-                                                    color: project.color,
-                                                }}
-                                            >
-                                                {index + 1}
-                                            </span>
-                                            <h3 className="text-xl font-semibold text-foreground">
-                                                {step.title}
-                                            </h3>
-                                        </div>
-                                        <p className="text-muted-foreground leading-relaxed">
-                                            {step.description}
-                                        </p>
-                                    </div>
-                                    <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/50">
-                                            {project.images[index] ? (
-                                                <Image
-                                                    src={project.images[index]}
-                                                    alt={`${project.title} - ${step.title}`}
-                                                    fill
-                                                    className="object-cover"
-                                                    sizes="(min-width: 768px) 50vw, 100vw"
-                                                />
-                                            ) : (
-                                                <div
-                                                    className="absolute inset-0"
+                        {project.process.map((step, index) => {
+                            const processImage = step.image ?? project.images[index];
+
+                            return (
+                                <AnimatedSection key={index} delay={index * 0.1}>
+                                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                                        <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                                            <div className="flex items-center gap-4 mb-4">
+                                                <span
+                                                    className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold"
                                                     style={{
-                                                        background: `linear-gradient(135deg, ${project.color}15, ${project.color}05)`,
+                                                        backgroundColor: `${project.color}20`,
+                                                        color: project.color,
                                                     }}
-                                                />
-                                            )}
+                                                >
+                                                    {index + 1}
+                                                </span>
+                                                <h3 className="text-xl font-semibold text-foreground">
+                                                    {step.title}
+                                                </h3>
+                                            </div>
+                                            <p className="text-muted-foreground leading-relaxed">
+                                                {step.description}
+                                            </p>
+                                        </div>
+                                        <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/50">
+                                                {processImage ? (
+                                                    <Image
+                                                        src={processImage}
+                                                        alt={`${project.title} - ${step.title}`}
+                                                        fill
+                                                        className="object-cover"
+                                                        sizes="(min-width: 768px) 50vw, 100vw"
+                                                    />
+                                                ) : (
+                                                    <div
+                                                        className="absolute inset-0"
+                                                        style={{
+                                                            background: `linear-gradient(135deg, ${project.color}15, ${project.color}05)`,
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </AnimatedSection>
-                        ))}
+                                </AnimatedSection>
+                            );
+                        })}
                     </div>
                 </Section>
             )}

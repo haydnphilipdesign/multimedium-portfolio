@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView, Variants } from "framer-motion";
-import { ReactNode, useRef, useEffect, useState } from "react";
+import { motion, useInView, useReducedMotion, Variants } from "framer-motion";
+import { ReactNode, useRef } from "react";
 
 interface AnimatedSectionProps {
     children: ReactNode;
@@ -43,19 +43,7 @@ export function AnimatedSection({
 }: AnimatedSectionProps) {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setPrefersReducedMotion(mediaQuery.matches);
-
-        const handler = (e: MediaQueryListEvent) => {
-            setPrefersReducedMotion(e.matches);
-        };
-
-        mediaQuery.addEventListener("change", handler);
-        return () => mediaQuery.removeEventListener("change", handler);
-    }, []);
+    const prefersReducedMotion = useReducedMotion();
 
     const variants: Variants = directionVariants[direction];
 
@@ -95,19 +83,7 @@ export function StaggerContainer({
 }: StaggerContainerProps) {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setPrefersReducedMotion(mediaQuery.matches);
-
-        const handler = (e: MediaQueryListEvent) => {
-            setPrefersReducedMotion(e.matches);
-        };
-
-        mediaQuery.addEventListener("change", handler);
-        return () => mediaQuery.removeEventListener("change", handler);
-    }, []);
+    const prefersReducedMotion = useReducedMotion();
 
     const containerVariants: Variants = {
         hidden: { opacity: 0 },

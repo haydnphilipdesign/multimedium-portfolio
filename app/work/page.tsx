@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Section, SectionHeading } from "@/components/sections/Section";
+import { Section } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { projects } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";

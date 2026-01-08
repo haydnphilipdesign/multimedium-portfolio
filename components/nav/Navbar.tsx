@@ -28,11 +28,6 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu on route change
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
-
     return (
         <header
             className={cn(
@@ -121,6 +116,7 @@ export function Navbar() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
+                                        onClick={() => setIsOpen(false)}
                                         className={cn(
                                             "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
                                             pathname === link.href
@@ -134,6 +130,7 @@ export function Navbar() {
                                 <div className="pt-4">
                                     <Link
                                         href="/contact"
+                                        onClick={() => setIsOpen(false)}
                                         className="btn-primary w-full text-center block text-sm"
                                     >
                                         Start a Project

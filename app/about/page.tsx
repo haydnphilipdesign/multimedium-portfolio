@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import {
-    IconMail,
     IconMapPin,
     IconStack2,
     IconShieldCheck,

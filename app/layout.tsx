@@ -12,8 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://multimedium.dev"),
   title: {
-    default: "Multimedium | Haydn — Web Design & Development",
+    default: "Multimedium | Haydn - Web Design & Development",
     template: "%s | Multimedium",
   },
   description:

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import type { Project } from "@/content/projects";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
@@ -13,20 +13,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
-    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
     const [imageError, setImageError] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setPrefersReducedMotion(mediaQuery.matches);
-
-        const handler = (e: MediaQueryListEvent) => {
-            setPrefersReducedMotion(e.matches);
-        };
-
-        mediaQuery.addEventListener("change", handler);
-        return () => mediaQuery.removeEventListener("change", handler);
-    }, []);
 
     const cardContent = (
         <div className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-glow/30 hover:shadow-xl hover:shadow-glow/5">
@@ -79,7 +67,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 <div className="flex items-center gap-4 text-xs text-muted-foreground">
                     <span>{project.year}</span>
                     <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
-                    <span>{project.role.split(" & ")[0]}</span>
+                    <span>{project.role.split(",")[0]}</span>
                 </div>
             </div>
 

@@ -44,9 +44,9 @@ const services = [
 const proof = [
     {
         icon: IconBolt,
-        value: "4–6 weeks",
+        value: "4-6 weeks",
         label: "typical launch timeline",
-        detail: "Strategy → design → build → QA",
+        detail: "Strategy → Design → Build → QA",
     },
     {
         icon: IconShieldCheck,

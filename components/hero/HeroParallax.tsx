@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import {
     motion,
     useScroll,
+    useReducedMotion,
     useTransform,
     useMotionValue,
     useSpring,
@@ -13,8 +14,7 @@ import { IconArrowDown, IconSparkles } from "@tabler/icons-react";
 
 export function HeroParallax() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [isTouchDevice, setIsTouchDevice] = useState(false);
-    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
 
     // Mouse position for pointer parallax
     const mouseX = useMotionValue(0);
@@ -36,30 +36,18 @@ export function HeroParallax() {
     const midgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
     const foregroundY = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
     const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-
-    useEffect(() => {
-        // Detect touch device
-        const checkTouch = () => {
-            setIsTouchDevice(
-                "ontouchstart" in window || navigator.maxTouchPoints > 0
-            );
-        };
-        checkTouch();
-
-        // Check reduced motion preference
-        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setPrefersReducedMotion(mediaQuery.matches);
-
-        const handleMotionChange = (e: MediaQueryListEvent) => {
-            setPrefersReducedMotion(e.matches);
-        };
-
-        mediaQuery.addEventListener("change", handleMotionChange);
-        return () => mediaQuery.removeEventListener("change", handleMotionChange);
-    }, []);
+    const backgroundX = useTransform(mouseXSpring, [-1, 1], ["-3%", "3%"]);
+    const midgroundX = useTransform(mouseXSpring, [-1, 1], ["-5%", "5%"]);
+    const pointerX = useTransform(mouseXSpring, [-1, 1], ["1%", "-1%"]);
+    const pointerY = useTransform(mouseYSpring, [-1, 1], ["1%", "-1%"]);
+    const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
     // Handle mouse move for pointer parallax (desktop only)
     const handleMouseMove = (e: React.MouseEvent) => {
+        const isTouchDevice =
+            typeof window !== "undefined" &&
+            ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
         if (isTouchDevice || prefersReducedMotion) return;
 
         const rect = containerRef.current?.getBoundingClientRect();
@@ -131,7 +119,7 @@ export function HeroParallax() {
                 className="absolute inset-0"
                 style={{
                     y: backgroundY,
-                    x: useTransform(mouseXSpring, [-1, 1], ["-3%", "3%"]),
+                    x: backgroundX,
                 }}
             >
                 {/* Large purple orb - top left */}
@@ -169,7 +157,7 @@ export function HeroParallax() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     y: midgroundY,
-                    x: useTransform(mouseXSpring, [-1, 1], ["-5%", "5%"]),
+                    x: midgroundX,
                 }}
             >
                 {/* Floating geometric elements with glow */}
@@ -222,8 +210,8 @@ export function HeroParallax() {
             >
                 <motion.div
                     style={{
-                        x: useTransform(mouseXSpring, [-1, 1], ["1%", "-1%"]),
-                        y: useTransform(mouseYSpring, [-1, 1], ["1%", "-1%"]),
+                        x: pointerX,
+                        y: pointerY,
                     }}
                 >
                     <motion.div
@@ -293,7 +281,7 @@ export function HeroParallax() {
                     transition={{ duration: 0.6, delay: 1 }}
                     className="absolute bottom-[-30vh] left-1/2 -translate-x-1/2"
                     style={{
-                        opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0]),
+                        opacity: scrollIndicatorOpacity,
                     }}
                 >
                     <motion.div

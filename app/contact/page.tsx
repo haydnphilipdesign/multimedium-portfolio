@@ -4,7 +4,6 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import {
     IconMail,
-    IconMapPin,
     IconClock,
     IconSend,
     IconPhone,

@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [isMounted, setIsMounted] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -17,10 +17,6 @@ export function StatementHero() {
     const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
     const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
     const contentY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-10%"]);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     return (
         <section
@@ -45,8 +41,8 @@ export function StatementHero() {
                     <motion.div
                         className="order-2 lg:order-1 max-w-2xl"
                         style={{
-                            opacity: isMounted ? contentOpacity : 1,
-                            y: isMounted ? contentY : 0,
+                            opacity: prefersReducedMotion ? 1 : contentOpacity,
+                            y: prefersReducedMotion ? 0 : contentY,
                         }}
                     >
                         <motion.div
@@ -57,7 +53,9 @@ export function StatementHero() {
                             {/* Availability badge */}
                             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                                    {!prefersReducedMotion && (
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                                    )}
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
                                 </span>
                                 <span className="text-sm text-amber-200/90 font-medium">
@@ -120,7 +118,9 @@ export function StatementHero() {
                             {/* Image container */}
                             <motion.div
                                 className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
-                                style={{ scale: isMounted ? imageScale : 1 }}
+                                style={{
+                                    scale: prefersReducedMotion ? 1 : imageScale,
+                                }}
                             >
                                 <Image
                                     src="/haydn.png"
@@ -136,8 +136,12 @@ export function StatementHero() {
                             {/* Floating badge */}
                             <motion.div
                                 className="absolute -bottom-4 -left-4 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm"
-                                animate={{ y: [0, -6, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                animate={prefersReducedMotion ? undefined : { y: [0, -6, 0] }}
+                                transition={
+                                    prefersReducedMotion
+                                        ? undefined
+                                        : { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                                }
                             >
                                 <span className="text-amber-400 font-semibold">Poconos, PA</span>
                                 <span className="text-white/60"> • Remote worldwide</span>
@@ -153,13 +157,13 @@ export function StatementHero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                style={{ opacity: isMounted ? contentOpacity : 1 }}
+                style={{ opacity: prefersReducedMotion ? 1 : contentOpacity }}
             >
                 <span className="text-xs text-white/40 uppercase tracking-widest">Scroll</span>
                 <motion.div
                     className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-                    animate={{ y: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={prefersReducedMotion ? undefined : { y: [0, 4, 0] }}
+                    transition={prefersReducedMotion ? undefined : { duration: 1.5, repeat: Infinity }}
                 >
                     <div className="w-1 h-1.5 rounded-full bg-amber-500" />
                 </motion.div>
