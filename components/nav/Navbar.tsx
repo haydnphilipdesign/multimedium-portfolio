@@ -19,6 +19,11 @@ export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
+    const isActive = (href: string) => {
+        if (href === "/") return pathname === "/";
+        return pathname === href || pathname.startsWith(`${href}/`);
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
@@ -27,6 +32,34 @@ export function Navbar() {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const timeoutId = window.setTimeout(() => setIsOpen(false), 0);
+        return () => window.clearTimeout(timeoutId);
+    }, [pathname, isOpen]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setIsOpen(false);
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [isOpen]);
 
     return (
         <header
@@ -53,15 +86,16 @@ export function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
+                                aria-current={isActive(link.href) ? "page" : undefined}
                                 className={cn(
                                     "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
-                                    pathname === link.href
+                                    isActive(link.href)
                                         ? "text-foreground"
                                         : "text-muted-foreground hover:text-foreground"
                                 )}
                             >
                                 {link.label}
-                                {pathname === link.href && (
+                                {isActive(link.href) && (
                                     <motion.div
                                         layoutId="navbar-indicator"
                                         className="absolute inset-0 bg-accent rounded-lg -z-10"
@@ -88,10 +122,12 @@ export function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <button
+                        type="button"
                         onClick={() => setIsOpen(!isOpen)}
                         className="md:hidden p-2 text-foreground hover:text-glow transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-background"
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                         aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
                     >
                         {isOpen ? (
                             <IconX className="h-6 w-6" stroke={1.5} />
@@ -105,6 +141,7 @@ export function Navbar() {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
+                            id="mobile-menu"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
@@ -117,9 +154,10 @@ export function Navbar() {
                                         key={link.href}
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
+                                        aria-current={isActive(link.href) ? "page" : undefined}
                                         className={cn(
                                             "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
-                                            pathname === link.href
+                                            isActive(link.href)
                                                 ? "text-foreground bg-accent"
                                                 : "text-muted-foreground hover:text-foreground hover:bg-accent"
                                         )}

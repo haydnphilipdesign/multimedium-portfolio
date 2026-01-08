@@ -8,7 +8,10 @@ import { AnimatedSection } from "@/components/motion/AnimatedSection";
 export const metadata: Metadata = {
     title: "Work",
     description:
-        "A collection of recent builds—each one designed to earn trust, communicate value, and make contacting you feel like the obvious next step.",
+        "A collection of recent builds-each one designed to earn trust, communicate value, and make contacting you feel like the obvious next step.",
+    alternates: {
+        canonical: "/work",
+    },
 };
 
 export default function WorkPage() {

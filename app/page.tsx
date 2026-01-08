@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { StatementHero } from "@/components/hero/StatementHero";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
@@ -13,6 +14,12 @@ import {
     IconShieldCheck,
     IconBulb,
 } from "@tabler/icons-react";
+
+export const metadata: Metadata = {
+    alternates: {
+        canonical: "/",
+    },
+};
 
 const services = [
     {

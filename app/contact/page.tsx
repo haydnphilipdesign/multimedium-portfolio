@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { submitContact } from "./actions";
 import {
     IconMail,
     IconClock,
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
     title: "Contact",
     description:
         "Start a web design, development, or growth project with Multimedium. Share your goals and get a tailored plan and timeline.",
+    alternates: {
+        canonical: "/contact",
+    },
 };
 
 const expectations = [
@@ -21,7 +25,18 @@ const expectations = [
     { label: "Best call hours", value: "Mon–Thu • 9am–5pm ET" },
 ];
 
-export default function ContactPage() {
+interface ContactPageProps {
+    searchParams?: Promise<{
+        sent?: string;
+        error?: string;
+    }>;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+    const params = (await searchParams) ?? {};
+    const sent = params.sent === "1";
+    const error = params.error;
+
     return (
         <>
             {/* Hero Section */}
@@ -54,12 +69,32 @@ export default function ContactPage() {
                             <h2 className="text-xl font-semibold text-foreground mb-6">
                                 Send a Message
                             </h2>
-                            <form
-                                action="mailto:haydn@multimedium.dev"
-                                method="POST"
-                                encType="text/plain"
-                                className="space-y-6"
-                            >
+
+                            {sent && (
+                                <div className="mb-6 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
+                                    Thanks — your message is sent. I’ll reply within 1 business day.
+                                </div>
+                            )}
+
+                            {error && (
+                                <div className="mb-6 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-foreground">
+                                    Something went wrong sending your message. Please email{" "}
+                                    <a className="underline underline-offset-4" href="mailto:haydn@multimedium.dev">
+                                        haydn@multimedium.dev
+                                    </a>
+                                    .
+                                </div>
+                            )}
+
+                            <form action={submitContact} className="space-y-6">
+                                <input
+                                    type="text"
+                                    name="website"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    aria-hidden="true"
+                                    className="hidden"
+                                />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label
@@ -73,6 +108,7 @@ export default function ContactPage() {
                                             id="name"
                                             name="name"
                                             required
+                                            autoComplete="name"
                                             className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                             placeholder="Your name"
                                         />
@@ -89,6 +125,7 @@ export default function ContactPage() {
                                             id="email"
                                             name="email"
                                             required
+                                            autoComplete="email"
                                             className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                             placeholder="your@email.com"
                                         />

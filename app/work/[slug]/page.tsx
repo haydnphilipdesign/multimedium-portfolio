@@ -28,9 +28,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: project.title,
         description: project.description,
+        alternates: {
+            canonical: `/work/${project.slug}`,
+        },
         openGraph: {
             title: project.title,
             description: project.description,
+            url: `/work/${project.slug}`,
             images: [project.heroImage],
         },
         twitter: {

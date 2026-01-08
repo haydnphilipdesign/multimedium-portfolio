@@ -13,7 +13,10 @@ import {
 export const metadata: Metadata = {
     title: "About Haydn",
     description:
-        "Meet Haydn — a designer-developer building conversion-focused websites, design systems, and portals for teams that need to look premium and ship fast.",
+        "Meet Haydn - a designer-developer building conversion-focused websites, design systems, and portals for teams that need to look premium and ship fast.",
+    alternates: {
+        canonical: "/about",
+    },
 };
 
 const values = [

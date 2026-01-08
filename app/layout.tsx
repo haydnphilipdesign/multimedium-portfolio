@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/nav/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,13 +13,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://multimedium.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Multimedium | Haydn - Web Design & Development",
     template: "%s | Multimedium",
   },
   description:
-    "Conversion-first web design and development for teams that want to look premium, load fast, and turn attention into inquiries. Based in the Poconos — available remote.",
+    "Conversion-first web design and development for teams that want to look premium, load fast, and turn attention into inquiries. Based in the Poconos - available remote.",
   keywords: [
     "web design poconos",
     "web development nepa",
@@ -33,17 +34,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://multimedium.dev",
+    url: siteUrl,
     siteName: "Multimedium",
-    title: "Multimedium | Haydn — Web Design & Development",
-    description:
-      "Conversion-first web design and development for teams that want to look premium and convert.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Multimedium | Haydn - Web Design & Development",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Multimedium | Haydn — Web Design & Development",
-    description:
-      "Conversion-first web design and development for teams that want to look premium and convert.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
