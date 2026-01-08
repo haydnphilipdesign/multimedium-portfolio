@@ -133,19 +133,6 @@ export function StatementHero() {
                                 />
                             </motion.div>
 
-                            {/* Floating badge */}
-                            <motion.div
-                                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm"
-                                animate={prefersReducedMotion ? undefined : { y: [0, -6, 0] }}
-                                transition={
-                                    prefersReducedMotion
-                                        ? undefined
-                                        : { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                                }
-                            >
-                                <span className="text-amber-400 font-semibold">Poconos, PA</span>
-                                <span className="text-white/60"> • Remote worldwide</span>
-                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
