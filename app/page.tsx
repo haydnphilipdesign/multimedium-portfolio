@@ -53,7 +53,7 @@ const proof = [
         icon: IconBolt,
         value: "4-6 weeks",
         label: "typical launch timeline",
-        detail: "Strategy → Design → Build → QA",
+        detail: "Strategy • Design • Build • QA",
     },
     {
         icon: IconShieldCheck,
@@ -94,9 +94,9 @@ export default function HomePage() {
             <StatementHero />
 
             {/* Proof Points */}
-            <Section className="relative -mt-16 z-20" padding="none">
+            <Section className="relative -mt-12 sm:-mt-14 md:-mt-16 z-20" padding="none">
                 <AnimatedSection>
-                    <div className="grid gap-4 sm:grid-cols-3">
+                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                         {proof.map((item) => (
                             <div
                                 key={item.label}
@@ -135,7 +135,7 @@ export default function HomePage() {
                     </div>
                 </AnimatedSection>
 
-                <div className={`grid gap-8 md:grid-cols-2 ${featuredGridCols}`}>
+                <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${featuredGridCols}`}>
                     {featuredProjects.map((project, index) => (
                         <ProjectCard key={project.slug} project={project} index={index} />
                     ))}
@@ -145,7 +145,7 @@ export default function HomePage() {
             {/* What I Build Section */}
             <Section className="relative bg-muted/30">
                 <div className="grain absolute inset-0 pointer-events-none" />
-                <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr]">
                     <AnimatedSection>
                         <div className="space-y-4">
                             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
@@ -182,10 +182,10 @@ export default function HomePage() {
                     />
                 </AnimatedSection>
 
-                <StaggerContainer className="grid gap-8 md:grid-cols-3" staggerDelay={0.15}>
+                <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.15}>
                     {services.map((service) => (
                         <StaggerItem key={service.title}>
-                            <div className="group relative p-8 rounded-2xl bg-card border border-border/50 h-full transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5">
+                            <div className="group relative p-6 sm:p-8 rounded-2xl bg-card border border-border/50 h-full transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5">
                                 {/* Icon */}
                                 <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                                     <service.icon className="w-6 h-6" stroke={1.5} />
@@ -228,7 +228,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-hero-gradient opacity-50" />
 
                 <AnimatedSection className="relative z-10 text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
                         Ready to build a site that
                         <br />
                         <span className="text-gradient">actually converts?</span>

@@ -21,7 +21,7 @@ export function StatementHero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]"
+            className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0a0a0a]"
         >
             {/* Subtle grid pattern */}
             <div
@@ -34,12 +34,12 @@ export function StatementHero() {
             />
 
             {/* Main content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center min-h-screen py-24 lg:py-0">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid md:grid-cols-[1fr_auto] gap-10 sm:gap-12 lg:gap-16 items-center min-h-[100svh] py-20 sm:py-24 md:py-0">
 
                     {/* Left: Text content */}
                     <motion.div
-                        className="order-2 lg:order-1 max-w-2xl"
+                        className="max-w-2xl"
                         style={{
                             opacity: prefersReducedMotion ? 1 : contentOpacity,
                             y: prefersReducedMotion ? 0 : contentY,
@@ -82,7 +82,7 @@ export function StatementHero() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/contact"
-                                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
                                 >
                                     <span>Start a Project</span>
                                     <svg
@@ -96,7 +96,7 @@ export function StatementHero() {
                                 </Link>
                                 <Link
                                     href="/work"
-                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                                    className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
                                 >
                                     View Work
                                 </Link>
@@ -106,18 +106,18 @@ export function StatementHero() {
 
                     {/* Right: Hero image - bold yellow against dark */}
                     <motion.div
-                        className="order-1 lg:order-2 relative"
+                        className="relative flex justify-center md:justify-end"
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <div className="relative">
                             {/* Glow behind image */}
-                            <div className="absolute -inset-8 bg-amber-500/20 rounded-3xl blur-3xl" />
+                            <div className="absolute -inset-6 sm:-inset-8 bg-amber-500/20 rounded-3xl blur-3xl" />
 
                             {/* Image container */}
                             <motion.div
-                                className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
+                                className="relative w-full max-w-[300px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
                                 style={{
                                     scale: prefersReducedMotion ? 1 : imageScale,
                                 }}
@@ -127,9 +127,9 @@ export function StatementHero() {
                                     alt="Haydn - Web Designer & Developer"
                                     width={480}
                                     height={600}
-                                    className="w-full h-auto max-w-[400px] lg:max-w-[480px]"
+                                    className="w-full h-auto"
                                     priority
-                                    sizes="(min-width: 1024px) 480px, 400px"
+                                    sizes="(min-width: 1024px) 480px, (min-width: 768px) 420px, (min-width: 640px) 360px, 300px"
                                 />
                             </motion.div>
 
@@ -140,7 +140,7 @@ export function StatementHero() {
 
             {/* Scroll indicator */}
             <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}

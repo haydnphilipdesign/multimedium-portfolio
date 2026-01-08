@@ -42,14 +42,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
 
                 {/* Category badge */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/50">
                         {project.category}
                     </span>
                 </div>
 
                 {/* Hover arrow indicator */}
-                <div className="absolute top-4 right-4 opacity-0 transform translate-x-2 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 opacity-0 transform translate-x-2 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0">
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground">
                         <IconArrowUpRight className="w-5 h-5" stroke={2} />
                     </div>
@@ -57,7 +57,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-5 sm:p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-gradient transition-colors">
                     {project.title}
                 </h3>

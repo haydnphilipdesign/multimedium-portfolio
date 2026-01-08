@@ -67,7 +67,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative pt-32 md:pt-40 pb-16 md:pb-24">
+            <section className="relative pt-28 sm:pt-32 md:pt-40 pb-16 md:pb-24">
                 <div className="grain absolute inset-0 pointer-events-none" />
 
                 {/* Background accent */}
@@ -112,14 +112,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.3}>
-                        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mb-12">
+                        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mb-10 sm:mb-12">
                             {project.tagline}
                         </p>
                     </AnimatedSection>
 
                     {/* Project Meta */}
                     <AnimatedSection delay={0.4}>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-border/40">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 py-6 sm:py-8 border-y border-border/40">
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
                                     Client
@@ -181,7 +181,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Overview Section */}
             <Section>
-                <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+                <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
                     <AnimatedSection>
                         <h2 className="text-2xl font-bold text-foreground mb-4">
                             The Challenge
@@ -211,13 +211,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         </h2>
                     </AnimatedSection>
 
-                    <div className="space-y-16">
+                    <div className="space-y-10 sm:space-y-12 md:space-y-16">
                         {project.process.map((step, index) => {
                             const processImage = step.image ?? project.images[index];
 
                             return (
                                 <AnimatedSection key={index} delay={index * 0.1}>
-                                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
                                         <div className={index % 2 === 1 ? "md:order-2" : ""}>
                                             <div className="flex items-center gap-4 mb-4">
                                                 <span
@@ -274,10 +274,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         </h2>
                     </AnimatedSection>
 
-                    <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.1}>
+                    <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.1}>
                         {project.outcomes.map((outcome, index) => (
                             <StaggerItem key={index}>
-                                <div className="text-center p-8 rounded-2xl bg-card border border-border/50">
+                                <div className="text-center p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
                                     <p
                                         className="text-4xl md:text-5xl font-bold mb-2"
                                         style={{ color: project.color }}
@@ -319,11 +319,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Project Navigation */}
             <Section className="border-t border-border/40">
-                <div className="flex justify-between items-center">
+                <div className="grid gap-6 sm:grid-cols-2 sm:items-center">
                     {prevProject ? (
                         <Link
                             href={`/work/${prevProject.slug}`}
-                            className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                            className="group flex w-full items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                         >
                             <IconArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" stroke={1.5} />
                             <div className="text-left">
@@ -338,7 +338,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     {nextProject ? (
                         <Link
                             href={`/work/${nextProject.slug}`}
-                            className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors text-right"
+                            className="group flex w-full items-center justify-end gap-3 text-muted-foreground hover:text-foreground transition-colors text-right"
                         >
                             <div>
                                 <p className="text-xs uppercase tracking-wider mb-1">Next</p>

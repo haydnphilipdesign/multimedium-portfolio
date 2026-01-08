@@ -5,7 +5,7 @@ export function Footer() {
 
     return (
         <footer className="border-t border-border/40 bg-background/50 backdrop-blur-sm">
-            <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
                 <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
                     {/* Logo / Name */}
                     <div className="flex flex-col items-center gap-2 md:items-start">
@@ -21,7 +21,7 @@ export function Footer() {
                     </div>
 
                     {/* Navigation */}
-                    <nav className="flex gap-8">
+                    <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
                         <Link
                             href="/work"
                             className="text-sm text-muted-foreground transition-colors hover:text-foreground"

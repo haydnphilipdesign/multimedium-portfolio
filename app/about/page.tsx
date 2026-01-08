@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const values = [
     {
         icon: IconStack2,
-        title: "Design × engineering",
+        title: "Design + engineering",
         description:
             "A cohesive system beats a pretty page. Every build connects narrative, UI, and code so the site stays clean as you grow.",
     },
@@ -62,7 +62,7 @@ export default function AboutPage() {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-32 md:pt-40" padding="none">
+            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <AnimatedSection>
                         <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -109,7 +109,7 @@ export default function AboutPage() {
 
             {/* Values Section */}
             <Section>
-                <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+                <StaggerContainer className="grid gap-6 sm:grid-cols-2 md:grid-cols-3" staggerDelay={0.1}>
                     {values.map((value) => (
                         <StaggerItem key={value.title}>
                             <div className="p-7 rounded-2xl bg-card border border-border/50 h-full">
@@ -130,7 +130,7 @@ export default function AboutPage() {
 
             {/* How I Work Section */}
             <Section className="bg-muted/30">
-                <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+                <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
                     <AnimatedSection>
                         <div className="space-y-4">
                             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">

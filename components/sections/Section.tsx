@@ -35,7 +35,7 @@ export function Section({
         <Component
             id={id}
             className={cn(
-                "mx-auto w-full px-6 lg:px-8",
+                "mx-auto w-full px-4 sm:px-6 lg:px-8",
                 sizeClasses[size],
                 paddingClasses[padding],
                 className
@@ -68,11 +68,16 @@ export function SectionHeading({
                 className
             )}
         >
-            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
                 {title}
             </h2>
             {subtitle && (
-                <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p
+                    className={cn(
+                        "mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg",
+                        align === "center" ? "mx-auto" : "mx-0"
+                    )}
+                >
                     {subtitle}
                 </p>
             )}

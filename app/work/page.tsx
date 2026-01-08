@@ -20,7 +20,7 @@ export default function WorkPage() {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-32 md:pt-40" padding="none">
+            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
@@ -35,7 +35,7 @@ export default function WorkPage() {
 
             {/* Projects Grid */}
             <Section>
-                <div className={`grid gap-8 md:grid-cols-2 ${gridCols}`}>
+                <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${gridCols}`}>
                     {projects.map((project, index) => (
                         <ProjectCard key={project.slug} project={project} index={index} />
                     ))}

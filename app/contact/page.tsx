@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const expectations = [
     { label: "Response time", value: "Within 1 business day" },
-    { label: "Typical build window", value: "4–6 weeks" },
+    { label: "Typical build window", value: "4-6 weeks" },
     { label: "Best call hours", value: "Mon–Thu • 9am–5pm ET" },
 ];
 
@@ -40,9 +40,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-32 md:pt-40" padding="none">
+            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-8 py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-4">
@@ -62,10 +62,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
             {/* Contact Section */}
             <Section>
-                <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+                <div className="grid md:grid-cols-5 gap-10 md:gap-12 lg:gap-16">
                     {/* Contact Form */}
-                    <AnimatedSection className="lg:col-span-3">
-                        <div className="p-8 rounded-2xl bg-card border border-border/50">
+                    <AnimatedSection className="md:col-span-3">
+                        <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
                             <h2 className="text-xl font-semibold text-foreground mb-6">
                                 Send a Message
                             </h2>
@@ -202,7 +202,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     </AnimatedSection>
 
                     {/* Contact Info */}
-                    <AnimatedSection delay={0.2} className="lg:col-span-2">
+                    <AnimatedSection delay={0.2} className="md:col-span-2">
                         <div className="space-y-8">
                             {/* Direct Contact */}
                             <div className="p-6 rounded-2xl bg-card border border-border/50">
