@@ -79,6 +79,7 @@ const pillars = [
 
 export default function HomePage() {
     const featuredProjects = getFeaturedProjects();
+    const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
 
     return (
         <>
@@ -127,7 +128,7 @@ export default function HomePage() {
                     </div>
                 </AnimatedSection>
 
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className={`grid gap-8 md:grid-cols-2 ${featuredGridCols}`}>
                     {featuredProjects.map((project, index) => (
                         <ProjectCard key={project.slug} project={project} index={index} />
                     ))}

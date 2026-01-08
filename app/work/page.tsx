@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
+    const gridCols = projects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
+
     return (
         <>
             {/* Hero Section */}
@@ -30,7 +32,7 @@ export default function WorkPage() {
 
             {/* Projects Grid */}
             <Section>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className={`grid gap-8 md:grid-cols-2 ${gridCols}`}>
                     {projects.map((project, index) => (
                         <ProjectCard key={project.slug} project={project} index={index} />
                     ))}
