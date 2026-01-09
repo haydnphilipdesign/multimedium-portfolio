@@ -48,7 +48,7 @@ export function StatementHero() {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
+                            transition={{ duration: 0.6, delay: 0 }}
                         >
                             {/* Availability badge */}
                             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10">
@@ -109,7 +109,7 @@ export function StatementHero() {
                         className="relative flex justify-center md:justify-end"
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <div className="relative">
                             {/* Glow behind image */}
