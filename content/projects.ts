@@ -35,6 +35,51 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        slug: "peppers-portal",
+        title: "Pepper's Portal",
+        tagline: "Family PWA for tracking dog walks, routines, and care with gamification",
+        description: "A Progressive Web App built for my family to quickly log our dog Pepper's walks (pee/poop/both), track feeding, grooming, vet visits, and medications—with a leaderboard to make it fun.",
+        category: "Portal",
+        year: "2025",
+        client: "Personal Project",
+        role: "Product Design, Full-Stack Development",
+        tools: ["Next.js", "TypeScript", "PWA", "Tailwind CSS", "Vercel"],
+        thumbnail: "/images/projects/peppers-portal/peppers-portal-thumb.png",
+        heroImage: "/images/projects/peppers-portal/peppers-portal-hero.png",
+        images: [
+            "/images/projects/peppers-portal/peppers-portal-1.png",
+            "/images/projects/peppers-portal/peppers-portal-2.png",
+            "/images/projects/peppers-portal/peppers-portal-3.png",
+        ],
+        problem: "With multiple family members walking and caring for our dog Pepper, we constantly asked 'Did anyone walk her?' or 'When was she last fed?' No one had a clear picture of who did what or when.",
+        solution: "Built a PWA that lets anyone in the family log walks in seconds, track daily routines like feeding and toy refills, and see a live history. A leaderboard adds friendly competition, and a public dashboard lets us share Pepper's status with anyone.",
+        process: [
+            {
+                title: "Quick Walk Logging",
+                description: "One-tap interface to log walks with pee/poop/both options. Optimized for speed so anyone can log a walk while still outside.",
+                image: "/images/projects/peppers-portal/peppers-portal-1.png",
+            },
+            {
+                title: "Daily Routines & Care Tracking",
+                description: "Track feeding, toy refills, grooming, vet visits, and medications. Everyone knows at a glance what's been done today.",
+                image: "/images/projects/peppers-portal/peppers-portal-2.png",
+            },
+            {
+                title: "Leaderboard & Analytics",
+                description: "Gamified the experience with a family leaderboard. History and analytics show patterns over time.",
+                image: "/images/projects/peppers-portal/peppers-portal-3.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Family Adoption", value: "100%", description: "All family members actively use the app" },
+            { metric: "Walk Confusion", value: "Eliminated", description: "No more 'did anyone walk her?' questions" },
+            { metric: "Routine Tracking", value: "5+ categories", description: "Walks, feeding, toys, grooming, vet, meds" },
+        ],
+        featured: true,
+        color: "#ec4899",
+        externalUrl: "https://peppers-portal.vercel.app/public",
+    },
+    {
         slug: "utility-sheet",
         title: "UtilitySheet",
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
