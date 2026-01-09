@@ -3,7 +3,7 @@ export interface Project {
     title: string;
     tagline: string;
     description: string;
-    category: "Web Design" | "SaaS" | "Automation" | "Portal" | "Wellness" | "Real Estate";
+    category: "Web Design" | "SaaS" | "Automation" | "Portal" | "Wellness" | "Real Estate" | "Fitness";
     year: string;
     client: string;
     role: string;
@@ -34,6 +34,51 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        slug: "utility-sheet",
+        title: "UtilitySheet",
+        tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
+        description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
+        category: "SaaS",
+        year: "2025",
+        client: "Internal Product",
+        role: "Product Strategy, UX/UI Design, Full-Stack Development",
+        tools: ["Next.js", "TypeScript", "Tailwind CSS", "AI/LLM", "PDF Generation", "Vercel"],
+        thumbnail: "/images/projects/utilitysheet/utilitysheet-thumb.png",
+        heroImage: "/images/projects/utilitysheet/utilitysheet-hero.png",
+        images: [
+            "/images/projects/utilitysheet/utilitysheet-2.png",
+            "/images/projects/utilitysheet/utilitysheet-1.png",
+            "/images/projects/utilitysheet/utilitysheet-3.png",
+        ],
+        problem: "Real estate transactions involve constant back-and-forth to get accurate utility provider info from sellers. Agents and TCs spend hours chasing vague answers like 'I think it's the gas company?' This delays closings and frustrates everyone involved.",
+        solution: "UtilitySheet replaces the 'Who's your gas company again?' emails with a single guided link. Sellers complete a quick form, and the app automatically generates a clean, PDF-ready utility info sheet that can be sent to all parties.",
+        process: [
+            {
+                title: "AI-Assisted Provider Picker",
+                description: "As sellers fill out the form, the system suggests likely utility providers for their area-so they can choose from relevant options instead of guessing or typing vague answers. Faster completion, fewer errors, less manual chasing.",
+                image: "/images/projects/utilitysheet/utilitysheet-2.png",
+            },
+            {
+                title: "Request Dashboard",
+                description: "A simple dashboard for agents and coordinators to track every request at a glance, see status, and follow up without digging through email threads.",
+                image: "/images/projects/utilitysheet/utilitysheet-1.png",
+            },
+            {
+                title: "PDF Output & Branding",
+                description: "Generates polished, professional utility sheets that can be shared, printed, or attached to transaction files-branded for the sending agent or TC.",
+                image: "/images/projects/utilitysheet/utilitysheet-3.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Form Completion", value: "< 3 min", description: "Average time to complete the utility form" },
+            { metric: "Follow-ups", value: "-80%", description: "Reduction in back-and-forth emails for utility info" },
+            { metric: "Data Accuracy", value: "Fewer errors", description: "AI suggestions reduce typos and guesswork" },
+        ],
+        featured: true,
+        color: "#8b5cf6",
+        externalUrl: "https://utilitysheet.com",
+    },
     {
         slug: "peppers-portal",
         title: "Pepper's Portal",
@@ -80,49 +125,49 @@ export const projects: Project[] = [
         externalUrl: "https://peppers-portal.vercel.app/public",
     },
     {
-        slug: "utility-sheet",
-        title: "UtilitySheet",
-        tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
-        description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
-        category: "SaaS",
+        slug: "workout-tracker",
+        title: "7-Day Workout Tracker",
+        tagline: "Personal web app for tracking a custom 7-day workout split with local storage",
+        description: "A simple, no-backend web app customized for my personal 7-day workout routine. Stores all data locally in the browser—no database needed for solo use.",
+        category: "Fitness",
         year: "2025",
-        client: "Internal Product",
-        role: "Product Strategy, UX/UI Design, Full-Stack Development",
-        tools: ["Next.js", "TypeScript", "Tailwind CSS", "AI/LLM", "PDF Generation", "Vercel"],
-        thumbnail: "/images/projects/utilitysheet/utilitysheet-thumb.png",
-        heroImage: "/images/projects/utilitysheet/utilitysheet-hero.png",
+        client: "Personal Project",
+        role: "Design & Development",
+        tools: ["Next.js", "TypeScript", "Tailwind CSS", "LocalStorage", "Vercel"],
+        thumbnail: "/images/projects/workout-tracker/workout-tracker-thumb.png",
+        heroImage: "/images/projects/workout-tracker/workout-tracker-hero.png",
         images: [
-            "/images/projects/utilitysheet/utilitysheet-2.png",
-            "/images/projects/utilitysheet/utilitysheet-1.png",
-            "/images/projects/utilitysheet/utilitysheet-3.png",
+            "/images/projects/workout-tracker/workout-tracker-1.png",
+            "/images/projects/workout-tracker/workout-tracker-2.png",
+            "/images/projects/workout-tracker/workout-tracker-3.png",
         ],
-        problem: "Real estate transactions involve constant back-and-forth to get accurate utility provider info from sellers. Agents and TCs spend hours chasing vague answers like 'I think it's the gas company?' This delays closings and frustrates everyone involved.",
-        solution: "UtilitySheet replaces the 'Who's your gas company again?' emails with a single guided link. Sellers complete a quick form, and the app automatically generates a clean, PDF-ready utility info sheet that can be sent to all parties.",
+        problem: "Generic workout apps don't match my specific 7-day split, and I didn't want to manage a database for something only I would use.",
+        solution: "Built a lightweight web app tailored to my exact workout routine. Data persists in localStorage, so it's always available on my device without any server or account setup.",
         process: [
             {
-                title: "AI-Assisted Provider Picker",
-                description: "As sellers fill out the form, the system suggests likely utility providers for their area-so they can choose from relevant options instead of guessing or typing vague answers. Faster completion, fewer errors, less manual chasing.",
-                image: "/images/projects/utilitysheet/utilitysheet-2.png",
+                title: "Custom 7-Day Split",
+                description: "Designed around my specific workout plan with each day's exercises, sets, and reps laid out exactly how I train.",
+                image: "/images/projects/workout-tracker/workout-tracker-1.png",
             },
             {
-                title: "Request Dashboard",
-                description: "A simple dashboard for agents and coordinators to track every request at a glance, see status, and follow up without digging through email threads.",
-                image: "/images/projects/utilitysheet/utilitysheet-1.png",
+                title: "Progress Tracking",
+                description: "Log weights and reps for each exercise. See history and progress over time without any external dependencies.",
+                image: "/images/projects/workout-tracker/workout-tracker-2.png",
             },
             {
-                title: "PDF Output & Branding",
-                description: "Generates polished, professional utility sheets that can be shared, printed, or attached to transaction files-branded for the sending agent or TC.",
-                image: "/images/projects/utilitysheet/utilitysheet-3.png",
+                title: "Local-First Storage",
+                description: "All data stays in the browser via localStorage. No accounts, no database, no sync—just simple, private, personal tracking.",
+                image: "/images/projects/workout-tracker/workout-tracker-3.png",
             },
         ],
         outcomes: [
-            { metric: "Form Completion", value: "< 3 min", description: "Average time to complete the utility form" },
-            { metric: "Follow-ups", value: "-80%", description: "Reduction in back-and-forth emails for utility info" },
-            { metric: "Data Accuracy", value: "Fewer errors", description: "AI suggestions reduce typos and guesswork" },
+            { metric: "Setup Time", value: "0 min", description: "No account or database configuration needed" },
+            { metric: "Data Privacy", value: "100% local", description: "All workout data stays on the device" },
+            { metric: "Customization", value: "Perfect fit", description: "Matches my exact 7-day split" },
         ],
         featured: true,
-        color: "#8b5cf6",
-        externalUrl: "https://utilitysheet.com",
+        color: "#06b6d4",
+        externalUrl: "https://7dayplan.vercel.app/",
     },
     {
         slug: "pa-real-estate-support",
