@@ -36,6 +36,23 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     const params = (await searchParams) ?? {};
     const sent = params.sent === "1";
     const error = params.error;
+    const errorMessage = error
+        ? {
+              missing: "Please fill out your name, email, and message.",
+              email: "Please enter a valid email address.",
+              phone_required:
+                  "Please add a phone number if you prefer a call or text.",
+              phone_invalid: "Please enter a valid phone number.",
+              message: "Please keep your message under 5,000 characters.",
+              send: "Something went wrong sending your message.",
+          }[error] ?? "Something went wrong sending your message."
+        : null;
+    const isValidationError =
+        error === "missing" ||
+        error === "email" ||
+        error === "phone_required" ||
+        error === "phone_invalid" ||
+        error === "message";
 
     return (
         <>
@@ -76,13 +93,19 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 </div>
                             )}
 
-                            {error && (
+                            {errorMessage && (
                                 <div className="mb-6 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-foreground">
-                                    Something went wrong sending your message. Please email{" "}
-                                    <a className="underline underline-offset-4" href="mailto:haydn@multimedium.dev">
-                                        haydn@multimedium.dev
-                                    </a>
-                                    .
+                                    {errorMessage}
+                                    {!isValidationError && (
+                                        <>
+                                            {" "}
+                                            Please email{" "}
+                                            <a className="underline underline-offset-4" href="mailto:haydn@multimedium.dev">
+                                                haydn@multimedium.dev
+                                            </a>
+                                            .
+                                        </>
+                                    )}
                                 </div>
                             )}
 
@@ -109,6 +132,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             name="name"
                                             required
                                             autoComplete="name"
+                                            maxLength={120}
                                             className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                             placeholder="Your name"
                                         />
@@ -126,30 +150,100 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             name="email"
                                             required
                                             autoComplete="email"
+                                            maxLength={254}
                                             className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                             placeholder="your@email.com"
                                         />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label
-                                        htmlFor="company"
-                                        className="block text-sm font-medium text-foreground mb-2"
-                                    >
-                                        Company{" "}
-                                        <span className="text-muted-foreground font-normal">
-                                            (optional)
-                                        </span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="company"
-                                        name="company"
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
-                                        placeholder="Your company"
-                                    />
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label
+                                            htmlFor="phone"
+                                            className="block text-sm font-medium text-foreground mb-2"
+                                        >
+                                            Phone{" "}
+                                            <span className="text-muted-foreground font-normal">
+                                                (optional)
+                                            </span>
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            autoComplete="tel"
+                                            inputMode="tel"
+                                            maxLength={40}
+                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            placeholder="+1 (555) 555-5555"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            htmlFor="company"
+                                            className="block text-sm font-medium text-foreground mb-2"
+                                        >
+                                            Company{" "}
+                                            <span className="text-muted-foreground font-normal">
+                                                (optional)
+                                            </span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="company"
+                                            name="company"
+                                            maxLength={120}
+                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            placeholder="Your company"
+                                        />
+                                    </div>
                                 </div>
+
+                                <fieldset className="space-y-3">
+                                    <legend className="block text-sm font-medium text-foreground">
+                                        Preferred contact method
+                                    </legend>
+                                    <div className="grid sm:grid-cols-3 gap-3">
+                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                            <input
+                                                type="radio"
+                                                name="contactPreference"
+                                                value="email"
+                                                defaultChecked
+                                                className="h-4 w-4 accent-glow"
+                                            />
+                                            <span className="text-sm font-medium">
+                                                Email
+                                            </span>
+                                        </label>
+                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                            <input
+                                                type="radio"
+                                                name="contactPreference"
+                                                value="call"
+                                                className="h-4 w-4 accent-glow"
+                                            />
+                                            <span className="text-sm font-medium">
+                                                Call
+                                            </span>
+                                        </label>
+                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                            <input
+                                                type="radio"
+                                                name="contactPreference"
+                                                value="sms"
+                                                className="h-4 w-4 accent-glow"
+                                            />
+                                            <span className="text-sm font-medium">
+                                                Text (SMS)
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">
+                                        If you choose call or text, please include a phone number.
+                                    </p>
+                                </fieldset>
 
                                 <div>
                                     <label
@@ -173,6 +267,96 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     </select>
                                 </div>
 
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label
+                                            htmlFor="budgetRange"
+                                            className="block text-sm font-medium text-foreground mb-2"
+                                        >
+                                            Budget{" "}
+                                            <span className="text-muted-foreground font-normal">
+                                                (optional)
+                                            </span>
+                                        </label>
+                                        <select
+                                            id="budgetRange"
+                                            name="budgetRange"
+                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        >
+                                            <option value="">
+                                                Select a budget range
+                                            </option>
+                                            <option value="under5k">
+                                                Under $5k
+                                            </option>
+                                            <option value="5to10k">
+                                                $5k-$10k
+                                            </option>
+                                            <option value="10to25k">
+                                                $10k-$25k
+                                            </option>
+                                            <option value="25kplus">
+                                                $25k+
+                                            </option>
+                                            <option value="unsure">
+                                                Not sure yet
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label
+                                            htmlFor="timeline"
+                                            className="block text-sm font-medium text-foreground mb-2"
+                                        >
+                                            Timeline{" "}
+                                            <span className="text-muted-foreground font-normal">
+                                                (optional)
+                                            </span>
+                                        </label>
+                                        <select
+                                            id="timeline"
+                                            name="timeline"
+                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        >
+                                            <option value="">
+                                                Select a timeline
+                                            </option>
+                                            <option value="asap">ASAP</option>
+                                            <option value="1to2mo">
+                                                1-2 months
+                                            </option>
+                                            <option value="3to6mo">
+                                                3-6 months
+                                            </option>
+                                            <option value="flexible">
+                                                Flexible
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="currentUrl"
+                                        className="block text-sm font-medium text-foreground mb-2"
+                                    >
+                                        Current site{" "}
+                                        <span className="text-muted-foreground font-normal">
+                                            (optional)
+                                        </span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="currentUrl"
+                                        name="currentUrl"
+                                        autoComplete="url"
+                                        inputMode="url"
+                                        maxLength={500}
+                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        placeholder="https://example.com"
+                                    />
+                                </div>
+
                                 <div>
                                     <label
                                         htmlFor="message"
@@ -185,6 +369,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         name="message"
                                         required
                                         rows={5}
+                                        maxLength={5000}
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all resize-none"
                                         placeholder="What do you want the site to do? Who's the audience? Any constraints (budget, timeline, tech stack) I should know about?"
                                     />

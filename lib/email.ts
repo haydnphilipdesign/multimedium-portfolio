@@ -3,8 +3,13 @@ import { Resend } from "resend";
 export interface ContactEmailPayload {
     name: string;
     email: string;
+    phone?: string;
+    contactPreference?: string;
     company?: string;
     projectType?: string;
+    budgetRange?: string;
+    timeline?: string;
+    currentUrl?: string;
     message: string;
 }
 
@@ -26,13 +31,21 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
 
     const subjectParts = ["New website inquiry", payload.name];
     if (payload.company) subjectParts.push(payload.company);
-    const subject = subjectParts.join(" — ");
+    if (payload.projectType) subjectParts.push(payload.projectType);
+    const subject = subjectParts.join(" - ");
 
     const textLines: string[] = [
         `Name: ${payload.name}`,
         `Email: ${payload.email}`,
+        payload.phone ? `Phone: ${payload.phone}` : "",
+        payload.contactPreference
+            ? `Contact preference: ${payload.contactPreference}`
+            : "",
         payload.company ? `Company: ${payload.company}` : "",
         payload.projectType ? `Project type: ${payload.projectType}` : "",
+        payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
+        payload.timeline ? `Timeline: ${payload.timeline}` : "",
+        payload.currentUrl ? `Current site: ${payload.currentUrl}` : "",
         "",
         payload.message,
     ].filter(Boolean);
@@ -45,4 +58,3 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
         text: textLines.join("\n"),
     });
 }
-
