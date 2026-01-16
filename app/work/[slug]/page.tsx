@@ -361,7 +361,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <p className="text-muted-foreground mb-8">
                         Let&apos;s discuss how I can help bring your next project to life.
                     </p>
-                    <Link href="/contact" className="btn-primary">
+                    <Link href={`/contact?source=case-study-${project.slug}`} className="btn-primary">
                         Start a Conversation
                     </Link>
                 </AnimatedSection>

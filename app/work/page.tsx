@@ -52,7 +52,7 @@ export default function WorkPage() {
                         I&apos;m always open to discussing new projects and creative ideas.
                         Let&apos;s create something great together.
                     </p>
-                    <Link href="/contact" className="btn-primary">
+                    <Link href="/contact?source=work-cta" className="btn-primary">
                         Start a Project
                     </Link>
                 </AnimatedSection>

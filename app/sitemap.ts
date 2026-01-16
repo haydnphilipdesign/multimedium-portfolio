@@ -13,6 +13,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
+            url: `${siteUrl}/services`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.95,
+        },
+        {
+            url: `${siteUrl}/services/website`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${siteUrl}/services/landing-pages`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${siteUrl}/services/growth-retainers`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
             url: `${siteUrl}/work`,
             lastModified: now,
             changeFrequency: "monthly",
@@ -41,4 +65,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return [...staticRoutes, ...projectRoutes];
 }
-

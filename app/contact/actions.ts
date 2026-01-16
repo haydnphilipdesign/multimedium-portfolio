@@ -48,9 +48,15 @@ function isValidPhone(phone: string): boolean {
 }
 
 export async function submitContact(formData: FormData) {
+    const source = getText(formData, "source");
+    const sourceQuery = source ? `&source=${encodeURIComponent(source)}` : "";
+    const thanksUrl = source
+        ? `/contact/thanks?source=${encodeURIComponent(source)}`
+        : "/contact/thanks";
+
     const honeypot = getText(formData, "website");
     if (honeypot) {
-        redirect("/contact?sent=1");
+        redirect(thanksUrl);
     }
 
     const name = getText(formData, "name");
@@ -65,11 +71,11 @@ export async function submitContact(formData: FormData) {
     const message = getText(formData, "message");
 
     if (!name || !email || !message) {
-        redirect("/contact?error=missing");
+        redirect(`/contact?error=missing${sourceQuery}`);
     }
 
     if (!isValidEmail(email)) {
-        redirect("/contact?error=email");
+        redirect(`/contact?error=email${sourceQuery}`);
     }
 
     const contactPreferenceKey =
@@ -78,15 +84,15 @@ export async function submitContact(formData: FormData) {
             : "email";
 
     if ((contactPreferenceKey === "call" || contactPreferenceKey === "sms") && !phone) {
-        redirect("/contact?error=phone_required");
+        redirect(`/contact?error=phone_required${sourceQuery}`);
     }
 
     if (phone && !isValidPhone(phone)) {
-        redirect("/contact?error=phone_invalid");
+        redirect(`/contact?error=phone_invalid${sourceQuery}`);
     }
 
     if (message.length > 5000) {
-        redirect("/contact?error=message");
+        redirect(`/contact?error=message${sourceQuery}`);
     }
 
     const projectType = projectTypeRaw
@@ -108,6 +114,7 @@ export async function submitContact(formData: FormData) {
             email,
             phone: phone || undefined,
             contactPreference,
+            source: source || undefined,
             company: company || undefined,
             projectType,
             budgetRange,
@@ -117,8 +124,8 @@ export async function submitContact(formData: FormData) {
         });
     } catch (error) {
         console.error("Contact email failed", error);
-        redirect("/contact?error=send");
+        redirect(`/contact?error=send${sourceQuery}`);
     }
 
-    redirect("/contact?sent=1");
+    redirect(thanksUrl);
 }

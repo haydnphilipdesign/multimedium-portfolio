@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
     { href: "/work", label: "Work" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -18,6 +19,10 @@ export function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
+    const contactHref = `/contact?source=${encodeURIComponent(
+        pathname === "/" ? "nav-home" : `nav${pathname.replaceAll("/", "-")}`
+    )}`;
 
     const isActive = (href: string) => {
         if (href === "/") return pathname === "/";
@@ -112,12 +117,24 @@ export function Navbar() {
 
                     {/* CTA Button - Desktop */}
                     <div className="hidden md:block">
-                        <Link
-                            href="/contact"
-                            className="btn-primary inline-flex items-center text-sm"
-                        >
-                            Start a Project
-                        </Link>
+                        <div className="flex items-center gap-2">
+                            {schedulingUrl && (
+                                <a
+                                    href={schedulingUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-secondary inline-flex items-center text-sm"
+                                >
+                                    Book a Call
+                                </a>
+                            )}
+                            <Link
+                                href={contactHref}
+                                className="btn-primary inline-flex items-center text-sm"
+                            >
+                                Start a Project
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -165,9 +182,19 @@ export function Navbar() {
                                         {link.label}
                                     </Link>
                                 ))}
-                                <div className="pt-4">
+                                <div className="pt-4 space-y-2">
+                                    {schedulingUrl && (
+                                        <a
+                                            href={schedulingUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-secondary w-full text-center block text-sm"
+                                        >
+                                            Book a Call
+                                        </a>
+                                    )}
                                     <Link
-                                        href="/contact"
+                                        href={contactHref}
                                         onClick={() => setIsOpen(false)}
                                         className="btn-primary w-full text-center block text-sm"
                                     >

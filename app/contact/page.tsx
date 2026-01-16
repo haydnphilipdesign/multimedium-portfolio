@@ -8,6 +8,7 @@ import {
     IconClock,
     IconSend,
     IconPhone,
+    IconCalendarEvent,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ interface ContactPageProps {
     searchParams?: Promise<{
         sent?: string;
         error?: string;
+        source?: string;
     }>;
 }
 
@@ -36,6 +38,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     const params = (await searchParams) ?? {};
     const sent = params.sent === "1";
     const error = params.error;
+    const source = params.source ?? "";
+    const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
     const errorMessage = error
         ? {
               missing: "Please fill out your name, email, and message.",
@@ -118,6 +122,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     aria-hidden="true"
                                     className="hidden"
                                 />
+                                <input type="hidden" name="source" value={source} />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label
@@ -412,6 +417,17 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         <IconMail className="w-4 h-4 text-glow" stroke={1.5} />
                                         <span>haydn@multimedium.dev</span>
                                     </a>
+                                    {schedulingUrl && (
+                                        <a
+                                            href={schedulingUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all"
+                                        >
+                                            <IconCalendarEvent className="w-4 h-4 text-glow" stroke={1.5} />
+                                            <span>Book a call</span>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 

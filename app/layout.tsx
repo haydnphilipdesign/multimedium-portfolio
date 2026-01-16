@@ -7,6 +7,7 @@ import { Navbar } from "@/components/nav/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { siteUrl } from "@/lib/site";
+import { getSiteStructuredData } from "@/lib/structuredData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,9 +63,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = getSiteStructuredData();
+
   return (
     <html lang="en" className={`${inter.variable} dark`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Navbar />
         <PageTransition>
           <main>{children}</main>

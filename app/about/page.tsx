@@ -83,7 +83,7 @@ export default function AboutPage() {
                             Multimedium is my solo practice—built around one simple idea: the best work happens when strategy, design, and development live in the same feedback loop. You get fewer meetings, faster decisions, and a site that stays consistent as you ship new pages.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
-                            <Link href="/contact" className="btn-primary">
+                            <Link href="/contact?source=about-hero" className="btn-primary">
                                 Start a project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
@@ -184,7 +184,7 @@ export default function AboutPage() {
                         I&apos;m always interested in hearing about new projects and
                         opportunities. Get in touch to start a conversation.
                     </p>
-                    <Link href="/contact" className="btn-primary">
+                    <Link href="/contact?source=about-cta" className="btn-primary">
                         Start a Conversation
                     </Link>
                 </AnimatedSection>

@@ -27,22 +27,25 @@ const services = [
         title: "Website Build / Redesign",
         description:
             "A premium, conversion-focused website with a reusable design system and a clean Next.js build behind it.",
+        href: "/services/website",
         features: ["Positioning workshop + page plan", "High-fidelity design with real copy", "Next.js build, SEO foundations, analytics"],
-        timeline: "4–6 weeks",
+        timeline: "4-6 weeks",
     },
     {
         icon: IconCode,
         title: "Landing Pages + Funnels",
         description:
             "Campaign-ready pages, lead magnets, and contact flows that make taking the next step feel effortless.",
+        href: "/services/landing-pages",
         features: ["Offer + messaging refinement", "Conversion-first layout + copy support", "Forms, tracking, and follow-up automation"],
-        timeline: "1–3 weeks",
+        timeline: "1-3 weeks",
     },
     {
         icon: IconChartLine,
         title: "Growth Retainers",
         description:
-            "SEO, content, and conversion experiments on a predictable cadence—so your site keeps improving after launch.",
+            "SEO, content, and conversion experiments on a predictable cadence-so your site keeps improving after launch.",
+        href: "/services/growth-retainers",
         features: ["Monthly/quarterly experiments + reporting", "SEO roadmap + landing pages", "Design + dev support as you grow"],
         timeline: "Ongoing",
     },
@@ -215,6 +218,13 @@ export default function HomePage() {
                                 <p className="text-xs text-muted-foreground font-mono">
                                     Typical timeline: {service.timeline}
                                 </p>
+
+                                <Link
+                                    href={`${service.href}?source=home-services`}
+                                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-glow transition-colors group-hover:translate-x-0"
+                                >
+                                    Learn more <IconArrowRight className="w-4 h-4" stroke={2} />
+                                </Link>
                             </div>
                         </StaggerItem>
                     ))}
@@ -237,7 +247,7 @@ export default function HomePage() {
                         Tell me what you&apos;re building, what you want the site to do, and what constraints we should respect. I&apos;ll reply with a plan and timeline within one business day.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/contact" className="btn-primary">
+                        <Link href="/contact?source=home-cta" className="btn-primary">
                             Start a Project
                         </Link>
                         <Link href="/about" className="btn-secondary">

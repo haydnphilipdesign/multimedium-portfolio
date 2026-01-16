@@ -81,7 +81,7 @@ export function StatementHero() {
                             {/* CTA buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
-                                    href="/contact"
+                                    href="/contact?source=home-hero"
                                     className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
                                 >
                                     <span>Start a Project</span>

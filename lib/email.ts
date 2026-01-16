@@ -5,6 +5,7 @@ export interface ContactEmailPayload {
     email: string;
     phone?: string;
     contactPreference?: string;
+    source?: string;
     company?: string;
     projectType?: string;
     budgetRange?: string;
@@ -41,6 +42,7 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
         payload.contactPreference
             ? `Contact preference: ${payload.contactPreference}`
             : "",
+        payload.source ? `Source: ${payload.source}` : "",
         payload.company ? `Company: ${payload.company}` : "",
         payload.projectType ? `Project type: ${payload.projectType}` : "",
         payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
