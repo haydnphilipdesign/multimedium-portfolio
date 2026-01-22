@@ -8,11 +8,32 @@ export interface Project {
     client: string;
     role: string;
     tools: string[];
+    metaTitle?: string;
+    metaDescription?: string;
+    socialCaption?: string;
+    tags?: string[];
     thumbnail: string;
     heroImage: string;
     images: string[];
     problem: string;
     solution: string;
+    caseStudy?: {
+        headline?: string;
+        subheadline?: string;
+        overview?: string;
+        goals?: string[];
+        constraints?: string[];
+        delivered?: string[];
+        whyItWorks?: string[];
+        approval?: string;
+        tldr?: string;
+    };
+    cta?: {
+        headline: string;
+        body: string;
+        ctaText: string;
+        href: string;
+    };
     process: {
         title: string;
         description: string;
@@ -34,6 +55,99 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        slug: "tag-landing-page",
+        title: "Transaction Authority Group (TAG)",
+        metaTitle: "Transaction Authority Group Landing Page",
+        metaDescription:
+            "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+        socialCaption:
+            "New build: a focused booking funnel for Transaction Authority Group—authority-first, qualification-driven, and designed to convert into discovery calls.",
+        tags: ["Landing Page", "Lead Generation", "Scheduler Integration", "Mobile-First"],
+        tagline: "Authority-first landing page built to qualify established transaction coordinators and drive discovery call bookings.",
+        description:
+            "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+        category: "Real Estate",
+        year: "2026",
+        client: "Transaction Authority Group (TAG)",
+        role: "Landing Page Strategy, Copy, Design, Development",
+        tools: ["Responsive HTML/CSS/JS", "Performance-first build", "Scheduler integration", "Vercel"],
+        thumbnail: "/images/projects/tag-landing-page/tag-landing-page-thumb.png",
+        heroImage: "/images/projects/tag-landing-page/tag-landing-page-hero.png",
+        images: [
+            "/images/projects/tag-landing-page/tag-landing-page-1.png",
+            "/images/projects/tag-landing-page/tag-landing-page-2.png",
+            "/images/projects/tag-landing-page/tag-landing-page-3.png",
+        ],
+        problem: "TAG needed a focused landing page that converts the right visitors—established Transaction Coordinators and TC companies—into scheduled discovery calls. The goal wasn’t content depth. It was a clean, credible page that makes the offer obvious, filters out poor-fit leads, and pushes the user toward booking.",
+        solution: "Built a single-page booking funnel designed to establish authority fast, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page remains conversion-focused.",
+        caseStudy: {
+            headline: "Transaction Authority Group — Lead-Gen Landing Page",
+            subheadline:
+                "A single-page booking funnel designed to establish authority fast, filter for fit, and drive qualified discovery calls.",
+            tldr: "Built a one-page lead-generation landing page for Transaction Authority Group designed to establish authority quickly, filter for fit, and drive discovery call bookings. Mobile-first, lightweight, and intentionally avoids stock imagery—keeping the focus on qualification and scheduling.",
+            goals: [
+                "Establish authority immediately (institutional, serious, systems-driven)",
+                "Filter for the right audience (not brand-new TCs or “quick money” seekers)",
+                "Drive calendar bookings as the primary conversion action",
+            ],
+            constraints: [
+                "One-page scroll layout (no multi-page site)",
+                "Clean, neutral visual design (no stock photos, no people imagery)",
+                "Fast load and mobile-first performance",
+                "Persistent call-to-action to book a discovery call",
+                "Simple structure that supports quick iteration",
+            ],
+            delivered: [
+                "One-page landing page designed for conversion (not content consumption)",
+                "Authority-first hero section with clear positioning and immediate CTA",
+                "Social proof / credibility bar to reinforce legitimacy without hype",
+                "Problem → solution narrative written to create self-identification",
+                "Fit & Filter section to improve lead quality and reduce unqualified calls",
+                "Discovery call expectations to reduce hesitation",
+                "Scheduler-ready booking section (calendar embed/link integration)",
+                "Mobile-first styling with a clean, institutional aesthetic",
+            ],
+            whyItWorks: [
+                "Visitors quickly understand what TAG is and who it’s for",
+                "The “Not For” section prevents low-fit bookings",
+                "The CTA is repeated and reinforced so the page stays focused on one action: book the call",
+            ],
+            approval:
+                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+        },
+        cta: {
+            headline: "Need a landing page that converts?",
+            body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
+            ctaText: "Contact Me",
+            href: "/contact?source=case-study-tag-landing-page",
+        },
+        process: [
+            {
+                title: "Authority-First Positioning",
+                description: "Designed an institutional hero with immediate CTA plus a credibility bar to reinforce legitimacy—without hype, gimmicks, or stock imagery.",
+                image: "/images/projects/tag-landing-page/tag-landing-page-1.png",
+            },
+            {
+                title: "Qualification-Driven Copy",
+                description: "Wrote a problem → solution narrative that creates self-identification, plus a Fit & Filter (“For / Not For”) section to reduce unqualified bookings.",
+                image: "/images/projects/tag-landing-page/tag-landing-page-2.png",
+            },
+            {
+                title: "Booking-First Funnel",
+                description: "Kept the page centered on scheduling with repeated CTAs, expectation-setting, and a scheduler-ready booking section for fast iteration during launch.",
+                image: "/images/projects/tag-landing-page/tag-landing-page-3.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Layout", value: "1 page", description: "Single-scroll booking funnel built for speed and clarity" },
+            { metric: "Lead Quality", value: "Fit-filtered", description: "Clear “For / Not For” messaging to reduce low-fit calls" },
+            { metric: "Build", value: "Lightweight", description: "Mobile-first, performance-focused implementation without stock imagery" },
+        ],
+        featured: true,
+        color: "#0f766e",
+        externalUrl: "https://www.transactionauthority.com",
+    },
     {
         slug: "utility-sheet",
         title: "UtilitySheet",

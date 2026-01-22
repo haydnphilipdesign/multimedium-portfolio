@@ -61,13 +61,22 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-gradient transition-colors">
                     {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+                <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
                     {project.tagline}
                 </p>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span>{project.year}</span>
-                    <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
-                    <span>{project.role.split(",")[0]}</span>
+                <p className="text-muted-foreground/80 text-xs line-clamp-1 mb-4">
+                    {project.tags?.length ? project.tags.join(" · ") : "\u00A0"}
+                </p>
+                <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-4">
+                        <span>{project.year}</span>
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                        <span>{project.role.split(",")[0]}</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-glow/80 group-hover:text-glow transition-colors">
+                        View case study
+                        <IconArrowUpRight className="w-3.5 h-3.5" stroke={2} />
+                    </span>
                 </div>
             </div>
 

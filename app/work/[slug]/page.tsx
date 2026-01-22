@@ -25,22 +25,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
+    const title = project.metaTitle ?? project.title;
+    const description = project.metaDescription ?? project.description;
+
     return {
-        title: project.title,
-        description: project.description,
+        title,
+        description,
         alternates: {
             canonical: `/work/${project.slug}`,
         },
         openGraph: {
-            title: project.title,
-            description: project.description,
+            title,
+            description,
             url: `/work/${project.slug}`,
             images: [project.heroImage],
         },
         twitter: {
             card: "summary_large_image",
-            title: project.title,
-            description: project.description,
+            title,
+            description,
             images: [project.heroImage],
         },
     };
@@ -63,6 +66,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
         project.tools.length <= 3
             ? project.tools.join(", ")
             : `${project.tools.slice(0, 3).join(", ")} +${project.tools.length - 3} more`;
+
+    const cta = project.cta ?? {
+        headline: "Interested in working together?",
+        body: "Let's discuss how I can help bring your next project to life.",
+        ctaText: "Start a Conversation",
+        href: `/contact?source=case-study-${project.slug}`,
+    };
 
     return (
         <>
@@ -90,7 +100,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.1}>
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex flex-wrap items-center gap-3 mb-6">
                             <span
                                 className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border"
                                 style={{
@@ -102,6 +112,18 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                 {project.category}
                             </span>
                             <span className="text-sm text-muted-foreground">{project.year}</span>
+                            {project.tags?.length ? (
+                                <div className="flex flex-wrap items-center gap-2">
+                                    {project.tags.slice(0, 4).map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-background/60 backdrop-blur-sm text-muted-foreground border border-border/50"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            ) : null}
                         </div>
                     </AnimatedSection>
 
@@ -179,6 +201,22 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </AnimatedSection>
             </Section>
 
+            {/* TL;DR */}
+            {project.caseStudy?.tldr ? (
+                <Section className="pt-0" padding="none">
+                    <AnimatedSection>
+                        <div className="rounded-2xl border border-border/50 bg-card px-6 py-6 sm:px-8">
+                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
+                                TL;DR
+                            </p>
+                            <p className="text-muted-foreground leading-relaxed">
+                                {project.caseStudy.tldr}
+                            </p>
+                        </div>
+                    </AnimatedSection>
+                </Section>
+            ) : null}
+
             {/* Overview Section */}
             <Section>
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
@@ -201,6 +239,120 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </AnimatedSection>
                 </div>
             </Section>
+
+            {/* Project Snapshot */}
+            {project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length ? (
+                <Section className="bg-muted/30">
+                    <AnimatedSection>
+                        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
+                            Project Snapshot
+                        </h2>
+                    </AnimatedSection>
+
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {project.caseStudy?.goals?.length ? (
+                            <AnimatedSection>
+                                <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                        Goals
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {project.caseStudy.goals.map((goal) => (
+                                            <li key={goal} className="flex items-start gap-3 text-muted-foreground">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="leading-relaxed">{goal}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </AnimatedSection>
+                        ) : null}
+
+                        {project.caseStudy?.constraints?.length ? (
+                            <AnimatedSection delay={0.1}>
+                                <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                        Constraints / Requirements
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {project.caseStudy.constraints.map((constraint) => (
+                                            <li
+                                                key={constraint}
+                                                className="flex items-start gap-3 text-muted-foreground"
+                                            >
+                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="leading-relaxed">{constraint}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </AnimatedSection>
+                        ) : null}
+                    </div>
+                </Section>
+            ) : null}
+
+            {/* Deliverables */}
+            {project.caseStudy?.delivered?.length || project.caseStudy?.whyItWorks?.length || project.caseStudy?.approval ? (
+                <Section>
+                    <AnimatedSection>
+                        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
+                            Deliverables & Rationale
+                        </h2>
+                    </AnimatedSection>
+
+                    <div className="grid gap-6 md:grid-cols-2 md:items-start">
+                        {project.caseStudy?.delivered?.length ? (
+                            <AnimatedSection>
+                                <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                        What I Delivered
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {project.caseStudy.delivered.map((item) => (
+                                            <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="leading-relaxed">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </AnimatedSection>
+                        ) : null}
+
+                        <div className="space-y-6">
+                            {project.caseStudy?.whyItWorks?.length ? (
+                                <AnimatedSection delay={0.1}>
+                                    <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                                        <h3 className="text-xl font-semibold text-foreground mb-4">
+                                            Why This Works
+                                        </h3>
+                                        <ul className="space-y-3">
+                                            {project.caseStudy.whyItWorks.map((item) => (
+                                                <li
+                                                    key={item}
+                                                    className="flex items-start gap-3 text-muted-foreground"
+                                                >
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                    <span className="leading-relaxed">{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </AnimatedSection>
+                            ) : null}
+
+                            {project.caseStudy?.approval ? (
+                                <AnimatedSection delay={0.2}>
+                                    <div className="rounded-2xl border border-glow/20 bg-glow/10 px-6 py-5 text-sm text-foreground">
+                                        {project.caseStudy.approval}
+                                    </div>
+                                </AnimatedSection>
+                            ) : null}
+                        </div>
+                    </div>
+                </Section>
+            ) : null}
 
             {/* Process Section */}
             {project.process.length > 0 && (
@@ -356,13 +508,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Interested in working together?
+                        {cta.headline}
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        Let&apos;s discuss how I can help bring your next project to life.
+                        {cta.body}
                     </p>
-                    <Link href={`/contact?source=case-study-${project.slug}`} className="btn-primary">
-                        Start a Conversation
+                    <Link href={cta.href} className="btn-primary">
+                        {cta.ctaText}
                     </Link>
                 </AnimatedSection>
             </Section>
