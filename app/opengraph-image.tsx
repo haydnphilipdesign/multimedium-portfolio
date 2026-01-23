@@ -71,7 +71,7 @@ export default function OpenGraphImage() {
                         }}
                     >
                         <span>Websites that</span>
-                        <span style={{ color: "#f59e0b" }}>convert.</span>
+                        <span style={{ color: "#f59e0b" }}>win trust.</span>
                     </div>
                     <div
                         style={{
@@ -81,8 +81,8 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Strategy-led design and clean Next.js builds that ship
-                        fast, load fast, and turn attention into inquiries.
+                        Clear messaging, premium design, and fast pages that turn
+                        visitors into inquiries.
                     </div>
                 </div>
 

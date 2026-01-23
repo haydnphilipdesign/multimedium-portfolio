@@ -91,15 +91,14 @@ export function HeroParallax() {
                             and convert.
                         </h1>
                         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
-                            Strategy-led design and clean Next.js builds that ship fast, load fast,
-                            and make contacting you feel inevitable.
+                            Clear messaging, premium design, and fast pages that make reaching out feel easy.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/contact" className="btn-primary">
-                                Start a Project
+                                Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary">
-                                View Work
+                                See case studies
                             </Link>
                         </div>
                     </motion.div>
@@ -249,8 +248,7 @@ export function HeroParallax() {
                         transition={{ duration: 0.6, delay: 0.5 }}
                         className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12"
                     >
-                        Strategy-led design and clean Next.js builds that ship fast, load fast,
-                        and make contacting you feel inevitable.
+                        Clear messaging, premium design, and fast pages that make reaching out feel easy.
                     </motion.p>
 
                     <motion.div
@@ -263,13 +261,13 @@ export function HeroParallax() {
                             href="/contact"
                             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-300 hover:scale-105"
                         >
-                            Start a Project
+                            Talk about your project
                         </Link>
                         <Link
                             href="/work"
                             className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-purple-500/30 bg-purple-500/10 text-white font-medium backdrop-blur-sm hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                         >
-                            View Work
+                            See case studies
                         </Link>
                     </motion.div>
                 </motion.div>

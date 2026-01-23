@@ -7,7 +7,7 @@ import { IconCheck, IconArrowRight } from "@tabler/icons-react";
 export const metadata: Metadata = {
     title: "Growth Retainers",
     description:
-        "SEO, content, and conversion experiments on a predictable cadence—so your site keeps improving after launch.",
+        "Ongoing improvements so your website keeps getting clearer, faster, and higher-converting after launch.",
     alternates: {
         canonical: "/services/growth-retainers",
     },
@@ -38,7 +38,7 @@ export default function GrowthRetainersServicePage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=services-retainer" className="btn-primary">
-                                Start a Conversation
+                                Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
                                 View work <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -87,7 +87,20 @@ export default function GrowthRetainersServicePage() {
                     </AnimatedSection>
                 </div>
             </Section>
+
+            <Section className="border-t border-border/40">
+                <AnimatedSection className="text-center max-w-2xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                        Want your site to keep improving after launch?
+                    </h2>
+                    <p className="text-muted-foreground mb-8">
+                        If you have traffic but not enough inquiries, a retainer is a simple way to ship steady improvements without starting from scratch each month.
+                    </p>
+                    <Link href="/contact?source=services-retainer-cta" className="btn-primary">
+                        Talk about your project
+                    </Link>
+                </AnimatedSection>
+            </Section>
         </>
     );
 }
-

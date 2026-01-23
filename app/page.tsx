@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getFeaturedProjects } from "@/content/projects";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { HowItWorks } from "@/components/marketing/HowItWorks";
 import Link from "next/link";
 import {
     IconLayout,
@@ -26,27 +27,27 @@ const services = [
         icon: IconLayout,
         title: "Website Build / Redesign",
         description:
-            "A premium, conversion-focused website with a reusable design system and a clean Next.js build behind it.",
+            "A premium website that explains what you do, builds trust fast, and turns visits into inquiries.",
         href: "/services/website",
-        features: ["Positioning workshop + page plan", "High-fidelity design with real copy", "Next.js build, SEO foundations, analytics"],
+        features: ["Messaging + page plan", "Custom design with real copy", "Fast, SEO-friendly build + analytics"],
         timeline: "4-6 weeks",
     },
     {
         icon: IconCode,
         title: "Landing Pages + Funnels",
         description:
-            "Campaign-ready pages, lead magnets, and contact flows that make taking the next step feel effortless.",
+            "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
         href: "/services/landing-pages",
-        features: ["Offer + messaging refinement", "Conversion-first layout + copy support", "Forms, tracking, and follow-up automation"],
+        features: ["Offer + messaging refinement", "Conversion-first layout + copy help", "Forms, tracking, and follow-up"],
         timeline: "1-3 weeks",
     },
     {
         icon: IconChartLine,
         title: "Growth Retainers",
         description:
-            "SEO, content, and conversion experiments on a predictable cadence-so your site keeps improving after launch.",
+            "Ongoing improvements so your site keeps getting clearer, faster, and higher-converting after launch.",
         href: "/services/growth-retainers",
-        features: ["Monthly/quarterly experiments + reporting", "SEO roadmap + landing pages", "Design + dev support as you grow"],
+        features: ["Monthly priorities + reporting", "SEO + landing pages", "Design + dev support as you grow"],
         timeline: "Ongoing",
     },
 ];
@@ -55,35 +56,35 @@ const proof = [
     {
         icon: IconBolt,
         value: "4-6 weeks",
-        label: "typical launch timeline",
-        detail: "Strategy • Design • Build • QA",
+        label: "typical timeline to launch",
+        detail: "Plan → design → build → launch",
     },
     {
         icon: IconShieldCheck,
-        value: "95+",
-        label: "Lighthouse scores",
-        detail: "Performance + accessibility",
+        value: "Fast",
+        label: "on mobile",
+        detail: "Speed + accessibility built in",
     },
     {
         icon: IconBulb,
-        value: "Systems",
-        label: "that scale with you",
-        detail: "Design system + components",
+        value: "Easy",
+        label: "to update",
+        detail: "Reusable sections + consistent styling",
     },
 ];
 
 const pillars = [
     {
         title: "Design that wins trust fast",
-        description: "Messaging, layout, and UI decisions built around clarity, credibility, and the next click.",
+        description: "Messaging and layout built for clarity—so visitors understand you quickly and feel confident reaching out.",
     },
     {
-        title: "Development that stays fast",
-        description: "Modern Next.js builds with clean architecture, solid SEO foundations, and a smooth editing workflow.",
+        title: "A site that loads fast",
+        description: "Mobile-first, quick to load, and built to be easy to update—without breaking the design.",
     },
     {
-        title: "Conversion, SEO, and iteration",
-        description: "Analytics, experiments, and landing pages that turn traffic into leads you actually want.",
+        title: "More inquiries over time",
+        description: "Analytics + small improvements that turn more of your traffic into the kind of leads you want.",
     },
 ];
 
@@ -125,7 +126,7 @@ export default function HomePage() {
                         <div className="max-w-2xl">
                             <h2 className="text-3xl font-bold text-foreground md:text-4xl">Selected Work</h2>
                             <p className="mt-2 text-muted-foreground">
-                                A few recent builds—each one designed to earn trust, communicate value, and make contacting you feel like the obvious next step.
+                                A few recent builds—each one designed to earn trust, communicate value, and make reaching out feel like the obvious next step.
                             </p>
                         </div>
                         <Link
@@ -155,11 +156,28 @@ export default function HomePage() {
                                 What I build
                             </span>
                             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                A portfolio-grade site that still behaves like a sales machine
+                                A website that looks premium—and makes it easy to contact you
                             </h2>
                             <p className="text-muted-foreground">
-                                You get a clean system—not a one-off page. Everything is built to be edited, extended, and iterated without the site collapsing into chaos.
+                                You get a clean, consistent system—not a one-off page. It’s built to be updated, extended, and improved without turning into a patchwork.
                             </p>
+                            <div className="pt-2">
+                                <p className="text-sm font-medium text-foreground mb-3">Great fit if:</p>
+                                <ul className="grid gap-2 text-sm text-muted-foreground">
+                                    <li className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                        You want more inquiries (not just a prettier homepage).
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                        Your current site feels outdated, unclear, or hard to edit.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                        You want one person to handle strategy, design, and build.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </AnimatedSection>
                     <StaggerContainer className="grid gap-3" staggerDelay={0.1}>
@@ -180,7 +198,7 @@ export default function HomePage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Services"
-                        subtitle="Strategy-led design and development built as one system. Ship fast, stay consistent, keep growing."
+                        subtitle="Strategy, design, and build in one loop—so your site stays clear, consistent, and easy to grow."
                         align="center"
                     />
                 </AnimatedSection>
@@ -231,6 +249,11 @@ export default function HomePage() {
                 </StaggerContainer>
             </Section>
 
+            {/* How It Works */}
+            <Section className="bg-muted/30">
+                <HowItWorks contactSource="home-how-it-works" />
+            </Section>
+
             {/* CTA Section */}
             <Section className="relative overflow-hidden" padding="large">
                 <div className="grain absolute inset-0 pointer-events-none" />
@@ -244,14 +267,14 @@ export default function HomePage() {
                         <span className="text-gradient">actually converts?</span>
                     </h2>
                     <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-                        Tell me what you&apos;re building, what you want the site to do, and what constraints we should respect. I&apos;ll reply with a plan and timeline within one business day.
+                        Tell me what you&apos;re building and what success looks like. I&apos;ll reply within one business day with next steps and a clear plan.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/contact?source=home-cta" className="btn-primary">
-                            Start a Project
+                            Talk about your project
                         </Link>
                         <Link href="/about" className="btn-secondary">
-                            Learn About My Process
+                            See how I work
                         </Link>
                     </div>
                 </AnimatedSection>

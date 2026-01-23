@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ const services = [
         icon: IconLayout,
         title: "Website Build / Redesign",
         description:
-            "A premium, conversion-focused website with a reusable design system and a clean Next.js build behind it.",
+            "A premium website that explains what you do, builds trust, and turns visits into inquiries.",
         href: "/services/website",
         timeline: "4-6 weeks",
     },
@@ -26,7 +27,7 @@ const services = [
         icon: IconCode,
         title: "Landing Pages + Funnels",
         description:
-            "Campaign-ready pages and flows that make taking the next step feel effortless.",
+            "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
         href: "/services/landing-pages",
         timeline: "1-3 weeks",
     },
@@ -34,7 +35,7 @@ const services = [
         icon: IconChartLine,
         title: "Growth Retainers",
         description:
-            "SEO, content, and conversion experiments on a predictable cadence—so your site keeps improving after launch.",
+            "Ongoing improvements so your site keeps getting clearer, faster, and higher-converting after launch.",
         href: "/services/growth-retainers",
         timeline: "Ongoing",
     },
@@ -50,15 +51,59 @@ export default function ServicesPage() {
                             Services
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-                            Strategy-led design.
+                            Websites that
                             <br />
-                            <span className="text-gradient">Clean builds that convert.</span>
+                            <span className="text-gradient">turn visitors into inquiries.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground">
-                            Pick the engagement that matches where you are right now. Each one is designed to reduce friction, earn trust, and turn attention into inquiries.
+                            Pick the engagement that matches where you are right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
                         </p>
                     </div>
                 </AnimatedSection>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <div className="grid gap-6 md:grid-cols-2">
+                    <AnimatedSection>
+                        <div className="h-full rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                            <h2 className="text-lg font-semibold text-foreground mb-4">Great fit if</h2>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    You want more inquiries, bookings, or leads from the site.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    Your current site feels outdated, unclear, or slow on mobile.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    You want one person to own strategy, design, and build.
+                                </li>
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+
+                    <AnimatedSection delay={0.08}>
+                        <div className="h-full rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
+                            <h2 className="text-lg font-semibold text-foreground mb-4">Probably not a fit if</h2>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
+                                    You need a full redesign live in a few days.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
+                                    You’re looking for the cheapest option or a template-only build.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
+                                    You want to skip messaging and jump straight into visuals.
+                                </li>
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                </div>
             </Section>
 
             <Section>
@@ -99,6 +144,10 @@ export default function ServicesPage() {
                 </StaggerContainer>
             </Section>
 
+            <Section className="bg-muted/30">
+                <HowItWorks contactSource="services-how-it-works" />
+            </Section>
+
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -108,11 +157,10 @@ export default function ServicesPage() {
                         Tell me what you&apos;re building and what matters most. I&apos;ll recommend the simplest path to results.
                     </p>
                     <Link href="/contact?source=services" className="btn-primary">
-                        Start a Project
+                        Talk about your project
                     </Link>
                 </AnimatedSection>
             </Section>
         </>
     );
 }
-

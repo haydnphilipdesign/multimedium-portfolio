@@ -42,7 +42,7 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
                                 Thanks—got it.
                             </h1>
                             <p className="text-lg text-muted-foreground">
-                                I&apos;ll reply within one business day. If it&apos;s urgent, feel free to call or text.
+                                I&apos;ll reply within one business day. If you included a current website link, I&apos;ll take a look before responding. If it&apos;s urgent, feel free to call or text.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                                 <Link href="/work" className="btn-secondary">

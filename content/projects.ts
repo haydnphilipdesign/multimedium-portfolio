@@ -3,6 +3,7 @@ export interface Project {
     title: string;
     tagline: string;
     description: string;
+    kind: "Client" | "Product" | "Personal";
     category: "Web Design" | "SaaS" | "Automation" | "Portal" | "Wellness" | "Real Estate" | "Fitness";
     year: string;
     client: string;
@@ -58,12 +59,13 @@ export const projects: Project[] = [
     {
         slug: "tag-landing-page",
         title: "Transaction Authority Group (TAG)",
+        kind: "Client",
         metaTitle: "Transaction Authority Group Landing Page",
         metaDescription:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
         socialCaption:
             "New build: a focused booking funnel for Transaction Authority Group—authority-first, qualification-driven, and designed to convert into discovery calls.",
-        tags: ["Landing Page", "Lead Generation", "Scheduler Integration", "Mobile-First"],
+        tags: ["Landing Page", "Lead Generation", "Booking Flow", "Mobile-First"],
         tagline: "Authority-first landing page built to qualify established transaction coordinators and drive discovery call bookings.",
         description:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
@@ -71,7 +73,7 @@ export const projects: Project[] = [
         year: "2026",
         client: "Transaction Authority Group (TAG)",
         role: "Landing Page Strategy, Copy, Design, Development",
-        tools: ["Responsive HTML/CSS/JS", "Performance-first build", "Scheduler integration", "Vercel"],
+        tools: ["Fast, mobile-first build", "Booking calendar integration", "Lead qualification flow", "Vercel hosting"],
         thumbnail: "/images/projects/tag-landing-page/tag-landing-page-thumb.png",
         heroImage: "/images/projects/tag-landing-page/tag-landing-page-hero.png",
         images: [
@@ -151,13 +153,14 @@ export const projects: Project[] = [
     {
         slug: "utility-sheet",
         title: "UtilitySheet",
+        kind: "Product",
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
         description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
         category: "SaaS",
         year: "2025",
         client: "Internal Product",
         role: "Product Strategy, UX/UI Design, Full-Stack Development",
-        tools: ["Next.js", "TypeScript", "Tailwind CSS", "AI/LLM", "PDF Generation", "Vercel"],
+        tools: ["Guided form experience", "Clean PDF output", "Smart provider suggestions", "Vercel hosting"],
         thumbnail: "/images/projects/utilitysheet/utilitysheet-thumb.png",
         heroImage: "/images/projects/utilitysheet/utilitysheet-hero.png",
         images: [
@@ -189,20 +192,21 @@ export const projects: Project[] = [
             { metric: "Follow-ups", value: "-80%", description: "Reduction in back-and-forth emails for utility info" },
             { metric: "Data Accuracy", value: "Fewer errors", description: "AI suggestions reduce typos and guesswork" },
         ],
-        featured: true,
+        featured: false,
         color: "#8b5cf6",
         externalUrl: "https://utilitysheet.com",
     },
     {
         slug: "peppers-portal",
         title: "Pepper's Portal",
+        kind: "Personal",
         tagline: "Family PWA for tracking dog walks, routines, and care with gamification",
         description: "A Progressive Web App built for my family to quickly log our dog Pepper's walks (pee/poop/both), track feeding, grooming, vet visits, and medications—with a leaderboard to make it fun.",
         category: "Portal",
         year: "2025",
         client: "Personal Project",
         role: "Product Design, Full-Stack Development",
-        tools: ["Next.js", "TypeScript", "PWA", "Tailwind CSS", "Vercel"],
+        tools: ["Mobile-friendly app (PWA)", "One-tap logging", "Shared dashboard + history", "Vercel hosting"],
         thumbnail: "/images/projects/peppers-portal/peppers-portal-thumb.png",
         heroImage: "/images/projects/peppers-portal/peppers-portal-hero.png",
         images: [
@@ -234,20 +238,21 @@ export const projects: Project[] = [
             { metric: "Walk Confusion", value: "Eliminated", description: "No more 'did anyone walk her?' questions" },
             { metric: "Routine Tracking", value: "5+ categories", description: "Walks, feeding, toys, grooming, vet, meds" },
         ],
-        featured: true,
+        featured: false,
         color: "#ec4899",
         externalUrl: "https://peppers-portal.vercel.app/public",
     },
     {
         slug: "workout-tracker",
         title: "7-Day Workout Tracker",
+        kind: "Personal",
         tagline: "Personal web app for tracking a custom 7-day workout split with local storage",
         description: "A simple, no-backend web app customized for my personal 7-day workout routine. Stores all data locally in the browser—no database needed for solo use.",
         category: "Fitness",
         year: "2025",
         client: "Personal Project",
         role: "Design & Development",
-        tools: ["Next.js", "TypeScript", "Tailwind CSS", "LocalStorage", "Vercel"],
+        tools: ["Local-only storage", "No accounts required", "Mobile-friendly UI", "Vercel hosting"],
         thumbnail: "/images/projects/workout-tracker/workout-tracker-thumb.png",
         heroImage: "/images/projects/workout-tracker/workout-tracker-hero.png",
         images: [
@@ -279,20 +284,21 @@ export const projects: Project[] = [
             { metric: "Data Privacy", value: "100% local", description: "All workout data stays on the device" },
             { metric: "Customization", value: "Perfect fit", description: "Matches my exact 7-day split" },
         ],
-        featured: true,
+        featured: false,
         color: "#06b6d4",
         externalUrl: "https://7dayplan.vercel.app/",
     },
     {
         slug: "pa-real-estate-support",
         title: "PA Real Estate Support Services",
+        kind: "Client",
         tagline: "Responsive web presence for a Pennsylvania-based real estate transaction coordination team",
         description: "Complete website redesign with clear services, pricing, and intake flows that sync directly with the team's workflow.",
         category: "Real Estate",
         year: "2024",
         client: "PA Real Estate Support Services, LLC",
         role: "Designer & Developer",
-        tools: ["Next.js", "Tailwind CSS", "Vercel", "Resend"],
+        tools: ["Clear service pages + pricing", "Guided intake form", "Fast, mobile-first build", "Easy updates"],
         thumbnail: "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-thumb.png",
         heroImage: "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-hero.png",
         images: [
@@ -331,13 +337,14 @@ export const projects: Project[] = [
     {
         slug: "blissful-existence",
         title: "Blissful Existence Healing Acres",
+        kind: "Client",
         tagline: "Nature-inspired design system for a healing retreat center",
         description: "Immersive website with event booking flows, story-driven copy, and automation-ready forms for a wellness retreat property.",
         category: "Wellness",
         year: "2024",
         client: "Blissful Existence Healing Acres",
         role: "Designer & Developer",
-        tools: ["Next.js", "Framer Motion", "Resend", "Tailwind CSS"],
+        tools: ["Story-driven design", "Event + booking flow", "Automation-ready forms", "Fast, mobile-first build"],
         thumbnail: "/images/projects/blissful-existence/blissful-existence-thumb.png",
         heroImage: "/images/projects/blissful-existence/blissful-existence-hero.png",
         images: [
@@ -376,13 +383,14 @@ export const projects: Project[] = [
     {
         slug: "three-penn-properties",
         title: "Three Penn Properties",
+        kind: "Client",
         tagline: "Professional web presence for a property management and investment firm",
         description: "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step-including the TenantCloud portal.",
         category: "Real Estate",
         year: "2023",
         client: "Three Penn Properties, LLC",
         role: "Designer & Developer",
-        tools: ["Next.js", "Sanity CMS", "Vercel", "Tailwind CSS"],
+        tools: ["Portfolio + proof sections", "Tenant / investor pathways", "CMS for easy updates", "Fast, mobile-first build"],
         thumbnail: "/images/projects/threepenn/threepenn-thumb.png",
         heroImage: "/images/projects/threepenn/threepenn-hero.png",
         images: [
@@ -412,7 +420,7 @@ export const projects: Project[] = [
         outcomes: [
             { metric: "Investor Inquiries", value: "+55%", description: "Increase in qualified investor leads" },
             { metric: "Response Time", value: "<12 hrs", description: "Support ticket response time" },
-            { metric: "Lighthouse", value: "95+", description: "Performance scores across all metrics" },
+            { metric: "Performance", value: "95+", description: "Speed + accessibility scores across key pages" },
         ],
         featured: true,
         color: "#f59e0b",

@@ -40,7 +40,7 @@ export function Footer() {
                             href="/work"
                             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                         >
-                            Work
+                            Case Studies
                         </Link>
                         <Link
                             href="/about"

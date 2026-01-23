@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
     title: "Contact",
     description:
-        "Start a web design, development, or growth project with Multimedium. Share your goals and get a tailored plan and timeline.",
+        "Contact Multimedium to talk about a website build, redesign, or landing page. Share your goals and get clear next steps within one business day.",
     alternates: {
         canonical: "/contact",
     },
@@ -71,10 +71,13 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 Contact
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Let&apos;s build your next site
+                                Talk about your project
                             </h1>
                             <p className="text-lg text-muted-foreground max-w-2xl">
-                                Tell me what you&apos;re building, what you want the site to do, and what constraints we should respect. I&apos;ll reply with a plan and timeline within one business day.
+                                Share the basics—what you do, who it’s for, and what you want the site to accomplish. I&apos;ll reply within one business day with next steps and a plan.
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                                No pressure—if I’m not the right fit, I’ll point you to someone who is.
                             </p>
                         </div>
                     </div>
@@ -88,7 +91,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     <AnimatedSection className="md:col-span-3">
                         <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
                             <h2 className="text-xl font-semibold text-foreground mb-6">
-                                Send a Message
+                                Send a message
                             </h2>
 
                             {sent && (
@@ -207,7 +210,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
                                 <fieldset className="space-y-3">
                                     <legend className="block text-sm font-medium text-foreground">
-                                        Preferred contact method
+                                        How should I reply?
                                     </legend>
                                     <div className="grid sm:grid-cols-3 gap-3">
                                         <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
@@ -255,20 +258,18 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         htmlFor="projectType"
                                         className="block text-sm font-medium text-foreground mb-2"
                                     >
-                                        What are you looking for?
+                                        What do you need help with?
                                     </label>
                                     <select
                                         id="projectType"
                                         name="projectType"
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                     >
-                                        <option value="">Select a project type</option>
-                                        <option value="website">Website Build / Redesign</option>
-                                        <option value="landing">Landing Pages + Funnels</option>
-                                        <option value="portal">Portal / Dashboard</option>
-                                        <option value="retainer">Growth Retainer</option>
-                                        <option value="audit">Accessibility / Performance Audit</option>
-                                        <option value="other">Something else</option>
+                                        <option value="">Select one</option>
+                                        <option value="website">Website build / redesign</option>
+                                        <option value="landing">Landing page (lead-gen)</option>
+                                        <option value="retainer">Ongoing improvements</option>
+                                        <option value="other">Not sure yet / something else</option>
                                     </select>
                                 </div>
 
@@ -345,7 +346,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         htmlFor="currentUrl"
                                         className="block text-sm font-medium text-foreground mb-2"
                                     >
-                                        Current site{" "}
+                                        Current website{" "}
                                         <span className="text-muted-foreground font-normal">
                                             (optional)
                                         </span>
@@ -376,7 +377,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         rows={5}
                                         maxLength={5000}
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all resize-none"
-                                        placeholder="What do you want the site to do? Who's the audience? Any constraints (budget, timeline, tech stack) I should know about?"
+                                        placeholder="What do you want the site to do? Who’s it for? Any deadlines, must-haves, or examples you like?"
                                     />
                                 </div>
 
@@ -385,7 +386,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     className="btn-primary w-full flex items-center justify-center gap-2"
                                 >
                                     <IconSend className="w-4 h-4" stroke={2} />
-                                    Send Message
+                                    Send message
                                 </button>
                             </form>
                         </div>

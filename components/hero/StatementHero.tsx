@@ -68,14 +68,14 @@ export function StatementHero() {
                                 I design and build
                                 <br />
                                 <span className="text-amber-400">
-                                    websites that convert.
+                                    websites that win trust.
                                 </span>
                             </h1>
 
                             {/* Subheadline */}
                             <p className="text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
-                                Strategy-led design and clean Next.js builds.
-                                Premium look, fast load, inevitable contact.
+                                Clear messaging, premium design, and fast pages.
+                                Built to turn visitors into calls, bookings, and forms.
                             </p>
 
                             {/* CTA buttons */}
@@ -84,7 +84,7 @@ export function StatementHero() {
                                     href="/contact?source=home-hero"
                                     className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
                                 >
-                                    <span>Start a Project</span>
+                                    <span>Talk about your project</span>
                                     <svg
                                         className="w-4 h-4 transition-transform group-hover:translate-x-1"
                                         fill="none"
@@ -98,7 +98,7 @@ export function StatementHero() {
                                     href="/work"
                                     className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
                                 >
-                                    View Work
+                                    See case studies
                                 </Link>
                             </div>
                         </motion.div>

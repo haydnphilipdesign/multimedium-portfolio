@@ -7,7 +7,7 @@ import { IconCheck, IconArrowRight } from "@tabler/icons-react";
 export const metadata: Metadata = {
     title: "Landing Pages + Funnels",
     description:
-        "Campaign-ready landing pages and flows that reduce friction and make taking the next step feel effortless.",
+        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups.",
     alternates: {
         canonical: "/services/landing-pages",
     },
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 const included = [
     "Offer + messaging refinement",
-    "Conversion-first layout + copy support",
-    "Form + tracking + follow-up hooks",
+    "Conversion-first layout + copy help",
+    "Forms + tracking + follow-up",
     "A/B-ready sections and components",
     "Fast iteration cadence (ship → learn → improve)",
 ];
@@ -38,7 +38,7 @@ export default function LandingPagesServicePage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=services-landing-pages" className="btn-primary">
-                                Start a Project
+                                Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
                                 See examples <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -87,7 +87,20 @@ export default function LandingPagesServicePage() {
                     </AnimatedSection>
                 </div>
             </Section>
+
+            <Section className="border-t border-border/40">
+                <AnimatedSection className="text-center max-w-2xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                        Need a landing page that actually gets responses?
+                    </h2>
+                    <p className="text-muted-foreground mb-8">
+                        Share the offer, the audience, and where you want the traffic to go. I’ll reply with a simple plan and timeline within one business day.
+                    </p>
+                    <Link href="/contact?source=services-landing-pages-cta" className="btn-primary">
+                        Talk about your project
+                    </Link>
+                </AnimatedSection>
+            </Section>
         </>
     );
 }
-

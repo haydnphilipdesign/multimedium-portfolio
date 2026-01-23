@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/work", label: "Work" },
+    { href: "/work", label: "Case Studies" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
 ];
@@ -132,7 +132,7 @@ export function Navbar() {
                                 href={contactHref}
                                 className="btn-primary inline-flex items-center text-sm"
                             >
-                                Start a Project
+                                Talk about your project
                             </Link>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ export function Navbar() {
                                         onClick={() => setIsOpen(false)}
                                         className="btn-primary w-full text-center block text-sm"
                                     >
-                                        Start a Project
+                                        Talk about your project
                                     </Link>
                                 </div>
                             </div>

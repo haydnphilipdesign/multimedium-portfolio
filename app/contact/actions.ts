@@ -5,11 +5,9 @@ import { sendContactEmail } from "@/lib/email";
 
 const allowedProjectTypes: Record<string, string> = {
     website: "Website Build / Redesign",
-    landing: "Landing Pages + Funnels",
-    portal: "Portal / Dashboard",
-    retainer: "Growth Retainer",
-    audit: "Accessibility / Performance Audit",
-    other: "Something else",
+    landing: "Landing Page (Lead-Gen)",
+    retainer: "Ongoing Improvements / Retainer",
+    other: "Not sure yet / something else",
 };
 
 const allowedContactPreferences: Record<string, string> = {

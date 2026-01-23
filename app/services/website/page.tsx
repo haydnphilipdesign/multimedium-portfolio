@@ -7,18 +7,18 @@ import { IconCheck, IconArrowRight } from "@tabler/icons-react";
 export const metadata: Metadata = {
     title: "Website Build / Redesign",
     description:
-        "A premium, conversion-focused website with a reusable design system and a clean Next.js build behind it.",
+        "A premium website build or redesign built to earn trust, load fast, and turn visitors into inquiries.",
     alternates: {
         canonical: "/services/website",
     },
 };
 
 const included = [
-    "Positioning workshop + page plan",
-    "High-fidelity design with real copy",
-    "Component build + reusable system",
-    "SEO foundations + performance + accessibility",
-    "Analytics setup + launch checklist",
+    "Kickoff workshop + page plan",
+    "Custom design with real copy (not lorem ipsum)",
+    "Reusable sections so new pages stay consistent",
+    "SEO basics + speed + accessibility",
+    "Analytics + launch checklist",
 ];
 
 const faq = [
@@ -27,8 +27,8 @@ const faq = [
         a: "Yes. I can extend an existing brand system or refine it enough to support a modern site without starting from scratch.",
     },
     {
-        q: "What stacks do you build with?",
-        a: "Most builds are Next.js + Tailwind. If you have a preferred CMS or stack, I adapt—while keeping performance and maintainability high.",
+        q: "What will the site be built on?",
+        a: "I typically build modern, fast sites that are easy to maintain. If you have a preferred platform or CMS, I can adapt while keeping speed and quality high.",
     },
     {
         q: "Can you write the copy?",
@@ -49,11 +49,11 @@ export default function WebsiteServicePage() {
                             Website build / redesign
                         </h1>
                         <p className="text-lg text-muted-foreground">
-                            For teams that need to look premium, load fast, and turn attention into qualified inquiries—without the site becoming a one-off patchwork.
+                            For teams that need to look premium, load fast, and turn visitors into qualified inquiries—without the site turning into a patchwork over time.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=services-website" className="btn-primary">
-                                Start a Project
+                                Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
                                 Browse case studies <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -97,7 +97,7 @@ export default function WebsiteServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Most redesigns land in the mid-four to low-five figures. I&apos;ll confirm a range after a short scoping call and page plan.
+                            Most redesigns land in the $10k–$25k range depending on scope and content readiness. I&apos;ll confirm a fixed price after a short scoping call and page plan.
                         </p>
                     </AnimatedSection>
                 </div>
@@ -120,7 +120,20 @@ export default function WebsiteServicePage() {
                     ))}
                 </StaggerContainer>
             </Section>
+
+            <Section className="border-t border-border/40">
+                <AnimatedSection className="text-center max-w-2xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                        Want to upgrade your website this quarter?
+                    </h2>
+                    <p className="text-muted-foreground mb-8">
+                        Tell me what you do and what’s not working on the current site. I’ll reply with next steps and a plan within one business day.
+                    </p>
+                    <Link href="/contact?source=services-website-cta" className="btn-primary">
+                        Talk about your project
+                    </Link>
+                </AnimatedSection>
+            </Section>
         </>
     );
 }
-

@@ -69,8 +69,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
     const cta = project.cta ?? {
         headline: "Interested in working together?",
-        body: "Let's discuss how I can help bring your next project to life.",
-        ctaText: "Start a Conversation",
+        body: "Tell me what you do, who you want to attract, and what you want the site to accomplish.",
+        ctaText: "Talk about your project",
         href: `/contact?source=case-study-${project.slug}`,
     };
 
@@ -95,7 +95,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
                         >
                             <IconArrowLeft className="w-4 h-4" stroke={1.5} />
-                            Back to Work
+                            Back to case studies
                         </Link>
                     </AnimatedSection>
 
@@ -174,7 +174,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                             </div>
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Tools
+                                    Built with (for the curious)
                                 </p>
                                 <p className="text-sm font-medium text-foreground">
                                     {toolsSummary}

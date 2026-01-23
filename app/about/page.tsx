@@ -11,9 +11,9 @@ import {
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
-    title: "About Haydn",
+    title: "About",
     description:
-        "Meet Haydn - a designer-developer building conversion-focused websites, design systems, and portals for teams that need to look premium and ship fast.",
+        "Meet Haydn—designer and developer helping businesses build websites that earn trust, load fast, and turn visitors into inquiries.",
     alternates: {
         canonical: "/about",
     },
@@ -22,40 +22,38 @@ export const metadata: Metadata = {
 const values = [
     {
         icon: IconStack2,
-        title: "Design + engineering",
+        title: "Strategy, design, and build together",
         description:
-            "A cohesive system beats a pretty page. Every build connects narrative, UI, and code so the site stays clean as you grow.",
+            "One person, one feedback loop. You get fewer handoffs, faster decisions, and a website that stays consistent as you grow.",
     },
     {
         icon: IconShieldCheck,
         title: "Performance + accessibility",
         description:
-            "Speed and accessibility aren't nice-to-haves. They're trust signals—and they keep your site usable for everyone.",
+            "Fast pages and accessible design aren’t extras—they’re trust signals. They also keep your site usable for more people.",
     },
     {
         icon: IconSparkles,
-        title: "Momentum over perfectionism",
+        title: "Clear process, real progress",
         description:
-            "Ship the right version fast, then iterate what converts. The goal is outcomes, not endless design loops.",
+            "We ship the right version, then improve what matters. The goal is outcomes—more clarity, more leads, less back-and-forth.",
     },
 ];
 
 const toolbox = [
-    "Next.js • TypeScript",
-    "Tailwind CSS • Component systems",
-    "Framer Motion • Micro-interactions",
-    "Sanity • Contentful • MDX",
-    "Vercel • Supabase",
-    "Resend • Postmark • Twilio",
-    "Zapier • Make.com • n8n",
-    "GA4 • Search Console • Dashboards",
+    "Messaging + page structure",
+    "Design systems + reusable sections",
+    "Forms, email routing, and booking calendars",
+    "Content editing (CMS) so you can update the site",
+    "Analytics + simple conversion tracking",
+    "Fast, modern builds (Next.js) when it’s a fit",
 ];
 
 const workProcess = [
-    "Short workshop to lock positioning + page plan",
-    "High-fidelity design with real copy (not lorem ipsum)",
-    "Component build + CMS / editing workflow",
-    "Launch checklist, analytics, and next-step roadmap",
+    "Short kickoff to lock goals + page plan",
+    "Design with real copy (not lorem ipsum)",
+    "Build with reusable sections + an editing workflow",
+    "Launch checklist, analytics, and a next-step roadmap",
 ];
 
 export default function AboutPage() {
@@ -77,14 +75,14 @@ export default function AboutPage() {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
                             I&apos;m Haydn.
                             <br />
-                            <span className="text-gradient">I design and build sites that feel inevitable.</span>
+                            <span className="text-gradient">I build websites that make it easy to trust you.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground mb-8">
-                            Multimedium is my solo practice—built around one simple idea: the best work happens when strategy, design, and development live in the same feedback loop. You get fewer meetings, faster decisions, and a site that stays consistent as you ship new pages.
+                            Multimedium is my solo practice. I help businesses turn their website into a clear, credible, and fast experience—so the right people understand what you do and reach out.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=about-hero" className="btn-primary">
-                                Start a project
+                                Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
                                 See case studies
@@ -155,9 +153,9 @@ export default function AboutPage() {
 
                     <AnimatedSection delay={0.1}>
                         <div className="space-y-4">
-                            <h3 className="text-2xl font-semibold text-foreground">Toolbox</h3>
+                            <h3 className="text-2xl font-semibold text-foreground">What I can help with</h3>
                             <p className="text-sm text-muted-foreground">
-                                Flexible with your stack, opinionated about quality.
+                                Clear about outcomes, flexible on implementation.
                             </p>
                             <div className="mt-2 flex flex-wrap gap-2">
                                 {toolbox.map((item) => (
@@ -178,14 +176,13 @@ export default function AboutPage() {
             <Section>
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-3xl font-bold text-foreground mb-6">
-                        Let&apos;s Connect
+                        Want a site that brings in better leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I&apos;m always interested in hearing about new projects and
-                        opportunities. Get in touch to start a conversation.
+                        Tell me what you do, who you want to attract, and what’s not working on the current site. I’ll reply within one business day with next steps.
                     </p>
                     <Link href="/contact?source=about-cta" className="btn-primary">
-                        Start a Conversation
+                        Talk about your project
                     </Link>
                 </AnimatedSection>
             </Section>

@@ -72,7 +72,7 @@ export default function TwitterImage() {
                         <span>Web design &amp; development</span>
                         <span style={{ display: "flex", flexWrap: "wrap", gap: 18 }}>
                             <span>that</span>
-                            <span style={{ color: "#f59e0b" }}>converts.</span>
+                            <span style={{ color: "#f59e0b" }}>wins trust.</span>
                         </span>
                     </div>
                     <div
@@ -83,7 +83,7 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Premium look, fast load, inevitable contact.
+                        Clear messaging, premium design, and fast pages.
                     </div>
                 </div>
 
