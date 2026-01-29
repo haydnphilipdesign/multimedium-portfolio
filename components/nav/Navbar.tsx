@@ -41,13 +41,6 @@ export function Navbar() {
     useEffect(() => {
         if (!isOpen) return;
 
-        const timeoutId = window.setTimeout(() => setIsOpen(false), 0);
-        return () => window.clearTimeout(timeoutId);
-    }, [pathname, isOpen]);
-
-    useEffect(() => {
-        if (!isOpen) return;
-
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") setIsOpen(false);
         };
@@ -80,7 +73,7 @@ export function Navbar() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow"
+                        className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
                     >
                         Multimedium
                     </Link>
@@ -93,7 +86,7 @@ export function Navbar() {
                                 href={link.href}
                                 aria-current={isActive(link.href) ? "page" : undefined}
                                 className={cn(
-                                    "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                                    "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                     isActive(link.href)
                                         ? "text-foreground"
                                         : "text-muted-foreground hover:text-foreground"
@@ -173,7 +166,7 @@ export function Navbar() {
                                         onClick={() => setIsOpen(false)}
                                         aria-current={isActive(link.href) ? "page" : undefined}
                                         className={cn(
-                                            "block px-4 py-3 text-base font-medium rounded-lg transition-colors",
+                                            "block px-4 py-3 text-base font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                             isActive(link.href)
                                                 ? "text-foreground bg-accent"
                                                 : "text-muted-foreground hover:text-foreground hover:bg-accent"

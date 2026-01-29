@@ -82,7 +82,7 @@ export function StatementHero() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/contact?source=home-hero"
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02]"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                                 >
                                     <span>Talk about your project</span>
                                     <svg
@@ -96,7 +96,7 @@ export function StatementHero() {
                                 </Link>
                                 <Link
                                     href="/work"
-                                    className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                                    className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                                 >
                                     See case studies
                                 </Link>

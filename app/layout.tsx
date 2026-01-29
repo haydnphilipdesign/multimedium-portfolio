@@ -65,16 +65,22 @@ export default function RootLayout({
 }>) {
   const structuredData = getSiteStructuredData();
 
-  return (
+    return (
     <html lang="en" className={`${inter.variable} dark`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-card focus:text-foreground focus:border focus:border-border focus:shadow-lg"
+        >
+          Skip to content
+        </a>
         <Navbar />
         <PageTransition>
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
         </PageTransition>
         <Footer />
         <Analytics />
