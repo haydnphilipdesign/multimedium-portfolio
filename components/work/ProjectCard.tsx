@@ -16,6 +16,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const prefersReducedMotion = useReducedMotion();
     const [imageError, setImageError] = useState(false);
 
+    const kindLabel = project.kind === "Client" ? "Client" : project.kind === "Product" ? "Product" : "Personal";
+    const kindBadgeClass =
+        project.kind === "Client"
+            ? "bg-background/80 text-foreground border-border/50"
+            : project.kind === "Product"
+              ? "bg-glow/10 text-glow border-glow/20"
+              : "bg-muted/60 text-muted-foreground border-border/40";
+
     const cardContent = (
         <div className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-glow/30 hover:shadow-xl hover:shadow-glow/5">
             {/* Image Container */}
@@ -41,11 +49,18 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
 
-                {/* Category badge */}
+                {/* Badges */}
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/50">
-                        {project.category}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <span
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${kindBadgeClass}`}
+                        >
+                            {kindLabel}
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                            {project.category}
+                        </span>
+                    </div>
                 </div>
 
                 {/* Hover arrow indicator */}

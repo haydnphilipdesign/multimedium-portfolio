@@ -72,6 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.7,
         },
+        {
+            url: `${siteUrl}/lp/real-estate`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
     ];
 
     const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({

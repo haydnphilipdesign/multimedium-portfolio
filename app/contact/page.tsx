@@ -31,6 +31,10 @@ interface ContactPageProps {
         sent?: string;
         error?: string;
         source?: string;
+        projectType?: string;
+        budgetRange?: string;
+        timeline?: string;
+        currentUrl?: string;
     }>;
 }
 
@@ -39,6 +43,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     const sent = params.sent === "1";
     const error = params.error;
     const source = params.source ?? "";
+    const projectType = params.projectType ?? "";
+    const budgetRange = params.budgetRange ?? "";
+    const timeline = params.timeline ?? "";
+    const currentUrl = params.currentUrl ?? "";
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
     const errorMessage = error
         ? {
@@ -263,6 +271,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     <select
                                         id="projectType"
                                         name="projectType"
+                                        defaultValue={projectType}
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                     >
                                         <option value="">Select one</option>
@@ -284,13 +293,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 (optional)
                                             </span>
                                         </label>
-                                        <select
-                                            id="budgetRange"
-                                            name="budgetRange"
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
-                                        >
-                                            <option value="">
-                                                Select a budget range
+                                    <select
+                                        id="budgetRange"
+                                        name="budgetRange"
+                                        defaultValue={budgetRange}
+                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                    >
+                                        <option value="">
+                                            Select a budget range
                                             </option>
                                             <option value="under5k">
                                                 Under $5k
@@ -319,13 +329,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 (optional)
                                             </span>
                                         </label>
-                                        <select
-                                            id="timeline"
-                                            name="timeline"
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
-                                        >
-                                            <option value="">
-                                                Select a timeline
+                                    <select
+                                        id="timeline"
+                                        name="timeline"
+                                        defaultValue={timeline}
+                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                    >
+                                        <option value="">
+                                            Select a timeline
                                             </option>
                                             <option value="asap">ASAP</option>
                                             <option value="1to2mo">
@@ -358,6 +369,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         autoComplete="url"
                                         inputMode="url"
                                         maxLength={500}
+                                        defaultValue={currentUrl}
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
                                         placeholder="https://example.com"
                                     />

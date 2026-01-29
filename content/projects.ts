@@ -533,7 +533,7 @@ export const projects: Project[] = [
         slug: "utility-sheet",
         title: "UtilitySheet",
         kind: "Product",
-        industries: ["tc"],
+        industries: ["tc", "real-estate"],
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
         description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
         category: "SaaS",
