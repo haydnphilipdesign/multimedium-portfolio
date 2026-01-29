@@ -88,6 +88,23 @@ const pillars = [
     },
 ];
 
+const niches = [
+    {
+        title: "Transaction Coordinators",
+        description:
+            "Authority-first pages and lead capture that filters for fit and drives discovery bookings.",
+        href: "/industries/transaction-coordinators",
+        cta: "See TC work",
+    },
+    {
+        title: "Local Trades",
+        description:
+            "Fast, trust-heavy sites for service businesses—built to turn searches into calls and quote requests.",
+        href: "/industries/trades",
+        cta: "See trades approach",
+    },
+];
+
 export default function HomePage() {
     const featuredProjects = getFeaturedProjects();
     const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
@@ -116,6 +133,44 @@ export default function HomePage() {
                         ))}
                     </div>
                 </AnimatedSection>
+            </Section>
+
+            {/* Specialties */}
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                            Built for service businesses that need better leads
+                        </h2>
+                        <p className="mt-2 text-muted-foreground">
+                            Two lanes I’ve been focused on recently—both centered on trust, clarity, and conversion.
+                        </p>
+                    </div>
+                </AnimatedSection>
+
+                <StaggerContainer className="mt-8 grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                    {niches.map((niche) => (
+                        <StaggerItem key={niche.title}>
+                            <Link
+                                href={`${niche.href}?source=home-niche`}
+                                className="group block h-full rounded-2xl border border-border/50 bg-card p-7 transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5"
+                            >
+                                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                                    Specialty
+                                </p>
+                                <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                                    {niche.title}
+                                </h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                    {niche.description}
+                                </p>
+                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-glow transition-colors">
+                                    {niche.cta} <IconArrowRight className="w-4 h-4" stroke={2} />
+                                </div>
+                            </Link>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
             </Section>
 
             {/* Featured Work Section */}

@@ -106,6 +106,27 @@ export default function ServicesPage() {
                 </div>
             </Section>
 
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        <div className="max-w-2xl">
+                            <p className="text-sm font-medium text-foreground">Focused recently:</p>
+                            <p className="mt-1 text-muted-foreground">
+                                Real estate transaction coordinators and premium local service businesses (trades).
+                            </p>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <Link href="/industries/transaction-coordinators?source=services" className="btn-secondary">
+                                For transaction coordinators
+                            </Link>
+                            <Link href="/industries/trades?source=services" className="btn-secondary">
+                                For trades
+                            </Link>
+                        </div>
+                    </div>
+                </AnimatedSection>
+            </Section>
+
             <Section>
                 <AnimatedSection>
                     <SectionHeading

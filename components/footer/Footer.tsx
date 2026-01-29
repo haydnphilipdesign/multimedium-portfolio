@@ -37,6 +37,18 @@ export function Footer() {
                             Services
                         </Link>
                         <Link
+                            href="/industries/transaction-coordinators?source=footer"
+                            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            For TCs
+                        </Link>
+                        <Link
+                            href="/resources"
+                            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Resources
+                        </Link>
+                        <Link
                             href="/work"
                             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                         >

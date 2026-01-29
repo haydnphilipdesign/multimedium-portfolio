@@ -78,6 +78,10 @@ export function StatementHero() {
                                 Built to turn visitors into calls, bookings, and forms.
                             </p>
 
+                            <p className="text-sm text-white/50 max-w-xl mb-10 -mt-6">
+                                Specializing in real estate transaction coordinators and premium local service businesses.
+                            </p>
+
                             {/* CTA buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
