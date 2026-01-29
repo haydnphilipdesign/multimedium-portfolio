@@ -415,12 +415,14 @@ export default function HomeServicesPage() {
                                     Stronger average job value through financing
                                 </li>
                             </ul>
-                            <Link
-                                href="/contact?source=home-services-concept"
-                                className="btn-primary w-full mt-6 text-center"
-                            >
-                                Request a custom concept
-                            </Link>
+                            <div className="mt-6 pt-6 border-t border-border/50">
+                                <Link
+                                    href="/contact?source=home-services-concept"
+                                    className="btn-primary inline-flex w-full items-center justify-center text-center shadow-none hover:shadow-none"
+                                >
+                                    Request a custom concept
+                                </Link>
+                            </div>
                         </div>
                     </AnimatedSection>
                 </div>

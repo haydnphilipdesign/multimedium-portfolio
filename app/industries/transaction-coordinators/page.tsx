@@ -65,6 +65,43 @@ const included = [
     },
 ];
 
+const expectations = [
+    { label: "Primary conversion", value: "Booked discovery calls" },
+    { label: "Lead quality", value: "Fit-filtered inquiries" },
+    { label: "Systems-ready", value: "Intake + follow-up automation" },
+];
+
+const fitFor = [
+    "Established transaction coordinators and TC teams",
+    "TCs who want fewer low-fit leads and more qualified calls",
+    "Operators who want a premium presence that feels serious and systems-driven",
+];
+
+const notFor = [
+    "Brand-new TCs looking for quick volume without positioning",
+    "Anyone who wants a generic template with no qualification layer",
+    "Businesses that are not ready to respond to leads quickly",
+];
+
+const faqs = [
+    {
+        q: "Do you write the copy?",
+        a: "Yes. Positioning and copy are part of the build. We make the offer obvious, add proof, and write the sections that prevent low-fit leads from booking.",
+    },
+    {
+        q: "Can you add a lead qualification flow?",
+        a: "Yes. We can build forms that route, tag, and filter leads so you spend time on the right calls. If you already use a CRM, we can integrate with it.",
+    },
+    {
+        q: "What if I am a solo TC?",
+        a: "That can still be a fit. The key is positioning: clear scope, clear process, and proof that you run a real operation.",
+    },
+    {
+        q: "How long does it take?",
+        a: "Once we have your offer, proof assets, and preferred lead flow, builds can move quickly. I will give you a concrete timeline after a short intake.",
+    },
+];
+
 export default function TransactionCoordinatorsPage() {
     const tagProject = getProjectBySlug("tag-landing-page");
     const paRes = getProjectBySlug("pa-real-estate-support");
@@ -77,31 +114,55 @@ export default function TransactionCoordinatorsPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="max-w-3xl space-y-6">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
-                            Real Estate Ops
-                        </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            Websites for transaction coordinators
-                            <br />
-                            <span className="text-gradient">that make booking feel obvious.</span>
-                        </h1>
-                        <p className="text-lg text-muted-foreground">
-                            Authority-first messaging, premium design, and a conversion path that filters out poor-fit leads—so you spend less time “selling” and more time coordinating.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <Link
-                                href="/contact?source=tc-hero"
-                                className="btn-primary"
-                            >
-                                Talk about your project
-                            </Link>
-                            <Link
-                                href="/work?source=tc-hero"
-                                className="btn-secondary inline-flex items-center gap-2"
-                            >
-                                See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
-                            </Link>
+                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
+                        <div className="grain absolute inset-0 pointer-events-none" />
+
+                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
+                            <div className="lg:col-span-3 space-y-6">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                                    Real Estate Ops
+                                </span>
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                                    Websites for transaction coordinators
+                                    <br />
+                                    <span className="text-gradient">that make booking feel obvious.</span>
+                                </h1>
+                                <p className="text-lg text-muted-foreground max-w-2xl">
+                                    Authority-first messaging, premium design, and a conversion path that filters out poor-fit leads - so you spend less time &quot;selling&quot; and more time coordinating.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <Link
+                                        href="/contact?source=tc-hero"
+                                        className="btn-primary"
+                                    >
+                                        Talk about your project
+                                    </Link>
+                                    <Link
+                                        href="/work?source=tc-hero"
+                                        className="btn-secondary inline-flex items-center gap-2"
+                                    >
+                                        See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="lg:col-span-2">
+                                <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
+                                    <p className="text-sm font-semibold text-foreground">Built for qualified bookings</p>
+                                    <div className="mt-4 grid gap-3">
+                                        {expectations.map((item) => (
+                                            <div
+                                                key={item.label}
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/50 bg-card/40 px-4 py-3"
+                                            >
+                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
+                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </AnimatedSection>
@@ -146,6 +207,37 @@ export default function TransactionCoordinatorsPage() {
                 </StaggerContainer>
             </Section>
 
+            <Section className="pt-10 md:pt-14" padding="none">
+                <div className="grid gap-6 md:grid-cols-2">
+                    <AnimatedSection>
+                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
+                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                                {fitFor.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.06}>
+                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                                {notFor.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </Section>
+
             {featured.length > 0 ? (
                 <Section>
                     <AnimatedSection>
@@ -175,6 +267,26 @@ export default function TransactionCoordinatorsPage() {
                     </div>
                 </Section>
             ) : null}
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="FAQ"
+                        subtitle="A few common questions TCs ask before a build."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                    {faqs.map((item) => (
+                        <StaggerItem key={item.q}>
+                            <div className="rounded-2xl border border-border/50 bg-card p-7">
+                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+            </Section>
 
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">

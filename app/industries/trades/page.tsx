@@ -62,30 +62,91 @@ const included = [
     },
 ];
 
+const expectations = [
+    { label: "Primary conversion", value: "Calls + estimate requests" },
+    { label: "Built for mobile", value: "Fast load + tap-to-call" },
+    { label: "Tracking-ready", value: "Analytics + conversion events" },
+];
+
+const fitFor = [
+    "Local trades and blue-collar services (asphalt, sealcoating, excavation, fencing, etc.)",
+    "Teams who want to look more established than the competition",
+    "Owners who want more inbound calls without a bloated site",
+];
+
+const notFor = [
+    "DIY templates with no strategy or proof placement",
+    "Businesses outside a clear service area (everyone, everywhere)",
+    "Anyone optimizing for volume over profit",
+];
+
+const faqs = [
+    {
+        q: "Do you do SEO?",
+        a: "I build the local SEO foundation: fast pages, clear service pages, metadata, and structure. If you want ongoing SEO/content, we can layer that on after launch.",
+    },
+    {
+        q: "Can you help with photos and copy?",
+        a: "Yes. I can tighten your messaging and guide what to capture for before/after, equipment, and proof so the site feels credible fast.",
+    },
+    {
+        q: "Do you build multi-location or multi-crew sites?",
+        a: "Yes. We can structure service areas, locations, and crew pages so leads self-select and routing stays clean.",
+    },
+    {
+        q: "What does a typical timeline look like?",
+        a: "Once we have your services, service area, and proof assets, builds can move quickly. I will give you a concrete timeline after a short intake.",
+    },
+];
+
 export default function TradesPage() {
     return (
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="max-w-3xl space-y-6">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
-                            Local Service Businesses
-                        </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            Websites for trades
-                            <br />
-                            <span className="text-gradient">that turn searches into calls.</span>
-                        </h1>
-                        <p className="text-lg text-muted-foreground">
-                            For service businesses that want to look premium, show proof fast, and make contacting you feel simple—on mobile, especially.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <Link href="/contact?source=trades-hero" className="btn-primary">
-                                Talk about your project
-                            </Link>
-                            <Link href="/services?source=trades-hero" className="btn-secondary inline-flex items-center gap-2">
-                                See services <IconArrowRight className="w-4 h-4" stroke={2} />
-                            </Link>
+                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
+                        <div className="grain absolute inset-0 pointer-events-none" />
+
+                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
+                            <div className="lg:col-span-3 space-y-6">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                                    Local Service Businesses
+                                </span>
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                                    Websites for trades
+                                    <br />
+                                    <span className="text-gradient">that turn searches into calls.</span>
+                                </h1>
+                                <p className="text-lg text-muted-foreground max-w-2xl">
+                                    For service businesses that want to look premium, show proof fast, and make contacting you feel simple - on mobile, especially.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <Link href="/contact?source=trades-hero" className="btn-primary">
+                                        Talk about your project
+                                    </Link>
+                                    <Link href="/services?source=trades-hero" className="btn-secondary inline-flex items-center gap-2">
+                                        See services <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="lg:col-span-2">
+                                <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
+                                    <p className="text-sm font-semibold text-foreground">Built for local intent</p>
+                                    <div className="mt-4 grid gap-3">
+                                        {expectations.map((item) => (
+                                            <div
+                                                key={item.label}
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/50 bg-card/40 px-4 py-3"
+                                            >
+                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
+                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </AnimatedSection>
@@ -130,6 +191,57 @@ export default function TradesPage() {
                 </StaggerContainer>
             </Section>
 
+            <Section className="pt-10 md:pt-14" padding="none">
+                <div className="grid gap-6 md:grid-cols-2">
+                    <AnimatedSection>
+                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
+                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                                {fitFor.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.06}>
+                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                                {notFor.map((item) => (
+                                    <li key={item} className="flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="FAQ"
+                        subtitle="A few common questions trades and service owners ask before a build."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                    {faqs.map((item) => (
+                        <StaggerItem key={item.q}>
+                            <div className="rounded-2xl border border-border/50 bg-card p-7">
+                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+            </Section>
+
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -146,4 +258,3 @@ export default function TradesPage() {
         </>
     );
 }
-
