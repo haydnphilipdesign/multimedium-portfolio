@@ -67,8 +67,9 @@ const included = [
 
 export default function TransactionCoordinatorsPage() {
     const tagProject = getProjectBySlug("tag-landing-page");
+    const paRes = getProjectBySlug("pa-real-estate-support");
     const utilitySheet = getProjectBySlug("utility-sheet");
-    const featured = [tagProject, utilitySheet].filter(
+    const featured = [paRes, tagProject, utilitySheet].filter(
         (project): project is Project => Boolean(project)
     );
 

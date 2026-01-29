@@ -292,6 +292,12 @@ export const projects: Project[] = [
         slug: "pa-real-estate-support",
         title: "PA Real Estate Support Services",
         kind: "Client",
+        metaTitle: "PA Real Estate Support Services Website Redesign (TC)",
+        metaDescription:
+            "Website redesign for a Pennsylvania transaction coordination team—clear service pages, pricing, and an intake flow designed to drive qualified inquiries.",
+        socialCaption:
+            "Website redesign for PA Real Estate Support Services: clearer services + pricing, a guided intake flow, and a faster mobile experience for TC leads.",
+        tags: ["Transaction Coordination", "Service Pages", "Pricing", "Intake Flow", "Conversion Copy"],
         tagline: "Responsive web presence for a Pennsylvania-based real estate transaction coordination team",
         description: "Complete website redesign with clear services, pricing, and intake flows that sync directly with the team's workflow.",
         category: "Real Estate",
