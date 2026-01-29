@@ -5,11 +5,12 @@ import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { requestChecklist } from "./actions";
 import { ChecklistActions } from "./ChecklistActions";
 import { IconArrowRight, IconChecklist } from "@tabler/icons-react";
+import { checklistSections, checklistTitle } from "@/lib/resources/tc-intake-checklist";
 
 export const metadata: Metadata = {
     title: "TC Lead Intake Checklist",
     description:
-        "A practical lead intake checklist for real estate transaction coordinators—so you can qualify faster and start every file clean.",
+        "A printable lead intake checklist for real estate transaction coordinators—so you can qualify faster and start every file clean.",
     alternates: {
         canonical: "/resources/tc-intake-checklist",
     },
@@ -31,7 +32,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
 
     return (
         <>
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-28 sm:pt-32 md:pt-40 print-hidden" padding="none">
                 <AnimatedSection>
                     <div className="max-w-3xl space-y-6">
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
@@ -42,7 +43,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                             TC lead intake checklist
                         </h1>
                         <p className="text-lg text-muted-foreground">
-                            Use this to qualify leads, collect the right info upfront, and start every file with fewer loose ends.
+                            Free, printable checklist you can copy, print, or email to yourself—so you qualify leads faster and start every file clean.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link
@@ -62,20 +63,30 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-5">
-                    <AnimatedSection className="md:col-span-2">
+            <Section className="pt-10 md:pt-14 print-section" padding="none">
+                <div className="grid gap-6 md:grid-cols-5 print-grid">
+                    <AnimatedSection className="md:col-span-2 print-hidden">
                         <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-7">
                             <h2 className="text-xl font-semibold text-foreground">
-                                Want a printable version?
+                                Email me the printable checklist
                             </h2>
                             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Drop your info and I’ll send myself a note so I can follow up if you want help turning this into a real lead capture system.
+                                I will send a clean, printable version plus the full copy/paste list. Prefer not to share your email? You can still print or copy it below.
                             </p>
+                            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    Printable checklist (PDF-ready)
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    Copy/paste list for your CRM
+                                </li>
+                            </ul>
 
                             {sent ? (
                                 <div className="mt-5 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
-                                    Got it — I’ll follow up if it looks like a fit.
+                                    Check your inbox — the checklist is on its way.
                                 </div>
                             ) : null}
 
@@ -139,8 +150,11 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                                 </div>
 
                                 <button type="submit" className="btn-primary w-full">
-                                    Get the checklist
+                                    Email me the checklist
                                 </button>
+                                <p className="text-xs text-muted-foreground">
+                                    One email. No spam.
+                                </p>
                             </form>
 
                             <div className="mt-5">
@@ -150,67 +164,36 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                     </AnimatedSection>
 
                     <AnimatedSection className="md:col-span-3" delay={0.06}>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-7">
+                        <div id="checklist" className="rounded-2xl border border-border/50 bg-card p-6 sm:p-7 print-card">
+                            <div className="print-only hidden mb-6">
+                                <h1 className="text-2xl font-bold text-foreground">
+                                    {checklistTitle}
+                                </h1>
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                    Copy, print, or drop this into your CRM to start every file clean.
+                                </p>
+                            </div>
                             <h2 className="text-2xl font-bold text-foreground">
                                 Checklist
                             </h2>
                             <p className="mt-2 text-sm text-muted-foreground">
-                                Copy/paste this into your lead form, onboarding doc, or CRM.
+                                Copy/paste this into your lead form, onboarding doc, or CRM. Print-ready when you need it.
                             </p>
 
                             <div className="mt-6 space-y-6 text-sm text-muted-foreground leading-relaxed">
-                                <div>
-                                    <p className="font-semibold text-foreground">Basics</p>
-                                    <ul className="mt-2 space-y-2">
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Name + best email/phone</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Business name</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Website / social links</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Where they found you</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <p className="font-semibold text-foreground">Transaction details</p>
-                                    <ul className="mt-2 space-y-2">
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Property address + MLS #</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Buyer / seller side</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Contract/ratification date</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Target close date</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Earnest money amount + due date + holder</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Financing type + lender info (if financed)</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <p className="font-semibold text-foreground">Parties (name + email + phone)</p>
-                                    <ul className="mt-2 space-y-2">
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Buyer(s) / Seller(s)</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Buyer agent / Listing agent</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Lender (if applicable)</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Title / attorney</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Home warranty (if applicable)</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <p className="font-semibold text-foreground">Key dates / contingencies</p>
-                                    <ul className="mt-2 space-y-2">
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Inspection deadline + who schedules</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Appraisal deadline</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Financing contingency date</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />HOA/condo docs deadline (if applicable)</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Occupancy / possession terms</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <p className="font-semibold text-foreground">Fit filter</p>
-                                    <ul className="mt-2 space-y-2">
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Are they clear on scope + responsibilities?</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Is the timeline realistic?</li>
-                                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />Any unusual terms that require extra handling?</li>
-                                    </ul>
-                                </div>
+                                {checklistSections.map((section) => (
+                                    <div key={section.title}>
+                                        <p className="font-semibold text-foreground">{section.title}</p>
+                                        <ul className="mt-2 space-y-2">
+                                            {section.items.map((item) => (
+                                                <li key={item} className="flex items-start gap-2">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </AnimatedSection>
@@ -219,4 +202,3 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
         </>
     );
 }
-

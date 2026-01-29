@@ -2,56 +2,7 @@
 
 import { useMemo } from "react";
 import { IconCopy, IconPrinter } from "@tabler/icons-react";
-
-const checklistText = `Transaction Coordinator Lead Intake Checklist
-
-Basics
-- Name + best email/phone
-- Business name (if applicable)
-- Website / social links
-- Where they found you
-
-Transaction Details
-- Property address + MLS # (if applicable)
-- County / state
-- Buyer / seller side
-- Contract/ratification date
-- Target close date
-- Earnest money amount + due date + holder
-- Financing type + lender info (if financed)
-
-Parties (name + email + phone)
-- Buyer(s)
-- Seller(s)
-- Buyer agent
-- Listing agent
-- Lender (if applicable)
-- Title / attorney
-- Home warranty (if applicable)
-
-Documents Needed
-- Executed agreement of sale
-- Addenda (inspection, appraisal, etc.)
-- Disclosures
-- MLS sheet (optional)
-
-Key Dates / Contingencies
-- Inspection deadline + who schedules
-- Appraisal deadline
-- Financing contingency date
-- HOA / condo docs deadline (if applicable)
-- Utility / occupancy / possession terms
-
-Communication + Expectations
-- Preferred update cadence
-- What you do / don’t handle
-- Who is responsible for scheduling (inspections, utilities, etc.)
-
-Red Flags / Fit Filter
-- Are they clear on scope + responsibilities?
-- Timeline realistic?
-- Any unusual terms that require extra handling?
-`;
+import { checklistText } from "@/lib/resources/tc-intake-checklist";
 
 export function ChecklistActions() {
     const canCopy = typeof navigator !== "undefined" && Boolean(navigator.clipboard);
@@ -93,4 +44,3 @@ export function ChecklistActions() {
         </div>
     );
 }
-

@@ -20,6 +20,8 @@ export interface LeadMagnetPayload {
     email: string;
     company?: string;
     source?: string;
+    resourceUrl?: string;
+    resourceText?: string;
 }
 
 function requiredEnv(name: string): string {
@@ -77,11 +79,32 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
 
     const resend = new Resend(resendApiKey);
 
-    const subjectParts = ["Lead magnet request", payload.leadMagnet, payload.name];
-    if (payload.company) subjectParts.push(payload.company);
-    const subject = subjectParts.join(" - ");
+    const leadSubject = `${payload.leadMagnet} - printable checklist`;
+    const leadTextLines: string[] = [
+        `Hi ${payload.name},`,
+        "",
+        `Here is your ${payload.leadMagnet}.`,
+        payload.resourceUrl ? `Printable version: ${payload.resourceUrl}` : "",
+        "",
+        payload.resourceText ?? "",
+        "",
+        "If you want help turning this into a lead capture system, just reply to this email.",
+        "- Haydn",
+    ].filter(Boolean);
 
-    const textLines: string[] = [
+    await resend.emails.send({
+        from: fromEmail,
+        to: [payload.email],
+        replyTo: toEmail,
+        subject: leadSubject,
+        text: leadTextLines.join("\n"),
+    });
+
+    const notifySubjectParts = ["Lead magnet request", payload.leadMagnet, payload.name];
+    if (payload.company) notifySubjectParts.push(payload.company);
+    const notifySubject = notifySubjectParts.join(" - ");
+
+    const notifyTextLines: string[] = [
         `Lead magnet: ${payload.leadMagnet}`,
         `Name: ${payload.name}`,
         `Email: ${payload.email}`,
@@ -89,11 +112,15 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
         payload.source ? `Source: ${payload.source}` : "",
     ].filter(Boolean);
 
-    await resend.emails.send({
-        from: fromEmail,
-        to: [toEmail],
-        replyTo: payload.email,
-        subject,
-        text: textLines.join("\n"),
-    });
+    try {
+        await resend.emails.send({
+            from: fromEmail,
+            to: [toEmail],
+            replyTo: payload.email,
+            subject: notifySubject,
+            text: notifyTextLines.join("\n"),
+        });
+    } catch (error) {
+        console.error("Lead magnet notify failed", error);
+    }
 }

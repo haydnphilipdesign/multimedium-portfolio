@@ -16,7 +16,7 @@ const resources = [
     {
         icon: IconChecklist,
         title: "TC Lead Intake Checklist",
-        description: "A practical intake checklist to qualify leads and start every file clean.",
+        description: "A printable intake checklist to qualify leads and start every file clean.",
         href: "/resources/tc-intake-checklist",
     },
 ];
@@ -61,4 +61,3 @@ export default function ResourcesPage() {
         </>
     );
 }
-

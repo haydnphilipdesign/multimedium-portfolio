@@ -2,6 +2,8 @@
 
 import { redirect } from "next/navigation";
 import { sendLeadMagnetEmail } from "@/lib/email";
+import { siteUrl } from "@/lib/site";
+import { checklistText } from "@/lib/resources/tc-intake-checklist";
 
 function getText(formData: FormData, key: string): string {
     const value = formData.get(key);
@@ -41,6 +43,8 @@ export async function requestChecklist(formData: FormData) {
             email,
             company: company || undefined,
             source: source || undefined,
+            resourceUrl: `${siteUrl}/resources/tc-intake-checklist#checklist`,
+            resourceText: checklistText,
         });
     } catch (error) {
         console.error("Lead magnet email failed", error);
@@ -49,4 +53,3 @@ export async function requestChecklist(formData: FormData) {
 
     redirect(`/resources/tc-intake-checklist${thanksQuery}`);
 }
-

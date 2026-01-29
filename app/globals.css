@@ -308,3 +308,47 @@
     outline-offset: 3px;
   }
 }
+
+@media print {
+  header,
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .print-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .print-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .print-card .text-foreground {
+    color: #000 !important;
+  }
+
+  .print-card .text-muted-foreground {
+    color: #333 !important;
+  }
+
+  .print-card .bg-glow {
+    background: #000 !important;
+  }
+}
