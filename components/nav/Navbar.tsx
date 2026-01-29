@@ -11,7 +11,6 @@ const navLinks = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/industries/transaction-coordinators", label: "For TCs" },
-    { href: "/resources", label: "Resources" },
     { href: "/work", label: "Case Studies" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },

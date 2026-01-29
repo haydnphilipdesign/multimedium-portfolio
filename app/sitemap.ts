@@ -55,18 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.75,
         },
         {
-            url: `${siteUrl}/resources`,
-            lastModified: now,
-            changeFrequency: "monthly",
-            priority: 0.7,
-        },
-        {
-            url: `${siteUrl}/resources/tc-intake-checklist`,
-            lastModified: now,
-            changeFrequency: "monthly",
-            priority: 0.7,
-        },
-        {
             url: `${siteUrl}/about`,
             lastModified: now,
             changeFrequency: "yearly",

@@ -43,12 +43,6 @@ export function Footer() {
                             For TCs
                         </Link>
                         <Link
-                            href="/resources"
-                            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            Resources
-                        </Link>
-                        <Link
                             href="/work"
                             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                         >

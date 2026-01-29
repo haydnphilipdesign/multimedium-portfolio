@@ -97,10 +97,10 @@ export default function TransactionCoordinatorsPage() {
                                 Talk about your project
                             </Link>
                             <Link
-                                href="/resources/tc-intake-checklist?source=tc-hero"
+                                href="/work?source=tc-hero"
                                 className="btn-secondary inline-flex items-center gap-2"
                             >
-                                Get the TC intake checklist <IconArrowRight className="w-4 h-4" stroke={2} />
+                                See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
                             </Link>
                         </div>
                     </div>
