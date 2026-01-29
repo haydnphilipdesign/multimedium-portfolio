@@ -14,6 +14,9 @@ import {
     IconChecklist,
     IconClock,
     IconArrowRight,
+    IconChartBar,
+    IconPlugConnected,
+    IconSparkles,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -114,6 +117,31 @@ const process = [
     },
 ];
 
+const expectations = [
+    { label: "Primary conversion", value: "Calls + service requests" },
+    { label: "Tracking-ready", value: "Analytics + call tracking" },
+    { label: "Tool friendly", value: "Jobber / ServiceTitan / Housecall Pro" },
+];
+
+const faqs = [
+    {
+        q: "Do you do SEO?",
+        a: "I build local SEO foundations (structure, service pages, metadata, performance). Ongoing SEO/content is available if you want it, but the site starts with the fundamentals done correctly.",
+    },
+    {
+        q: "Can you integrate with our CRM/scheduling tools?",
+        a: "Yes. I can integrate or route leads into common stacks (Jobber, ServiceTitan, Housecall Pro, etc.) and set up tracking so you know what channels are producing the best jobs.",
+    },
+    {
+        q: "What if we want fewer low-quality leads?",
+        a: "We design the site to self-qualify: service area clarity, clear pricing signals (when appropriate), and intake questions that filter out the wrong jobs before you waste time.",
+    },
+    {
+        q: "How fast can we launch?",
+        a: "A focused build can move quickly once we have your service list, service area, proof assets, and preferred lead flow. I will give you a concrete timeline after a short intake.",
+    },
+];
+
 export default function HomeServicesPage() {
     const blissful = getProjectBySlug("blissful-existence");
     const threePenn = getProjectBySlug("three-penn-properties");
@@ -126,26 +154,50 @@ export default function HomeServicesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="max-w-3xl space-y-6">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
-                            Home Services
-                        </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            Websites for home service companies
-                            <br />
-                            <span className="text-gradient">that turn searches into booked jobs.</span>
-                        </h1>
-                        <p className="text-lg text-muted-foreground">
-                            Premium positioning, fast performance, and lead capture that filters for the right jobs.
-                            Built for HVAC, plumbing, electrical, roofing, and local service teams.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <Link href="/contact?source=home-services-hero" className="btn-primary">
-                                Talk about your project
-                            </Link>
-                            <Link href="#concept" className="btn-secondary inline-flex items-center gap-2">
-                                View concept build <IconArrowRight className="w-4 h-4" stroke={2} />
-                            </Link>
+                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
+                        <div className="grain absolute inset-0 pointer-events-none" />
+
+                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
+                            <div className="lg:col-span-3 space-y-6">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                                    Home Services
+                                </span>
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                                    Websites for home service companies
+                                    <br />
+                                    <span className="text-gradient">that turn searches into booked jobs.</span>
+                                </h1>
+                                <p className="text-lg text-muted-foreground max-w-2xl">
+                                    Premium positioning, fast performance, and lead capture that filters for the right jobs.
+                                    Built for HVAC, plumbing, electrical, roofing, and local service teams.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <Link href="/contact?source=home-services-hero" className="btn-primary">
+                                        Talk about your project
+                                    </Link>
+                                    <Link href="#concept" className="btn-secondary inline-flex items-center gap-2">
+                                        View concept build <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="lg:col-span-2">
+                                <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
+                                    <p className="text-sm font-semibold text-foreground">Built for the way home services win</p>
+                                    <div className="mt-4 grid gap-3">
+                                        {expectations.map((item) => (
+                                            <div
+                                                key={item.label}
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/50 bg-card/40 px-4 py-3"
+                                            >
+                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
+                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </AnimatedSection>
@@ -165,6 +217,40 @@ export default function HomeServicesPage() {
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
+            </Section>
+
+            <Section className="pt-4 md:pt-6" padding="none">
+                <AnimatedSection direction="none" delay={0.02}>
+                    <div className="grid gap-4 sm:grid-cols-3">
+                        <div className="rounded-2xl border border-border/50 bg-card p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                                <IconChartBar className="w-5 h-5" stroke={1.5} />
+                            </div>
+                            <p className="mt-4 text-sm font-semibold text-foreground">Measure lead quality</p>
+                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                Track calls and form submissions so you know what brings the better jobs, not just more clicks.
+                            </p>
+                        </div>
+                        <div className="rounded-2xl border border-border/50 bg-card p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                                <IconPlugConnected className="w-5 h-5" stroke={1.5} />
+                            </div>
+                            <p className="mt-4 text-sm font-semibold text-foreground">Route leads cleanly</p>
+                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                Push requests to the right inbox, calendar, or system so you respond faster and stop losing hot leads.
+                            </p>
+                        </div>
+                        <div className="rounded-2xl border border-border/50 bg-card p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                                <IconSparkles className="w-5 h-5" stroke={1.5} />
+                            </div>
+                            <p className="mt-4 text-sm font-semibold text-foreground">Look premium, stay local</p>
+                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                A polished site that feels established and trustworthy without looking like a national franchise template.
+                            </p>
+                        </div>
+                    </div>
+                </AnimatedSection>
             </Section>
 
             <Section className="bg-muted/30">
@@ -245,6 +331,45 @@ export default function HomeServicesPage() {
                                 A single-scroll homepage focused on phone calls and form submissions, with proof and
                                 guarantees visible before the first scroll ends.
                             </p>
+                            <div className="mt-6 overflow-hidden rounded-xl border border-border/60 bg-background/30">
+                                <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-border/50 bg-muted/30">
+                                    <p className="text-xs font-semibold text-foreground">Ironline Heating & Cooling</p>
+                                    <div className="flex items-center gap-2">
+                                        <span className="px-2 py-1 rounded-md border border-border/60 bg-card/50 text-[11px] text-muted-foreground">
+                                            Service area: NEPA
+                                        </span>
+                                        <span className="px-2 py-1 rounded-md border border-glow/25 bg-glow/10 text-[11px] text-foreground">
+                                            Tap to call
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-sm font-semibold text-foreground">
+                                        No-heat? AC down? Book service without hunting for the number.
+                                    </p>
+                                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                                        This is a layout concept: high-intent headline, proof placement, and fast routing to the right service.
+                                    </p>
+                                    <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                            Furnace repair
+                                        </div>
+                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                            AC repair
+                                        </div>
+                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                            Install / replacement
+                                        </div>
+                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                            Maintenance plan
+                                        </div>
+                                    </div>
+                                    <p className="mt-3 text-[11px] text-muted-foreground">
+                                        Mock content for concept only.
+                                    </p>
+                                </div>
+                            </div>
+
                             <div className="mt-6 grid gap-3 sm:grid-cols-2 text-sm text-muted-foreground">
                                 {conceptHighlights.map((item) => (
                                     <div key={item} className="flex items-start gap-2">
@@ -331,6 +456,26 @@ export default function HomeServicesPage() {
                     </div>
                 </Section>
             ) : null}
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="FAQ"
+                        subtitle="A few common questions home service owners ask before a build."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                    {faqs.map((item) => (
+                        <StaggerItem key={item.q}>
+                            <div className="rounded-2xl border border-border/50 bg-card p-7">
+                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+            </Section>
 
             <Section className="bg-muted/30">
                 <AnimatedSection>
