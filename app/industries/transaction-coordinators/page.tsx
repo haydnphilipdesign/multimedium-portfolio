@@ -139,7 +139,7 @@ export default function TransactionCoordinatorsPage() {
                                         Talk about your project
                                     </Link>
                                     <Link
-                                        href="/work?source=tc-hero"
+                                        href="/work?industry=tc"
                                         className="btn-secondary inline-flex items-center gap-2"
                                     >
                                         See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -251,10 +251,10 @@ export default function TransactionCoordinatorsPage() {
                                 </p>
                             </div>
                             <Link
-                                href="/work?source=tc-page"
+                                href="/work?industry=tc"
                                 className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
                             >
-                                <span className="font-medium">Browse all case studies</span>
+                                <span className="font-medium">Browse all TC case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                             </Link>
                         </div>

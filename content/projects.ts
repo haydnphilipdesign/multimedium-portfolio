@@ -13,6 +13,7 @@ export interface Project {
     metaDescription?: string;
     socialCaption?: string;
     tags?: string[];
+    industries?: string[];
     thumbnail: string;
     heroImage: string;
     images: string[];
@@ -437,6 +438,7 @@ export const projects: Project[] = [
         slug: "tag-landing-page",
         title: "Transaction Authority Group (TAG)",
         kind: "Client",
+        industries: ["tc"],
         metaTitle: "Transaction Authority Group Landing Page",
         metaDescription:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
@@ -531,6 +533,7 @@ export const projects: Project[] = [
         slug: "utility-sheet",
         title: "UtilitySheet",
         kind: "Product",
+        industries: ["tc"],
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
         description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
         category: "SaaS",
@@ -669,6 +672,7 @@ export const projects: Project[] = [
         slug: "pa-real-estate-support",
         title: "PA Real Estate Support Services",
         kind: "Client",
+        industries: ["tc", "real-estate"],
         metaTitle: "PA Real Estate Support Services Website Redesign (TC)",
         metaDescription:
             "Website redesign for a Pennsylvania transaction coordination team—clear service pages, pricing, and an intake flow designed to drive qualified inquiries.",
@@ -721,6 +725,7 @@ export const projects: Project[] = [
         slug: "blissful-existence",
         title: "Blissful Existence Healing Acres",
         kind: "Client",
+        industries: ["wellness"],
         tagline: "Nature-inspired design system for a healing retreat center",
         description: "Immersive website with event booking flows, story-driven copy, and automation-ready forms for a wellness retreat property.",
         category: "Wellness",
@@ -767,6 +772,7 @@ export const projects: Project[] = [
         slug: "three-penn-properties",
         title: "Three Penn Properties",
         kind: "Client",
+        industries: ["real-estate"],
         tagline: "Professional web presence for a property management and investment firm",
         description: "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step-including the TenantCloud portal.",
         category: "Real Estate",
