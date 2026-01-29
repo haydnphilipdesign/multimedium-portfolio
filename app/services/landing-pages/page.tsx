@@ -69,8 +69,9 @@ const faqs = [
 
 export default function LandingPagesServicePage() {
     const tag = getProjectBySlug("tag-landing-page");
+    const gentlemansBlade = getProjectBySlug("gentlemans-blade");
     const paRes = getProjectBySlug("pa-real-estate-support");
-    const featured = [tag, paRes].filter((project): project is Project => Boolean(project));
+    const featured = [tag, gentlemansBlade, paRes].filter((project): project is Project => Boolean(project));
 
     return (
         <>

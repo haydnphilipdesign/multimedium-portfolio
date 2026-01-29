@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { ProjectCard } from "@/components/work/ProjectCard";
+import { getProjectBySlug, type Project } from "@/content/projects";
 import {
     IconPhoneCall,
     IconMapPin,
@@ -100,6 +102,13 @@ const faqs = [
 ];
 
 export default function TradesPage() {
+    const gentlemansBlade = getProjectBySlug("gentlemans-blade");
+    const velvetRose = getProjectBySlug("velvet-rose");
+    const tag = getProjectBySlug("tag-landing-page");
+    const featured = [gentlemansBlade, velvetRose, tag].filter(
+        (project): project is Project => Boolean(project)
+    );
+
     return (
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
@@ -221,6 +230,36 @@ export default function TradesPage() {
                     </AnimatedSection>
                 </div>
             </Section>
+
+            {featured.length > 0 ? (
+                <Section>
+                    <AnimatedSection>
+                        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
+                            <div className="max-w-2xl">
+                                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+                                    Relevant work
+                                </h2>
+                                <p className="mt-2 text-muted-foreground">
+                                    Builds that focus on local positioning, trust signals, and conversion—the same principles that work for trades.
+                                </p>
+                            </div>
+                            <Link
+                                href="/work?source=trades-page"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
+                            >
+                                <span className="font-medium">Browse all case studies</span>
+                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </Link>
+                        </div>
+                    </AnimatedSection>
+
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${featured.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
+                        {featured.map((project, index) => (
+                            <ProjectCard key={project.slug} project={project} index={index} />
+                        ))}
+                    </div>
+                </Section>
+            ) : null}
 
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
