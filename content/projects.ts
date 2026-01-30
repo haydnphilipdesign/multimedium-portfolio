@@ -815,6 +815,293 @@ export const projects: Project[] = [
         color: "#f59e0b",
         externalUrl: "https://threepenn.com",
     },
+    {
+        slug: "northpoint-realty",
+        title: "NorthPoint Realty Group",
+        kind: "Client",
+        industries: ["real-estate"],
+        metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website",
+        metaDescription:
+            "Conversion-focused website design for a real estate team. Features dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
+        socialCaption:
+            "New build: a high-converting real estate team website for NorthPoint Realty Group—dual buyer/seller funnels, market stats, and lead capture designed to drive qualified inquiries.",
+        tags: ["Web Design", "Lead Generation", "Real Estate", "Conversion Design", "Mobile-First"],
+        tagline: "Conversion-focused website for a real estate team driving buyer and seller leads",
+        description:
+            "High-converting website optimized for lead generation with dual buyer/seller pathways, scrolling testimonials, market stats, and prominent intake forms throughout.",
+        category: "Real Estate",
+        year: "2026",
+        client: "NorthPoint Realty Group",
+        role: "Web Design, UI/UX, Front-End Development",
+        tools: ["HTML/CSS/JS", "Mobile-first design", "Lead capture forms", "Vercel hosting"],
+        thumbnail: "/images/projects/northpoint-realty/northpoint-thumb.png",
+        heroImage: "/images/projects/northpoint-realty/northpoint-hero.png",
+        images: [
+            "/images/projects/northpoint-realty/northpoint-1.png",
+            "/images/projects/northpoint-realty/northpoint-2.png",
+            "/images/projects/northpoint-realty/northpoint-hero.png",
+        ],
+        problem: "NorthPoint Realty Group needed a website that could generate leads for both buyers and sellers while establishing trust quickly. Their previous site lacked clear conversion paths and didn't showcase their team's experience or market expertise.",
+        solution: "Designed a conversion-first website with separate buyer and seller pathways, each with dedicated intake forms. Added scrolling testimonials, real-time market stats, and trust badges to build credibility. The design uses a professional deep blue and red color scheme that conveys authority and confidence.",
+        caseStudy: {
+            headline: "NorthPoint Realty — Your Next Move Starts Here",
+            subheadline:
+                "A conversion-focused real estate website designed to capture buyer and seller leads with authority and trust.",
+            tldr: "Built a lead-generation website for NorthPoint Realty Group with separate buyer/seller funnels, prominent intake forms, scrolling testimonials, and market stats. The design prioritizes conversions while building trust through social proof and a professional aesthetic.",
+            goals: [
+                "Create separate, optimized pathways for buyers and sellers",
+                "Establish immediate trust and authority",
+                "Drive qualified lead submissions through prominent intake forms",
+                "Showcase market expertise with real-time stats",
+            ],
+            constraints: [
+                "Mobile-first design for on-the-go real estate clients",
+                "Professional color palette (deep blue, white, red accents)",
+                "Fast load times for SEO and user experience",
+                "Clear CTAs visible without scrolling",
+            ],
+            delivered: [
+                "Dual-pathway hero with 'I'm Buying' and 'I'm Selling' CTAs",
+                "Trust badges showing 500+ homes sold, 15+ years, 98% satisfaction",
+                "Dedicated buyer section with personalized search form",
+                "Seller section with free home valuation form",
+                "Market stats section with median price, days on market, sale-to-list ratio",
+                "Infinite-scroll testimonials strip with client stories",
+                "Team section showcasing agent expertise",
+                "Contact section with multiple pathways (call, email, form)",
+            ],
+            whyItWorks: [
+                "Dual pathways reduce friction—visitors immediately see their relevant path",
+                "Trust badges and testimonials overcome initial skepticism",
+                "Market stats position the team as local experts",
+                "Prominent forms on every section maximize conversion opportunities",
+            ],
+            approval:
+                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+        },
+        cta: {
+            headline: "Need a real estate website that converts?",
+            body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, trust signals, and forms that actually get filled out.",
+            ctaText: "Contact Me",
+            href: "/contact?source=case-study-northpoint-realty",
+        },
+        process: [
+            {
+                title: "Dual-Pathway Hero",
+                description: "Split CTA design immediately segments visitors into buyer or seller pathways, reducing decision friction and increasing relevance of the experience.",
+                image: "/images/projects/northpoint-realty/northpoint-hero.png",
+            },
+            {
+                title: "Trust-Building Sections",
+                description: "Market stats, scrolling testimonials, and team profiles work together to establish authority and overcome initial skepticism.",
+                image: "/images/projects/northpoint-realty/northpoint-2.png",
+            },
+            {
+                title: "Conversion-First Forms",
+                description: "Prominent intake forms in buyer and seller sections capture leads with minimal friction—budget, timeline, and contact info all in one place.",
+                image: "/images/projects/northpoint-realty/northpoint-1.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Lead Pathways", value: "2", description: "Separate buyer and seller funnels" },
+            { metric: "Trust Signals", value: "10+", description: "Stats, testimonials, team profiles" },
+            { metric: "Intake Forms", value: "3", description: "Strategically placed throughout the site" },
+        ],
+        featured: true,
+        color: "#0A2540",
+        externalUrl: "https://northpoint-realty-group.vercel.app/",
+    },
+    {
+        slug: "momentum-coaching",
+        title: "Momentum Real Estate Coaching",
+        kind: "Client",
+        industries: ["real-estate"],
+        metaTitle: "Momentum Real Estate Coaching - Premium Coaching Website",
+        metaDescription:
+            "Bold, high-end website for a real estate coaching program. Features dramatic typography, premium pricing cards, results-driven testimonials, and a confident black/gold aesthetic.",
+        socialCaption:
+            "New build: a premium coaching website for Momentum Real Estate Coaching—bold typography, tiered pricing, and results-focused design that commands authority.",
+        tags: ["Web Design", "Premium Design", "Coaching", "Real Estate", "Conversion Design"],
+        tagline: "Premium coaching website for real estate professionals building empires",
+        description:
+            "Bold, high-contrast website featuring dramatic typography, premium pricing tiers, results-driven testimonials, and a confident black/white/gold aesthetic.",
+        category: "Real Estate",
+        year: "2026",
+        client: "Momentum Real Estate Coaching",
+        role: "Web Design, UI/UX, Front-End Development",
+        tools: ["HTML/CSS/JS", "Premium typography", "Pricing cards", "Vercel hosting"],
+        thumbnail: "/images/projects/momentum-coaching/momentum-thumb.png",
+        heroImage: "/images/projects/momentum-coaching/momentum-hero.png",
+        images: [
+            "/images/projects/momentum-coaching/momentum-1.png",
+            "/images/projects/momentum-coaching/momentum-2.png",
+            "/images/projects/momentum-coaching/momentum-hero.png",
+        ],
+        problem: "Momentum Real Estate Coaching needed a website that matched the premium positioning of their coaching programs. They wanted to attract serious real estate professionals—not tire kickers—with a bold, confident design that justified their high-ticket pricing.",
+        solution: "Created a high-contrast, text-driven website with dramatic typography, a black/white/gold color scheme, and premium pricing cards. The design leads with bold claims backed by specific results, uses social proof from major brokerages, and presents three clear program tiers with transparent pricing.",
+        caseStudy: {
+            headline: "Momentum — Stop Chasing Deals. Build an Empire.",
+            subheadline:
+                "A premium coaching website that commands authority and justifies high-ticket pricing through bold design and results-driven messaging.",
+            tldr: "Built a high-end coaching website with dramatic black/gold aesthetic, tiered pricing ($1,497-$7,500/month), and results-focused testimonials. The design positions Momentum as the elite choice for serious real estate professionals ready to scale.",
+            goals: [
+                "Establish premium positioning that justifies high-ticket pricing",
+                "Attract serious real estate professionals, not beginners",
+                "Showcase specific, measurable client results",
+                "Drive strategy call bookings for qualified leads",
+            ],
+            constraints: [
+                "High-contrast black/white/gold color palette",
+                "Text-driven design with large, bold typography",
+                "Premium feel without being flashy or gimmicky",
+                "Mobile-first with smooth hover interactions",
+            ],
+            delivered: [
+                "Dramatic hero with 'Stop Chasing Deals. Build an Empire.' headline",
+                "Stats bar showing $847M+ volume, 2,400+ agents, 94% goal achievement",
+                "Social proof banner with major brokerage names",
+                "Problem/solution section addressing pain points",
+                "Three-tier pricing cards (Accelerate, Elite, Empire)",
+                "Results testimonials with specific metrics ($1.2M to $4.8M GCI)",
+                "Bold CTA section driving strategy call bookings",
+            ],
+            whyItWorks: [
+                "Black/gold aesthetic signals premium positioning and authority",
+                "Specific numbers in testimonials prove real results",
+                "Transparent pricing filters for serious buyers",
+                "Bold claims backed by social proof build immediate trust",
+            ],
+            approval:
+                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+        },
+        cta: {
+            headline: "Need a website that commands premium prices?",
+            body: "I build bold, high-end websites for coaches and consultants who want their web presence to match their expertise—and their pricing.",
+            ctaText: "Contact Me",
+            href: "/contact?source=case-study-momentum-coaching",
+        },
+        process: [
+            {
+                title: "Authority-First Hero",
+                description: "Dramatic typography and bold claims establish premium positioning immediately. Stats and brokerage logos build credibility without lengthy explanations.",
+                image: "/images/projects/momentum-coaching/momentum-hero.png",
+            },
+            {
+                title: "Tiered Pricing Strategy",
+                description: "Three clear program levels with transparent pricing help visitors self-select. The featured 'Elite' tier uses visual hierarchy to drive most conversions.",
+                image: "/images/projects/momentum-coaching/momentum-1.png",
+            },
+            {
+                title: "Results-Driven Testimonials",
+                description: "Each testimonial leads with specific numbers—$1.2M to $4.8M, 47 to 112 transactions—proving tangible outcomes rather than vague praise.",
+                image: "/images/projects/momentum-coaching/momentum-2.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Pricing Tiers", value: "3", description: "Accelerate, Elite, Empire programs" },
+            { metric: "Trust Signals", value: "5+", description: "Major brokerage logos displayed" },
+            { metric: "Results Shown", value: "Specific", description: "Exact revenue and transaction growth" },
+        ],
+        featured: true,
+        color: "#C9A227",
+        externalUrl: "https://momentum-real-estate-coaching.vercel.app/",
+    },
+    {
+        slug: "clarity-growth",
+        title: "Clarity Growth Co",
+        kind: "Client",
+        industries: ["wellness"],
+        metaTitle: "Clarity Growth Co - Scroll-Driven Business Coaching Website",
+        metaDescription:
+            "Airy, editorial website for a business coaching company. Features scroll-driven pinned sections, GSAP animations, tactile paper textures, and a calm, friendly-luxury aesthetic.",
+        socialCaption:
+            "New build: a scroll-driven editorial website for Clarity Growth Co—pinned sections, GSAP animations, and a calm, tactile design that feels like a curated workbook.",
+        tags: ["Web Design", "Motion Design", "React", "GSAP", "Scroll Animations"],
+        tagline: "Scroll-driven editorial website for busy founders seeking work-life balance",
+        description:
+            "Airy, editorial website with scroll-driven pinned sections, tactile paper textures, hand-drawn accents, and organic animations that feel like a curated workbook.",
+        category: "Wellness",
+        year: "2026",
+        client: "Clarity Growth Co",
+        role: "Motion Design, UI/UX, Front-End Development",
+        tools: ["React + Vite", "GSAP ScrollTrigger", "Custom animations", "Vercel hosting"],
+        thumbnail: "/images/projects/clarity-growth/clarity-thumb.png",
+        heroImage: "/images/projects/clarity-growth/clarity-hero.png",
+        images: [
+            "/images/projects/clarity-growth/clarity-1.png",
+            "/images/projects/clarity-growth/clarity-2.png",
+            "/images/projects/clarity-growth/clarity-hero.png",
+        ],
+        problem: "Clarity Growth Co needed a website that embodied their brand promise: helping busy founders build businesses that fit their lives. Generic coaching sites felt too corporate or too 'hustle culture'—they wanted something calm, editorial, and intentionally designed.",
+        solution: "Designed an airy, scroll-driven website that feels like a curated workbook. Each section pins in place with smooth GSAP animations, using tactile paper textures, hand-drawn circle markers, and friendly flat illustrations. The experience is calm and intentional, matching the brand's promise of sustainable growth.",
+        caseStudy: {
+            headline: "Clarity Growth Co — Build a business that still fits your life.",
+            subheadline:
+                "A scroll-driven editorial website that embodies calm, intentional growth for busy founders.",
+            tldr: "Built a scroll-driven website with GSAP pinned sections, tactile paper textures, and friendly flat illustrations. The design feels like a curated workbook—airy, editorial, and calm—matching Clarity's promise of sustainable business growth without burnout.",
+            goals: [
+                "Embody the brand promise of calm, sustainable growth",
+                "Create a unique scroll-driven interactive experience",
+                "Feel editorial and tactile, like a designed workbook",
+                "Drive quiz completions and discovery call bookings",
+            ],
+            constraints: [
+                "Warm paper textures with limited color palette (cream, navy, sky blue)",
+                "GSAP ScrollTrigger for pinned section animations",
+                "Performance-optimized despite rich animations",
+                "Mobile-responsive with reduced motion fallbacks",
+            ],
+            delivered: [
+                "7 pinned scroll sections with 3-phase animation (entrance/settle/exit)",
+                "Hero with auto-play entrance animation and illustrated workspace",
+                "Problem/solution section establishing the brand narrative",
+                "Social proof section with specific outcome metrics",
+                "Signature offers card with 'sticky note' design treatment",
+                "3-step process section (Map it, Cut it, Protect it)",
+                "Lead gen section for free guide download",
+                "Quiz intake form for qualified lead capture",
+            ],
+            whyItWorks: [
+                "Scroll-driven animations create engagement without feeling busy",
+                "Paper textures and hand-drawn elements feel warm and approachable",
+                "Pinned sections give each message dedicated attention",
+                "The calm aesthetic matches the brand promise of less hustle, more margin",
+            ],
+            approval:
+                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+        },
+        cta: {
+            headline: "Need a website that feels different?",
+            body: "I build scroll-driven, motion-rich websites that create unique experiences—perfect for brands that want to stand out from cookie-cutter templates.",
+            ctaText: "Contact Me",
+            href: "/contact?source=case-study-clarity-growth",
+        },
+        process: [
+            {
+                title: "Editorial Hero Experience",
+                description: "Auto-play entrance animations and a friendly workspace illustration immediately establish the calm, intentional brand tone.",
+                image: "/images/projects/clarity-growth/clarity-hero.png",
+            },
+            {
+                title: "Signature Offer Card",
+                description: "The 'Clarity Sprint' product is presented as a tactile sticky note with rounded corners, soft shadows, and a navy accent circle—feeling like something you'd want to pick up.",
+                image: "/images/projects/clarity-growth/clarity-1.png",
+            },
+            {
+                title: "Process Visualization",
+                description: "The 3-step system (Map it, Cut it, Protect it) uses large typography and a friendly illustration to make the method feel simple and repeatable.",
+                image: "/images/projects/clarity-growth/clarity-2.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Animation Style", value: "Scroll-Driven", description: "GSAP pinned sections with 3-phase motion" },
+            { metric: "Sections", value: "7", description: "Each with unique entrance/settle/exit choreography" },
+            { metric: "Design Feel", value: "Editorial", description: "Tactile paper textures and hand-drawn accents" },
+        ],
+        featured: true,
+        color: "#1B2B40",
+        externalUrl: "https://clarity-growth-co.vercel.app/",
+    },
 ];
 
 export function getFeaturedProjects(): Project[] {
