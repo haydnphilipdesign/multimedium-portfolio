@@ -26,6 +26,12 @@ const industryMeta: Record<string, { title: string; description: string; heading
         heading: "Wellness Work",
         subheading: "Projects built for retreat centers, healers, and wellness brands.",
     },
+    coaching: {
+        title: "Coaching & Consulting Web Design",
+        description: "Web design for coaches, consultants, and service-based businesses—from premium coaching sites to scroll-driven experiences.",
+        heading: "Coaching Work",
+        subheading: "Websites for coaches and consultants who want their web presence to match their expertise.",
+    },
 };
 
 const categoryMeta: Record<string, { title: string; description: string }> = {
@@ -120,12 +126,14 @@ export default async function WorkPage({
 
     const hasFilters = Boolean(industry || category);
 
-    const showSpotlight = !industry || industry === "tc" || industry === "real-estate";
-    const spotlightOrder = ["utility-sheet", "pa-real-estate-support", "tag-landing-page", "three-penn-properties"];
+    const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
+    const spotlightOrder = industry === "coaching"
+        ? ["momentum-coaching", "clarity-growth"]
+        : ["momentum-coaching", "northpoint-realty", "utility-sheet", "pa-real-estate-support"];
     const spotlightProjects: Project[] = showSpotlight
         ? (spotlightOrder
-              .map((slug) => filteredProjects.find((p) => p.slug === slug))
-              .filter(Boolean) as Project[])
+            .map((slug) => filteredProjects.find((p) => p.slug === slug))
+            .filter(Boolean) as Project[])
         : [];
     const spotlightSlugs = new Set(spotlightProjects.map((p) => p.slug));
     const remainingProjects = filteredProjects.filter((project) => !spotlightSlugs.has(project.slug));
@@ -139,11 +147,16 @@ export default async function WorkPage({
     const industryOptions = getIndustryOptions();
 
     const spotlightHeading =
-        industry === "tc" ? "TC work — sites + tools" : industry === "real-estate" ? "Real estate ops — sites + tools" : "Real estate ops — sites + tools";
+        industry === "tc" ? "TC work — sites + tools"
+            : industry === "real-estate" ? "Real estate ops — sites + tools"
+                : industry === "coaching" ? "Coaching & consulting sites"
+                    : "Featured work";
     const spotlightSubheading =
         industry === "tc"
             ? "A mix of client-facing websites and internal products built to reduce back-and-forth and speed up coordination."
-            : "A mix of client websites and operational tooling—designed for clarity, trust, and fewer manual follow-ups.";
+            : industry === "coaching"
+                ? "Premium websites for coaches and consultants—designed to command authority and justify high-ticket pricing."
+                : "A mix of client websites and operational tooling—designed for clarity, trust, and fewer manual follow-ups.";
 
     return (
         <>

@@ -915,7 +915,7 @@ export const projects: Project[] = [
         slug: "momentum-coaching",
         title: "Momentum Real Estate Coaching",
         kind: "Client",
-        industries: ["real-estate"],
+        industries: ["real-estate", "coaching"],
         metaTitle: "Momentum Real Estate Coaching - Premium Coaching Website",
         metaDescription:
             "Bold, high-end website for a real estate coaching program. Features dramatic typography, premium pricing cards, results-driven testimonials, and a confident black/gold aesthetic.",
@@ -1010,7 +1010,7 @@ export const projects: Project[] = [
         slug: "clarity-growth",
         title: "Clarity Growth Co",
         kind: "Client",
-        industries: ["wellness"],
+        industries: ["wellness", "coaching"],
         metaTitle: "Clarity Growth Co - Scroll-Driven Business Coaching Website",
         metaDescription:
             "Airy, editorial website for a business coaching company. Features scroll-driven pinned sections, GSAP animations, tactile paper textures, and a calm, friendly-luxury aesthetic.",
