@@ -87,6 +87,7 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
   --glow: oklch(0.75 0.18 55);
   --glow-muted: oklch(0.55 0.12 55);
+  --nav-offset: 96px;
 }
 
 .dark {
@@ -138,6 +139,11 @@
   /* Smooth scrolling with reduced-motion support */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-offset);
+  }
+
+  :where(section, article, div)[id] {
+    scroll-margin-top: var(--nav-offset);
   }
 
   @media (prefers-reduced-motion: reduce) {

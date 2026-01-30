@@ -21,7 +21,7 @@ export function StatementHero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0a0a0a]"
+            className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0a0a0a] pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24"
         >
             {/* Subtle grid pattern */}
             <div
@@ -34,8 +34,8 @@ export function StatementHero() {
             />
 
             {/* Main content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-[1fr_auto] gap-10 sm:gap-12 lg:gap-16 items-center min-h-[100svh] py-20 sm:py-24 md:py-0">
+            <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid md:grid-cols-[1fr_auto] gap-10 sm:gap-12 lg:gap-16 items-center py-10 sm:py-12 md:py-0">
 
                     {/* Left: Text content */}
                     <motion.div
@@ -143,7 +143,7 @@ export function StatementHero() {
 
             {/* Scroll indicator */}
             <motion.div
-                className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="absolute z-20 bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}

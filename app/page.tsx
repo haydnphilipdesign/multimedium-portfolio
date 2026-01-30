@@ -122,7 +122,7 @@ export default function HomePage() {
             <StatementHero />
 
             {/* Proof Points */}
-            <Section className="relative -mt-12 sm:-mt-14 md:-mt-16 z-20" padding="none">
+            <Section className="relative -mt-8 sm:-mt-10 md:-mt-12 z-10" padding="none">
                 <AnimatedSection>
                     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                         {proof.map((item) => (
@@ -150,7 +150,7 @@ export default function HomePage() {
                             Industries I specialize in
                         </h2>
                         <p className="mt-2 text-muted-foreground">
-                            Two lanes I’ve been focused on recently—each focused on generating qualified leads, not just traffic.
+                            A few lanes I’ve been focused on recently—each focused on generating qualified leads, not just traffic.
                         </p>
                     </div>
                 </AnimatedSection>

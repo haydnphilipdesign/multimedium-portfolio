@@ -21,6 +21,7 @@ export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
+    const showBackdrop = isScrolled || isOpen;
     const contactHref = `/contact?source=${encodeURIComponent(
         pathname === "/" ? "nav-home" : `nav${pathname.replaceAll("/", "-")}`
     )}`;
@@ -64,8 +65,8 @@ export function Navbar() {
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled
-                    ? "bg-background/80 backdrop-blur-xl border-b border-border/40 py-3 sm:py-4"
+                showBackdrop
+                    ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/10 py-3 sm:py-4"
                     : "bg-transparent py-4 sm:py-5 md:py-6"
             )}
         >
