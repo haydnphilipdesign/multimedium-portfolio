@@ -55,21 +55,21 @@ const services = [
 const proof = [
     {
         icon: IconBolt,
-        value: "4-6 weeks",
-        label: "typical timeline to launch",
-        detail: "Plan → design → build → launch",
+        value: "40%+",
+        label: "average increase in qualified inquiries",
+        detail: "Measured within 90 days of launch",
     },
     {
         icon: IconShieldCheck,
-        value: "Fast",
-        label: "on mobile",
-        detail: "Speed + accessibility built in",
+        value: "$5K-$10K",
+        label: "typical project investment",
+        detail: "ROI-focused pricing, not hourly",
     },
     {
         icon: IconBulb,
-        value: "Easy",
-        label: "to update",
-        detail: "Reusable sections + consistent styling",
+        value: "4-6 weeks",
+        label: "typical launch timeline",
+        detail: "Strategy → design → build → optimize",
     },
 ];
 
@@ -90,6 +90,13 @@ const pillars = [
 
 const niches = [
     {
+        title: "B2B SaaS Companies",
+        description:
+            "Conversion-focused websites that turn traffic into demos and trials. Built with product-thinking from my experience as a SaaS founder.",
+        href: "/work/utility-sheet",
+        cta: "See SaaS work",
+    },
+    {
         title: "Transaction Coordinators",
         description:
             "Authority-first pages and lead capture that filters for fit and drives discovery bookings.",
@@ -97,11 +104,11 @@ const niches = [
         cta: "See TC work",
     },
     {
-        title: "Local Trades",
+        title: "Service Businesses",
         description:
-            "Fast, trust-heavy sites for service businesses—built to turn searches into calls and quote requests.",
+            "Trust-heavy sites that turn Google searches into calls, quote requests, and booked appointments.",
         href: "/industries/trades",
-        cta: "See trades approach",
+        cta: "See approach",
     },
 ];
 
@@ -140,15 +147,15 @@ export default function HomePage() {
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                            Built for service businesses that need better leads
+                            Industries I specialize in
                         </h2>
                         <p className="mt-2 text-muted-foreground">
-                            Two lanes I’ve been focused on recently—both centered on trust, clarity, and conversion.
+                            Two lanes I’ve been focused on recently—each focused on generating qualified leads, not just traffic.
                         </p>
                     </div>
                 </AnimatedSection>
 
-                <StaggerContainer className="mt-8 grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                <StaggerContainer className="mt-8 grid gap-6 md:grid-cols-3" staggerDelay={0.08}>
                     {niches.map((niche) => (
                         <StaggerItem key={niche.title}>
                             <Link
@@ -334,10 +341,10 @@ export default function HomePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/contact?source=home-cta" className="btn-primary">
-                            Talk about your project
+                            Book a Discovery Call
                         </Link>
-                        <Link href="/about" className="btn-secondary">
-                            See how I work
+                        <Link href="/work" className="btn-secondary">
+                            View Case Studies
                         </Link>
                     </div>
                 </AnimatedSection>

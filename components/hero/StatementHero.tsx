@@ -50,7 +50,7 @@ export function StatementHero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            {/* Availability badge */}
+                            {/* Availability badge - selective framing */}
                             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10">
                                 <span className="relative flex h-2 w-2">
                                     {!prefersReducedMotion && (
@@ -59,27 +59,26 @@ export function StatementHero() {
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
                                 </span>
                                 <span className="text-sm text-amber-200/90 font-medium">
-                                    Available for new projects
+                                    Accepting 2 new clients for February
                                 </span>
                             </div>
 
-                            {/* Main headline */}
+                            {/* Main headline - outcome focused */}
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
-                                I design and build
+                                Websites that generate
                                 <br />
                                 <span className="text-amber-400">
-                                    websites that win trust.
+                                    qualified leads—not just traffic.
                                 </span>
                             </h1>
 
-                            {/* Subheadline */}
-                            <p className="text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
-                                Clear messaging, premium design, and fast pages.
-                                Built to turn visitors into calls, bookings, and forms.
+                            {/* Subheadline - transformation focused */}
+                            <p className="text-lg md:text-xl text-white/60 max-w-xl mb-4 leading-relaxed">
+                                I help service businesses and SaaS companies turn their websites into lead-generating assets. Clear positioning, conversion-focused design, and pages built to perform.
                             </p>
 
-                            <p className="text-sm text-white/50 max-w-xl mb-10 -mt-6">
-                                Specializing in real estate transaction coordinators and premium local service businesses.
+                            <p className="text-sm text-white/50 max-w-xl mb-10">
+                                Clients see an average <span className="text-amber-400/80 font-medium">40%+ increase</span> in qualified inquiries within 90 days of launch.
                             </p>
 
                             {/* CTA buttons */}
@@ -88,7 +87,7 @@ export function StatementHero() {
                                     href="/contact?source=home-hero"
                                     className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                                 >
-                                    <span>Talk about your project</span>
+                                    <span>Book a Discovery Call</span>
                                     <svg
                                         className="w-4 h-4 transition-transform group-hover:translate-x-1"
                                         fill="none"

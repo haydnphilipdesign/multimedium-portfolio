@@ -123,7 +123,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that stands out?",
             body: "I build immersive, motion-rich websites that create emotional connections with visitors—turning scrolls into stories.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-nomad-gear",
         },
         process: [
@@ -217,7 +217,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Want a website that feels alive?",
             body: "I design romantic, motion-rich experiences that connect with visitors emotionally—perfect for premium brands and artisan businesses.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-velvet-rose",
         },
         process: [
@@ -311,7 +311,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website with character?",
             body: "I build cinematic, heritage-inspired websites that tell your brand's story through motion and depth—perfect for businesses with craft and tradition.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-gentlemans-blade",
         },
         process: [
@@ -405,7 +405,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that's full of energy?",
             body: "I build ultra-dynamic, physics-based websites that capture attention and create memorable experiences—perfect for brands that refuse to be boring.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-pop-playground",
         },
         process: [
@@ -500,7 +500,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a landing page that converts?",
             body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-tag-landing-page",
         },
         process: [
@@ -550,6 +550,44 @@ export const projects: Project[] = [
         ],
         problem: "Real estate transactions involve constant back-and-forth to get accurate utility provider info from sellers. Agents and TCs spend hours chasing vague answers like 'I think it's the gas company?' This delays closings and frustrates everyone involved.",
         solution: "UtilitySheet replaces the 'Who's your gas company again?' emails with a single guided link. Sellers complete a quick form, and the app automatically generates a clean, PDF-ready utility info sheet that can be sent to all parties.",
+        caseStudy: {
+            headline: "UtilitySheet — From Problem to Product",
+            subheadline:
+                "A SaaS product I built from scratch to solve a real business problem—demonstrating end-to-end product thinking, technical execution, and user-centered design.",
+            tldr: "As founder of UtilitySheet, I took a common real estate workflow problem and turned it into a working SaaS product. This project demonstrates my ability to think beyond 'websites' to strategic product solutions—the same mindset I bring to every client engagement.",
+            goals: [
+                "Eliminate the back-and-forth emails about utility providers",
+                "Create a guided experience that even tech-averse sellers can complete",
+                "Generate professional, branded PDF output",
+                "Build a sustainable SaaS business model",
+            ],
+            constraints: [
+                "Must work for users of all technical abilities",
+                "Sub-3-minute completion time",
+                "Mobile-first responsive design",
+                "White-label branding for agents and TCs",
+            ],
+            delivered: [
+                "AI-assisted provider picker for location-based suggestions",
+                "Step-by-step guided form with smart validation",
+                "Request dashboard for agents and coordinators",
+                "Branded PDF generation with custom logos",
+                "Email notification system for form completion",
+                "Subscription billing and user management",
+            ],
+            whyItWorks: [
+                "Solves a genuine pain point I discovered working with TCs",
+                "Reduces a 20-minute task to under 3 minutes",
+                "Professional output builds trust with all transaction parties",
+                "Demonstrates full-stack product building capability",
+            ],
+        },
+        cta: {
+            headline: "Looking for a product-minded partner?",
+            body: "I don't just build websites—I build products that solve business problems. Whether you need a landing page or a full SaaS application, I bring strategic product thinking to every project.",
+            ctaText: "Discuss Your Project",
+            href: "/contact?source=case-study-utility-sheet",
+        },
         process: [
             {
                 title: "AI-Assisted Provider Picker",
@@ -572,7 +610,7 @@ export const projects: Project[] = [
             { metric: "Follow-ups", value: "-80%", description: "Reduction in back-and-forth emails for utility info" },
             { metric: "Data Accuracy", value: "Fewer errors", description: "AI suggestions reduce typos and guesswork" },
         ],
-        featured: false,
+        featured: true,
         color: "#8b5cf6",
         externalUrl: "https://utilitysheet.com",
     },
@@ -882,7 +920,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a real estate website that converts?",
             body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, trust signals, and forms that actually get filled out.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-northpoint-realty",
         },
         process: [
@@ -977,7 +1015,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that commands premium prices?",
             body: "I build bold, high-end websites for coaches and consultants who want their web presence to match their expertise—and their pricing.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-momentum-coaching",
         },
         process: [
@@ -1073,7 +1111,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that feels different?",
             body: "I build scroll-driven, motion-rich websites that create unique experiences—perfect for brands that want to stand out from cookie-cutter templates.",
-            ctaText: "Contact Me",
+            ctaText: "Book a Discovery Call",
             href: "/contact?source=case-study-clarity-growth",
         },
         process: [
