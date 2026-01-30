@@ -58,6 +58,14 @@ export default function ServicesPage() {
                         <p className="text-lg text-muted-foreground">
                             Pick the engagement that matches where you are right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
                         </p>
+                        {/* Services interconnected nodes graphic */}
+                        <div className="pt-6">
+                            <img
+                                src="/images/graphics/services-hero.png"
+                                alt="Three interconnected service offerings"
+                                className="w-full max-w-xs rounded-xl opacity-90"
+                            />
+                        </div>
                     </div>
                 </AnimatedSection>
             </Section>

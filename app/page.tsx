@@ -233,6 +233,14 @@ export default function HomePage() {
                                     </li>
                                 </ul>
                             </div>
+                            {/* Transformation graphic */}
+                            <div className="pt-4">
+                                <img
+                                    src="/images/graphics/what-i-build.png"
+                                    alt="Transformation from chaos to clarity"
+                                    className="w-full max-w-md rounded-xl opacity-90"
+                                />
+                            </div>
                         </div>
                     </AnimatedSection>
                     <StaggerContainer className="grid gap-3" staggerDelay={0.1}>

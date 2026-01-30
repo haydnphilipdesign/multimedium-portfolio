@@ -161,6 +161,14 @@ export default function TransactionCoordinatorsPage() {
                                             </div>
                                         ))}
                                     </div>
+                                    {/* Authority graphic */}
+                                    <div className="mt-4 flex justify-center">
+                                        <img
+                                            src="/images/graphics/tc-authority.png"
+                                            alt="Authority and lead qualification"
+                                            className="w-24 h-24 opacity-80"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
