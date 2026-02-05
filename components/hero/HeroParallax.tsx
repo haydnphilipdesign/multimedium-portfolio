@@ -98,7 +98,7 @@ export function HeroParallax() {
                                 Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary">
-                                See case studies
+                                Browse case studies
                             </Link>
                         </div>
                     </motion.div>
@@ -267,7 +267,7 @@ export function HeroParallax() {
                             href="/work"
                             className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-purple-500/30 bg-purple-500/10 text-white font-medium backdrop-blur-sm hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                         >
-                            See case studies
+                            Browse case studies
                         </Link>
                     </motion.div>
                 </motion.div>

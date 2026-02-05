@@ -214,9 +214,11 @@ export default function TransactionCoordinatorsPage() {
                                     </div>
                                     {/* Authority graphic */}
                                     <div className="mt-4 flex justify-center">
-                                        <img
-                                            src="/images/graphics/tc-authority.png"
+                                        <Image
+                                            src="/images/graphics/tc-authority.jpg"
                                             alt="Authority and lead qualification"
+                                            width={96}
+                                            height={96}
                                             className="w-24 h-24 opacity-80"
                                         />
                                     </div>
@@ -409,11 +411,11 @@ export default function TransactionCoordinatorsPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Free TC templates"
-                        subtitle="Examples of the PDF templates I can auto-populate from an intake (Jotform/Forms). Use them as-is, or steal the structure."
+                        subtitle="Examples of templates and checklists I can auto-populate or structure around your intake (Jotform/Forms). Use them as-is, or steal the structure."
                     />
                 </AnimatedSection>
 
-                <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     <StaggerItem>
                         <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
                             <div className="relative aspect-[16/10] bg-muted">
@@ -470,6 +472,35 @@ export default function TransactionCoordinatorsPage() {
                                 <div className="mt-5">
                                     <Link href="/resources/tc-cover-sheet?source=tc-industry" className="btn-secondary inline-flex items-center gap-2">
                                         Get the PDF <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </StaggerItem>
+
+                    <StaggerItem>
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                            <div className="relative aspect-[16/10] bg-muted">
+                                <div className="absolute inset-0 bg-hero-gradient opacity-60" />
+                                <div className="grain absolute inset-0 pointer-events-none" />
+                                <div className="relative h-full w-full grid place-items-center">
+                                    <IconChecklist className="h-12 w-12 text-glow" stroke={1.5} />
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
+                                <div className="absolute top-4 left-4">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                        Printable checklist
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="p-7">
+                                <h3 className="text-xl font-semibold text-foreground">TC Lead Intake Checklist</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                    A clean intake checklist you can copy/paste, print, or drop into your CRM—so you qualify faster and start every file clean.
+                                </p>
+                                <div className="mt-5">
+                                    <Link href="/resources/tc-intake-checklist?source=tc-industry" className="btn-secondary inline-flex items-center gap-2">
+                                        Open checklist <IconArrowRight className="w-4 h-4" stroke={2} />
                                     </Link>
                                 </div>
                             </div>

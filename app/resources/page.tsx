@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import type { ComponentType } from "react";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { IconArrowRight, IconFileText } from "@tabler/icons-react";
+import { IconArrowRight, IconChecklist, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
     title: "Free Resources",
@@ -14,7 +15,17 @@ export const metadata: Metadata = {
     },
 };
 
-const resources = [
+type Resource = {
+    title: string;
+    description: string;
+    href: string;
+    image?: string;
+    badge: string;
+    ctaText: string;
+    icon?: ComponentType<{ className?: string; stroke?: number }>;
+};
+
+const resources: Resource[] = [
     {
         title: "TC Task List Sheet (example)",
         description:
@@ -22,6 +33,7 @@ const resources = [
         href: "/resources/tc-task-list",
         image: "/resources/tc-task-list.jpg",
         badge: "PDF template",
+        ctaText: "Get the PDF",
     },
     {
         title: "TC Cover Sheet / Quick Reference",
@@ -30,6 +42,16 @@ const resources = [
         href: "/resources/tc-cover-sheet",
         image: "/resources/tc-cover-sheet.jpg",
         badge: "PDF template",
+        ctaText: "Get the PDF",
+    },
+    {
+        title: "TC Lead Intake Checklist",
+        description:
+            "Printable checklist you can copy/paste, print, or drop into your CRM—so you qualify faster and start every file clean.",
+        href: "/resources/tc-intake-checklist",
+        badge: "Printable checklist",
+        ctaText: "Open checklist",
+        icon: IconChecklist,
     },
 ];
 
@@ -66,18 +88,30 @@ export default function ResourcesPage() {
                     />
                 </AnimatedSection>
 
-                <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     {resources.map((res) => (
                         <StaggerItem key={res.href}>
                             <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
                                 <div className="relative aspect-[16/10] bg-muted">
-                                    <Image
-                                        src={res.image}
-                                        alt={res.title}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
+                                    {res.image ? (
+                                        <Image
+                                            src={res.image}
+                                            alt={res.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
+                                    ) : (
+                                        <>
+                                            <div className="absolute inset-0 bg-hero-gradient opacity-60" />
+                                            <div className="grain absolute inset-0 pointer-events-none" />
+                                            <div className="relative h-full w-full grid place-items-center">
+                                                {res.icon ? (
+                                                    <res.icon className="h-12 w-12 text-glow" stroke={1.5} />
+                                                ) : null}
+                                            </div>
+                                        </>
+                                    )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                     <div className="absolute top-4 left-4">
                                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
@@ -92,7 +126,7 @@ export default function ResourcesPage() {
                                     </p>
                                     <div className="mt-5">
                                         <Link href={res.href} className="btn-secondary inline-flex items-center gap-2">
-                                            Get the PDF <IconArrowRight className="w-4 h-4" stroke={2} />
+                                            {res.ctaText} <IconArrowRight className="w-4 h-4" stroke={2} />
                                         </Link>
                                     </div>
                                 </div>

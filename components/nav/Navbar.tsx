@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useMemo } from "react";
+import { motion } from "framer-motion";
+import { Dialog } from "@base-ui/react/dialog";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
@@ -22,9 +23,11 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
     const showBackdrop = isScrolled || isOpen;
-    const contactHref = `/contact?source=${encodeURIComponent(
-        pathname === "/" ? "nav-home" : `nav${pathname.replaceAll("/", "-")}`
-    )}`;
+    const contactHref = useMemo(() => {
+        const source =
+            pathname === "/" ? "nav-home" : `nav${pathname.replaceAll("/", "-")}`;
+        return `/contact?source=${encodeURIComponent(source)}`;
+    }, [pathname]);
 
     const isActive = (href: string) => {
         if (href === "/") return pathname === "/";
@@ -40,167 +43,156 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    useEffect(() => {
-        if (!isOpen) return;
-
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") setIsOpen(false);
-        };
-
-        window.addEventListener("keydown", handleKeyDown);
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isOpen]);
-
-    useEffect(() => {
-        if (!isOpen) return;
-
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
-        return () => {
-            document.body.style.overflow = previousOverflow;
-        };
-    }, [isOpen]);
-
     return (
-        <header
-            className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                showBackdrop
-                    ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/10 py-3 sm:py-4"
-                    : "bg-transparent py-4 sm:py-5 md:py-6"
-            )}
-        >
-            <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between">
-                    {/* Logo */}
-                    <Link
-                        href="/"
-                        className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
-                    >
-                        Multimedium
-                    </Link>
+        <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+            <header
+                className={cn(
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                    showBackdrop
+                        ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/10 py-3 sm:py-4"
+                        : "bg-transparent py-4 sm:py-5 md:py-6"
+                )}
+            >
+                <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between">
+                        <Link
+                            href="/"
+                            className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+                        >
+                            Multimedium
+                        </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                aria-current={isActive(link.href) ? "page" : undefined}
-                                className={cn(
-                                    "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                                    isActive(link.href)
-                                        ? "text-foreground"
-                                        : "text-muted-foreground hover:text-foreground"
+                        <div className="hidden md:flex items-center gap-1">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href === "/contact" ? contactHref : link.href}
+                                    aria-current={isActive(link.href) ? "page" : undefined}
+                                    className={cn(
+                                        "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                                        isActive(link.href)
+                                            ? "text-foreground"
+                                            : "text-muted-foreground hover:text-foreground"
+                                    )}
+                                >
+                                    {link.label}
+                                    {isActive(link.href) && (
+                                        <motion.div
+                                            layoutId="navbar-indicator"
+                                            className="absolute inset-0 bg-accent rounded-lg -z-10"
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 350,
+                                                damping: 30,
+                                            }}
+                                        />
+                                    )}
+                                </Link>
+                            ))}
+                        </div>
+
+                        <div className="hidden md:block">
+                            <div className="flex items-center gap-2">
+                                {schedulingUrl && (
+                                    <a
+                                        href={schedulingUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-secondary inline-flex items-center text-sm"
+                                    >
+                                        Book a call
+                                    </a>
                                 )}
-                            >
-                                {link.label}
-                                {isActive(link.href) && (
-                                    <motion.div
-                                        layoutId="navbar-indicator"
-                                        className="absolute inset-0 bg-accent rounded-lg -z-10"
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 350,
-                                            damping: 30,
-                                        }}
-                                    />
-                                )}
-                            </Link>
-                        ))}
+                                <Link
+                                    href={contactHref}
+                                    className="btn-primary inline-flex items-center text-sm"
+                                >
+                                    Talk about your project
+                                </Link>
+                            </div>
+                        </div>
+
+                        <Dialog.Trigger
+                            className="md:hidden p-2 text-foreground hover:text-glow transition-colors rounded-lg"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
+                        >
+                            {isOpen ? (
+                                <IconX className="h-6 w-6" stroke={1.5} />
+                            ) : (
+                                <IconMenu2 className="h-6 w-6" stroke={1.5} />
+                            )}
+                        </Dialog.Trigger>
                     </div>
+                </nav>
+            </header>
 
-                    {/* CTA Button - Desktop */}
-                    <div className="hidden md:block">
-                        <div className="flex items-center gap-2">
+            <Dialog.Portal>
+                <Dialog.Backdrop
+                    className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm md:hidden"
+                />
+                <Dialog.Popup
+                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/80 shadow-2xl shadow-black/40 outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
+                >
+                    <Dialog.Title className="sr-only">Navigation</Dialog.Title>
+                    <div className="flex h-full flex-col p-6">
+                        <div className="flex items-center justify-between">
+                            <Link
+                                href="/"
+                                onClick={() => setIsOpen(false)}
+                                className="text-lg font-semibold tracking-tight text-foreground hover:text-glow transition-colors rounded-md px-2 py-1 -mx-2 -my-1"
+                            >
+                                Multimedium
+                            </Link>
+                            <Dialog.Close
+                                className="p-2 text-foreground hover:text-glow transition-colors rounded-lg"
+                                aria-label="Close menu"
+                            >
+                                <IconX className="h-6 w-6" stroke={1.5} />
+                            </Dialog.Close>
+                        </div>
+
+                        <div className="mt-8 space-y-2">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href === "/contact" ? contactHref : link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    aria-current={isActive(link.href) ? "page" : undefined}
+                                    className={cn(
+                                        "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                                        isActive(link.href)
+                                            ? "text-foreground bg-accent"
+                                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                                    )}
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+
+                        <div className="mt-auto pt-6 space-y-3 border-t border-border/40">
                             {schedulingUrl && (
                                 <a
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn-secondary inline-flex items-center text-sm"
+                                    onClick={() => setIsOpen(false)}
+                                    className="btn-secondary w-full text-center block text-sm"
                                 >
-                                    Book a Call
+                                    Book a call
                                 </a>
                             )}
                             <Link
                                 href={contactHref}
-                                className="btn-primary inline-flex items-center text-sm"
+                                onClick={() => setIsOpen(false)}
+                                className="btn-primary w-full text-center block text-sm"
                             >
                                 Talk about your project
                             </Link>
                         </div>
                     </div>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        type="button"
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 text-foreground hover:text-glow transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-background"
-                        aria-label={isOpen ? "Close menu" : "Open menu"}
-                        aria-expanded={isOpen}
-                        aria-controls="mobile-menu"
-                    >
-                        {isOpen ? (
-                            <IconX className="h-6 w-6" stroke={1.5} />
-                        ) : (
-                            <IconMenu2 className="h-6 w-6" stroke={1.5} />
-                        )}
-                    </button>
-                </div>
-
-                {/* Mobile Menu */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            id="mobile-menu"
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="md:hidden overflow-hidden"
-                        >
-                            <div className="pt-6 pb-4 space-y-2">
-                                {navLinks.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        aria-current={isActive(link.href) ? "page" : undefined}
-                                        className={cn(
-                                            "block px-4 py-3 text-base font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                                            isActive(link.href)
-                                                ? "text-foreground bg-accent"
-                                                : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                                        )}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                                <div className="pt-4 space-y-2">
-                                    {schedulingUrl && (
-                                        <a
-                                            href={schedulingUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn-secondary w-full text-center block text-sm"
-                                        >
-                                            Book a Call
-                                        </a>
-                                    )}
-                                    <Link
-                                        href={contactHref}
-                                        onClick={() => setIsOpen(false)}
-                                        className="btn-primary w-full text-center block text-sm"
-                                    >
-                                        Talk about your project
-                                    </Link>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </nav>
-        </header>
+                </Dialog.Popup>
+            </Dialog.Portal>
+        </Dialog.Root>
     );
 }

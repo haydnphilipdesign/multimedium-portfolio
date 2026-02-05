@@ -6,6 +6,7 @@ import { getFeaturedProjects } from "@/content/projects";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import Link from "next/link";
+import Image from "next/image";
 import {
     IconLayout,
     IconCode,
@@ -30,7 +31,7 @@ const services = [
             "A premium website that explains what you do, builds trust fast, and turns visits into inquiries.",
         href: "/services/website",
         features: ["Messaging + page plan", "Custom design with real copy", "Fast, SEO-friendly build + analytics"],
-        timeline: "4-6 weeks",
+        timeline: "4–6 weeks",
     },
     {
         icon: IconCode,
@@ -39,7 +40,7 @@ const services = [
             "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
         href: "/services/landing-pages",
         features: ["Offer + messaging refinement", "Conversion-first layout + copy help", "Forms, tracking, and follow-up"],
-        timeline: "1-3 weeks",
+        timeline: "1–3 weeks",
     },
     {
         icon: IconChartLine,
@@ -55,21 +56,21 @@ const services = [
 const proof = [
     {
         icon: IconBolt,
-        value: "40%+",
-        label: "average increase in qualified inquiries",
-        detail: "Measured within 90 days of launch",
-    },
-    {
-        icon: IconShieldCheck,
-        value: "$5K-$10K",
-        label: "typical project investment",
-        detail: "ROI-focused pricing, not hourly",
+        value: "1 person",
+        label: "Strategy → design → build",
+        detail: "One owner, one feedback loop",
     },
     {
         icon: IconBulb,
-        value: "4-6 weeks",
-        label: "typical launch timeline",
-        detail: "Strategy → design → build → optimize",
+        value: "4–6 weeks",
+        label: "Typical launch timeline",
+        detail: "Plan → design → build → polish",
+    },
+    {
+        icon: IconShieldCheck,
+        value: "$10k–$25k",
+        label: "Typical website builds",
+        detail: "Fixed scope; depends on pages and integrations",
     },
 ];
 
@@ -92,28 +93,28 @@ const niches = [
     {
         title: "B2B SaaS Companies",
         description:
-            "Conversion-focused websites that turn traffic into demos and trials. Built with product-thinking from my experience as a SaaS founder.",
+            "Conversion-focused websites that turn traffic into demos and trials—built with product thinking from my experience as a SaaS founder.",
         href: "/work/utility-sheet",
         cta: "See SaaS work",
     },
     {
         title: "Transaction Coordinators",
         description:
-            "Authority-first pages and lead capture that filters for fit and drives discovery bookings.",
+            "Authority-first pages and lead capture that filters for fit and drives booked calls.",
         href: "/industries/transaction-coordinators",
         cta: "See TC work",
     },
     {
         title: "Service Businesses",
         description:
-            "Trust-heavy sites that turn Google searches into calls, quote requests, and booked appointments.",
+            "Trust-first sites that turn Google searches into calls, quote requests, and booked appointments.",
         href: "/industries/trades",
         cta: "See approach",
     },
 ];
 
 export default function HomePage() {
-    const featuredProjects = getFeaturedProjects();
+    const featuredProjects = getFeaturedProjects().slice(0, 6);
     const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
 
     return (
@@ -150,7 +151,7 @@ export default function HomePage() {
                             Industries I specialize in
                         </h2>
                         <p className="mt-2 text-muted-foreground">
-                            A few lanes I’ve been focused on recently—each focused on generating qualified leads, not just traffic.
+                            A few lanes I’ve been focused on recently—each built around qualified inquiries, not vanity traffic.
                         </p>
                     </div>
                 </AnimatedSection>
@@ -218,7 +219,7 @@ export default function HomePage() {
                                 What I build
                             </span>
                             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                A website that looks premium—and makes it easy to contact you
+                                A website that looks premium—and makes reaching out feel easy
                             </h2>
                             <p className="text-muted-foreground">
                                 You get a clean, consistent system—not a one-off page. It’s built to be updated, extended, and improved without turning into a patchwork.
@@ -228,7 +229,7 @@ export default function HomePage() {
                                 <ul className="grid gap-2 text-sm text-muted-foreground">
                                     <li className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
-                                        You want more inquiries (not just a prettier homepage).
+                                        You want more inquiries, not just a prettier homepage.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
@@ -242,10 +243,13 @@ export default function HomePage() {
                             </div>
                             {/* Transformation graphic */}
                             <div className="pt-4">
-                                <img
-                                    src="/images/graphics/what-i-build.png"
+                                <Image
+                                    src="/images/graphics/what-i-build.jpg"
                                     alt="Transformation from chaos to clarity"
+                                    width={1024}
+                                    height={1024}
                                     className="w-full max-w-md rounded-xl opacity-90"
+                                    sizes="(max-width: 768px) 100vw, 448px"
                                 />
                             </div>
                         </div>
@@ -341,10 +345,10 @@ export default function HomePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/contact?source=home-cta" className="btn-primary">
-                            Book a Discovery Call
+                            Talk about your project
                         </Link>
                         <Link href="/work" className="btn-secondary">
-                            View Case Studies
+                            Browse case studies
                         </Link>
                     </div>
                 </AnimatedSection>

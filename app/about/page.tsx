@@ -69,7 +69,7 @@ export default function AboutPage() {
                             </span>
                             <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card/50 px-4 py-1 text-xs text-muted-foreground">
                                 <IconMapPin className="h-3.5 w-3.5 text-glow" stroke={1.5} />
-                                Poconos, PA • Remote friendly
+                                Poconos, PA • Remote-friendly
                             </span>
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
@@ -85,7 +85,7 @@ export default function AboutPage() {
                                 Talk about your project
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
-                                See case studies
+                                Browse case studies
                             </Link>
                         </div>
                     </AnimatedSection>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                         <div className="space-y-4">
                             <h3 className="text-2xl font-semibold text-foreground">What I can help with</h3>
                             <p className="text-sm text-muted-foreground">
-                                Clear about outcomes, flexible on implementation.
+                                Clear on outcomes, flexible on implementation.
                             </p>
                             <div className="mt-2 flex flex-wrap gap-2">
                                 {toolbox.map((item) => (

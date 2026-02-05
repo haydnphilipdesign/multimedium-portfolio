@@ -32,7 +32,7 @@ const included = [
 
 const expectations = [
     { label: "Primary conversion", value: "Leads, bookings, sign-ups" },
-    { label: "Typical timeline", value: "1-3 weeks" },
+    { label: "Typical timeline", value: "1–3 weeks" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
 ];
 

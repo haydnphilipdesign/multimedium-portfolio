@@ -8,6 +8,7 @@ import Link from "next/link";
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const prefersReducedMotion = useReducedMotion();
+    const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -59,7 +60,7 @@ export function StatementHero() {
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
                                 </span>
                                 <span className="text-sm text-amber-200/90 font-medium">
-                                    Accepting 2 new clients for February
+                                    Taking on 1–2 new projects per month
                                 </span>
                             </div>
 
@@ -74,36 +75,78 @@ export function StatementHero() {
 
                             {/* Subheadline - transformation focused */}
                             <p className="text-lg md:text-xl text-white/60 max-w-xl mb-4 leading-relaxed">
-                                I help service businesses and SaaS companies turn their websites into lead-generating assets. Clear positioning, conversion-focused design, and pages built to perform.
+                                Conversion-first web design + development for service businesses and SaaS teams. Clear positioning, clean copy, and fast pages that make reaching out feel easy.
                             </p>
 
                             <p className="text-sm text-white/50 max-w-xl mb-10">
-                                Clients see an average <span className="text-amber-400/80 font-medium">40%+ increase</span> in qualified inquiries within 90 days of launch.
+                                Built with accessibility + tracking from day one—so you can measure what’s working and improve it.
                             </p>
 
                             {/* CTA buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Link
-                                    href="/contact?source=home-hero"
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
-                                >
-                                    <span>Book a Discovery Call</span>
-                                    <svg
-                                        className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
+                                {schedulingUrl ? (
+                                    <a
+                                        href={schedulingUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                                     >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </Link>
+                                        <span>Book a call</span>
+                                        <svg
+                                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </a>
+                                ) : (
+                                    <Link
+                                        href="/contact?source=home-hero"
+                                        className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                                    >
+                                        <span>Talk about your project</span>
+                                        <svg
+                                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </Link>
+                                )}
                                 <Link
                                     href="/work"
                                     className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                                 >
-                                    See case studies
+                                    Browse case studies
                                 </Link>
                             </div>
+
+                            {schedulingUrl ? (
+                                <p className="mt-5 text-sm text-white/50 max-w-xl">
+                                    Prefer email?{" "}
+                                    <Link
+                                        href="/contact?source=home-hero"
+                                        className="text-white/80 underline underline-offset-4 hover:text-white transition-colors"
+                                    >
+                                        Send a message
+                                    </Link>
+                                    .
+                                </p>
+                            ) : null}
                         </motion.div>
                     </motion.div>
 

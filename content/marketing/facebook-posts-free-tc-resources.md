@@ -10,12 +10,12 @@ Direct download links (only if someone asks):
 ---
 
 ## Post 1 — “I made two PDFs” (TC groups)
-TCs — I made two free, printable PDFs you can use in your workflow:
+TCs: I made two free, printable PDFs you can use in your workflow:
 
-1) **TC Cover Sheet / Quick Ref** (works for pretty much anyone)
-2) **TC Task List Sheet** (a real example built for the Poconos region — use it as a reference + customize)
+1) **TC Cover Sheet / Quick Ref** (works for most workflows)
+2) **TC Task List Sheet** (a real example built for the Poconos region—use it as a reference and customize)
 
-If you want them, comment **“PDF”** and I’ll drop the link in the comments.
+If you want them, comment **“PDF”** and I’ll reply with the link.
 
 ---
 
@@ -31,7 +31,7 @@ Comment **“cover sheet”** and I’ll share the download link.
 ## Post 3 — Task list angle (TC groups)
 Free resource for TCs: a **TC Task List Sheet** (printable PDF).
 
-It’s a real example built for the Poconos region (where my mom’s been a TC since 2013), so it’s not “one size fits all” — but it’s a solid reference if you’re tightening your own process.
+It’s a real example built for the Poconos region (my mom’s been a TC since 2013), so it’s not “one size fits all”—but it’s a solid reference if you’re tightening your own process.
 
 Comment **“task list”** and I’ll post the link.
 
@@ -39,8 +39,8 @@ Comment **“task list”** and I’ll post the link.
 
 ## Post 4 — “Steal the structure” (TC groups)
 If you’re building/cleaning up your TC workflow this year, I posted two free PDFs you can steal structure from:
-- cover sheet / quick ref
-- task list sheet example
+- Cover sheet / quick ref
+- Task list sheet example
 
 Comment **“steal it”** and I’ll share the download page.
 
@@ -56,14 +56,14 @@ I posted both templates for free. Comment **“templates”** and I’ll share t
 ## Post 6 — “No email required” (reduce friction)
 TCs: I put together 2 free printable PDFs (cover sheet + task list example).
 
-No hoops — you can download without giving an email (there’s an optional “email me the link” box if you prefer).
+No hoops: you can download without giving an email (there’s an optional “email me the link” box if you prefer).
 
 Comment **“free”** and I’ll drop the link.
 
 ---
 
 ## Post 7 — Agent-friendly version (real estate groups)
-Agents / broker ops: if your TC is good, help them look referral-ready.
+Agents / broker ops: if you have a great TC, help them look referral-ready.
 
 I posted two free PDFs (TC cover sheet + task list example) that help standardize how a file starts.
 
@@ -80,4 +80,3 @@ If you want the link to send to your TC, comment **“send”** and I’ll drop 
 
 **If they want the task list specifically**
 - Task list (example): `https://www.multimedium.dev/resources/tc-task-list`
-

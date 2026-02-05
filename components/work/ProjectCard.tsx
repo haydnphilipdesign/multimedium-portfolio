@@ -107,7 +107,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
     if (prefersReducedMotion) {
         return (
-            <Link href={`/work/${project.slug}`} className="block">
+            <Link href={`/work/${project.slug}`} className="block rounded-2xl">
                 {cardContent}
             </Link>
         );
@@ -124,7 +124,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 ease: [0.25, 0.4, 0.25, 1],
             }}
         >
-            <Link href={`/work/${project.slug}`} className="block">
+            <Link href={`/work/${project.slug}`} className="block rounded-2xl">
                 {cardContent}
             </Link>
         </motion.div>

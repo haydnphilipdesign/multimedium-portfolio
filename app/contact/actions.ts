@@ -5,8 +5,8 @@ import { sendContactEmail } from "@/lib/email";
 
 const allowedProjectTypes: Record<string, string> = {
     website: "Website Build / Redesign",
-    landing: "Landing Page (Lead-Gen)",
-    retainer: "Ongoing Improvements / Retainer",
+    landing: "Landing page (lead gen)",
+    retainer: "Ongoing improvements (retainer)",
     other: "Not sure yet / something else",
 };
 
@@ -18,16 +18,16 @@ const allowedContactPreferences: Record<string, string> = {
 
 const allowedBudgetRanges: Record<string, string> = {
     under5k: "Under $5k",
-    "5to10k": "$5k-$10k",
-    "10to25k": "$10k-$25k",
+    "5to10k": "$5k–$10k",
+    "10to25k": "$10k–$25k",
     "25kplus": "$25k+",
     unsure: "Not sure yet",
 };
 
 const allowedTimelines: Record<string, string> = {
     asap: "ASAP",
-    "1to2mo": "1-2 months",
-    "3to6mo": "3-6 months",
+    "1to2mo": "1–2 months",
+    "3to6mo": "3–6 months",
     flexible: "Flexible",
 };
 

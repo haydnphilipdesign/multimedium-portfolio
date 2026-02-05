@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const expectations = [
     { label: "Response time", value: "Within 1 business day" },
-    { label: "Typical build window", value: "4-6 weeks" },
+    { label: "Typical build window", value: "4–6 weeks" },
     { label: "Best call hours", value: "Mon–Thu • 9am–5pm ET" },
 ];
 
@@ -276,7 +276,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     >
                                         <option value="">Select one</option>
                                         <option value="website">Website build / redesign</option>
-                                        <option value="landing">Landing page (lead-gen)</option>
+                                        <option value="landing">Landing page (lead gen)</option>
                                         <option value="retainer">Ongoing improvements</option>
                                         <option value="other">Not sure yet / something else</option>
                                     </select>
@@ -306,10 +306,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 Under $5k
                                             </option>
                                             <option value="5to10k">
-                                                $5k-$10k
+                                                $5k–$10k
                                             </option>
                                             <option value="10to25k">
-                                                $10k-$25k
+                                                $10k–$25k
                                             </option>
                                             <option value="25kplus">
                                                 $25k+
@@ -340,10 +340,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             </option>
                                             <option value="asap">ASAP</option>
                                             <option value="1to2mo">
-                                                1-2 months
+                                                1–2 months
                                             </option>
                                             <option value="3to6mo">
-                                                3-6 months
+                                                3–6 months
                                             </option>
                                             <option value="flexible">
                                                 Flexible
@@ -487,7 +487,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center">
                     <Link href="/work" className="btn-secondary">
-                        See examples of recent work
+                        Browse case studies
                     </Link>
                 </AnimatedSection>
             </Section>

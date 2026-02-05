@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
@@ -21,7 +22,7 @@ const services = [
         description:
             "A premium website that explains what you do, builds trust, and turns visits into inquiries.",
         href: "/services/website",
-        timeline: "4-6 weeks",
+        timeline: "4–6 weeks",
     },
     {
         icon: IconCode,
@@ -29,7 +30,7 @@ const services = [
         description:
             "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
         href: "/services/landing-pages",
-        timeline: "1-3 weeks",
+        timeline: "1–3 weeks",
     },
     {
         icon: IconChartLine,
@@ -56,14 +57,17 @@ export default function ServicesPage() {
                             <span className="text-gradient">turn visitors into inquiries.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground">
-                            Pick the engagement that matches where you are right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
+                            Pick the engagement that matches your goals right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
                         </p>
                         {/* Services interconnected nodes graphic */}
                         <div className="pt-6">
-                            <img
-                                src="/images/graphics/services-hero.png"
+                            <Image
+                                src="/images/graphics/services-hero.jpg"
                                 alt="Three interconnected service offerings"
+                                width={1024}
+                                height={1024}
                                 className="w-full max-w-xs rounded-xl opacity-90"
+                                sizes="(max-width: 640px) 80vw, 320px"
                             />
                         </div>
                     </div>

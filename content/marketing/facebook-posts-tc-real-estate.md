@@ -26,7 +26,7 @@ I build websites for established transaction coordinators who want fewer low-fit
 
 Not a fit if you want a generic template or you’re not ready to respond to leads quickly.
 
-If you *are* a fit: I can usually spot the #1 reason a TC site isn’t converting in under 2 minutes.
+If you *are* a fit: I can usually spot the biggest reason a TC site isn’t converting in under 2 minutes.
 
 Drop your site below (or comment “audit”) and I’ll tell you the biggest fix.
 
@@ -102,7 +102,7 @@ Reply with your current headline and I’ll rewrite it to be:
 ---
 
 ## Post 9 (TC groups — “slots” style)
-I’m opening a few build slots for transaction coordinators this month:
+I’m taking on 1–2 website builds for transaction coordinators this month:
 - conversion-first website (positioning + copy + design)
 - qualification-first lead capture
 - optional done-for-you intake automation (you own the tools/accounts)
@@ -126,4 +126,3 @@ If you post your site, I’ll give you one conversion fix you can implement this
 
 **Automation section link**
 - `https://www.multimedium.dev/industries/transaction-coordinators#automation`
-

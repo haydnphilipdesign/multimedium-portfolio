@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
     title: "Website Build / Redesign",
     description:
-        "A premium website build or redesign built to earn trust, load fast, and turn visitors into inquiries.",
+        "A premium website build or redesign designed to earn trust, load fast, and turn visitors into inquiries.",
     alternates: {
         canonical: "/services/website",
     },
@@ -30,7 +30,7 @@ const included = [
 ];
 
 const expectations = [
-    { label: "Typical timeline", value: "4-6 weeks" },
+    { label: "Typical timeline", value: "4–6 weeks" },
     { label: "Primary conversion", value: "Qualified inquiries" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
 ];
@@ -87,7 +87,7 @@ export default function WebsiteServicePage() {
                                     Website build / redesign
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that need to look premium, load fast, and turn visitors into qualified inquiries - without the site turning into a patchwork over time.
+                                    For teams that need to look premium, load fast, and turn visitors into qualified inquiries—without the site turning into a patchwork over time.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-website" className="btn-primary">

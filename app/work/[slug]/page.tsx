@@ -57,6 +57,29 @@ export default async function CaseStudyPage({ params }: PageProps) {
         notFound();
     }
 
+    const hasSummary = Boolean(project.caseStudy?.tldr);
+    const hasSnapshot = Boolean(
+        project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length
+    );
+    const hasDeliverables = Boolean(
+        project.caseStudy?.delivered?.length ||
+            project.caseStudy?.whyItWorks?.length ||
+            project.caseStudy?.approval
+    );
+    const hasProcess = project.process.length > 0;
+    const hasResults = project.outcomes.length > 0;
+    const hasTestimonial = Boolean(project.testimonial);
+
+    const tocItems = [
+        hasSummary ? { href: "#summary", label: "Summary" } : null,
+        { href: "#overview", label: "Overview" },
+        hasSnapshot ? { href: "#snapshot", label: "Snapshot" } : null,
+        hasDeliverables ? { href: "#deliverables", label: "Deliverables" } : null,
+        hasProcess ? { href: "#process", label: "Process" } : null,
+        hasResults ? { href: "#results", label: "Results" } : null,
+        hasTestimonial ? { href: "#testimonial", label: "Testimonial" } : null,
+    ].filter(Boolean) as { href: string; label: string }[];
+
     // Get adjacent projects for navigation
     const currentIndex = projects.findIndex((p) => p.slug === slug);
     const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
@@ -203,11 +226,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* TL;DR */}
             {project.caseStudy?.tldr ? (
-                <Section className="pt-0" padding="none">
+                <Section id="summary" className="pt-0" padding="none">
                     <AnimatedSection>
                         <div className="rounded-2xl border border-border/50 bg-card px-6 py-6 sm:px-8">
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                                TL;DR
+                                Summary
                             </p>
                             <p className="text-muted-foreground leading-relaxed">
                                 {project.caseStudy.tldr}
@@ -217,8 +240,32 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </Section>
             ) : null}
 
+            {/* Jump links */}
+            {tocItems.length > 1 ? (
+                <Section className={project.caseStudy?.tldr ? "pt-8" : "pt-0"} padding="none">
+                    <AnimatedSection delay={0.05}>
+                        <nav aria-label="On this page" className="flex flex-col gap-3">
+                            <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                                On this page
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {tocItems.map((item) => (
+                                    <a
+                                        key={item.href}
+                                        href={item.href}
+                                        className="inline-flex items-center rounded-full border border-border/50 bg-card/60 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-glow/30 transition-colors"
+                                    >
+                                        {item.label}
+                                    </a>
+                                ))}
+                            </div>
+                        </nav>
+                    </AnimatedSection>
+                </Section>
+            ) : null}
+
             {/* Overview Section */}
-            <Section>
+            <Section id="overview">
                 <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
                     <AnimatedSection>
                         <h2 className="text-2xl font-bold text-foreground mb-4">
@@ -242,7 +289,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Project Snapshot */}
             {project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length ? (
-                <Section className="bg-muted/30">
+                <Section id="snapshot" className="bg-muted/30">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
                             Project Snapshot
@@ -294,7 +341,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Deliverables */}
             {project.caseStudy?.delivered?.length || project.caseStudy?.whyItWorks?.length || project.caseStudy?.approval ? (
-                <Section>
+                <Section id="deliverables">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
                             Deliverables & Rationale
@@ -356,7 +403,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Process Section */}
             {project.process.length > 0 && (
-                <Section className="bg-muted/30">
+                <Section id="process" className="bg-muted/30">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
                             Process
@@ -419,7 +466,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Outcomes Section */}
             {project.outcomes.length > 0 && (
-                <Section>
+                <Section id="results">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
                             Results & Impact
@@ -451,7 +498,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Testimonial Section */}
             {project.testimonial && (
-                <Section className="bg-muted/30">
+                <Section id="testimonial" className="bg-muted/30">
                     <AnimatedSection className="max-w-3xl mx-auto text-center">
                         <IconQuote className="w-12 h-12 text-glow/30 mx-auto mb-6" stroke={1} />
                         <blockquote className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { requestChecklist } from "./actions";
@@ -26,8 +25,6 @@ interface PageProps {
 }
 
 export default async function TcIntakeChecklistPage({ searchParams }: PageProps) {
-    notFound();
-
     const params = (await searchParams) ?? {};
     const sent = params.sent === "1";
     const error = params.error === "1";

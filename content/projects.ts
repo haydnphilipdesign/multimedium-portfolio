@@ -63,13 +63,13 @@ export const projects: Project[] = [
         kind: "Client",
         metaTitle: "Nomad Gear - Camping Rental Website Design",
         metaDescription:
-            "Immersive, motion-driven website design for a premium outdoor gear rental company. Built with React, GSAP animations, and cinematic visual storytelling.",
+            "Story-driven, motion-forward website design for a premium outdoor gear rental company—built to feel adventurous while keeping the booking path clear.",
         socialCaption:
-            "New build: an ultra-dynamic camping gear rental website for Nomad Gear—cinematic parallax, WebGL effects, and adventure-first design.",
+            "Nomad Gear: an adventure-forward rental site with layered depth, grounded typography, and a clear booking path.",
         tags: ["Web Design", "Motion Design", "React", "GSAP", "WebGL"],
-        tagline: "Motion-rich website design for a premium camping gear rental experience",
+        tagline: "Adventure-forward rental site with a clear booking path",
         description:
-            "Immersive, animation-driven website with cinematic parallax effects, WebGL transitions, and organic visual storytelling for outdoor adventure seekers.",
+            "A motion-forward marketing site with layered depth and a category-first browse flow—built to make booking feel obvious.",
         category: "Web Design",
         year: "2026",
         client: "Nomad Gear",
@@ -82,13 +82,13 @@ export const projects: Project[] = [
             "/images/projects/nomad-gear/nomad-gear-2.jpg",
             "/images/projects/nomad-gear/nomad-gear-3.jpg",
         ],
-        problem: "Nomad Gear needed a website that captured the feeling of outdoor adventure—not just a catalog of products, but an immersive experience that makes visitors want to get outside. Traditional static websites wouldn't convey the energy and excitement of camping culture.",
-        solution: "Designed and built a motion-rich website with cinematic parallax, organic animations, and WebGL effects. Every section tells a visual story: floating category cards, horizontal-scroll product showcases, and a testimonial orbit system. The result is a site that feels alive and adventurous.",
+        problem: "Nomad Gear needed a site that felt like stepping outside—not just another rental catalog. The goal was to make browsing feel like adventure while keeping the path to booking obvious.",
+        solution: "Designed and built a story-led site with tactile motion, category-first browsing, and a persistent booking path. Depth and animation support the vibe, while hierarchy and CTAs keep the next step clear.",
         caseStudy: {
             headline: "Nomad Gear — Adventure Awaits",
             subheadline:
-                "A cinematic, motion-driven website that brings the thrill of outdoor adventure to the screen.",
-            tldr: "Built an immersive camping gear rental website with GSAP-powered animations, WebGL effects, and organic parallax motion. The site features floating category cards, horizontal scroll product sections, and a testimonials orbit system—all designed to evoke the energy of outdoor exploration.",
+                "A story-led, motion-forward website that feels outdoorsy while keeping booking simple.",
+            tldr: "Designed and built a motion-forward gear rental site with layered depth, category browsing, product highlights, and a clear booking CTA—optimized for performance and reduced-motion.",
             goals: [
                 "Create an experience that feels like stepping into nature",
                 "Showcase gear rentals in an engaging, non-catalog way",
@@ -102,51 +102,50 @@ export const projects: Project[] = [
                 "Consistent earthy color palette (greens, creams, browns)",
             ],
             delivered: [
-                "Full-screen hero with water ripple WebGL shader effects",
-                "Floating archipelago category cards with 3D tilt interactions",
-                "Cinematic split-screen about section with morphing blob masks",
-                "Horizontal-scroll film strip product showcase",
-                "Infinite parallax destination mosaic with color bloom on hover",
-                "Orbital testimonial carousel with pause-on-hover",
-                "Vortex CTA section with shader-driven focus effects",
-                "Glassmorphism navigation with scroll-aware state changes",
+                "Full-screen hero with layered depth and a strong primary CTA",
+                "Category-first browse section with tactile card interactions",
+                "Product highlight strip designed for quick scanning",
+                "Story-driven brand section that reinforces positioning",
+                "Testimonials + trust signals woven into the scroll",
+                "Final CTA section designed for booking",
+                "Scroll-aware navigation with reduced-motion support",
             ],
             whyItWorks: [
-                "Motion creates emotional engagement—visitors feel the adventure",
-                "Organic layouts break the grid and feel natural, like the outdoors",
-                "Performance optimizations ensure smooth 60fps animations",
-                "Clear CTAs guide users to book without breaking the immersion",
+                "Motion supports the story without hiding the offer",
+                "Category-first browsing keeps exploration structured",
+                "Performance budgets + reduced-motion keep it usable",
+                "CTA hierarchy makes booking the obvious next step",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a website that stands out?",
             body: "I build immersive, motion-rich websites that create emotional connections with visitors—turning scrolls into stories.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-nomad-gear",
         },
         process: [
             {
                 title: "Immersive Hero Experience",
-                description: "Full-screen hero with parallax depth, WebGL water ripple effects, and split-text entrance animations that immediately draw visitors into the adventure.",
+                description: "Layered depth and restrained motion set the tone fast—without delaying the CTA or readability.",
                 image: "/images/projects/nomad-gear/nomad-gear-hero.jpg",
             },
             {
                 title: "Organic Motion System",
-                description: "Floating category cards, 3D tilt interactions, and staggered parallax scrolling create depth and movement that feels alive—like wind through the trees.",
+                description: "Tactile card interactions and scroll pacing add energy while keeping hierarchy, text, and CTAs clear.",
                 image: "/images/projects/nomad-gear/nomad-gear-1.jpg",
             },
             {
                 title: "Cinematic Storytelling",
-                description: "Each section uses unique motion patterns: horizontal film strips for products, orbital carousels for testimonials, and morphing masks for the brand story.",
+                description: "Section rhythm changes (products, brand story, testimonials) keep the scroll engaging and easy to skim.",
                 image: "/images/projects/nomad-gear/nomad-gear-2.jpg",
             },
         ],
         outcomes: [
-            { metric: "Animation Intensity", value: "Ultra-Dynamic", description: "Rich GSAP and WebGL effects throughout" },
-            { metric: "Performance", value: "60fps", description: "Optimized for smooth scroll on all devices" },
-            { metric: "Motion Patterns", value: "8+ unique", description: "Different animation systems per section" },
+            { metric: "Brand Feel", value: "Adventure-forward", description: "Earthy palette + layered depth that feels outdoorsy" },
+            { metric: "Browse Flow", value: "Category-first", description: "Exploration stays structured and easy to scan" },
+            { metric: "Conversion Path", value: "Clear", description: "CTAs stay obvious throughout the scroll" },
         ],
         featured: true,
         color: "#3a5a40",
@@ -158,13 +157,13 @@ export const projects: Project[] = [
         kind: "Client",
         metaTitle: "Velvet Rose - Luxury Florist Website Design",
         metaDescription:
-            "Romantic, motion-rich website design for a premium flower shop. Features organic animations, horizontal scroll galleries, and botanical elegance throughout.",
+            "Romantic, premium florist website design with graceful motion, clear category browsing, and a conversion-forward storefront layout.",
         socialCaption:
-            "New build: a botanical elegance website for Velvet Rose—organic motion, split-text animations, and romantic floral storytelling.",
+            "Velvet Rose: a romantic florist site with gentle motion, editorial typography, and a clean path from browse to cart.",
         tags: ["Web Design", "Motion Design", "React", "GSAP", "E-Commerce"],
-        tagline: "Elegant, motion-rich website design for a premium florist experience",
+        tagline: "Romantic florist site with graceful motion and a clear shopping flow",
         description:
-            "Romantic website with fluid botanical animations, horizontal scroll category browsing, and immersive parallax effects that capture the beauty of fresh flowers.",
+            "A premium storefront with gentle motion, category browsing, and product cards designed to make ordering feel easy.",
         category: "Web Design",
         year: "2026",
         client: "Velvet Rose",
@@ -177,13 +176,13 @@ export const projects: Project[] = [
             "/images/projects/velvet-rose/velvet-rose-2.jpg",
             "/images/projects/velvet-rose/velvet-rose-3.jpg",
         ],
-        problem: "Velvet Rose needed a website that conveyed the timeless romance and artistry of their floral arrangements. Generic flower shop templates felt cold and transactional—they wanted visitors to feel the beauty and emotion of their craft before making a purchase.",
-        solution: "Designed a 'Botanical Elegance' website with organic, fluid animations that mimic natural growth and bloom. Horizontal scroll category browsing, magnetic image interactions, and subtle petal-drift particle effects create an immersive experience that feels as alive as fresh flowers.",
+        problem: "Velvet Rose needed a website that conveyed the romance and artistry of their arrangements. Generic flower shop templates felt cold and transactional—they wanted visitors to feel the craft before making a purchase.",
+        solution: "Designed an editorial, botanical storefront with gentle motion inspired by petals and stems. Category browsing and product hierarchy keep shopping straightforward, while typography and pacing maintain a premium feel.",
         caseStudy: {
             headline: "Velvet Rose — Botanical Elegance",
             subheadline:
-                "A romantic, motion-rich website that captures the timeless beauty of artisan floristry.",
-            tldr: "Built an elegant florist website with organic GSAP animations, horizontal scroll galleries, and WebGL liquid displacement effects. The design features mask reveal animations, magnetic image interactions, and a floating petal particle system—all evoking the romance and artistry of fresh flowers.",
+                "A romantic florist website that feels premium—and makes ordering easy.",
+            tldr: "Designed a premium florist storefront with gentle, organic motion, a category browse section, and a clean product grid—built to feel romantic without getting in the way of conversion.",
             goals: [
                 "Capture the romance and elegance of artisan floristry",
                 "Create an immersive browsing experience for flower categories",
@@ -197,50 +196,50 @@ export const projects: Project[] = [
                 "Accessible reduced-motion fallbacks for all animations",
             ],
             delivered: [
-                "Asymmetrical hero with mask reveal and split-char text animations",
-                "Horizontal scroll 'Kinetic Garden' category browser with SVG vine connections",
-                "Organic broken-grid about section with morphing background watermarks",
-                "Floating masonry product grid with 3D flip-up card entrances",
-                "Marquee testimonial carousel with scroll-velocity speed changes",
-                "Full-screen parallax CTA with difference blend mode typography",
-                "Curtain-reveal footer with staggered link animations",
+                "Editorial hero with refined type and image-forward composition",
+                "Category browsing section that stays playful but structured",
+                "Story/brand section that reinforces positioning",
+                "Product grid with clear pricing, CTAs, and hover states",
+                "Testimonials and trust signals integrated into the scroll",
+                "Final CTA section that keeps ordering the focus",
+                "Reduced-motion support and mobile-first spacing",
             ],
             whyItWorks: [
-                "Organic motion creates emotional connection—visitors feel the romance",
-                "Horizontal scroll for categories feels like browsing a garden",
-                "Soft animations and hover effects encourage exploration without rush",
-                "Clear product cards and CTAs drive conversions naturally",
+                "Motion adds softness and craft without slowing shopping",
+                "Category browsing improves discovery without clutter",
+                "Product cards keep pricing and CTAs unmissable",
+                "Typography + spacing reinforce premium positioning",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Want a website that feels alive?",
             body: "I design romantic, motion-rich experiences that connect with visitors emotionally—perfect for premium brands and artisan businesses.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-velvet-rose",
         },
         process: [
             {
                 title: "Romantic Hero Gateway",
-                description: "Asymmetrical composition with the hero image acting as a portal. Circle mask reveal, split-char rising text, and magnetic image tilt create an immediate emotional connection.",
+                description: "An editorial hero with gentle motion and a clear hierarchy—designed to feel romantic without feeling busy.",
                 image: "/images/projects/velvet-rose/velvet-rose-hero.jpg",
             },
             {
                 title: "Kinetic Garden Categories",
-                description: "Horizontal scroll section that pins while categories slide past. 3D card tilts, image zoom on hover, and SVG border animations make browsing feel like walking through a garden.",
+                description: "A category-led browse section that encourages exploration while keeping the shopping flow structured.",
                 image: "/images/projects/velvet-rose/velvet-rose-1.jpg",
             },
             {
                 title: "Floating Product Market",
-                description: "Masonry grid with staggered Y-positions and 3D flip-up entrances. Hover reveals zoom, expand 'Add to Cart' buttons, and floating price tags for an engaging shopping experience.",
+                description: "A clean product grid with strong CTAs, clear pricing, and hover states that add delight without hiding key actions.",
                 image: "/images/projects/velvet-rose/velvet-rose-2.jpg",
             },
         ],
         outcomes: [
-            { metric: "Motion Style", value: "Botanical", description: "Organic, fluid movements mimicking natural bloom" },
-            { metric: "Scroll Experience", value: "Horizontal Pin", description: "Innovative category browsing section" },
-            { metric: "Animation Systems", value: "6+ unique", description: "Different motion patterns per section" },
+            { metric: "Motion Style", value: "Botanical", description: "Gentle, organic motion that supports the brand tone" },
+            { metric: "Browse UX", value: "Category-led", description: "Structured exploration without a catalog feel" },
+            { metric: "Conversion Clarity", value: "Checkout-forward", description: "Product cards keep CTAs and pricing clear" },
         ],
         featured: true,
         color: "#f76b6c",
@@ -252,13 +251,13 @@ export const projects: Project[] = [
         kind: "Client",
         metaTitle: "Gentleman's Blade - Vintage Barbershop Website Design",
         metaDescription:
-            "Cinematic Americana website design for a classic barbershop. Features 3D card effects, WebGL distortions, vinyl record testimonials, and heritage-inspired motion.",
+            "Heritage-inspired barbershop website design with editorial layout, clear services, and a booking-first path that feels premium.",
         socialCaption:
-            "New build: a Cinematic Americana barbershop website for Gentleman's Blade—3D image clusters, vinyl record testimonials, and razor-sharp motion design.",
+            "Gentleman's Blade: a heritage-forward barbershop site with editorial layout, clear service hierarchy, and a confident booking CTA.",
         tags: ["Web Design", "Motion Design", "React", "Three.js", "WebGL"],
-        tagline: "Heritage-inspired website design for a classic American barbershop",
+        tagline: "Heritage-forward barbershop site with a booking-first flow",
         description:
-            "Cinematic website blending 1950s barbershop heritage with modern editorial sophistication. 3D card clusters, horizontal barber galleries, and vinyl record testimonials.",
+            "A cinematic, editorial site blending vintage tone with modern hierarchy—services, barber profiles, and a clear path to booking.",
         category: "Web Design",
         year: "2026",
         client: "Gentleman's Blade Barbershop",
@@ -271,13 +270,13 @@ export const projects: Project[] = [
             "/images/projects/gentlemans-blade/gentlemans-blade-2.jpg",
             "/images/projects/gentlemans-blade/gentlemans-blade-3.jpg",
         ],
-        problem: "Gentleman's Blade wanted a website that honored classic barbershop heritage while feeling modern and confident. Standard service-listing sites felt generic—they needed something cinematic that would make visitors feel the craft and tradition of American barbering.",
-        solution: "Created a 'Cinematic Americana' website with 3D image card clusters, liquid WebGL hover distortions, and horizontal scroll barber galleries. The services section fans out like a deck of cards, and testimonials are presented as spinning vinyl records—all reinforcing the heritage-meets-modern brand.",
+        problem: "Gentleman's Blade wanted a website that honored classic barbershop heritage while feeling modern and confident. Standard service-listing sites felt generic—they needed something with real character that still books easily.",
+        solution: "Built a 'Cinematic Americana' site with editorial hierarchy, tactile motion, and a booking-first flow. Services stay scannable, barber profiles feel premium, and CTAs stay clear throughout.",
         caseStudy: {
             headline: "Gentleman's Blade — Precision Heritage",
             subheadline:
                 "A cinematic barbershop website that blends 1950s Americana with modern editorial sophistication.",
-            tldr: "Built a heritage-inspired barbershop website with 3D card clusters, WebGL liquid metal hover effects, and vinyl record testimonials. Features include accordion-stacked service cards that fan out on scroll, horizontal barber 'Rogue's Gallery', and a neon-flicker contact form.",
+            tldr: "Built a heritage-inspired barbershop website with an editorial layout, tactile interactions, and a booking-first flow. Service sections stay scannable, barber profiles feel premium, and CTAs stay clear.",
             goals: [
                 "Honor classic barbershop heritage with modern confidence",
                 "Create a cinematic, editorial experience that stands out",
@@ -291,13 +290,13 @@ export const projects: Project[] = [
                 "Film grain overlay for consistent vintage aesthetic",
             ],
             delivered: [
-                "Split-blade hero with 3D image cluster and magnetic cursor interactions",
-                "Blueprint-style about section with diagonal axis and animated cross-hatch",
-                "Accordion deck services that fan out with 3D card dealing animations",
-                "Horizontal Rogue's Gallery barber showcase with portrait frame rotations",
-                "Vinyl spin testimonials with curved SVG text and orbit animations",
-                "Neon-flicker contact form with electric input focus effects",
-                "Curtain call footer revealed from behind the previous section",
+                "Hero that sets tone fast with a strong booking CTA",
+                "Services layout designed for quick scanning and confident selection",
+                "Barber gallery that highlights personality and craft",
+                "Testimonials + social proof styled to match the brand tone",
+                "Contact/booking section designed for mobile",
+                "Subtle motion + texture for a cinematic feel",
+                "Reduced-motion support and accessible focus states",
             ],
             whyItWorks: [
                 "Cinematic motion creates a premium, confident brand feeling",
@@ -306,18 +305,18 @@ export const projects: Project[] = [
                 "Clear booking CTAs are integrated naturally throughout",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a website with character?",
             body: "I build cinematic, heritage-inspired websites that tell your brand's story through motion and depth—perfect for businesses with craft and tradition.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-gentlemans-blade",
         },
         process: [
             {
                 title: "Split-Blade Hero",
-                description: "Revolutionary asymmetrical layout with 3D image cluster that tilts on cursor movement. Split-char text rise and liquid WebGL displacement on hover create cinematic tension.",
+                description: "Bold, asymmetrical hero with depth and restrained motion—built to feel cinematic while keeping booking front-and-center.",
                 image: "/images/projects/gentlemans-blade/gentlemans-blade-hero.jpg",
             },
             {
@@ -327,14 +326,14 @@ export const projects: Project[] = [
             },
             {
                 title: "Rogue's Gallery Barbers",
-                description: "Horizontal scroll section presenting barbers like vintage mugshots. Portrait frames rotate in 3D, names slide out on hover, and the entire gallery creates a 'meet the artists' experience.",
+                description: "A barber gallery that feels like a 'meet the artists' moment—personality-forward, premium, and easy to scan.",
                 image: "/images/projects/gentlemans-blade/gentlemans-blade-3.jpg",
             },
         ],
         outcomes: [
-            { metric: "Motion Style", value: "Cinematic Americana", description: "Heritage meets modern editorial sophistication" },
-            { metric: "3D Effects", value: "WebGL + CSS", description: "Liquid metal distortions and card clusters" },
-            { metric: "Unique Sections", value: "7", description: "Each with distinct animation choreography" },
+            { metric: "Brand Tone", value: "Cinematic Americana", description: "Heritage feel with modern editorial hierarchy" },
+            { metric: "Service UX", value: "Scannable", description: "Clear offerings without generic lists" },
+            { metric: "Booking Path", value: "Prominent", description: "CTAs integrated throughout the scroll" },
         ],
         featured: true,
         color: "#E63946",
@@ -346,13 +345,13 @@ export const projects: Project[] = [
         kind: "Client",
         metaTitle: "Pop Playground - Memphis Design Kids' Creative Website",
         metaDescription:
-            "Ultra-dynamic website for a children's creative studio featuring physics-based Memphis design, exploding color transitions, and playful chaos animations.",
+            "Playful Memphis-inspired website for a children’s creative studio—bold color, lively motion, and parent-friendly clarity.",
         socialCaption:
-            "New build: a Kinetic Memphis Playground website for Pop Playground—physics-based interactions, liquid morphing shapes, and explosive color transitions.",
+            "Pop Playground: a Memphis-inspired studio site with bold color, playful motion, and a clear path to classes and booking.",
         tags: ["Web Design", "Motion Design", "React", "GSAP", "WebGL"],
-        tagline: "Physics-based Memphis design for a children's creative playground",
+        tagline: "Memphis-inspired studio site with playful motion and parent-friendly clarity",
         description:
-            "Explosive, playful website featuring liquid morphing shapes, floating Memphis patterns, and chaos-driven animations that celebrate pure childhood imagination.",
+            "A bright, playful site with lively motion and a clear path to classes, camps, and bookings.",
         category: "Web Design",
         year: "2026",
         client: "Pop Playground",
@@ -365,70 +364,69 @@ export const projects: Project[] = [
             "/images/projects/pop-playground/pop-playground-2.jpg",
             "/images/projects/pop-playground/pop-playground-3.jpg",
         ],
-        problem: "Pop Playground needed a website that captured the boundless energy and colorful chaos of children's creativity. Standard templates felt too grown-up—they wanted something that makes kids AND parents excited about art and imagination.",
-        solution: "Created a 'Kinetic Memphis Playground' website with physics-based interactions, liquid color mesh backgrounds, and scattered polaroid galleries. Every section explodes with floating shapes, bouncing animations, and playful chaos that mirrors the messy joy of making art.",
+        problem: "Pop Playground needed a website that captured the energy of kids’ creativity without feeling chaotic for parents. Standard templates felt too grown-up—they wanted something playful that still makes classes and booking easy to find.",
+        solution: "Created a Memphis-inspired site with playful motion, bold pattern work, and a gallery that feels like scattered art on a table. The layout stays simple enough for parents to quickly understand programs, pricing, and the next step.",
         caseStudy: {
             headline: "Pop Playground — Creative Chaos",
             subheadline:
-                "An ultra-dynamic website that celebrates pure, unfiltered imagination through Memphis-influenced motion design.",
-            tldr: "Built a physics-based children's creative studio website with WebGL liquid color meshes, floating Memphis shapes, and scattered polaroid galleries. Features magnetic cursor interactions, explosive stagger animations, and playful chaos throughout—perfectly capturing the energy of childhood creativity.",
+                "A playful Memphis-inspired website that feels fun—and stays clear for parents.",
+            tldr: "Designed a Memphis-inspired website for a children’s creative studio: bold color, playful motion, and a gallery-forward layout—built to delight kids while keeping schedule, pricing, and booking easy to find.",
             goals: [
                 "Capture the explosive energy of children's creativity",
-                "Create physics-based interactions that feel alive and playful",
+                "Create interactions that feel lively and responsive",
                 "Use Memphis design patterns with modern motion sophistication",
                 "Appeal to both kids and parents with premium playfulness",
             ],
             constraints: [
                 "Bold Memphis color palette (pinks, purples, greens, yellows)",
-                "Physics-based effects without affecting performance",
+                "Playful motion without sacrificing performance",
                 "Single-page experience with pinned scroll sections",
                 "Cursor-reactive elements without React state updates",
             ],
             delivered: [
-                "Full-viewport hero with WebGL liquid color mesh background",
-                "Floating Memphis shapes with Lissajous curve motion paths",
-                "Diagonal split about section with orbital image clusters",
-                "Radial composition featured section with circular headline",
-                "Scattered polaroid gallery with throw-down entrance animations",
-                "Magnetic cursor zones with CSS custom property updates",
-                "Multi-layer parallax with different scroll speeds per layer",
+                "Hero with bold color system and playful motion cues",
+                "Pattern + shape system that supports the brand without clutter",
+                "About/story section with strong hierarchy for parents",
+                "Gallery layout that feels like scattered polaroids",
+                "Program highlights designed for quick scanning",
+                "Mobile-first spacing + reduced-motion support",
             ],
             whyItWorks: [
-                "Physics-based motion creates tangible, playful interactions",
+                "Playful motion makes the site feel alive without feeling chaotic",
                 "Memphis patterns add visual excitement without overwhelming",
                 "Scattered, organic layouts mirror the creative chaos of art-making",
                 "Premium polish makes parents trust while kids feel excited",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a website that's full of energy?",
-            body: "I build ultra-dynamic, physics-based websites that capture attention and create memorable experiences—perfect for brands that refuse to be boring.",
-            ctaText: "Book a Discovery Call",
+            body: "I build playful, high-craft websites that capture attention without sacrificing clarity—great for brands that need energy and trust.",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-pop-playground",
         },
         process: [
             {
                 title: "Explosive Hero Gateway",
-                description: "Full-viewport hero with WebGL liquid color mesh that swirls toward the cursor. Headline words have independent float animations, Memphis shapes scatter outward on scroll.",
+                description: "A hero that sets the tone fast with bold color, pattern, and motion—while keeping the CTA clear and easy to spot.",
                 image: "/images/projects/pop-playground/pop-playground-hero.jpg",
             },
             {
                 title: "Orbital About Composition",
-                description: "Diagonal split layout with image cluster in slow orbital rotation. 3D depth positioning, connecting SVG constellation lines, and feature icons with independent bounce timing.",
+                description: "An image-forward layout that keeps parents oriented (what it is, who it’s for, how to join) while staying playful.",
                 image: "/images/projects/pop-playground/pop-playground-1.jpg",
             },
             {
                 title: "Scattered Polaroid Gallery",
-                description: "Images arranged like scattered photos on a table with unique rotations. Throw-down entrance animations, hover-to-front interactions, and floating shadow effects.",
+                description: "A gallery pattern that feels like scattered photos on a table—fun to explore, but still scannable and readable.",
                 image: "/images/projects/pop-playground/pop-playground-2.jpg",
             },
         ],
         outcomes: [
-            { metric: "Motion Style", value: "Kinetic Memphis", description: "Physics-based playful chaos throughout" },
-            { metric: "Color System", value: "7+ hues", description: "Full Memphis rainbow with dark/light variants" },
-            { metric: "Interaction Types", value: "10+", description: "Unique hover, scroll, and cursor effects" },
+            { metric: "Motion Style", value: "Kinetic Memphis", description: "Playful motion and pattern work throughout" },
+            { metric: "Color System", value: "Bold + controlled", description: "High-energy palette with clear hierarchy" },
+            { metric: "Parent UX", value: "Clear", description: "Programs and booking stay easy to find" },
         ],
         featured: true,
         color: "#F795E9",
@@ -445,7 +443,7 @@ export const projects: Project[] = [
         socialCaption:
             "New build: a focused booking funnel for Transaction Authority Group—authority-first, qualification-driven, and designed to convert into discovery calls.",
         tags: ["Landing Page", "Lead Generation", "Booking Flow", "Mobile-First"],
-        tagline: "Authority-first landing page built to qualify established transaction coordinators and drive discovery call bookings.",
+        tagline: "Authority-first landing page that qualifies established transaction coordinators and drives discovery call bookings.",
         description:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
         category: "Real Estate",
@@ -460,8 +458,8 @@ export const projects: Project[] = [
             "/images/projects/tag-landing-page/tag-landing-page-2.png",
             "/images/projects/tag-landing-page/tag-landing-page-3.png",
         ],
-        problem: "TAG needed a focused landing page that converts the right visitors—established Transaction Coordinators and TC companies—into scheduled discovery calls. The goal wasn’t content depth. It was a clean, credible page that makes the offer obvious, filters out poor-fit leads, and pushes the user toward booking.",
-        solution: "Built a single-page booking funnel designed to establish authority fast, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page remains conversion-focused.",
+        problem: "TAG needed a focused landing page that converts the right visitors—established transaction coordinators and TC companies—into booked discovery calls. The goal wasn’t content depth; it was a clean, credible page that clarifies the offer, filters for fit, and pushes one action: book the call.",
+        solution: "Built a single-page booking funnel designed to establish authority quickly, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page stays conversion-focused.",
         caseStudy: {
             headline: "Transaction Authority Group — Lead-Gen Landing Page",
             subheadline:
@@ -495,12 +493,12 @@ export const projects: Project[] = [
                 "The CTA is repeated and reinforced so the page stays focused on one action: book the call",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a landing page that converts?",
             body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-tag-landing-page",
         },
         process: [
@@ -553,8 +551,8 @@ export const projects: Project[] = [
         caseStudy: {
             headline: "UtilitySheet — From Problem to Product",
             subheadline:
-                "A SaaS product I built from scratch to solve a real business problem—demonstrating end-to-end product thinking, technical execution, and user-centered design.",
-            tldr: "As founder of UtilitySheet, I took a common real estate workflow problem and turned it into a working SaaS product. This project demonstrates my ability to think beyond 'websites' to strategic product solutions—the same mindset I bring to every client engagement.",
+                "A SaaS product I built from scratch to solve a real workflow problem—end-to-end product thinking, design, and execution.",
+            tldr: "As founder of UtilitySheet, I turned a common real estate workflow problem into a working SaaS product. It shows how I approach builds: start with the workflow, design for clarity, and ship a system people can actually use.",
             goals: [
                 "Eliminate the back-and-forth emails about utility providers",
                 "Create a guided experience that even tech-averse sellers can complete",
@@ -577,21 +575,21 @@ export const projects: Project[] = [
             ],
             whyItWorks: [
                 "Solves a genuine pain point I discovered working with TCs",
-                "Reduces a 20-minute task to under 3 minutes",
+                "Turns a fuzzy question into a quick, guided workflow",
                 "Professional output builds trust with all transaction parties",
                 "Demonstrates full-stack product building capability",
             ],
         },
         cta: {
             headline: "Looking for a product-minded partner?",
-            body: "I don't just build websites—I build products that solve business problems. Whether you need a landing page or a full SaaS application, I bring strategic product thinking to every project.",
-            ctaText: "Discuss Your Project",
+            body: "I bring product thinking to web work: define the workflow, design the UI, ship the system, then improve what moves the needle.",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-utility-sheet",
         },
         process: [
             {
                 title: "AI-Assisted Provider Picker",
-                description: "As sellers fill out the form, the system suggests likely utility providers for their area-so they can choose from relevant options instead of guessing or typing vague answers. Faster completion, fewer errors, less manual chasing.",
+                description: "As sellers fill out the form, the system suggests likely utility providers for their area—so they can choose from relevant options instead of guessing. Faster completion, fewer errors, less manual chasing.",
                 image: "/images/projects/utilitysheet/utilitysheet-2.png",
             },
             {
@@ -601,14 +599,14 @@ export const projects: Project[] = [
             },
             {
                 title: "PDF Output & Branding",
-                description: "Generates polished, professional utility sheets that can be shared, printed, or attached to transaction files-branded for the sending agent or TC.",
+                description: "Generates polished, professional utility sheets that can be shared, printed, or attached to transaction files—branded for the sending agent or TC.",
                 image: "/images/projects/utilitysheet/utilitysheet-3.png",
             },
         ],
         outcomes: [
-            { metric: "Form Completion", value: "< 3 min", description: "Average time to complete the utility form" },
-            { metric: "Follow-ups", value: "-80%", description: "Reduction in back-and-forth emails for utility info" },
-            { metric: "Data Accuracy", value: "Fewer errors", description: "AI suggestions reduce typos and guesswork" },
+            { metric: "Seller Experience", value: "Guided", description: "Clear steps and validation reduce guesswork" },
+            { metric: "Follow-ups", value: "Reduced", description: "Fewer “who’s the provider?” emails and texts" },
+            { metric: "Output", value: "Shareable", description: "Clean PDF sheet that’s easy to forward and file" },
         ],
         featured: true,
         color: "#8b5cf6",
@@ -827,7 +825,7 @@ export const projects: Project[] = [
         process: [
             {
                 title: "Conversion-First Hero Messaging",
-                description: "Clarified the offer with a strong headline, clear supporting copy, and immediate CTAs-so prospects know exactly what to do next.",
+                description: "Clarified the offer with a strong headline, clear supporting copy, and immediate CTAs—so prospects know exactly what to do next.",
                 image: "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.png",
             },
             {
@@ -903,7 +901,7 @@ export const projects: Project[] = [
         kind: "Client",
         industries: ["real-estate"],
         tagline: "Professional web presence for a property management and investment firm",
-        description: "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step-including the TenantCloud portal.",
+        description: "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step—including the TenantCloud portal.",
         category: "Real Estate",
         year: "2023",
         client: "Three Penn Properties, LLC",
@@ -1006,12 +1004,12 @@ export const projects: Project[] = [
                 "Prominent forms on every section maximize conversion opportunities",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a real estate website that converts?",
             body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, trust signals, and forms that actually get filled out.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-northpoint-realty",
         },
         process: [
@@ -1033,7 +1031,7 @@ export const projects: Project[] = [
         ],
         outcomes: [
             { metric: "Lead Pathways", value: "2", description: "Separate buyer and seller funnels" },
-            { metric: "Trust Signals", value: "10+", description: "Stats, testimonials, team profiles" },
+            { metric: "Trust Signals", value: "Layered", description: "Stats, testimonials, and team profiles" },
             { metric: "Intake Forms", value: "3", description: "Strategically placed throughout the site" },
         ],
         featured: true,
@@ -1072,7 +1070,7 @@ export const projects: Project[] = [
             headline: "Momentum — Stop Chasing Deals. Build an Empire.",
             subheadline:
                 "A premium coaching website that commands authority and justifies high-ticket pricing through bold design and results-driven messaging.",
-            tldr: "Built a high-end coaching website with dramatic black/gold aesthetic, tiered pricing ($1,497-$7,500/month), and results-focused testimonials. The design positions Momentum as the elite choice for serious real estate professionals ready to scale.",
+            tldr: "Built a high-end coaching website with dramatic black/gold aesthetic, tiered pricing ($1,497–$7,500/month), and results-focused testimonials. The design positions Momentum as the elite choice for serious real estate professionals ready to scale.",
             goals: [
                 "Establish premium positioning that justifies high-ticket pricing",
                 "Attract serious real estate professionals, not beginners",
@@ -1101,12 +1099,12 @@ export const projects: Project[] = [
                 "Bold claims backed by social proof build immediate trust",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a website that commands premium prices?",
             body: "I build bold, high-end websites for coaches and consultants who want their web presence to match their expertise—and their pricing.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-momentum-coaching",
         },
         process: [
@@ -1197,12 +1195,12 @@ export const projects: Project[] = [
                 "The calm aesthetic matches the brand promise of less hustle, more margin",
             ],
             approval:
-                "Client approved the design direction and gave permission for this project to be featured in my portfolio.",
+                "Client approved the design direction and granted permission to feature this project in my portfolio.",
         },
         cta: {
             headline: "Need a website that feels different?",
             body: "I build scroll-driven, motion-rich websites that create unique experiences—perfect for brands that want to stand out from cookie-cutter templates.",
-            ctaText: "Book a Discovery Call",
+            ctaText: "Talk about your project",
             href: "/contact?source=case-study-clarity-growth",
         },
         process: [

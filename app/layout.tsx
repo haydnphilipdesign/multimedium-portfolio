@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -9,9 +9,15 @@ import { PageTransition } from "@/components/motion/PageTransition";
 import { siteUrl } from "@/lib/site";
 import { getSiteStructuredData } from "@/lib/structuredData";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-brand-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-brand-mono",
   display: "swap",
 });
 
@@ -66,7 +72,7 @@ export default function RootLayout({
   const structuredData = getSiteStructuredData();
 
     return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
         <script
           type="application/ld+json"
