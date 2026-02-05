@@ -481,11 +481,13 @@ export default function TransactionCoordinatorsPage() {
                     <StaggerItem>
                         <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
                             <div className="relative aspect-[16/10] bg-muted">
-                                <div className="absolute inset-0 bg-hero-gradient opacity-60" />
-                                <div className="grain absolute inset-0 pointer-events-none" />
-                                <div className="relative h-full w-full grid place-items-center">
-                                    <IconChecklist className="h-12 w-12 text-glow" stroke={1.5} />
-                                </div>
+                                <Image
+                                    src="/resources/tc-intake-checklist.jpg"
+                                    alt="TC Lead Intake Checklist preview"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                 <div className="absolute top-4 left-4">
                                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
