@@ -182,21 +182,27 @@ export default function TransactionCoordinatorsPage() {
                                 <p className="text-lg text-muted-foreground max-w-2xl">
                                     Authority-first messaging, premium design, and a conversion path that filters out poor-fit leads - so you spend less time &quot;selling&quot; and more time coordinating.
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-3">
+                                 <div className="flex flex-col sm:flex-row gap-3">
+                                     <Link
+                                         href="/contact?source=tc-hero"
+                                         className="btn-primary"
+                                     >
+                                         Talk about your project
+                                     </Link>
+                                     <Link
+                                         href="/work?industry=tc"
+                                         className="btn-secondary inline-flex items-center gap-2"
+                                     >
+                                         See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
+                                     </Link>
                                     <Link
-                                        href="/contact?source=tc-hero"
-                                        className="btn-primary"
-                                    >
-                                        Talk about your project
-                                    </Link>
-                                    <Link
-                                        href="/work?industry=tc"
+                                        href="/resources?source=tc-hero"
                                         className="btn-secondary inline-flex items-center gap-2"
                                     >
-                                        See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
+                                        Free templates <IconArrowRight className="w-4 h-4" stroke={2} />
                                     </Link>
-                                </div>
-                            </div>
+                                 </div>
+                             </div>
 
                             <div className="lg:col-span-2">
                                 <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
