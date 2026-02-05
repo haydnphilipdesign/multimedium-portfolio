@@ -22,6 +22,7 @@ type Resource = {
     image?: string;
     badge: string;
     ctaText: string;
+    external?: boolean;
     icon?: ComponentType<{ className?: string; stroke?: number }>;
 };
 
@@ -55,24 +56,25 @@ const resources: Resource[] = [
     },
 ];
 
-const caseStudies: Resource[] = [
+const tools: Resource[] = [
     {
-        title: "UtilitySheet (case study)",
+        title: "UtilitySheet",
         description:
-            "How I built a guided seller form that generates clean, shareable utility info sheets—reducing back-and-forth during a transaction.",
-        href: "/work/utility-sheet",
+            "A guided seller form that generates a clean, shareable utility info sheet. Free plan includes 3 submissions/month; Pro is $9/month.",
+        href: "https://utilitysheet.com",
         image: "/images/projects/utilitysheet/utilitysheet-thumb.png",
-        badge: "Case study",
-        ctaText: "View case study",
+        badge: "Tool (free + pro)",
+        ctaText: "Try UtilitySheet",
+        external: true,
     },
     {
-        title: "NormaTC (case study)",
+        title: "NormaTC",
         description:
-            "A TC-first “Closing Desk” platform concept: Microsoft 365 integrations, dependency tracking, and workflow signals built for real inbox chaos.",
-        href: "/work/norma",
+            "Early-access TC “Closing Desk” software built around Outlook/Microsoft 365 workflows, dependencies, and deadline signal—join the waitlist.",
+        href: "/contact?source=norma-waitlist",
         image: "/images/projects/norma/norma-thumb.png",
-        badge: "Case study",
-        ctaText: "View case study",
+        badge: "Tool (early access)",
+        ctaText: "Join the waitlist",
     },
 ];
 
@@ -174,13 +176,13 @@ export default function ResourcesPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <SectionHeading
-                        title="More TC resources"
-                        subtitle="Two built-from-scratch examples of workflow tools—useful if you want ideas (or want something similar built for your process)."
+                        title="Tools you can use"
+                        subtitle="A couple TC workflow tools I’ve built—use them as-is, or as inspiration for something tailored to your process."
                     />
                 </AnimatedSection>
 
                 <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
-                    {caseStudies.map((res) => (
+                    {tools.map((res) => (
                         <StaggerItem key={res.href}>
                             <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
                                 <div className="relative aspect-[16/10] bg-muted">
@@ -216,7 +218,12 @@ export default function ResourcesPage() {
                                         {res.description}
                                     </p>
                                     <div className="mt-5">
-                                        <Link href={res.href} className="btn-secondary inline-flex items-center gap-2">
+                                        <Link
+                                            href={res.href}
+                                            className="btn-secondary inline-flex items-center gap-2"
+                                            target={res.external ? "_blank" : undefined}
+                                            rel={res.external ? "noopener noreferrer" : undefined}
+                                        >
                                             {res.ctaText} <IconArrowRight className="w-4 h-4" stroke={2} />
                                         </Link>
                                     </div>
