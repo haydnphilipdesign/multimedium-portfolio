@@ -61,7 +61,7 @@ const included = [
         icon: IconClock,
         title: "Simple systems (optional)",
         description:
-            "If you want it: onboarding flows, intake checklists, and follow-up automation—without overbuilding.",
+            "Optional add-ons if you want them: onboarding flows, intake checklists, and follow-up automation—without overbuilding.",
     },
 ];
 
@@ -69,6 +69,47 @@ const expectations = [
     { label: "Primary conversion", value: "Booked discovery calls" },
     { label: "Lead quality", value: "Fit-filtered inquiries" },
     { label: "Systems-ready", value: "Intake + follow-up automation" },
+];
+
+const automationBullets = [
+    "Conditional intake (buyer/listing/dual, 1–2 buyers/sellers)",
+    "Required-field enforcement (prevents half-filled submissions)",
+    "Auto-formatted intake summary (email + optional PDF cover sheet)",
+    "“Missing info” callouts so you catch it immediately",
+    "Optional naming conventions + routing",
+];
+
+const automationPackages = [
+    {
+        name: "Automation Starter",
+        price: "$350–$650",
+        bullets: [
+            "Conditional intake + required fields",
+            "Clean formatted email summary",
+            "Basic branding (logo/header)",
+        ],
+        bestFor: "Part-time or low-volume TCs",
+    },
+    {
+        name: "Automation Pro",
+        price: "$750–$1,500",
+        bullets: [
+            "Everything in Starter",
+            "Branded PDF cover sheet output",
+            "Missing-info summary / callouts",
+        ],
+        bestFor: "Steady volume, wants consistent file starts",
+    },
+    {
+        name: "Ops Workflow",
+        price: "$1,500–$3,500",
+        bullets: [
+            "Everything in Pro",
+            "Integrations (Drive/Zapier/Make) + routing",
+            "Folder/task workflow + utility intake PDF if needed",
+        ],
+        bestFor: "Busy solo TC or small team",
+    },
 ];
 
 const fitFor = [
@@ -93,6 +134,14 @@ const faqs = [
         a: "Yes. We can build forms that route, tag, and filter leads so you spend time on the right calls. If you already use a CRM, we can integrate with it.",
     },
     {
+        q: "Do I need Jotform?",
+        a: "No. I can build this with the tools you already use (Google Forms, Jotform, etc.), or recommend the simplest option for your workflow.",
+    },
+    {
+        q: "Are you selling software?",
+        a: "No—this is a done-for-you setup service (plus optional support). You own the account/tools; I configure the workflow and templates.",
+    },
+    {
         q: "What if I am a solo TC?",
         a: "That can still be a fit. The key is positioning: clear scope, clear process, and proof that you run a real operation.",
     },
@@ -106,7 +155,8 @@ export default function TransactionCoordinatorsPage() {
     const tagProject = getProjectBySlug("tag-landing-page");
     const paRes = getProjectBySlug("pa-real-estate-support");
     const utilitySheet = getProjectBySlug("utility-sheet");
-    const featured = [paRes, tagProject, utilitySheet].filter(
+    const norma = getProjectBySlug("norma");
+    const featured = [paRes, tagProject, utilitySheet, norma].filter(
         (project): project is Project => Boolean(project)
     );
 
@@ -213,6 +263,17 @@ export default function TransactionCoordinatorsPage() {
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
+
+                <AnimatedSection delay={0.08} direction="none">
+                    <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-border/50 bg-card/60 p-6 sm:flex-row sm:items-center sm:justify-between">
+                        <p className="text-sm text-muted-foreground">
+                            Want intake + cover-sheet automation too? It’s an optional add-on.
+                        </p>
+                        <Link href="#automation" className="btn-secondary inline-flex items-center justify-center gap-2">
+                            See automation options <IconArrowRight className="w-4 h-4" stroke={2} />
+                        </Link>
+                    </div>
+                </AnimatedSection>
             </Section>
 
             <Section className="pt-10 md:pt-14" padding="none">
@@ -255,7 +316,11 @@ export default function TransactionCoordinatorsPage() {
                                     Real estate work
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
-                                    A couple relevant builds that show the direction: authority, clarity, and conversion.
+                                    A few relevant builds that show the direction: authority, clarity, and conversion. Includes product work too (
+                                    <Link href="/work/norma" className="text-foreground hover:text-glow transition-colors underline underline-offset-4">
+                                        Norma
+                                    </Link>
+                                    —early access).
                                 </p>
                             </div>
                             <Link
@@ -275,6 +340,69 @@ export default function TransactionCoordinatorsPage() {
                     </div>
                 </Section>
             ) : null}
+
+            <Section id="automation" className="bg-muted/30">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted/50 text-muted-foreground border border-border/50">
+                            Optional add-on
+                        </span>
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                            Stop chasing missing info.
+                        </h2>
+                        <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+                            TCs waste time tracking down missing details. This add-on forces required fields, routes submissions,
+                            and outputs a clean cover-sheet style summary (email + optional PDF) so every file starts organized.
+                            It’s done-for-you setup in your tools—and you own the accounts.
+                        </p>
+                        <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                            {automationBullets.map((item) => (
+                                <li key={item} className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </AnimatedSection>
+
+                <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.08}>
+                    {automationPackages.map((tier) => (
+                        <StaggerItem key={tier.name}>
+                            <div className="h-full rounded-2xl border border-border/50 bg-card p-7">
+                                <div className="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-foreground">{tier.name}</h3>
+                                        <p className="mt-1 text-sm font-medium text-glow">{tier.price}</p>
+                                    </div>
+                                </div>
+                                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                                    {tier.bullets.map((bullet) => (
+                                        <li key={bullet} className="flex items-start gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                            {bullet}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p className="mt-5 text-xs text-muted-foreground">
+                                    <span className="font-semibold text-foreground">Best for:</span> {tier.bestFor}
+                                </p>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+
+                <p className="mt-6 text-sm text-muted-foreground">
+                    Team builds available for higher volume / broker ops.
+                </p>
+
+                <div className="mt-6 rounded-2xl border border-border/50 bg-card p-6">
+                    <p className="text-sm font-semibold text-foreground">Not a fit</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                        Not a fit if you want a generic template or you’re not ready to respond to leads quickly.
+                    </p>
+                </div>
+            </Section>
 
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>

@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Non-Next marketing/artifact folders in this repo:
+    "Clarity Growth Co/**",
+    "Momentum Real Estate Coaching/**",
+    "NorthPoint Realty Group/**",
+    "norma-marketing/**",
   ]),
 ]);
 

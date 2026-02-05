@@ -615,6 +615,97 @@ export const projects: Project[] = [
         externalUrl: "https://utilitysheet.com",
     },
     {
+        slug: "norma",
+        title: "Norma",
+        kind: "Product",
+        industries: ["tc", "real-estate"],
+        metaTitle: "Norma - Closing Desk Software for Transaction Coordinators",
+        metaDescription:
+            "An early-access Closing Desk platform built to reduce inbox chaos and missed deadlines for transaction coordinators—deep Microsoft 365 integrations, rule-based workflows, and AI-assisted triage.",
+        socialCaption:
+            "Building Norma: a Closing Desk platform for transaction coordinators—Outlook-native workflows, dependency tracking, and AI-assisted triage (early access).",
+        tags: ["SaaS", "Real Estate Ops", "Microsoft Graph", "Workflow Automation", "AI"],
+        tagline: "Early-access Closing Desk platform that keeps every transaction organized, compliant, and moving.",
+        description:
+            "A Closing Desk platform for transaction coordinators that integrates with Microsoft 365 to centralize deadlines, dependencies, and file setup—built for the way TCs actually work.",
+        category: "SaaS",
+        year: "2026",
+        client: "Internal Product (Early Access)",
+        role: "Full-Stack Development, Product Architecture",
+        tools: ["Next.js (App Router)", "PostgreSQL + Prisma", "Microsoft Graph API", "LLM workflows (Gemini)"],
+        thumbnail: "/images/projects/norma/norma-thumb.png",
+        heroImage: "/images/projects/norma/norma-hero.png",
+        images: [
+            "/images/projects/norma/norma-1.png",
+            "/images/projects/norma/norma-2.png",
+            "/images/projects/norma/norma-3.png",
+        ],
+        problem: "Transaction Coordinators live in a flood of emails, deadlines, compliance rules, and “who-owes-me-what” follow-ups across dozens of active files. Traditional CRMs and generic task tools don’t map cleanly to TC workflows—so important signals get buried, dependencies slip, and setup stays manual.",
+        solution: "Built Norma as a dedicated “Closing Desk” that augments the tools TCs already use. It centralizes today’s deadlines and follow-ups, syncs context into Outlook/Calendar/To Do, and uses rules + AI to catch missing info early—so each file starts organized and stays on track.",
+        caseStudy: {
+            headline: "Norma — The Closing Desk for Transaction Coordinators",
+            subheadline:
+                "A TC-first operations platform designed to reduce inbox chaos, enforce consistency, and prevent missed follow-ups.",
+            tldr: "Norma is an early-access Closing Desk platform for transaction coordinators. It integrates with Microsoft 365, tracks “Waiting On” dependencies, and automates workflow signals (rules + AI) so files start clean and deadlines don’t get buried.",
+            goals: [
+                "Centralize deadlines + follow-ups into a single daily view",
+                "Make “Waiting On” dependencies obvious and actionable",
+                "Integrate with Outlook/Calendar/To Do (instead of replacing them)",
+                "Reduce setup + missing-info back-and-forth at file start",
+            ],
+            constraints: [
+                "TC workflows vary by state/brokerage—needs flexible rule packs",
+                "Must keep the user in familiar tools (Microsoft 365)",
+                "Fast daily use: minimal clicks, high signal-to-noise",
+                "Secure OAuth + careful handling of sensitive deal data",
+            ],
+            delivered: [
+                "Daily “Closing Desk” dashboard that surfaces what matters today",
+                "Deep Microsoft Graph integration (email, calendar, To Do sync)",
+                "“Waiting On” engine for tracking external dependencies",
+                "Rule-based compliance workflows (deadline + stage logic)",
+                "AI-assisted inbox triage + document/missing-info signals",
+                "Webhook-based canonical intake pipeline (forms → transaction seed)",
+            ],
+            whyItWorks: [
+                "Meets TCs where they already work: Outlook + Microsoft 365",
+                "Dependency-first design solves the real coordination bottleneck",
+                "Rules enforce consistency without forcing rigid templates",
+                "AI is used for triage + signal, not gimmicky chat",
+            ],
+        },
+        cta: {
+            headline: "Want early access to Norma?",
+            body: "Norma is in early access for transaction coordinators. If your day lives in Outlook and you want a real Closing Desk, tell me your workflow and I’ll share next steps.",
+            ctaText: "Join the waitlist",
+            href: "/contact?source=norma-waitlist",
+        },
+        process: [
+            {
+                title: "Closing Desk Daily View",
+                description: "A single dashboard built for the questions TCs ask every morning: what’s due, who am I waiting on, and what’s at risk.",
+                image: "/images/projects/norma/norma-1.png",
+            },
+            {
+                title: "Dependency Tracking (“Waiting On”)",
+                description: "A dedicated dependency system that makes follow-ups explicit—so nothing gets buried in threads or side notes.",
+                image: "/images/projects/norma/norma-2.png",
+            },
+            {
+                title: "AI-Assisted Signals",
+                description: "AI triage to classify inbound updates and flag missing info early—used for signal and speed, not novelty.",
+                image: "/images/projects/norma/norma-3.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Primary Workflow", value: "TC-first", description: "Built around deadlines, dependencies, and file setup" },
+            { metric: "Integrations", value: "Microsoft 365", description: "Graph API email, calendar, and task sync" },
+            { metric: "Automation Style", value: "Rules + AI", description: "Compliance logic plus triage/missing-info signals" },
+        ],
+        featured: false,
+        color: "#4f46e5",
+    },
+    {
         slug: "peppers-portal",
         title: "Pepper's Portal",
         kind: "Personal",

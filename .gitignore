@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only folders (not part of Next app)
+/Clarity Growth Co/
+/Momentum Real Estate Coaching/
+/NorthPoint Realty Group/
+/norma-marketing/
