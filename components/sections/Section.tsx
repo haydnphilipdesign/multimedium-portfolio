@@ -18,8 +18,8 @@ const sizeClasses = {
 };
 
 const paddingClasses = {
-    default: "py-16 md:py-24",
-    large: "py-24 md:py-32",
+    default: "py-14 sm:py-16 md:py-20 lg:py-24",
+    large: "py-20 sm:py-24 md:py-28 lg:py-32",
     none: "",
 };
 
@@ -63,7 +63,7 @@ export function SectionHeading({
     return (
         <div
             className={cn(
-                "mb-12 md:mb-16",
+                "mb-10 sm:mb-12 md:mb-14 lg:mb-16",
                 align === "center" && "text-center",
                 className
             )}

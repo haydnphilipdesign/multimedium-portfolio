@@ -21,11 +21,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         project.kind === "Client"
             ? "bg-background/80 text-foreground border-border/50"
             : project.kind === "Product"
-              ? "bg-glow/10 text-glow border-glow/20"
-              : "bg-muted/60 text-muted-foreground border-border/40";
+                ? "bg-glow/10 text-glow border-glow/20"
+                : "bg-muted/60 text-muted-foreground border-border/40";
 
     const cardContent = (
-        <div className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-glow/30 hover:shadow-xl hover:shadow-glow/5">
+        <div className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-glow/30 hover:shadow-xl hover:shadow-glow/5 hover:-translate-y-1">
             {/* Image Container */}
             <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 {!imageError ? (

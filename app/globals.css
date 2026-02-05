@@ -135,6 +135,23 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading letter-spacing refinements */
+  h1 {
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    letter-spacing: -0.02em;
+  }
+
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
   }
 
   /* Smooth scrolling with reduced-motion support */
@@ -227,12 +244,51 @@
     border: 1px solid oklch(1 0 0 / 0.08);
   }
 
-  /* Text gradient */
+  /* Text gradient with smooth animation */
   .text-gradient {
-    background: linear-gradient(135deg, oklch(0.95 0.01 270), oklch(0.7 0.15 280));
+    background: linear-gradient(135deg, oklch(0.95 0.01 270), oklch(0.75 0.18 55));
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .text-gradient {
+      animation: none;
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Card hover lift effect */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 25px oklch(0 0 0 / 0.15),
+      0 4px 10px oklch(0 0 0 / 0.1);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow:
+      0 8px 25px oklch(0 0 0 / 0.4),
+      0 4px 10px oklch(0 0 0 / 0.25);
   }
 
   /* Focus ring */
@@ -264,6 +320,10 @@
 @layer components {
   .btn-primary {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     overflow: hidden;
     background-color: var(--primary);
     color: var(--primary-foreground);
@@ -271,34 +331,59 @@
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
   }
 
   .btn-primary:hover {
+    transform: translateY(-1px) scale(1.02);
     box-shadow:
+      0 4px 12px oklch(0 0 0 / 0.15),
       0 0 20px oklch(0.65 0.2 280 / 0.15),
-      0 0 40px oklch(0.65 0.2 280 / 0.1),
-      0 0 60px oklch(0.65 0.2 280 / 0.05);
+      0 0 40px oklch(0.65 0.2 280 / 0.08);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
   }
 
   .btn-secondary {
     position: relative;
-    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid oklch(1 0 0 / 0.15);
     background-color: transparent;
     color: var(--foreground);
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
   }
 
   .btn-secondary:hover {
-    background-color: var(--accent);
-    border-color: oklch(0.65 0.2 280 / 0.3);
+    background-color: oklch(1 0 0 / 0.05);
+    border-color: oklch(0.75 0.18 55 / 0.4);
+    transform: translateY(-1px);
   }
 
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  .dark .btn-secondary {
+    border-color: oklch(1 0 0 / 0.12);
+  }
+
+  .dark .btn-secondary:hover {
+    background-color: oklch(1 0 0 / 0.08);
+    border-color: oklch(0.75 0.18 55 / 0.5);
+  }
 }
 
 @media print {
+
   header,
   nav,
   footer {
