@@ -71,10 +71,11 @@ const tools: Resource[] = [
         title: "NormaTC",
         description:
             "Early-access TC “Closing Desk” software built around Outlook/Microsoft 365 workflows, dependencies, and deadline signal—join the waitlist.",
-        href: "/contact?source=norma-waitlist",
+        href: "https://normatc.com",
         image: "/images/projects/norma/norma-thumb.png",
         badge: "Tool (early access)",
         ctaText: "Join the waitlist",
+        external: true,
     },
 ];
 

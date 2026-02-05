@@ -97,6 +97,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         href: `/contact?source=case-study-${project.slug}`,
     };
 
+    const ctaExternal = /^https?:\/\//.test(cta.href);
+
     return (
         <>
             {/* Hero Section */}
@@ -560,7 +562,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <p className="text-muted-foreground mb-8">
                         {cta.body}
                     </p>
-                    <Link href={cta.href} className="btn-primary">
+                    <Link
+                        href={cta.href}
+                        className="btn-primary"
+                        target={ctaExternal ? "_blank" : undefined}
+                        rel={ctaExternal ? "noopener noreferrer" : undefined}
+                    >
                         {cta.ctaText}
                     </Link>
                 </AnimatedSection>

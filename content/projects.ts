@@ -533,7 +533,7 @@ export const projects: Project[] = [
         kind: "Product",
         industries: ["tc", "real-estate"],
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
-        description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators.",
+        description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators. Available at UtilitySheet.com (free plan includes 3 submissions/month; Pro is $9/month).",
         category: "SaaS",
         year: "2025",
         client: "Internal Product",
@@ -552,7 +552,7 @@ export const projects: Project[] = [
             headline: "UtilitySheet — From Problem to Product",
             subheadline:
                 "A SaaS product I built from scratch to solve a real workflow problem—end-to-end product thinking, design, and execution.",
-            tldr: "As founder of UtilitySheet, I turned a common real estate workflow problem into a working SaaS product. It shows how I approach builds: start with the workflow, design for clarity, and ship a system people can actually use.",
+            tldr: "As founder of UtilitySheet, I turned a common real estate workflow problem into a working SaaS product you can use today. It shows how I approach builds: start with the workflow, design for clarity, and ship a system people can actually use.",
             goals: [
                 "Eliminate the back-and-forth emails about utility providers",
                 "Create a guided experience that even tech-averse sellers can complete",
@@ -581,10 +581,10 @@ export const projects: Project[] = [
             ],
         },
         cta: {
-            headline: "Looking for a product-minded partner?",
-            body: "I bring product thinking to web work: define the workflow, design the UI, ship the system, then improve what moves the needle.",
-            ctaText: "Talk about your project",
-            href: "/contact?source=case-study-utility-sheet",
+            headline: "Want to try UtilitySheet?",
+            body: "UtilitySheet is live at UtilitySheet.com. The free plan includes 3 submissions/month; Pro is $9/month.",
+            ctaText: "Sign up / log in",
+            href: "https://utilitysheet.com",
         },
         process: [
             {
@@ -633,6 +633,7 @@ export const projects: Project[] = [
         tools: ["Next.js (App Router)", "PostgreSQL + Prisma", "Microsoft Graph API", "LLM workflows (Gemini)"],
         thumbnail: "/images/projects/norma/norma-thumb.png",
         heroImage: "/images/projects/norma/norma-hero.png",
+        externalUrl: "https://normatc.com",
         images: [
             "/images/projects/norma/norma-1.png",
             "/images/projects/norma/norma-2.png",
@@ -674,9 +675,9 @@ export const projects: Project[] = [
         },
         cta: {
             headline: "Want early access to Norma?",
-            body: "Norma is in early access for transaction coordinators. If your day lives in Outlook and you want a real Closing Desk, tell me your workflow and I’ll share next steps.",
+            body: "Norma is in early access for transaction coordinators. If your day lives in Outlook and you want a real Closing Desk, join the waitlist at NormaTC.com.",
             ctaText: "Join the waitlist",
-            href: "/contact?source=norma-waitlist",
+            href: "https://normatc.com",
         },
         process: [
             {
