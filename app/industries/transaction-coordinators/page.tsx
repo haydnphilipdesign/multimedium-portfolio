@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
@@ -402,6 +403,79 @@ export default function TransactionCoordinatorsPage() {
                         Not a fit if you want a generic template or you’re not ready to respond to leads quickly.
                     </p>
                 </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="Free TC templates"
+                        subtitle="Examples of the PDF templates I can auto-populate from an intake (Jotform/Forms). Use them as-is, or steal the structure."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                    <StaggerItem>
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                            <div className="relative aspect-[16/10] bg-muted">
+                                <Image
+                                    src="/resources/tc-task-list.jpg"
+                                    alt="TC Task List Sheet preview"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
+                                <div className="absolute top-4 left-4">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                        Example (region-specific)
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="p-7">
+                                <h3 className="text-xl font-semibold text-foreground">TC Task List Sheet</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                    A real task list built for the Poconos region—use it as a reference, then customize for your rules.
+                                </p>
+                                <div className="mt-5">
+                                    <Link href="/resources/tc-task-list?source=tc-industry" className="btn-secondary inline-flex items-center gap-2">
+                                        Get the PDF <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </StaggerItem>
+
+                    <StaggerItem>
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                            <div className="relative aspect-[16/10] bg-muted">
+                                <Image
+                                    src="/resources/tc-cover-sheet.jpg"
+                                    alt="TC Cover Sheet preview"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
+                                <div className="absolute top-4 left-4">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                        Cover sheet
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="p-7">
+                                <h3 className="text-xl font-semibold text-foreground">TC Cover Sheet / Quick Ref</h3>
+                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                    A clean file-start summary you can print, email, or attach—designed to fit most TC workflows.
+                                </p>
+                                <div className="mt-5">
+                                    <Link href="/resources/tc-cover-sheet?source=tc-industry" className="btn-secondary inline-flex items-center gap-2">
+                                        Get the PDF <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </StaggerItem>
+                </StaggerContainer>
             </Section>
 
             <Section className="pt-10 md:pt-14" padding="none">

@@ -79,7 +79,7 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
 
     const resend = new Resend(resendApiKey);
 
-    const leadSubject = `${payload.leadMagnet} - printable checklist`;
+    const leadSubject = `${payload.leadMagnet} - download`;
     const leadTextLines: string[] = [
         `Hi ${payload.name},`,
         "",

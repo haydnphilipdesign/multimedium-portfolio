@@ -78,6 +78,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.75,
         },
+        {
+            url: `${siteUrl}/resources`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.65,
+        },
+        {
+            url: `${siteUrl}/resources/tc-task-list`,
+            lastModified: now,
+            changeFrequency: "yearly",
+            priority: 0.6,
+        },
+        {
+            url: `${siteUrl}/resources/tc-cover-sheet`,
+            lastModified: now,
+            changeFrequency: "yearly",
+            priority: 0.6,
+        },
     ];
 
     const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
