@@ -55,6 +55,27 @@ const resources: Resource[] = [
     },
 ];
 
+const caseStudies: Resource[] = [
+    {
+        title: "UtilitySheet (case study)",
+        description:
+            "How I built a guided seller form that generates clean, shareable utility info sheets—reducing back-and-forth during a transaction.",
+        href: "/work/utility-sheet",
+        image: "/images/projects/utilitysheet/utilitysheet-thumb.png",
+        badge: "Case study",
+        ctaText: "View case study",
+    },
+    {
+        title: "NormaTC (case study)",
+        description:
+            "A TC-first “Closing Desk” platform concept: Microsoft 365 integrations, dependency tracking, and workflow signals built for real inbox chaos.",
+        href: "/work/norma",
+        image: "/images/projects/norma/norma-thumb.png",
+        badge: "Case study",
+        ctaText: "View case study",
+    },
+];
+
 export default function ResourcesPage() {
     return (
         <>
@@ -148,6 +169,62 @@ export default function ResourcesPage() {
                         </Link>
                     </div>
                 </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="More TC resources"
+                        subtitle="Two built-from-scratch examples of workflow tools—useful if you want ideas (or want something similar built for your process)."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
+                    {caseStudies.map((res) => (
+                        <StaggerItem key={res.href}>
+                            <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                                <div className="relative aspect-[16/10] bg-muted">
+                                    {res.image ? (
+                                        <Image
+                                            src={res.image}
+                                            alt={res.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
+                                    ) : (
+                                        <>
+                                            <div className="absolute inset-0 bg-hero-gradient opacity-60" />
+                                            <div className="grain absolute inset-0 pointer-events-none" />
+                                            <div className="relative h-full w-full grid place-items-center">
+                                                {res.icon ? (
+                                                    <res.icon className="h-12 w-12 text-glow" stroke={1.5} />
+                                                ) : null}
+                                            </div>
+                                        </>
+                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
+                                    <div className="absolute top-4 left-4">
+                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                            {res.badge}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-7">
+                                    <h2 className="text-xl font-semibold text-foreground">{res.title}</h2>
+                                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                        {res.description}
+                                    </p>
+                                    <div className="mt-5">
+                                        <Link href={res.href} className="btn-secondary inline-flex items-center gap-2">
+                                            {res.ctaText} <IconArrowRight className="w-4 h-4" stroke={2} />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
             </Section>
         </>
     );
