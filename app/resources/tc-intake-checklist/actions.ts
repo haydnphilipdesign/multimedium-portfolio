@@ -3,7 +3,6 @@
 import { redirect } from "next/navigation";
 import { sendLeadMagnetEmail } from "@/lib/email";
 import { siteUrl } from "@/lib/site";
-import { checklistText } from "@/lib/resources/tc-intake-checklist";
 
 function getText(formData: FormData, key: string): string {
     const value = formData.get(key);
@@ -43,8 +42,9 @@ export async function requestChecklist(formData: FormData) {
             email,
             company: company || undefined,
             source: source || undefined,
-            resourceUrl: `${siteUrl}/resources/tc-intake-checklist#checklist`,
-            resourceText: checklistText,
+            resourceUrl: `${siteUrl}/resources/tc-intake-checklist.pdf`,
+            resourceText:
+                "Here’s the TC lead intake checklist PDF.\n\nIf you want this auto-populated from an intake form (and routed into your workflow), reply and tell me what tools you use today.",
         });
     } catch (error) {
         console.error("Lead magnet email failed", error);

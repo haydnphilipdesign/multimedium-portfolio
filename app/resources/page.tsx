@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ComponentType } from "react";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { IconArrowRight, IconChecklist, IconFileText } from "@tabler/icons-react";
+import { IconArrowRight, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
     title: "Free Resources",
@@ -47,11 +47,11 @@ const resources: Resource[] = [
     {
         title: "TC Lead Intake Checklist",
         description:
-            "Printable checklist you can copy/paste, print, or drop into your CRM—so you qualify faster and start every file clean.",
+            "A clean, printable lead intake checklist PDF—so you qualify faster and start every file clean.",
         href: "/resources/tc-intake-checklist",
-        badge: "Printable checklist",
-        ctaText: "Open checklist",
-        icon: IconChecklist,
+        image: "/resources/tc-intake-checklist.jpg",
+        badge: "PDF template",
+        ctaText: "Get the PDF",
     },
 ];
 
