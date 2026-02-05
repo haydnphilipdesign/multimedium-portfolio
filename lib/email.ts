@@ -12,6 +12,11 @@ export interface ContactEmailPayload {
     timeline?: string;
     currentUrl?: string;
     message: string;
+    meta?: {
+        ip?: string;
+        userAgent?: string;
+        referer?: string;
+    };
 }
 
 export interface LeadMagnetPayload {
@@ -58,6 +63,9 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
         payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
         payload.timeline ? `Timeline: ${payload.timeline}` : "",
         payload.currentUrl ? `Current site: ${payload.currentUrl}` : "",
+        payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
+        payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
+        payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
         "",
         payload.message,
     ].filter(Boolean);

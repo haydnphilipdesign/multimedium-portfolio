@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { submitContact } from "./actions";
+import { createContactFormToken } from "@/lib/contactAntiSpam";
+import { TurnstileWidget } from "./TurnstileWidget";
 import {
     IconMail,
     IconClock,
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
         canonical: "/contact",
     },
 };
+
+export const dynamic = "force-dynamic";
 
 const expectations = [
     { label: "Response time", value: "Within 1 business day" },
@@ -48,6 +52,11 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     const timeline = params.timeline ?? "";
     const currentUrl = params.currentUrl ?? "";
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
+    const formToken = createContactFormToken() ?? "";
+    const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    const turnstileEnabled = Boolean(
+        turnstileSiteKey && process.env.TURNSTILE_SECRET_KEY,
+    );
     const errorMessage = error
         ? {
               missing: "Please fill out your name, email, and message.",
@@ -56,6 +65,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   "Please add a phone number if you prefer a call or text.",
               phone_invalid: "Please enter a valid phone number.",
               message: "Please keep your message under 5,000 characters.",
+              links: "Please remove links from your message (use the Current site field instead).",
+              captcha: "Please complete the spam check and try again.",
+              rate: "Too many submissions from your network. Please wait a bit and try again.",
               send: "Something went wrong sending your message.",
           }[error] ?? "Something went wrong sending your message."
         : null;
@@ -64,7 +76,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         error === "email" ||
         error === "phone_required" ||
         error === "phone_invalid" ||
-        error === "message";
+        error === "message" ||
+        error === "links" ||
+        error === "captcha" ||
+        error === "rate";
 
     return (
         <>
@@ -134,6 +149,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     className="hidden"
                                 />
                                 <input type="hidden" name="source" value={source} />
+                                <input type="hidden" name="formToken" value={formToken} />
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label
@@ -391,7 +407,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all resize-none"
                                         placeholder="What do you want the site to do? Who’s it for? Any deadlines, must-haves, or examples you like?"
                                     />
+                                    <p className="mt-2 text-xs text-muted-foreground">
+                                        Tip: Please avoid links in the message—use the “Current website” field instead.
+                                    </p>
                                 </div>
+
+                                {turnstileEnabled && turnstileSiteKey && (
+                                    <TurnstileWidget siteKey={turnstileSiteKey} />
+                                )}
 
                                 <button
                                     type="submit"
