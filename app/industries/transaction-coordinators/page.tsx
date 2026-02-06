@@ -218,15 +218,13 @@ export default function TransactionCoordinatorsPage() {
                                             </div>
                                         ))}
                                     </div>
-                                    {/* Authority graphic */}
-                                    <div className="mt-4 flex justify-center">
-                                        <Image
-                                            src="/images/graphics/tc-authority.jpg"
-                                            alt="Authority and lead qualification"
-                                            width={96}
-                                            height={96}
-                                            className="w-24 h-24 opacity-80"
-                                        />
+                                    <div className="mt-4 rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                            Core stack
+                                        </p>
+                                        <p className="mt-1 text-sm text-foreground">
+                                            Positioning, proof structure, and fit-filtered lead capture in one flow.
+                                        </p>
                                     </div>
                                 </div>
                             </div>

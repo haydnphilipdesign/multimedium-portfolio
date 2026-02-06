@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
@@ -62,15 +61,19 @@ export default function ServicesPage() {
                             <p className="mt-6 text-lg text-muted-foreground">
                                 Pick the engagement that matches your goals right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
                             </p>
-                            <div className="pt-6">
-                                <Image
-                                    src="/images/graphics/services-hero.jpg"
-                                    alt="Three interconnected service offerings"
-                                    width={1024}
-                                    height={1024}
-                                    className="w-full max-w-xs rounded-2xl border border-border/65 shadow-[var(--shadow-soft)] opacity-95"
-                                    sizes="(max-width: 640px) 80vw, 320px"
-                                />
+                            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Delivery</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">One owner, one workflow</p>
+                                </div>
+                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Focus</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">Messaging + conversion</p>
+                                </div>
+                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Build</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">Fast, editable, scalable</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1236,6 +1236,22 @@ export function getFeaturedProjects(): Project[] {
     return projects.filter((p) => p.featured);
 }
 
+const homeFeaturedProjectSlugs: string[] = [
+    "tag-landing-page",
+    "pa-real-estate-support",
+    "utility-sheet",
+    "northpoint-realty",
+    "gentlemans-blade",
+    "momentum-coaching",
+];
+
+export function getHomeFeaturedProjects(): Project[] {
+    const bySlug = new Map(projects.map((project) => [project.slug, project]));
+    return homeFeaturedProjectSlugs
+        .map((slug) => bySlug.get(slug))
+        .filter((project): project is Project => Boolean(project));
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
     return projects.find((p) => p.slug === slug);
 }

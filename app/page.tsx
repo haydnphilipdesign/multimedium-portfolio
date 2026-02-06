@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { StatementHero } from "@/components/hero/StatementHero";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
-import { getFeaturedProjects } from "@/content/projects";
+import { getHomeFeaturedProjects } from "@/content/projects";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import Link from "next/link";
-import Image from "next/image";
 import {
     IconLayout,
     IconCode,
@@ -114,7 +113,7 @@ const niches = [
 ];
 
 export default function HomePage() {
-    const featuredProjects = getFeaturedProjects().slice(0, 6);
+    const featuredProjects = getHomeFeaturedProjects();
     const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
 
     return (
@@ -247,16 +246,29 @@ export default function HomePage() {
                                     </li>
                                 </ul>
                             </div>
-                            {/* Transformation graphic */}
                             <div className="pt-4">
-                                <Image
-                                    src="/images/graphics/what-i-build.jpg"
-                                    alt="Transformation from chaos to clarity"
-                                    width={1024}
-                                    height={1024}
-                                    className="w-full max-w-md rounded-2xl border border-border/60 shadow-[var(--shadow-soft)] opacity-95"
-                                    sizes="(max-width: 768px) 100vw, 448px"
-                                />
+                                <div className="rounded-2xl border border-border/65 bg-card/88 p-5 shadow-[var(--shadow-soft)]">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                        System snapshot
+                                    </p>
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                        Every build ships with consistent sections, clear CTAs, and reusable blocks so new pages can be added without starting from scratch.
+                                    </p>
+                                    <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+                                        <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
+                                            Page templates
+                                        </p>
+                                        <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
+                                            Reusable CTA bands
+                                        </p>
+                                        <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
+                                            Proof + trust blocks
+                                        </p>
+                                        <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
+                                            Growth-ready analytics
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </AnimatedSection>
