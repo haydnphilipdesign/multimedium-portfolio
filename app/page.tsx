@@ -68,9 +68,9 @@ const proof = [
     },
     {
         icon: IconShieldCheck,
-        value: "$10k–$25k",
-        label: "Typical website builds",
-        detail: "Fixed scope; depends on pages and integrations",
+        value: "$5k–$25k",
+        label: "Common build ranges",
+        detail: "Right-sized scope for small to midsize teams",
     },
 ];
 
@@ -91,25 +91,25 @@ const pillars = [
 
 const niches = [
     {
-        title: "B2B SaaS Companies",
+        title: "SaaS + Tech",
         description:
-            "Conversion-focused websites that turn traffic into demos and trials—built with product thinking from my experience as a SaaS founder.",
+            "Conversion-focused pages that turn interest into demos, trials, and qualified sales calls.",
         href: "/work/utility-sheet",
         cta: "See SaaS work",
     },
     {
-        title: "Transaction Coordinators",
+        title: "Real Estate Ops (TCs)",
         description:
-            "Authority-first pages and lead capture that filters for fit and drives booked calls.",
+            "Authority-first messaging and lead flows that help filter for fit and drive booked calls.",
         href: "/industries/transaction-coordinators",
         cta: "See TC work",
     },
     {
-        title: "Service Businesses",
+        title: "Local Service Teams",
         description:
-            "Trust-first sites that turn Google searches into calls, quote requests, and booked appointments.",
+            "Trust-first sites designed to turn search traffic into calls, quote requests, and appointments.",
         href: "/industries/trades",
-        cta: "See approach",
+        cta: "See service work",
     },
 ];
 
@@ -123,13 +123,13 @@ export default function HomePage() {
             <StatementHero />
 
             {/* Proof Points */}
-            <Section className="relative -mt-8 sm:-mt-10 md:-mt-12 z-10" padding="none">
+            <Section className="relative -mt-8 z-10 sm:-mt-10 md:-mt-12" padding="none">
                 <AnimatedSection>
                     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                         {proof.map((item) => (
                             <div
                                 key={item.label}
-                                className="rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm px-5 py-4"
+                                className="rounded-2xl border border-border/70 bg-card/85 px-5 py-4 shadow-[var(--shadow-soft)] backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                                     <item.icon className="h-4 w-4 text-glow" stroke={1.5} />
@@ -147,11 +147,14 @@ export default function HomePage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                        <span className="inline-flex items-center rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
+                            Specialty lanes
+                        </span>
+                        <h2 className="mt-4 text-2xl font-bold text-foreground md:text-4xl">
                             Industries I specialize in
                         </h2>
-                        <p className="mt-2 text-muted-foreground">
-                            A few lanes I’ve been focused on recently—each built around qualified inquiries, not vanity traffic.
+                        <p className="mt-3 text-muted-foreground">
+                            Focused verticals where messaging clarity and trust design have the biggest impact on qualified inquiries.
                         </p>
                     </div>
                 </AnimatedSection>
@@ -161,7 +164,7 @@ export default function HomePage() {
                         <StaggerItem key={niche.title}>
                             <Link
                                 href={`${niche.href}?source=home-niche`}
-                                className="group block h-full rounded-2xl border border-border/50 bg-card p-7 transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5"
+                                className="group block h-full rounded-2xl border border-border/70 bg-card/85 p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]"
                             >
                                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                                     Specialty
@@ -185,16 +188,19 @@ export default function HomePage() {
             <Section id="work" className="relative">
                 <div className="grain absolute inset-0 pointer-events-none" />
                 <AnimatedSection>
-                    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-12">
+                    <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                         <div className="max-w-2xl">
-                            <h2 className="text-3xl font-bold text-foreground md:text-4xl">Selected Work</h2>
-                            <p className="mt-2 text-muted-foreground">
+                            <span className="inline-flex items-center rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs font-medium text-muted-foreground">
+                                Selected work
+                            </span>
+                            <h2 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">Case studies with measurable intent</h2>
+                            <p className="mt-3 text-muted-foreground">
                                 A few recent builds—each one designed to earn trust, communicate value, and make reaching out feel like the obvious next step.
                             </p>
                         </div>
                         <Link
                             href="/work"
-                            className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
+                            className="group inline-flex items-center gap-2 text-foreground transition-colors hover:text-glow"
                         >
                             <span className="font-medium">Browse case studies</span>
                             <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -210,16 +216,16 @@ export default function HomePage() {
             </Section>
 
             {/* What I Build Section */}
-            <Section className="relative bg-muted/30">
+            <Section className="relative rounded-[2rem] bg-muted/35">
                 <div className="grain absolute inset-0 pointer-events-none" />
                 <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr]">
                     <AnimatedSection>
                         <div className="space-y-4">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-foreground border border-glow/25">
                                 What I build
                             </span>
                             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                A website that looks premium—and makes reaching out feel easy
+                                A site system, not just a pretty homepage
                             </h2>
                             <p className="text-muted-foreground">
                                 You get a clean, consistent system—not a one-off page. It’s built to be updated, extended, and improved without turning into a patchwork.
@@ -248,7 +254,7 @@ export default function HomePage() {
                                     alt="Transformation from chaos to clarity"
                                     width={1024}
                                     height={1024}
-                                    className="w-full max-w-md rounded-xl opacity-90"
+                                    className="w-full max-w-md rounded-2xl border border-border/60 shadow-[var(--shadow-soft)] opacity-95"
                                     sizes="(max-width: 768px) 100vw, 448px"
                                 />
                             </div>
@@ -257,7 +263,7 @@ export default function HomePage() {
                     <StaggerContainer className="grid gap-3" staggerDelay={0.1}>
                         {pillars.map((pillar) => (
                             <StaggerItem key={pillar.title}>
-                                <div className="rounded-2xl border border-border/50 bg-card px-6 py-5">
+                                <div className="rounded-2xl border border-border/65 bg-card/88 px-6 py-5 shadow-[var(--shadow-soft)]">
                                     <p className="font-semibold text-foreground">{pillar.title}</p>
                                     <p className="mt-2 text-sm text-muted-foreground">{pillar.description}</p>
                                 </div>
@@ -272,7 +278,7 @@ export default function HomePage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Services"
-                        subtitle="Strategy, design, and build in one loop—so your site stays clear, consistent, and easy to grow."
+                        subtitle="Flexible engagements for different budgets and timelines. Same level of craft, scope adjusted to what you need now."
                         align="center"
                     />
                 </AnimatedSection>
@@ -280,9 +286,9 @@ export default function HomePage() {
                 <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.15}>
                     {services.map((service) => (
                         <StaggerItem key={service.title}>
-                            <div className="group relative p-6 sm:p-8 rounded-2xl bg-card border border-border/50 h-full transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5">
+                            <div className="group relative h-full rounded-2xl border border-border/70 bg-card/90 p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)] sm:p-8">
                                 {/* Icon */}
-                                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                                     <service.icon className="w-6 h-6" stroke={1.5} />
                                 </div>
 
@@ -329,16 +335,16 @@ export default function HomePage() {
             </Section>
 
             {/* CTA Section */}
-            <Section className="relative overflow-hidden" padding="large">
+            <Section className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/70" padding="large">
                 <div className="grain absolute inset-0 pointer-events-none" />
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-hero-gradient opacity-50" />
+                <div className="absolute inset-0 bg-hero-gradient opacity-60" />
 
                 <AnimatedSection className="relative z-10 text-center max-w-3xl mx-auto">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
-                        Ready to build a site that
+                        Ready for a portfolio-level
                         <br />
-                        <span className="text-gradient">actually converts?</span>
+                        <span className="text-gradient">business website?</span>
                     </h2>
                     <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
                         Tell me what you&apos;re building and what success looks like. I&apos;ll reply within one business day with next steps and a clear plan.

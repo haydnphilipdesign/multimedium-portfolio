@@ -160,24 +160,26 @@ export default async function WorkPage({
 
     return (
         <>
-            <div className="relative overflow-hidden border-b border-border/40">
+            <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-hero-gradient opacity-70" />
                 <div className="grain absolute inset-0 pointer-events-none" />
 
                 {/* Hero Section */}
                 <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                     <AnimatedSection>
-                        <div className="max-w-3xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50 mb-6">
-                                <span className="w-1.5 h-1.5 rounded-full bg-glow" />
-                                Browse work
+                        <div className="rounded-[2rem] border border-border/65 bg-card/88 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
+                            <div className="max-w-3xl">
+                                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-glow" />
+                                    Browse work
+                                </div>
+                                <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+                                    <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
+                                </h1>
+                                <p className="text-lg text-muted-foreground md:text-xl">
+                                    {indMeta?.subheading ?? "Real projects with clear goals, decisions, and outcomes—built to earn trust and turn visits into inquiries."}
+                                </p>
                             </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-                                <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
-                            </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground">
-                                {indMeta?.subheading ?? "Real projects with clear goals, decisions, and outcomes—built to earn trust and turn visits into inquiries."}
-                            </p>
                         </div>
                     </AnimatedSection>
                 </Section>
@@ -279,7 +281,7 @@ export default async function WorkPage({
 
             {/* Products & Experiments */}
             {otherProjects.length > 0 && (
-                <div className="relative border-y border-border/40 bg-muted/30">
+                <div className="relative rounded-[2rem] border border-border/60 bg-muted/35">
                     <div className="grain absolute inset-0 pointer-events-none" />
                     <Section>
                         <AnimatedSection>
@@ -307,9 +309,9 @@ export default async function WorkPage({
             )}
 
             {/* CTA Section */}
-            <div className="border-t border-border/40">
+            <div>
                 <Section>
-                    <AnimatedSection className="text-center max-w-2xl mx-auto">
+                    <AnimatedSection className="mx-auto max-w-2xl rounded-[2rem] border border-border/60 bg-card/80 px-6 py-10 text-center shadow-[var(--shadow-soft)] sm:px-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                             Have a project in mind?
                         </h2>
@@ -325,3 +327,8 @@ export default async function WorkPage({
         </>
     );
 }
+
+
+
+
+

@@ -86,7 +86,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Hero Section */}
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-4">
@@ -112,7 +112,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 <div className="grid md:grid-cols-5 gap-10 md:gap-12 lg:gap-16">
                     {/* Contact Form */}
                     <AnimatedSection className="md:col-span-3">
-                        <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
+                        <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/65">
                             <h2 className="text-xl font-semibold text-foreground mb-6">
                                 Send a message
                             </h2>
@@ -431,7 +431,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     <AnimatedSection delay={0.2} className="md:col-span-2">
                         <div className="space-y-8">
                             {/* Direct Contact */}
-                            <div className="p-6 rounded-2xl bg-card border border-border/50">
+                            <div className="p-6 rounded-2xl bg-card border border-border/65">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     Direct contact
                                 </h3>
@@ -468,7 +468,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                             </div>
 
                             {/* What to Expect */}
-                            <div className="p-6 rounded-2xl bg-card border border-border/50">
+                            <div className="p-6 rounded-2xl bg-card border border-border/65">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     What to expect
                                 </h3>
@@ -514,4 +514,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </>
     );
 }
+
+
+
+
+
 

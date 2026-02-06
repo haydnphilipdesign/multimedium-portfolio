@@ -33,7 +33,10 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="max-w-3xl space-y-6">
+                    <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
+                        <div className="absolute inset-0 bg-hero-gradient opacity-30" />
+                        <div className="grain absolute inset-0 pointer-events-none" />
+                        <div className="relative space-y-6">
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
                             <IconFileText className="w-4 h-4" stroke={1.5} />
                             Free resource
@@ -64,6 +67,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         <p className="text-xs text-muted-foreground">
                             These templates are examples of PDFs I can set up to auto-populate from an intake (Jotform/Forms) and output as a clean cover-sheet summary.
                         </p>
+                        </div>
                     </div>
                 </AnimatedSection>
             </Section>
@@ -71,7 +75,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
             <Section className="pt-10 md:pt-14" padding="none">
                 <div className="grid gap-6 md:grid-cols-5">
                     <AnimatedSection className="md:col-span-3">
-                        <div className="rounded-2xl border border-border/50 bg-card overflow-hidden">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
                                     src="/resources/tc-task-list.jpg"
@@ -118,7 +122,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                     </AnimatedSection>
 
                     <AnimatedSection className="md:col-span-2" delay={0.06}>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
                             <h2 className="text-xl font-semibold text-foreground">
                                 Email me the PDF
                             </h2>
@@ -215,5 +219,9 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         </>
     );
 }
+
+
+
+
 
 

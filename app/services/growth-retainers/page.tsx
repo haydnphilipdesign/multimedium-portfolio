@@ -76,7 +76,7 @@ export default function GrowthRetainersServicePage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-25" />
                         <div className="grain absolute inset-0 pointer-events-none" />
 
@@ -102,13 +102,13 @@ export default function GrowthRetainersServicePage() {
                             </div>
 
                             <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
+                                <div className="rounded-2xl border border-border/65 bg-background/55 backdrop-blur-sm p-6">
                                     <p className="text-sm font-semibold text-foreground">Built for steady wins</p>
                                     <div className="mt-4 grid gap-3">
                                         {expectations.map((item) => (
                                             <div
                                                 key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/50 bg-card/40 px-4 py-3"
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/65 bg-card/55 px-4 py-3"
                                             >
                                                 <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
                                                 <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
@@ -125,8 +125,8 @@ export default function GrowthRetainersServicePage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection direction="none" delay={0.02}>
                     <div className="grid gap-4 sm:grid-cols-3">
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconTargetArrow className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">A clear backlog</p>
@@ -134,8 +134,8 @@ export default function GrowthRetainersServicePage() {
                                 Every month has a plan: what we ship, why it matters, and how we measure it.
                             </p>
                         </div>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconBolt className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Ship small, often</p>
@@ -143,8 +143,8 @@ export default function GrowthRetainersServicePage() {
                                 Improvements go live in small increments so you learn faster and avoid big-bang launches.
                             </p>
                         </div>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconChartBar className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Tie work to leads</p>
@@ -166,7 +166,7 @@ export default function GrowthRetainersServicePage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.1}>
                     {included.map((item) => (
                         <StaggerItem key={item}>
-                            <div className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border/50">
+                            <div className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border/65">
                                 <IconCheck className="w-5 h-5 text-glow mt-0.5" stroke={2} />
                                 <p className="text-sm text-muted-foreground">{item}</p>
                             </div>
@@ -178,7 +178,7 @@ export default function GrowthRetainersServicePage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <div className="grid gap-6 md:grid-cols-2">
                     <AnimatedSection>
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 {fitFor.map((item) => (
@@ -191,7 +191,7 @@ export default function GrowthRetainersServicePage() {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 {notFor.map((item) => (
@@ -236,7 +236,7 @@ export default function GrowthRetainersServicePage() {
                 </Section>
             ) : null}
 
-            <Section className="bg-muted/30">
+            <Section className="rounded-[2rem] bg-muted/35">
                 <div className="grid gap-10 md:grid-cols-2">
                     <AnimatedSection>
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -260,7 +260,7 @@ export default function GrowthRetainersServicePage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                             <IconSparkles className="w-5 h-5" stroke={1.5} />
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -275,7 +275,7 @@ export default function GrowthRetainersServicePage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-2 mt-8" staggerDelay={0.08}>
                     {faqs.map((item) => (
                         <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                                 <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
                                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
                             </div>
@@ -300,3 +300,8 @@ export default function GrowthRetainersServicePage() {
         </>
     );
 }
+
+
+
+
+

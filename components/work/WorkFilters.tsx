@@ -75,9 +75,9 @@ export function WorkFilters({
             <div className="flex items-center justify-between gap-4">
                 <button
                     onClick={() => setShowFilters(!showFilters)}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-200 text-sm font-medium ${showFilters || hasActiveFilters
-                            ? "border-glow/30 bg-glow/10 text-foreground"
-                            : "border-border/50 bg-card hover:border-border text-muted-foreground hover:text-foreground"
+                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${showFilters || hasActiveFilters
+                            ? "border-glow/35 bg-glow/10 text-foreground"
+                            : "border-border/65 bg-card/90 text-muted-foreground shadow-[var(--shadow-soft)] hover:border-border hover:text-foreground"
                         }`}
                 >
                     <IconFilter className="w-4 h-4" stroke={1.5} />
@@ -110,7 +110,7 @@ export function WorkFilters({
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <div className="rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-4 space-y-4">
+                        <div className="space-y-4 rounded-2xl border border-border/65 bg-card/85 p-4 shadow-[var(--shadow-soft)] backdrop-blur-sm">
                             {/* Category Filter */}
                             {categories.length > 0 && (
                                 <div>
@@ -205,7 +205,7 @@ function FilterPill({ label, count, isActive, onClick, isPending }: FilterPillPr
             disabled={isPending}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 disabled:opacity-50 ${isActive
                     ? "bg-glow text-background shadow-sm shadow-glow/20"
-                    : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent hover:border-border/50"
+                    : "border border-transparent bg-muted/50 text-muted-foreground hover:border-border/65 hover:bg-muted hover:text-foreground"
                 }`}
         >
             <span>{label}</span>

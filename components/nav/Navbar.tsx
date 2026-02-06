@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Dialog } from "@base-ui/react/dialog";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconSparkles, IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -47,29 +47,46 @@ export function Navbar() {
         <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
             <header
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                    showBackdrop
-                        ? "bg-background/85 backdrop-blur-xl border-b border-border/40 shadow-[var(--shadow-soft)] py-3 sm:py-4"
-                        : "bg-transparent py-4 sm:py-5 md:py-6"
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4",
+                    showBackdrop ? "bg-background/70 backdrop-blur-xl" : "bg-transparent"
                 )}
             >
                 <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between">
+                    <div
+                        className={cn(
+                            "relative flex items-center justify-between rounded-2xl px-4 py-3 sm:px-5",
+                            showBackdrop
+                                ? "border border-border/70 bg-background/90 shadow-[var(--shadow-soft)]"
+                                : "border border-transparent bg-background/35 supports-backdrop-filter:backdrop-blur-md"
+                        )}
+                    >
                         <Link
                             href="/"
-                            className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+                            className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
-                            Multimedium
+                            <div className="flex items-center gap-2.5">
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-glow/40 bg-glow/10 text-glow transition-colors group-hover:bg-glow group-hover:text-background">
+                                    <IconSparkles className="h-4 w-4" stroke={1.8} />
+                                </span>
+                                <div>
+                                    <p className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                                        Multimedium
+                                    </p>
+                                    <p className="hidden text-xs text-muted-foreground sm:block">
+                                        Conversion-first web design studio
+                                    </p>
+                                </div>
+                            </div>
                         </Link>
 
-                        <div className="hidden md:flex items-center gap-1">
+                        <div className="hidden md:flex items-center gap-1 rounded-full border border-border/65 bg-background/80 p-1">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href === "/contact" ? contactHref : link.href}
                                     aria-current={isActive(link.href) ? "page" : undefined}
                                     className={cn(
-                                        "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                                        "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                         isActive(link.href)
                                             ? "text-foreground"
                                             : "text-muted-foreground hover:text-foreground"
@@ -79,7 +96,7 @@ export function Navbar() {
                                     {isActive(link.href) && (
                                         <motion.div
                                             layoutId="navbar-indicator"
-                                            className="absolute inset-0 bg-accent rounded-lg -z-10"
+                                            className="absolute inset-0 rounded-full border border-border/70 bg-accent -z-10"
                                             transition={{
                                                 type: "spring",
                                                 stiffness: 350,
@@ -91,25 +108,23 @@ export function Navbar() {
                             ))}
                         </div>
 
-                        <div className="hidden md:block">
-                            <div className="flex items-center gap-2">
-                                {schedulingUrl && (
-                                    <a
-                                        href={schedulingUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-secondary inline-flex items-center text-sm"
-                                    >
-                                        Book a call
-                                    </a>
-                                )}
-                                <Link
-                                    href={contactHref}
-                                    className="btn-primary inline-flex items-center text-sm"
+                        <div className="hidden md:flex items-center gap-2">
+                            {schedulingUrl && (
+                                <a
+                                    href={schedulingUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                                 >
-                                    Talk about your project
-                                </Link>
-                            </div>
+                                    Book a call
+                                </a>
+                            )}
+                            <Link
+                                href={contactHref}
+                                className="btn-primary inline-flex items-center text-sm"
+                            >
+                                Start a project
+                            </Link>
                         </div>
 
                         <Dialog.Trigger
@@ -131,7 +146,7 @@ export function Navbar() {
                     className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[60] bg-overlay backdrop-blur-sm md:hidden"
                 />
                 <Dialog.Popup
-                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/90 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
+                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/95 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
                 >
                     <Dialog.Title className="sr-only">Navigation</Dialog.Title>
                     <div className="flex h-full flex-col p-6">
@@ -151,6 +166,10 @@ export function Navbar() {
                             </Dialog.Close>
                         </div>
 
+                        <p className="mt-2 text-xs text-muted-foreground">
+                            Built for service teams and founders who want premium, clear, and conversion-focused websites.
+                        </p>
+
                         <div className="mt-8 space-y-2">
                             {navLinks.map((link) => (
                                 <Link
@@ -161,7 +180,7 @@ export function Navbar() {
                                     className={cn(
                                         "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
                                         isActive(link.href)
-                                            ? "text-foreground bg-accent"
+                                            ? "text-foreground bg-accent border border-border/65"
                                             : "text-muted-foreground hover:text-foreground hover:bg-accent"
                                     )}
                                 >
@@ -187,7 +206,7 @@ export function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="btn-primary w-full text-center block text-sm"
                             >
-                                Talk about your project
+                                Start a project
                             </Link>
                         </div>
                     </div>

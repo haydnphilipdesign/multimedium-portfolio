@@ -31,7 +31,7 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
             <ContactThanksTracker source={source} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-10 sm:px-8 sm:py-12 text-center">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-8 sm:py-12 text-center">
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-4 max-w-2xl mx-auto">
@@ -59,3 +59,7 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
         </>
     );
 }
+
+
+
+

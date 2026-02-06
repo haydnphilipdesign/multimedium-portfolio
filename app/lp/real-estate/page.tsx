@@ -114,7 +114,7 @@ export default function RealEstateLandingPage() {
                     <AnimatedSection>
                         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-start">
                             <div className="max-w-2xl">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50 mb-6">
+                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65 mb-6">
                                     <IconBuildingSkyscraper className="w-4 h-4 text-glow" stroke={1.5} />
                                     Real estate websites that convert
                                 </span>
@@ -158,7 +158,7 @@ export default function RealEstateLandingPage() {
                                 </p>
                             </div>
 
-                            <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card p-6 sm:p-7">
+                            <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
                                 <div className="absolute inset-0 bg-gradient-to-br from-glow/10 via-transparent to-transparent" />
                                 <div className="relative space-y-6">
                                     <p className="text-sm font-semibold text-foreground">
@@ -179,7 +179,7 @@ export default function RealEstateLandingPage() {
                                         ))}
                                     </ul>
 
-                                    <div className="rounded-xl border border-border/50 bg-muted/25 p-4">
+                                    <div className="rounded-xl border border-border/65 bg-muted/25 p-4">
                                         <div className="flex items-start gap-3">
                                             <IconMapPin className="mt-0.5 h-4 w-4 text-glow" stroke={1.6} />
                                             <div>
@@ -202,7 +202,7 @@ export default function RealEstateLandingPage() {
                     <StaggerContainer className="grid gap-4 sm:grid-cols-3" staggerDelay={0.06}>
                         {proof.map((item) => (
                             <StaggerItem key={item.label}>
-                                <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm px-6 py-5">
+                                <div className="rounded-2xl border border-border/65 bg-card/82 backdrop-blur-sm px-6 py-5">
                                     <div className="flex items-start gap-3">
                                         <item.icon className="h-5 w-5 text-glow" stroke={1.6} />
                                         <div>
@@ -244,7 +244,7 @@ export default function RealEstateLandingPage() {
                 <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-3" staggerDelay={0.08}>
                     {outcomes.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/50 bg-card px-6 py-6">
+                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-6">
                                 <p className="text-lg font-semibold text-foreground">
                                     {item.title}
                                 </p>
@@ -258,7 +258,7 @@ export default function RealEstateLandingPage() {
             </Section>
 
             {/* Fit */}
-            <div className="relative border-y border-border/40 bg-muted/30">
+            <div className="relative border-y border-border/40 rounded-[2rem] bg-muted/35">
                 <div className="grain absolute inset-0 pointer-events-none" />
                 <Section>
                     <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14 items-start">
@@ -273,7 +273,7 @@ export default function RealEstateLandingPage() {
                             </div>
                         </AnimatedSection>
                         <AnimatedSection delay={0.1}>
-                            <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-7">
+                            <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
                                 <ul className="space-y-3 text-sm text-muted-foreground">
                                     {fit.map((item) => (
                                         <li key={item} className="flex items-start gap-3">
@@ -354,7 +354,7 @@ export default function RealEstateLandingPage() {
                     {faq.map((item) => (
                         <details
                             key={item.q}
-                            className="group rounded-2xl border border-border/50 bg-card px-6 py-5 open:bg-card/80 transition-colors"
+                            className="group rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-5 open:bg-card/80 transition-colors"
                         >
                             <summary className="cursor-pointer list-none">
                                 <div className="flex items-start justify-between gap-6">
@@ -377,7 +377,7 @@ export default function RealEstateLandingPage() {
             {/* Final CTA */}
             <Section className="border-t border-border/40">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-10 sm:px-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative flex flex-col items-center text-center">
@@ -407,3 +407,8 @@ export default function RealEstateLandingPage() {
         </>
     );
 }
+
+
+
+
+

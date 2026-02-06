@@ -5,111 +5,115 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import type { Project } from "@/content/projects";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowUpRight, IconExternalLink } from "@tabler/icons-react";
 
 interface ProjectCardProps {
     project: Project;
     index?: number;
 }
 
+function getKindBadgeClass(kind: Project["kind"]) {
+    if (kind === "Client") {
+        return "border-glow/35 bg-glow/10 text-foreground";
+    }
+    if (kind === "Product") {
+        return "border-primary/25 bg-primary-soft text-foreground";
+    }
+    return "border-border/60 bg-background/80 text-muted-foreground";
+}
+
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const prefersReducedMotion = useReducedMotion();
     const [imageError, setImageError] = useState(false);
 
-    const kindLabel = project.kind === "Client" ? "Client" : project.kind === "Product" ? "Product" : "Personal";
-    const kindBadgeClass =
-        project.kind === "Client"
-            ? "bg-background/80 text-foreground border-border/50"
-            : project.kind === "Product"
-                ? "bg-glow/10 text-glow border-glow/20"
-                : "bg-muted/60 text-muted-foreground border-border/40";
-
     const cardContent = (
-        <div className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-glow/30 hover:shadow-xl hover:shadow-glow/5 hover:-translate-y-1">
-            {/* Image Container */}
-            <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <article className="group relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card/90 shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]">
+            <div className="relative aspect-[16/10] overflow-hidden bg-muted/70">
                 {!imageError ? (
                     <Image
                         src={project.thumbnail}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         onError={() => setImageError(true)}
                     />
                 ) : (
-                    // Fallback gradient placeholder
                     <div
                         className="absolute inset-0"
                         style={{
                             background:
-                                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 36%, transparent), color-mix(in oklab, var(--primary) 14%, transparent))",
+                                "linear-gradient(145deg, color-mix(in oklab, var(--primary) 34%, transparent), color-mix(in oklab, var(--glow) 22%, transparent))",
                         }}
                     />
                 )}
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
 
-                {/* Badges */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span
-                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${kindBadgeClass}`}
-                        >
-                            {kindLabel}
-                        </span>
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
-                            {project.category}
-                        </span>
-                    </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 
-                {/* Hover arrow indicator */}
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 opacity-0 transform translate-x-2 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground">
-                        <IconArrowUpRight className="w-5 h-5" stroke={2} />
-                    </div>
-                </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-5 sm:p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-gradient transition-colors">
-                    {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
-                    {project.tagline}
-                </p>
-                <p className="text-muted-foreground/80 text-xs line-clamp-1 mb-4">
-                    {project.tags?.length ? project.tags.join(" · ") : "\u00A0"}
-                </p>
-                <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-4">
-                        <span>{project.year}</span>
-                        <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
-                        <span>{project.role.split(",")[0]}</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-glow/80 group-hover:text-glow transition-colors">
-                        View case study
-                        <IconArrowUpRight className="w-3.5 h-3.5" stroke={2} />
+                <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2">
+                    <span
+                        className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-sm ${getKindBadgeClass(project.kind)}`}
+                    >
+                        {project.kind}
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-border/60 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
+                        {project.category}
                     </span>
                 </div>
+
+                <span className="absolute bottom-4 left-4 rounded-full border border-border/60 bg-background/75 px-2.5 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-sm">
+                    {project.year}
+                </span>
+
+                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-border/55 bg-background/75 text-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <IconArrowUpRight className="h-5 w-5" stroke={1.9} />
+                </div>
             </div>
 
-            {/* Hover border glow effect */}
-            <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                    boxShadow:
-                        "inset 0 0 0 1px color-mix(in oklab, var(--primary) 38%, transparent)",
-                }}
-            />
-        </div>
+            <div className="space-y-4 p-5 sm:p-6">
+                <div>
+                    <h3 className="text-[1.4rem] font-semibold tracking-tight text-foreground transition-colors group-hover:text-gradient">
+                        {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                        {project.tagline}
+                    </p>
+                </div>
+
+                {project.tags?.length ? (
+                    <div className="flex flex-wrap gap-2">
+                        {project.tags.slice(0, 3).map((tag) => (
+                            <span
+                                key={tag}
+                                className="rounded-full border border-border/60 bg-muted/35 px-2.5 py-1 text-[11px] font-medium text-muted-foreground"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                ) : null}
+
+                <div className="flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
+                    <span>{project.role.split(",")[0]}</span>
+                    <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-glow">
+                        View case study
+                        <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
+                    </span>
+                </div>
+
+                {project.externalUrl ? (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                        Live preview available
+                        <IconExternalLink className="h-3.5 w-3.5" stroke={1.8} />
+                    </span>
+                ) : null}
+            </div>
+        </article>
     );
 
     if (prefersReducedMotion) {
         return (
-            <Link href={`/work/${project.slug}`} className="block rounded-2xl">
+            <Link href={`/work/${project.slug}`} className="block rounded-[1.4rem]">
                 {cardContent}
             </Link>
         );
@@ -122,18 +126,17 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             viewport={{ once: true, margin: "-100px" }}
             transition={{
                 duration: 0.5,
-                delay: index * 0.1,
+                delay: index * 0.08,
                 ease: [0.25, 0.4, 0.25, 1],
             }}
         >
-            <Link href={`/work/${project.slug}`} className="block rounded-2xl">
+            <Link href={`/work/${project.slug}`} className="block rounded-[1.4rem]">
                 {cardContent}
             </Link>
         </motion.div>
     );
 }
 
-// Compact version for grid displays
 export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
     const [imageError, setImageError] = useState(false);
 
@@ -150,7 +153,7 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="group block relative overflow-hidden rounded-xl bg-card border border-border/50 transition-all duration-300 hover:border-glow/30"
+                className="group block overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-glow/35 hover:shadow-[var(--shadow-soft)]"
             >
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                     {!imageError ? (
@@ -167,13 +170,13 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
                             className="absolute inset-0"
                             style={{
                                 background:
-                                    "linear-gradient(135deg, color-mix(in oklab, var(--primary) 36%, transparent), color-mix(in oklab, var(--primary) 14%, transparent))",
+                                    "linear-gradient(145deg, color-mix(in oklab, var(--primary) 34%, transparent), color-mix(in oklab, var(--glow) 22%, transparent))",
                             }}
                         />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3">
-                        <h3 className="text-sm font-medium text-foreground truncate">
+                        <h3 className="truncate text-sm font-semibold text-foreground">
                             {project.title}
                         </h3>
                         <p className="text-xs text-muted-foreground">{project.category}</p>

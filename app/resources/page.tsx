@@ -84,7 +84,7 @@ export default function ResourcesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-25" />
                         <div className="grain absolute inset-0 pointer-events-none" />
 
@@ -115,7 +115,7 @@ export default function ResourcesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     {resources.map((res) => (
                         <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                            <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
                                 <div className="relative aspect-[16/10] bg-muted">
                                     {res.image ? (
                                         <Image
@@ -138,7 +138,7 @@ export default function ResourcesPage() {
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                     <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
                                             {res.badge}
                                         </span>
                                     </div>
@@ -159,7 +159,7 @@ export default function ResourcesPage() {
                     ))}
                 </StaggerContainer>
 
-                <div className="mt-10 rounded-2xl border border-border/50 bg-card p-7">
+                <div className="mt-10 rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                     <p className="text-sm text-muted-foreground">
                         Want these auto-populated from your intake (Jotform/Forms) with clean cover-sheet output? See the optional automation add-on on the TC page.
                     </p>
@@ -185,7 +185,7 @@ export default function ResourcesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
                     {tools.map((res) => (
                         <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/50 bg-card">
+                            <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
                                 <div className="relative aspect-[16/10] bg-muted">
                                     {res.image ? (
                                         <Image
@@ -208,7 +208,7 @@ export default function ResourcesPage() {
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                     <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/50">
+                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
                                             {res.badge}
                                         </span>
                                     </div>
@@ -237,3 +237,8 @@ export default function ResourcesPage() {
         </>
     );
 }
+
+
+
+
+

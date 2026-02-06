@@ -154,7 +154,7 @@ export default function HomeServicesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card px-6 py-8 sm:px-8 sm:py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
                         <div className="absolute inset-0 bg-hero-gradient opacity-25" />
                         <div className="grain absolute inset-0 pointer-events-none" />
 
@@ -183,13 +183,13 @@ export default function HomeServicesPage() {
                             </div>
 
                             <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/50 bg-background/40 backdrop-blur-sm p-6">
+                                <div className="rounded-2xl border border-border/65 bg-background/55 backdrop-blur-sm p-6">
                                     <p className="text-sm font-semibold text-foreground">Built for the way home services win</p>
                                     <div className="mt-4 grid gap-3">
                                         {expectations.map((item) => (
                                             <div
                                                 key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/50 bg-card/40 px-4 py-3"
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/65 bg-card/55 px-4 py-3"
                                             >
                                                 <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
                                                 <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
@@ -207,8 +207,8 @@ export default function HomeServicesPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
                     {outcomes.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/50 bg-card p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
@@ -222,8 +222,8 @@ export default function HomeServicesPage() {
             <Section className="pt-4 md:pt-6" padding="none">
                 <AnimatedSection direction="none" delay={0.02}>
                     <div className="grid gap-4 sm:grid-cols-3">
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconChartBar className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Measure lead quality</p>
@@ -231,8 +231,8 @@ export default function HomeServicesPage() {
                                 Track calls and form submissions so you know what brings the better jobs, not just more clicks.
                             </p>
                         </div>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconPlugConnected className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Route leads cleanly</p>
@@ -240,8 +240,8 @@ export default function HomeServicesPage() {
                                 Push requests to the right inbox, calendar, or system so you respond faster and stop losing hot leads.
                             </p>
                         </div>
-                        <div className="rounded-2xl border border-border/50 bg-card p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconSparkles className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Look premium, stay local</p>
@@ -253,7 +253,7 @@ export default function HomeServicesPage() {
                 </AnimatedSection>
             </Section>
 
-            <Section className="bg-muted/30">
+            <Section className="rounded-[2rem] bg-muted/35">
                 <AnimatedSection>
                     <SectionHeading
                         title="What you get"
@@ -264,8 +264,8 @@ export default function HomeServicesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.1}>
                     {included.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/50 bg-card p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
@@ -279,7 +279,7 @@ export default function HomeServicesPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <div className="grid gap-6 md:grid-cols-2">
                     <AnimatedSection>
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 {fitFor.map((item) => (
@@ -292,7 +292,7 @@ export default function HomeServicesPage() {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 {notFor.map((item) => (
@@ -307,7 +307,7 @@ export default function HomeServicesPage() {
                 </div>
             </Section>
 
-            <Section id="concept" className="bg-muted/30">
+            <Section id="concept" className="rounded-[2rem] bg-muted/35">
                 <AnimatedSection>
                     <SectionHeading
                         title="Concept build (sample direction)"
@@ -317,7 +317,7 @@ export default function HomeServicesPage() {
 
                 <div className="grid gap-6 md:grid-cols-5">
                     <AnimatedSection className="md:col-span-3">
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-muted-foreground">
                                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 bg-muted/60">
                                     Spec Build
@@ -332,7 +332,7 @@ export default function HomeServicesPage() {
                                 guarantees visible before the first scroll ends.
                             </p>
                             <div className="mt-6 overflow-hidden rounded-xl border border-border/60 bg-background/30">
-                                <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-border/50 bg-muted/30">
+                                <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-border/65 bg-muted/35">
                                     <p className="text-xs font-semibold text-foreground">Ironline Heating & Cooling</p>
                                     <div className="flex items-center gap-2">
                                         <span className="px-2 py-1 rounded-md border border-border/60 bg-card/50 text-[11px] text-muted-foreground">
@@ -351,16 +351,16 @@ export default function HomeServicesPage() {
                                         This is a layout concept: high-intent headline, proof placement, and fast routing to the right service.
                                     </p>
                                     <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                        <div className="rounded-lg border border-border/65 bg-card/55 px-3 py-2">
                                             Furnace repair
                                         </div>
-                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                        <div className="rounded-lg border border-border/65 bg-card/55 px-3 py-2">
                                             AC repair
                                         </div>
-                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                        <div className="rounded-lg border border-border/65 bg-card/55 px-3 py-2">
                                             Install / replacement
                                         </div>
-                                        <div className="rounded-lg border border-border/50 bg-card/40 px-3 py-2">
+                                        <div className="rounded-lg border border-border/65 bg-card/55 px-3 py-2">
                                             Maintenance plan
                                         </div>
                                     </div>
@@ -395,7 +395,7 @@ export default function HomeServicesPage() {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection className="md:col-span-2" delay={0.08}>
-                        <div className="rounded-2xl border border-border/50 bg-card p-7">
+                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                             <h4 className="text-lg font-semibold text-foreground">What this direction solves</h4>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
@@ -415,7 +415,7 @@ export default function HomeServicesPage() {
                                     Stronger average job value through financing
                                 </li>
                             </ul>
-                            <div className="mt-6 pt-6 border-t border-border/50">
+                            <div className="mt-6 pt-6 border-t border-border/65">
                                 <Link
                                     href="/contact?source=home-services-concept"
                                     className="btn-primary inline-flex w-full items-center justify-center text-center shadow-none hover:shadow-none"
@@ -470,7 +470,7 @@ export default function HomeServicesPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
                     {faqs.map((item) => (
                         <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/50 bg-card p-7">
+                            <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                                 <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
                                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
                             </div>
@@ -479,7 +479,7 @@ export default function HomeServicesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="bg-muted/30">
+            <Section className="rounded-[2rem] bg-muted/35">
                 <AnimatedSection>
                     <SectionHeading
                         title="Simple, fast, and conversion-focused"
@@ -490,8 +490,8 @@ export default function HomeServicesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
                     {process.map((step) => (
                         <StaggerItem key={step.title}>
-                            <div className="h-full rounded-2xl border border-border/50 bg-card p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/50 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                     <step.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h3 className="mt-5 text-xl font-semibold text-foreground">{step.title}</h3>
@@ -519,3 +519,8 @@ export default function HomeServicesPage() {
         </>
     );
 }
+
+
+
+
+

@@ -38,7 +38,7 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
             <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
                 {steps.map((step, index) => (
                     <StaggerItem key={step.title}>
-                        <div className="h-full rounded-2xl border border-border/50 bg-card px-6 py-6">
+                        <div className="h-full rounded-2xl border border-border/65 bg-card/88 px-6 py-6 shadow-[var(--shadow-soft)]">
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
                                 Step {index + 1}
                             </p>
@@ -63,4 +63,3 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
         </div>
     );
 }
-
