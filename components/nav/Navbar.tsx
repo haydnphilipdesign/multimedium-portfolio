@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Dialog } from "@base-ui/react/dialog";
-import { IconMenu2, IconSparkles, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -64,10 +64,7 @@ export function Navbar() {
                             href="/"
                             className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
-                            <div className="flex items-center gap-2.5">
-                                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-glow/40 bg-glow/10 text-glow transition-colors group-hover:bg-glow group-hover:text-background">
-                                    <IconSparkles className="h-4 w-4" stroke={1.8} />
-                                </span>
+                            <div className="flex items-center">
                                 <div>
                                     <p className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
                                         Multimedium

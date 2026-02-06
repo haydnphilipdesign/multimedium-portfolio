@@ -8,7 +8,7 @@ import {
     IconPhoneCall,
     IconMapPin,
     IconBolt,
-    IconStars,
+    IconShieldCheck,
     IconBrandGoogle,
     IconArrowRight,
 } from "@tabler/icons-react";
@@ -45,7 +45,7 @@ const outcomes = [
 
 const included = [
     {
-        icon: IconStars,
+        icon: IconShieldCheck,
         title: "Trust-first design",
         description:
             "Reviews, proof, process, and guarantees placed where people actually hesitate.",

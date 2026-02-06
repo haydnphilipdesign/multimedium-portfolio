@@ -10,7 +10,7 @@ import {
     useSpring,
 } from "framer-motion";
 import Link from "next/link";
-import { IconArrowDown, IconSparkles } from "@tabler/icons-react";
+import { IconArrowDown } from "@tabler/icons-react";
 
 export function HeroParallax() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -80,8 +80,7 @@ export function HeroParallax() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200">
-                            <IconSparkles className="w-4 h-4 text-purple-400" stroke={1.5} />
+                        <div className="inline-flex items-center mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200">
                             <span>Haydn • Poconos, PA • Available for new builds</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]">
@@ -217,9 +216,8 @@ export function HeroParallax() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200"
+                        className="inline-flex items-center mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm text-sm text-purple-200"
                     >
-                        <IconSparkles className="w-4 h-4 text-purple-400" stroke={1.5} />
                         <span>Haydn • Poconos, PA • Available for new builds</span>
                     </motion.div>
 

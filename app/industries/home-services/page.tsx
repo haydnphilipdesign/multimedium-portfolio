@@ -9,14 +9,12 @@ import {
     IconMapPin,
     IconBolt,
     IconShieldCheck,
-    IconStars,
     IconBrandGoogle,
     IconChecklist,
     IconClock,
     IconArrowRight,
     IconChartBar,
     IconPlugConnected,
-    IconSparkles,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -51,7 +49,7 @@ const outcomes = [
 
 const included = [
     {
-        icon: IconStars,
+        icon: IconShieldCheck,
         title: "Proof where it matters",
         description:
             "Reviews, before/after, and certifications placed right where people hesitate.",
@@ -242,7 +240,7 @@ export default function HomeServicesPage() {
                         </div>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
                             <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
-                                <IconSparkles className="w-5 h-5" stroke={1.5} />
+                                <IconMapPin className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Look premium, stay local</p>
                             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">

@@ -8,7 +8,6 @@ import {
     IconCheck,
     IconArrowRight,
     IconChartBar,
-    IconSparkles,
     IconShieldCheck,
 } from "@tabler/icons-react";
 
@@ -125,7 +124,7 @@ export default function WebsiteServicePage() {
                     <div className="grid gap-4 sm:grid-cols-3">
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
                             <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
-                                <IconSparkles className="w-5 h-5" stroke={1.5} />
+                                <IconCheck className="w-5 h-5" stroke={1.5} />
                             </div>
                             <p className="mt-4 text-sm font-semibold text-foreground">Premium positioning</p>
                             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">

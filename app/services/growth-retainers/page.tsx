@@ -9,7 +9,6 @@ import {
     IconArrowRight,
     IconChartBar,
     IconBolt,
-    IconSparkles,
     IconTargetArrow,
 } from "@tabler/icons-react";
 
@@ -259,10 +258,7 @@ export default function GrowthRetainersServicePage() {
 
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
-                            <IconSparkles className="w-5 h-5" stroke={1.5} />
-                        </div>
+                    <div className="mb-6">
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                             FAQ
                         </h2>

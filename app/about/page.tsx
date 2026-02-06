@@ -7,7 +7,7 @@ import {
     IconMapPin,
     IconStack2,
     IconShieldCheck,
-    IconSparkles,
+    IconChecklist,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ const values = [
             "Fast pages and accessible design aren’t extras—they’re trust signals. They also keep your site usable for more people.",
     },
     {
-        icon: IconSparkles,
+        icon: IconChecklist,
         title: "Clear process, real progress",
         description:
             "We ship the right version, then improve what matters. The goal is outcomes—more clarity, more leads, less back-and-forth.",

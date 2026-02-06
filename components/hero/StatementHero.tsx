@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconCircleCheckFilled, IconSparkles } from "@tabler/icons-react";
+import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
 
 const trustSignals = [
     "12+ portfolio launches",
@@ -133,7 +133,6 @@ export function StatementHero() {
 
                             <div className="mt-4 rounded-2xl border border-border/60 bg-background/88 p-4">
                                 <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-glow/30 bg-glow/10 px-2.5 py-1 text-[11px] font-medium text-foreground">
-                                    <IconSparkles className="h-3.5 w-3.5 text-glow" stroke={1.8} />
                                     Studio promise
                                 </div>
                                 <p className="text-sm text-muted-foreground">
