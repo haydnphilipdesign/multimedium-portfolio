@@ -153,7 +153,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                                         id="name"
                                         name="name"
                                         maxLength={80}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control"
                                         placeholder="Your name"
                                         required
                                     />
@@ -168,7 +168,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                                         name="email"
                                         type="email"
                                         maxLength={254}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control"
                                         placeholder="you@email.com"
                                         required
                                     />
@@ -182,7 +182,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                                         id="company"
                                         name="company"
                                         maxLength={120}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control"
                                         placeholder="Business name"
                                     />
                                 </div>
@@ -215,4 +215,5 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
         </>
     );
 }
+
 

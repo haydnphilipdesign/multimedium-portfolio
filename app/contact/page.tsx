@@ -165,7 +165,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             required
                                             autoComplete="name"
                                             maxLength={120}
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            className="form-control"
                                             placeholder="Your name"
                                         />
                                     </div>
@@ -183,7 +183,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             required
                                             autoComplete="email"
                                             maxLength={254}
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            className="form-control"
                                             placeholder="your@email.com"
                                         />
                                     </div>
@@ -207,7 +207,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             autoComplete="tel"
                                             inputMode="tel"
                                             maxLength={40}
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            className="form-control"
                                             placeholder="+1 (555) 555-5555"
                                         />
                                     </div>
@@ -226,7 +226,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             id="company"
                                             name="company"
                                             maxLength={120}
-                                            className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                            className="form-control"
                                             placeholder="Your company"
                                         />
                                     </div>
@@ -237,7 +237,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         How should I reply?
                                     </legend>
                                     <div className="grid sm:grid-cols-3 gap-3">
-                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                        <label className="form-choice">
                                             <input
                                                 type="radio"
                                                 name="contactPreference"
@@ -249,7 +249,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 Email
                                             </span>
                                         </label>
-                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                        <label className="form-choice">
                                             <input
                                                 type="radio"
                                                 name="contactPreference"
@@ -260,7 +260,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 Call
                                             </span>
                                         </label>
-                                        <label className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all">
+                                        <label className="form-choice">
                                             <input
                                                 type="radio"
                                                 name="contactPreference"
@@ -288,7 +288,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         id="projectType"
                                         name="projectType"
                                         defaultValue={projectType}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control form-select"
                                     >
                                         <option value="">Select one</option>
                                         <option value="website">Website build / redesign</option>
@@ -313,7 +313,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         id="budgetRange"
                                         name="budgetRange"
                                         defaultValue={budgetRange}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control form-select"
                                     >
                                         <option value="">
                                             Select a budget range
@@ -349,7 +349,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         id="timeline"
                                         name="timeline"
                                         defaultValue={timeline}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control form-select"
                                     >
                                         <option value="">
                                             Select a timeline
@@ -386,7 +386,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         inputMode="url"
                                         maxLength={500}
                                         defaultValue={currentUrl}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all"
+                                        className="form-control"
                                         placeholder="https://example.com"
                                     />
                                 </div>
@@ -404,7 +404,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         required
                                         rows={5}
                                         maxLength={5000}
-                                        className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-glow focus:border-transparent transition-all resize-none"
+                                        className="form-control form-textarea"
                                         placeholder="What do you want the site to do? Who’s it for? Any deadlines, must-haves, or examples you like?"
                                     />
                                     <p className="mt-2 text-xs text-muted-foreground">
@@ -441,14 +441,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 <div className="space-y-3">
                                     <a
                                         href="tel:+15709946186"
-                                        className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all"
+                                        className="form-choice"
                                     >
                                         <IconPhone className="w-4 h-4 text-glow" stroke={1.5} />
                                         <span>Call or text 570-994-6186</span>
                                     </a>
                                     <a
                                         href="mailto:haydn@multimedium.dev"
-                                        className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all"
+                                        className="form-choice"
                                     >
                                         <IconMail className="w-4 h-4 text-glow" stroke={1.5} />
                                         <span>haydn@multimedium.dev</span>
@@ -458,7 +458,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             href={schedulingUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:text-foreground hover:border-glow/30 transition-all"
+                                            className="form-choice"
                                         >
                                             <IconCalendarEvent className="w-4 h-4 text-glow" stroke={1.5} />
                                             <span>Book a call</span>
@@ -488,10 +488,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                             {/* Availability */}
                             <div className="p-6 rounded-2xl bg-gradient-to-br from-glow/10 to-transparent border border-glow/20">
                                 <div className="flex items-center gap-3 mb-3">
-                                    <span className="relative flex h-3 w-3">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                                    </span>
+                                    <span className="status-dot" />
                                     <p className="text-sm font-medium text-foreground">
                                         Available for new builds + redesigns
                                     </p>
@@ -517,3 +514,4 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </>
     );
 }
+

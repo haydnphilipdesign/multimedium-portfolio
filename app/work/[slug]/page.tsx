@@ -107,10 +107,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
                 {/* Background accent */}
                 <div
-                    className="absolute top-0 left-0 right-0 h-[60vh] opacity-20"
-                    style={{
-                        background: `radial-gradient(ellipse 80% 50% at 50% 0%, ${project.color}40, transparent)`,
-                    }}
+                    className="absolute top-0 left-0 right-0 h-[60vh] opacity-45 bg-hero-gradient"
                 />
 
                 <Section size="wide" padding="none" className="relative z-10">
@@ -126,14 +123,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
                     <AnimatedSection delay={0.1}>
                         <div className="flex flex-wrap items-center gap-3 mb-6">
-                            <span
-                                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border"
-                                style={{
-                                    borderColor: `${project.color}50`,
-                                    backgroundColor: `${project.color}10`,
-                                    color: project.color,
-                                }}
-                            >
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border border-glow/25 bg-glow/10 text-glow">
                                 {project.category}
                             </span>
                             <span className="text-sm text-muted-foreground">{project.year}</span>
@@ -422,11 +412,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                         <div className={index % 2 === 1 ? "md:order-2" : ""}>
                                             <div className="flex items-center gap-4 mb-4">
                                                 <span
-                                                    className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold"
-                                                    style={{
-                                                        backgroundColor: `${project.color}20`,
-                                                        color: project.color,
-                                                    }}
+                                                    className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold border border-glow/25 bg-glow/10 text-glow"
                                                 >
                                                     {index + 1}
                                                 </span>
@@ -452,7 +438,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                                     <div
                                                         className="absolute inset-0"
                                                         style={{
-                                                            background: `linear-gradient(135deg, ${project.color}15, ${project.color}05)`,
+                                                            background:
+                                                                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--primary) 8%, transparent))",
                                                         }}
                                                     />
                                                 )}
@@ -479,10 +466,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         {project.outcomes.map((outcome, index) => (
                             <StaggerItem key={index}>
                                 <div className="text-center p-6 sm:p-8 rounded-2xl bg-card border border-border/50">
-                                    <p
-                                        className="text-4xl md:text-5xl font-bold mb-2"
-                                        style={{ color: project.color }}
-                                    >
+                                    <p className="text-4xl md:text-5xl font-bold mb-2 text-glow">
                                         {outcome.value}
                                     </p>
                                     <p className="text-lg font-medium text-foreground mb-2">

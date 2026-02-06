@@ -22,17 +22,12 @@ export function StatementHero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0a0a0a] pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24"
+            className="relative min-h-[100svh] flex items-center overflow-hidden bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24"
         >
+            <div className="absolute inset-0 bg-hero-gradient opacity-60" />
+            <div className="grain absolute inset-0 pointer-events-none" />
             {/* Subtle grid pattern */}
-            <div
-                className="absolute inset-0 opacity-[0.03]"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                    backgroundSize: '60px 60px',
-                }}
-            />
+            <div className="hero-grid absolute inset-0 opacity-40" />
 
             {/* Main content */}
             <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,33 +47,33 @@ export function StatementHero() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             {/* Availability badge - selective framing */}
-                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10">
+                            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-primary/35 bg-primary/10">
                                 <span className="relative flex h-2 w-2">
                                     {!prefersReducedMotion && (
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/70 opacity-80" />
                                     )}
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                                 </span>
-                                <span className="text-sm text-amber-200/90 font-medium">
+                                <span className="text-sm text-foreground/85 font-medium">
                                     Taking on 1–2 new projects per month
                                 </span>
                             </div>
 
                             {/* Main headline - outcome focused */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08] mb-6">
                                 Websites that generate
                                 <br />
-                                <span className="text-amber-400">
+                                <span className="text-glow">
                                     qualified leads—not just traffic.
                                 </span>
                             </h1>
 
                             {/* Subheadline - transformation focused */}
-                            <p className="text-lg md:text-xl text-white/60 max-w-xl mb-4 leading-relaxed">
+                            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed">
                                 Conversion-first web design + development for service businesses and SaaS teams. Clear positioning, clean copy, and fast pages that make reaching out feel easy.
                             </p>
 
-                            <p className="text-sm text-white/50 max-w-xl mb-10">
+                            <p className="text-sm text-muted-foreground/85 max-w-xl mb-10">
                                 Built with accessibility + tracking from day one—so you can measure what’s working and improve it.
                             </p>
 
@@ -89,7 +84,7 @@ export function StatementHero() {
                                         href={schedulingUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                                        className="btn-primary group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold"
                                     >
                                         <span>Book a call</span>
                                         <svg
@@ -109,7 +104,7 @@ export function StatementHero() {
                                 ) : (
                                     <Link
                                         href="/contact?source=home-hero"
-                                        className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                                        className="btn-primary group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold"
                                     >
                                         <span>Talk about your project</span>
                                         <svg
@@ -129,18 +124,18 @@ export function StatementHero() {
                                 )}
                                 <Link
                                     href="/work"
-                                    className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                                    className="btn-secondary inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-medium"
                                 >
                                     Browse case studies
                                 </Link>
                             </div>
 
                             {schedulingUrl ? (
-                                <p className="mt-5 text-sm text-white/50 max-w-xl">
+                                <p className="mt-5 text-sm text-muted-foreground/85 max-w-xl">
                                     Prefer email?{" "}
                                     <Link
                                         href="/contact?source=home-hero"
-                                        className="text-white/80 underline underline-offset-4 hover:text-white transition-colors"
+                                        className="text-foreground/85 underline underline-offset-4 hover:text-foreground transition-colors"
                                     >
                                         Send a message
                                     </Link>
@@ -159,11 +154,11 @@ export function StatementHero() {
                     >
                         <div className="relative">
                             {/* Glow behind image */}
-                            <div className="absolute -inset-6 sm:-inset-8 bg-sky-500/15 rounded-3xl blur-3xl" />
+                            <div className="absolute -inset-6 sm:-inset-8 bg-glow/20 rounded-3xl blur-3xl" />
 
                             {/* Image container */}
                             <motion.div
-                                className="relative w-full max-w-[300px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
+                                className="relative w-full max-w-[300px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)]"
                                 style={{
                                     scale: prefersReducedMotion ? 1 : imageScale,
                                 }}
@@ -192,13 +187,13 @@ export function StatementHero() {
                 transition={{ delay: 1 }}
                 style={{ opacity: prefersReducedMotion ? 1 : contentOpacity }}
             >
-                <span className="text-xs text-white/40 uppercase tracking-widest">Scroll</span>
+                <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
                 <motion.div
-                    className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
+                    className="w-5 h-8 rounded-full border border-border/70 flex items-start justify-center p-1.5"
                     animate={prefersReducedMotion ? undefined : { y: [0, 4, 0] }}
                     transition={prefersReducedMotion ? undefined : { duration: 1.5, repeat: Infinity }}
                 >
-                    <div className="w-1 h-1.5 rounded-full bg-amber-500" />
+                    <div className="w-1 h-1.5 rounded-full bg-primary" />
                 </motion.div>
             </motion.div>
         </section>

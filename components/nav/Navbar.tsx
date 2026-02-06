@@ -49,7 +49,7 @@ export function Navbar() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                     showBackdrop
-                        ? "bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/10 py-3 sm:py-4"
+                        ? "bg-background/85 backdrop-blur-xl border-b border-border/40 shadow-[var(--shadow-soft)] py-3 sm:py-4"
                         : "bg-transparent py-4 sm:py-5 md:py-6"
                 )}
             >
@@ -57,7 +57,7 @@ export function Navbar() {
                     <div className="flex items-center justify-between">
                         <Link
                             href="/"
-                            className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+                            className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors hover:text-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
                         >
                             Multimedium
                         </Link>
@@ -69,7 +69,7 @@ export function Navbar() {
                                     href={link.href === "/contact" ? contactHref : link.href}
                                     aria-current={isActive(link.href) ? "page" : undefined}
                                     className={cn(
-                                        "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                                        "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                         isActive(link.href)
                                             ? "text-foreground"
                                             : "text-muted-foreground hover:text-foreground"
@@ -128,10 +128,10 @@ export function Navbar() {
 
             <Dialog.Portal>
                 <Dialog.Backdrop
-                    className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm md:hidden"
+                    className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[60] bg-overlay backdrop-blur-sm md:hidden"
                 />
                 <Dialog.Popup
-                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/80 shadow-2xl shadow-black/40 outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
+                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/90 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
                 >
                     <Dialog.Title className="sr-only">Navigation</Dialog.Title>
                     <div className="flex h-full flex-col p-6">

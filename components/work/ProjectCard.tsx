@@ -42,7 +42,8 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     <div
                         className="absolute inset-0"
                         style={{
-                            background: `linear-gradient(135deg, ${project.color}33, ${project.color}11)`,
+                            background:
+                                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 36%, transparent), color-mix(in oklab, var(--primary) 14%, transparent))",
                         }}
                     />
                 )}
@@ -99,7 +100,8 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                    boxShadow: `inset 0 0 0 1px ${project.color}33`,
+                    boxShadow:
+                        "inset 0 0 0 1px color-mix(in oklab, var(--primary) 38%, transparent)",
                 }}
             />
         </div>
@@ -164,7 +166,8 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
                         <div
                             className="absolute inset-0"
                             style={{
-                                background: `linear-gradient(135deg, ${project.color}33, ${project.color}11)`,
+                                background:
+                                    "linear-gradient(135deg, color-mix(in oklab, var(--primary) 36%, transparent), color-mix(in oklab, var(--primary) 14%, transparent))",
                             }}
                         />
                     )}

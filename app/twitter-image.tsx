@@ -18,9 +18,9 @@ export default function TwitterImage() {
                     flexDirection: "column",
                     justifyContent: "space-between",
                     padding: 72,
-                    backgroundColor: "#0a0a0a",
+                    backgroundColor: "#0f1218",
                     backgroundImage:
-                        "radial-gradient(ellipse 75% 55% at 35% 0%, rgba(245,158,11,0.25), transparent 60%), radial-gradient(ellipse 60% 45% at 90% 80%, rgba(139,92,246,0.22), transparent 55%), radial-gradient(ellipse 55% 40% at 0% 85%, rgba(16,185,129,0.18), transparent 55%)",
+                        "radial-gradient(ellipse 75% 55% at 35% 0%, rgba(232,179,75,0.26), transparent 60%), radial-gradient(ellipse 60% 45% at 90% 80%, rgba(120,145,196,0.2), transparent 55%), radial-gradient(ellipse 55% 40% at 0% 85%, rgba(153,164,188,0.16), transparent 55%)",
                 }}
             >
                 <div
@@ -72,7 +72,7 @@ export default function TwitterImage() {
                         <span>Web design &amp; development</span>
                         <span style={{ display: "flex", flexWrap: "wrap", gap: 18 }}>
                             <span>that</span>
-                            <span style={{ color: "#f59e0b" }}>wins trust.</span>
+                            <span style={{ color: "#e8b34b" }}>wins trust.</span>
                         </span>
                     </div>
                     <div
@@ -108,8 +108,8 @@ export default function TwitterImage() {
                             alignItems: "center",
                             padding: "12px 16px",
                             borderRadius: 999,
-                            border: "1px solid rgba(245,158,11,0.35)",
-                            backgroundColor: "rgba(245,158,11,0.12)",
+                            border: "1px solid rgba(232,179,75,0.35)",
+                            backgroundColor: "rgba(232,179,75,0.14)",
                             color: "rgba(255,255,255,0.85)",
                             fontSize: 18,
                             fontWeight: 600,
