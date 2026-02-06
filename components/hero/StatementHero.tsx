@@ -125,9 +125,11 @@ export function StatementHero() {
                                         sizes="(min-width: 1024px) 420px, (min-width: 768px) 380px, 100vw"
                                     />
                                 </motion.div>
-                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent p-4">
-                                    <p className="text-sm font-medium text-foreground">Haydn · Designer + Developer</p>
-                                    <p className="text-xs text-muted-foreground">One person from strategy to launch</p>
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/55 to-transparent p-4">
+                                    <div className="inline-flex flex-col rounded-lg border border-border/60 bg-background/88 px-3 py-2 shadow-[var(--shadow-soft)] backdrop-blur-md">
+                                        <p className="text-sm font-medium text-foreground">Haydn · Designer + Developer</p>
+                                        <p className="text-xs text-muted-foreground">One person from strategy to launch</p>
+                                    </div>
                                 </div>
                             </div>
 
