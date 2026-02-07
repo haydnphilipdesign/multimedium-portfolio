@@ -70,7 +70,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </div>
             </div>
 
-            <div className="space-y-4 p-5 sm:p-6">
+                <div className="space-y-4 p-5 sm:p-6">
                 <div>
                     <h3 className="text-[1.4rem] font-semibold tracking-tight text-foreground transition-colors group-hover:text-gradient">
                         {project.title}
@@ -95,7 +95,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 <div className="flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
                     <span>{project.role.split(",")[0]}</span>
-                    <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-glow">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-accent-strong">
                         View project details
                         <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
                     </span>
@@ -113,7 +113,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
     if (prefersReducedMotion) {
         return (
-            <Link href={`/work/${project.slug}`} className="block rounded-[1.4rem]">
+            <Link
+                href={`/work/${project.slug}`}
+                className="focus-ring block rounded-[1.4rem]"
+            >
                 {cardContent}
             </Link>
         );
@@ -127,10 +130,13 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             transition={{
                 duration: 0.5,
                 delay: index * 0.08,
-                ease: [0.25, 0.4, 0.25, 1],
+                ease: [0.22, 0.61, 0.36, 1],
             }}
         >
-            <Link href={`/work/${project.slug}`} className="block rounded-[1.4rem]">
+            <Link
+                href={`/work/${project.slug}`}
+                className="focus-ring block rounded-[1.4rem]"
+            >
                 {cardContent}
             </Link>
         </motion.div>

@@ -39,6 +39,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-accent-strong: var(--accent-strong);
   --color-primary-soft: var(--primary-soft);
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -114,12 +115,15 @@
   --sidebar-border: oklch(0.86 0.012 252 / 0.7);
   --sidebar-ring: oklch(0.52 0.09 244);
   --glow: oklch(0.73 0.14 82);
+  --accent-strong: oklch(0.5 0.13 82);
   --glow-muted: oklch(0.65 0.1 80);
   --shadow-color: oklch(0.02 0 0);
   --shadow-soft: 0 16px 40px oklch(0.22 0.02 252 / 0.12);
   --shadow-elevated: 0 24px 56px oklch(0.22 0.02 252 / 0.18);
   --grid-line: oklch(0.5 0.012 252 / 0.11);
   --nav-offset: 96px;
+  --mobile-cta-height: 74px;
+  --mobile-cta-offset: 0px;
 }
 
 .dark {
@@ -176,6 +180,7 @@
   --sidebar-border: oklch(0.34 0.018 255 / 0.75);
   --sidebar-ring: oklch(0.76 0.15 78);
   --glow: oklch(0.76 0.15 78);
+  --accent-strong: oklch(0.8 0.13 78);
   --glow-muted: oklch(0.66 0.09 78);
   --shadow-color: oklch(0 0 0);
   --shadow-soft: 0 12px 24px oklch(0 0 0 / 0.3);
@@ -347,6 +352,13 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .text-gradient {
+      animation: none;
+      background-position: 50% 50%;
+    }
+  }
+
   /* Card hover lift effect */
   .card-hover {
     @apply transition-all duration-300;
@@ -366,8 +378,24 @@
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 
-  :where(a, button, summary):focus-visible:not([class*="ring-"]) {
+  :where(a, button, summary, input, select, textarea):focus-visible:not([class*="ring-"]) {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .eyebrow-pill {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium;
+    border-color: color-mix(in oklab, var(--glow) 28%, var(--border));
+    background: color-mix(in oklab, var(--glow) 12%, transparent);
+    color: var(--accent-strong);
+  }
+
+  .card-elevated {
+    @apply rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)];
   }
 
   .hero-grid {
@@ -448,6 +476,7 @@
     font-weight: 550;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    min-height: 44px;
   }
 
   .btn-primary:hover {
@@ -482,6 +511,7 @@
     font-weight: 550;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    min-height: 44px;
   }
 
   .btn-secondary:hover {

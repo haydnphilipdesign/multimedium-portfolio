@@ -37,7 +37,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-6">
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                             <IconFileText className="w-4 h-4" stroke={1.5} />
                             Free resource
                         </span>

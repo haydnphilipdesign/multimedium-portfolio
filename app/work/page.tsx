@@ -217,7 +217,7 @@ export default async function WorkPage({
                     <AnimatedSection>
                         <div className="flex items-end justify-between gap-8 mb-8">
                             <div className="max-w-3xl">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20 mb-4">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30 mb-4">
                                     Spotlight
                                 </span>
                                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -246,7 +246,7 @@ export default async function WorkPage({
                         </p>
                         <Link
                             href="/work"
-                            className="text-glow hover:underline"
+                            className="text-accent-strong hover:underline"
                         >
                             Clear filters to see all work
                         </Link>

@@ -171,7 +171,7 @@ export default function TransactionCoordinatorsPage() {
 
                         <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
                             <div className="lg:col-span-3 space-y-6">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                                     Real Estate Ops
                                 </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
@@ -324,7 +324,7 @@ export default function TransactionCoordinatorsPage() {
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
                                     A few relevant builds that show the direction: authority, clarity, and conversion. Includes product work too (
-                                    <Link href="/work/norma" className="text-foreground hover:text-glow transition-colors underline underline-offset-4">
+                                    <Link href="/work/norma" className="text-foreground hover:text-accent-strong transition-colors underline underline-offset-4">
                                         Norma
                                     </Link>
                                     —early access).
@@ -332,7 +332,7 @@ export default function TransactionCoordinatorsPage() {
                             </div>
                             <Link
                                 href="/work?industry=tc"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-accent-strong transition-colors group"
                             >
                                 <span className="font-medium">Browse all TC case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -380,7 +380,7 @@ export default function TransactionCoordinatorsPage() {
                                 <div className="flex items-start justify-between gap-4">
                                     <div>
                                         <h3 className="text-xl font-semibold text-foreground">{tier.name}</h3>
-                                        <p className="mt-1 text-sm font-medium text-glow">{tier.price}</p>
+                                        <p className="mt-1 text-sm font-medium text-accent-strong">{tier.price}</p>
                                     </div>
                                 </div>
                                 <ul className="mt-5 space-y-2 text-sm text-muted-foreground">

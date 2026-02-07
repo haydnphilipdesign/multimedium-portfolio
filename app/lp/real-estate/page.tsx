@@ -229,7 +229,7 @@ export default function RealEstateLandingPage() {
                 <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-glow/10 blur-3xl" />
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                             What changes
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
@@ -304,7 +304,7 @@ export default function RealEstateLandingPage() {
                     <div className="pointer-events-none absolute -top-28 left-0 h-72 w-72 rounded-full bg-glow/10 blur-3xl" />
                     <AnimatedSection>
                         <div className="max-w-3xl">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                                 Recent work
                             </span>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
@@ -323,7 +323,7 @@ export default function RealEstateLandingPage() {
                     <AnimatedSection className="mt-10">
                         <Link
                             href="/work?industry=real-estate&source=lp-real-estate"
-                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-glow transition-colors group"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group"
                         >
                             Browse all real estate projects
                             <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -381,7 +381,7 @@ export default function RealEstateLandingPage() {
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative flex flex-col items-center text-center">
-                            <p className="text-sm font-medium text-glow">
+                            <p className="text-sm font-medium text-accent-strong">
                                 Ready to make your site your best salesperson?
                             </p>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">

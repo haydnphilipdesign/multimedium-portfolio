@@ -22,7 +22,7 @@ export function Footer() {
                     <div className="space-y-4">
                         <Link
                             href="/"
-                            className="inline-flex items-center gap-2 rounded-md px-1 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-glow"
+                            className="inline-flex items-center gap-2 rounded-md px-1 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-accent-strong"
                         >
                             <span className="inline-flex h-2.5 w-2.5 rounded-full bg-glow" />
                             Multimedium
@@ -42,7 +42,7 @@ export function Footer() {
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                    className="touch-target inline-flex items-center gap-1.5 rounded-lg px-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                                 >
                                     Book a call
                                     <IconArrowUpRight className="h-3.5 w-3.5" stroke={1.8} />
@@ -56,16 +56,16 @@ export function Footer() {
                             Explore
                         </p>
                         <nav className="space-y-2.5">
-                            <Link href="/services" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/services" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Services
                             </Link>
-                            <Link href="/work" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/work" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Case Studies
                             </Link>
-                            <Link href="/about" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/about" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 About
                             </Link>
-                            <Link href="/contact?source=footer" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/contact?source=footer" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Contact
                             </Link>
                         </nav>
@@ -76,13 +76,13 @@ export function Footer() {
                             Industries
                         </p>
                         <nav className="space-y-2.5">
-                            <Link href="/industries/transaction-coordinators?source=footer" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/industries/transaction-coordinators?source=footer" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Transaction Coordinators
                             </Link>
-                            <Link href="/industries/trades?source=footer" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/industries/trades?source=footer" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Trades & Service Businesses
                             </Link>
-                            <Link href="/industries/home-services?source=footer" className="block text-sm text-muted-foreground transition-colors hover:text-foreground">
+                            <Link href="/industries/home-services?source=footer" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Home Services
                             </Link>
                             {socialLinks.length > 0 && (
@@ -97,7 +97,7 @@ export function Footer() {
                                                 href={link.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                                className="touch-target inline-flex items-center rounded-md px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                                             >
                                                 {link.label}
                                             </a>

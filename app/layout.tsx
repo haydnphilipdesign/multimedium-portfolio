@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Navbar } from "@/components/nav/Navbar";
+import { MobileStickyCTA } from "@/components/nav/MobileStickyCTA";
 import { Footer } from "@/components/footer/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { siteUrl } from "@/lib/site";
@@ -77,7 +78,7 @@ export default function RootLayout({
 }>) {
   const structuredData = getSiteStructuredData();
 
-    return (
+  return (
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
@@ -95,8 +96,11 @@ export default function RootLayout({
         </a>
         <Navbar />
         <PageTransition>
-          <main id="main-content">{children}</main>
+          <main id="main-content" className="pb-[var(--mobile-cta-offset)] md:pb-0">
+            {children}
+          </main>
         </PageTransition>
+        <MobileStickyCTA />
         <Footer />
         <Analytics />
         <SpeedInsights />

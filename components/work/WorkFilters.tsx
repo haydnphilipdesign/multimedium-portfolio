@@ -70,12 +70,12 @@ export function WorkFilters({
     }, [router]);
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 sm:space-y-5">
             {/* Filter Toggle Button */}
             <div className="flex items-center justify-between gap-4">
                 <button
                     onClick={() => setShowFilters(!showFilters)}
-                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${showFilters || hasActiveFilters
+                    className={`touch-target inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${showFilters || hasActiveFilters
                             ? "border-glow/35 bg-glow/10 text-foreground"
                             : "border-border/65 bg-card/90 text-muted-foreground shadow-[var(--shadow-soft)] hover:border-border hover:text-foreground"
                         }`}
@@ -92,7 +92,7 @@ export function WorkFilters({
                 {hasActiveFilters && (
                     <button
                         onClick={clearAllFilters}
-                        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        className="touch-target inline-flex items-center gap-1.5 rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                         <IconX className="w-3.5 h-3.5" stroke={2} />
                         Clear filters
@@ -107,7 +107,7 @@ export function WorkFilters({
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                        transition={{ duration: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
                         className="overflow-hidden"
                     >
                         <div className="space-y-4 rounded-2xl border border-border/65 bg-card/85 p-4 shadow-[var(--shadow-soft)] backdrop-blur-sm">
@@ -203,7 +203,7 @@ function FilterPill({ label, count, isActive, onClick, isPending }: FilterPillPr
         <button
             onClick={onClick}
             disabled={isPending}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 disabled:opacity-50 ${isActive
+            className={`touch-target inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 ${isActive
                     ? "bg-glow text-background shadow-sm shadow-glow/20"
                     : "border border-transparent bg-muted/50 text-muted-foreground hover:border-border/65 hover:bg-muted hover:text-foreground"
                 }`}

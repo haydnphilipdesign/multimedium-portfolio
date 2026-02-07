@@ -219,7 +219,7 @@ export default function GrowthRetainersServicePage() {
                             </div>
                             <Link
                                 href="/work?source=services-retainer"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-accent-strong transition-colors group"
                             >
                                 <span className="font-medium">Browse all case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />

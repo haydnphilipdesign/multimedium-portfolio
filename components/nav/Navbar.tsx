@@ -47,14 +47,14 @@ export function Navbar() {
         <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
             <header
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4",
+                    "fixed top-0 left-0 right-0 z-50 py-2.5 transition-all duration-300 sm:py-3",
                     showBackdrop ? "bg-background/70 backdrop-blur-xl" : "bg-transparent"
                 )}
             >
                 <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div
                         className={cn(
-                            "relative flex items-center justify-between rounded-2xl px-4 py-3 sm:px-5",
+                            "relative flex items-center justify-between rounded-2xl px-3 py-2.5 sm:px-5 sm:py-3",
                             showBackdrop
                                 ? "border border-border/70 bg-background/90 shadow-[var(--shadow-soft)]"
                                 : "border border-transparent bg-background/35 supports-backdrop-filter:backdrop-blur-md"
@@ -62,7 +62,7 @@ export function Navbar() {
                     >
                         <Link
                             href="/"
-                            className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                            className="group touch-target rounded-lg px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                             <div className="flex items-center">
                                 <div>
@@ -83,7 +83,7 @@ export function Navbar() {
                                     href={link.href === "/contact" ? contactHref : link.href}
                                     aria-current={isActive(link.href) ? "page" : undefined}
                                     className={cn(
-                                        "relative px-3.5 py-2 text-sm font-medium transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                                        "touch-target relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                         isActive(link.href)
                                             ? "text-foreground"
                                             : "text-muted-foreground hover:text-foreground"
@@ -111,7 +111,7 @@ export function Navbar() {
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                    className="touch-target inline-flex items-center rounded-lg px-2 text-sm text-muted-foreground transition-colors hover:text-accent-strong"
                                 >
                                     Book a call
                                 </a>
@@ -125,7 +125,7 @@ export function Navbar() {
                         </div>
 
                         <Dialog.Trigger
-                            className="md:hidden p-2 text-foreground hover:text-glow transition-colors rounded-lg"
+                            className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-accent-strong md:hidden"
                             aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
                             {isOpen ? (
@@ -146,17 +146,17 @@ export function Navbar() {
                     className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/95 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
                 >
                     <Dialog.Title className="sr-only">Navigation</Dialog.Title>
-                    <div className="flex h-full flex-col p-6">
+                    <div className="flex h-full flex-col p-5 sm:p-6">
                         <div className="flex items-center justify-between">
                             <Link
                                 href="/"
                                 onClick={() => setIsOpen(false)}
-                                className="text-lg font-semibold tracking-tight text-foreground hover:text-glow transition-colors rounded-md px-2 py-1 -mx-2 -my-1"
+                                className="touch-target -mx-2 -my-1 rounded-md px-2 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-accent-strong"
                             >
                                 Multimedium
                             </Link>
                             <Dialog.Close
-                                className="p-2 text-foreground hover:text-glow transition-colors rounded-lg"
+                                className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-accent-strong"
                                 aria-label="Close menu"
                             >
                                 <IconX className="h-6 w-6" stroke={1.5} />
@@ -167,7 +167,7 @@ export function Navbar() {
                             Built for transaction coordinators, real estate ops teams, and service businesses that want clearer, higher-converting websites.
                         </p>
 
-                        <div className="mt-8 space-y-2">
+                        <div className="mt-8 space-y-2.5">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
@@ -175,10 +175,10 @@ export function Navbar() {
                                     onClick={() => setIsOpen(false)}
                                     aria-current={isActive(link.href) ? "page" : undefined}
                                     className={cn(
-                                        "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                                        "touch-target block rounded-xl border px-4 py-3 text-base font-medium transition-colors",
                                         isActive(link.href)
-                                            ? "text-foreground bg-accent border border-border/65"
-                                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                                            ? "border-glow/30 bg-primary-soft text-foreground"
+                                            : "border-transparent text-muted-foreground hover:border-border/65 hover:bg-accent hover:text-foreground"
                                     )}
                                 >
                                     {link.label}

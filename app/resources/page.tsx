@@ -89,7 +89,7 @@ export default function ResourcesPage() {
                         <div className="grain absolute inset-0 pointer-events-none" />
 
                         <div className="relative max-w-3xl space-y-4">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                                 <IconFileText className="w-4 h-4" stroke={1.5} />
                                 Resources
                             </span>

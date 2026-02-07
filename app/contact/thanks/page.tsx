@@ -35,7 +35,7 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-4 max-w-2xl mx-auto">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                                 Message sent
                             </span>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">

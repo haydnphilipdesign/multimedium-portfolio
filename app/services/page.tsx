@@ -172,7 +172,7 @@ export default function ServicesPage() {
                                 </p>
                                 <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
                                     <span className="font-mono">Typical timeline: {service.timeline}</span>
-                                    <span className="inline-flex items-center gap-2 text-foreground group-hover:text-glow transition-colors">
+                                    <span className="inline-flex items-center gap-2 text-foreground group-hover:text-accent-strong transition-colors">
                                         Learn more
                                         <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                     </span>

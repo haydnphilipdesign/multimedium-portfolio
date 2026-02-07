@@ -1,7 +1,12 @@
 "use client";
 
 import { motion, useInView, useReducedMotion, Variants } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
+
+type MobileBehavior = "animate" | "static";
+
+const MOTION_EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
+const MOBILE_QUERY = "(max-width: 767px)";
 
 interface AnimatedSectionProps {
     children: ReactNode;
@@ -9,23 +14,24 @@ interface AnimatedSectionProps {
     delay?: number;
     direction?: "up" | "down" | "left" | "right" | "none";
     duration?: number;
+    mobileBehavior?: MobileBehavior;
 }
 
 const directionVariants: Record<string, Variants> = {
     up: {
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 24 },
         visible: { opacity: 1, y: 0 },
     },
     down: {
-        hidden: { opacity: 0, y: -40 },
+        hidden: { opacity: 0, y: -24 },
         visible: { opacity: 1, y: 0 },
     },
     left: {
-        hidden: { opacity: 0, x: 40 },
+        hidden: { opacity: 0, x: 24 },
         visible: { opacity: 1, x: 0 },
     },
     right: {
-        hidden: { opacity: 0, x: -40 },
+        hidden: { opacity: 0, x: -24 },
         visible: { opacity: 1, x: 0 },
     },
     none: {
@@ -34,20 +40,45 @@ const directionVariants: Record<string, Variants> = {
     },
 };
 
+function useIsMobileViewport() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const mediaQuery = window.matchMedia(MOBILE_QUERY);
+        const update = () => setIsMobile(mediaQuery.matches);
+
+        update();
+        mediaQuery.addEventListener("change", update);
+        return () => mediaQuery.removeEventListener("change", update);
+    }, []);
+
+    return isMobile;
+}
+
+function useShouldSkipMotion(mobileBehavior: MobileBehavior) {
+    const prefersReducedMotion = useReducedMotion();
+    const isMobile = useIsMobileViewport();
+
+    return prefersReducedMotion || (isMobile && mobileBehavior === "static");
+}
+
 export function AnimatedSection({
     children,
     className = "",
     delay = 0,
     direction = "up",
-    duration = 0.6,
+    duration = 0.45,
+    mobileBehavior = "static",
 }: AnimatedSectionProps) {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const prefersReducedMotion = useReducedMotion();
+    const isInView = useInView(ref, { once: true, margin: "-72px" });
+    const shouldSkipMotion = useShouldSkipMotion(mobileBehavior);
 
     const variants: Variants = directionVariants[direction];
 
-    if (prefersReducedMotion) {
+    if (shouldSkipMotion) {
         return <div className={className}>{children}</div>;
     }
 
@@ -60,7 +91,7 @@ export function AnimatedSection({
             transition={{
                 duration,
                 delay,
-                ease: [0.25, 0.4, 0.25, 1],
+                ease: MOTION_EASE,
             }}
             className={className}
         >
@@ -74,16 +105,18 @@ interface StaggerContainerProps {
     children: ReactNode;
     className?: string;
     staggerDelay?: number;
+    mobileBehavior?: MobileBehavior;
 }
 
 export function StaggerContainer({
     children,
     className = "",
     staggerDelay = 0.1,
+    mobileBehavior = "static",
 }: StaggerContainerProps) {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const prefersReducedMotion = useReducedMotion();
+    const isInView = useInView(ref, { once: true, margin: "-72px" });
+    const shouldSkipMotion = useShouldSkipMotion(mobileBehavior);
 
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -95,7 +128,7 @@ export function StaggerContainer({
         },
     };
 
-    if (prefersReducedMotion) {
+    if (shouldSkipMotion) {
         return <div className={className}>{children}</div>;
     }
 
@@ -116,20 +149,31 @@ export function StaggerContainer({
 interface StaggerItemProps {
     children: ReactNode;
     className?: string;
+    mobileBehavior?: MobileBehavior;
 }
 
-export function StaggerItem({ children, className = "" }: StaggerItemProps) {
+export function StaggerItem({
+    children,
+    className = "",
+    mobileBehavior = "static",
+}: StaggerItemProps) {
+    const shouldSkipMotion = useShouldSkipMotion(mobileBehavior);
+
     const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 16 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5,
-                ease: [0.25, 0.4, 0.25, 1],
+                duration: 0.35,
+                ease: MOTION_EASE,
             },
         },
     };
+
+    if (shouldSkipMotion) {
+        return <div className={className}>{children}</div>;
+    }
 
     return (
         <motion.div variants={itemVariants} className={className}>

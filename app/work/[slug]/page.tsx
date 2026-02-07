@@ -116,7 +116,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <AnimatedSection>
                         <Link
                             href="/work"
-                            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+                            className="touch-target mb-8 inline-flex items-center gap-2 rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                         >
                             <IconArrowLeft className="w-4 h-4" stroke={1.5} />
                             Back to case studies
@@ -158,7 +158,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
                     {/* Project Meta */}
                     <AnimatedSection delay={0.4}>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 py-6 sm:py-8 border-y border-border/40">
+                        <div className="grid grid-cols-1 gap-4 border-y border-border/40 py-6 sm:grid-cols-2 sm:gap-6 sm:py-8 lg:grid-cols-4">
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
                                     Client
@@ -180,7 +180,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                         href={project.externalUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-glow transition-colors"
+                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-accent-strong"
                                     >
                                         Visit site
                                         <IconArrowUpRight className="h-4 w-4" stroke={1.5} />
@@ -248,7 +248,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                     <a
                                         key={item.href}
                                         href={item.href}
-                                        className="inline-flex items-center rounded-full border border-border/65 bg-card/82 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-glow/30 transition-colors"
+                                        className="touch-target inline-flex items-center rounded-full border border-border/65 bg-card/82 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-glow/30 hover:text-foreground"
                                     >
                                         {item.label}
                                     </a>
@@ -415,7 +415,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                         <div className={index % 2 === 1 ? "md:order-2" : ""}>
                                             <div className="flex items-center gap-4 mb-4">
                                                 <span
-                                                    className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold border border-glow/25 bg-glow/10 text-glow"
+                                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-glow/25 bg-glow/10 text-sm font-bold text-accent-strong"
                                                 >
                                                     {index + 1}
                                                 </span>
@@ -469,7 +469,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         {project.outcomes.map((outcome, index) => (
                             <StaggerItem key={index}>
                                 <div className="text-center p-6 sm:p-8 rounded-2xl bg-card shadow-[var(--shadow-soft)] border border-border/65">
-                                    <p className="text-4xl md:text-5xl font-bold mb-2 text-glow">
+                                    <p className="mb-2 text-4xl font-bold text-accent-strong md:text-5xl">
                                         {outcome.value}
                                     </p>
                                     <p className="text-lg font-medium text-foreground mb-2">
@@ -511,7 +511,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     {prevProject ? (
                         <Link
                             href={`/work/${prevProject.slug}`}
-                            className="group flex w-full items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                            className="group touch-target flex w-full items-center gap-3 rounded-lg text-muted-foreground transition-colors hover:text-foreground"
                         >
                             <IconArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" stroke={1.5} />
                             <div className="text-left">
@@ -526,7 +526,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     {nextProject ? (
                         <Link
                             href={`/work/${nextProject.slug}`}
-                            className="group flex w-full items-center justify-end gap-3 text-muted-foreground hover:text-foreground transition-colors text-right"
+                            className="group touch-target flex w-full items-center justify-end gap-3 rounded-lg text-right text-muted-foreground transition-colors hover:text-foreground"
                         >
                             <div>
                                 <p className="text-xs uppercase tracking-wider mb-1">Next</p>
@@ -551,7 +551,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </p>
                     <Link
                         href={cta.href}
-                        className="btn-primary"
+                        className="btn-primary w-full sm:w-auto"
                         target={ctaExternal ? "_blank" : undefined}
                         rel={ctaExternal ? "noopener noreferrer" : undefined}
                     >

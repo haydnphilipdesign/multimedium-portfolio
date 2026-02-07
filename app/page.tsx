@@ -174,7 +174,7 @@ export default function HomePage() {
                                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                                     {niche.description}
                                 </p>
-                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-glow transition-colors">
+                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-accent-strong transition-colors">
                                     {niche.cta} <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </div>
                             </Link>
@@ -199,7 +199,7 @@ export default function HomePage() {
                         </div>
                         <Link
                             href="/work"
-                            className="group inline-flex items-center gap-2 text-foreground transition-colors hover:text-glow"
+                            className="group inline-flex items-center gap-2 text-foreground transition-colors hover:text-accent-strong"
                         >
                             <span className="font-medium">Browse case studies</span>
                             <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -331,7 +331,7 @@ export default function HomePage() {
 
                                 <Link
                                     href={`${service.href}?source=home-services`}
-                                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-glow transition-colors group-hover:translate-x-0"
+                                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group-hover:translate-x-0"
                                 >
                                     Learn more <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>

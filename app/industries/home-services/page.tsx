@@ -158,7 +158,7 @@ export default function HomeServicesPage() {
 
                         <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
                             <div className="lg:col-span-3 space-y-6">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-glow border border-glow/20">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
                                     Home Services
                                 </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
@@ -441,7 +441,7 @@ export default function HomeServicesPage() {
                             </div>
                             <Link
                                 href="/work?source=home-services"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-glow transition-colors group"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-accent-strong transition-colors group"
                             >
                                 <span className="font-medium">Browse all case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />

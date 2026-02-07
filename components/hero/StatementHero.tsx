@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,17 +15,31 @@ const trustSignals = [
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const prefersReducedMotion = useReducedMotion();
+    const [isMobile, setIsMobile] = useState(false);
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const mediaQuery = window.matchMedia("(max-width: 767px)");
+        const update = () => setIsMobile(mediaQuery.matches);
+
+        update();
+        mediaQuery.addEventListener("change", update);
+
+        return () => mediaQuery.removeEventListener("change", update);
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
     });
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
-    const cardY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.02]);
+    const cardY = useTransform(scrollYProgress, [0, 1], ["0%", "-3%"]);
     const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0.25]);
     const contentY = useTransform(scrollYProgress, [0, 0.45], ["0%", "-10%"]);
+    const disableParallax = prefersReducedMotion || isMobile;
 
     return (
         <section
@@ -40,8 +54,8 @@ export function StatementHero() {
                 <div className="grid items-center gap-10 py-6 md:grid-cols-[minmax(0,1fr)_minmax(320px,0.48fr)] md:gap-14 lg:gap-16">
                     <motion.div
                         style={{
-                            opacity: prefersReducedMotion ? 1 : contentOpacity,
-                            y: prefersReducedMotion ? 0 : contentY,
+                            opacity: disableParallax ? 1 : contentOpacity,
+                            y: disableParallax ? 0 : contentY,
                         }}
                     >
                         <motion.div
@@ -106,15 +120,15 @@ export function StatementHero() {
                     <motion.div
                         initial={{ opacity: 0, y: 34 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.45 }}
-                        style={{ y: prefersReducedMotion ? 0 : cardY }}
+                        transition={{ duration: 0.65, delay: 0.35 }}
+                        style={{ y: disableParallax ? 0 : cardY }}
                         className="relative mx-auto w-full max-w-md"
                     >
                         <div className="absolute -inset-8 rounded-[2.2rem] bg-glow/16 blur-3xl" />
 
                         <div className="relative overflow-hidden rounded-[1.75rem] border border-border/75 bg-card/86 p-4 shadow-[var(--shadow-elevated)] backdrop-blur-lg">
                             <div className="relative overflow-hidden rounded-2xl border border-border/55 bg-muted/40">
-                                <motion.div style={{ scale: prefersReducedMotion ? 1 : imageScale }}>
+                                <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
                                     <Image
                                         src="/haydn.png"
                                         alt="Haydn - Web Designer & Developer"
