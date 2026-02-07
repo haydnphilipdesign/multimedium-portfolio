@@ -70,12 +70,12 @@ export function StatementHero() {
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                Websites for transaction coordinators and service teams that need{" "}
-                                <span className="text-gradient">better leads, not just better looks.</span>
+                                Websites for local businesses, transaction coordinators, and real estate teams built to{" "}
+                                <span className="text-gradient">win trust and generate qualified leads.</span>
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                TC-first by specialty, built for broader SMB growth. Strategy, messaging, design, and build stay in one loop so your site earns trust fast and makes contacting you feel obvious.
+                                Built from strong TC and real estate experience, now helping small and medium local businesses across industries. Strategy, messaging, design, and build stay in one loop so your site earns trust fast and makes contacting you feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
