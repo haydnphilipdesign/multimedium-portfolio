@@ -70,8 +70,7 @@ export function StatementHero() {
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                Websites for local businesses, transaction coordinators, and real estate teams built to{" "}
-                                <span className="text-gradient">win trust and generate qualified leads.</span>
+                                <span className="text-gradient">Websites built to win trust and generate qualified leads.</span>
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
