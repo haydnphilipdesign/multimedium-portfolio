@@ -7,9 +7,9 @@ import Link from "next/link";
 import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
 
 const trustSignals = [
-    "TC + real estate ops focus",
+    "Small + medium business focus",
     "Fast, mobile-first builds",
-    "Focused scope options for smaller teams",
+    "Strategy, design, and build in one loop",
 ];
 
 export function StatementHero() {
@@ -74,7 +74,7 @@ export function StatementHero() {
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                Built from strong TC and real estate experience, now helping small and medium local businesses across industries. Strategy, messaging, design, and build stay in one loop so your site earns trust fast and makes contacting you feel obvious.
+                                Helping small and medium businesses earn trust online and turn visitors into leads. Strategy, messaging, design, and build stay in one loop so your site makes contacting you feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">

@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
     title: "Contact",
     description:
-        "Contact Multimedium to talk about a website build, landing page, or ongoing improvements. TC-first specialization with right-sized scope options for service businesses.",
+        "Contact Multimedium to talk about a website build, landing page, or ongoing improvements for your business.",
     alternates: {
         canonical: "/contact",
     },
@@ -59,17 +59,17 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     );
     const errorMessage = error
         ? {
-              missing: "Please fill out your name, email, and message.",
-              email: "Please enter a valid email address.",
-              phone_required:
-                  "Please add a phone number if you prefer a call or text.",
-              phone_invalid: "Please enter a valid phone number.",
-              message: "Please keep your message under 5,000 characters.",
-              links: "Please remove links from your message (use the Current site field instead).",
-              captcha: "Please complete the spam check and try again.",
-              rate: "Too many submissions from your network. Please wait a bit and try again.",
-              send: "Something went wrong sending your message.",
-          }[error] ?? "Something went wrong sending your message."
+            missing: "Please fill out your name, email, and message.",
+            email: "Please enter a valid email address.",
+            phone_required:
+                "Please add a phone number if you prefer a call or text.",
+            phone_invalid: "Please enter a valid phone number.",
+            message: "Please keep your message under 5,000 characters.",
+            links: "Please remove links from your message (use the Current site field instead).",
+            captcha: "Please complete the spam check and try again.",
+            rate: "Too many submissions from your network. Please wait a bit and try again.",
+            send: "Something went wrong sending your message.",
+        }[error] ?? "Something went wrong sending your message."
         : null;
     const isValidationError =
         error === "missing" ||
@@ -100,7 +100,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 Share the basics - what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day with next steps and a clear scope path.
                             </p>
                             <p className="text-sm text-muted-foreground">
-                                TC and real estate ops are my strongest lane, but I also work with service teams and established SMBs.
+                                I work with service businesses, established SMBs, and real estate teams—if you're not sure about fit, just ask.
                             </p>
                         </div>
                     </div>
@@ -309,14 +309,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 (optional)
                                             </span>
                                         </label>
-                                    <select
-                                        id="budgetRange"
-                                        name="budgetRange"
-                                        defaultValue={budgetRange}
-                                        className="form-control form-select"
-                                    >
-                                        <option value="">
-                                            Select a budget range
+                                        <select
+                                            id="budgetRange"
+                                            name="budgetRange"
+                                            defaultValue={budgetRange}
+                                            className="form-control form-select"
+                                        >
+                                            <option value="">
+                                                Select a budget range
                                             </option>
                                             <option value="under5k">
                                                 Under $5k (focused page scope)
@@ -345,14 +345,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 (optional)
                                             </span>
                                         </label>
-                                    <select
-                                        id="timeline"
-                                        name="timeline"
-                                        defaultValue={timeline}
-                                        className="form-control form-select"
-                                    >
-                                        <option value="">
-                                            Select a timeline
+                                        <select
+                                            id="timeline"
+                                            name="timeline"
+                                            defaultValue={timeline}
+                                            className="form-control form-select"
+                                        >
+                                            <option value="">
+                                                Select a timeline
                                             </option>
                                             <option value="asap">ASAP</option>
                                             <option value="1to2mo">

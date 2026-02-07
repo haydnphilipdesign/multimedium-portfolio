@@ -90,18 +90,18 @@ const pillars = [
 
 const niches = [
     {
-        title: "Real Estate Ops (TCs)",
-        description:
-            "Authority-first messaging and lead flows that help filter for fit and drive booked calls.",
-        href: "/industries/transaction-coordinators",
-        cta: "See TC work",
-    },
-    {
-        title: "Local Service Teams",
+        title: "Local Service Businesses",
         description:
             "Trust-first sites designed to turn search traffic into calls, quote requests, and appointments.",
         href: "/industries/trades",
         cta: "See service work",
+    },
+    {
+        title: "Real Estate Ops",
+        description:
+            "Authority-first messaging and lead flows that help filter for fit and drive booked calls.",
+        href: "/industries/transaction-coordinators",
+        cta: "See real estate work",
     },
     {
         title: "SaaS + Tech",
@@ -149,12 +149,12 @@ export default function HomePage() {
                         <span className="inline-flex items-center rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
                             Specialty lanes
                         </span>
-                            <h2 className="mt-4 text-2xl font-bold text-foreground md:text-4xl">
-                                Industries I specialize in
-                            </h2>
-                            <p className="mt-3 text-muted-foreground">
-                                TC and real estate operations are the strongest lane, with proven systems also adapted for local service and growth-stage SMB teams.
-                            </p>
+                        <h2 className="mt-4 text-2xl font-bold text-foreground md:text-4xl">
+                            Industries I specialize in
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            Proven systems for local service businesses, real estate teams, and growth-stage SaaS—with the same conversion-first approach across all industries.
+                        </p>
                     </div>
                 </AnimatedSection>
 

@@ -31,18 +31,18 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Multimedium | Websites for Service Teams and Real Estate Ops",
+    default: "Multimedium | Websites That Win Trust + Generate Leads",
     template: "%s | Multimedium",
   },
   description:
-    "TC-first web design and development for transaction coordinators, real estate operations teams, and service businesses. Clear messaging, fast performance, and conversion-focused pages that turn visits into qualified inquiries.",
+    "Web design for small and medium businesses—clear messaging, fast performance, and conversion-focused pages that turn visits into qualified inquiries. Specialty experience with real estate ops, local services, and SaaS.",
   keywords: [
-    "web design transaction coordinators",
-    "real estate operations web design",
-    "web design for service businesses",
     "conversion focused web design",
-    "web design poconos",
+    "small business web design",
     "professional business website design",
+    "web design for service businesses",
+    "real estate operations web design",
+    "web design poconos",
     "next.js web development",
   ],
   authors: [{ name: "Haydn" }],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Multimedium | Websites for Service Teams and Real Estate Ops",
+        alt: "Multimedium | Websites That Win Trust + Generate Leads",
       },
     ],
   },

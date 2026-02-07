@@ -8,7 +8,7 @@ import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/ico
 export const metadata: Metadata = {
     title: "Services",
     description:
-        "Website design + development, landing pages, and growth retainers. TC-first specialization with service-business friendly scope options.",
+        "Website design + development, landing pages, and growth retainers for small and medium businesses that want more qualified leads.",
     alternates: {
         canonical: "/services",
     },
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                                 <span className="text-gradient">turn visitors into inquiries.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                TC and real estate ops are the strongest lane, with the same conversion-focused system adapted for service teams and established SMBs.
+                                A conversion-focused system refined across local services, real estate, and SaaS—adapted for your business and audience.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
@@ -130,7 +130,7 @@ export default function ServicesPage() {
                         <div className="max-w-2xl">
                             <p className="text-sm font-medium text-foreground">Focused recently:</p>
                             <p className="mt-1 text-muted-foreground">
-                                Real estate transaction coordinators, operations-focused teams, and local service businesses.
+                                Local service businesses, established SMBs, and real estate professionals.
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3">
