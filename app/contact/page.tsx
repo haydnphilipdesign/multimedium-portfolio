@@ -97,10 +97,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 Talk about your project
                             </h1>
                             <p className="text-lg text-muted-foreground max-w-2xl">
-                                Share the basics - what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day with next steps and a clear scope path.
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                                I work with service businesses, established SMBs, and real estate teams—if you're not sure about fit, just ask.
+                                Share what you do, who it's for, and what you want the site to accomplish. I'll reply within one business day. If you're not sure about fit, just ask.
                             </p>
                         </div>
                     </div>
