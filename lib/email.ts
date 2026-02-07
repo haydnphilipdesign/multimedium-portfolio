@@ -1,4 +1,6 @@
 import { Resend } from "resend";
+import { readFile } from "node:fs/promises";
+import { isAbsolute, join } from "node:path";
 
 export interface ContactEmailPayload {
     name: string;
@@ -27,6 +29,8 @@ export interface LeadMagnetPayload {
     source?: string;
     resourceUrl?: string;
     resourceText?: string;
+    resourceFilename?: string;
+    resourceFilePath?: string;
 }
 
 interface EmailField {
@@ -297,12 +301,33 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
 
     const resend = new Resend(resendApiKey);
 
+    let attachments:
+        | Array<{ filename: string; content: Buffer }>
+        | undefined;
+    if (payload.resourceFilename && payload.resourceFilePath) {
+        const resolvedPath = isAbsolute(payload.resourceFilePath)
+            ? payload.resourceFilePath
+            : join(process.cwd(), payload.resourceFilePath);
+        const fileBuffer = await readFile(resolvedPath);
+        attachments = [
+            {
+                filename: payload.resourceFilename,
+                content: fileBuffer,
+            },
+        ];
+    }
+
     const leadSubject = `${payload.leadMagnet} - download`;
     const leadTextLines: string[] = [
         `Hi ${payload.name},`,
         "",
         `Here is your ${payload.leadMagnet}.`,
-        payload.resourceUrl ? `Printable version: ${payload.resourceUrl}` : "",
+        attachments?.length
+            ? `Attached file: ${payload.resourceFilename}`
+            : "",
+        payload.resourceUrl && !attachments?.length
+            ? `Download link: ${payload.resourceUrl}`
+            : "",
         "",
         payload.resourceText ?? "",
         "",
@@ -310,15 +335,18 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
         "- Haydn",
     ].filter(Boolean);
     const leadHtml = buildEmailHtml({
-        preheader: `${payload.leadMagnet} is ready to download`,
+        preheader: `${payload.leadMagnet} is attached`,
         title: `Your ${payload.leadMagnet}`,
-        subtitle: "Download link inside",
+        subtitle: attachments?.length ? "PDF attached" : "Download link inside",
         paragraphs: [
             `Hi ${payload.name}, here is your ${payload.leadMagnet}.`,
+            attachments?.length
+                ? "The PDF is attached to this email."
+                : "Use the link below to open the PDF.",
             payload.resourceText ?? "",
             "If you want this routed from an intake form into your workflow, just reply and tell me what tools you use.",
         ],
-        cta: payload.resourceUrl
+        cta: payload.resourceUrl && !attachments?.length
             ? {
                   label: "Open PDF Download",
                   href: payload.resourceUrl,
@@ -334,6 +362,7 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
         subject: leadSubject,
         html: leadHtml,
         text: leadTextLines.join("\n"),
+        attachments,
     });
 
     const notifySubjectParts = ["Lead magnet request", payload.leadMagnet, payload.name];

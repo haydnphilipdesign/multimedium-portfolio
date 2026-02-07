@@ -724,6 +724,22 @@ export const projects: Project[] = [
         ],
         problem: "With multiple family members walking and caring for our dog Pepper, we constantly asked 'Did anyone walk her?' or 'When was she last fed?' No one had a clear picture of who did what or when.",
         solution: "Built a PWA that lets anyone in the family log walks in seconds, track daily routines like feeding and toy refills, and see a live history. A leaderboard adds friendly competition, and a public dashboard lets us share Pepper's status with anyone.",
+        caseStudy: {
+            headline: "Pepper's Portal - Family Coordination Made Simple",
+            subheadline:
+                "A lightweight personal portal that removes routine confusion with one-tap logging and shared visibility.",
+            tldr: "Designed and built a family-facing PWA for walk tracking, routine logging, and shared visibility. The product solved everyday coordination gaps with a fast, mobile-first interface.",
+            goals: [
+                "Remove routine confusion across multiple household members",
+                "Make logging so fast that usage stays consistent",
+                "Create shared visibility without account friction",
+            ],
+            whyItWorks: [
+                "One-tap actions reduce friction at the moment of use",
+                "Shared history gives everyone the same source of truth",
+                "Gamification increased consistency without adding complexity",
+            ],
+        },
         process: [
             {
                 title: "Quick Walk Logging",
@@ -770,6 +786,22 @@ export const projects: Project[] = [
         ],
         problem: "Generic workout apps don't match my specific 7-day split, and I didn't want to manage a database for something only I would use.",
         solution: "Built a lightweight web app tailored to my exact workout routine. Data persists in localStorage, so it's always available on my device without any server or account setup.",
+        caseStudy: {
+            headline: "7-Day Workout Tracker - Built for a Single User Workflow",
+            subheadline:
+                "A local-first personal tool designed around one training system instead of generic app templates.",
+            tldr: "Built a no-backend workout tracker tailored to a specific 7-day split. The app prioritizes fast logging, private local data storage, and zero account setup.",
+            goals: [
+                "Match a specific training split exactly",
+                "Avoid backend and account overhead",
+                "Keep progress tracking simple and consistent",
+            ],
+            whyItWorks: [
+                "Exact-fit structure beats generic fitness templates",
+                "Local storage removes setup barriers and privacy concerns",
+                "Simple interfaces increase daily usage reliability",
+            ],
+        },
         process: [
             {
                 title: "Custom 7-Day Split",
@@ -823,6 +855,22 @@ export const projects: Project[] = [
         ],
         problem: "The team relied on spreadsheets and email to collect brokerage requests. Their DIY site left prospects unsure which services were covered and how to start.",
         solution: "Created a revised brand voice, service breakdown, and guided intake forms that sync to the team's workflow. A component library empowers future landing pages and campaigns.",
+        caseStudy: {
+            headline: "PA Real Estate Support Services - Clarity + Intake Conversion",
+            subheadline:
+                "A TC-focused redesign that clarified services, improved trust, and increased completed intake requests.",
+            tldr: "Redesigned the site around clearer service positioning, stronger trust signals, and guided intake paths. The result improved intake completion and reduced pre-sale clarification overhead.",
+            goals: [
+                "Clarify service scope before the first conversation",
+                "Increase completed intake submissions",
+                "Reduce manual back-and-forth before engagement",
+            ],
+            whyItWorks: [
+                "Service hierarchy made offerings easier to understand quickly",
+                "Trust and proof blocks reduced hesitation before action",
+                "Guided intake flow improved lead quality and readiness",
+            ],
+        },
         process: [
             {
                 title: "Conversion-First Hero Messaging",
@@ -870,6 +918,22 @@ export const projects: Project[] = [
         ],
         problem: "Retreats were filling via phone call sign-ups. The team needed a site that reflected the property experience and captured bookings without manual follow-up.",
         solution: "Delivered immersive visuals, dynamic event listings, and automated confirmations. An email nurture sequence and resource library keeps guests engaged.",
+        caseStudy: {
+            headline: "Blissful Existence - Story-Led Retreat Conversion",
+            subheadline:
+                "A wellness web experience that balanced atmosphere with clear booking pathways and automation.",
+            tldr: "Built an immersive retreat website with booking-focused flows, clearer offering structure, and automated follow-up. The new flow increased online bookings and reduced manual admin workload.",
+            goals: [
+                "Reflect the retreat atmosphere while maintaining conversion clarity",
+                "Increase direct online bookings",
+                "Reduce manual follow-up and confirmation overhead",
+            ],
+            whyItWorks: [
+                "Photo-first storytelling supported emotional connection",
+                "Scannable offerings reduced decision friction",
+                "Automated confirmations improved operational consistency",
+            ],
+        },
         process: [
             {
                 title: "Events & Services Page Design",
@@ -917,6 +981,22 @@ export const projects: Project[] = [
         ],
         problem: "Investors and tenants received PDFs and ad-hoc updates. Leadership wanted a modern hub that showcased portfolio metrics and routed leads correctly.",
         solution: "Created a modern hub with portfolio highlights, clear tenant/investor pathways, and TenantCloud onboarding so leads and requests route correctly.",
+        caseStudy: {
+            headline: "Three Penn Properties - Multi-Audience Clarity",
+            subheadline:
+                "A modern property hub that serves investors and tenants with clearer pathways and faster support routing.",
+            tldr: "Rebuilt the site as a clear central hub for investors and tenants, improving credibility, routing support requests faster, and increasing qualified investor inquiries.",
+            goals: [
+                "Create a clearer multi-audience navigation structure",
+                "Improve investor confidence with stronger proof presentation",
+                "Route tenant support and onboarding more efficiently",
+            ],
+            whyItWorks: [
+                "Audience-specific pathways reduced navigation confusion",
+                "Portfolio proof improved investor trust signals",
+                "TenantCloud integration lowered support friction",
+            ],
+        },
         process: [
             {
                 title: "Brand & Hero Refresh",

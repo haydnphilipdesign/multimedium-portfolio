@@ -70,7 +70,7 @@ export function Navbar() {
                                         Multimedium
                                     </p>
                                     <p className="hidden text-xs text-muted-foreground sm:block">
-                                        Conversion-first web design studio
+                                        TC-first web design studio
                                     </p>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ export function Navbar() {
                                 href={contactHref}
                                 className="btn-primary inline-flex items-center text-sm"
                             >
-                                Start a project
+                                Talk about your project
                             </Link>
                         </div>
 
@@ -164,7 +164,7 @@ export function Navbar() {
                         </div>
 
                         <p className="mt-2 text-xs text-muted-foreground">
-                            Built for service teams and founders who want premium, clear, and conversion-focused websites.
+                            Built for transaction coordinators, real estate ops teams, and service businesses that want clearer, higher-converting websites.
                         </p>
 
                         <div className="mt-8 space-y-2">
@@ -203,7 +203,7 @@ export function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="btn-primary w-full text-center block text-sm"
                             >
-                                Start a project
+                                Talk about your project
                             </Link>
                         </div>
                     </div>

@@ -116,13 +116,13 @@ const automationPackages = [
 const fitFor = [
     "Established transaction coordinators and TC teams",
     "TCs who want fewer low-fit leads and more qualified calls",
-    "Operators who want a premium presence that feels serious and systems-driven",
+    "Operators who want a professional presence that feels serious and systems-driven",
 ];
 
-const notFor = [
-    "Brand-new TCs looking for quick volume without positioning",
-    "Anyone who wants a generic template with no qualification layer",
-    "Businesses that are not ready to respond to leads quickly",
+const bestResultsWhen = [
+    "You have a clear offer and want better-fit calls, not just more inquiries",
+    "You are ready to qualify leads with process and intake structure",
+    "You can respond quickly when qualified leads come in",
 ];
 
 const faqs = [
@@ -180,7 +180,7 @@ export default function TransactionCoordinatorsPage() {
                                     <span className="text-gradient">that make booking feel obvious.</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    Authority-first messaging, premium design, and a conversion path that filters out poor-fit leads - so you spend less time &quot;selling&quot; and more time coordinating.
+                                    Authority-first messaging, professional design, and a conversion path that filters out poor-fit leads - so you spend less time &quot;selling&quot; and more time coordinating.
                                 </p>
                                  <div className="flex flex-col sm:flex-row gap-3">
                                      <Link
@@ -300,9 +300,9 @@ export default function TransactionCoordinatorsPage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
+                                {bestResultsWhen.map((item) => (
                                     <li key={item} className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
                                         {item}
@@ -404,9 +404,9 @@ export default function TransactionCoordinatorsPage() {
                 </p>
 
                 <div className="mt-6 rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
-                    <p className="text-sm font-semibold text-foreground">Not a fit</p>
+                    <p className="text-sm font-semibold text-foreground">Best results when</p>
                     <p className="mt-2 text-sm text-muted-foreground">
-                        Not a fit if you want a generic template or you’re not ready to respond to leads quickly.
+                        You are ready to standardize intake and respond quickly to qualified leads.
                     </p>
                 </div>
             </Section>

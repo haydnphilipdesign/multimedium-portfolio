@@ -27,7 +27,7 @@ const services = [
         icon: IconLayout,
         title: "Website Build / Redesign",
         description:
-            "A premium website that explains what you do, builds trust fast, and turns visits into inquiries.",
+            "A professional website system that explains what you do, builds trust fast, and turns visits into inquiries.",
         href: "/services/website",
         features: ["Messaging + page plan", "Custom design with real copy", "Fast, SEO-friendly build + analytics"],
         timeline: "4–6 weeks",
@@ -69,7 +69,7 @@ const proof = [
         icon: IconShieldCheck,
         value: "$5k–$25k",
         label: "Common build ranges",
-        detail: "Right-sized scope for small to midsize teams",
+        detail: "Focused scope options available for smaller teams",
     },
 ];
 
@@ -90,13 +90,6 @@ const pillars = [
 
 const niches = [
     {
-        title: "SaaS + Tech",
-        description:
-            "Conversion-focused pages that turn interest into demos, trials, and qualified sales calls.",
-        href: "/work/utility-sheet",
-        cta: "See SaaS work",
-    },
-    {
         title: "Real Estate Ops (TCs)",
         description:
             "Authority-first messaging and lead flows that help filter for fit and drive booked calls.",
@@ -109,6 +102,13 @@ const niches = [
             "Trust-first sites designed to turn search traffic into calls, quote requests, and appointments.",
         href: "/industries/trades",
         cta: "See service work",
+    },
+    {
+        title: "SaaS + Tech",
+        description:
+            "Conversion-focused pages that turn interest into demos, trials, and qualified sales calls.",
+        href: "/work/utility-sheet",
+        cta: "See SaaS work",
     },
 ];
 
@@ -149,12 +149,12 @@ export default function HomePage() {
                         <span className="inline-flex items-center rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
                             Specialty lanes
                         </span>
-                        <h2 className="mt-4 text-2xl font-bold text-foreground md:text-4xl">
-                            Industries I specialize in
-                        </h2>
-                        <p className="mt-3 text-muted-foreground">
-                            Focused verticals where messaging clarity and trust design have the biggest impact on qualified inquiries.
-                        </p>
+                            <h2 className="mt-4 text-2xl font-bold text-foreground md:text-4xl">
+                                Industries I specialize in
+                            </h2>
+                            <p className="mt-3 text-muted-foreground">
+                                TC and real estate operations are the strongest lane, with proven systems also adapted for local service and growth-stage SMB teams.
+                            </p>
                     </div>
                 </AnimatedSection>
 
@@ -290,7 +290,7 @@ export default function HomePage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Services"
-                        subtitle="Flexible engagements for different budgets and timelines. Same level of craft, scope adjusted to what you need now."
+                        subtitle="Flexible engagements for different budgets and timelines. Same standards, right-sized scope based on what you need now."
                         align="center"
                     />
                 </AnimatedSection>
@@ -354,7 +354,7 @@ export default function HomePage() {
 
                 <AnimatedSection className="relative z-10 text-center max-w-3xl mx-auto">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
-                        Ready for a portfolio-level
+                        Ready for a high-trust
                         <br />
                         <span className="text-gradient">business website?</span>
                     </h2>

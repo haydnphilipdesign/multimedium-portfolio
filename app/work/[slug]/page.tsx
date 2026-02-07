@@ -57,7 +57,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         notFound();
     }
 
-    const hasSummary = Boolean(project.caseStudy?.tldr);
+    const summaryText = project.caseStudy?.tldr ?? project.description;
+    const hasSummary = Boolean(summaryText);
     const hasSnapshot = Boolean(
         project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length
     );
@@ -218,8 +219,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </AnimatedSection>
             </Section>
 
-            {/* TL;DR */}
-            {project.caseStudy?.tldr ? (
+            {/* Summary */}
+            {hasSummary ? (
                 <Section id="summary" className="pt-0" padding="none">
                     <AnimatedSection>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-6 sm:px-8">
@@ -227,7 +228,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                 Summary
                             </p>
                             <p className="text-muted-foreground leading-relaxed">
-                                {project.caseStudy.tldr}
+                                {summaryText}
                             </p>
                         </div>
                     </AnimatedSection>
@@ -236,7 +237,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Jump links */}
             {tocItems.length > 1 ? (
-                <Section className={project.caseStudy?.tldr ? "pt-8" : "pt-0"} padding="none">
+                <Section className={hasSummary ? "pt-8" : "pt-0"} padding="none">
                     <AnimatedSection delay={0.05}>
                         <nav aria-label="On this page" className="flex flex-col gap-3">
                             <p className="text-xs uppercase tracking-wider text-muted-foreground">

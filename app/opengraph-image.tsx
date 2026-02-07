@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Haydn — Web Design &amp; Development
+                        Haydn - Web Design &amp; Development
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@ export default function OpenGraphImage() {
                         }}
                     >
                         <span>Websites that</span>
-                        <span style={{ color: "#e8b34b" }}>win trust.</span>
+                        <span style={{ color: "#e8b34b" }}>convert with clarity.</span>
                     </div>
                     <div
                         style={{
@@ -81,8 +81,8 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Clear messaging, premium design, and fast pages that turn
-                        visitors into inquiries.
+                        TC-first web design for real estate ops and service teams.
+                        Built for qualified inquiries.
                     </div>
                 </div>
 

@@ -6,7 +6,7 @@ import { ContactThanksTracker } from "./ContactThanksTracker";
 
 export const metadata: Metadata = {
     title: "Message sent",
-    description: "Thanks—your message was sent. Expect a reply within one business day.",
+    description: "Thanks - your message was sent. Expect a reply within one business day.",
     alternates: {
         canonical: "/contact/thanks",
     },
@@ -39,10 +39,10 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
                                 Message sent
                             </span>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-                                Thanks—got it.
+                                Thanks, got it.
                             </h1>
                             <p className="text-lg text-muted-foreground">
-                                I&apos;ll reply within one business day. If you included a current website link, I&apos;ll take a look before responding. If it&apos;s urgent, feel free to call or text.
+                                I&apos;ll reply within one business day. If you included a current website link, I&apos;ll review it before responding with next steps.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                                 <Link href="/work" className="btn-secondary">

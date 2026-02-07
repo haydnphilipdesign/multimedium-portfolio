@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 import { sendLeadMagnetEmail } from "@/lib/email";
-import { siteUrl } from "@/lib/site";
 
 function getText(formData: FormData, key: string): string {
     const value = formData.get(key);
@@ -42,7 +41,8 @@ export async function requestTcTaskList(formData: FormData) {
             email,
             company: company || undefined,
             source: source || undefined,
-            resourceUrl: `${siteUrl}/resources/tc-task-list.pdf`,
+            resourceFilename: "tc-task-list.pdf",
+            resourceFilePath: "public/resources/tc-task-list.pdf",
             resourceText:
                 "Note: this task list is a real example built for the Poconos region. Use it as a reference, then customize to your state/brokerage rules.\n\nIf you want this auto-populated from an intake + routed into your workflow, reply and tell me what tools you use.",
         });

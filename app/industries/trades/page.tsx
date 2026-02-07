@@ -76,10 +76,10 @@ const fitFor = [
     "Owners who want more inbound calls without a bloated site",
 ];
 
-const notFor = [
-    "DIY templates with no strategy or proof placement",
-    "Businesses outside a clear service area (everyone, everywhere)",
-    "Anyone optimizing for volume over profit",
+const bestResultsWhen = [
+    "You have a defined service area and want clearer local positioning",
+    "You care about proof placement and conversion flow, not just looks",
+    "You want better jobs and better close rates, not just lead volume",
 ];
 
 const faqs = [
@@ -128,7 +128,7 @@ export default function TradesPage() {
                                     <span className="text-gradient">that turn searches into calls.</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For service businesses that want to look premium, show proof fast, and make contacting you feel simple - on mobile, especially.
+                                    For service businesses that want to look established, show proof fast, and make contacting you feel simple - on mobile especially.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=trades-hero" className="btn-primary">
@@ -217,9 +217,9 @@ export default function TradesPage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
+                                {bestResultsWhen.map((item) => (
                                     <li key={item} className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
                                         {item}

@@ -9,7 +9,7 @@ import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react"
 export const metadata: Metadata = {
     title: "TC Cover Sheet / Quick Reference",
     description:
-        "Free downloadable TC cover sheet / quick reference PDF—clean, file-ready summary you can use across most transaction coordination workflows.",
+        "Free downloadable TC cover sheet / quick reference PDF - clean, file-ready summary you can use across most transaction coordination workflows.",
     alternates: {
         canonical: "/resources/tc-cover-sheet",
     },
@@ -65,7 +65,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                             </Link>
                         </div>
                         <p className="text-xs text-muted-foreground">
-                            This is an example of the kind of cover-sheet PDF I can configure to auto-populate from an intake submission.
+                            Use this as-is, adapt it for your process, or later connect it to intake automation.
                         </p>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                                         href="/contact?source=tc-cover-sheet"
                                         className="btn-primary inline-flex items-center justify-center"
                                     >
-                                        Talk about automating this
+                                        Need this tailored to your process?
                                     </Link>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
 
                             {sent ? (
                                 <div className="mt-5 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
-                                    Check your inbox — the cover sheet is on its way.
+                                    Check your inbox, the cover sheet is on its way.
                                 </div>
                             ) : null}
 
@@ -209,7 +209,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                         Want a TC website that attracts better-fit leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        See the primary offer first. Automation and template setups are optional add-ons.
+                        See the full TC offer first. Template and automation setups are optional add-ons.
                     </p>
                     <Link href="/industries/transaction-coordinators?source=tc-cover-sheet" className="btn-primary">
                         See the TC offer

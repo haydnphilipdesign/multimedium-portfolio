@@ -9,7 +9,7 @@ import { IconArrowRight, IconFileText } from "@tabler/icons-react";
 export const metadata: Metadata = {
     title: "Free Resources",
     description:
-        "Free templates and resources for transaction coordinators—downloadable PDFs and workflow examples.",
+        "Free templates and resources for transaction coordinators - downloadable PDFs and workflow examples.",
     alternates: {
         canonical: "/resources",
     },
@@ -97,7 +97,7 @@ export default function ResourcesPage() {
                                 Free TC templates
                             </h1>
                             <p className="text-lg text-muted-foreground">
-                                Downloadable PDFs you can use immediately—plus examples of the kind of templates I can auto-populate from an intake.
+                                Downloadable PDFs you can use immediately, plus structure examples you can adapt for your own workflow.
                             </p>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ export default function ResourcesPage() {
 
                 <div className="mt-10 rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
                     <p className="text-sm text-muted-foreground">
-                        Want these auto-populated from your intake (Jotform/Forms) with clean cover-sheet output? See the optional automation add-on on the TC page.
+                        If you eventually want these auto-populated from intake data, optional automation setup is available on the TC page.
                     </p>
                     <div className="mt-4">
                         <Link

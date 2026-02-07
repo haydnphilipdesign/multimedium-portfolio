@@ -9,7 +9,7 @@ import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react"
 export const metadata: Metadata = {
     title: "TC Lead Intake Checklist",
     description:
-        "Free downloadable TC lead intake checklist PDF—so you can qualify faster and start every file clean.",
+        "Free downloadable TC lead intake checklist PDF - so you can qualify faster and start every file clean.",
     alternates: {
         canonical: "/resources/tc-intake-checklist",
     },
@@ -63,7 +63,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                             </Link>
                         </div>
                         <p className="text-xs text-muted-foreground">
-                            This is an example of a checklist I can turn into an intake system (required fields, conditional logic, clean summary output).
+                            Use this as a printable checklist now, then optionally convert it into a structured intake system later.
                         </p>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
 
                                 {sent ? (
                                     <div className="mt-5 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
-                                        Check your inbox — the download link is on its way.
+                                        Check your inbox, the download link is on its way.
                                     </div>
                                 ) : null}
 
@@ -185,7 +185,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         Want an intake system that enforces required fields?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build conversion-first TC websites, plus optional intake + cover-sheet automation if you want the system behind it.
+                        I build conversion-first TC websites, with optional intake and cover-sheet automation if you want the system behind it.
                     </p>
                     <Link href="/industries/transaction-coordinators?source=tc-intake-checklist" className="btn-primary">
                         See the TC offer

@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
     title: "Contact",
     description:
-        "Contact Multimedium to talk about a website build, redesign, or landing page. Share your goals and get clear next steps within one business day.",
+        "Contact Multimedium to talk about a website build, landing page, or ongoing improvements. TC-first specialization with right-sized scope options for service businesses.",
     alternates: {
         canonical: "/contact",
     },
@@ -97,10 +97,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 Talk about your project
                             </h1>
                             <p className="text-lg text-muted-foreground max-w-2xl">
-                                Share the basics—what you do, who it’s for, and what you want the site to accomplish. I&apos;ll reply within one business day with next steps and a plan.
+                                Share the basics - what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day with next steps and a clear scope path.
                             </p>
                             <p className="text-sm text-muted-foreground">
-                                No pressure—if I’m not the right fit, I’ll point you to someone who is.
+                                TC and real estate ops are my strongest lane, but I also work with service teams and established SMBs.
                             </p>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
                             {sent && (
                                 <div className="mb-6 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
-                                    Thanks — your message is sent. I’ll reply within 1 business day.
+                                    Thanks, your message is sent. I&apos;ll reply within 1 business day.
                                 </div>
                             )}
 
@@ -319,7 +319,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             Select a budget range
                                             </option>
                                             <option value="under5k">
-                                                Under $5k
+                                                Under $5k (focused page scope)
                                             </option>
                                             <option value="5to10k">
                                                 $5k–$10k
@@ -331,7 +331,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                 $25k+
                                             </option>
                                             <option value="unsure">
-                                                Not sure yet
+                                                Not sure yet / want guidance
                                             </option>
                                         </select>
                                     </div>
@@ -408,7 +408,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         placeholder="What do you want the site to do? Who’s it for? Any deadlines, must-haves, or examples you like?"
                                     />
                                     <p className="mt-2 text-xs text-muted-foreground">
-                                        Tip: Please avoid links in the message—use the “Current website” field instead.
+                                        Tip: Please avoid links in the message - use the Current website field instead.
                                     </p>
                                 </div>
 

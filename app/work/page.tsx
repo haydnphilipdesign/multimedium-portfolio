@@ -10,9 +10,9 @@ import { AnimatedSection } from "@/components/motion/AnimatedSection";
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
         title: "Transaction Coordinator Case Studies",
-        description: "Web design and development projects for transaction coordinators—authority-first messaging, lead capture, and conversion-focused builds.",
+        description: "Web design and development projects for transaction coordinators - authority-first messaging, lead capture, and conversion-focused builds.",
         heading: "Transaction Coordinator Work",
-        subheading: "Projects built for TCs and real estate ops teams—designed to qualify leads and drive bookings.",
+        subheading: "Client-first projects for TCs and real estate ops teams, designed to qualify leads and drive bookings.",
     },
     "real-estate": {
         title: "Real Estate Web Design Case Studies",
@@ -37,7 +37,7 @@ const industryMeta: Record<string, { title: string; description: string; heading
 const categoryMeta: Record<string, { title: string; description: string }> = {
     "Web Design": {
         title: "Web Design Case Studies",
-        description: "Motion-rich, conversion-focused web design projects with premium aesthetics.",
+        description: "Motion-rich, conversion-focused web design projects with strong visual craft.",
     },
     "SaaS": {
         title: "SaaS Product Case Studies",
@@ -127,9 +127,12 @@ export default async function WorkPage({
     const hasFilters = Boolean(industry || category);
 
     const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
-    const spotlightOrder = industry === "coaching"
-        ? ["momentum-coaching", "clarity-growth"]
-        : ["momentum-coaching", "northpoint-realty", "utility-sheet", "pa-real-estate-support"];
+    const spotlightOrder =
+        industry === "tc"
+            ? ["pa-real-estate-support", "tag-landing-page"]
+            : industry === "coaching"
+                ? ["momentum-coaching", "clarity-growth"]
+                : ["momentum-coaching", "northpoint-realty", "pa-real-estate-support", "tag-landing-page"];
     const spotlightProjects: Project[] = showSpotlight
         ? (spotlightOrder
             .map((slug) => filteredProjects.find((p) => p.slug === slug))
@@ -153,7 +156,7 @@ export default async function WorkPage({
                     : "Featured work";
     const spotlightSubheading =
         industry === "tc"
-            ? "A mix of client-facing websites and internal products built to reduce back-and-forth and speed up coordination."
+            ? "Client websites first, with additional tooling shown lower on the page."
             : industry === "coaching"
                 ? "Premium websites for coaches and consultants—designed to command authority and justify high-ticket pricing."
                 : "A mix of client websites and operational tooling—designed for clarity, trust, and fewer manual follow-ups.";
@@ -279,7 +282,7 @@ export default async function WorkPage({
                 </Section>
             )}
 
-            {/* Products & Experiments */}
+            {/* Tools, Products, and Internal Builds */}
             {otherProjects.length > 0 && (
                 <div className="relative rounded-[2rem] border border-border/60 bg-muted/35">
                     <div className="grain absolute inset-0 pointer-events-none" />
@@ -287,7 +290,7 @@ export default async function WorkPage({
                         <AnimatedSection>
                             <div className="max-w-3xl">
                                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                                    Products & experiments
+                                    Tools, products, and internal builds
                                     {hasFilters && (
                                         <span className="text-muted-foreground font-normal text-lg ml-2">
                                             ({otherProjects.length})
@@ -295,7 +298,7 @@ export default async function WorkPage({
                                     )}
                                 </h2>
                                 <p className="text-muted-foreground">
-                                    Smaller builds that show product thinking—flows, UI states, and shipping quickly without losing craft.
+                                    Supporting work that shows product thinking, systems design, and technical range beyond client delivery.
                                 </p>
                             </div>
                         </AnimatedSection>

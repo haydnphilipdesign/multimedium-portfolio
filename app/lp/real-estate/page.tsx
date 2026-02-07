@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
     title: "Real Estate Website Design",
     description:
-        "Conversion-first website design for real estate professionals—premium, fast, and built to turn visitors into inquiries without feeling salesy.",
+        "Conversion-first website design for real estate professionals - fast, trustworthy, and built to turn visitors into qualified inquiries.",
     alternates: {
         canonical: "/lp/real-estate",
     },
@@ -59,14 +59,14 @@ const outcomes = [
             "Lead capture that qualifies and guides—so you spend less time on low-fit conversations.",
     },
     {
-        title: "Look premium on every device",
+        title: "Look established on every device",
         description:
             "Mobile-first, crisp typography, and a system that stays consistent as you grow.",
     },
 ];
 
 const fit = [
-    "You want a premium site—not a template.",
+    "You want a high-trust site, not a template.",
     "Your current site looks fine, but doesn’t convert.",
     "You want a clear service area + “work with me” path.",
     "You want one person to handle strategy, design, and build.",
@@ -79,7 +79,7 @@ const faq = [
     },
     {
         q: "Can you match my brokerage/team branding?",
-        a: "Yes—while still making the site feel premium and distinct. We’ll keep the visual system consistent so future updates don’t drift.",
+        a: "Yes - while still making the site feel distinct and established. We&apos;ll keep the visual system consistent so future updates don&apos;t drift.",
     },
     {
         q: "Do you help with copy and messaging?",
@@ -119,11 +119,11 @@ export default function RealEstateLandingPage() {
                                     Real estate websites that convert
                                 </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    A premium real estate website that{" "}
+                                    A high-trust real estate website that{" "}
                                     <span className="text-gradient">wins trust fast</span>—and makes contacting you the obvious next step.
                                 </h1>
                                 <p className="mt-6 text-lg md:text-xl text-muted-foreground">
-                                    Built for agents, teams, and property pros who want fewer tire-kickers, cleaner positioning, and a site that looks expensive on mobile.
+                                    Built for agents, teams, and property pros who want fewer tire-kickers, cleaner positioning, and a site that feels credible on mobile.
                                 </p>
 
                                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -268,7 +268,7 @@ export default function RealEstateLandingPage() {
                                     Great fit if…
                                 </h2>
                                 <p className="mt-3 text-muted-foreground">
-                                    You don’t need “more pages.” You need a clear story, a premium feel, and a path that turns visits into conversations.
+                                    You don’t need “more pages.” You need a clear story, a credible feel, and a path that turns visits into conversations.
                                 </p>
                             </div>
                         </AnimatedSection>

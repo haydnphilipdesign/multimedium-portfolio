@@ -41,12 +41,6 @@ const fitFor = [
     "Operators who want someone to own the backlog and ship consistently",
 ];
 
-const notFor = [
-    "A one-off redesign project (start with a website build instead)",
-    "Teams that do not want to measure results",
-    "Anyone without time to respond to leads or approve changes",
-];
-
 const faqs = [
     {
         q: "What do you actually do month to month?",
@@ -88,7 +82,7 @@ export default function GrowthRetainersServicePage() {
                                     Growth retainers
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that do not want the website to be &quot;done.&quot; Keep improving conversion, SEO, and clarity with a reliable iteration cadence.
+                                    For teams that want steady post-launch growth. Keep improving conversion, SEO, and clarity with a reliable monthly cadence.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-retainer" className="btn-primary">
@@ -191,14 +185,20 @@ export default function GrowthRetainersServicePage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You have baseline traffic and want stronger conversion over time.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    Your team can review priorities monthly and approve incremental updates.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You want outcomes tied to leads and pipeline quality, not vanity metrics.
+                                </li>
                             </ul>
                         </div>
                     </AnimatedSection>
@@ -250,7 +250,7 @@ export default function GrowthRetainersServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Retainers are scoped around a monthly cadence and outcomes. After a quick audit, I&apos;ll propose a plan and range that matches your runway.
+                            Retainers are scoped around monthly outcomes and available capacity. After a quick audit, I&apos;ll propose a plan and range that matches your runway.
                         </p>
                     </AnimatedSection>
                 </div>

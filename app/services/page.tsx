@@ -8,7 +8,7 @@ import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/ico
 export const metadata: Metadata = {
     title: "Services",
     description:
-        "Website design + development, landing pages, and growth retainers. Strategy-led work built to look premium and convert.",
+        "Website design + development, landing pages, and growth retainers. TC-first specialization with service-business friendly scope options.",
     alternates: {
         canonical: "/services",
     },
@@ -19,7 +19,7 @@ const services = [
         icon: IconLayout,
         title: "Website Build / Redesign",
         description:
-            "A premium website that explains what you do, builds trust, and turns visits into inquiries.",
+            "A professional website that explains what you do, builds trust, and turns visits into inquiries.",
         href: "/services/website",
         timeline: "4–6 weeks",
     },
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                                 <span className="text-gradient">turn visitors into inquiries.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                Pick the engagement that matches your goals right now. Clear deliverables, realistic timelines, and one point of contact from strategy through launch.
+                                TC and real estate ops are the strongest lane, with the same conversion-focused system adapted for service teams and established SMBs.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
@@ -104,19 +104,19 @@ export default function ServicesPage() {
 
                     <AnimatedSection delay={0.08}>
                         <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                            <h2 className="text-lg font-semibold text-foreground mb-4">Probably not a fit if</h2>
+                            <h2 className="text-lg font-semibold text-foreground mb-4">Best results when</h2>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
-                                    You need a full redesign live in a few days.
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    You can support a realistic timeline instead of a rush launch.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
-                                    You’re looking for the cheapest option or a template-only build.
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    You want clear messaging and conversion structure, not just a template refresh.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 mt-1.5" />
-                                    You want to skip messaging and jump straight into visuals.
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    You are ready to review content and give timely decisions.
                                 </li>
                             </ul>
                         </div>
@@ -130,7 +130,7 @@ export default function ServicesPage() {
                         <div className="max-w-2xl">
                             <p className="text-sm font-medium text-foreground">Focused recently:</p>
                             <p className="mt-1 text-muted-foreground">
-                                Real estate transaction coordinators and premium local service businesses (trades).
+                                Real estate transaction coordinators, operations-focused teams, and local service businesses.
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3">

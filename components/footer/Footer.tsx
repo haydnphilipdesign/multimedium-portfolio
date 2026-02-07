@@ -28,14 +28,14 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-md text-sm text-muted-foreground">
-                            Premium websites for teams that need stronger trust, clearer messaging, and more qualified inquiries.
+                            TC-first web design for real estate ops teams and service businesses that need stronger trust, clearer messaging, and more qualified inquiries.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA • Remote-friendly
                         </p>
                         <div className="flex flex-wrap items-center gap-3">
                             <Link href="/contact?source=footer" className="btn-primary text-sm">
-                                Start a project
+                                Talk about your project
                             </Link>
                             {schedulingUrl && (
                                 <a

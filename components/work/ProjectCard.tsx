@@ -96,7 +96,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 <div className="flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
                     <span>{project.role.split(",")[0]}</span>
                     <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-glow">
-                        View case study
+                        View project details
                         <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
                     </span>
                 </div>

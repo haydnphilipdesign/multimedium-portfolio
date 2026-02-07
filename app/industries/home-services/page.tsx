@@ -77,13 +77,13 @@ const included = [
 const fitFor = [
     "HVAC, plumbing, electrical, roofing, and other home services",
     "Teams that want fewer tire-kickers and more booked jobs",
-    "Owners who want a premium look that still feels local and trusted",
+    "Owners who want a professional look that still feels local and trusted",
 ];
 
-const notFor = [
-    "Businesses that want a DIY template with no strategy",
-    "Ads without tracking or any plan to measure lead quality",
-    "Anyone chasing volume at the expense of margin",
+const bestResultsWhen = [
+    "You want clearer qualification and stronger lead quality from the site",
+    "You can support call/form tracking and basic conversion reporting",
+    "You value job quality and margin, not just lead volume",
 ];
 
 const conceptHighlights = [
@@ -242,7 +242,7 @@ export default function HomeServicesPage() {
                             <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/65 bg-muted/50 text-glow">
                                 <IconMapPin className="w-5 h-5" stroke={1.5} />
                             </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Look premium, stay local</p>
+                            <p className="mt-4 text-sm font-semibold text-foreground">Look established, stay local</p>
                             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                                 A polished site that feels established and trustworthy without looking like a national franchise template.
                             </p>
@@ -255,7 +255,7 @@ export default function HomeServicesPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="What you get"
-                        subtitle="A conversion-focused site that looks premium, loads fast, and makes it easy to request service."
+                        subtitle="A conversion-focused site that looks professional, loads fast, and makes it easy to request service."
                     />
                 </AnimatedSection>
 
@@ -291,9 +291,9 @@ export default function HomeServicesPage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
+                                {bestResultsWhen.map((item) => (
                                     <li key={item} className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
                                         {item}

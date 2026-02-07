@@ -8,19 +8,19 @@ import { IconArrowRight } from "@tabler/icons-react";
 const steps = [
     {
         title: "Quick kickoff",
-        description: "A short call to understand your goals, audience, and what success looks like.",
+        description: "A short kickoff to define your audience, conversion goal, scope, and timeline.",
     },
     {
         title: "Page plan + messaging",
-        description: "We outline the pages, the story, and the calls-to-action—so the site stays focused.",
+        description: "We map the page flow, core message, and CTA structure so every section has a clear job.",
     },
     {
         title: "Design + build",
-        description: "I design and build in one loop, keeping reviews simple and momentum steady.",
+        description: "I design and build in one loop so reviews stay simple and momentum stays steady.",
     },
     {
         title: "Launch + next steps",
-        description: "We ship, verify the essentials, and leave you with clear next improvements to prioritize.",
+        description: "We launch, verify essentials, and set next-step priorities for continued improvement.",
     },
 ];
 

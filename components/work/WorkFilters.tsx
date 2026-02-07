@@ -81,7 +81,7 @@ export function WorkFilters({
                         }`}
                 >
                     <IconFilter className="w-4 h-4" stroke={1.5} />
-                    <span>Filter</span>
+                    <span>Refine work</span>
                     {hasActiveFilters && (
                         <span className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded-full bg-glow text-background text-xs font-bold">
                             {(currentCategory ? 1 : 0) + (currentIndustry ? 1 : 0)}
@@ -183,7 +183,7 @@ export function WorkFilters({
             {isPending && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <div className="w-4 h-4 border-2 border-glow/30 border-t-glow rounded-full animate-spin" />
-                    <span>Filtering...</span>
+                    <span>Updating results...</span>
                 </div>
             )}
         </div>

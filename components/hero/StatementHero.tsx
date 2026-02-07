@@ -7,9 +7,9 @@ import Link from "next/link";
 import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
 
 const trustSignals = [
-    "12+ portfolio launches",
+    "TC + real estate ops focus",
     "Fast, mobile-first builds",
-    "Small-team friendly scopes",
+    "Focused scope options for smaller teams",
 ];
 
 export function StatementHero() {
@@ -56,21 +56,21 @@ export function StatementHero() {
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                Premium websites for teams that need{" "}
+                                Websites for transaction coordinators and service teams that need{" "}
                                 <span className="text-gradient">better leads, not just better looks.</span>
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                Strategy, messaging, design, and build in one loop. You get a site that feels high-end, earns trust fast, and makes contacting you feel obvious.
+                                TC-first by specialty, built for broader SMB growth. Strategy, messaging, design, and build stay in one loop so your site earns trust fast and makes contacting you feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
-                                Most projects land between <span className="font-semibold text-foreground">$5k and $25k</span>, with right-sized scope options for smaller teams.
+                                Most engagements land between <span className="font-semibold text-foreground">$5k and $25k</span>, with focused landing-page scopes for smaller budgets.
                             </p>
 
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <Link href="/contact?source=home-hero" className="btn-primary group">
-                                    Start your project
+                                    Talk about your project
                                     <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                 </Link>
                                 {schedulingUrl ? (
@@ -138,7 +138,7 @@ export function StatementHero() {
                                     Studio promise
                                 </div>
                                 <p className="text-sm text-muted-foreground">
-                                    Premium quality without agency bloat: clear communication, realistic timelines, and pages that convert.
+                                    Professional quality without agency bloat: clear communication, realistic timelines, and pages that convert.
                                 </p>
                             </div>
                         </div>

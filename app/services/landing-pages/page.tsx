@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
     title: "Landing Pages + Funnels",
     description:
-        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups.",
+        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups with right-sized scope.",
     alternates: {
         canonical: "/services/landing-pages",
     },
@@ -39,12 +39,6 @@ const fitFor = [
     "Offers, launches, and campaigns where clarity matters more than content volume",
     "Teams running ads or email campaigns who want higher conversion rates",
     "Service businesses that want fewer low-fit leads and more qualified inquiries",
-];
-
-const notFor = [
-    "A full multi-page website (use a website build instead)",
-    "Projects that need to launch in a few days with no inputs or assets",
-    "Anyone who wants volume without measuring lead quality",
 ];
 
 const faqs = [
@@ -89,7 +83,7 @@ export default function LandingPagesServicePage() {
                                     Landing pages + funnels
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For launches, offers, lead magnets, and campaigns - when you need a page that communicates value fast and captures intent cleanly.
+                                    A focused-scope option for launches, offers, and campaigns - ideal when you need results faster than a full site build.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-landing-pages" className="btn-primary">
@@ -192,14 +186,20 @@ export default function LandingPagesServicePage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You can focus on one primary conversion goal.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You can provide core offer details and quick review feedback.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You care about lead quality and follow-up speed, not just click volume.
+                                </li>
                             </ul>
                         </div>
                     </AnimatedSection>
@@ -251,7 +251,7 @@ export default function LandingPagesServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Landing pages vary widely by complexity (copy, assets, variants, integrations). I&apos;ll propose a range after we confirm the offer and funnel steps.
+                            Landing pages are usually the most budget-flexible starting point. Final range depends on copy, assets, variants, and integrations.
                         </p>
                     </AnimatedSection>
                 </div>

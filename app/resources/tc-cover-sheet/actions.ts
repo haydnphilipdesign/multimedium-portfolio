@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 import { sendLeadMagnetEmail } from "@/lib/email";
-import { siteUrl } from "@/lib/site";
 
 function getText(formData: FormData, key: string): string {
     const value = formData.get(key);
@@ -42,7 +41,8 @@ export async function requestTcCoverSheet(formData: FormData) {
             email,
             company: company || undefined,
             source: source || undefined,
-            resourceUrl: `${siteUrl}/resources/tc-cover-sheet.pdf`,
+            resourceFilename: "tc-cover-sheet.pdf",
+            resourceFilePath: "public/resources/tc-cover-sheet.pdf",
             resourceText:
                 "This cover sheet is designed to be broadly useful across most TC workflows.\n\nIf you want a version that auto-populates from intake data (email + optional PDF output), reply and tell me what tools you use today.",
         });
@@ -53,4 +53,3 @@ export async function requestTcCoverSheet(formData: FormData) {
 
     redirect(`/resources/tc-cover-sheet${thanksQuery}`);
 }
-

@@ -65,7 +65,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                             </Link>
                         </div>
                         <p className="text-xs text-muted-foreground">
-                            These templates are examples of PDFs I can set up to auto-populate from an intake (Jotform/Forms) and output as a clean cover-sheet summary.
+                            You can use this as-is, adapt the structure, or later turn it into an automated intake output.
                         </p>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                                         href="/contact?source=tc-task-list"
                                         className="btn-primary inline-flex items-center justify-center"
                                     >
-                                        Talk about a custom version
+                                        Need a tailored version?
                                     </Link>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
 
                             {sent ? (
                                 <div className="mt-5 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
-                                    Check your inbox — the task list is on its way.
+                                    Check your inbox, the task list is on its way.
                                 </div>
                             ) : null}
 
@@ -209,7 +209,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         Want a TC website that makes booking feel obvious?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build conversion-first TC websites, plus optional intake + cover-sheet automation if you want the system behind it.
+                        If you want this paired with a stronger website and cleaner intake process, that is available as an optional done-for-you setup.
                     </p>
                     <Link href="/industries/transaction-coordinators?source=tc-task-list" className="btn-primary">
                         See the TC offer

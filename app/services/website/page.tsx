@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
     title: "Website Build / Redesign",
     description:
-        "A premium website build or redesign designed to earn trust, load fast, and turn visitors into inquiries.",
+        "A website build or redesign designed to earn trust, load fast, and turn visitors into qualified inquiries.",
     alternates: {
         canonical: "/services/website",
     },
@@ -35,15 +35,9 @@ const expectations = [
 ];
 
 const fitFor = [
-    "Teams who want to look premium and credible immediately",
+    "Teams who want to look credible and established quickly",
     "Businesses with offers that are hard to explain on a template",
     "Owners who want speed, accessibility, and a site that stays consistent over time",
-];
-
-const notFor = [
-    "A quick template refresh with no messaging work",
-    "Projects where nobody can review content or approve pages",
-    "Sites that exist only as a brochure with no conversion goal",
 ];
 
 const faq = [
@@ -86,7 +80,7 @@ export default function WebsiteServicePage() {
                                     Website build / redesign
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that need to look premium, load fast, and turn visitors into qualified inquiries—without the site turning into a patchwork over time.
+                                    For teams that need to look established, load fast, and turn visitors into qualified inquiries without the site turning into a patchwork over time.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-website" className="btn-primary">
@@ -189,14 +183,20 @@ export default function WebsiteServicePage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.06}>
                         <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Not a fit</h3>
+                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {notFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You can support messaging and content decisions, not just visuals.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You can review pages on schedule so momentum stays steady.
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    You want a measurable conversion goal, not only a brochure refresh.
+                                </li>
                             </ul>
                         </div>
                     </AnimatedSection>
@@ -248,7 +248,7 @@ export default function WebsiteServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Most redesigns land in the $10k–$25k range depending on scope and content readiness. I&apos;ll confirm a fixed price after a short scoping call and page plan.
+                            Most redesigns land in the $10k–$25k range depending on scope and content readiness. If that range is high for right now, we can scope a focused first phase and expand over time.
                         </p>
                     </AnimatedSection>
                 </div>

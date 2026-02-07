@@ -69,10 +69,10 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.95)",
                         }}
                     >
-                        <span>Web design &amp; development</span>
+                        <span>Web design for</span>
                         <span style={{ display: "flex", flexWrap: "wrap", gap: 18 }}>
-                            <span>that</span>
-                            <span style={{ color: "#e8b34b" }}>wins trust.</span>
+                            <span>TCs + service teams</span>
+                            <span style={{ color: "#e8b34b" }}>that need better leads.</span>
                         </span>
                     </div>
                     <div
@@ -83,7 +83,7 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Clear messaging, premium design, and fast pages.
+                        Clear messaging, fast performance, and conversion-focused pages.
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Haydn — Poconos, PA (Remote)
+                        Haydn - Poconos, PA (Remote)
                     </div>
                     <div
                         style={{
