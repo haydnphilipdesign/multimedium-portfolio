@@ -123,7 +123,8 @@ export default function ResourcesPage() {
                                             alt={res.title}
                                             fill
                                             className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
+                                            quality={68}
                                         />
                                     ) : (
                                         <>
@@ -193,7 +194,8 @@ export default function ResourcesPage() {
                                             alt={res.title}
                                             fill
                                             className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
+                                            quality={68}
                                         />
                                     ) : (
                                         <>

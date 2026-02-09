@@ -7,7 +7,7 @@ import Link from "next/link";
 import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
 
 const trustSignals = [
-    "Small + medium business focus",
+    "Built for service businesses",
     "Fast, mobile-first builds",
     "Strategy, design, and build in one loop",
 ];
@@ -70,11 +70,11 @@ export function StatementHero() {
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                <span className="text-gradient">Websites built to win trust and generate qualified leads.</span>
+                                <span className="text-gradient">Websites for service businesses that need better leads, not more traffic.</span>
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                Helping small and medium businesses earn trust online and turn visitors into leads. Strategy, messaging, design, and build stay in one loop so your site makes contacting you feel obvious.
+                                I design and build conversion-focused sites for transaction coordinators, real estate teams, and local service companies. Strategy, messaging, design, and build stay in one loop so your site makes contacting you feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
@@ -151,7 +151,7 @@ export function StatementHero() {
                                     Studio promise
                                 </div>
                                 <p className="text-sm text-muted-foreground">
-                                    Professional quality without agency bloat: clear communication, realistic timelines, and pages that convert.
+                                    Professional quality without agency bloat: clear communication, realistic timelines, and conversion-focused pages.
                                 </p>
                             </div>
                         </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { StatementHero } from "@/components/hero/StatementHero";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
-import { getHomeFeaturedProjects } from "@/content/projects";
+import { getHomeFeaturedProjects, projects } from "@/content/projects";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import Link from "next/link";
@@ -31,6 +31,7 @@ const services = [
         href: "/services/website",
         features: ["Messaging + page plan", "Custom design with real copy", "Fast, SEO-friendly build + analytics"],
         timeline: "4–6 weeks",
+        cta: "See website scope",
     },
     {
         icon: IconCode,
@@ -40,6 +41,7 @@ const services = [
         href: "/services/landing-pages",
         features: ["Offer + messaging refinement", "Conversion-first layout + copy help", "Forms, tracking, and follow-up"],
         timeline: "1–3 weeks",
+        cta: "See landing-page scope",
     },
     {
         icon: IconChartLine,
@@ -49,27 +51,7 @@ const services = [
         href: "/services/growth-retainers",
         features: ["Monthly priorities + reporting", "SEO + landing pages", "Design + dev support as you grow"],
         timeline: "Ongoing",
-    },
-];
-
-const proof = [
-    {
-        icon: IconBolt,
-        value: "1 person",
-        label: "Strategy → design → build",
-        detail: "One owner, one feedback loop",
-    },
-    {
-        icon: IconBulb,
-        value: "4–6 weeks",
-        label: "Typical launch timeline",
-        detail: "Plan → design → build → polish",
-    },
-    {
-        icon: IconShieldCheck,
-        value: "$5k–$25k",
-        label: "Common build ranges",
-        detail: "Focused scope options available for smaller teams",
+        cta: "See retainer scope",
     },
 ];
 
@@ -115,6 +97,27 @@ const niches = [
 export default function HomePage() {
     const featuredProjects = getHomeFeaturedProjects();
     const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
+    const clientProjectCount = projects.filter((project) => project.kind === "Client").length;
+    const proof = [
+        {
+            icon: IconBolt,
+            value: `${clientProjectCount}`,
+            label: "Client projects in portfolio",
+            detail: "Portfolio snapshot, 2026",
+        },
+        {
+            icon: IconBulb,
+            value: "4–6 weeks",
+            label: "Typical launch timeline",
+            detail: "Plan -> design -> build -> polish",
+        },
+        {
+            icon: IconShieldCheck,
+            value: "3 lanes",
+            label: "Core industry focus",
+            detail: "TCs, local services, and home services",
+        },
+    ];
 
     return (
         <>
@@ -333,7 +336,7 @@ export default function HomePage() {
                                     href={`${service.href}?source=home-services`}
                                     className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group-hover:translate-x-0"
                                 >
-                                    Learn more <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    {service.cta} <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                             </div>
                         </StaggerItem>

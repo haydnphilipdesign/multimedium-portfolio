@@ -28,7 +28,7 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-md text-sm text-muted-foreground">
-                            TC-first web design for real estate ops teams and service businesses that need stronger trust, clearer messaging, and more qualified inquiries.
+                            Conversion-focused web design for service businesses that need stronger trust, clearer messaging, and more qualified inquiries.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA • Remote-friendly
@@ -58,6 +58,9 @@ export function Footer() {
                         <nav className="space-y-2.5">
                             <Link href="/services" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Services
+                            </Link>
+                            <Link href="/industries" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Industries
                             </Link>
                             <Link href="/work" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Case Studies

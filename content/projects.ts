@@ -532,6 +532,9 @@ export const projects: Project[] = [
         title: "UtilitySheet",
         kind: "Product",
         industries: ["tc", "real-estate"],
+        metaTitle: "UtilitySheet - Real Estate Utility Info App",
+        metaDescription:
+            "UtilitySheet is a lightweight SaaS app that replaces utility-info back-and-forth with a guided form and clean, shareable PDF output for real estate transactions.",
         tagline: "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
         description: "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators. Available at UtilitySheet.com (free plan includes 3 submissions/month; Pro is $9/month).",
         category: "SaaS",
@@ -619,7 +622,7 @@ export const projects: Project[] = [
         industries: ["tc", "real-estate"],
         metaTitle: "Norma - Closing Desk Software for Transaction Coordinators",
         metaDescription:
-            "An early-access Closing Desk platform built to reduce inbox chaos and missed deadlines for transaction coordinators—deep Microsoft 365 integrations, rule-based workflows, and AI-assisted triage.",
+            "Early-access Closing Desk platform for transaction coordinators with Microsoft 365 integration, workflow rules, and AI-assisted triage to reduce inbox chaos.",
         socialCaption:
             "Building Norma: a Closing Desk platform for transaction coordinators—Outlook-native workflows, dependency tracking, and AI-assisted triage (early access).",
         tags: ["SaaS", "Real Estate Ops", "Microsoft Graph", "Workflow Automation", "AI"],
@@ -708,6 +711,9 @@ export const projects: Project[] = [
         slug: "peppers-portal",
         title: "Pepper's Portal",
         kind: "Personal",
+        metaTitle: "Pepper's Portal - Family Dog Care Tracker PWA",
+        metaDescription:
+            "Family-focused dog care tracker PWA with one-tap walk logging, shared routines, and a playful leaderboard to keep daily coordination simple.",
         tagline: "Family PWA for tracking dog walks, routines, and care with gamification",
         description: "A Progressive Web App built for my family to quickly log our dog Pepper's walks (pee/poop/both), track feeding, grooming, vet visits, and medications—with a leaderboard to make it fun.",
         category: "Portal",
@@ -1126,7 +1132,7 @@ export const projects: Project[] = [
         industries: ["real-estate", "coaching"],
         metaTitle: "Momentum Real Estate Coaching - Premium Coaching Website",
         metaDescription:
-            "Bold, high-end website for a real estate coaching program. Features dramatic typography, premium pricing cards, results-driven testimonials, and a confident black/gold aesthetic.",
+            "Premium website for a real estate coaching program with bold typography, tiered pricing cards, and results-focused testimonials.",
         socialCaption:
             "New build: a premium coaching website for Momentum Real Estate Coaching—bold typography, tiered pricing, and results-focused design that commands authority.",
         tags: ["Web Design", "Premium Design", "Coaching", "Real Estate", "Conversion Design"],
@@ -1221,7 +1227,7 @@ export const projects: Project[] = [
         industries: ["wellness", "coaching"],
         metaTitle: "Clarity Growth Co - Scroll-Driven Business Coaching Website",
         metaDescription:
-            "Airy, editorial website for a business coaching company. Features scroll-driven pinned sections, GSAP animations, tactile paper textures, and a calm, friendly-luxury aesthetic.",
+            "Editorial coaching website with scroll-driven sections, GSAP motion, and a calm visual system designed for clarity and sustainable growth.",
         socialCaption:
             "New build: a scroll-driven editorial website for Clarity Growth Co—pinned sections, GSAP animations, and a calm, tactile design that feels like a curated workbook.",
         tags: ["Web Design", "Motion Design", "React", "GSAP", "Scroll Animations"],

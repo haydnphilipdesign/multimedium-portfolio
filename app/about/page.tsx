@@ -78,7 +78,7 @@ export default function AboutPage() {
                             <span className="text-gradient">I build websites that make it easy to trust you.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground mb-8">
-                            Multimedium is my solo practice. I help established SMBs and service teams build sites that earn trust fast—with the same conversion system I've refined across real estate, local services, and SaaS.
+                            Multimedium is my solo practice. I help established SMBs and service teams build sites that earn trust fast—with the same conversion system I&apos;ve refined across real estate, local services, and SaaS.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=about-hero" className="btn-primary">
@@ -189,7 +189,6 @@ export default function AboutPage() {
         </>
     );
 }
-
 
 
 

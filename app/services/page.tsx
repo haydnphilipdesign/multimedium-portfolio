@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
+import { projects } from "@/content/projects";
 import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ const services = [
             "A professional website that explains what you do, builds trust, and turns visits into inquiries.",
         href: "/services/website",
         timeline: "4–6 weeks",
+        cta: "See website scope",
     },
     {
         icon: IconCode,
@@ -30,6 +32,7 @@ const services = [
             "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
         href: "/services/landing-pages",
         timeline: "1–3 weeks",
+        cta: "See landing-page scope",
     },
     {
         icon: IconChartLine,
@@ -38,10 +41,13 @@ const services = [
             "Ongoing improvements so your site keeps getting clearer, faster, and higher-converting after launch.",
         href: "/services/growth-retainers",
         timeline: "Ongoing",
+        cta: "See retainer scope",
     },
 ];
 
 export default function ServicesPage() {
+    const clientProjectCount = projects.filter((project) => project.kind === "Client").length;
+
     return (
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
@@ -63,16 +69,16 @@ export default function ServicesPage() {
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Delivery</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">One owner, one workflow</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Portfolio snapshot</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">{clientProjectCount} client projects</p>
                                 </div>
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Focus</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">Messaging + conversion</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Typical launch</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">4–6 weeks</p>
                                 </div>
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Build</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">Fast, editable, scalable</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Core lanes</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">TCs, local services, home services</p>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +179,7 @@ export default function ServicesPage() {
                                 <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
                                     <span className="font-mono">Typical timeline: {service.timeline}</span>
                                     <span className="inline-flex items-center gap-2 text-foreground group-hover:text-accent-strong transition-colors">
-                                        Learn more
+                                        {service.cta}
                                         <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                     </span>
                                 </div>
@@ -203,8 +209,6 @@ export default function ServicesPage() {
         </>
     );
 }
-
-
 
 
 

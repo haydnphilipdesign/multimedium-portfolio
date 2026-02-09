@@ -203,7 +203,13 @@
       radial-gradient(120% 88% at 8% 0%, oklch(0.92 0.04 82 / 0.34), transparent),
       radial-gradient(90% 75% at 88% 2%, oklch(0.92 0.025 240 / 0.28), transparent),
       linear-gradient(to bottom, oklch(0.988 0.006 95), oklch(0.98 0.007 94));
-    background-attachment: fixed;
+    background-attachment: scroll;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      background-attachment: fixed;
+    }
   }
 
   /* Heading letter-spacing refinements */

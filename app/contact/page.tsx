@@ -97,7 +97,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 Talk about your project
                             </h1>
                             <p className="text-lg text-muted-foreground max-w-2xl">
-                                Share what you do, who it's for, and what you want the site to accomplish. I'll reply within one business day. If you're not sure about fit, just ask.
+                                Share what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day. If you&apos;re not sure about fit, just ask.
                             </p>
                         </div>
                     </div>
@@ -147,6 +147,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 />
                                 <input type="hidden" name="source" value={source} />
                                 <input type="hidden" name="formToken" value={formToken} />
+
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label
@@ -186,208 +187,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     </div>
                                 </div>
 
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label
-                                            htmlFor="phone"
-                                            className="block text-sm font-medium text-foreground mb-2"
-                                        >
-                                            Phone{" "}
-                                            <span className="text-muted-foreground font-normal">
-                                                (optional)
-                                            </span>
-                                        </label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            autoComplete="tel"
-                                            inputMode="tel"
-                                            maxLength={40}
-                                            className="form-control"
-                                            placeholder="+1 (555) 555-5555"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label
-                                            htmlFor="company"
-                                            className="block text-sm font-medium text-foreground mb-2"
-                                        >
-                                            Company{" "}
-                                            <span className="text-muted-foreground font-normal">
-                                                (optional)
-                                            </span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="company"
-                                            name="company"
-                                            maxLength={120}
-                                            className="form-control"
-                                            placeholder="Your company"
-                                        />
-                                    </div>
-                                </div>
-
-                                <fieldset className="space-y-3">
-                                    <legend className="block text-sm font-medium text-foreground">
-                                        How should I reply?
-                                    </legend>
-                                    <div className="grid sm:grid-cols-3 gap-3">
-                                        <label className="form-choice">
-                                            <input
-                                                type="radio"
-                                                name="contactPreference"
-                                                value="email"
-                                                defaultChecked
-                                                className="h-4 w-4 accent-glow"
-                                            />
-                                            <span className="text-sm font-medium">
-                                                Email
-                                            </span>
-                                        </label>
-                                        <label className="form-choice">
-                                            <input
-                                                type="radio"
-                                                name="contactPreference"
-                                                value="call"
-                                                className="h-4 w-4 accent-glow"
-                                            />
-                                            <span className="text-sm font-medium">
-                                                Call
-                                            </span>
-                                        </label>
-                                        <label className="form-choice">
-                                            <input
-                                                type="radio"
-                                                name="contactPreference"
-                                                value="sms"
-                                                className="h-4 w-4 accent-glow"
-                                            />
-                                            <span className="text-sm font-medium">
-                                                Text (SMS)
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">
-                                        If you choose call or text, please include a phone number.
-                                    </p>
-                                </fieldset>
-
-                                <div>
-                                    <label
-                                        htmlFor="projectType"
-                                        className="block text-sm font-medium text-foreground mb-2"
-                                    >
-                                        What do you need help with?
-                                    </label>
-                                    <select
-                                        id="projectType"
-                                        name="projectType"
-                                        defaultValue={projectType}
-                                        className="form-control form-select"
-                                    >
-                                        <option value="">Select one</option>
-                                        <option value="website">Website build / redesign</option>
-                                        <option value="landing">Landing page (lead gen)</option>
-                                        <option value="retainer">Ongoing improvements</option>
-                                        <option value="other">Not sure yet / something else</option>
-                                    </select>
-                                </div>
-
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label
-                                            htmlFor="budgetRange"
-                                            className="block text-sm font-medium text-foreground mb-2"
-                                        >
-                                            Budget{" "}
-                                            <span className="text-muted-foreground font-normal">
-                                                (optional)
-                                            </span>
-                                        </label>
-                                        <select
-                                            id="budgetRange"
-                                            name="budgetRange"
-                                            defaultValue={budgetRange}
-                                            className="form-control form-select"
-                                        >
-                                            <option value="">
-                                                Select a budget range
-                                            </option>
-                                            <option value="under5k">
-                                                Under $5k (focused page scope)
-                                            </option>
-                                            <option value="5to10k">
-                                                $5k–$10k
-                                            </option>
-                                            <option value="10to25k">
-                                                $10k–$25k
-                                            </option>
-                                            <option value="25kplus">
-                                                $25k+
-                                            </option>
-                                            <option value="unsure">
-                                                Not sure yet / want guidance
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label
-                                            htmlFor="timeline"
-                                            className="block text-sm font-medium text-foreground mb-2"
-                                        >
-                                            Timeline{" "}
-                                            <span className="text-muted-foreground font-normal">
-                                                (optional)
-                                            </span>
-                                        </label>
-                                        <select
-                                            id="timeline"
-                                            name="timeline"
-                                            defaultValue={timeline}
-                                            className="form-control form-select"
-                                        >
-                                            <option value="">
-                                                Select a timeline
-                                            </option>
-                                            <option value="asap">ASAP</option>
-                                            <option value="1to2mo">
-                                                1–2 months
-                                            </option>
-                                            <option value="3to6mo">
-                                                3–6 months
-                                            </option>
-                                            <option value="flexible">
-                                                Flexible
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label
-                                        htmlFor="currentUrl"
-                                        className="block text-sm font-medium text-foreground mb-2"
-                                    >
-                                        Current website{" "}
-                                        <span className="text-muted-foreground font-normal">
-                                            (optional)
-                                        </span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="currentUrl"
-                                        name="currentUrl"
-                                        autoComplete="url"
-                                        inputMode="url"
-                                        maxLength={500}
-                                        defaultValue={currentUrl}
-                                        className="form-control"
-                                        placeholder="https://example.com"
-                                    />
-                                </div>
-
                                 <div>
                                     <label
                                         htmlFor="message"
@@ -405,9 +204,221 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         placeholder="What do you want the site to do? Who’s it for? Any deadlines, must-haves, or examples you like?"
                                     />
                                     <p className="mt-2 text-xs text-muted-foreground">
-                                        Tip: Please avoid links in the message - use the Current website field instead.
+                                        Start simple. You can add optional details below.
                                     </p>
                                 </div>
+
+                                <details
+                                    className="group rounded-xl border border-border/65 bg-muted/20 px-4 py-3"
+                                    open={Boolean(projectType || budgetRange || timeline || currentUrl)}
+                                >
+                                    <summary className="cursor-pointer list-none text-sm font-medium text-foreground">
+                                        Project details (optional)
+                                    </summary>
+                                    <div className="mt-5 space-y-6">
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label
+                                                    htmlFor="phone"
+                                                    className="block text-sm font-medium text-foreground mb-2"
+                                                >
+                                                    Phone{" "}
+                                                    <span className="text-muted-foreground font-normal">
+                                                        (optional)
+                                                    </span>
+                                                </label>
+                                                <input
+                                                    type="tel"
+                                                    id="phone"
+                                                    name="phone"
+                                                    autoComplete="tel"
+                                                    inputMode="tel"
+                                                    maxLength={40}
+                                                    className="form-control"
+                                                    placeholder="+1 (555) 555-5555"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label
+                                                    htmlFor="company"
+                                                    className="block text-sm font-medium text-foreground mb-2"
+                                                >
+                                                    Company{" "}
+                                                    <span className="text-muted-foreground font-normal">
+                                                        (optional)
+                                                    </span>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="company"
+                                                    name="company"
+                                                    maxLength={120}
+                                                    className="form-control"
+                                                    placeholder="Your company"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <fieldset className="space-y-3">
+                                            <legend className="block text-sm font-medium text-foreground">
+                                                How should I reply?
+                                            </legend>
+                                            <div className="grid sm:grid-cols-3 gap-3">
+                                                <label className="form-choice">
+                                                    <input
+                                                        type="radio"
+                                                        name="contactPreference"
+                                                        value="email"
+                                                        defaultChecked
+                                                        className="h-4 w-4 accent-glow"
+                                                    />
+                                                    <span className="text-sm font-medium">
+                                                        Email
+                                                    </span>
+                                                </label>
+                                                <label className="form-choice">
+                                                    <input
+                                                        type="radio"
+                                                        name="contactPreference"
+                                                        value="call"
+                                                        className="h-4 w-4 accent-glow"
+                                                    />
+                                                    <span className="text-sm font-medium">
+                                                        Call
+                                                    </span>
+                                                </label>
+                                                <label className="form-choice">
+                                                    <input
+                                                        type="radio"
+                                                        name="contactPreference"
+                                                        value="sms"
+                                                        className="h-4 w-4 accent-glow"
+                                                    />
+                                                    <span className="text-sm font-medium">
+                                                        Text (SMS)
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <p className="text-xs text-muted-foreground">
+                                                If you choose call or text, please include a phone number.
+                                            </p>
+                                        </fieldset>
+
+                                        <div>
+                                            <label
+                                                htmlFor="projectType"
+                                                className="block text-sm font-medium text-foreground mb-2"
+                                            >
+                                                What do you need help with?
+                                            </label>
+                                            <select
+                                                id="projectType"
+                                                name="projectType"
+                                                defaultValue={projectType}
+                                                className="form-control form-select"
+                                            >
+                                                <option value="">Select one</option>
+                                                <option value="website">Website build / redesign</option>
+                                                <option value="landing">Landing page (lead gen)</option>
+                                                <option value="retainer">Ongoing improvements</option>
+                                                <option value="other">Not sure yet / something else</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label
+                                                    htmlFor="budgetRange"
+                                                    className="block text-sm font-medium text-foreground mb-2"
+                                                >
+                                                    Budget{" "}
+                                                    <span className="text-muted-foreground font-normal">
+                                                        (optional)
+                                                    </span>
+                                                </label>
+                                                <select
+                                                    id="budgetRange"
+                                                    name="budgetRange"
+                                                    defaultValue={budgetRange}
+                                                    className="form-control form-select"
+                                                >
+                                                    <option value="">
+                                                        Select a budget range
+                                                    </option>
+                                                    <option value="under5k">
+                                                        Under $5k (focused page scope)
+                                                    </option>
+                                                    <option value="5to10k">
+                                                        $5k–$10k
+                                                    </option>
+                                                    <option value="10to25k">
+                                                        $10k–$25k
+                                                    </option>
+                                                    <option value="25kplus">
+                                                        $25k+
+                                                    </option>
+                                                    <option value="unsure">
+                                                        Not sure yet / want guidance
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label
+                                                    htmlFor="timeline"
+                                                    className="block text-sm font-medium text-foreground mb-2"
+                                                >
+                                                    Timeline{" "}
+                                                    <span className="text-muted-foreground font-normal">
+                                                        (optional)
+                                                    </span>
+                                                </label>
+                                                <select
+                                                    id="timeline"
+                                                    name="timeline"
+                                                    defaultValue={timeline}
+                                                    className="form-control form-select"
+                                                >
+                                                    <option value="">
+                                                        Select a timeline
+                                                    </option>
+                                                    <option value="asap">ASAP</option>
+                                                    <option value="1to2mo">
+                                                        1–2 months
+                                                    </option>
+                                                    <option value="3to6mo">
+                                                        3–6 months
+                                                    </option>
+                                                    <option value="flexible">
+                                                        Flexible
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label
+                                                htmlFor="currentUrl"
+                                                className="block text-sm font-medium text-foreground mb-2"
+                                            >
+                                                Current website{" "}
+                                                <span className="text-muted-foreground font-normal">
+                                                    (optional)
+                                                </span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="currentUrl"
+                                                name="currentUrl"
+                                                autoComplete="url"
+                                                inputMode="url"
+                                                maxLength={500}
+                                                defaultValue={currentUrl}
+                                                className="form-control"
+                                                placeholder="https://example.com"
+                                            />
+                                        </div>
+                                    </div>
+                                </details>
 
                                 {turnstileEnabled && turnstileSiteKey && (
                                     <TurnstileWidget siteKey={turnstileSiteKey} />
@@ -511,8 +522,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </>
     );
 }
-
-
 
 
 

@@ -82,7 +82,8 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                                     alt="TC Cover Sheet preview"
                                     fill
                                     className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, 60vw"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 56vw, 680px"
+                                    quality={68}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
                             </div>

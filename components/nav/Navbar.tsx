@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/industries/transaction-coordinators", label: "For TCs" },
+    { href: "/industries", label: "Industries" },
     { href: "/work", label: "Case Studies" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -70,7 +70,7 @@ export function Navbar() {
                                         Multimedium
                                     </p>
                                     <p className="hidden text-xs text-muted-foreground sm:block">
-                                        TC-first web design studio
+                                        Websites for service businesses that need better leads
                                     </p>
                                 </div>
                             </div>

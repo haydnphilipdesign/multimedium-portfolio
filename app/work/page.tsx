@@ -180,7 +180,7 @@ export default async function WorkPage({
                                     <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
-                                    {indMeta?.subheading ?? "Real projects with clear goals, decisions, and outcomes—built to earn trust and turn visits into inquiries."}
+                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and conversion intent."}
                                 </p>
                             </div>
                         </div>
