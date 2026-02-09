@@ -83,7 +83,7 @@ export function Navbar() {
                                     href={link.href === "/contact" ? contactHref : link.href}
                                     aria-current={isActive(link.href) ? "page" : undefined}
                                     className={cn(
-                                        "touch-target relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                                        "touch-target relative rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                                         isActive(link.href)
                                             ? "text-foreground"
                                             : "text-muted-foreground hover:text-foreground"
@@ -111,14 +111,14 @@ export function Navbar() {
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="touch-target inline-flex items-center rounded-lg px-2 text-sm text-muted-foreground transition-colors hover:text-accent-strong"
+                                    className="touch-target inline-flex items-center rounded-lg px-2 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:text-accent-strong"
                                 >
                                     Book a call
                                 </a>
                             )}
                             <Link
                                 href={contactHref}
-                                className="btn-primary inline-flex items-center text-sm"
+                                className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
                             >
                                 Talk about your project
                             </Link>
