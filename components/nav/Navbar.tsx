@@ -69,8 +69,8 @@ export function Navbar() {
                                     <p className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
                                         Multimedium
                                     </p>
-                                    <p className="hidden text-xs text-muted-foreground sm:block">
-                                        Websites for service businesses that need better leads
+                                    <p className="hidden whitespace-nowrap text-xs leading-tight text-muted-foreground xl:block">
+                                        Service-business web design studio
                                     </p>
                                 </div>
                             </div>
