@@ -27,7 +27,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const [imageError, setImageError] = useState(false);
 
     const cardContent = (
-        <article className="group relative overflow-hidden rounded-[1.4rem] border border-border/70 bg-card/90 shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card/90 shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-muted/70">
                 {!imageError ? (
                     <Image
@@ -70,7 +70,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </div>
             </div>
 
-                <div className="space-y-4 p-5 sm:p-6">
+                <div className="flex flex-1 flex-col space-y-4 p-5 sm:p-6">
                 <div>
                     <h3 className="text-[1.4rem] font-semibold tracking-tight text-foreground transition-colors group-hover:text-gradient">
                         {project.title}
@@ -93,7 +93,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     </div>
                 ) : null}
 
-                <div className="flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
+                <div className="mt-auto flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
                     <span>{project.role.split(",")[0]}</span>
                     <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-accent-strong">
                         View project details
@@ -115,7 +115,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         return (
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block rounded-[1.4rem]"
+                className="focus-ring block h-full rounded-[1.4rem]"
             >
                 {cardContent}
             </Link>
@@ -124,6 +124,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
     return (
         <motion.div
+            className="h-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -135,7 +136,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block rounded-[1.4rem]"
+                className="focus-ring block h-full rounded-[1.4rem]"
             >
                 {cardContent}
             </Link>
