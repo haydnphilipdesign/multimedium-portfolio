@@ -415,7 +415,7 @@ export default function TransactionCoordinatorsPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Free TC templates"
-                        subtitle="Examples of templates and checklists I can auto-populate or structure around your intake (Jotform/Forms). Use them as-is, or steal the structure."
+                        subtitle="Templates and checklists I can auto-populate or structure around your intake (Jotform/Forms). Use them as-is, or adapt the structure for your workflow."
                     />
                 </AnimatedSection>
 

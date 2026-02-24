@@ -58,7 +58,7 @@ export default function IndustriesPage() {
                                 <span className="text-gradient">built for the way your leads decide.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                Pick the lane closest to your business. Each page shows offer fit, proof direction, and the conversion system behind the build.
+                                Pick the industry closest to your business. Each page shows what the build includes, how the conversion system works, and relevant case studies.
                             </p>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function IndustriesPage() {
             <Section>
                 <AnimatedSection>
                     <SectionHeading
-                        title="Choose Your Industry"
+                        title="Choose your industry"
                         subtitle="Same conversion-first standard, tuned for different buyers, proof signals, and lead flows."
                     />
                 </AnimatedSection>

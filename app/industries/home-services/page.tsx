@@ -432,11 +432,10 @@ export default function HomeServicesPage() {
                         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
                             <div className="max-w-2xl">
                                 <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                    Relevant work (different industries, same outcomes)
+                                    Relevant work
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
-                                    These builds focus on conversion, proof placement, and lead routing. The same
-                                    principles apply to home services.
+                                    Different industries, same outcomes. These builds focus on conversion, proof placement, and lead routing—the same principles that apply to home services.
                                 </p>
                             </div>
                             <Link

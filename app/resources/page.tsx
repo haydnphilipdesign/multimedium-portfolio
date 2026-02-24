@@ -108,7 +108,7 @@ export default function ResourcesPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Downloads"
-                        subtitle="Grab a template, then steal the structure for your own workflow."
+                        subtitle="Download a template and adapt the structure for your own workflow."
                     />
                 </AnimatedSection>
 

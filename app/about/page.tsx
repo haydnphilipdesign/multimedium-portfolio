@@ -179,7 +179,7 @@ export default function AboutPage() {
                         Want a site that brings in better leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        Tell me what you do, who you want to attract, and what’s not working on the current site. I&apos;ll reply within one business day with next steps.
+                        Tell me what you do, who you want to attract, and what&apos;s not working on the current site. I&apos;ll reply within one business day with next steps.
                     </p>
                     <Link href="/contact?source=about-cta" className="btn-primary">
                         Talk about your project

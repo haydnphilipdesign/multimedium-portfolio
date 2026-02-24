@@ -66,7 +66,7 @@ export function StatementHero() {
                         >
                             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-glow/30 bg-card/75 px-4 py-2 text-sm text-foreground shadow-[var(--shadow-soft)] backdrop-blur-md">
                                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-glow" />
-                                Taking on 1 to 2 projects each month
+                                Taking on 1–2 projects each month
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">

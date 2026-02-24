@@ -109,12 +109,12 @@ export default function HomePage() {
             icon: IconBulb,
             value: "4–6 weeks",
             label: "Typical launch timeline",
-            detail: "Plan -> design -> build -> polish",
+            detail: "Plan → design → build → polish",
         },
         {
             icon: IconShieldCheck,
-            value: "3 lanes",
-            label: "Core industry focus",
+            value: "3 industries",
+            label: "Focused specialization",
             detail: "TCs, local services, and home services",
         },
     ];
@@ -195,9 +195,9 @@ export default function HomePage() {
                             <span className="inline-flex items-center rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs font-medium text-muted-foreground">
                                 Selected work
                             </span>
-                            <h2 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">Case studies with measurable intent</h2>
+                            <h2 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">Recent work</h2>
                             <p className="mt-3 text-muted-foreground">
-                                A few recent builds—each one designed to earn trust, communicate value, and make reaching out feel like the obvious next step.
+                                Each build is designed to earn trust, communicate value, and make reaching out feel like the obvious next step.
                             </p>
                         </div>
                         <Link
