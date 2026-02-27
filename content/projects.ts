@@ -1413,7 +1413,6 @@ export function getFeaturedProjects(): Project[] {
 const homeFeaturedProjectSlugs: string[] = [
     "tag-landing-page",
     "pa-real-estate-support",
-    "client-portal",
     "utility-sheet",
     "northpoint-realty",
     "gentlemans-blade",
