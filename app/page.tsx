@@ -29,7 +29,7 @@ const services = [
         description:
             "A professional website system that explains what you do, builds trust fast, and turns visits into inquiries.",
         href: "/services/website",
-        features: ["Messaging + page plan", "Custom design with real copy", "Fast, SEO-friendly build + analytics"],
+        features: ["Messaging + page plan", "Custom design with real copy", "Client portal implementation", "Fast, SEO-friendly build + analytics"],
         timeline: "4–6 weeks",
         cta: "See website scope",
     },
@@ -230,7 +230,7 @@ export default function HomePage() {
                                 A site system, not just a pretty homepage
                             </h2>
                             <p className="text-muted-foreground">
-                                You get a clean, consistent system—not a one-off page. It’s built to be updated, extended, and improved without turning into a patchwork.
+                                You get a clean, consistent system, not a one-off page. It is built to be updated, extended, and improved without turning into a patchwork.
                             </p>
                             <div className="pt-2">
                                 <p className="text-sm font-medium text-foreground mb-3">Great fit if:</p>
@@ -255,7 +255,7 @@ export default function HomePage() {
                                         System snapshot
                                     </p>
                                     <p className="mt-2 text-sm text-muted-foreground">
-                                        Every build ships with consistent sections, clear CTAs, and reusable blocks so new pages can be added without starting from scratch.
+                                        Every build ships with consistent sections, clear CTAs, reusable blocks, and portal-ready workflows so updates and approvals stay organized.
                                     </p>
                                     <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
                                         <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
@@ -268,7 +268,7 @@ export default function HomePage() {
                                             Proof + trust blocks
                                         </p>
                                         <p className="rounded-xl border border-border/60 bg-background/75 px-3 py-2 text-foreground">
-                                            Growth-ready analytics
+                                            Client portal workflows
                                         </p>
                                     </div>
                                 </div>

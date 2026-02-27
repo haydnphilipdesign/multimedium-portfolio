@@ -47,6 +47,10 @@ const categoryMeta: Record<string, { title: string; description: string }> = {
         title: "Real Estate Web Design Case Studies",
         description: "Websites for real estate professionals, property managers, and transaction coordinators.",
     },
+    "Portal": {
+        title: "Client Portal Case Studies",
+        description: "Secure, client-facing portal builds focused on visibility, requests, and operational clarity.",
+    },
 };
 
 // Helper to get unique categories with counts

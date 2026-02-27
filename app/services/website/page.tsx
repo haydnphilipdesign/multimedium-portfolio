@@ -24,6 +24,7 @@ const included = [
     "Kickoff workshop + page plan",
     "Custom design with real copy (not lorem ipsum)",
     "Reusable sections so new pages stay consistent",
+    "Client portal setup for status, files, and approvals",
     "SEO basics + speed + accessibility",
     "Analytics + launch checklist",
 ];

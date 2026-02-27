@@ -904,6 +904,94 @@ export const projects: Project[] = [
         externalUrl: "https://parealestatesupport.com",
     },
     {
+        slug: "client-portal",
+        title: "Client Portal",
+        kind: "Product",
+        industries: ["tc", "real-estate"],
+        metaTitle: "Client Portal - Secure Dashboard for Requests, Status, and Files",
+        metaDescription:
+            "A secure, mobile-friendly client portal that centralizes project status, requests, and file sharing in one streamlined interface.",
+        socialCaption:
+            "Client Portal case study: secure login, request tracking, and shared visibility in one clean, mobile-friendly workflow.",
+        tags: ["Portal", "UX Design", "Client Experience", "Dashboard", "Product Build"],
+        tagline: "Secure client dashboard for status visibility, requests, and streamlined communication",
+        description:
+            "A portal experience that gives clients one place to log in, check progress, submit requests, and stay aligned without email sprawl.",
+        category: "Portal",
+        year: "2026",
+        client: "Internal product build",
+        role: "Product Design, UI/UX, Full-Stack Development",
+        tools: ["Secure authentication", "Role-based views", "Request dashboard", "Responsive UI patterns"],
+        thumbnail: "/images/portal/portal-dashboard-desktop.png",
+        heroImage: "/images/portal/portal-login-desktop.png",
+        images: [
+            "/images/portal/portal-dashboard-desktop.png",
+            "/images/portal/portal-dashboard-mobile.png",
+            "/images/portal/portal-login-desktop.png",
+            "/images/portal/portal-login-mobile.png",
+        ],
+        problem: "Client communication and handoffs were scattered across email, DMs, and shared docs. That made status hard to track and created avoidable follow-up loops.",
+        solution: "Built a dedicated portal with secure login, dashboard visibility, and request tracking so clients always know current status, next steps, and where to submit updates.",
+        caseStudy: {
+            headline: "Client Portal - One Source of Truth",
+            subheadline:
+                "A structured portal experience that keeps project communication, status, and requests in one place.",
+            tldr: "Designed and built a client portal that consolidates status, communication, and request intake into a single workflow. Clients get clear visibility without needing to chase updates.",
+            goals: [
+                "Replace fragmented communication with a centralized client experience",
+                "Give clients real-time status visibility with less manual follow-up",
+                "Standardize request intake to reduce context switching",
+            ],
+            constraints: [
+                "Mobile-first UX for busy users checking updates from phones",
+                "Simple authentication flow without adding friction",
+                "Clear information hierarchy for quick scanning",
+            ],
+            delivered: [
+                "Secure login experience with clear session states",
+                "Dashboard that surfaces active requests and current status",
+                "Responsive layouts optimized for desktop and mobile usage",
+                "Structured request workflow for cleaner handoffs",
+            ],
+            whyItWorks: [
+                "Centralized visibility reduces email ping-pong and uncertainty",
+                "Clients can self-serve status checks at any time",
+                "Standardized request capture improves delivery consistency",
+            ],
+        },
+        cta: {
+            headline: "Need a client-facing portal in your workflow?",
+            body: "I design and build portal experiences that help clients get answers faster while keeping operations organized behind the scenes.",
+            ctaText: "Talk about your project",
+            href: "/contact?source=case-study-client-portal",
+        },
+        process: [
+            {
+                title: "Secure Login Experience",
+                description: "Designed a clean login flow that feels professional, keeps friction low, and guides users clearly into the portal.",
+                image: "/images/portal/portal-login-desktop.png",
+            },
+            {
+                title: "Operational Dashboard Design",
+                description: "Built a dashboard layout focused on fast scanning so users can see priorities, request status, and next actions at a glance.",
+                image: "/images/portal/portal-dashboard-desktop.png",
+            },
+            {
+                title: "Mobile Portal Optimization",
+                description: "Adapted the portal experience for mobile so clients can check updates, review status, and submit requests from anywhere.",
+                image: "/images/portal/portal-dashboard-mobile.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Portal Access", value: "24/7", description: "Clients can check status and updates whenever needed" },
+            { metric: "Status Visibility", value: "Centralized", description: "One dashboard for updates, requests, and next steps" },
+            { metric: "Workflow Quality", value: "More consistent", description: "Structured intake reduces follow-up friction" },
+        ],
+        featured: true,
+        color: "#0f766e",
+        externalUrl: "https://portal.multimedium.dev",
+    },
+    {
         slug: "blissful-existence",
         title: "Blissful Existence Healing Acres",
         kind: "Client",
@@ -1325,6 +1413,7 @@ export function getFeaturedProjects(): Project[] {
 const homeFeaturedProjectSlugs: string[] = [
     "tag-landing-page",
     "pa-real-estate-support",
+    "client-portal",
     "utility-sheet",
     "northpoint-realty",
     "gentlemans-blade",

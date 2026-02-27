@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next build)",
+      "Bash(git add app/about/page.tsx app/industries/home-services/page.tsx app/industries/page.tsx app/industries/transaction-coordinators/page.tsx app/page.tsx app/resources/page.tsx components/hero/StatementHero.tsx)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(git add components/work/ProjectCard.tsx)"
+    ]
+  }
+}
