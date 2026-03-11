@@ -55,7 +55,7 @@ export function Footer() {
                         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                             Explore
                         </p>
-                        <nav className="space-y-2.5">
+                        <nav className="flex flex-col items-start gap-2.5">
                             <Link href="/services" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Services
                             </Link>
@@ -78,7 +78,7 @@ export function Footer() {
                         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                             Industries
                         </p>
-                        <nav className="space-y-2.5">
+                        <nav className="flex flex-col items-start gap-2.5">
                             <Link href="/industries/transaction-coordinators?source=footer" className="touch-target inline-flex w-fit items-center rounded-md py-1 text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Transaction Coordinators
                             </Link>

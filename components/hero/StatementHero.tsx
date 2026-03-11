@@ -120,7 +120,7 @@ export function StatementHero() {
                                 />
                             </motion.div>
                             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent p-5">
-                                <p className="text-sm font-medium text-foreground">Haydn Comley</p>
+                                <p className="text-sm font-medium text-foreground">Haydn</p>
                                 <p className="text-xs text-muted-foreground">Designer + Developer · Poconos, PA</p>
                             </div>
                         </div>
