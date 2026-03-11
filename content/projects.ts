@@ -122,7 +122,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that stands out?",
             body: "I build immersive, motion-rich websites that create emotional connections with visitors—turning scrolls into stories.",
-            ctaText: "Talk about your project",
+            ctaText: "Start a conversation",
             href: "/contact?source=case-study-nomad-gear",
         },
         process: [
@@ -216,7 +216,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Want a website that feels alive?",
             body: "I design romantic, motion-rich experiences that connect with visitors emotionally—perfect for premium brands and artisan businesses.",
-            ctaText: "Talk about your project",
+            ctaText: "Get in touch",
             href: "/contact?source=case-study-velvet-rose",
         },
         process: [
@@ -310,7 +310,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website with character?",
             body: "I build cinematic, heritage-inspired websites that tell your brand's story through motion and depth—perfect for businesses with craft and tradition.",
-            ctaText: "Talk about your project",
+            ctaText: "Let's talk",
             href: "/contact?source=case-study-gentlemans-blade",
         },
         process: [
@@ -403,7 +403,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that's full of energy?",
             body: "I build playful, high-craft websites that capture attention without sacrificing clarity—great for brands that need energy and trust.",
-            ctaText: "Talk about your project",
+            ctaText: "Send a message",
             href: "/contact?source=case-study-pop-playground",
         },
         process: [
@@ -441,9 +441,9 @@ export const projects: Project[] = [
         metaDescription:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
         socialCaption:
-            "New build: a focused booking funnel for Transaction Authority Group—authority-first, qualification-driven, and designed to convert into discovery calls.",
+            "New build: a focused booking funnel for Transaction Authority Group — professional positioning, qualification-driven, and designed to convert into discovery calls.",
         tags: ["Landing Page", "Lead Generation", "Booking Flow", "Mobile-First"],
-        tagline: "Authority-first landing page that qualifies established transaction coordinators and drives discovery call bookings.",
+        tagline: "Focused landing page that qualifies established transaction coordinators and drives discovery call bookings.",
         description:
             "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
         category: "Real Estate",
@@ -459,7 +459,7 @@ export const projects: Project[] = [
             "/images/projects/tag-landing-page/tag-landing-page-3.png",
         ],
         problem: "TAG needed a focused landing page that converts the right visitors—established transaction coordinators and TC companies—into booked discovery calls. The goal wasn’t content depth; it was a clean, credible page that clarifies the offer, filters for fit, and pushes one action: book the call.",
-        solution: "Built a single-page booking funnel designed to establish authority quickly, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page stays conversion-focused.",
+        solution: "Built a single-page booking funnel designed to establish credibility quickly, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page stays focused on conversions.",
         caseStudy: {
             headline: "Transaction Authority Group — Lead-Gen Landing Page",
             subheadline:
@@ -479,7 +479,7 @@ export const projects: Project[] = [
             ],
             delivered: [
                 "One-page landing page designed for conversion (not content consumption)",
-                "Authority-first hero section with clear positioning and immediate CTA",
+                "Professional hero section with clear positioning and immediate CTA",
                 "Social proof / credibility bar to reinforce legitimacy without hype",
                 "Problem → solution narrative written to create self-identification",
                 "Fit & Filter section to improve lead quality and reduce unqualified calls",
@@ -498,12 +498,12 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a landing page that converts?",
             body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
-            ctaText: "Talk about your project",
+            ctaText: "Plan your landing page",
             href: "/contact?source=case-study-tag-landing-page",
         },
         process: [
             {
-                title: "Authority-First Positioning",
+                title: "Credibility-Led Positioning",
                 description: "Designed an institutional hero with immediate CTA plus a credibility bar to reinforce legitimacy—without hype, gimmicks, or stock imagery.",
                 image: "/images/projects/tag-landing-page/tag-landing-page-1.png",
             },
@@ -841,7 +841,7 @@ export const projects: Project[] = [
         industries: ["tc", "real-estate"],
         metaTitle: "PA Real Estate Support Services Website Redesign (TC)",
         metaDescription:
-            "Website redesign for a Pennsylvania transaction coordination team—clear service pages, pricing, and an intake flow designed to drive qualified inquiries.",
+            "Website redesign for a Pennsylvania transaction coordination team — clear service pages, pricing, and an intake flow designed to bring in better leads.",
         socialCaption:
             "Website redesign for PA Real Estate Support Services: clearer services + pricing, a guided intake flow, and a faster mobile experience for TC leads.",
         tags: ["Transaction Coordination", "Service Pages", "Pricing", "Intake Flow", "Conversion Copy"],
@@ -879,7 +879,7 @@ export const projects: Project[] = [
         },
         process: [
             {
-                title: "Conversion-First Hero Messaging",
+                title: "Clear Hero Messaging",
                 description: "Clarified the offer with a strong headline, clear supporting copy, and immediate CTAs—so prospects know exactly what to do next.",
                 image: "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.png",
             },
@@ -962,7 +962,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a client-facing portal in your workflow?",
             body: "I design and build portal experiences that help clients get answers faster while keeping operations organized behind the scenes.",
-            ctaText: "Talk about your project",
+            ctaText: "Get in touch",
             href: "/contact?source=case-study-client-portal",
         },
         process: [
@@ -1124,11 +1124,11 @@ export const projects: Project[] = [
         industries: ["real-estate"],
         metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website",
         metaDescription:
-            "Conversion-focused website design for a real estate team. Features dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
+            "Website design for a real estate team. Features dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
         socialCaption:
-            "New build: a high-converting real estate team website for NorthPoint Realty Group—dual buyer/seller funnels, market stats, and lead capture designed to drive qualified inquiries.",
+            "New build: a high-converting real estate team website for NorthPoint Realty Group — dual buyer/seller funnels, market stats, and lead capture designed to bring in better leads.",
         tags: ["Web Design", "Lead Generation", "Real Estate", "Conversion Design", "Mobile-First"],
-        tagline: "Conversion-focused website for a real estate team driving buyer and seller leads",
+        tagline: "Lead-generating website for a real estate team driving buyer and seller inquiries",
         description:
             "High-converting website optimized for lead generation with dual buyer/seller pathways, scrolling testimonials, market stats, and prominent intake forms throughout.",
         category: "Real Estate",
@@ -1144,11 +1144,11 @@ export const projects: Project[] = [
             "/images/projects/northpoint-realty/northpoint-hero.png",
         ],
         problem: "NorthPoint Realty Group needed a website that could generate leads for both buyers and sellers while establishing trust quickly. Their previous site lacked clear conversion paths and didn't showcase their team's experience or market expertise.",
-        solution: "Designed a conversion-first website with separate buyer and seller pathways, each with dedicated intake forms. Added scrolling testimonials, real-time market stats, and trust badges to build credibility. The design uses a professional deep blue and red color scheme that conveys authority and confidence.",
+        solution: "Designed a website with separate buyer and seller pathways, each with dedicated intake forms. Added scrolling testimonials, real-time market stats, and trust badges to build credibility. The design uses a professional deep blue and red color scheme that conveys confidence.",
         caseStudy: {
             headline: "NorthPoint Realty — Your Next Move Starts Here",
             subheadline:
-                "A conversion-focused real estate website designed to capture buyer and seller leads with authority and trust.",
+                "A real estate website designed to capture buyer and seller leads through credibility and clear pathways.",
             tldr: "Built a lead-generation website for NorthPoint Realty Group with separate buyer/seller funnels, prominent intake forms, scrolling testimonials, and market stats. The design prioritizes conversions while building trust through social proof and a professional aesthetic.",
             goals: [
                 "Create separate, optimized pathways for buyers and sellers",
@@ -1183,8 +1183,8 @@ export const projects: Project[] = [
         },
         cta: {
             headline: "Need a real estate website that converts?",
-            body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, trust signals, and forms that actually get filled out.",
-            ctaText: "Talk about your project",
+            body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, strong credibility, and forms that actually get filled out.",
+            ctaText: "Start a conversation",
             href: "/contact?source=case-study-northpoint-realty",
         },
         process: [
@@ -1199,7 +1199,7 @@ export const projects: Project[] = [
                 image: "/images/projects/northpoint-realty/northpoint-2.png",
             },
             {
-                title: "Conversion-First Forms",
+                title: "Strategically Placed Forms",
                 description: "Prominent intake forms in buyer and seller sections capture leads with minimal friction—budget, timeline, and contact info all in one place.",
                 image: "/images/projects/northpoint-realty/northpoint-1.png",
             },
@@ -1279,12 +1279,12 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that commands premium prices?",
             body: "I build bold, high-end websites for coaches and consultants who want their web presence to match their expertise—and their pricing.",
-            ctaText: "Talk about your project",
+            ctaText: "Let's talk",
             href: "/contact?source=case-study-momentum-coaching",
         },
         process: [
             {
-                title: "Authority-First Hero",
+                title: "Premium Hero",
                 description: "Dramatic typography and bold claims establish premium positioning immediately. Stats and brokerage logos build credibility without lengthy explanations.",
                 image: "/images/projects/momentum-coaching/momentum-hero.png",
             },
@@ -1375,7 +1375,7 @@ export const projects: Project[] = [
         cta: {
             headline: "Need a website that feels different?",
             body: "I build scroll-driven, motion-rich websites that create unique experiences—perfect for brands that want to stand out from cookie-cutter templates.",
-            ctaText: "Talk about your project",
+            ctaText: "Send a message",
             href: "/contact?source=case-study-clarity-growth",
         },
         process: [

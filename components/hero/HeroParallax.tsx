@@ -94,7 +94,7 @@ export function HeroParallax() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/contact" className="btn-primary">
-                                Talk about your project
+                                Start a conversation
                             </Link>
                             <Link href="/work" className="btn-secondary">
                                 Browse case studies
@@ -259,7 +259,7 @@ export function HeroParallax() {
                             href="/contact"
                             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-300 hover:scale-105"
                         >
-                            Talk about your project
+                            Start a conversation
                         </Link>
                         <Link
                             href="/work"

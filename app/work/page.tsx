@@ -10,7 +10,7 @@ import { AnimatedSection } from "@/components/motion/AnimatedSection";
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
         title: "Transaction Coordinator Case Studies",
-        description: "Web design and development projects for transaction coordinators - authority-first messaging, lead capture, and conversion-focused builds.",
+        description: "Web design and development projects for transaction coordinators — professional messaging, lead capture, and builds that bring in better clients.",
         heading: "Transaction Coordinator Work",
         subheading: "Client-first projects for TCs and real estate ops teams, designed to qualify leads and drive bookings.",
     },
@@ -37,7 +37,7 @@ const industryMeta: Record<string, { title: string; description: string; heading
 const categoryMeta: Record<string, { title: string; description: string }> = {
     "Web Design": {
         title: "Web Design Case Studies",
-        description: "Motion-rich, conversion-focused web design projects with strong visual craft.",
+        description: "Motion-rich web design projects with strong visual craft and clear results.",
     },
     "SaaS": {
         title: "SaaS Product Case Studies",
@@ -93,7 +93,7 @@ export async function generateMetadata({
     const description =
         indMeta?.description ??
         catMeta?.description ??
-        "A collection of recent projects—each one designed to earn trust, communicate value, and make reaching out feel like the obvious next step.";
+        "A collection of recent projects — real builds with clear goals, design decisions, and measurable outcomes.";
 
     // Build canonical URL
     const params_arr: string[] = [];
@@ -176,15 +176,11 @@ export default async function WorkPage({
                     <AnimatedSection>
                         <div className="rounded-[2rem] border border-border/65 bg-card/88 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
-                                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-glow" />
-                                    Browse work
-                                </div>
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                     <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
-                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and conversion intent."}
+                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and real outcomes."}
                                 </p>
                             </div>
                         </div>
@@ -221,9 +217,6 @@ export default async function WorkPage({
                     <AnimatedSection>
                         <div className="flex items-end justify-between gap-8 mb-8">
                             <div className="max-w-3xl">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30 mb-4">
-                                    Spotlight
-                                </span>
                                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                                     {spotlightHeading}
                                 </h2>
@@ -273,7 +266,7 @@ export default async function WorkPage({
                             </h2>
                             {!hasFilters && (
                                 <p className="text-muted-foreground mt-3">
-                                    Full builds and redesigns—positioning, copy structure, and UI decisions that make reaching out feel like the obvious next step.
+                                    Full builds and redesigns — positioning, copy, and UI decisions shaped by each client&apos;s audience.
                                 </p>
                             )}
                         </div>
@@ -326,7 +319,7 @@ export default async function WorkPage({
                             Tell me what you do, who you want to attract, and what&apos;s not working today. I&apos;ll reply within one business day.
                         </p>
                         <Link href="/contact?source=work-cta" className="btn-primary">
-                            Talk about your project
+                            Start a conversation
                         </Link>
                     </AnimatedSection>
                 </Section>

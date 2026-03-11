@@ -83,7 +83,7 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Clear messaging, fast performance, and conversion-focused pages.
+                        Clear messaging, fast performance, and pages that bring in better leads.
                     </div>
                 </div>
 

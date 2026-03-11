@@ -186,7 +186,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         Want an intake system that enforces required fields?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build conversion-first TC websites, with optional intake and cover-sheet automation if you want the system behind it.
+                        I build TC websites with optional intake and cover-sheet automation if you want the system behind it.
                     </p>
                     <Link href="/industries/transaction-coordinators?source=tc-intake-checklist" className="btn-primary">
                         See the TC offer

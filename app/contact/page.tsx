@@ -90,11 +90,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                         <div className="absolute inset-0 bg-hero-gradient opacity-30" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative space-y-4">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
-                                Contact
-                            </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Talk about your project
+                                Let&apos;s talk about your project
                             </h1>
                             <p className="text-lg text-muted-foreground max-w-2xl">
                                 Share what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day. If you&apos;re not sure about fit, just ask.

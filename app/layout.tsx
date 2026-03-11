@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Multimedium",
   },
   description:
-    "Web design for small and medium businesses—clear messaging, fast performance, and conversion-focused pages that turn visits into qualified inquiries. Specialty experience with real estate ops, local services, and SaaS.",
+    "Web design for small and medium businesses—clear messaging, fast performance, and pages that turn visitors into real leads. Specialty experience with real estate ops, local services, and SaaS.",
   keywords: [
     "conversion focused web design",
     "small business web design",

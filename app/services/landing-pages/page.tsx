@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const included = [
     "Offer + messaging refinement",
-    "Conversion-first layout + copy help",
+    "Focused layout + copy help",
     "Forms + tracking + follow-up",
     "A/B-ready sections and components",
     "Fast iteration cadence (ship → learn → improve)",
@@ -38,7 +38,7 @@ const expectations = [
 const fitFor = [
     "Offers, launches, and campaigns where clarity matters more than content volume",
     "Teams running ads or email campaigns who want higher conversion rates",
-    "Service businesses that want fewer low-fit leads and more qualified inquiries",
+    "Service businesses that want fewer low-fit leads and more of the right ones",
 ];
 
 const faqs = [
@@ -87,7 +87,7 @@ export default function LandingPagesServicePage() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-landing-pages" className="btn-primary">
-                                        Talk about your project
+                                        Plan your landing page
                                     </Link>
                                     <Link href="/work?source=services-landing-pages" className="btn-secondary inline-flex items-center gap-2">
                                         See examples <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -167,43 +167,6 @@ export default function LandingPagesServicePage() {
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
-            </Section>
-
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-2">
-                    <AnimatedSection>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {fitFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You can focus on one primary conversion goal.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You can provide core offer details and quick review feedback.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You care about lead quality and follow-up speed, not just click volume.
-                                </li>
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                </div>
             </Section>
 
             {featured.length > 0 ? (
@@ -290,7 +253,7 @@ export default function LandingPagesServicePage() {
                         Share the offer, the audience, and where you want the traffic to go. I’ll reply with a simple plan and timeline within one business day.
                     </p>
                     <Link href="/contact?source=services-landing-pages-cta" className="btn-primary">
-                        Talk about your project
+                        Plan your landing page
                     </Link>
                 </AnimatedSection>
             </Section>

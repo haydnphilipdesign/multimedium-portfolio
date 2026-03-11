@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
     title: "Real Estate Website Design",
     description:
-        "Conversion-first website design for real estate professionals - fast, trustworthy, and built to turn visitors into qualified inquiries.",
+        "Website design for real estate professionals — fast, trustworthy, and built to turn visitors into real leads.",
     alternates: {
         canonical: "/lp/real-estate",
     },
@@ -75,7 +75,7 @@ const fit = [
 const faq = [
     {
         q: "Do you build IDX sites?",
-        a: "If you already have an IDX provider, I can help integrate it cleanly. If you don’t, we can structure the site around conversion-first pages (areas served, buyer/seller funnels, listings links) that still performs without heavy IDX complexity.",
+        a: "If you already have an IDX provider, I can help integrate it cleanly. If you don’t, we can structure the site around focused pages (areas served, buyer/seller paths, listings links) that still perform without heavy IDX complexity.",
     },
     {
         q: "Can you match my brokerage/team branding?",
@@ -166,7 +166,7 @@ export default function RealEstateLandingPage() {
                                     </p>
                                     <ul className="space-y-3 text-sm text-muted-foreground">
                                         {[
-                                            "Authority-first homepage + clear CTAs",
+                                            "Professional homepage + clear CTAs",
                                             "Buyer / seller pathways (or your specialties)",
                                             "Service area structure (without bloat)",
                                             "Contact flow that’s easy to say yes to",

@@ -94,7 +94,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     const cta = project.cta ?? {
         headline: "Interested in working together?",
         body: "Tell me what you do, who you want to attract, and what you want the site to accomplish.",
-        ctaText: "Talk about your project",
+        ctaText: "Start a conversation",
         href: `/contact?source=case-study-${project.slug}`,
     };
 
@@ -123,41 +123,20 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         </Link>
                     </AnimatedSection>
 
-                    <AnimatedSection delay={0.1}>
-                        <div className="flex flex-wrap items-center gap-3 mb-6">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border border-glow/25 bg-glow/10 text-foreground">
-                                {project.category}
-                            </span>
-                            <span className="text-sm text-muted-foreground">{project.year}</span>
-                            {project.tags?.length ? (
-                                <div className="flex flex-wrap items-center gap-2">
-                                    {project.tags.slice(0, 4).map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-background/60 backdrop-blur-sm text-muted-foreground border border-border/65"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            ) : null}
-                        </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection delay={0.2}>
+                    <AnimatedSection delay={0.15}>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
                             {project.title}
                         </h1>
                     </AnimatedSection>
 
-                    <AnimatedSection delay={0.3}>
+                    <AnimatedSection delay={0.25}>
                         <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mb-10 sm:mb-12">
                             {project.tagline}
                         </p>
                     </AnimatedSection>
 
                     {/* Project Meta */}
-                    <AnimatedSection delay={0.4}>
+                    <AnimatedSection delay={0.3}>
                         <div className="grid grid-cols-1 gap-4 border-y border-border/40 py-6 sm:grid-cols-2 sm:gap-6 sm:py-8 lg:grid-cols-4">
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">

@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
     title: "Website Build / Redesign",
     description:
-        "A website build or redesign designed to earn trust, load fast, and turn visitors into qualified inquiries.",
+        "A website build or redesign designed to earn trust, load fast, and turn visitors into real leads.",
     alternates: {
         canonical: "/services/website",
     },
@@ -31,7 +31,7 @@ const included = [
 
 const expectations = [
     { label: "Typical timeline", value: "4–6 weeks" },
-    { label: "Primary conversion", value: "Qualified inquiries" },
+    { label: "Primary conversion", value: "Real leads" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
 ];
 
@@ -81,11 +81,11 @@ export default function WebsiteServicePage() {
                                     Website build / redesign
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that need to look established, load fast, and turn visitors into qualified inquiries without the site turning into a patchwork over time.
+                                    For teams that need to look established, load fast, and turn visitors into real leads without the site turning into a patchwork over time.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-website" className="btn-primary">
-                                        Talk about your project
+                                        Discuss your redesign
                                     </Link>
                                     <Link href="/work?source=services-website" className="btn-secondary inline-flex items-center gap-2">
                                         Browse case studies <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -167,43 +167,6 @@ export default function WebsiteServicePage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-2">
-                    <AnimatedSection>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {fitFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You can support messaging and content decisions, not just visuals.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You can review pages on schedule so momentum stays steady.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You want a measurable conversion goal, not only a brochure refresh.
-                                </li>
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                </div>
-            </Section>
-
             {featured.length > 0 ? (
                 <Section className="pt-10 md:pt-14" padding="none">
                     <AnimatedSection>
@@ -282,7 +245,7 @@ export default function WebsiteServicePage() {
                         Tell me what you do and what’s not working on the current site. I’ll reply with next steps and a plan within one business day.
                     </p>
                     <Link href="/contact?source=services-website-cta" className="btn-primary">
-                        Talk about your project
+                        Discuss your redesign
                     </Link>
                 </AnimatedSection>
             </Section>

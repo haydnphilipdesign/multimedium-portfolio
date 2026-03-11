@@ -5,21 +5,11 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import type { Project } from "@/content/projects";
-import { IconArrowUpRight, IconExternalLink } from "@tabler/icons-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 interface ProjectCardProps {
     project: Project;
     index?: number;
-}
-
-function getKindBadgeClass(kind: Project["kind"]) {
-    if (kind === "Client") {
-        return "border-glow/35 bg-glow/10 text-foreground";
-    }
-    if (kind === "Product") {
-        return "border-primary/25 bg-primary-soft text-foreground";
-    }
-    return "border-border/60 bg-background/80 text-muted-foreground";
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
@@ -50,18 +40,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 
-                <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2">
-                    <span
-                        className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-sm ${getKindBadgeClass(project.kind)}`}
-                    >
-                        {project.kind}
-                    </span>
-                    <span className="inline-flex items-center rounded-full border border-border/60 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-                        {project.category}
-                    </span>
-                </div>
-
-                <span className="absolute bottom-4 left-4 rounded-full border border-border/60 bg-background/75 px-2.5 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-sm">
+                <span className="absolute bottom-4 left-4 text-[11px] font-medium text-muted-foreground/90">
                     {project.year}
                 </span>
 
@@ -70,7 +49,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </div>
             </div>
 
-                <div className="flex flex-1 flex-col space-y-4 p-5 sm:p-6">
+            <div className="flex flex-1 flex-col space-y-4 p-5 sm:p-6">
                 <div>
                     <h3 className="text-[1.4rem] font-semibold tracking-tight text-foreground transition-colors group-hover:text-gradient">
                         {project.title}
@@ -80,33 +59,13 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     </p>
                 </div>
 
-                {project.tags?.length ? (
-                    <div className="flex flex-wrap gap-2">
-                        {project.tags.slice(0, 3).map((tag) => (
-                            <span
-                                key={tag}
-                                className="rounded-full border border-border/60 bg-muted/35 px-2.5 py-1 text-[11px] font-medium text-muted-foreground"
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                ) : null}
-
                 <div className="mt-auto flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
                     <span>{project.role.split(",")[0]}</span>
                     <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-accent-strong">
-                        View project details
+                        View project
                         <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
                     </span>
                 </div>
-
-                {project.externalUrl ? (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-                        Live preview available
-                        <IconExternalLink className="h-3.5 w-3.5" stroke={1.8} />
-                    </span>
-                ) : null}
             </div>
         </article>
     );

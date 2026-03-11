@@ -117,7 +117,7 @@ export function Navbar() {
                                 href={contactHref}
                                 className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
                             >
-                                Talk about your project
+                                Get in touch
                             </Link>
                         </div>
 
@@ -161,7 +161,7 @@ export function Navbar() {
                         </div>
 
                         <p className="mt-2 text-xs text-muted-foreground">
-                            Built for transaction coordinators, real estate ops teams, and service businesses that want clearer, higher-converting websites.
+                            Websites for service businesses that need to look professional and bring in better leads.
                         </p>
 
                         <div className="mt-8 space-y-2.5">
@@ -200,7 +200,7 @@ export function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="btn-primary w-full text-center block text-sm"
                             >
-                                Talk about your project
+                                Get in touch
                             </Link>
                         </div>
                     </div>

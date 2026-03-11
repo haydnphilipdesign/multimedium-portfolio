@@ -56,7 +56,7 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
                     href={`/contact?source=${encodeURIComponent(contactSource)}`}
                     className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group"
                 >
-                    Talk about your project
+                    Start a conversation
                     <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                 </Link>
             </AnimatedSection>

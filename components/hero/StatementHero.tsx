@@ -4,13 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
-
-const trustSignals = [
-    "Built for service businesses",
-    "Fast, mobile-first builds",
-    "Strategy, design, and build in one loop",
-];
+import { IconArrowRight } from "@tabler/icons-react";
 
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -70,20 +64,20 @@ export function StatementHero() {
                             </div>
 
                             <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                <span className="text-gradient">Websites for service businesses that need better leads, not more traffic.</span>
+                                <span className="text-gradient">Websites that turn visitors into clients.</span>
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                I design and build conversion-focused sites for transaction coordinators, real estate teams, and local service companies. Strategy, messaging, design, and build stay in one loop so your site makes contacting you feel obvious.
+                                I design and build websites for service businesses — strategy, messaging, design, and code in one loop so your site makes reaching out feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
-                                Most engagements land between <span className="font-semibold text-foreground">$5k and $25k</span>, with focused landing-page scopes for smaller budgets.
+                                Most projects land between <span className="font-semibold text-foreground">$5k and $25k</span>, with focused landing-page scopes for smaller budgets.
                             </p>
 
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <Link href="/contact?source=home-hero" className="btn-primary group">
-                                    Talk about your project
+                                    Start a conversation
                                     <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                 </Link>
                                 {schedulingUrl ? (
@@ -101,18 +95,6 @@ export function StatementHero() {
                                     </Link>
                                 )}
                             </div>
-
-                            <div className="mt-8 flex flex-wrap gap-3">
-                                {trustSignals.map((item) => (
-                                    <span
-                                        key={item}
-                                        className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/80 px-3.5 py-1.5 text-xs text-muted-foreground backdrop-blur-sm"
-                                    >
-                                        <IconCircleCheckFilled className="h-3.5 w-3.5 text-glow" />
-                                        {item}
-                                    </span>
-                                ))}
-                            </div>
                         </motion.div>
                     </motion.div>
 
@@ -125,34 +107,21 @@ export function StatementHero() {
                     >
                         <div className="absolute -inset-8 rounded-[2.2rem] bg-glow/16 blur-3xl" />
 
-                        <div className="relative overflow-hidden rounded-[1.75rem] border border-border/75 bg-card/86 p-4 shadow-[var(--shadow-elevated)] backdrop-blur-lg">
-                            <div className="relative overflow-hidden rounded-2xl border border-border/55 bg-muted/40">
-                                <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
-                                    <Image
-                                        src="/haydn.png"
-                                        alt="Haydn - Web Designer & Developer"
-                                        width={520}
-                                        height={620}
-                                        className="h-auto w-full"
-                                        priority
-                                        sizes="(min-width: 1024px) 420px, (min-width: 768px) 380px, 100vw"
-                                    />
-                                </motion.div>
-                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/55 to-transparent p-4">
-                                    <div className="inline-flex flex-col rounded-lg border border-border/60 bg-background/88 px-3 py-2 shadow-[var(--shadow-soft)] backdrop-blur-md">
-                                        <p className="text-sm font-medium text-foreground">Haydn · Designer + Developer</p>
-                                        <p className="text-xs text-muted-foreground">One person from strategy to launch</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mt-4 rounded-2xl border border-border/60 bg-background/88 p-4">
-                                <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-glow/30 bg-glow/10 px-2.5 py-1 text-[11px] font-medium text-foreground">
-                                    Studio promise
-                                </div>
-                                <p className="text-sm text-muted-foreground">
-                                    Professional quality without agency bloat: clear communication, realistic timelines, and conversion-focused pages.
-                                </p>
+                        <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-muted/40 shadow-[var(--shadow-elevated)]">
+                            <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
+                                <Image
+                                    src="/haydn.png"
+                                    alt="Haydn - Web Designer & Developer"
+                                    width={520}
+                                    height={620}
+                                    className="h-auto w-full"
+                                    priority
+                                    sizes="(min-width: 1024px) 420px, (min-width: 768px) 380px, 100vw"
+                                />
+                            </motion.div>
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent p-5">
+                                <p className="text-sm font-medium text-foreground">Haydn Comley</p>
+                                <p className="text-xs text-muted-foreground">Designer + Developer · Poconos, PA</p>
                             </div>
                         </div>
                     </motion.div>

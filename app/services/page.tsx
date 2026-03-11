@@ -56,16 +56,13 @@ export default function ServicesPage() {
                         <div className="absolute inset-0 bg-hero-gradient opacity-35" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative max-w-3xl">
-                            <span className="mb-6 inline-flex items-center rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
-                                Services
-                            </span>
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                 Websites that
                                 <br />
                                 <span className="text-gradient">turn visitors into inquiries.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                A conversion-focused system refined across local services, real estate, and SaaS—adapted for your business and audience.
+                                A proven approach refined across local services, real estate, and SaaS — adapted for your business and audience.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
@@ -155,7 +152,7 @@ export default function ServicesPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="What I offer"
-                        subtitle="Flexible scope for different business stages, with the same level of craft and conversion focus."
+                        subtitle="Flexible scope for different business stages, same level of craft."
                     />
                 </AnimatedSection>
 
@@ -202,7 +199,7 @@ export default function ServicesPage() {
                         Tell me what you&apos;re building and what matters most. I&apos;ll recommend the simplest path to results.
                     </p>
                     <Link href="/contact?source=services" className="btn-primary">
-                        Talk about your project
+                        Get a recommendation
                     </Link>
                 </AnimatedSection>
             </Section>

@@ -28,14 +28,14 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-md text-sm text-muted-foreground">
-                            Conversion-focused web design for service businesses that need stronger trust, clearer messaging, and more qualified inquiries.
+                            Web design for service businesses that need clearer messaging, a professional presence, and more inquiries from the right people.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA • Remote-friendly
                         </p>
                         <div className="flex flex-wrap items-center gap-3">
                             <Link href="/contact?source=footer" className="btn-primary text-sm">
-                                Talk about your project
+                                Get in touch
                             </Link>
                             {schedulingUrl && (
                                 <a

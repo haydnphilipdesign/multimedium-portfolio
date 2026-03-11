@@ -81,8 +81,8 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        TC-first web design for real estate ops and service teams.
-                        Built for qualified inquiries.
+                        Web design for real estate ops and service teams.
+                        Built to bring in better leads.
                     </div>
                 </div>
 

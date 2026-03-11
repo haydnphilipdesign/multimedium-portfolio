@@ -18,7 +18,7 @@ const industries = [
         icon: IconBuildingSkyscraper,
         title: "Transaction Coordinators",
         description:
-            "Authority-first websites and optional intake automation for real estate ops teams that want more qualified calls.",
+            "Professional websites and optional intake automation for real estate ops teams that want more qualified calls.",
         href: "/industries/transaction-coordinators",
         cta: "See TC offer",
     },
@@ -26,7 +26,7 @@ const industries = [
         icon: IconHammer,
         title: "Trades & Local Service Businesses",
         description:
-            "Trust-first websites that turn local search traffic into calls, quote requests, and booked work.",
+            "Websites that turn local search traffic into calls, quote requests, and booked work.",
         href: "/industries/trades",
         cta: "See trades offer",
     },
@@ -34,7 +34,7 @@ const industries = [
         icon: IconHome2,
         title: "Home Services",
         description:
-            "Conversion-focused websites for HVAC, plumbing, electrical, roofing, and other high-intent local services.",
+            "Websites for HVAC, plumbing, electrical, roofing, and other high-intent local services.",
         href: "/industries/home-services",
         cta: "See home services offer",
     },
@@ -49,9 +49,6 @@ export default function IndustriesPage() {
                         <div className="absolute inset-0 bg-hero-gradient opacity-35" />
                         <div className="grain absolute inset-0 pointer-events-none" />
                         <div className="relative max-w-3xl">
-                            <span className="mb-6 inline-flex items-center rounded-full border border-glow/25 bg-glow/10 px-3 py-1 text-xs font-medium text-foreground">
-                                Industry focus
-                            </span>
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                 Service business websites
                                 <br />
@@ -69,7 +66,7 @@ export default function IndustriesPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Choose your industry"
-                        subtitle="Same conversion-first standard, tuned for different buyers, proof signals, and lead flows."
+                        subtitle="Same standard of craft, tuned for different buyers and how they make decisions."
                     />
                 </AnimatedSection>
                 <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.08}>

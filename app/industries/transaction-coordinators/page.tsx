@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
     title: "Websites for Transaction Coordinators",
     description:
-        "Conversion-first web design for real estate transaction coordinators: authority-first messaging, fast pages, and lead capture that filters for fit and drives bookings.",
+        "Web design for real estate transaction coordinators: professional messaging, fast pages, and lead capture that filters for fit and drives bookings.",
     alternates: {
         canonical: "/industries/transaction-coordinators",
     },
@@ -171,23 +171,20 @@ export default function TransactionCoordinatorsPage() {
 
                         <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
                             <div className="lg:col-span-3 space-y-6">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
-                                    Real Estate Ops
-                                </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                                     Websites for transaction coordinators
                                     <br />
                                     <span className="text-gradient">that make booking feel obvious.</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    Authority-first messaging, professional design, and a conversion path that filters out poor-fit leads - so you spend less time &quot;selling&quot; and more time coordinating.
+                                    Professional messaging, strong design, and a clear path that filters out poor-fit leads — so you spend less time &quot;selling&quot; and more time coordinating.
                                 </p>
                                  <div className="flex flex-col sm:flex-row gap-3">
                                      <Link
                                          href="/contact?source=tc-hero"
                                          className="btn-primary"
                                      >
-                                         Talk about your project
+                                         Get started
                                      </Link>
                                      <Link
                                          href="/work?industry=tc"
@@ -281,37 +278,6 @@ export default function TransactionCoordinatorsPage() {
                         </Link>
                     </div>
                 </AnimatedSection>
-            </Section>
-
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-2">
-                    <AnimatedSection>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {fitFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {bestResultsWhen.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                </div>
             </Section>
 
             {featured.length > 0 ? (
@@ -544,7 +510,7 @@ export default function TransactionCoordinatorsPage() {
                         Send a link to your current site (if you have one) and tell me what you want the page to do. I’ll reply within one business day with next steps.
                     </p>
                     <Link href="/contact?source=tc-cta" className="btn-primary">
-                        Talk about your project
+                        Get started
                     </Link>
                 </AnimatedSection>
             </Section>

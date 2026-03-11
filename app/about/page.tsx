@@ -30,7 +30,7 @@ const values = [
         icon: IconShieldCheck,
         title: "Performance + accessibility",
         description:
-            "Fast pages and accessible design aren’t extras—they’re trust signals. They also keep your site usable for more people.",
+            "Fast pages and accessible design aren’t extras — they show visitors your business is professional. They also keep your site usable for more people.",
     },
     {
         icon: IconChecklist,
@@ -63,13 +63,10 @@ export default function AboutPage() {
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <div className="grid items-center gap-12 rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] md:grid-cols-2 md:gap-16 md:px-8 md:py-10">
                     <AnimatedSection>
-                        <div className="flex flex-wrap items-center gap-3 mb-6">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-foreground border border-glow/20">
-                                About
-                            </span>
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border/65 bg-background/80 px-4 py-1 text-xs text-muted-foreground">
+                        <div className="mb-6">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-border/65 bg-background/80 px-4 py-1.5 text-xs text-muted-foreground">
                                 <IconMapPin className="h-3.5 w-3.5 text-glow" stroke={1.5} />
-                                Poconos, PA • Remote-friendly
+                                Poconos, PA · Remote-friendly
                             </span>
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
@@ -78,11 +75,11 @@ export default function AboutPage() {
                             <span className="text-gradient">I build websites that make it easy to trust you.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground mb-8">
-                            Multimedium is my solo practice. I help established SMBs and service teams build sites that earn trust fast—with the same conversion system I&apos;ve refined across real estate, local services, and SaaS.
+                            Multimedium is my solo practice. I help established SMBs and service teams build sites that work harder — strategy, design, and code in one loop, refined across real estate, local services, and SaaS.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=about-hero" className="btn-primary">
-                                Talk about your project
+                                Work with me
                             </Link>
                             <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
                                 Browse case studies
@@ -131,9 +128,6 @@ export default function AboutPage() {
                 <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
                     <AnimatedSection>
                         <div className="space-y-4">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-foreground border border-glow/20">
-                                How I work
-                            </span>
                             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
                                 Clear deliverables, no agency fog
                             </h2>
@@ -182,7 +176,7 @@ export default function AboutPage() {
                         Tell me what you do, who you want to attract, and what&apos;s not working on the current site. I&apos;ll reply within one business day with next steps.
                     </p>
                     <Link href="/contact?source=about-cta" className="btn-primary">
-                        Talk about your project
+                        Let&apos;s talk
                     </Link>
                 </AnimatedSection>
             </Section>

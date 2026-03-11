@@ -86,7 +86,7 @@ export default function GrowthRetainersServicePage() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-retainer" className="btn-primary">
-                                        Talk about your project
+                                        Explore a retainer
                                     </Link>
                                     <Link href="/work?source=services-retainer" className="btn-secondary inline-flex items-center gap-2">
                                         View work <IconArrowRight className="w-4 h-4" stroke={2} />
@@ -168,43 +168,6 @@ export default function GrowthRetainersServicePage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-2">
-                    <AnimatedSection>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Great fit for</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                {fitFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.06}>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                            <h3 className="text-xl font-semibold text-foreground">Best results when</h3>
-                            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You have baseline traffic and want stronger conversion over time.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    Your team can review priorities monthly and approve incremental updates.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
-                                    You want outcomes tied to leads and pipeline quality, not vanity metrics.
-                                </li>
-                            </ul>
-                        </div>
-                    </AnimatedSection>
-                </div>
-            </Section>
-
             {featured.length > 0 ? (
                 <Section className="pt-10 md:pt-14" padding="none">
                     <AnimatedSection>
@@ -214,7 +177,7 @@ export default function GrowthRetainersServicePage() {
                                     The kind of work we iterate on
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
-                                    Landing pages, conversion flows, and authority-first improvements that make the site perform better over time.
+                                    Landing pages, messaging improvements, and ongoing tweaks that make the site perform better over time.
                                 </p>
                             </div>
                             <Link
@@ -289,7 +252,7 @@ export default function GrowthRetainersServicePage() {
                         If you have traffic but not enough inquiries, a retainer is a simple way to ship steady improvements without starting from scratch each month.
                     </p>
                     <Link href="/contact?source=services-retainer-cta" className="btn-primary">
-                        Talk about your project
+                        Explore a retainer
                     </Link>
                 </AnimatedSection>
             </Section>
