@@ -133,10 +133,10 @@ export default async function WorkPage({
     const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
     const spotlightOrder =
         industry === "tc"
-            ? ["pa-real-estate-support", "tag-landing-page"]
+            ? ["utility-sheet", "norma", "pa-real-estate-support", "tag-landing-page"]
             : industry === "coaching"
                 ? ["momentum-coaching", "clarity-growth"]
-                : ["momentum-coaching", "northpoint-realty", "pa-real-estate-support", "tag-landing-page"];
+                : ["utility-sheet", "norma", "pa-real-estate-support", "tag-landing-page"];
     const spotlightProjects: Project[] = showSpotlight
         ? (spotlightOrder
             .map((slug) => filteredProjects.find((p) => p.slug === slug))
@@ -327,7 +327,6 @@ export default async function WorkPage({
         </>
     );
 }
-
 
 
 

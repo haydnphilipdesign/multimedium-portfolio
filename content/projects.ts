@@ -1411,12 +1411,10 @@ export function getFeaturedProjects(): Project[] {
 }
 
 const homeFeaturedProjectSlugs: string[] = [
-    "tag-landing-page",
-    "pa-real-estate-support",
     "utility-sheet",
-    "northpoint-realty",
-    "gentlemans-blade",
-    "momentum-coaching",
+    "norma",
+    "pa-real-estate-support",
+    "tag-landing-page",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {
