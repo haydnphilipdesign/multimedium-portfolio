@@ -47,6 +47,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     const sent = params.sent === "1";
     const error = params.error;
     const source = params.source ?? "";
+    const referralDefault = source === "mytcacademy" ? "My TC Academy (Jennifer's referral)" : "";
     const projectType = params.projectType ?? "";
     const budgetRange = params.budgetRange ?? "";
     const timeline = params.timeline ?? "";
@@ -203,6 +204,27 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                     <p className="mt-2 text-xs text-muted-foreground">
                                         Start simple. You can add optional details below.
                                     </p>
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="referral"
+                                        className="block text-sm font-medium text-foreground mb-2"
+                                    >
+                                        How did you hear about us?{" "}
+                                        <span className="text-muted-foreground font-normal">
+                                            (optional)
+                                        </span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="referral"
+                                        name="referral"
+                                        maxLength={200}
+                                        defaultValue={referralDefault}
+                                        className="form-control"
+                                        placeholder="e.g. Google, referral, social media…"
+                                    />
                                 </div>
 
                                 <details

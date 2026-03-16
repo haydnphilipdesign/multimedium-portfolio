@@ -13,6 +13,7 @@ export interface ContactEmailPayload {
     budgetRange?: string;
     timeline?: string;
     currentUrl?: string;
+    referral?: string;
     message: string;
     meta?: {
         ip?: string;
@@ -246,6 +247,7 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
         payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
         payload.timeline ? `Timeline: ${payload.timeline}` : "",
         payload.currentUrl ? `Current site: ${payload.currentUrl}` : "",
+        payload.referral ? `Referral: ${payload.referral}` : "",
         payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
         payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
         payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
@@ -274,6 +276,7 @@ export async function sendContactEmail(payload: ContactEmailPayload) {
             { label: "Budget", value: payload.budgetRange },
             { label: "Timeline", value: payload.timeline },
             { label: "Current Site", value: payload.currentUrl },
+            { label: "Referral", value: payload.referral },
             { label: "IP", value: payload.meta?.ip },
             { label: "Referer", value: payload.meta?.referer },
             { label: "User Agent", value: payload.meta?.userAgent },

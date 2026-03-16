@@ -114,6 +114,7 @@ export async function submitContact(formData: FormData) {
     const budgetRangeRaw = getText(formData, "budgetRange");
     const timelineRaw = getText(formData, "timeline");
     const currentUrl = getText(formData, "currentUrl");
+    const referral = getText(formData, "referral");
     const message = getText(formData, "message");
 
     if (!name || !email || !message) {
@@ -178,6 +179,7 @@ export async function submitContact(formData: FormData) {
             budgetRange,
             timeline,
             currentUrl: currentUrl || undefined,
+            referral: referral || undefined,
             message,
             meta: {
                 ip,
