@@ -52,9 +52,7 @@ export default function ServicesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-35" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/90 px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                 Websites that
@@ -65,15 +63,15 @@ export default function ServicesPage() {
                                 A proven approach refined across local services, real estate, and SaaS — adapted for your business and audience.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Portfolio snapshot</p>
                                     <p className="mt-1 text-sm font-medium text-foreground">{clientProjectCount} client projects</p>
                                 </div>
-                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Typical launch</p>
                                     <p className="mt-1 text-sm font-medium text-foreground">4–6 weeks</p>
                                 </div>
-                                <div className="rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Core lanes</p>
                                     <p className="mt-1 text-sm font-medium text-foreground">TCs, local services, home services</p>
                                 </div>
@@ -86,7 +84,7 @@ export default function ServicesPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <div className="grid gap-6 md:grid-cols-2">
                     <AnimatedSection>
-                        <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                             <h2 className="text-lg font-semibold text-foreground mb-4">Great fit if</h2>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
@@ -106,7 +104,7 @@ export default function ServicesPage() {
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.08}>
-                        <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                             <h2 className="text-lg font-semibold text-foreground mb-4">Best results when</h2>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
@@ -129,7 +127,7 @@ export default function ServicesPage() {
 
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
-                    <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                         <div className="max-w-2xl">
                             <p className="text-sm font-medium text-foreground">Focused recently:</p>
                             <p className="mt-1 text-muted-foreground">
@@ -161,7 +159,7 @@ export default function ServicesPage() {
                         <StaggerItem key={service.title}>
                             <Link
                                 href={service.href}
-                                className="group block h-full relative p-6 sm:p-8 rounded-2xl bg-card border border-border/65 transition-all duration-300 hover:border-glow/30 hover:shadow-lg hover:shadow-glow/5"
+                                className="group block h-full relative p-6 sm:p-8 rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
                             >
                                 <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                                     <service.icon className="w-6 h-6" stroke={1.5} />
@@ -175,7 +173,7 @@ export default function ServicesPage() {
                                 </p>
                                 <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
                                     <span className="font-mono">Typical timeline: {service.timeline}</span>
-                                    <span className="inline-flex items-center gap-2 text-foreground group-hover:text-accent-strong transition-colors">
+                                    <span className="inline-flex items-center gap-2 text-foreground group-hover:text-primary transition-colors">
                                         {service.cta}
                                         <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                     </span>
@@ -186,11 +184,11 @@ export default function ServicesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-[2rem] bg-muted/35">
+            <Section className="rounded-2xl bg-muted/35">
                 <HowItWorks contactSource="services-how-it-works" />
             </Section>
 
-            <Section className="rounded-[2rem] border border-border/60 bg-card/80" padding="large">
+            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                         Not sure which one fits?

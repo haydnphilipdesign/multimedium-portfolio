@@ -74,9 +74,9 @@ export default function IndustriesPage() {
                         <StaggerItem key={industry.title}>
                             <Link
                                 href={industry.href}
-                                className="group block h-full rounded-2xl border border-border/70 bg-card/90 p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)] sm:p-8"
+                                className="group block h-full rounded-2xl border border-border/60 bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)] sm:p-8"
                             >
-                                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border/65 bg-muted/50 text-glow">
+                                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <industry.icon className="h-5 w-5" stroke={1.6} />
                                 </div>
                                 <h2 className="text-xl font-semibold text-foreground">{industry.title}</h2>

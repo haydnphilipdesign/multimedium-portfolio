@@ -40,9 +40,7 @@ export function StatementHero() {
             ref={containerRef}
             className="relative flex min-h-[92svh] items-center overflow-hidden pt-24 pb-20 sm:pt-28 md:pt-32"
         >
-            <div className="absolute inset-0 bg-hero-gradient opacity-75" />
-            <div className="grain absolute inset-0 pointer-events-none" />
-            <div className="hero-grid absolute inset-0 opacity-35" />
+            <div className="hero-grid absolute inset-0 opacity-25" />
 
             <div className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid items-center gap-10 py-6 md:grid-cols-[minmax(0,1fr)_minmax(320px,0.48fr)] md:gap-14 lg:gap-16">
@@ -58,12 +56,12 @@ export function StatementHero() {
                             transition={{ duration: 0.6, delay: 0.15 }}
                             className="max-w-3xl"
                         >
-                            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-glow/30 bg-card/75 px-4 py-2 text-sm text-foreground shadow-[var(--shadow-soft)] backdrop-blur-md">
-                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-glow" />
+                            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/80 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm">
+                                <span className="status-dot !h-2 !w-2" />
                                 Taking on 1–2 projects each month
                             </div>
 
-                            <h1 className="mb-6 text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                            <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                                 <span className="text-gradient">Websites that turn visitors into clients.</span>
                             </h1>
 
@@ -105,9 +103,7 @@ export function StatementHero() {
                         style={{ y: disableParallax ? 0 : cardY }}
                         className="relative mx-auto w-full max-w-md"
                     >
-                        <div className="absolute -inset-8 rounded-[2.2rem] bg-glow/16 blur-3xl" />
-
-                        <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-muted/40 shadow-[var(--shadow-elevated)]">
+                        <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-muted/40 shadow-[var(--shadow-soft)]">
                             <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
                                 <Image
                                     src="/haydn.png"
@@ -119,9 +115,9 @@ export function StatementHero() {
                                     sizes="(min-width: 1024px) 420px, (min-width: 768px) 380px, 100vw"
                                 />
                             </motion.div>
-                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent p-5">
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 to-transparent px-5 pb-5 pt-10">
                                 <p className="text-sm font-medium text-foreground">Haydn</p>
-                                <p className="text-xs text-muted-foreground">Designer + Developer · Poconos, PA</p>
+                                <p className="text-xs text-muted-foreground">Designer + Developer</p>
                             </div>
                         </div>
                     </motion.div>

@@ -1411,10 +1411,10 @@ export function getFeaturedProjects(): Project[] {
 }
 
 const homeFeaturedProjectSlugs: string[] = [
-    "utility-sheet",
-    "norma",
-    "pa-real-estate-support",
-    "tag-landing-page",
+    "nomad-gear",
+    "velvet-rose",
+    "gentlemans-blade",
+    "pop-playground",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {

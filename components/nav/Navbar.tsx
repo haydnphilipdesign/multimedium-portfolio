@@ -73,7 +73,7 @@ export function Navbar() {
                             </div>
                         </Link>
 
-                        <div className="hidden md:flex items-center gap-1 rounded-full border border-border/65 bg-background/80 p-1">
+                        <div className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-background/80 p-1">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
@@ -108,7 +108,7 @@ export function Navbar() {
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="touch-target inline-flex h-10 items-center rounded-lg px-2.5 text-sm font-medium leading-none whitespace-nowrap text-muted-foreground transition-colors hover:text-accent-strong"
+                                    className="touch-target inline-flex h-10 items-center rounded-lg px-2.5 text-sm font-medium leading-none whitespace-nowrap text-muted-foreground transition-colors hover:text-primary"
                                 >
                                     Book a call
                                 </a>
@@ -122,7 +122,7 @@ export function Navbar() {
                         </div>
 
                         <Dialog.Trigger
-                            className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-accent-strong md:hidden"
+                            className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-primary md:hidden"
                             aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
                             {isOpen ? (
@@ -148,12 +148,12 @@ export function Navbar() {
                             <Link
                                 href="/"
                                 onClick={() => setIsOpen(false)}
-                                className="touch-target -mx-2 -my-1 rounded-md px-2 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-accent-strong"
+                                className="touch-target -mx-2 -my-1 rounded-md px-2 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
                             >
                                 Multimedium
                             </Link>
                             <Dialog.Close
-                                className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-accent-strong"
+                                className="touch-target rounded-lg p-2 text-foreground transition-colors hover:text-primary"
                                 aria-label="Close menu"
                             >
                                 <IconX className="h-6 w-6" stroke={1.5} />
@@ -174,8 +174,8 @@ export function Navbar() {
                                     className={cn(
                                         "touch-target block rounded-xl border px-4 py-3 text-base font-medium transition-colors",
                                         isActive(link.href)
-                                            ? "border-glow/30 bg-primary-soft text-foreground"
-                                            : "border-transparent text-muted-foreground hover:border-border/65 hover:bg-accent hover:text-foreground"
+                                            ? "border-primary/30 bg-primary-soft text-foreground"
+                                            : "border-transparent text-muted-foreground hover:border-border/60 hover:bg-accent hover:text-foreground"
                                     )}
                                 >
                                     {link.label}

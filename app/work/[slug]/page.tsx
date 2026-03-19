@@ -227,7 +227,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                     <a
                                         key={item.href}
                                         href={item.href}
-                                        className="touch-target inline-flex items-center rounded-full border border-border/65 bg-card/82 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-glow/30 hover:text-foreground"
+                                        className="touch-target inline-flex items-center rounded-full border border-border/60 bg-card/80 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
                                     >
                                         {item.label}
                                     </a>

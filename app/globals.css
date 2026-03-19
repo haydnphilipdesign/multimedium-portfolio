@@ -301,20 +301,7 @@
       radial-gradient(ellipse 46% 34% at 14% 86%, oklch(0.74 0.05 232 / 0.12), transparent);
   }
 
-  /* Soft glow effects */
-  .glow {
-    box-shadow:
-      0 0 20px oklch(0.76 0.15 78 / 0.2),
-      0 0 40px oklch(0.76 0.15 78 / 0.14),
-      0 0 60px oklch(0.76 0.15 78 / 0.07);
-  }
-
-  .glow-text {
-    text-shadow:
-      0 0 20px oklch(0.76 0.15 78 / 0.32),
-      0 0 40px oklch(0.76 0.15 78 / 0.2);
-  }
-
+  /* Subtle glow border for emphasis */
   .glow-border {
     box-shadow:
       inset 0 0 0 1px oklch(1 0 0 / 0.08),
@@ -329,40 +316,9 @@
     border: 1px solid color-mix(in oklab, var(--border) 78%, transparent);
   }
 
-  /* Text gradient with smooth animation */
+  /* Accent text — static, intentional color */
   .text-gradient {
-    background: linear-gradient(125deg, var(--foreground), var(--primary), var(--glow));
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease infinite;
-  }
-
-  @keyframes gradient-shift {
-
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .text-gradient {
-      animation: none;
-      background-position: 0% 50%;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .text-gradient {
-      animation: none;
-      background-position: 50% 50%;
-    }
+    color: var(--primary);
   }
 
   /* Card hover lift effect */
@@ -395,9 +351,9 @@
 
   .eyebrow-pill {
     @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium;
-    border-color: color-mix(in oklab, var(--glow) 28%, var(--border));
-    background: color-mix(in oklab, var(--glow) 12%, transparent);
-    color: var(--accent-strong);
+    border-color: color-mix(in oklab, var(--primary) 28%, var(--border));
+    background: color-mix(in oklab, var(--primary) 10%, transparent);
+    color: var(--primary);
   }
 
   .card-elevated {
@@ -487,13 +443,13 @@
 
   .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-1px) scale(1.02);
-    box-shadow: var(--shadow-soft), 0 0 28px oklch(0.52 0.09 244 / 0.26);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
   }
 
   .btn-primary:active {
     background-color: var(--primary-active);
-    transform: translateY(0) scale(0.98);
+    transform: translateY(0);
   }
 
   .btn-primary:disabled {

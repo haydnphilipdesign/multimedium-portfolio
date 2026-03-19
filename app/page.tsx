@@ -10,7 +10,6 @@ import {
     IconCode,
     IconChartLine,
     IconArrowRight,
-    IconQuote,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -62,7 +61,6 @@ export default function HomePage() {
 
             {/* Featured Work */}
             <Section id="work" className="relative">
-                <div className="grain absolute inset-0 pointer-events-none" />
                 <AnimatedSection>
                     <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                         <div className="max-w-2xl">
@@ -73,7 +71,7 @@ export default function HomePage() {
                         </div>
                         <Link
                             href="/work"
-                            className="group inline-flex items-center gap-2 text-foreground transition-colors hover:text-accent-strong"
+                            className="group inline-flex items-center gap-2 text-foreground transition-colors hover:text-primary"
                         >
                             <span className="font-medium">All case studies</span>
                             <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -104,7 +102,7 @@ export default function HomePage() {
                         <Link
                             key={service.title}
                             href={service.href}
-                            className="group flex flex-col justify-between rounded-2xl border border-border/70 bg-card/90 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]"
+                            className="group flex flex-col justify-between rounded-2xl border border-border/60 bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
                         >
                             <div>
                                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
@@ -115,7 +113,7 @@ export default function HomePage() {
                             </div>
                             <div className="mt-5 flex items-center justify-between text-xs text-muted-foreground">
                                 <span className="font-mono">{service.timeline}</span>
-                                <span className="inline-flex items-center gap-1.5 font-medium text-foreground group-hover:text-accent-strong transition-colors">
+                                <span className="inline-flex items-center gap-1.5 font-medium text-foreground group-hover:text-primary transition-colors">
                                     Learn more <IconArrowRight className="w-3.5 h-3.5" stroke={2} />
                                 </span>
                             </div>
@@ -126,26 +124,22 @@ export default function HomePage() {
 
             {/* Testimonial */}
             {testimonial && (
-                <Section className="rounded-[2rem] bg-muted/35">
-                    <AnimatedSection className="max-w-3xl mx-auto text-center">
-                        <IconQuote className="w-10 h-10 text-glow/30 mx-auto mb-6" stroke={1} />
-                        <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed">
+                <Section className="rounded-2xl border border-border/60 bg-card/60">
+                    <AnimatedSection className="max-w-2xl mx-auto text-center">
+                        <blockquote className="text-lg md:text-xl text-foreground leading-relaxed font-display italic">
                             &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                         <div className="mt-6">
-                            <p className="font-medium text-foreground">{testimonial.author}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                            <p className="text-sm font-medium text-foreground">{testimonial.author}</p>
+                            <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                         </div>
                     </AnimatedSection>
                 </Section>
             )}
 
             {/* CTA */}
-            <Section className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/70" padding="large">
-                <div className="grain absolute inset-0 pointer-events-none" />
-                <div className="absolute inset-0 bg-hero-gradient opacity-60" />
-
-                <AnimatedSection className="relative z-10 text-center max-w-3xl mx-auto">
+            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
+                <AnimatedSection className="text-center max-w-3xl mx-auto">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
                         Ready for a website that
                         <br />

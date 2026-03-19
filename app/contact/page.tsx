@@ -87,10 +87,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Hero Section */}
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-30" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
-                        <div className="relative space-y-4">
+                    <div className="overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
+                        <div className="space-y-4">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                                 Let&apos;s talk about your project
                             </h1>
@@ -107,7 +105,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 <div className="grid md:grid-cols-5 gap-10 md:gap-12 lg:gap-16">
                     {/* Contact Form */}
                     <AnimatedSection className="md:col-span-3">
-                        <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/65">
+                        <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border/60">
                             <h2 className="text-xl font-semibold text-foreground mb-6">
                                 Send a message
                             </h2>
@@ -228,7 +226,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                 </div>
 
                                 <details
-                                    className="group rounded-xl border border-border/65 bg-muted/20 px-4 py-3"
+                                    className="group rounded-xl border border-border/60 bg-muted/20 px-4 py-3"
                                     open={Boolean(projectType || budgetRange || timeline || currentUrl)}
                                 >
                                     <summary className="cursor-pointer list-none text-sm font-medium text-foreground">
@@ -458,7 +456,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     <AnimatedSection delay={0.2} className="md:col-span-2">
                         <div className="space-y-8">
                             {/* Direct Contact */}
-                            <div className="p-6 rounded-2xl bg-card border border-border/65">
+                            <div className="p-6 rounded-2xl bg-card border border-border/60">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     Direct contact
                                 </h3>
@@ -470,14 +468,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         href="tel:+15709946186"
                                         className="form-choice"
                                     >
-                                        <IconPhone className="w-4 h-4 text-glow" stroke={1.5} />
+                                        <IconPhone className="w-4 h-4 text-primary" stroke={1.5} />
                                         <span>Call or text 570-994-6186</span>
                                     </a>
                                     <a
                                         href="mailto:haydn@multimedium.dev"
                                         className="form-choice"
                                     >
-                                        <IconMail className="w-4 h-4 text-glow" stroke={1.5} />
+                                        <IconMail className="w-4 h-4 text-primary" stroke={1.5} />
                                         <span>haydn@multimedium.dev</span>
                                     </a>
                                     {schedulingUrl && (
@@ -487,7 +485,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                             rel="noopener noreferrer"
                                             className="form-choice"
                                         >
-                                            <IconCalendarEvent className="w-4 h-4 text-glow" stroke={1.5} />
+                                            <IconCalendarEvent className="w-4 h-4 text-primary" stroke={1.5} />
                                             <span>Book a call</span>
                                         </a>
                                     )}
@@ -495,14 +493,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                             </div>
 
                             {/* What to Expect */}
-                            <div className="p-6 rounded-2xl bg-card border border-border/65">
+                            <div className="p-6 rounded-2xl bg-card border border-border/60">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     What to expect
                                 </h3>
                                 <ul className="space-y-3 text-sm text-muted-foreground">
                                     {expectations.map((item) => (
                                         <li key={item.label} className="flex items-start gap-3">
-                                            <IconClock className="mt-0.5 h-4 w-4 text-glow" stroke={1.5} />
+                                            <IconClock className="mt-0.5 h-4 w-4 text-primary" stroke={1.5} />
                                             <span>
                                                 <span className="font-semibold text-foreground">{item.label}:</span>{" "}
                                                 {item.value}

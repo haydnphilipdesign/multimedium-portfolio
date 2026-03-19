@@ -17,7 +17,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const [imageError, setImageError] = useState(false);
 
     const cardContent = (
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card/90 shadow-[var(--shadow-soft)] transition-all duration-500 hover:-translate-y-1 hover:border-glow/35 hover:shadow-[var(--shadow-elevated)]">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-muted/70">
                 {!imageError ? (
                     <Image
@@ -44,14 +44,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     {project.year}
                 </span>
 
-                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-border/55 bg-background/75 text-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <IconArrowUpRight className="h-5 w-5" stroke={1.9} />
                 </div>
             </div>
 
             <div className="flex flex-1 flex-col space-y-4 p-5 sm:p-6">
                 <div>
-                    <h3 className="text-[1.4rem] font-semibold tracking-tight text-foreground transition-colors group-hover:text-gradient">
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
                         {project.title}
                     </h3>
                     <p className="mt-2 text-sm text-muted-foreground">
@@ -59,9 +59,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     </p>
                 </div>
 
-                <div className="mt-auto flex items-center justify-between border-t border-border/55 pt-4 text-xs text-muted-foreground">
+                <div className="mt-auto flex items-center justify-between border-t border-border/60 pt-4 text-xs text-muted-foreground">
                     <span>{project.role.split(",")[0]}</span>
-                    <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-accent-strong">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-primary">
                         View project
                         <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
                     </span>
@@ -74,7 +74,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         return (
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-[1.4rem]"
+                className="focus-ring block h-full rounded-2xl"
             >
                 {cardContent}
             </Link>
@@ -95,7 +95,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-[1.4rem]"
+                className="focus-ring block h-full rounded-2xl"
             >
                 {cardContent}
             </Link>
@@ -119,7 +119,7 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="group block overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-glow/35 hover:shadow-[var(--shadow-soft)]"
+                className="group block overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
             >
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                     {!imageError ? (

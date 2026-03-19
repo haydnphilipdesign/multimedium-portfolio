@@ -168,13 +168,10 @@ export default async function WorkPage({
     return (
         <>
             <div className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-hero-gradient opacity-70" />
-                <div className="grain absolute inset-0 pointer-events-none" />
-
                 {/* Hero Section */}
                 <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                     <AnimatedSection>
-                        <div className="rounded-[2rem] border border-border/65 bg-card/88 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
+                        <div className="rounded-2xl border border-border/60 bg-card/90 px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                     <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
@@ -212,8 +209,7 @@ export default async function WorkPage({
 
             {/* Spotlight */}
             {spotlightProjects.length > 0 && (
-                <Section className="relative pt-14 md:pt-20 overflow-hidden">
-                    <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-glow/10 blur-3xl" />
+                <Section className="pt-14 md:pt-20">
                     <AnimatedSection>
                         <div className="flex items-end justify-between gap-8 mb-8">
                             <div className="max-w-3xl">
@@ -281,8 +277,7 @@ export default async function WorkPage({
 
             {/* Tools, Products, and Internal Builds */}
             {otherProjects.length > 0 && (
-                <div className="relative rounded-[2rem] border border-border/60 bg-muted/35">
-                    <div className="grain absolute inset-0 pointer-events-none" />
+                <div className="relative rounded-2xl border border-border/60 bg-muted/35">
                     <Section>
                         <AnimatedSection>
                             <div className="max-w-3xl">
@@ -311,7 +306,7 @@ export default async function WorkPage({
             {/* CTA Section */}
             <div>
                 <Section>
-                    <AnimatedSection className="mx-auto max-w-2xl rounded-[2rem] border border-border/60 bg-card/80 px-6 py-10 text-center shadow-[var(--shadow-soft)] sm:px-8">
+                    <AnimatedSection className="mx-auto max-w-2xl rounded-2xl border border-border/60 bg-card/80 px-6 py-10 text-center shadow-[var(--shadow-soft)] sm:px-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                             Have a project in mind?
                         </h2>

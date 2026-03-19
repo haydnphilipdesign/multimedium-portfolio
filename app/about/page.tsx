@@ -61,11 +61,11 @@ export default function AboutPage() {
         <>
             {/* Hero Section */}
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
-                <div className="grid items-center gap-12 rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] md:grid-cols-2 md:gap-16 md:px-8 md:py-10">
+                <div className="grid items-center gap-12 rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] md:grid-cols-2 md:gap-16 md:px-8 md:py-10">
                     <AnimatedSection>
                         <div className="mb-6">
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border/65 bg-background/80 px-4 py-1.5 text-xs text-muted-foreground">
-                                <IconMapPin className="h-3.5 w-3.5 text-glow" stroke={1.5} />
+                            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-4 py-1.5 text-xs text-muted-foreground">
+                                <IconMapPin className="h-3.5 w-3.5 text-primary" stroke={1.5} />
                                 Poconos, PA · Remote-friendly
                             </span>
                         </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.2}>
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/65 bg-muted shadow-[var(--shadow-soft)]">
+                        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-muted shadow-[var(--shadow-soft)]">
                             <Image
                                 src="/haydn.png"
                                 alt="Haydn"
@@ -107,8 +107,8 @@ export default function AboutPage() {
                 <StaggerContainer className="grid gap-6 sm:grid-cols-2 md:grid-cols-3" staggerDelay={0.1}>
                     {values.map((value) => (
                         <StaggerItem key={value.title}>
-                            <div className="p-7 rounded-2xl bg-card border border-border/65 h-full">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow mb-5">
+                            <div className="p-7 rounded-2xl bg-card border border-border/60 h-full">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary mb-5">
                                     <value.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h2 className="text-xl font-semibold text-foreground mb-3">
@@ -124,7 +124,7 @@ export default function AboutPage() {
             </Section>
 
             {/* How I Work Section */}
-            <Section className="rounded-[2rem] bg-muted/35">
+            <Section className="rounded-2xl bg-muted/35">
                 <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
                     <AnimatedSection>
                         <div className="space-y-4">
@@ -155,7 +155,7 @@ export default function AboutPage() {
                                 {toolbox.map((item) => (
                                     <span
                                         key={item}
-                                        className="rounded-full border border-border/65 bg-card px-3 py-1 text-xs text-muted-foreground"
+                                        className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs text-muted-foreground"
                                     >
                                         {item}
                                     </span>
@@ -167,7 +167,7 @@ export default function AboutPage() {
             </Section>
 
             {/* CTA Section */}
-            <Section className="rounded-[2rem] border border-border/60 bg-card/80" padding="large">
+            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-3xl font-bold text-foreground mb-6">
                         Want a site that brings in better leads?
