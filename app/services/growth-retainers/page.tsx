@@ -213,7 +213,7 @@ export default function GrowthRetainersServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Retainers are scoped around monthly outcomes and available capacity. After a quick audit, I&apos;ll propose a plan and range that matches your runway.
+                            Hosting and maintenance plans start at $59/month. Larger growth retainers are scoped around monthly outcomes and capacity — after a quick audit, I&apos;ll propose a plan that matches your runway.
                         </p>
                     </AnimatedSection>
                 </div>

@@ -214,7 +214,7 @@ export default function LandingPagesServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Landing pages are usually the most budget-flexible starting point. Final range depends on copy, assets, variants, and integrations.
+                            Landing pages start at $750 depending on copy, assets, variants, and integrations — making them the most accessible starting point.
                         </p>
                     </AnimatedSection>
                 </div>

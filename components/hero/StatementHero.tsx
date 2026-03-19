@@ -72,7 +72,7 @@ export function StatementHero() {
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
-                                Most projects land between <span className="font-semibold text-foreground">$5k and $25k</span>, with focused landing-page scopes for smaller budgets.
+                                Projects start at <span className="font-semibold text-foreground">$750</span> depending on scope, with optional hosting &amp; maintenance from <span className="font-semibold text-foreground">$59/month</span>.
                             </p>
 
                             <div className="flex flex-col gap-4 sm:flex-row">

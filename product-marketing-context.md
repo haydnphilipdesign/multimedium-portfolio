@@ -16,7 +16,7 @@ Conversion-focused web design and development for service businesses.
 Service business (studio).
 
 **Business model:**  
-Project-based pricing plus optional ongoing retainers. Typical builds are positioned in the `5k-25k` range, with focused landing-page scopes for smaller budgets.
+Project-based pricing starting at `$750` plus optional hosting and maintenance from `$59/month`. Typical builds range from `$750–$5,000+` depending on scope, with ongoing retainers available.
 
 ## Target Audience
 **Target companies:**  
@@ -127,7 +127,7 @@ disruptive, revolutionary, growth hacks, guaranteed results
 **Personality:** Credible, clear, accountable, calm.
 
 ## Proof Points
-**Metrics:** Typical scope and timeline guidance (`5k-25k`, `4-6 weeks`) and project-specific outcomes where available.  
+**Metrics:** Typical scope and timeline guidance (`$750–$5k+`, `4-6 weeks`) and project-specific outcomes where available.  
 **Customers:** Service businesses, real estate adjacent businesses, and SMB operators.  
 **Testimonials:** Use mixed proof format where hard metrics are limited.  
 **Value themes:** clarity, trust, conversion, speed, owner accountability.

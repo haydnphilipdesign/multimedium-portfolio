@@ -212,7 +212,7 @@ export default function WebsiteServicePage() {
                             Budget guidance
                         </h2>
                         <p className="text-muted-foreground">
-                            Most redesigns land in the $10k–$25k range depending on scope and content readiness. If that range is high for right now, we can scope a focused first phase and expand over time.
+                            Full website builds typically range from $1,500 to $5,000+ depending on scope and content readiness. Simpler projects start at $750, and we can always scope a focused first phase and expand over time.
                         </p>
                     </AnimatedSection>
                 </div>
