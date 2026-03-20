@@ -710,7 +710,7 @@ export const projects: Project[] = [
     {
         slug: "norma-intake",
         title: "Norma Intake",
-        kind: "Product",
+        kind: "Client",
         industries: ["tc", "real-estate"],
         metaTitle: "Norma Intake - AI-Powered Transaction Intake for TCs",
         metaDescription:
@@ -1507,7 +1507,7 @@ export function getFeaturedProjects(): Project[] {
 
 const homeFeaturedProjectSlugs: string[] = [
     "utility-sheet",
-    "norma",
+    "norma-intake",
     "tag-landing-page",
     "pa-real-estate-support",
 ];

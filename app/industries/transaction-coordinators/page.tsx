@@ -156,8 +156,8 @@ export default function TransactionCoordinatorsPage() {
     const tagProject = getProjectBySlug("tag-landing-page");
     const paRes = getProjectBySlug("pa-real-estate-support");
     const utilitySheet = getProjectBySlug("utility-sheet");
-    const norma = getProjectBySlug("norma");
-    const featured = [paRes, tagProject, utilitySheet, norma].filter(
+    const normaIntake = getProjectBySlug("norma-intake");
+    const featured = [paRes, tagProject, utilitySheet, normaIntake].filter(
         (project): project is Project => Boolean(project)
     );
 
