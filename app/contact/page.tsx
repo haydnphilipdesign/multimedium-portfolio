@@ -362,17 +362,20 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                     <option value="">
                                                         Select a budget range
                                                     </option>
-                                                    <option value="under5k">
-                                                        Under $5k (focused page scope)
+                                                    <option value="under1k">
+                                                        Under $1k
+                                                    </option>
+                                                    <option value="1to3k">
+                                                        $1k–$3k
+                                                    </option>
+                                                    <option value="3to5k">
+                                                        $3k–$5k
                                                     </option>
                                                     <option value="5to10k">
                                                         $5k–$10k
                                                     </option>
-                                                    <option value="10to25k">
-                                                        $10k–$25k
-                                                    </option>
-                                                    <option value="25kplus">
-                                                        $25k+
+                                                    <option value="10kplus">
+                                                        $10k+ (larger scope)
                                                     </option>
                                                     <option value="unsure">
                                                         Not sure yet / want guidance

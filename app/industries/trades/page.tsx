@@ -102,10 +102,10 @@ const faqs = [
 ];
 
 export default function TradesPage() {
-    const gentlemansBlade = getProjectBySlug("gentlemans-blade");
-    const velvetRose = getProjectBySlug("velvet-rose");
+    const paRes = getProjectBySlug("pa-real-estate-support");
     const tag = getProjectBySlug("tag-landing-page");
-    const featured = [gentlemansBlade, velvetRose, tag].filter(
+    const threePenn = getProjectBySlug("three-penn-properties");
+    const featured = [paRes, tag, threePenn].filter(
         (project): project is Project => Boolean(project)
     );
 

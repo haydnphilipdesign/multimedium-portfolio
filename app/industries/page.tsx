@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { IconArrowRight, IconBuildingSkyscraper, IconHammer, IconHome2 } from "@tabler/icons-react";
+import { IconArrowRight, IconBuildingSkyscraper, IconHammer, IconHome2, IconHomeDollar, IconBuildingCommunity } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
     title: "Industries",
     description:
-        "Industry-focused website design for transaction coordinators, local trades, and home service companies.",
+        "Industry-focused website design for real estate agents, transaction coordinators, HOAs, local trades, and home service companies.",
     alternates: {
         canonical: "/industries",
     },
@@ -15,12 +15,28 @@ export const metadata: Metadata = {
 
 const industries = [
     {
+        icon: IconHomeDollar,
+        title: "Real Estate Agents & Teams",
+        description:
+            "Websites that position your team, showcase listings, and generate buyer and seller leads.",
+        href: "/lp/real-estate",
+        cta: "See RE offer",
+    },
+    {
         icon: IconBuildingSkyscraper,
         title: "Transaction Coordinators",
         description:
             "Professional websites and optional intake automation for real estate ops teams that want more qualified calls.",
         href: "/industries/transaction-coordinators",
         cta: "See TC offer",
+    },
+    {
+        icon: IconBuildingCommunity,
+        title: "HOAs & Community Associations",
+        description:
+            "Professional sites with document access, event calendars, dues info, and board communication for your community.",
+        href: "/industries/homeowners-associations",
+        cta: "See HOA offer",
     },
     {
         icon: IconHammer,
@@ -67,7 +83,7 @@ export default function IndustriesPage() {
                         subtitle="Same standard of craft, tuned for different buyers and how they make decisions."
                     />
                 </AnimatedSection>
-                <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.08}>
+                <StaggerContainer className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     {industries.map((industry) => (
                         <StaggerItem key={industry.title}>
                             <Link

@@ -26,7 +26,7 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-                            Web design for service businesses that need clearer messaging, a professional presence, and more inquiries.
+                            Web design for real estate professionals, transaction coordinators, and HOAs — clearer messaging, a professional presence, and more qualified inquiries.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA
@@ -58,14 +58,17 @@ export function Footer() {
                             Industries
                         </p>
                         <nav className="flex flex-col items-start gap-2">
+                            <Link href="/lp/real-estate?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Real Estate Agents
+                            </Link>
                             <Link href="/industries/transaction-coordinators?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Transaction Coordinators
                             </Link>
+                            <Link href="/industries/homeowners-associations?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                HOAs
+                            </Link>
                             <Link href="/industries/trades?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Trades & Services
-                            </Link>
-                            <Link href="/industries/home-services?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Home Services
                             </Link>
                         </nav>
                     </div>

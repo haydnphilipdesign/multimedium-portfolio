@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
     title: "About",
     description:
-        "Meet Haydn—designer and developer helping small and medium businesses build clearer, higher-converting websites.",
+        "Meet Haydn—designer and developer helping real estate professionals, TCs, and HOAs build clearer, higher-converting websites.",
     alternates: {
         canonical: "/about",
     },
@@ -75,7 +75,7 @@ export default function AboutPage() {
                             <span className="text-gradient">I build websites that make it easy to trust you.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground mb-8">
-                            Multimedium is my solo practice. I help established SMBs and service teams build sites that work harder — strategy, design, and code in one loop, refined across real estate, local services, and SaaS.
+                            Multimedium is my solo practice. I help real estate teams, transaction coordinators, and HOAs build sites that work harder — strategy, design, and code in one loop, refined across real estate, transaction coordination, and property operations.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/contact?source=about-hero" className="btn-primary">

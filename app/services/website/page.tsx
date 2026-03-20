@@ -57,10 +57,10 @@ const faq = [
 ];
 
 export default function WebsiteServicePage() {
-    const blissful = getProjectBySlug("blissful-existence");
+    const northpoint = getProjectBySlug("northpoint-realty");
     const threePenn = getProjectBySlug("three-penn-properties");
     const paRes = getProjectBySlug("pa-real-estate-support");
-    const featured = [paRes, blissful, threePenn].filter(
+    const featured = [paRes, northpoint, threePenn].filter(
         (project): project is Project => Boolean(project)
     );
 

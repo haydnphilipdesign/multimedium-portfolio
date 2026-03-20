@@ -141,10 +141,10 @@ const faqs = [
 ];
 
 export default function HomeServicesPage() {
-    const gentlemansBlade = getProjectBySlug("gentlemans-blade");
-    const nomadGear = getProjectBySlug("nomad-gear");
+    const paRes = getProjectBySlug("pa-real-estate-support");
+    const northpoint = getProjectBySlug("northpoint-realty");
     const tag = getProjectBySlug("tag-landing-page");
-    const featured = [gentlemansBlade, nomadGear, tag].filter(
+    const featured = [paRes, northpoint, tag].filter(
         (project): project is Project => Boolean(project)
     );
 

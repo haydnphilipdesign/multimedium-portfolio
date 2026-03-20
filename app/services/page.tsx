@@ -73,7 +73,7 @@ export default function ServicesPage() {
                                 </div>
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Core lanes</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">TCs, local services, home services</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">Real estate, TCs, HOAs</p>
                                 </div>
                             </div>
                         </div>
@@ -131,15 +131,15 @@ export default function ServicesPage() {
                         <div className="max-w-2xl">
                             <p className="text-sm font-medium text-foreground">Focused recently:</p>
                             <p className="mt-1 text-muted-foreground">
-                                Local service businesses, established SMBs, and real estate professionals.
+                                Real estate professionals, transaction coordinators, and HOAs.
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/industries/transaction-coordinators?source=services" className="btn-secondary">
                                 For transaction coordinators
                             </Link>
-                            <Link href="/industries/trades?source=services" className="btn-secondary">
-                                For trades
+                            <Link href="/industries/homeowners-associations?source=services" className="btn-secondary">
+                                For HOAs
                             </Link>
                         </div>
                     </div>

@@ -66,7 +66,7 @@ export function StatementHero() {
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                I design and build websites for service businesses — strategy, messaging, design, and code in one loop so your site makes reaching out feel obvious.
+                                I design and build websites for real estate professionals, TCs, and HOAs — strategy, messaging, design, and code in one loop so your site makes reaching out feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
