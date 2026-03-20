@@ -104,15 +104,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <>
             {/* Hero Section */}
             <section className="relative pt-28 sm:pt-32 md:pt-40 pb-16 md:pb-24">
-                <div className="grain absolute inset-0 pointer-events-none" />
-
-                {/* Background accent */}
-                <div
-                    className="absolute top-0 left-0 right-0 h-[60vh] opacity-45 bg-hero-gradient"
-                />
 
                 <Section size="wide" padding="none" className="relative z-10">
-                    <div className="rounded-[2rem] border border-border/65 bg-card/88 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
+                    <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                     <AnimatedSection>
                         <Link
                             href="/work"
@@ -159,7 +153,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                         href={project.externalUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-accent-strong"
+                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
                                     >
                                         Visit site
                                         <IconArrowUpRight className="h-4 w-4" stroke={1.5} />
@@ -185,7 +179,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {/* Hero Image */}
             <Section size="wide" padding="none" className="mb-16 md:mb-24">
                 <AnimatedSection>
-                    <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted border border-border/65 shadow-[var(--shadow-elevated)]">
+                    <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted border border-border/60 shadow-[var(--shadow-soft)]">
                         <Image
                             src={project.heroImage}
                             alt={project.title}
@@ -202,7 +196,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {hasSummary ? (
                 <Section id="summary" className="pt-0" padding="none">
                     <AnimatedSection>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-6 sm:px-8">
+                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-6 sm:px-8">
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
                                 Summary
                             </p>
@@ -263,7 +257,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Project Snapshot */}
             {project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length ? (
-                <Section id="snapshot" className="rounded-[2rem] bg-muted/35">
+                <Section id="snapshot" className="rounded-2xl bg-muted/35">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
                             Project Snapshot
@@ -273,14 +267,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <div className="grid gap-6 md:grid-cols-2">
                         {project.caseStudy?.goals?.length ? (
                             <AnimatedSection>
-                                <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                                     <h3 className="text-xl font-semibold text-foreground mb-4">
                                         Goals
                                     </h3>
                                     <ul className="space-y-3">
                                         {project.caseStudy.goals.map((goal) => (
                                             <li key={goal} className="flex items-start gap-3 text-muted-foreground">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                                                 <span className="leading-relaxed">{goal}</span>
                                             </li>
                                         ))}
@@ -291,7 +285,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
                         {project.caseStudy?.constraints?.length ? (
                             <AnimatedSection delay={0.1}>
-                                <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                                     <h3 className="text-xl font-semibold text-foreground mb-4">
                                         Constraints / Requirements
                                     </h3>
@@ -301,7 +295,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                                 key={constraint}
                                                 className="flex items-start gap-3 text-muted-foreground"
                                             >
-                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                                                 <span className="leading-relaxed">{constraint}</span>
                                             </li>
                                         ))}
@@ -325,14 +319,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <div className="grid gap-6 md:grid-cols-2 md:items-start">
                         {project.caseStudy?.delivered?.length ? (
                             <AnimatedSection>
-                                <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                                     <h3 className="text-xl font-semibold text-foreground mb-4">
                                         What I Delivered
                                     </h3>
                                     <ul className="space-y-3">
                                         {project.caseStudy.delivered.map((item) => (
                                             <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                                                 <span className="leading-relaxed">{item}</span>
                                             </li>
                                         ))}
@@ -344,7 +338,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         <div className="space-y-6">
                             {project.caseStudy?.whyItWorks?.length ? (
                                 <AnimatedSection delay={0.1}>
-                                    <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
+                                    <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
                                         <h3 className="text-xl font-semibold text-foreground mb-4">
                                             Why This Works
                                         </h3>
@@ -354,7 +348,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                                     key={item}
                                                     className="flex items-start gap-3 text-muted-foreground"
                                                 >
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2 shrink-0" />
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                                                     <span className="leading-relaxed">{item}</span>
                                                 </li>
                                             ))}
@@ -365,7 +359,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
                             {project.caseStudy?.approval ? (
                                 <AnimatedSection delay={0.2}>
-                                    <div className="rounded-2xl border border-glow/20 bg-glow/10 px-6 py-5 text-sm text-foreground">
+                                    <div className="rounded-2xl border border-primary/20 bg-primary/10 px-6 py-5 text-sm text-foreground">
                                         {project.caseStudy.approval}
                                     </div>
                                 </AnimatedSection>
@@ -377,7 +371,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Process Section */}
             {project.process.length > 0 && (
-                <Section id="process" className="rounded-[2rem] bg-muted/35">
+                <Section id="process" className="rounded-2xl bg-muted/35">
                     <AnimatedSection>
                         <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
                             Process
@@ -394,7 +388,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                         <div className={index % 2 === 1 ? "md:order-2" : ""}>
                                             <div className="flex items-center gap-4 mb-4">
                                                 <span
-                                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-glow/25 bg-glow/10 text-sm font-bold text-accent-strong"
+                                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/25 bg-primary/10 text-sm font-bold text-primary"
                                                 >
                                                     {index + 1}
                                                 </span>
@@ -407,7 +401,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                                             </p>
                                         </div>
                                         <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/65">
+                                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/60">
                                                 {processImage ? (
                                                     <Image
                                                         src={processImage}
@@ -447,8 +441,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.1}>
                         {project.outcomes.map((outcome, index) => (
                             <StaggerItem key={index}>
-                                <div className="text-center p-6 sm:p-8 rounded-2xl bg-card shadow-[var(--shadow-soft)] border border-border/65">
-                                    <p className="mb-2 text-4xl font-bold text-accent-strong md:text-5xl">
+                                <div className="text-center p-6 sm:p-8 rounded-2xl bg-card shadow-[var(--shadow-soft)] border border-border/60">
+                                    <p className="mb-2 text-4xl font-bold text-primary md:text-5xl">
                                         {outcome.value}
                                     </p>
                                     <p className="text-lg font-medium text-foreground mb-2">
@@ -466,9 +460,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Testimonial Section */}
             {project.testimonial && (
-                <Section id="testimonial" className="rounded-[2rem] bg-muted/35">
+                <Section id="testimonial" className="rounded-2xl bg-muted/35">
                     <AnimatedSection className="max-w-3xl mx-auto text-center">
-                        <IconQuote className="w-12 h-12 text-glow/30 mx-auto mb-6" stroke={1} />
+                        <IconQuote className="w-12 h-12 text-primary/30 mx-auto mb-6" stroke={1} />
                         <blockquote className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">
                             &ldquo;{project.testimonial.quote}&rdquo;
                         </blockquote>
@@ -520,7 +514,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </Section>
 
             {/* CTA Section */}
-            <Section className="rounded-[2rem] border border-border/60 bg-card/80" padding="large">
+            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                         {cta.headline}

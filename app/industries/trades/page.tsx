@@ -113,9 +113,7 @@ export default function TradesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
 
                         <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
                             <div className="lg:col-span-3 space-y-6">
@@ -138,13 +136,13 @@ export default function TradesPage() {
                             </div>
 
                             <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/65 bg-background/55 backdrop-blur-sm p-6">
+                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
                                     <p className="text-sm font-semibold text-foreground">Built for local intent</p>
                                     <div className="mt-4 grid gap-3">
                                         {expectations.map((item) => (
                                             <div
                                                 key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/65 bg-card/55 px-4 py-3"
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
                                             >
                                                 <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
                                                 <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
@@ -162,8 +160,8 @@ export default function TradesPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
                     {outcomes.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
@@ -174,7 +172,7 @@ export default function TradesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-[2rem] bg-muted/35">
+            <Section className="rounded-2xl bg-muted/35">
                 <AnimatedSection>
                     <SectionHeading
                         title="What you get"
@@ -185,8 +183,8 @@ export default function TradesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
                     {included.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
@@ -211,7 +209,7 @@ export default function TradesPage() {
                             </div>
                             <Link
                                 href="/work?source=trades-page"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-accent-strong transition-colors group"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
                             >
                                 <span className="font-medium">Browse all case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -238,7 +236,7 @@ export default function TradesPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
                     {faqs.map((item) => (
                         <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
                                 <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
                                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
                             </div>

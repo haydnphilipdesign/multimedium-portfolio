@@ -76,14 +76,14 @@ export function WorkFilters({
                 <button
                     onClick={() => setShowFilters(!showFilters)}
                     className={`touch-target inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${showFilters || hasActiveFilters
-                            ? "border-glow/35 bg-glow/10 text-foreground"
-                            : "border-border/65 bg-card/90 text-muted-foreground shadow-[var(--shadow-soft)] hover:border-border hover:text-foreground"
+                            ? "border-primary/35 bg-primary/10 text-foreground"
+                            : "border-border/60 bg-card text-muted-foreground shadow-[var(--shadow-soft)] hover:border-border hover:text-foreground"
                         }`}
                 >
                     <IconFilter className="w-4 h-4" stroke={1.5} />
                     <span>Refine work</span>
                     {hasActiveFilters && (
-                        <span className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded-full bg-glow text-background text-xs font-bold">
+                        <span className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-background text-xs font-bold">
                             {(currentCategory ? 1 : 0) + (currentIndustry ? 1 : 0)}
                         </span>
                     )}
@@ -110,7 +110,7 @@ export function WorkFilters({
                         transition={{ duration: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
                         className="overflow-hidden"
                     >
-                        <div className="space-y-4 rounded-2xl border border-border/65 bg-card/85 p-4 shadow-[var(--shadow-soft)] backdrop-blur-sm">
+                        <div className="space-y-4 rounded-2xl border border-border/60 bg-card p-4 shadow-[var(--shadow-soft)] backdrop-blur-sm">
                             {/* Category Filter */}
                             {categories.length > 0 && (
                                 <div>
@@ -182,7 +182,7 @@ export function WorkFilters({
             {/* Loading indicator */}
             {isPending && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-4 h-4 border-2 border-glow/30 border-t-glow rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
                     <span>Updating results...</span>
                 </div>
             )}
@@ -204,8 +204,8 @@ function FilterPill({ label, count, isActive, onClick, isPending }: FilterPillPr
             onClick={onClick}
             disabled={isPending}
             className={`touch-target inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 ${isActive
-                    ? "bg-glow text-background shadow-sm shadow-glow/20"
-                    : "border border-transparent bg-muted/50 text-muted-foreground hover:border-border/65 hover:bg-muted hover:text-foreground"
+                    ? "bg-primary text-background shadow-sm shadow-primary/20"
+                    : "border border-transparent bg-muted/50 text-muted-foreground hover:border-border/60 hover:bg-muted hover:text-foreground"
                 }`}
         >
             <span>{label}</span>

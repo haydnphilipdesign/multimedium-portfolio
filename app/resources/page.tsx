@@ -84,12 +84,10 @@ export default function ResourcesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
 
                         <div className="relative max-w-3xl space-y-4">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                                 <IconFileText className="w-4 h-4" stroke={1.5} />
                                 Resources
                             </span>
@@ -115,7 +113,7 @@ export default function ResourcesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     {resources.map((res) => (
                         <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
+                            <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                                 <div className="relative aspect-[16/10] bg-muted">
                                     {res.image ? (
                                         <Image
@@ -128,18 +126,16 @@ export default function ResourcesPage() {
                                         />
                                     ) : (
                                         <>
-                                            <div className="absolute inset-0 bg-hero-gradient opacity-60" />
-                                            <div className="grain absolute inset-0 pointer-events-none" />
-                                            <div className="relative h-full w-full grid place-items-center">
+                                                                <div className="relative h-full w-full grid place-items-center">
                                                 {res.icon ? (
-                                                    <res.icon className="h-12 w-12 text-glow" stroke={1.5} />
+                                                    <res.icon className="h-12 w-12 text-primary" stroke={1.5} />
                                                 ) : null}
                                             </div>
                                         </>
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                     <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
+                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
                                             {res.badge}
                                         </span>
                                     </div>
@@ -160,7 +156,7 @@ export default function ResourcesPage() {
                     ))}
                 </StaggerContainer>
 
-                <div className="mt-10 rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                <div className="mt-10 rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
                     <p className="text-sm text-muted-foreground">
                         If you eventually want these auto-populated from intake data, optional automation setup is available on the TC page.
                     </p>
@@ -186,7 +182,7 @@ export default function ResourcesPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
                     {tools.map((res) => (
                         <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
+                            <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                                 <div className="relative aspect-[16/10] bg-muted">
                                     {res.image ? (
                                         <Image
@@ -199,18 +195,16 @@ export default function ResourcesPage() {
                                         />
                                     ) : (
                                         <>
-                                            <div className="absolute inset-0 bg-hero-gradient opacity-60" />
-                                            <div className="grain absolute inset-0 pointer-events-none" />
-                                            <div className="relative h-full w-full grid place-items-center">
+                                                                <div className="relative h-full w-full grid place-items-center">
                                                 {res.icon ? (
-                                                    <res.icon className="h-12 w-12 text-glow" stroke={1.5} />
+                                                    <res.icon className="h-12 w-12 text-primary" stroke={1.5} />
                                                 ) : null}
                                             </div>
                                         </>
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                     <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
+                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
                                             {res.badge}
                                         </span>
                                     </div>

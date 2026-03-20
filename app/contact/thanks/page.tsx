@@ -31,11 +31,9 @@ export default async function ContactThanksPage({ searchParams }: ContactThanksP
             <ContactThanksTracker source={source} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-8 sm:py-12 text-center">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-30" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-8 sm:py-12 text-center">
                         <div className="relative space-y-4 max-w-2xl mx-auto">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                                 Message sent
                             </span>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">

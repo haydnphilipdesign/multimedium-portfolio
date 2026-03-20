@@ -45,9 +45,7 @@ export default function IndustriesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-35" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                 Service business websites
@@ -83,7 +81,7 @@ export default function IndustriesPage() {
                                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                                     {industry.description}
                                 </p>
-                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-accent-strong transition-colors">
+                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                     {industry.cta}
                                     <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                 </div>

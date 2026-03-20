@@ -52,7 +52,7 @@ export default function ServicesPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/90 px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                 Websites that
@@ -88,15 +88,15 @@ export default function ServicesPage() {
                             <h2 className="text-lg font-semibold text-foreground mb-4">Great fit if</h2>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     You want more inquiries, bookings, or leads from the site.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     Your current site feels outdated, unclear, or slow on mobile.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     You want one person to own strategy, design, and build.
                                 </li>
                             </ul>
@@ -108,15 +108,15 @@ export default function ServicesPage() {
                             <h2 className="text-lg font-semibold text-foreground mb-4">Best results when</h2>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     You can support a realistic timeline instead of a rush launch.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     You want clear messaging and conversion structure, not just a template refresh.
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                     You are ready to review content and give timely decisions.
                                 </li>
                             </ul>

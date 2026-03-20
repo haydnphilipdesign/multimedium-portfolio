@@ -33,11 +33,9 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-[2rem] border border-border/65 bg-card/90 px-6 py-8 shadow-[var(--shadow-elevated)] sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-30" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative space-y-6">
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                             <IconFileText className="w-4 h-4" stroke={1.5} />
                             Free resource
                         </span>
@@ -75,7 +73,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
             <Section className="pt-10 md:pt-14" padding="none">
                 <div className="grid gap-6 md:grid-cols-5">
                     <AnimatedSection className="md:col-span-3">
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
+                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
                                     src="/resources/tc-task-list.jpg"
@@ -91,15 +89,15 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                                 <h2 className="text-xl font-semibold text-foreground">What you’re getting</h2>
                                 <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                                     <li className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
                                         A real TC task list sheet (example) you can adapt
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
                                         A structure you can copy into your own checklist/process doc
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
                                         A preview of what “intake → PDF output” can look like
                                     </li>
                                 </ul>
@@ -123,7 +121,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                     </AnimatedSection>
 
                     <AnimatedSection className="md:col-span-2" delay={0.06}>
-                        <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
+                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
                             <h2 className="text-xl font-semibold text-foreground">
                                 Email me the PDF
                             </h2>
@@ -132,7 +130,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                             </p>
 
                             {sent ? (
-                                <div className="mt-5 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
+                                <div className="mt-5 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3 text-sm text-foreground">
                                     Check your inbox, the task list is on its way.
                                 </div>
                             ) : null}

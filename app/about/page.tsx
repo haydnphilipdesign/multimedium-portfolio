@@ -137,7 +137,7 @@ export default function AboutPage() {
                             <ul className="grid gap-2 text-sm text-muted-foreground">
                                 {workProcess.map((item) => (
                                     <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-glow mt-1.5" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
                                         {item}
                                     </li>
                                 ))}

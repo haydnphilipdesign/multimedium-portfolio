@@ -48,9 +48,9 @@ export default function FlyerPage() {
 
             <div className="flyer-root mx-auto max-w-3xl px-4 py-8 print:p-0 print:max-w-none">
                 {/* Screen-only instructions */}
-                <div className="print:hidden mb-6 rounded-2xl border border-border/65 bg-glow/10 px-6 py-4">
+                <div className="print:hidden mb-6 rounded-2xl border border-border/60 bg-primary/10 px-6 py-4">
                     <p className="text-sm font-medium text-foreground">
-                        To save this as a PDF: press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border/65 text-xs font-mono">Ctrl + P</kbd> (or <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border/65 text-xs font-mono">Cmd + P</kbd> on Mac), set destination to &quot;Save as PDF&quot;, and click Save.
+                        To save this as a PDF: press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border/60 text-xs font-mono">Ctrl + P</kbd> (or <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border/60 text-xs font-mono">Cmd + P</kbd> on Mac), set destination to &quot;Save as PDF&quot;, and click Save.
                     </p>
                 </div>
 
@@ -389,7 +389,7 @@ export default function FlyerPage() {
                 <div className="print:hidden mt-6 text-center">
                     <a
                         href="/mytcacademy"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
                     >
                         <IconArrowRight className="w-4 h-4 rotate-180" stroke={2} />
                         Back to referral page

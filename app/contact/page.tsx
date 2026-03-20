@@ -111,7 +111,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                             </h2>
 
                             {sent && (
-                                <div className="mb-6 rounded-xl border border-glow/20 bg-glow/10 px-4 py-3 text-sm text-foreground">
+                                <div className="mb-6 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3 text-sm text-foreground">
                                     Thanks, your message is sent. I&apos;ll reply within 1 business day.
                                 </div>
                             )}
@@ -287,7 +287,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                         name="contactPreference"
                                                         value="email"
                                                         defaultChecked
-                                                        className="h-4 w-4 accent-glow"
+                                                        className="h-4 w-4 accent-primary"
                                                     />
                                                     <span className="text-sm font-medium">
                                                         Email
@@ -298,7 +298,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                         type="radio"
                                                         name="contactPreference"
                                                         value="call"
-                                                        className="h-4 w-4 accent-glow"
+                                                        className="h-4 w-4 accent-primary"
                                                     />
                                                     <span className="text-sm font-medium">
                                                         Call
@@ -309,7 +309,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                                         type="radio"
                                                         name="contactPreference"
                                                         value="sms"
-                                                        className="h-4 w-4 accent-glow"
+                                                        className="h-4 w-4 accent-primary"
                                                     />
                                                     <span className="text-sm font-medium">
                                                         Text (SMS)
@@ -511,7 +511,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                             </div>
 
                             {/* Availability */}
-                            <div className="p-6 rounded-2xl bg-gradient-to-br from-glow/10 to-transparent border border-glow/20">
+                            <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
                                 <div className="flex items-center gap-3 mb-3">
                                     <span className="status-dot" />
                                     <p className="text-sm font-medium text-foreground">

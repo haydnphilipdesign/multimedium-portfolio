@@ -171,7 +171,7 @@ export default async function WorkPage({
                 {/* Hero Section */}
                 <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                     <AnimatedSection>
-                        <div className="rounded-2xl border border-border/60 bg-card/90 px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
+                        <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                                     <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
@@ -239,7 +239,7 @@ export default async function WorkPage({
                         </p>
                         <Link
                             href="/work"
-                            className="text-accent-strong hover:underline"
+                            className="text-primary hover:underline"
                         >
                             Clear filters to see all work
                         </Link>

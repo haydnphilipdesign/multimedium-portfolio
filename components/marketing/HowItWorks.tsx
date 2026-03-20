@@ -38,7 +38,7 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
             <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
                 {steps.map((step, index) => (
                     <StaggerItem key={step.title}>
-                        <div className="h-full rounded-2xl border border-border/65 bg-card/88 px-6 py-6 shadow-[var(--shadow-soft)]">
+                        <div className="h-full rounded-2xl border border-border/60 bg-card px-6 py-6 shadow-[var(--shadow-soft)]">
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
                                 Step {index + 1}
                             </p>
@@ -54,7 +54,7 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
             <AnimatedSection className="mt-10 text-center">
                 <Link
                     href={`/contact?source=${encodeURIComponent(contactSource)}`}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group"
                 >
                     Start a conversation
                     <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />

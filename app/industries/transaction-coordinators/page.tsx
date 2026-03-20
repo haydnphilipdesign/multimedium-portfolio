@@ -165,9 +165,7 @@ export default function TransactionCoordinatorsPage() {
         <>
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-25" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
 
                         <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
                             <div className="lg:col-span-3 space-y-6">
@@ -202,20 +200,20 @@ export default function TransactionCoordinatorsPage() {
                              </div>
 
                             <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/65 bg-background/55 backdrop-blur-sm p-6">
+                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
                                     <p className="text-sm font-semibold text-foreground">Built for qualified bookings</p>
                                     <div className="mt-4 grid gap-3">
                                         {expectations.map((item) => (
                                             <div
                                                 key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/65 bg-card/55 px-4 py-3"
+                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
                                             >
                                                 <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
                                                 <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="mt-4 rounded-xl border border-border/65 bg-background/70 px-4 py-3">
+                                    <div className="mt-4 rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                                             Core stack
                                         </p>
@@ -234,8 +232,8 @@ export default function TransactionCoordinatorsPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
                     {outcomes.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
@@ -246,7 +244,7 @@ export default function TransactionCoordinatorsPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-[2rem] bg-muted/35">
+            <Section className="rounded-2xl bg-muted/35">
                 <AnimatedSection>
                     <SectionHeading
                         title="What I build for TCs"
@@ -257,8 +255,8 @@ export default function TransactionCoordinatorsPage() {
                 <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
                     {included.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
@@ -269,7 +267,7 @@ export default function TransactionCoordinatorsPage() {
                 </StaggerContainer>
 
                 <AnimatedSection delay={0.08} direction="none">
-                    <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-border/65 bg-card/82 p-6 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-border/60 bg-card/82 p-6 sm:flex-row sm:items-center sm:justify-between">
                         <p className="text-sm text-muted-foreground">
                             Want intake + cover-sheet automation too? It’s an optional add-on.
                         </p>
@@ -290,7 +288,7 @@ export default function TransactionCoordinatorsPage() {
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
                                     A few relevant builds that show the direction: authority, clarity, and conversion. Includes product work too (
-                                    <Link href="/work/norma" className="text-foreground hover:text-accent-strong transition-colors underline underline-offset-4">
+                                    <Link href="/work/norma" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">
                                         Norma
                                     </Link>
                                     —early access).
@@ -298,7 +296,7 @@ export default function TransactionCoordinatorsPage() {
                             </div>
                             <Link
                                 href="/work?industry=tc"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-accent-strong transition-colors group"
+                                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
                             >
                                 <span className="font-medium">Browse all TC case studies</span>
                                 <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -314,10 +312,10 @@ export default function TransactionCoordinatorsPage() {
                 </Section>
             ) : null}
 
-            <Section id="automation" className="rounded-[2rem] bg-muted/35">
+            <Section id="automation" className="rounded-2xl bg-muted/35">
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted/50 text-muted-foreground border border-border/65">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted/50 text-muted-foreground border border-border/60">
                             Optional add-on
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
@@ -331,7 +329,7 @@ export default function TransactionCoordinatorsPage() {
                         <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
                             {automationBullets.map((item) => (
                                 <li key={item} className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
                                     {item}
                                 </li>
                             ))}
@@ -342,17 +340,17 @@ export default function TransactionCoordinatorsPage() {
                 <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.08}>
                     {automationPackages.map((tier) => (
                         <StaggerItem key={tier.name}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
                                 <div className="flex items-start justify-between gap-4">
                                     <div>
                                         <h3 className="text-xl font-semibold text-foreground">{tier.name}</h3>
-                                        <p className="mt-1 text-sm font-medium text-accent-strong">{tier.price}</p>
+                                        <p className="mt-1 text-sm font-medium text-primary">{tier.price}</p>
                                     </div>
                                 </div>
                                 <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
                                     {tier.bullets.map((bullet) => (
                                         <li key={bullet} className="flex items-start gap-2">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-glow mt-2" />
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
                                             {bullet}
                                         </li>
                                     ))}
@@ -369,7 +367,7 @@ export default function TransactionCoordinatorsPage() {
                     Team builds available for higher volume / broker ops.
                 </p>
 
-                <div className="mt-6 rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6">
+                <div className="mt-6 rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
                     <p className="text-sm font-semibold text-foreground">Best results when</p>
                     <p className="mt-2 text-sm text-muted-foreground">
                         You are ready to standardize intake and respond quickly to qualified leads.
@@ -387,7 +385,7 @@ export default function TransactionCoordinatorsPage() {
 
                 <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
                     <StaggerItem>
-                        <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
                                     src="/resources/tc-task-list.jpg"
@@ -398,7 +396,7 @@ export default function TransactionCoordinatorsPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                 <div className="absolute top-4 left-4">
-                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
                                         Example (region-specific)
                                     </span>
                                 </div>
@@ -418,7 +416,7 @@ export default function TransactionCoordinatorsPage() {
                     </StaggerItem>
 
                     <StaggerItem>
-                        <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
                                     src="/resources/tc-cover-sheet.jpg"
@@ -429,7 +427,7 @@ export default function TransactionCoordinatorsPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                 <div className="absolute top-4 left-4">
-                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
                                         Cover sheet
                                     </span>
                                 </div>
@@ -449,7 +447,7 @@ export default function TransactionCoordinatorsPage() {
                     </StaggerItem>
 
                     <StaggerItem>
-                        <div className="h-full overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)]">
+                        <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
                                     src="/resources/tc-intake-checklist.jpg"
@@ -460,7 +458,7 @@ export default function TransactionCoordinatorsPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
                                 <div className="absolute top-4 left-4">
-                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65">
+                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
                                         PDF template
                                     </span>
                                 </div>
@@ -492,7 +490,7 @@ export default function TransactionCoordinatorsPage() {
                 <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
                     {faqs.map((item) => (
                         <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
+                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
                                 <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
                                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
                             </div>

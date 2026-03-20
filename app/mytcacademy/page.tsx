@@ -145,15 +145,13 @@ export default function MyTCAcademyPage() {
         <>
             {/* Hero */}
             <div className="relative overflow-hidden border-b border-border/40">
-                <div className="absolute inset-0 bg-hero-gradient opacity-70" />
-                <div className="grain absolute inset-0 pointer-events-none" />
 
                 <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                     <AnimatedSection>
                         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-start">
                             <div className="max-w-2xl">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/65 mb-6">
-                                    <IconUsers className="w-4 h-4 text-glow" stroke={1.5} />
+                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60 mb-6">
+                                    <IconUsers className="w-4 h-4 text-primary" stroke={1.5} />
                                     Private referral — My TC Academy
                                 </span>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
@@ -191,8 +189,8 @@ export default function MyTCAcademyPage() {
                                 </p>
                             </div>
 
-                            <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
-                                <div className="absolute inset-0 bg-gradient-to-br from-glow/10 via-transparent to-transparent" />
+                            <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
                                 <div className="relative space-y-6">
                                     <div>
                                         <p className="text-sm font-semibold text-foreground">
@@ -216,7 +214,7 @@ export default function MyTCAcademyPage() {
                                         ].map((item) => (
                                             <li key={item} className="flex items-start gap-3">
                                                 <IconCircleCheck
-                                                    className="mt-0.5 h-4 w-4 text-glow shrink-0"
+                                                    className="mt-0.5 h-4 w-4 text-primary shrink-0"
                                                     stroke={1.6}
                                                 />
                                                 <span>{item}</span>
@@ -224,7 +222,7 @@ export default function MyTCAcademyPage() {
                                         ))}
                                     </ul>
 
-                                    <div className="rounded-xl border border-border/65 bg-muted/25 p-4">
+                                    <div className="rounded-xl border border-border/60 bg-muted/25 p-4">
                                         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                                             Why Jennifer recommends this
                                         </p>
@@ -263,7 +261,7 @@ export default function MyTCAcademyPage() {
                             },
                         ].map((item) => (
                             <StaggerItem key={item.label}>
-                                <div className="rounded-2xl border border-border/65 bg-card/82 backdrop-blur-sm px-6 py-5">
+                                <div className="rounded-2xl border border-border/60 bg-card/82 backdrop-blur-sm px-6 py-5">
                                     <p className="text-lg font-semibold text-foreground">
                                         {item.value}{" "}
                                         <span className="text-muted-foreground font-medium">
@@ -282,10 +280,10 @@ export default function MyTCAcademyPage() {
 
             {/* Why your website matters */}
             <Section id="why" className="relative">
-                <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-glow/10 blur-3xl" />
+                <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                             Why it matters
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
@@ -306,8 +304,8 @@ export default function MyTCAcademyPage() {
                 >
                     {whyWebsite.map((item) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
+                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                     <item.icon className="w-5 h-5" stroke={1.5} />
                                 </div>
                                 <h3 className="mt-5 text-xl font-semibold text-foreground">
@@ -323,8 +321,7 @@ export default function MyTCAcademyPage() {
             </Section>
 
             {/* What's included */}
-            <div className="relative rounded-[2rem] bg-muted/35">
-                <div className="grain absolute inset-0 pointer-events-none rounded-[2rem]" />
+            <div className="relative rounded-2xl bg-muted/35">
                 <Section>
                     <AnimatedSection>
                         <SectionHeading
@@ -339,8 +336,8 @@ export default function MyTCAcademyPage() {
                     >
                         {included.map((item) => (
                             <StaggerItem key={item.title}>
-                                <div className="h-full rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] p-7">
-                                    <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/65 bg-muted/50 text-glow">
+                                <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
+                                    <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
                                         <item.icon className="w-5 h-5" stroke={1.5} />
                                     </div>
                                     <h3 className="mt-5 text-lg font-semibold text-foreground">
@@ -359,12 +356,11 @@ export default function MyTCAcademyPage() {
             {/* Referral perk */}
             <Section>
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-glow/8 via-transparent to-transparent" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
                         <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                             <div>
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                                     My TC Academy referral perk
                                 </span>
                                 <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
@@ -382,7 +378,7 @@ export default function MyTCAcademyPage() {
                                     making sure you&apos;re taken care of, not as a sale.
                                 </p>
                             </div>
-                            <div className="rounded-2xl border border-border/65 bg-background/55 backdrop-blur-sm p-6">
+                            <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
                                 <p className="text-sm font-semibold text-foreground">
                                     How it works
                                 </p>
@@ -405,7 +401,7 @@ export default function MyTCAcademyPage() {
                                             key={item.step}
                                             className="flex items-start gap-4"
                                         >
-                                            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-border/65 bg-muted/50 text-xs font-semibold text-foreground shrink-0">
+                                            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-border/60 bg-muted/50 text-xs font-semibold text-foreground shrink-0">
                                                 {item.step}
                                             </span>
                                             <p className="text-sm text-muted-foreground">
@@ -423,10 +419,10 @@ export default function MyTCAcademyPage() {
             {/* Work */}
             {featured.length > 0 && (
                 <Section className="relative overflow-hidden">
-                    <div className="pointer-events-none absolute -top-28 left-0 h-72 w-72 rounded-full bg-glow/10 blur-3xl" />
+                    <div className="pointer-events-none absolute -top-28 left-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
                     <AnimatedSection>
                         <div className="max-w-3xl">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-glow/10 text-accent-strong border border-glow/30">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
                                 Relevant work
                             </span>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
@@ -451,7 +447,7 @@ export default function MyTCAcademyPage() {
                     <AnimatedSection className="mt-10">
                         <Link
                             href="/work?industry=tc&source=mytcacademy"
-                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-strong transition-colors group"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group"
                         >
                             Browse all TC case studies
                             <IconArrowRight
@@ -481,7 +477,7 @@ export default function MyTCAcademyPage() {
                     {faqs.map((item) => (
                         <details
                             key={item.q}
-                            className="group rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-5 open:bg-card/80 transition-colors"
+                            className="group rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-5 open:bg-card/80 transition-colors"
                         >
                             <summary className="cursor-pointer list-none">
                                 <div className="flex items-start justify-between gap-6">
@@ -504,11 +500,9 @@ export default function MyTCAcademyPage() {
             {/* Final CTA */}
             <Section className="border-t border-border/40">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/65 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="absolute inset-0 bg-hero-gradient opacity-30" />
-                        <div className="grain absolute inset-0 pointer-events-none" />
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
                         <div className="relative flex flex-col items-center text-center">
-                            <p className="text-sm font-medium text-accent-strong">
+                            <p className="text-sm font-medium text-primary">
                                 My TC Academy referral
                             </p>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">

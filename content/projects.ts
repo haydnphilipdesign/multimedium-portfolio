@@ -147,7 +147,7 @@ export const projects: Project[] = [
             { metric: "Browse Flow", value: "Category-first", description: "Exploration stays structured and easy to scan" },
             { metric: "Conversion Path", value: "Clear", description: "CTAs stay obvious throughout the scroll" },
         ],
-        featured: true,
+        featured: false,
         color: "#3a5a40",
         externalUrl: "https://nomad-gear.vercel.app",
     },
@@ -241,7 +241,7 @@ export const projects: Project[] = [
             { metric: "Browse UX", value: "Category-led", description: "Structured exploration without a catalog feel" },
             { metric: "Conversion Clarity", value: "Checkout-forward", description: "Product cards keep CTAs and pricing clear" },
         ],
-        featured: true,
+        featured: false,
         color: "#f76b6c",
         externalUrl: "https://velvet-rose-floral.vercel.app",
     },
@@ -335,7 +335,7 @@ export const projects: Project[] = [
             { metric: "Service UX", value: "Scannable", description: "Clear offerings without generic lists" },
             { metric: "Booking Path", value: "Prominent", description: "CTAs integrated throughout the scroll" },
         ],
-        featured: true,
+        featured: false,
         color: "#E63946",
         externalUrl: "https://gentlemans-blade.vercel.app",
     },
@@ -428,7 +428,7 @@ export const projects: Project[] = [
             { metric: "Color System", value: "Bold + controlled", description: "High-energy palette with clear hierarchy" },
             { metric: "Parent UX", value: "Clear", description: "Programs and booking stay easy to find" },
         ],
-        featured: true,
+        featured: false,
         color: "#F795E9",
         externalUrl: "https://pop-playground-memphis.vercel.app",
     },
@@ -704,7 +704,102 @@ export const projects: Project[] = [
             { metric: "Integrations", value: "Microsoft 365", description: "Graph API email, calendar, and task sync" },
             { metric: "Automation Style", value: "Rules + AI", description: "Compliance logic plus triage/missing-info signals" },
         ],
-        featured: false,
+        featured: true,
+        color: "#4f46e5",
+    },
+    {
+        slug: "norma-intake",
+        title: "Norma Intake",
+        kind: "Product",
+        industries: ["tc", "real-estate"],
+        metaTitle: "Norma Intake - AI-Powered Transaction Intake for TCs",
+        metaDescription:
+            "AI-powered intake platform that lets agents upload purchase agreements and auto-generates branded cover sheets for transaction coordinators. No logins, no chasing—just one link.",
+        socialCaption:
+            "New product: Norma Intake — agents upload a purchase agreement, AI pre-fills the form, and a polished cover sheet lands in the TC's inbox. One link, zero chasing.",
+        tags: ["SaaS", "AI", "Real Estate Ops", "Transaction Coordination", "Automation"],
+        tagline: "One-link intake that turns purchase agreements into polished cover sheets automatically",
+        description:
+            "AI-powered intake platform where agents upload a purchase agreement, AI extracts the data, and the TC gets a branded cover sheet PDF in their inbox—no logins, no chasing, no retyping.",
+        category: "SaaS",
+        year: "2026",
+        client: "Internal Product",
+        role: "Product Strategy, UX/UI Design, Full-Stack Development",
+        tools: ["Next.js (App Router)", "AI document parsing", "PDF generation", "Webhook integrations"],
+        thumbnail: "/images/projects/norma-intake/norma-intake-thumb.png",
+        heroImage: "/images/projects/norma-intake/norma-intake-hero.png",
+        externalUrl: "https://intake.normatc.com",
+        images: [
+            "/images/projects/norma-intake/norma-intake-1.png",
+            "/images/projects/norma-intake/norma-intake-2.png",
+            "/images/projects/norma-intake/norma-intake-3.png",
+        ],
+        problem: "Transaction coordinators waste hours re-reading purchase agreements and chasing agents for missing info. Agents submit incomplete forms, forget fields, or send unstructured emails—forcing TCs to manually piece together every new file before work can even begin.",
+        solution: "Built Norma Intake as a single-link intake tool. TCs share one URL with their agents. Agents upload the purchase agreement, AI extracts the key data (address, price, dates, contacts, commission), and the TC receives a branded cover sheet PDF by email—ready to file. No accounts for agents, no manual retyping, no chasing.",
+        caseStudy: {
+            headline: "Norma Intake — One Link. Zero Chasing.",
+            subheadline:
+                "An AI-powered intake platform that turns purchase agreement uploads into polished, ready-to-file cover sheets.",
+            tldr: "Built an AI-powered transaction intake tool for TCs. Agents upload a purchase agreement via a single shared link, AI pre-fills the form, and a branded cover sheet PDF is delivered to the TC's inbox automatically. Free tier includes 5 submissions/month; Pro is $14/month for unlimited.",
+            goals: [
+                "Eliminate manual data entry from purchase agreements",
+                "Remove the need for agents to create accounts or remember passwords",
+                "Deliver a professional, branded cover sheet without TC intervention",
+                "Integrate with existing TC workflows via webhooks",
+            ],
+            constraints: [
+                "Zero-friction agent experience (no signup, no app install)",
+                "AI extraction must handle varied purchase agreement formats",
+                "Cover sheet PDFs must be professional enough to file immediately",
+                "Must work on mobile for agents submitting from the field",
+            ],
+            delivered: [
+                "Single reusable intake link that TCs share with all their agents",
+                "AI document parsing that extracts address, price, dates, contacts, and commission",
+                "Agent review step so extracted data can be verified before submission",
+                "Branded cover sheet PDF auto-delivered to the TC's inbox",
+                "Agent confirmation emails on successful submission",
+                "Webhook integration (Zapier, Make, custom) with built-in retries",
+                "Free tier (5/month) and Pro tier ($14/month unlimited)",
+            ],
+            whyItWorks: [
+                "Agents face zero friction—one link, upload, review, submit",
+                "AI handles the tedious extraction TCs used to do manually",
+                "Auto-delivery means TCs never need to check a dashboard",
+                "Webhook sync keeps the TC's existing tools in the loop",
+            ],
+            approval:
+                "This is an internal product built and owned by the portfolio author.",
+        },
+        cta: {
+            headline: "Want to try Norma Intake?",
+            body: "Norma Intake is live at intake.normatc.com. The free plan includes 5 submissions/month; Pro is $14/month for unlimited.",
+            ctaText: "Get started free",
+            href: "https://intake.normatc.com",
+        },
+        process: [
+            {
+                title: "One-Link Agent Experience",
+                description: "TCs generate a single intake URL. Agents open it, upload the purchase agreement, and AI pre-fills the form—no account, no password, no app to install.",
+                image: "/images/projects/norma-intake/norma-intake-1.png",
+            },
+            {
+                title: "AI-Powered Data Extraction",
+                description: "The platform reads the purchase agreement and extracts property address, sale price, key dates, party contacts, and commission details. Agents review and correct before submitting.",
+                image: "/images/projects/norma-intake/norma-intake-2.png",
+            },
+            {
+                title: "Auto-Delivered Cover Sheets",
+                description: "Each submission generates a branded, professional cover sheet PDF delivered straight to the TC's inbox—ready to file without any manual formatting.",
+                image: "/images/projects/norma-intake/norma-intake-3.png",
+            },
+        ],
+        outcomes: [
+            { metric: "Agent Friction", value: "Zero", description: "No accounts, passwords, or app installs required" },
+            { metric: "Data Entry", value: "AI-automated", description: "Purchase agreement parsing replaces manual retyping" },
+            { metric: "Delivery", value: "Automatic", description: "Branded cover sheet PDF emailed to TC on submission" },
+        ],
+        featured: true,
         color: "#4f46e5",
     },
     {
@@ -987,7 +1082,7 @@ export const projects: Project[] = [
             { metric: "Status Visibility", value: "Centralized", description: "One dashboard for updates, requests, and next steps" },
             { metric: "Workflow Quality", value: "More consistent", description: "Structured intake reduces follow-up friction" },
         ],
-        featured: true,
+        featured: false,
         color: "#0f766e",
         externalUrl: "https://portal.multimedium.dev",
     },
@@ -1411,10 +1506,10 @@ export function getFeaturedProjects(): Project[] {
 }
 
 const homeFeaturedProjectSlugs: string[] = [
-    "nomad-gear",
-    "velvet-rose",
-    "gentlemans-blade",
-    "pop-playground",
+    "utility-sheet",
+    "norma",
+    "tag-landing-page",
+    "pa-real-estate-support",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {
