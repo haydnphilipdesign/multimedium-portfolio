@@ -81,10 +81,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
         hasTestimonial ? { href: "#testimonial", label: "Testimonial" } : null,
     ].filter(Boolean) as { href: string; label: string }[];
 
-    // Get adjacent projects for navigation
-    const currentIndex = projects.findIndex((p) => p.slug === slug);
-    const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
-    const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+    // Get adjacent projects for navigation (only featured/visible projects)
+    const visibleProjects = projects.filter((p) => p.featured);
+    const currentIndex = visibleProjects.findIndex((p) => p.slug === slug);
+    const prevProject = currentIndex > 0 ? visibleProjects[currentIndex - 1] : null;
+    const nextProject = currentIndex < visibleProjects.length - 1 ? visibleProjects[currentIndex + 1] : null;
 
     const toolsSummary =
         project.tools.length <= 3
