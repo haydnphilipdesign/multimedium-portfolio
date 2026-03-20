@@ -53,10 +53,13 @@ const categoryMeta: Record<string, { title: string; description: string }> = {
     },
 };
 
+// Only count featured (visible) projects for filter options
+const visibleProjects = projects.filter((p) => p.featured);
+
 // Helper to get unique categories with counts
 function getCategoryOptions() {
     const counts = new Map<string, number>();
-    projects.forEach((p) => {
+    visibleProjects.forEach((p) => {
         counts.set(p.category, (counts.get(p.category) || 0) + 1);
     });
     return Array.from(counts.entries())
@@ -67,7 +70,7 @@ function getCategoryOptions() {
 // Helper to get unique industries with counts
 function getIndustryOptions() {
     const counts = new Map<string, number>();
-    projects.forEach((p) => {
+    visibleProjects.forEach((p) => {
         p.industries?.forEach((ind) => {
             counts.set(ind, (counts.get(ind) || 0) + 1);
         });
@@ -118,8 +121,8 @@ export default async function WorkPage({
     const category = params.category;
     const indMeta = industry ? industryMeta[industry] : null;
 
-    // Filter projects
-    let filteredProjects = [...projects];
+    // Filter projects — only show featured (visible) projects
+    let filteredProjects = projects.filter((p) => p.featured);
 
     if (industry) {
         filteredProjects = filteredProjects.filter((p) => p.industries?.includes(industry));
