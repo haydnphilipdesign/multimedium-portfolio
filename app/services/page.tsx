@@ -4,16 +4,21 @@ import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { projects } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Services",
+export const metadata: Metadata = createPageMetadata({
+    title: "Web Design Services",
     description:
-        "Website design + development, landing pages, and growth retainers for small and medium businesses that want more qualified leads.",
-    alternates: {
-        canonical: "/services",
-    },
-};
+        "Website design, landing pages, and SEO-focused growth retainers for real estate professionals, transaction coordinators, and niche service businesses.",
+    path: "/services",
+    keywords: [
+        "web design services",
+        "real estate website design services",
+        "landing page design service",
+        "seo retainer for service businesses",
+    ],
+});
 
 const services = [
     {
@@ -135,11 +140,14 @@ export default function ServicesPage() {
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3">
+                            <Link href="/industries/real-estate-professionals?source=services" className="btn-secondary">
+                                For real estate professionals
+                            </Link>
                             <Link href="/industries/transaction-coordinators?source=services" className="btn-secondary">
                                 For transaction coordinators
                             </Link>
-                            <Link href="/industries/homeowners-associations?source=services" className="btn-secondary">
-                                For HOAs
+                            <Link href="/industries/real-estate-coaches?source=services" className="btn-secondary">
+                                For coaches & brokerages
                             </Link>
                         </div>
                     </div>
@@ -204,6 +212,5 @@ export default function ServicesPage() {
         </>
     );
 }
-
 
 

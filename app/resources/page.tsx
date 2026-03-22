@@ -4,16 +4,21 @@ import Link from "next/link";
 import type { ComponentType } from "react";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import { IconArrowRight, IconFileText } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Free Resources",
+export const metadata: Metadata = createPageMetadata({
+    title: "Free Transaction Coordinator Resources",
     description:
-        "Free templates and resources for transaction coordinators - downloadable PDFs and workflow examples.",
-    alternates: {
-        canonical: "/resources",
-    },
-};
+        "Free transaction coordinator templates, PDFs, and workflow resources including intake checklists, cover sheets, and task-list examples.",
+    path: "/resources",
+    keywords: [
+        "transaction coordinator resources",
+        "transaction coordinator templates",
+        "tc intake checklist pdf",
+        "tc cover sheet template",
+    ],
+});
 
 type Resource = {
     title: string;
@@ -233,7 +238,6 @@ export default function ResourcesPage() {
         </>
     );
 }
-
 
 
 

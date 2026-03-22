@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbStructuredData, getFaqStructuredData, getServiceStructuredData } from "@/lib/structuredData";
 import {
     IconChecklist,
     IconBolt,
@@ -15,14 +18,18 @@ import {
     IconArrowRight,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Websites for Transaction Coordinators",
+export const metadata: Metadata = createPageMetadata({
+    title: "Web Design for Transaction Coordinators",
     description:
-        "Web design for real estate transaction coordinators: professional messaging, fast pages, and lead capture that filters for fit and drives bookings.",
-    alternates: {
-        canonical: "/industries/transaction-coordinators",
-    },
-};
+        "Web design for transaction coordinators with stronger positioning, fast performance, fit-filtered lead capture, and optional intake automation.",
+    path: "/industries/transaction-coordinators",
+    keywords: [
+        "transaction coordinator website design",
+        "web design for transaction coordinators",
+        "real estate transaction coordinator website",
+        "tc website packages",
+    ],
+});
 
 const outcomes = [
     {
@@ -113,18 +120,6 @@ const automationPackages = [
     },
 ];
 
-const fitFor = [
-    "Established transaction coordinators and TC teams",
-    "TCs who want fewer low-fit leads and more qualified calls",
-    "Operators who want a professional presence that feels serious and systems-driven",
-];
-
-const bestResultsWhen = [
-    "You have a clear offer and want better-fit calls, not just more inquiries",
-    "You are ready to qualify leads with process and intake structure",
-    "You can respond quickly when qualified leads come in",
-];
-
 const faqs = [
     {
         q: "Do you write the copy?",
@@ -160,9 +155,25 @@ export default function TransactionCoordinatorsPage() {
     const featured = [paRes, tagProject, utilitySheet, normaIntake].filter(
         (project): project is Project => Boolean(project)
     );
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Industries", path: "/industries" },
+            { name: "Transaction Coordinators", path: "/industries/transaction-coordinators" },
+        ]),
+        getServiceStructuredData({
+            name: "Transaction Coordinator Website Design",
+            description:
+                "Website design and optional intake automation for transaction coordinators who need clearer positioning and better-fit leads.",
+            path: "/industries/transaction-coordinators",
+            audience: ["Transaction coordinators", "Real estate operations teams"],
+        }),
+        getFaqStructuredData(faqs),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
@@ -561,8 +572,6 @@ export default function TransactionCoordinatorsPage() {
         </>
     );
 }
-
-
 
 
 

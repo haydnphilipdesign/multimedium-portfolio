@@ -7,7 +7,8 @@ import { Navbar } from "@/components/nav/Navbar";
 import { MobileStickyCTA } from "@/components/nav/MobileStickyCTA";
 import { Footer } from "@/components/footer/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
-import { siteUrl } from "@/lib/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { siteName, siteUrl } from "@/lib/site";
 import { getSiteStructuredData } from "@/lib/structuredData";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,39 +32,45 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Multimedium | Websites That Win Trust + Generate Leads",
-    template: "%s | Multimedium",
+    default: "Real Estate Web Design in the Poconos | Multimedium",
+    template: `%s | ${siteName}`,
   },
   description:
-    "Web design for real estate professionals, transaction coordinators, and HOAs — clear messaging, fast performance, and pages that turn visitors into qualified leads.",
+    "Multimedium designs websites for real estate professionals, transaction coordinators, brokerages, coaches, and related service businesses in the Poconos and beyond.",
   keywords: [
     "real estate web design",
-    "transaction coordinator website",
-    "HOA website design",
-    "real estate agent website",
-    "property management web design",
-    "conversion focused web design",
-    "web design poconos",
-    "next.js web development",
+    "transaction coordinator website design",
+    "real estate marketing website",
+    "website design for real estate coaches",
+    "brokerage website design",
+    "local web design poconos pa",
+    "web designer for real estate professionals",
   ],
-  authors: [{ name: "Haydn" }],
-  creator: "Multimedium",
+  authors: [{ name: "Haydn", url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
   openGraph: {
+    title: "Real Estate Web Design in the Poconos | Multimedium",
+    description:
+      "Custom websites for real estate professionals, transaction coordinators, and related service businesses that need better-qualified leads.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Multimedium",
+    siteName,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Multimedium | Websites That Win Trust + Generate Leads",
+        alt: "Multimedium real estate web design and transaction coordinator websites",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "Real Estate Web Design in the Poconos | Multimedium",
+    description:
+      "Custom websites for real estate professionals, transaction coordinators, and related service businesses.",
     images: ["/twitter-image"],
   },
   robots: {
@@ -85,10 +92,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
     >
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd data={structuredData} />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-card focus:text-foreground focus:border focus:border-border focus:shadow-lg"

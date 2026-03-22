@@ -24,15 +24,19 @@ import {
     IconShieldCheck,
     IconSparkles,
 } from "@tabler/icons-react";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "TC Website Packages — Built for Transaction Coordinators | Multimedium",
+export const metadata: Metadata = createPageMetadata({
+    title: "TC Website Packages",
     description:
-        "Website packages designed specifically for transaction coordinators. Professional design, strategic positioning, and pages that turn visitors into real leads — starting at $750.",
-    alternates: {
-        canonical: "/tc-packages",
-    },
-};
+        "Website packages designed specifically for transaction coordinators with professional design, niche positioning, and pages that turn visitors into real leads.",
+    path: "/tc-packages",
+    keywords: [
+        "tc website packages",
+        "transaction coordinator website packages",
+        "transaction coordinator website design pricing",
+    ],
+});
 
 const packages = [
     {

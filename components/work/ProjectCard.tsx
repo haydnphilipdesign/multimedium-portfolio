@@ -22,7 +22,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 {!imageError ? (
                     <Image
                         src={project.thumbnail}
-                        alt={project.title}
+                        alt={`${project.title} website design case study preview`}
                         fill
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -125,7 +125,7 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
                     {!imageError ? (
                         <Image
                             src={project.thumbnail}
-                            alt={project.title}
+                            alt={`${project.title} website design thumbnail`}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                             sizes="(max-width: 768px) 50vw, 25vw"

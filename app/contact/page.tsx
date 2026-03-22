@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import { submitContact } from "./actions";
 import { createContactFormToken } from "@/lib/contactAntiSpam";
 import { TurnstileWidget } from "./TurnstileWidget";
@@ -13,14 +14,17 @@ import {
     IconCalendarEvent,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Contact",
+export const metadata: Metadata = createPageMetadata({
+    title: "Contact Multimedium",
     description:
-        "Contact Multimedium to talk about a website build, landing page, or ongoing improvements for your business.",
-    alternates: {
-        canonical: "/contact",
-    },
-};
+        "Contact Multimedium to talk about a website build, landing page, or SEO-focused growth work for your real estate or service business.",
+    path: "/contact",
+    keywords: [
+        "contact multimedium",
+        "hire real estate web designer",
+        "web design consultation poconos",
+    ],
+});
 
 export const dynamic = "force-dynamic";
 
@@ -542,7 +546,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </>
     );
 }
-
 
 
 

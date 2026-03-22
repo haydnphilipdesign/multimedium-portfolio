@@ -4,6 +4,7 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconCheck,
     IconArrowRight,
@@ -12,14 +13,17 @@ import {
     IconTargetArrow,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Landing Pages + Funnels",
+export const metadata: Metadata = createPageMetadata({
+    title: "Landing Pages and Funnels",
     description:
-        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups with right-sized scope.",
-    alternates: {
-        canonical: "/services/landing-pages",
-    },
-};
+        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups for niche service businesses and real estate offers.",
+    path: "/services/landing-pages",
+    keywords: [
+        "landing page design service",
+        "lead generation landing page",
+        "real estate landing page design",
+    ],
+});
 
 const included = [
     "Offer + messaging refinement",
@@ -33,12 +37,6 @@ const expectations = [
     { label: "Primary conversion", value: "Leads, bookings, sign-ups" },
     { label: "Typical timeline", value: "1–3 weeks" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
-];
-
-const fitFor = [
-    "Offers, launches, and campaigns where clarity matters more than content volume",
-    "Teams running ads or email campaigns who want higher conversion rates",
-    "Service businesses that want fewer low-fit leads and more of the right ones",
 ];
 
 const faqs = [
@@ -258,8 +256,6 @@ export default function LandingPagesServicePage() {
         </>
     );
 }
-
-
 
 
 

@@ -6,6 +6,7 @@ import { ProjectCard } from "@/components/work/ProjectCard";
 import { WorkFilters } from "@/components/work/WorkFilters";
 import { projects, type Project } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
@@ -104,11 +105,12 @@ export async function generateMetadata({
     if (category) params_arr.push(`category=${encodeURIComponent(category)}`);
     const canonical = params_arr.length > 0 ? `/work?${params_arr.join("&")}` : "/work";
 
-    return {
+    return createPageMetadata({
         title,
         description,
-        alternates: { canonical },
-    };
+        path: canonical,
+        robots: params_arr.length > 0 ? { index: false, follow: true } : undefined,
+    });
 }
 
 export default async function WorkPage({
@@ -325,7 +327,6 @@ export default async function WorkPage({
         </>
     );
 }
-
 
 
 

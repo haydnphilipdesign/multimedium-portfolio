@@ -4,6 +4,7 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconCheck,
     IconArrowRight,
@@ -12,14 +13,17 @@ import {
     IconTargetArrow,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Growth Retainers",
+export const metadata: Metadata = createPageMetadata({
+    title: "SEO and Growth Retainers",
     description:
-        "Ongoing improvements so your website keeps getting clearer, faster, and higher-converting after launch.",
-    alternates: {
-        canonical: "/services/growth-retainers",
-    },
-};
+        "Ongoing SEO, content, performance, and conversion improvements so your website keeps getting clearer, faster, and higher-converting after launch.",
+    path: "/services/growth-retainers",
+    keywords: [
+        "seo retainer service",
+        "website growth retainer",
+        "conversion optimization retainer",
+    ],
+});
 
 const included = [
     "Monthly / quarterly experiment plan",
@@ -33,12 +37,6 @@ const expectations = [
     { label: "Cadence", value: "Monthly / quarterly" },
     { label: "Focus", value: "Conversion + clarity + SEO" },
     { label: "Reporting", value: "Leads, not vanity metrics" },
-];
-
-const fitFor = [
-    "Teams with traffic that want more inquiries without a full rebuild",
-    "Businesses that prefer steady improvements over big redesigns",
-    "Operators who want someone to own the backlog and ship consistently",
 ];
 
 const faqs = [
@@ -257,8 +255,6 @@ export default function GrowthRetainersServicePage() {
         </>
     );
 }
-
-
 
 
 

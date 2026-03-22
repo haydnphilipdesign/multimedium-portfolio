@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import { requestChecklist } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
     title: "TC Lead Intake Checklist",
     description:
-        "Free downloadable TC lead intake checklist PDF - so you can qualify faster and start every file clean.",
-    alternates: {
-        canonical: "/resources/tc-intake-checklist",
-    },
-};
+        "Free downloadable transaction coordinator lead intake checklist PDF to help qualify faster, reduce back-and-forth, and start each file clean.",
+    path: "/resources/tc-intake-checklist",
+    keywords: ["transaction coordinator intake checklist", "tc intake checklist pdf", "transaction coordinator lead form template"],
+});
 
 interface PageProps {
     searchParams?: Promise<{
@@ -194,7 +194,6 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
         </>
     );
 }
-
 
 
 

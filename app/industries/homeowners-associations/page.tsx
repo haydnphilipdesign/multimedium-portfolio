@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconCalendarEvent,
     IconFileText,
@@ -12,14 +13,12 @@ import {
     IconArrowRight,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Websites for HOAs & Community Associations",
+export const metadata: Metadata = createPageMetadata({
+    title: "Websites for HOAs and Community Associations",
     description:
-        "Web design for homeowners associations: resident portals, board info, document access, dues collection, event calendars, and amenity booking — all in one professional site.",
-    alternates: {
-        canonical: "/industries/homeowners-associations",
-    },
-};
+        "Web design for homeowners associations with document access, board communication, event calendars, dues information, and a more professional resident experience.",
+    path: "/industries/homeowners-associations",
+});
 
 const outcomes = [
     {
@@ -267,7 +266,7 @@ export default function HomeownersAssociationsPage() {
                         Want a site that keeps your community informed?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        Tell me about your community, what info residents need access to, and what the board is tired of repeating. I'll reply within one business day with next steps.
+                        Tell me about your community, what info residents need access to, and what the board is tired of repeating. I&apos;ll reply within one business day with next steps.
                     </p>
                     <Link href="/contact?source=hoa-cta" className="btn-primary">
                         Get started

@@ -1,22 +1,36 @@
 import type { Metadata } from "next";
 import { StatementHero } from "@/components/hero/StatementHero";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getHomeFeaturedProjects, projects } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbStructuredData, getServiceStructuredData } from "@/lib/structuredData";
 import Link from "next/link";
 import {
     IconLayout,
     IconCode,
     IconChartLine,
     IconArrowRight,
+    IconBuildingSkyscraper,
+    IconBriefcase2,
+    IconHomeDollar,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    alternates: {
-        canonical: "/",
-    },
-};
+export const metadata: Metadata = createPageMetadata({
+    title: "Real Estate Web Design and TC Websites",
+    description:
+        "Multimedium builds high-trust websites for real estate professionals, transaction coordinators, brokerages, and real estate coaches in the Poconos and beyond.",
+    path: "/",
+    keywords: [
+        "real estate web design",
+        "transaction coordinator website design",
+        "real estate marketing website",
+        "website design for real estate coaches",
+        "poconos web designer",
+    ],
+});
 
 const services = [
     {
@@ -42,6 +56,30 @@ const services = [
     },
 ];
 
+const nichePages = [
+    {
+        icon: IconHomeDollar,
+        title: "Real estate website design",
+        description:
+            "For agents, teams, and brokerages that need clearer positioning, stronger trust, and better buyer or seller inquiries.",
+        href: "/industries/real-estate-professionals",
+    },
+    {
+        icon: IconBuildingSkyscraper,
+        title: "Web design for transaction coordinators",
+        description:
+            "For TC businesses that need a more professional web presence, better-fit leads, and cleaner intake workflows.",
+        href: "/industries/transaction-coordinators",
+    },
+    {
+        icon: IconBriefcase2,
+        title: "Websites for real estate coaches",
+        description:
+            "For coaches, educators, and consultants who need authority-first messaging and a premium site that supports offers and strategy calls.",
+        href: "/industries/real-estate-coaches",
+    },
+];
+
 function getBestTestimonial() {
     for (const p of projects) {
         if (p.testimonial) return p.testimonial;
@@ -53,9 +91,26 @@ export default function HomePage() {
     const featuredProjects = getHomeFeaturedProjects();
     const featuredGridCols = featuredProjects.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
     const testimonial = getBestTestimonial();
+    const structuredData = [
+        getBreadcrumbStructuredData([{ name: "Home", path: "/" }]),
+        getServiceStructuredData({
+            name: "Real Estate Web Design and TC Website Design",
+            description:
+                "Custom website design for real estate professionals, transaction coordinators, brokerages, and coaches who need clearer messaging and stronger lead generation.",
+            path: "/",
+            serviceType: "Web design and development",
+            audience: [
+                "Real estate professionals",
+                "Transaction coordinators",
+                "Brokerages",
+                "Real estate coaches",
+            ],
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             {/* Hero */}
             <StatementHero />
 
@@ -122,6 +177,39 @@ export default function HomePage() {
                 </div>
             </Section>
 
+            <Section className="rounded-2xl bg-muted/35">
+                <AnimatedSection>
+                    <div className="mb-10 max-w-3xl">
+                        <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+                            Built for the real estate side of service businesses
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            The strongest SEO opportunity on this site is specialization. These pages go deeper on the audiences Multimedium is best positioned to serve.
+                        </p>
+                    </div>
+                </AnimatedSection>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                    {nichePages.map((page) => (
+                        <Link
+                            key={page.title}
+                            href={page.href}
+                            className="group rounded-2xl border border-border/60 bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
+                        >
+                            <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                                <page.icon className="h-5 w-5" stroke={1.5} />
+                            </div>
+                            <h3 className="text-lg font-semibold text-foreground">{page.title}</h3>
+                            <p className="mt-2 text-sm text-muted-foreground">{page.description}</p>
+                            <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+                                Explore page
+                                <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+            </Section>
+
             {/* Testimonial */}
             {testimonial && (
                 <Section className="rounded-2xl border border-border/60 bg-card/60">
@@ -147,6 +235,9 @@ export default function HomePage() {
                     </h2>
                     <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
                         Tell me what you&apos;re working on. I&apos;ll reply within one business day with a clear next step.
+                    </p>
+                    <p className="mb-8 text-sm text-muted-foreground">
+                        Based in the Poconos, working with niche service businesses locally and remotely.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/contact?source=home-cta" className="btn-primary">

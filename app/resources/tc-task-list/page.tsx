@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import { requestTcTaskList } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "TC Task List Sheet (Example)",
+export const metadata: Metadata = createPageMetadata({
+    title: "TC Task List Sheet Example",
     description:
-        "Free downloadable TC Task List Sheet (Poconos example). A real checklist-style task list you can use as a reference and customize for your workflow.",
-    alternates: {
-        canonical: "/resources/tc-task-list",
-    },
-};
+        "Free downloadable transaction coordinator task list sheet based on a Poconos workflow example that you can customize for your own process.",
+    path: "/resources/tc-task-list",
+    keywords: ["transaction coordinator task list", "tc checklist pdf", "transaction coordinator workflow template"],
+});
 
 interface PageProps {
     searchParams?: Promise<{
@@ -218,7 +218,6 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         </>
     );
 }
-
 
 
 

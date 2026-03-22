@@ -4,6 +4,9 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbStructuredData, getFaqStructuredData, getServiceStructuredData } from "@/lib/structuredData";
 import {
     IconCheck,
     IconArrowRight,
@@ -11,14 +14,18 @@ import {
     IconShieldCheck,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Website Build / Redesign",
+export const metadata: Metadata = createPageMetadata({
+    title: "Website Build and Redesign",
     description:
-        "A website build or redesign designed to earn trust, load fast, and turn visitors into real leads.",
-    alternates: {
-        canonical: "/services/website",
-    },
-};
+        "Custom website builds and redesigns for real estate professionals and service businesses that need stronger trust, faster performance, and better-qualified leads.",
+    path: "/services/website",
+    keywords: [
+        "website redesign service",
+        "custom website design service",
+        "real estate website redesign",
+        "service business web design",
+    ],
+});
 
 const included = [
     "Kickoff workshop + page plan",
@@ -33,12 +40,6 @@ const expectations = [
     { label: "Typical timeline", value: "4–6 weeks" },
     { label: "Primary conversion", value: "Real leads" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
-];
-
-const fitFor = [
-    "Teams who want to look credible and established quickly",
-    "Businesses with offers that are hard to explain on a template",
-    "Owners who want speed, accessibility, and a site that stays consistent over time",
 ];
 
 const faq = [
@@ -63,9 +64,25 @@ export default function WebsiteServicePage() {
     const featured = [paRes, northpoint, threePenn].filter(
         (project): project is Project => Boolean(project)
     );
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Website Build and Redesign", path: "/services/website" },
+        ]),
+        getServiceStructuredData({
+            name: "Website Build and Redesign",
+            description:
+                "Custom website builds and redesigns focused on clear messaging, technical SEO, and better-qualified leads.",
+            path: "/services/website",
+            audience: ["Real estate professionals", "Transaction coordinators", "Service businesses"],
+        }),
+        getFaqStructuredData(faq),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
@@ -250,8 +267,6 @@ export default function WebsiteServicePage() {
         </>
     );
 }
-
-
 
 
 

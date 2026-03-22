@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { getProjectBySlug, getAllProjectSlugs, projects } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import { IconArrowLeft, IconArrowRight, IconArrowUpRight, IconQuote } from "@tabler/icons-react";
 
 interface PageProps {
@@ -28,25 +29,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const title = project.metaTitle ?? project.title;
     const description = project.metaDescription ?? project.description;
 
-    return {
+    return createPageMetadata({
         title,
         description,
-        alternates: {
-            canonical: `/work/${project.slug}`,
-        },
-        openGraph: {
-            title,
-            description,
-            url: `/work/${project.slug}`,
-            images: [project.heroImage],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title,
-            description,
-            images: [project.heroImage],
-        },
-    };
+        path: `/work/${project.slug}`,
+        ogImage: project.heroImage,
+        keywords: project.tags,
+    });
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
@@ -183,7 +172,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted border border-border/60 shadow-[var(--shadow-soft)]">
                         <Image
                             src={project.heroImage}
-                            alt={project.title}
+                            alt={`${project.title} website design case study hero image`}
                             fill
                             className="object-cover"
                             sizes="(min-width: 1280px) 1200px, 100vw"
@@ -536,8 +525,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </>
     );
 }
-
-
 
 
 

@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconPhoneCall,
     IconMapPin,
@@ -13,14 +14,12 @@ import {
     IconArrowRight,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
     title: "Websites for Local Trades",
     description:
-        "Web design for blue-collar trades and local service businesses: fast pages, trust signals, and quote/request flows that turn searches into calls.",
-    alternates: {
-        canonical: "/industries/trades",
-    },
-};
+        "Web design for local trades and blue-collar service businesses with local SEO structure, trust signals, and quote-request flows that turn searches into calls.",
+    path: "/industries/trades",
+});
 
 const outcomes = [
     {
@@ -68,18 +67,6 @@ const expectations = [
     { label: "Primary conversion", value: "Calls + estimate requests" },
     { label: "Built for mobile", value: "Fast load + tap-to-call" },
     { label: "Tracking-ready", value: "Analytics + conversion events" },
-];
-
-const fitFor = [
-    "Local trades and blue-collar services (asphalt, sealcoating, excavation, fencing, etc.)",
-    "Teams who want to look more established than the competition",
-    "Owners who want more inbound calls without a bloated site",
-];
-
-const bestResultsWhen = [
-    "You have a defined service area and want clearer local positioning",
-    "You care about proof placement and conversion flow, not just looks",
-    "You want better jobs and better close rates, not just lead volume",
 ];
 
 const faqs = [
@@ -261,8 +248,6 @@ export default function TradesPage() {
         </>
     );
 }
-
-
 
 
 

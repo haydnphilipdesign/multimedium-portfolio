@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconMapPin,
     IconStack2,
@@ -10,14 +11,17 @@ import {
     IconChecklist,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "About",
+export const metadata: Metadata = createPageMetadata({
+    title: "About Haydn",
     description:
-        "Meet Haydn—designer and developer helping real estate professionals, TCs, and HOAs build clearer, higher-converting websites.",
-    alternates: {
-        canonical: "/about",
-    },
-};
+        "Meet Haydn, founder of Multimedium, a Poconos-based designer and developer building clearer, higher-converting websites for real estate-focused businesses.",
+    path: "/about",
+    keywords: [
+        "about multimedium",
+        "poconos web designer",
+        "real estate web designer pennsylvania",
+    ],
+});
 
 const values = [
     {
@@ -91,7 +95,7 @@ export default function AboutPage() {
                         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-muted shadow-[var(--shadow-soft)]">
                             <Image
                                 src="/haydn.png"
-                                alt="Haydn"
+                                alt="Haydn, founder of Multimedium in the Poconos, Pennsylvania"
                                 fill
                                 className="object-cover"
                                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -183,7 +187,5 @@ export default function AboutPage() {
         </>
     );
 }
-
-
 
 

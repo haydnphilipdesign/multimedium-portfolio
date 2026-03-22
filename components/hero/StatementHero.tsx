@@ -58,7 +58,7 @@ export function StatementHero() {
                         >
                             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/80 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm">
                                 <span className="status-dot !h-2 !w-2" />
-                                Taking on 1–2 projects each month
+                                Poconos, PA studio • taking on 1–2 projects each month
                             </div>
 
                             <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
@@ -66,7 +66,7 @@ export function StatementHero() {
                             </h1>
 
                             <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                I design and build websites for real estate professionals, TCs, and HOAs — strategy, messaging, design, and code in one loop so your site makes reaching out feel obvious.
+                                I design and build websites for real estate professionals, transaction coordinators, brokerages, and niche service businesses so your site makes reaching out feel obvious.
                             </p>
 
                             <p className="mb-9 text-sm text-muted-foreground">
@@ -107,7 +107,7 @@ export function StatementHero() {
                             <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
                                 <Image
                                     src="/haydn.png"
-                                    alt="Haydn - Web Designer & Developer"
+                                    alt="Haydn, founder of Multimedium, a web design studio serving the Poconos and real estate professionals"
                                     width={520}
                                     height={620}
                                     className="h-auto w-full"

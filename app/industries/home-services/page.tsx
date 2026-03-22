@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import {
     IconPhoneCall,
     IconMapPin,
@@ -17,14 +18,12 @@ import {
     IconPlugConnected,
 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
     title: "Websites for Home Services",
     description:
-        "Web design for home service companies: fast pages, strong credibility, and lead capture that turns searches into booked jobs.",
-    alternates: {
-        canonical: "/industries/home-services",
-    },
-};
+        "Web design for home service companies with strong local SEO structure, fast pages, and lead capture that turns searches into booked jobs.",
+    path: "/industries/home-services",
+});
 
 const outcomes = [
     {
@@ -72,18 +71,6 @@ const included = [
         description:
             "Calls, forms, and scheduling that send inquiries to the right place fast.",
     },
-];
-
-const fitFor = [
-    "HVAC, plumbing, electrical, roofing, and other home services",
-    "Teams that want fewer tire-kickers and more booked jobs",
-    "Owners who want a professional look that still feels local and trusted",
-];
-
-const bestResultsWhen = [
-    "You want clearer qualification and stronger lead quality from the site",
-    "You can support call/form tracking and basic conversion reporting",
-    "You value job quality and margin, not just lead volume",
 ];
 
 const conceptHighlights = [
@@ -480,8 +467,6 @@ export default function HomeServicesPage() {
         </>
     );
 }
-
-
 
 
 

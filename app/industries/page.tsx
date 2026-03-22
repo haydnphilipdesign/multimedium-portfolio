@@ -2,25 +2,30 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { IconArrowRight, IconBuildingSkyscraper, IconHammer, IconHome2, IconHomeDollar, IconBuildingCommunity } from "@tabler/icons-react";
+import { createPageMetadata } from "@/lib/seo";
+import { IconArrowRight, IconBuildingSkyscraper, IconHammer, IconHome2, IconHomeDollar, IconBuildingCommunity, IconBriefcase2 } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "Industries",
+export const metadata: Metadata = createPageMetadata({
+    title: "Industries Served",
     description:
-        "Industry-focused website design for real estate agents, transaction coordinators, HOAs, local trades, and home service companies.",
-    alternates: {
-        canonical: "/industries",
-    },
-};
+        "Industry-focused website design for real estate professionals, transaction coordinators, coaches, HOAs, local trades, and home service companies.",
+    path: "/industries",
+    keywords: [
+        "real estate web design",
+        "transaction coordinator website design",
+        "website design for real estate coaches",
+        "home services website design",
+    ],
+});
 
 const industries = [
     {
         icon: IconHomeDollar,
-        title: "Real Estate Agents & Teams",
+        title: "Real Estate Professionals",
         description:
-            "Websites that position your team, showcase listings, and generate buyer and seller leads.",
-        href: "/lp/real-estate",
-        cta: "See RE offer",
+            "Websites for agents, teams, and brokerages that need stronger trust, better local relevance, and clearer buyer or seller paths.",
+        href: "/industries/real-estate-professionals",
+        cta: "See real estate offer",
     },
     {
         icon: IconBuildingSkyscraper,
@@ -29,6 +34,14 @@ const industries = [
             "Professional websites and optional intake automation for real estate ops teams that want more qualified calls.",
         href: "/industries/transaction-coordinators",
         cta: "See TC offer",
+    },
+    {
+        icon: IconBriefcase2,
+        title: "Real Estate Coaches & Brokerages",
+        description:
+            "Authority-first sites for coaches, educators, consultants, and brokerages selling premium offers or recruiting the right people.",
+        href: "/industries/real-estate-coaches",
+        cta: "See coach offer",
     },
     {
         icon: IconBuildingCommunity,
@@ -109,4 +122,3 @@ export default function IndustriesPage() {
         </>
     );
 }
-

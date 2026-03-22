@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { createPageMetadata } from "@/lib/seo";
 import { requestTcCoverSheet } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
-export const metadata: Metadata = {
-    title: "TC Cover Sheet / Quick Reference",
+export const metadata: Metadata = createPageMetadata({
+    title: "TC Cover Sheet Template",
     description:
-        "Free downloadable TC cover sheet / quick reference PDF - clean, file-ready summary you can use across most transaction coordination workflows.",
-    alternates: {
-        canonical: "/resources/tc-cover-sheet",
-    },
-};
+        "Free downloadable transaction coordinator cover sheet template with a clean, file-ready summary you can use across most TC workflows.",
+    path: "/resources/tc-cover-sheet",
+    keywords: ["transaction coordinator cover sheet", "tc cover sheet template", "transaction coordinator quick reference pdf"],
+});
 
 interface PageProps {
     searchParams?: Promise<{
@@ -218,7 +218,6 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
         </>
     );
 }
-
 
 
 

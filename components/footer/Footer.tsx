@@ -26,7 +26,7 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-                            Web design for real estate professionals, transaction coordinators, and HOAs — clearer messaging, a professional presence, and more qualified inquiries.
+                            Web design for real estate professionals, transaction coordinators, coaches, and niche service businesses — clearer messaging, a stronger presence, and more qualified inquiries.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA
@@ -40,6 +40,9 @@ export function Footer() {
                         <nav className="flex flex-col items-start gap-2">
                             <Link href="/services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Services
+                            </Link>
+                            <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Industries
                             </Link>
                             <Link href="/work" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Case Studies
@@ -58,11 +61,14 @@ export function Footer() {
                             Industries
                         </p>
                         <nav className="flex flex-col items-start gap-2">
-                            <Link href="/lp/real-estate?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Real Estate Agents
+                            <Link href="/industries/real-estate-professionals?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Real Estate Professionals
                             </Link>
                             <Link href="/industries/transaction-coordinators?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Transaction Coordinators
+                            </Link>
+                            <Link href="/industries/real-estate-coaches?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Coaches & Brokerages
                             </Link>
                             <Link href="/tc-packages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 TC Website Packages
