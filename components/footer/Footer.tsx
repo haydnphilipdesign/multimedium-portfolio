@@ -64,6 +64,9 @@ export function Footer() {
                             <Link href="/industries/transaction-coordinators?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Transaction Coordinators
                             </Link>
+                            <Link href="/tc-packages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                TC Website Packages
+                            </Link>
                             <Link href="/industries/homeowners-associations?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 HOAs
                             </Link>

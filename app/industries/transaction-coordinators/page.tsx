@@ -185,17 +185,11 @@ export default function TransactionCoordinatorsPage() {
                                          Get started
                                      </Link>
                                      <Link
-                                         href="/work?industry=tc"
+                                         href="/tc-packages"
                                          className="btn-secondary inline-flex items-center gap-2"
                                      >
-                                         See TC work <IconArrowRight className="w-4 h-4" stroke={2} />
+                                         View packages <IconArrowRight className="w-4 h-4" stroke={2} />
                                      </Link>
-                                    <Link
-                                        href="/resources?source=tc-hero"
-                                        className="btn-secondary inline-flex items-center gap-2"
-                                    >
-                                        Free templates <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
                                  </div>
                              </div>
 
@@ -274,6 +268,53 @@ export default function TransactionCoordinatorsPage() {
                         <Link href="#automation" className="btn-secondary inline-flex items-center justify-center gap-2">
                             See automation options <IconArrowRight className="w-4 h-4" stroke={2} />
                         </Link>
+                    </div>
+                </AnimatedSection>
+            </Section>
+
+            {/* Packages bridge */}
+            <Section>
+                <AnimatedSection>
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
+                        <div className="relative grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
+                            <div>
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
+                                    TC website packages
+                                </span>
+                                <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
+                                    Three tiers — built for how TC businesses actually work.
+                                </h2>
+                                <p className="mt-4 text-muted-foreground leading-relaxed">
+                                    Whether you&apos;re just getting started or scaling a team, there&apos;s a package designed for your stage. Starting at $750.
+                                </p>
+                                <Link
+                                    href="/tc-packages"
+                                    className="mt-6 btn-primary inline-flex items-center justify-center gap-2"
+                                >
+                                    Compare packages
+                                    <IconArrowRight className="w-4 h-4" stroke={2} />
+                                </Link>
+                            </div>
+                            <div className="grid gap-3">
+                                {[
+                                    { name: "TC Starter", desc: "1 page, professional presence", price: "$750" },
+                                    { name: "TC Growth", desc: "4 pages, intake forms, careers", price: "$1,500" },
+                                    { name: "TC Pro", desc: "5+ pages, fully custom", price: "$3,000+" },
+                                ].map((pkg) => (
+                                    <div
+                                        key={pkg.name}
+                                        className="flex items-center justify-between rounded-xl border border-border/60 bg-background/55 backdrop-blur-sm px-5 py-3.5"
+                                    >
+                                        <div>
+                                            <p className="text-sm font-semibold text-foreground">{pkg.name}</p>
+                                            <p className="text-xs text-muted-foreground">{pkg.desc}</p>
+                                        </div>
+                                        <span className="text-sm font-semibold text-foreground">{pkg.price}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </AnimatedSection>
             </Section>
@@ -505,11 +546,16 @@ export default function TransactionCoordinatorsPage() {
                         Want a TC site that attracts better-fit leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        Send a link to your current site (if you have one) and tell me what you want the page to do. I’ll reply within one business day with next steps.
+                        Send a link to your current site (if you have one) and tell me what you want the page to do. I&apos;ll reply within one business day with next steps.
                     </p>
-                    <Link href="/contact?source=tc-cta" className="btn-primary">
-                        Get started
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Link href="/contact?source=tc-cta" className="btn-primary">
+                            Get started
+                        </Link>
+                        <Link href="/tc-packages" className="btn-secondary inline-flex items-center gap-2">
+                            Compare packages <IconArrowRight className="w-4 h-4" stroke={2} />
+                        </Link>
+                    </div>
                 </AnimatedSection>
             </Section>
         </>
