@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCreativeWorkStructuredData,
+} from "@/lib/structuredData";
 import { requestTcTaskList } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
@@ -28,9 +33,25 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
     const sent = params.sent === "1";
     const error = params.error === "1";
     const source = params.source ?? "";
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Resources", path: "/resources" },
+            { name: "TC Task List Sheet Example", path: "/resources/tc-task-list" },
+        ]),
+        getCreativeWorkStructuredData({
+            name: "TC Task List Sheet Example",
+            description:
+                "Free downloadable transaction coordinator task list sheet based on a Poconos workflow example.",
+            path: "/resources/tc-task-list",
+            image: "/resources/tc-task-list.jpg",
+            about: ["Transaction coordinators", "Workflow templates"],
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
@@ -218,7 +239,6 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         </>
     );
 }
-
 
 
 

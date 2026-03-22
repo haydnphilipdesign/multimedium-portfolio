@@ -127,7 +127,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ];
 
-    const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
+    const projectRoutes: MetadataRoute.Sitemap = projects
+        .filter((project) => project.featured)
+        .map((project) => ({
         url: `${siteUrl}/work/${project.slug}`,
         changeFrequency: "yearly",
         priority: 0.8,

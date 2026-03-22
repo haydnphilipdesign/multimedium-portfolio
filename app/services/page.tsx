@@ -1,16 +1,21 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { projects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCollectionPageStructuredData,
+} from "@/lib/structuredData";
 import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Web Design Services",
+    title: "Web Design Services for Real Estate and Service Businesses",
     description:
-        "Website design, landing pages, and SEO-focused growth retainers for real estate professionals, transaction coordinators, and niche service businesses.",
+        "Website design, landing page design, and SEO-focused growth retainers for real estate professionals, transaction coordinators, and niche service businesses.",
     path: "/services",
     keywords: [
         "web design services",
@@ -52,20 +57,33 @@ const services = [
 
 export default function ServicesPage() {
     const clientProjectCount = projects.filter((project) => project.kind === "Client").length;
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+        ]),
+        getCollectionPageStructuredData({
+            name: "Multimedium Web Design Services",
+            description:
+                "Website design, landing page design, and growth retainers for real estate professionals, transaction coordinators, and service businesses.",
+            path: "/services",
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                Websites that
+                                Web design services that
                                 <br />
                                 <span className="text-gradient">turn visitors into inquiries.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                A proven approach refined across local services, real estate, and SaaS — adapted for your business and audience.
+                                Website builds, landing pages, and SEO-focused growth support for real estate businesses, transaction coordinators, and service companies that need better-fit leads.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
@@ -212,5 +230,4 @@ export default function ServicesPage() {
         </>
     );
 }
-
 

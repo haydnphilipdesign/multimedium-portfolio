@@ -28,6 +28,22 @@ type ServiceSchemaInput = {
     audience?: string[];
 };
 
+type CollectionPageSchemaInput = {
+    name: string;
+    description: string;
+    path: string;
+};
+
+type CreativeWorkSchemaInput = {
+    name: string;
+    description: string;
+    path: string;
+    image?: string;
+    type?: "CreativeWork" | "Article" | "CollectionPage";
+    keywords?: string[];
+    about?: string[];
+};
+
 function readSameAs(): string[] {
     const candidates = [
         process.env.NEXT_PUBLIC_LINKEDIN_URL,
@@ -186,5 +202,66 @@ export function getServiceStructuredData({
                 })),
             }
             : {}),
+    };
+}
+
+export function getCollectionPageStructuredData({
+    name,
+    description,
+    path,
+}: CollectionPageSchemaInput) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name,
+        description,
+        url: absoluteUrl(path),
+        isPartOf: {
+            "@type": "WebSite",
+            name: siteName,
+            url: siteUrl,
+        },
+        about: {
+            "@type": "Thing",
+            name,
+        },
+    };
+}
+
+export function getCreativeWorkStructuredData({
+    name,
+    description,
+    path,
+    image,
+    type = "CreativeWork",
+    keywords,
+    about,
+}: CreativeWorkSchemaInput) {
+    return {
+        "@context": "https://schema.org",
+        "@type": type,
+        name,
+        description,
+        url: absoluteUrl(path),
+        ...(image ? { image: absoluteUrl(image) } : {}),
+        ...(keywords?.length ? { keywords: keywords.join(", ") } : {}),
+        ...(about?.length
+            ? {
+                about: about.map((item) => ({
+                    "@type": "Thing",
+                    name: item,
+                })),
+            }
+            : {}),
+        author: {
+            "@type": "Person",
+            name: siteOwnerName,
+            url: siteUrl,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: siteName,
+            url: siteUrl,
+        },
     };
 }

@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentType } from "react";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCollectionPageStructuredData,
+} from "@/lib/structuredData";
 import { IconArrowRight, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
@@ -85,8 +90,22 @@ const tools: Resource[] = [
 ];
 
 export default function ResourcesPage() {
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Resources", path: "/resources" },
+        ]),
+        getCollectionPageStructuredData({
+            name: "Transaction Coordinator Resources",
+            description:
+                "Free transaction coordinator templates, PDFs, checklists, and workflow resources from Multimedium.",
+            path: "/resources",
+        }),
+    ];
+
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
@@ -97,10 +116,12 @@ export default function ResourcesPage() {
                                 Resources
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Free TC templates
+                                Free transaction coordinator
+                                <br />
+                                templates and PDFs
                             </h1>
                             <p className="text-lg text-muted-foreground">
-                                Downloadable PDFs you can use immediately, plus structure examples you can adapt for your own workflow.
+                                Downloadable transaction coordinator templates you can use immediately, plus structure examples you can adapt for your own workflow.
                             </p>
                         </div>
                     </div>
@@ -238,7 +259,6 @@ export default function ResourcesPage() {
         </>
     );
 }
-
 
 
 

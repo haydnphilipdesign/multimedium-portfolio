@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import {
     AnimatedSection,
@@ -25,6 +26,11 @@ import {
     IconSparkles,
 } from "@tabler/icons-react";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getFaqStructuredData,
+    getServiceStructuredData,
+} from "@/lib/structuredData";
 
 export const metadata: Metadata = createPageMetadata({
     title: "TC Website Packages",
@@ -173,9 +179,24 @@ export default function TCPackagesPage() {
     const featured = [paRes, tagProject].filter(
         (project): project is Project => Boolean(project)
     );
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "TC Website Packages", path: "/tc-packages" },
+        ]),
+        getServiceStructuredData({
+            name: "Transaction Coordinator Website Packages",
+            description:
+                "Website packages for transaction coordinators with niche positioning, clear lead capture, and optional intake automation support.",
+            path: "/tc-packages",
+            audience: ["Transaction coordinators", "Transaction coordinator teams"],
+        }),
+        getFaqStructuredData(faqs),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             {/* Hero */}
             <div className="relative overflow-hidden border-b border-border/40">
                 <Section className="pt-28 sm:pt-32 md:pt-40 pb-14 md:pb-20" padding="none">
@@ -186,7 +207,9 @@ export default function TCPackagesPage() {
                                 Built for transaction coordinators
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Website packages that{" "}
+                                Transaction coordinator
+                                <br />
+                                website packages that{" "}
                                 <span className="text-gradient">
                                     match your professionalism.
                                 </span>

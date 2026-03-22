@@ -22,6 +22,9 @@ import {
     IconPalette,
     IconDeviceMobile,
     IconMessageDots,
+    IconRocket,
+    IconTrendingUp,
+    IconCrown,
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
@@ -121,12 +124,20 @@ const faqs = [
         a: "It depends on your needs and goals. I work with modern frameworks and platforms and will recommend the best option for your situation — whether that's a custom build, a headless CMS, or a managed platform. The goal is a site that's fast, clean, and easy for you to maintain.",
     },
     {
+        q: "How much does a TC website cost?",
+        a: "TC Starter is $750 for a single-page site. TC Growth is $1,500 for a full multi-page build with intake forms. TC Pro starts at $3,000+ for fully custom projects. As a My TC Academy student, you also get 3 months of free managed hosting with any package.",
+    },
+    {
         q: "How long does a project typically take?",
-        a: "Most TC website projects take 4–6 weeks from kickoff to launch. Timeline depends on scope, but I'll give you a clear estimate after we talk through your goals.",
+        a: "TC Starter takes 1–2 weeks. TC Growth takes 3–4 weeks. TC Pro takes 4–6 weeks. I'll give you a clear timeline after we talk through your goals.",
+    },
+    {
+        q: "What's the My TC Academy referral perk?",
+        a: "3 months of free managed hosting ($59/month, $177 value) included with any package. This isn't a discount — it's a perk Jennifer set up so her students can get started without the added hosting cost upfront.",
     },
     {
         q: "What if I already have a website and just want it improved?",
-        a: "That works too. Whether it's a full rebuild or a focused refresh — better messaging, stronger design, faster performance — we can scope the project to match what you actually need.",
+        a: "That works too. Whether it's a full rebuild or a focused refresh — better messaging, stronger design, faster performance — we can scope the project to match what you actually need. The referral perk still applies.",
     },
 ];
 
@@ -210,7 +221,7 @@ export default function MyTCAcademyPage() {
                                             "Strategy, messaging, design, and code — one point of contact",
                                             "Positioning that attracts better-fit leads",
                                             "Sites built to grow with your business",
-                                            "Preferred perk for MTC Academy referrals",
+                                            "3 months free managed hosting — My TC Academy perk",
                                         ].map((item) => (
                                             <li key={item} className="flex items-start gap-3">
                                                 <IconCircleCheck
@@ -353,7 +364,200 @@ export default function MyTCAcademyPage() {
                 </Section>
             </div>
 
-            {/* Referral perk */}
+            {/* TC Website Packages + referral perk */}
+            <Section id="packages">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
+                            TC website packages
+                        </span>
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                            Three tiers — built for how TC businesses{" "}
+                            <span className="text-gradient">actually work.</span>
+                        </h2>
+                        <p className="mt-4 text-muted-foreground">
+                            Whether you&apos;re just getting started or scaling a team, there&apos;s a
+                            package designed for your stage. Every package includes strategy,
+                            design, development, and launch support.
+                        </p>
+                    </div>
+                </AnimatedSection>
+
+                {/* Referral perk banner */}
+                <AnimatedSection className="mt-8">
+                    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-primary/5 px-6 py-5 sm:px-8">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="flex items-center gap-3">
+                                <IconSparkles className="w-5 h-5 text-primary shrink-0" stroke={1.5} />
+                                <div>
+                                    <p className="text-sm font-semibold text-foreground">
+                                        My TC Academy referral perk
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        3 months free managed hosting with any package — a $177 value, included because Jennifer sent you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </AnimatedSection>
+
+                <StaggerContainer
+                    className="mt-8 grid gap-6 lg:grid-cols-3"
+                    staggerDelay={0.08}
+                >
+                    {[
+                        {
+                            name: "TC Starter",
+                            icon: IconRocket,
+                            price: "$750",
+                            pages: "1 page",
+                            timeline: "1–2 weeks",
+                            description: "A clean, professional single-page website to establish your online presence fast.",
+                            bestFor: "New solo TCs who need credibility from day one.",
+                            features: [
+                                "Single-page scrollable website",
+                                "Hero, services, about, and contact sections",
+                                "Mobile-responsive design",
+                                "SEO-ready meta tags",
+                                "Custom color scheme from your branding",
+                            ],
+                            cta: "Perfect for getting started",
+                        },
+                        {
+                            name: "TC Growth",
+                            icon: IconTrendingUp,
+                            price: "$1,500",
+                            pages: "4 pages",
+                            timeline: "3–4 weeks",
+                            featured: true,
+                            description: "A polished multi-page website with services, intake forms, and a careers page.",
+                            bestFor: "Established TCs who want stronger branding and a real intake workflow.",
+                            features: [
+                                "Home, Services, Submit a File, and Careers pages",
+                                "Embedded intake forms (Cognito, Jotform, etc.)",
+                                "Strategic messaging and positioning",
+                                "Scroll animations and polished interactions",
+                                "Collaborative copywriting included",
+                            ],
+                            cta: "Most popular for established TCs",
+                        },
+                        {
+                            name: "TC Pro",
+                            icon: IconCrown,
+                            price: "$3,000+",
+                            pages: "5+ pages",
+                            timeline: "4–6 weeks",
+                            description: "A fully custom website for teams, coaches, or TCs building real authority.",
+                            bestFor: "TC teams or operators who want their website to actively generate business.",
+                            features: [
+                                "Everything in Growth, plus custom pages",
+                                "Testimonials and social proof sections",
+                                "Advanced intake with multi-step forms",
+                                "Fully written copy and brand positioning",
+                                "First year of managed hosting included",
+                            ],
+                            cta: "For serious operators",
+                        },
+                    ].map((pkg) => (
+                        <StaggerItem key={pkg.name}>
+                            <div
+                                className={`relative h-full rounded-2xl border bg-card shadow-[var(--shadow-soft)] p-7 flex flex-col ${
+                                    pkg.featured
+                                        ? "border-primary/40 ring-1 ring-primary/20"
+                                        : "border-border/60"
+                                }`}
+                            >
+                                {pkg.featured && (
+                                    <span className="absolute -top-3 left-6 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground">
+                                        Most popular
+                                    </span>
+                                )}
+
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
+                                        <pkg.icon className="w-5 h-5" stroke={1.5} />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-foreground">
+                                        {pkg.name}
+                                    </h3>
+                                </div>
+
+                                <div className="mb-4">
+                                    <span className="text-3xl font-bold text-foreground">
+                                        {pkg.price}
+                                    </span>
+                                    <div className="mt-1 flex gap-3 text-xs text-muted-foreground">
+                                        <span>{pkg.pages}</span>
+                                        <span>&middot;</span>
+                                        <span>{pkg.timeline}</span>
+                                    </div>
+                                </div>
+
+                                <p className="text-sm text-muted-foreground mb-4">
+                                    {pkg.description}
+                                </p>
+
+                                <div className="rounded-xl border border-border/60 bg-muted/25 p-3 mb-5">
+                                    <p className="text-xs font-medium text-muted-foreground">
+                                        <strong className="text-foreground">Best for:</strong>{" "}
+                                        {pkg.bestFor}
+                                    </p>
+                                </div>
+
+                                <ul className="space-y-2.5 mb-4 flex-1">
+                                    {pkg.features.map((feature) => (
+                                        <li
+                                            key={feature}
+                                            className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                                        >
+                                            <IconCircleCheck
+                                                className="mt-0.5 h-4 w-4 text-primary shrink-0"
+                                                stroke={1.6}
+                                            />
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                    <li className="flex items-start gap-2.5 text-sm font-medium text-primary">
+                                        <IconSparkles
+                                            className="mt-0.5 h-4 w-4 shrink-0"
+                                            stroke={1.6}
+                                        />
+                                        <span>+ 3 months free managed hosting</span>
+                                    </li>
+                                </ul>
+
+                                <Link
+                                    href={`${contactHref}&package=${encodeURIComponent(pkg.name)}`}
+                                    className={`inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                                        pkg.featured
+                                            ? "btn-primary"
+                                            : "btn-secondary"
+                                    }`}
+                                >
+                                    {pkg.cta}
+                                    <IconArrowRight className="w-4 h-4" stroke={2} />
+                                </Link>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+
+                <AnimatedSection className="mt-8 text-center">
+                    <Link
+                        href="/tc-packages?source=mytcacademy"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group"
+                    >
+                        View full package details and add-ons
+                        <IconArrowRight
+                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                            stroke={2}
+                        />
+                    </Link>
+                </AnimatedSection>
+            </Section>
+
+            {/* How it works */}
             <Section>
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
@@ -361,21 +565,16 @@ export default function MyTCAcademyPage() {
                         <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                             <div>
                                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                    My TC Academy referral perk
+                                    My TC Academy referral
                                 </span>
                                 <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                    A preferred perk — not a coupon.
+                                    Jennifer sent you here for a reason.
                                 </h2>
                                 <p className="mt-4 text-muted-foreground leading-relaxed">
-                                    This isn&apos;t a discount page. It&apos;s a private referral from Jennifer
-                                    because she wants her students to have access to a designer who
-                                    actually understands the TC space.
-                                </p>
-                                <p className="mt-3 text-muted-foreground leading-relaxed">
-                                    As a My TC Academy student, you&apos;ll receive a small preferred
-                                    perk on your project — the details depend on scope and will be
-                                    discussed during our initial conversation. Think of it as Jennifer
-                                    making sure you&apos;re taken care of, not as a sale.
+                                    This isn&apos;t a discount page. It&apos;s a private referral
+                                    because Jennifer wants her students to have access to a
+                                    designer who actually understands the TC space. The 3 months of
+                                    free hosting is her way of making sure you&apos;re taken care of.
                                 </p>
                             </div>
                             <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
@@ -386,7 +585,7 @@ export default function MyTCAcademyPage() {
                                     {[
                                         {
                                             step: "1",
-                                            text: "Reach out through this page and mention My TC Academy",
+                                            text: "Pick a package and reach out through this page",
                                         },
                                         {
                                             step: "2",
@@ -394,7 +593,7 @@ export default function MyTCAcademyPage() {
                                         },
                                         {
                                             step: "3",
-                                            text: "I'll send a clear proposal with scope, timeline, and your referral perk included",
+                                            text: "I'll send a clear proposal with your 3 months free hosting included",
                                         },
                                     ].map((item) => (
                                         <div
@@ -509,10 +708,9 @@ export default function MyTCAcademyPage() {
                                 Ready to build a website that works as hard as you do?
                             </h2>
                             <p className="mt-3 max-w-2xl text-muted-foreground">
-                                Tell me about your TC business, where you are in your journey, and
-                                what you want your website to accomplish. Mention that you&apos;re a My
-                                TC Academy student, and I&apos;ll respond within one business day with
-                                a clear plan and next steps.
+                                Pick a package, tell me about your TC business, and mention
+                                that you&apos;re a My TC Academy student. I&apos;ll respond within
+                                one business day with a clear proposal — 3 months free hosting included.
                             </p>
                             <div className="mt-8 flex flex-col sm:flex-row gap-3">
                                 <Link
@@ -523,10 +721,10 @@ export default function MyTCAcademyPage() {
                                     <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                                 <Link
-                                    href="/work?industry=tc&source=mytcacademy"
+                                    href="#packages"
                                     className="btn-secondary inline-flex items-center justify-center gap-2"
                                 >
-                                    See TC work
+                                    Compare packages
                                     <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                             </div>

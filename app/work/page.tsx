@@ -4,9 +4,14 @@ import { Suspense } from "react";
 import { Section } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { WorkFilters } from "@/components/work/WorkFilters";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { projects, type Project } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCollectionPageStructuredData,
+} from "@/lib/structuredData";
 
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
@@ -103,7 +108,7 @@ export async function generateMetadata({
     const params_arr: string[] = [];
     if (industry) params_arr.push(`industry=${industry}`);
     if (category) params_arr.push(`category=${encodeURIComponent(category)}`);
-    const canonical = params_arr.length > 0 ? `/work?${params_arr.join("&")}` : "/work";
+    const canonical = "/work";
 
     return createPageMetadata({
         title,
@@ -169,9 +174,22 @@ export default async function WorkPage({
             : industry === "coaching"
                 ? "Premium websites for coaches and consultants—designed to command authority and justify high-ticket pricing."
                 : "A mix of client websites and operational tooling—designed for clarity, trust, and fewer manual follow-ups.";
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Case Studies", path: "/work" },
+        ]),
+        getCollectionPageStructuredData({
+            name: "Multimedium Case Studies",
+            description:
+                "Case studies for real estate, transaction coordinator, and service-business website projects by Multimedium.",
+            path: "/work",
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <div className="relative overflow-hidden">
                 {/* Hero Section */}
                 <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
@@ -179,11 +197,24 @@ export default async function WorkPage({
                         <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                    <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
+                                    <span className="text-gradient">{indMeta?.heading ?? "Website Design Case Studies"}</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
-                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and real outcomes."}
+                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and real outcomes, with the strongest examples centered on real estate and transaction coordinator work."}
                                 </p>
+                                {!industry && !category ? (
+                                    <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
+                                        If you are evaluating fit, start with the case studies tied closest to
+                                        <Link href="/industries/real-estate-professionals" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
+                                            real estate website design
+                                        </Link>
+                                        or
+                                        <Link href="/industries/transaction-coordinators" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
+                                            transaction coordinator websites
+                                        </Link>
+                                        .
+                                    </p>
+                                ) : null}
                             </div>
                         </div>
                     </AnimatedSection>
@@ -327,6 +358,5 @@ export default async function WorkPage({
         </>
     );
 }
-
 
 

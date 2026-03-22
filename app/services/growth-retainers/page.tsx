@@ -4,7 +4,13 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getFaqStructuredData,
+    getServiceStructuredData,
+} from "@/lib/structuredData";
 import {
     IconCheck,
     IconArrowRight,
@@ -14,9 +20,9 @@ import {
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "SEO and Growth Retainers",
+    title: "SEO Growth Retainers for Websites",
     description:
-        "Ongoing SEO, content, performance, and conversion improvements so your website keeps getting clearer, faster, and higher-converting after launch.",
+        "SEO growth retainers for websites that need ongoing conversion, content, performance, and on-page improvement after launch.",
     path: "/services/growth-retainers",
     keywords: [
         "seo retainer service",
@@ -62,9 +68,29 @@ export default function GrowthRetainersServicePage() {
     const tag = getProjectBySlug("tag-landing-page");
     const paRes = getProjectBySlug("pa-real-estate-support");
     const featured = [tag, paRes].filter((project): project is Project => Boolean(project));
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "SEO Growth Retainers", path: "/services/growth-retainers" },
+        ]),
+        getServiceStructuredData({
+            name: "SEO Growth Retainers",
+            description:
+                "Ongoing SEO, conversion, and website growth support for businesses that want steady improvements after launch.",
+            path: "/services/growth-retainers",
+            audience: [
+                "Real estate professionals",
+                "Transaction coordinators",
+                "Service businesses",
+            ],
+        }),
+        getFaqStructuredData(faqs),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
@@ -75,10 +101,12 @@ export default function GrowthRetainersServicePage() {
                                     ← Back to services
                                 </Link>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Growth retainers
+                                    SEO and website
+                                    <br />
+                                    growth retainers
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that want steady post-launch growth. Keep improving conversion, SEO, and clarity with a reliable monthly cadence.
+                                    Ongoing support for teams that want steady post-launch growth through conversion improvements, on-page SEO, content updates, and clearer messaging.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-retainer" className="btn-primary">
@@ -255,6 +283,5 @@ export default function GrowthRetainersServicePage() {
         </>
     );
 }
-
 
 

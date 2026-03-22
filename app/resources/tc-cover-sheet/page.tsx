@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCreativeWorkStructuredData,
+} from "@/lib/structuredData";
 import { requestTcCoverSheet } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
@@ -28,9 +33,25 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
     const sent = params.sent === "1";
     const error = params.error === "1";
     const source = params.source ?? "";
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Resources", path: "/resources" },
+            { name: "TC Cover Sheet Template", path: "/resources/tc-cover-sheet" },
+        ]),
+        getCreativeWorkStructuredData({
+            name: "TC Cover Sheet Template",
+            description:
+                "Free downloadable transaction coordinator cover sheet template with a clean, file-ready summary.",
+            path: "/resources/tc-cover-sheet",
+            image: "/resources/tc-cover-sheet.jpg",
+            about: ["Transaction coordinators", "Cover sheet templates"],
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
@@ -218,7 +239,6 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
         </>
     );
 }
-
 
 
 

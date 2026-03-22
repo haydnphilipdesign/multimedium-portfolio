@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCreativeWorkStructuredData,
+} from "@/lib/structuredData";
 import { requestChecklist } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
@@ -28,9 +33,25 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
     const sent = params.sent === "1";
     const error = params.error === "1";
     const source = params.source ?? "";
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Resources", path: "/resources" },
+            { name: "TC Lead Intake Checklist", path: "/resources/tc-intake-checklist" },
+        ]),
+        getCreativeWorkStructuredData({
+            name: "TC Lead Intake Checklist",
+            description:
+                "Free downloadable transaction coordinator lead intake checklist PDF for cleaner qualification and file starts.",
+            path: "/resources/tc-intake-checklist",
+            image: "/resources/tc-intake-checklist.jpg",
+            about: ["Transaction coordinators", "Intake checklists"],
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative max-w-3xl space-y-6 overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
@@ -194,7 +215,6 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
         </>
     );
 }
-
 
 
 

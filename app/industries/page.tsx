@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCollectionPageStructuredData,
+} from "@/lib/structuredData";
 import { IconArrowRight, IconBuildingSkyscraper, IconHammer, IconHome2, IconHomeDollar, IconBuildingCommunity, IconBriefcase2 } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Industries Served",
+    title: "Industry Website Design for Real Estate and Service Businesses",
     description:
         "Industry-focused website design for real estate professionals, transaction coordinators, coaches, HOAs, local trades, and home service companies.",
     path: "/industries",
@@ -70,19 +75,33 @@ const industries = [
 ];
 
 export default function IndustriesPage() {
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Industries", path: "/industries" },
+        ]),
+        getCollectionPageStructuredData({
+            name: "Industries Served by Multimedium",
+            description:
+                "Industry landing pages for real estate professionals, transaction coordinators, coaches, HOAs, trades, and home service businesses.",
+            path: "/industries",
+        }),
+    ];
+
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                Service business websites
+                                Industry website design for
                                 <br />
-                                <span className="text-gradient">built for the way your leads decide.</span>
+                                <span className="text-gradient">real estate and service businesses.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                Pick the industry closest to your business. Each page shows what the build includes, how the conversion system works, and relevant case studies.
+                                Pick the audience closest to your business. Each page sharpens the messaging, conversion path, and examples around how that market actually decides.
                             </p>
                         </div>
                     </div>

@@ -4,8 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getProjectBySlug, getAllProjectSlugs, projects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getCreativeWorkStructuredData,
+} from "@/lib/structuredData";
 import { IconArrowLeft, IconArrowRight, IconArrowUpRight, IconQuote } from "@tabler/icons-react";
 
 interface PageProps {
@@ -35,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         path: `/work/${project.slug}`,
         ogImage: project.heroImage,
         keywords: project.tags,
+        robots: project.featured ? undefined : { index: false, follow: true },
     });
 }
 
@@ -89,9 +95,25 @@ export default async function CaseStudyPage({ params }: PageProps) {
     };
 
     const ctaExternal = /^https?:\/\//.test(cta.href);
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Case Studies", path: "/work" },
+            { name: project.title, path: `/work/${project.slug}` },
+        ]),
+        getCreativeWorkStructuredData({
+            name: project.title,
+            description: project.metaDescription ?? project.description,
+            path: `/work/${project.slug}`,
+            image: project.heroImage,
+            keywords: project.tags,
+            about: project.industries,
+        }),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             {/* Hero Section */}
             <section className="relative pt-28 sm:pt-32 md:pt-40 pb-16 md:pb-24">
 
@@ -525,6 +547,5 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </>
     );
 }
-
 
 

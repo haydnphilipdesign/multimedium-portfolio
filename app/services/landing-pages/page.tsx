@@ -4,7 +4,13 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { getProjectBySlug, type Project } from "@/content/projects";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
+import {
+    getBreadcrumbStructuredData,
+    getFaqStructuredData,
+    getServiceStructuredData,
+} from "@/lib/structuredData";
 import {
     IconCheck,
     IconArrowRight,
@@ -14,9 +20,9 @@ import {
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Landing Pages and Funnels",
+    title: "Landing Page Design for Lead Generation",
     description:
-        "Focused landing pages and simple funnels built to capture leads, bookings, and sign-ups for niche service businesses and real estate offers.",
+        "Landing page design for lead generation, offers, and campaigns built to capture leads, bookings, and sign-ups for real estate and niche service businesses.",
     path: "/services/landing-pages",
     keywords: [
         "landing page design service",
@@ -63,9 +69,29 @@ export default function LandingPagesServicePage() {
     const northpoint = getProjectBySlug("northpoint-realty");
     const paRes = getProjectBySlug("pa-real-estate-support");
     const featured = [tag, northpoint, paRes].filter((project): project is Project => Boolean(project));
+    const structuredData = [
+        getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Landing Page Design", path: "/services/landing-pages" },
+        ]),
+        getServiceStructuredData({
+            name: "Landing Page Design",
+            description:
+                "Landing page design for campaigns, offers, and lead generation with clear messaging, tracking, and fast follow-up flows.",
+            path: "/services/landing-pages",
+            audience: [
+                "Real estate professionals",
+                "Transaction coordinators",
+                "Service businesses",
+            ],
+        }),
+        getFaqStructuredData(faqs),
+    ];
 
     return (
         <>
+            <JsonLd data={structuredData} />
             <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
                 <AnimatedSection>
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
@@ -76,10 +102,12 @@ export default function LandingPagesServicePage() {
                                     ← Back to services
                                 </Link>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Landing pages + funnels
+                                    Landing page design for
+                                    <br />
+                                    lead generation
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-2xl">
-                                    A focused-scope option for launches, offers, and campaigns - ideal when you need results faster than a full site build.
+                                    Focused landing pages and simple funnels for launches, offers, and campaigns when you need qualified responses faster than a full site build.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <Link href="/contact?source=services-landing-pages" className="btn-primary">
@@ -256,6 +284,5 @@ export default function LandingPagesServicePage() {
         </>
     );
 }
-
 
 

@@ -120,3 +120,44 @@ Validation completed:
 | `/work` | case studies / proof |
 | `/about` | brand trust / founder credibility |
 | `/contact` | conversion / inquiry |
+
+## Second Pass Findings
+This second pass was harsher and focused less on whether the site had metadata at all, and more on whether each indexable page actually deserves to rank for the terms it hints at.
+
+### High impact
+- `Code-level, fixed:` The portfolio was still leaking topical dilution through the sitemap and project metadata. [app/sitemap.ts](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/sitemap.ts) had been listing every project route, including off-niche and non-featured work. I changed that so only featured case studies are in the sitemap, and I updated [app/work/[slug]/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/work/[slug]/page.tsx) so non-featured project pages are `noindex, follow`.
+- `Code-level, fixed:` Filtered work archives were still self-canonicalizing query-string URLs even though they were already treated as thin variants. I updated [app/work/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/work/page.tsx) so filtered views canonicalize to `/work`, which is a cleaner consolidation signal.
+- `Code-level, fixed:` Several commercially important pages were still too generic in their H1 and intro copy. I tightened targeting on [app/services/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/page.tsx), [app/services/landing-pages/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/landing-pages/page.tsx), [app/services/growth-retainers/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/growth-retainers/page.tsx), [app/industries/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/industries/page.tsx), [app/resources/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/resources/page.tsx), and [app/tc-packages/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/tc-packages/page.tsx) so the primary keyword intent is clearer above the fold.
+- `Code-level, fixed:` Schema coverage was still patchy on pages already trying to rank. I expanded [lib/structuredData.ts](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/lib/structuredData.ts) and added breadcrumb / collection / service / FAQ / creative-work schema to key pages including [app/work/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/work/page.tsx), [app/work/[slug]/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/work/[slug]/page.tsx), [app/services/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/page.tsx), [app/services/landing-pages/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/landing-pages/page.tsx), [app/services/growth-retainers/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/services/growth-retainers/page.tsx), [app/industries/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/industries/page.tsx), [app/resources/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/resources/page.tsx), [app/resources/tc-task-list/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/resources/tc-task-list/page.tsx), [app/resources/tc-cover-sheet/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/resources/tc-cover-sheet/page.tsx), [app/resources/tc-intake-checklist/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/resources/tc-intake-checklist/page.tsx), and [app/tc-packages/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/tc-packages/page.tsx).
+- `Marketing/content/business input needed:` The biggest remaining weakness is still evidence, not markup. The real-estate, TC, coach, trades, and home-services pages make credible promises, but several still rely on positioning language more than hard proof. To rank well for commercial terms, these pages need stronger niche-specific testimonials, before/after stories, market-specific outcomes, screenshots, and named case studies. Without that, some pages still read like polished sales pages rather than obvious best results.
+
+### Medium impact
+- `Code-level, fixed:` Internal linking was still too light in the shared navigation for non-homepage discovery. I added a persistent `Resources` link in [components/footer/Footer.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/components/footer/Footer.tsx) and tightened contextual linking inside the work archive hero in [app/work/page.tsx](/Users/haydn/Documents/web-design-portfolio/new-website/next-app/app/work/page.tsx).
+- `Marketing/content/business input needed:` `/industries/trades` and `/industries/home-services` still sit close together in intent. They are not duplicates, but the differentiation is not strong enough yet to confidently expect both to perform unless you decide exactly how you want to split them:
+  - `trades` = contractors / remodeling / specialty trades
+  - `home-services` = HVAC / plumbing / electrical / urgent in-home service
+  If you want both pages indexed long term, they each need distinct proof, examples, and language that makes the split obvious.
+- `Marketing/content/business input needed:` `/services`, `/services/website`, and some niche industry pages still compete around broad “web design” intent. The fix is not more metadata. It is stronger offer positioning:
+  - what is the flagship offer?
+  - which vertical is the real growth bet?
+  - which supporting pages are sales support pages vs standalone ranking pages?
+- `Marketing/content/business input needed:` The resource pages are better structured now, but they still need a clearer business model behind them if you want them to become real SEO assets. Right now they are useful, but they are still mostly lead magnets. To earn stronger rankings, each should eventually have richer explanatory copy, use cases, screenshots, and deeper “how to use this” guidance.
+
+### Low impact
+- `Code-level, fixed:` The work archive heading previously undersold the site’s niche focus. That is now sharper, but the page is still primarily a proof page, not a major keyword target. That is fine.
+- `Code-level, fixed:` Resource and package pages now send clearer topical signals through headings and schema, which should help understanding and SERP presentation over time.
+- `Marketing/content/business input needed:` If local SEO is a real growth channel, the site still needs a deliberate local strategy rather than occasional Poconos mentions. That means deciding whether you want to compete as:
+  - a Poconos / NEPA web designer
+  - a remote specialist for real-estate-adjacent businesses
+  - both, with clearly separated page logic
+  Right now the positioning hints at both, which is acceptable, but not especially sharp.
+
+### Second Pass Bottom Line
+- The first pass mostly solved “missing SEO setup.”
+- The second pass exposed “page deserves to rank” problems.
+- The technical dilution issue around project pages is now materially better.
+- The next real gains will come from sharper offer hierarchy and stronger proof, not more tags.
+
+Validation completed after second-pass fixes:
+- `pnpm lint`
+- `pnpm build`
