@@ -63,6 +63,7 @@ const packages = [
             "Custom color scheme from your branding",
         ],
         cta: "Perfect for getting started",
+        demoHref: "/demos/starter/",
     },
     {
         name: "TC Growth",
@@ -82,6 +83,7 @@ const packages = [
             "Collaborative copywriting included",
         ],
         cta: "Most popular for established TCs",
+        demoHref: "/demos/growth/",
     },
     {
         name: "TC Pro",
@@ -100,6 +102,7 @@ const packages = [
             "First year of managed hosting included",
         ],
         cta: "For serious operators",
+        demoHref: "/demos/pro/",
     },
 ];
 
@@ -174,38 +177,6 @@ const faqs = [
 
 const contactHref = "/contact?source=tc-packages&projectType=website";
 
-const demoStyles = [
-    {
-        name: "TC Starter",
-        tier: "starter",
-        description: "A clean single-page website with anchor navigation. Hero, services, about, and contact — everything a new TC needs on one page.",
-        fonts: "Inter + Poppins",
-        colors: ["#0f1f2e", "#c49a3c", "#f8f7f4"],
-        href: "/demos/starter/",
-        brand: "Summit Transaction Services",
-        pages: "1 page",
-    },
-    {
-        name: "TC Growth",
-        tier: "growth",
-        description: "A polished multi-page site with a dedicated Services page, embedded intake forms, and a Careers page — built for TCs with active deal flow.",
-        fonts: "DM Sans + Lora",
-        colors: ["#3b2f2f", "#b5774e", "#faf6f2"],
-        href: "/demos/growth/",
-        brand: "Clearpath Closings",
-        pages: "4 pages",
-    },
-    {
-        name: "TC Pro",
-        tier: "pro",
-        description: "A premium multi-page site with testimonials, a dedicated About page, team positioning, and advanced intake — built for TCs who want authority.",
-        fonts: "Outfit + Space Grotesk",
-        colors: ["#1a1a2e", "#3b82f6", "#f5f5f7"],
-        href: "/demos/pro/",
-        brand: "Apex TC",
-        pages: "6 pages",
-    },
-];
 
 export default function TCPackagesPage() {
     const paRes = getProjectBySlug("pa-real-estate-support");
@@ -263,7 +234,7 @@ export default function TCPackagesPage() {
                                     <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                                 <Link
-                                    href="#demo-gallery"
+                                    href="#packages"
                                     className="btn-secondary inline-flex items-center justify-center gap-2"
                                 >
                                     Preview demos
@@ -273,73 +244,6 @@ export default function TCPackagesPage() {
                     </AnimatedSection>
                 </Section>
             </div>
-
-            {/* Demo gallery */}
-            <Section id="demo-gallery">
-                <AnimatedSection>
-                    <SectionHeading
-                        title="See what each package looks like"
-                        subtitle="Each tier gets its own design direction and scope. Click to preview a live demo of each package — from a clean single-pager to a full multi-page site."
-                    />
-                </AnimatedSection>
-
-                <StaggerContainer
-                    className="grid gap-6 lg:grid-cols-3"
-                    staggerDelay={0.08}
-                >
-                    {demoStyles.map((style) => (
-                        <StaggerItem key={style.name}>
-                            <div className="group relative h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden flex flex-col">
-                                {/* Color preview bar */}
-                                <div className="flex h-28 w-full">
-                                    {style.colors.map((color, i) => (
-                                        <div
-                                            key={color}
-                                            className="flex-1"
-                                            style={{ backgroundColor: color }}
-                                        />
-                                    ))}
-                                </div>
-
-                                <div className="p-6 flex flex-col flex-1">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="text-lg font-semibold text-foreground">
-                                            {style.name}
-                                        </h3>
-                                        <span className="text-xs font-medium text-muted-foreground bg-muted/50 border border-border/60 rounded-full px-2.5 py-0.5">
-                                            {style.pages}
-                                        </span>
-                                    </div>
-                                    <p className="mt-1 text-xs text-muted-foreground">
-                                        {style.fonts}
-                                    </p>
-                                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
-                                        {style.description}
-                                    </p>
-                                    <p className="mt-3 text-xs text-muted-foreground/70">
-                                        Demo: {style.brand}
-                                    </p>
-                                    <a
-                                        href={style.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="mt-4 inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium btn-secondary transition-colors"
-                                    >
-                                        Preview live demo
-                                        <IconExternalLink className="w-4 h-4" stroke={2} />
-                                    </a>
-                                </div>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
-
-                <AnimatedSection className="mt-8 text-center">
-                    <p className="text-sm text-muted-foreground">
-                        Your colors, logo, and branding replace the demo content. All demos are fully responsive and built with clean HTML/CSS.
-                    </p>
-                </AnimatedSection>
-            </Section>
 
             {/* Package comparison */}
             <Section id="packages">
@@ -417,17 +321,28 @@ export default function TCPackagesPage() {
                                     ))}
                                 </ul>
 
-                                <Link
-                                    href={`${contactHref}&package=${encodeURIComponent(pkg.name)}`}
-                                    className={`inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
-                                        pkg.featured
-                                            ? "btn-primary"
-                                            : "btn-secondary"
-                                    }`}
-                                >
-                                    {pkg.cta}
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
+                                <div className="flex flex-col gap-2.5">
+                                    <Link
+                                        href={`${contactHref}&package=${encodeURIComponent(pkg.name)}`}
+                                        className={`inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                                            pkg.featured
+                                                ? "btn-primary"
+                                                : "btn-secondary"
+                                        }`}
+                                    >
+                                        {pkg.cta}
+                                        <IconArrowRight className="w-4 h-4" stroke={2} />
+                                    </Link>
+                                    <a
+                                        href={pkg.demoHref}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                                    >
+                                        Preview live demo
+                                        <IconExternalLink className="w-3.5 h-3.5" stroke={2} />
+                                    </a>
+                                </div>
                             </div>
                         </StaggerItem>
                     ))}
