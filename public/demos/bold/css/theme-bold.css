@@ -1,0 +1,56 @@
+/* ==========================================================================
+   TC Template — Bold Theme Override
+   LAYER: Load AFTER style.css to override brand tokens.
+   VIBE:  Confident, modern, high-contrast — charcoal + electric accent.
+   FONTS: Outfit (body) + Space Grotesk (headings)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --navy:        #1a1a2e;       /* Deep charcoal-navy */
+  --navy-light:  #232342;       /* Charcoal hover */
+  --navy-mid:    #2d2d52;       /* Charcoal mid */
+  --gold:        #3b82f6;       /* Electric blue accent */
+  --gold-hover:  #60a5fa;       /* Blue hover */
+  --gold-muted:  rgba(59, 130, 246, 0.10);
+
+  /* Neutrals — cool-shifted */
+  --offwhite:    #f5f5f7;
+  --gray-50:     #f8f8fa;
+  --gray-100:    #ededf0;
+  --gray-200:    #dcdce0;
+  --gray-300:    #c4c4ca;
+  --gray-500:    #85858f;
+  --gray-600:    #65656f;
+  --gray-700:    #3a3a44;
+  --gray-800:    #1e1e28;
+  --text:        #1a1a2e;
+  --text-secondary: #4a4a5a;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Sharpen the hero gradient for the bold look */
+.hero::before {
+  background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
+}
+
+/* Slightly increase border-radius for modern feel */
+.benefit-card,
+.what-we-do-parties,
+.about-image,
+.hero-image {
+  border-radius: 16px;
+}
+
+.hero-image::after {
+  border-radius: 16px;
+}
+
+/* Bold selection */
+::selection {
+  background: var(--gold);
+  color: #fff;
+}

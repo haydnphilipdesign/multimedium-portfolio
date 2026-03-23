@@ -202,13 +202,13 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want an intake system that enforces required fields?
+                        Want a website with a real intake system built in?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build TC websites with optional intake and cover-sheet automation if you want the system behind it.
+                        I build websites specifically for transaction coordinators — with embedded intake forms, service pages, and messaging designed for your workflow. Three packages starting at $750.
                     </p>
-                    <Link href="/industries/transaction-coordinators?source=tc-intake-checklist" className="btn-primary">
-                        See the TC offer
+                    <Link href="/tc-packages?source=tc-intake-checklist" className="btn-primary">
+                        See TC website packages
                     </Link>
                 </AnimatedSection>
             </Section>

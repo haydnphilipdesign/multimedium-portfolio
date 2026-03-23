@@ -24,6 +24,7 @@ import {
     IconUsers,
     IconShieldCheck,
     IconSparkles,
+    IconExternalLink,
 } from "@tabler/icons-react";
 import { createPageMetadata } from "@/lib/seo";
 import {
@@ -173,6 +174,33 @@ const faqs = [
 
 const contactHref = "/contact?source=tc-packages&projectType=website";
 
+const demoStyles = [
+    {
+        name: "Classic",
+        description: "Professional and corporate-clean. Navy and gold with a traditional feel that reads as established and trustworthy.",
+        fonts: "Inter + Poppins",
+        colors: ["#0f1f2e", "#c49a3c", "#f8f7f4"],
+        href: "/demos/classic/",
+        brand: "Summit Transaction Services",
+    },
+    {
+        name: "Warm",
+        description: "Approachable and personal. Earth tones with a serif heading font that feels warm without losing professionalism.",
+        fonts: "DM Sans + Lora",
+        colors: ["#3b2f2f", "#b5774e", "#faf6f2"],
+        href: "/demos/warm/",
+        brand: "Clearpath Closings",
+    },
+    {
+        name: "Bold",
+        description: "Confident and modern. High-contrast charcoal with an electric blue accent for TCs who want to stand out.",
+        fonts: "Outfit + Space Grotesk",
+        colors: ["#1a1a2e", "#3b82f6", "#f5f5f7"],
+        href: "/demos/bold/",
+        brand: "Apex TC",
+    },
+];
+
 export default function TCPackagesPage() {
     const paRes = getProjectBySlug("pa-real-estate-support");
     const tagProject = getProjectBySlug("tag-landing-page");
@@ -204,20 +232,20 @@ export default function TCPackagesPage() {
                         <div className="max-w-3xl">
                             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60 mb-6">
                                 <IconShieldCheck className="w-4 h-4 text-primary" stroke={1.5} />
-                                Built for transaction coordinators
+                                Built by someone who grew up in the TC world
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Transaction coordinator
-                                <br />
-                                website packages that{" "}
+                                Website packages built{" "}
                                 <span className="text-gradient">
-                                    match your professionalism.
+                                    specifically for TCs.
                                 </span>
                             </h1>
                             <p className="mt-6 text-lg md:text-xl text-muted-foreground">
-                                Not a generic small-business template. These packages are designed
-                                specifically for transaction coordinators — with the pages, messaging,
-                                and lead capture that TC businesses actually need.
+                                My mom has been a transaction coordinator since 2013. I grew up
+                                watching files get managed, deadlines tracked, and agents
+                                coordinated. These packages exist because I know what your
+                                business actually needs from a website — not what a generic
+                                template thinks you need.
                             </p>
 
                             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -229,16 +257,79 @@ export default function TCPackagesPage() {
                                     <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                                 <Link
-                                    href={contactHref}
+                                    href="#demo-gallery"
                                     className="btn-secondary inline-flex items-center justify-center gap-2"
                                 >
-                                    Start a conversation
+                                    Preview styles
                                 </Link>
                             </div>
                         </div>
                     </AnimatedSection>
                 </Section>
             </div>
+
+            {/* Demo gallery */}
+            <Section id="demo-gallery">
+                <AnimatedSection>
+                    <SectionHeading
+                        title="Pick your style, we customize from there"
+                        subtitle="Every package comes with your choice of design direction. Same professional foundation — different personality. Click to preview each one live."
+                    />
+                </AnimatedSection>
+
+                <StaggerContainer
+                    className="grid gap-6 lg:grid-cols-3"
+                    staggerDelay={0.08}
+                >
+                    {demoStyles.map((style) => (
+                        <StaggerItem key={style.name}>
+                            <div className="group relative h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden flex flex-col">
+                                {/* Color preview bar */}
+                                <div className="flex h-28 w-full">
+                                    {style.colors.map((color, i) => (
+                                        <div
+                                            key={color}
+                                            className="flex-1"
+                                            style={{ backgroundColor: color }}
+                                        />
+                                    ))}
+                                </div>
+
+                                <div className="p-6 flex flex-col flex-1">
+                                    <h3 className="text-lg font-semibold text-foreground">
+                                        {style.name}
+                                    </h3>
+                                    <p className="mt-1 text-xs text-muted-foreground">
+                                        {style.fonts}
+                                    </p>
+                                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
+                                        {style.description}
+                                    </p>
+                                    <p className="mt-3 text-xs text-muted-foreground/70">
+                                        Demo: {style.brand}
+                                    </p>
+                                    <a
+                                        href={style.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-4 inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium btn-secondary transition-colors"
+                                    >
+                                        Preview live demo
+                                        <IconExternalLink className="w-4 h-4" stroke={2} />
+                                    </a>
+                                </div>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+
+                <AnimatedSection className="mt-8 text-center">
+                    <p className="text-sm text-muted-foreground">
+                        Your colors, logo, and branding replace the demo content.
+                        All styles are fully responsive and built with clean HTML/CSS.
+                    </p>
+                </AnimatedSection>
+            </Section>
 
             {/* Package comparison */}
             <Section id="packages">

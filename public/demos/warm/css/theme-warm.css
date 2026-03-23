@@ -1,0 +1,44 @@
+/* ==========================================================================
+   TC Template — Warm Theme Override
+   LAYER: Load AFTER style.css to override brand tokens.
+   VIBE:  Approachable, personal, inviting — earth tones with warmth.
+   FONTS: DM Sans (body) + Lora (headings)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --navy:        #3b2f2f;       /* Warm dark brown */
+  --navy-light:  #4a3b3b;       /* Dark brown hover */
+  --navy-mid:    #5a4848;       /* Dark brown mid */
+  --gold:        #b5774e;       /* Warm terracotta accent */
+  --gold-hover:  #c48860;       /* Terracotta hover */
+  --gold-muted:  rgba(181, 119, 78, 0.10);
+
+  /* Neutrals — warm-shifted */
+  --offwhite:    #faf6f2;
+  --gray-50:     #faf8f5;
+  --gray-100:    #f0ece7;
+  --gray-200:    #e0dbd4;
+  --gray-300:    #ccc5bb;
+  --gray-500:    #8d857c;
+  --gray-600:    #6e665d;
+  --gray-700:    #48413a;
+  --gray-800:    #2e2824;
+  --text:        #2e2824;
+  --text-secondary: #5e554c;
+
+  /* Typography */
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Slightly soften the hero gradient to match warm palette */
+.hero::before {
+  background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
+}
+
+/* Warm selection color */
+::selection {
+  background: var(--gold);
+  color: #fff;
+}

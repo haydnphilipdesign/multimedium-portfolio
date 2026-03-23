@@ -10,7 +10,7 @@ import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
-import { IconArrowRight, IconFileText } from "@tabler/icons-react";
+import { IconArrowRight, IconChecklist, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Free Transaction Coordinator Resources",
@@ -63,6 +63,15 @@ const resources: Resource[] = [
         image: "/resources/tc-intake-checklist.jpg",
         badge: "PDF template",
         ctaText: "Get the PDF",
+    },
+    {
+        title: "What Every TC Website Needs",
+        description:
+            "The definitive checklist—9 must-haves and 10 common mistakes, with specifics on why each one matters.",
+        href: "/resources/what-every-tc-website-needs",
+        badge: "Guide",
+        ctaText: "Read the guide",
+        icon: IconChecklist,
     },
 ];
 

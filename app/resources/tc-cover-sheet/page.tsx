@@ -226,13 +226,13 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
             <Section className="border-t border-border/40">
                 <AnimatedSection className="text-center max-w-2xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want a TC website that attracts better-fit leads?
+                        Need a website that attracts better-fit leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        See the full TC offer first. Template and automation setups are optional add-ons.
+                        I build websites specifically for transaction coordinators — with intake forms, service pages, and positioning that makes agents want to work with you. Three packages starting at $750.
                     </p>
-                    <Link href="/industries/transaction-coordinators?source=tc-cover-sheet" className="btn-primary">
-                        See the TC offer
+                    <Link href="/tc-packages?source=tc-cover-sheet" className="btn-primary">
+                        See TC website packages
                     </Link>
                 </AnimatedSection>
             </Section>
