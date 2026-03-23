@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a File | Clearpath Closings</title>
+  <meta name="description" content="Submit your buyer or listing transaction to Clearpath Closings. We'll take it from here and coordinate every detail from contract to close.">
+  <link rel="canonical" href="https://www.clearpathclosings.com/submit">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Clearpath Closings">
+  <meta property="og:title" content="Submit a File | Clearpath Closings">
+  <meta property="og:description" content="Submit your buyer or listing transaction to Clearpath Closings. We'll take it from here and coordinate every detail from contract to close.">
+  <meta property="og:url" content="https://www.clearpathclosings.com/submit">
+  <meta property="og:image" content="https://www.clearpathclosings.com/assets/og_image.png">
+  <meta property="og:image:secure_url" content="https://www.clearpathclosings.com/assets/og_image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Clearpath Closings branded Open Graph image">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Submit a File | Clearpath Closings">
+  <meta name="twitter:description" content="Submit your buyer or listing transaction to Clearpath Closings. We'll take it from here and coordinate every detail from contract to close.">
+  <meta name="twitter:image" content="https://www.clearpathclosings.com/assets/og_image.png">
+  <meta name="twitter:image:alt" content="Clearpath Closings branded Open Graph image">
+
+  <base href="/demos/growth/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-warm.css">
+
+  <style>
+    .demo-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #3b2f2f;
+      color: #fff;
+      text-align: center;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      padding: 8px;
+      z-index: 9999;
+      letter-spacing: 0.04em;
+    }
+    .demo-banner a {
+      color: #b5774e;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+    .demo-banner a:hover {
+      color: #c48860;
+    }
+    .site-header {
+      top: 36px !important;
+    }
+    .hero {
+      padding-top: calc(var(--header-h) + 80px + 36px) !important;
+    }
+    .page-hero {
+      padding-top: calc(var(--header-h) + 36px) !important;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: calc(var(--header-h) + 48px + 36px) !important;
+      }
+      .page-hero {
+        padding-top: calc(var(--header-h) + 36px) !important;
+      }
+      .header-nav {
+        top: calc(var(--header-h) + 36px) !important;
+      }
+    }
+    .placeholder-img {
+      background: #e0dbd4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8d857c;
+      font-size: 0.875rem;
+      font-family: 'DM Sans', sans-serif;
+      border-radius: 8px;
+    }
+
+    /* Tab styles */
+    .submit-tabs {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .tab-buttons {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--gray-200);
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 16px 24px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+    }
+    .tab-btn.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .tab-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .form-placeholder {
+      border: 2px dashed var(--gray-300);
+      border-radius: 12px;
+      padding: 80px 40px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+    }
+    .form-placeholder svg {
+      width: 48px;
+      height: 48px;
+      color: var(--gray-300);
+      margin-bottom: 16px;
+    }
+    .form-placeholder p {
+      margin-top: 8px;
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    DEMO PREVIEW &mdash; TC Growth Package <a href="/tc-packages">&larr; Back to Packages</a>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="header-logo">
+        <div class="placeholder-img" style="width:180px;height:44px;border-radius:4px;">Logo</div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" id="headerNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="careers.html">Careers</a>
+
+        <span class="header-cta">
+          <a href="submit.html" class="btn btn--primary btn--sm active">
+            Submit a File
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Get Started</span>
+        <h1>Submit a File</h1>
+        <p>Send us your executed contract and transaction details. Select the transaction type below and we'll take it from there.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TABBED FORMS
+         ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="submit-tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="buyer" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+              Buyer Transaction
+            </button>
+            <button class="tab-btn" data-tab="listing" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"/></svg>
+              Listing Transaction
+            </button>
+          </div>
+
+          <div class="tab-panel active" id="tab-buyer">
+            <div class="form-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+              <div><strong>Buyer Transaction Form</strong></div>
+              <p>Form embed goes here</p>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-listing">
+            <div class="form-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+              <div><strong>Listing Transaction Form</strong></div>
+              <p>Form embed goes here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="placeholder-img" style="width:160px;height:39px;border-radius:4px;margin-bottom:12px;">Logo</div>
+          <p>Professional transaction coordination for real estate agents and investors.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="submit.html">Submit a File</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links footer-contact">
+          <h4>Contact</h4>
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+            <a href="mailto:maria@clearpathclosings.com">maria@clearpathclosings.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Clearpath Closings. All rights reserved.</p>
+        <p>Transaction Coordination Services</p>
+        <p class="footer-credit">Site by <a href="https://multimedium.dev" target="_blank" rel="noopener noreferrer">MULTIMEDIUM</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+
+  <!-- Tab switching -->
+  <script>
+    (function () {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-tab');
+
+          tabBtns.forEach(function (b) { b.classList.remove('active'); });
+          tabPanels.forEach(function (p) { p.classList.remove('active'); });
+
+          btn.classList.add('active');
+          document.getElementById('tab-' + target).classList.add('active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

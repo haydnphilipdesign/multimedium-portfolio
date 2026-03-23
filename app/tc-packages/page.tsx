@@ -176,28 +176,34 @@ const contactHref = "/contact?source=tc-packages&projectType=website";
 
 const demoStyles = [
     {
-        name: "Classic",
-        description: "Professional and corporate-clean. Navy and gold with a traditional feel that reads as established and trustworthy.",
+        name: "TC Starter",
+        tier: "starter",
+        description: "A clean single-page website with anchor navigation. Hero, services, about, and contact — everything a new TC needs on one page.",
         fonts: "Inter + Poppins",
         colors: ["#0f1f2e", "#c49a3c", "#f8f7f4"],
-        href: "/demos/classic/",
+        href: "/demos/starter/",
         brand: "Summit Transaction Services",
+        pages: "1 page",
     },
     {
-        name: "Warm",
-        description: "Approachable and personal. Earth tones with a serif heading font that feels warm without losing professionalism.",
+        name: "TC Growth",
+        tier: "growth",
+        description: "A polished multi-page site with a dedicated Services page, embedded intake forms, and a Careers page — built for TCs with active deal flow.",
         fonts: "DM Sans + Lora",
         colors: ["#3b2f2f", "#b5774e", "#faf6f2"],
-        href: "/demos/warm/",
+        href: "/demos/growth/",
         brand: "Clearpath Closings",
+        pages: "4 pages",
     },
     {
-        name: "Bold",
-        description: "Confident and modern. High-contrast charcoal with an electric blue accent for TCs who want to stand out.",
+        name: "TC Pro",
+        tier: "pro",
+        description: "A premium multi-page site with testimonials, a dedicated About page, team positioning, and advanced intake — built for TCs who want authority.",
         fonts: "Outfit + Space Grotesk",
         colors: ["#1a1a2e", "#3b82f6", "#f5f5f7"],
-        href: "/demos/bold/",
+        href: "/demos/pro/",
         brand: "Apex TC",
+        pages: "6 pages",
     },
 ];
 
@@ -260,7 +266,7 @@ export default function TCPackagesPage() {
                                     href="#demo-gallery"
                                     className="btn-secondary inline-flex items-center justify-center gap-2"
                                 >
-                                    Preview styles
+                                    Preview demos
                                 </Link>
                             </div>
                         </div>
@@ -272,8 +278,8 @@ export default function TCPackagesPage() {
             <Section id="demo-gallery">
                 <AnimatedSection>
                     <SectionHeading
-                        title="Pick your style, we customize from there"
-                        subtitle="Every package comes with your choice of design direction. Same professional foundation — different personality. Click to preview each one live."
+                        title="See what each package looks like"
+                        subtitle="Each tier gets its own design direction and scope. Click to preview a live demo of each package — from a clean single-pager to a full multi-page site."
                     />
                 </AnimatedSection>
 
@@ -296,9 +302,14 @@ export default function TCPackagesPage() {
                                 </div>
 
                                 <div className="p-6 flex flex-col flex-1">
-                                    <h3 className="text-lg font-semibold text-foreground">
-                                        {style.name}
-                                    </h3>
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="text-lg font-semibold text-foreground">
+                                            {style.name}
+                                        </h3>
+                                        <span className="text-xs font-medium text-muted-foreground bg-muted/50 border border-border/60 rounded-full px-2.5 py-0.5">
+                                            {style.pages}
+                                        </span>
+                                    </div>
                                     <p className="mt-1 text-xs text-muted-foreground">
                                         {style.fonts}
                                     </p>
@@ -325,8 +336,7 @@ export default function TCPackagesPage() {
 
                 <AnimatedSection className="mt-8 text-center">
                     <p className="text-sm text-muted-foreground">
-                        Your colors, logo, and branding replace the demo content.
-                        All styles are fully responsive and built with clean HTML/CSS.
+                        Your colors, logo, and branding replace the demo content. All demos are fully responsive and built with clean HTML/CSS.
                     </p>
                 </AnimatedSection>
             </Section>
