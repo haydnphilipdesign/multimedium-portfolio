@@ -176,6 +176,7 @@ const faqs = [
 ];
 
 const contactHref = "/contact?source=tc-packages&projectType=website";
+const packagesSectionHref = "/tc-packages#packages";
 
 
 export default function TCPackagesPage() {
@@ -336,7 +337,7 @@ export default function TCPackagesPage() {
                                         <IconArrowRight className="w-4 h-4" stroke={2} />
                                     </Link>
                                     <a
-                                        href={pkg.demoHref}
+                                        href={`${pkg.demoHref}?returnTo=${encodeURIComponent(packagesSectionHref)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"

@@ -5,6 +5,55 @@
 (function () {
   'use strict';
 
+  /* ---------- Preserve return path back to packages ---------- */
+  var defaultReturnTo = '/tc-packages#packages';
+
+  function isSafeReturnPath(path) {
+    return typeof path === 'string' && path.charAt(0) === '/' && !path.startsWith('//');
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var queryReturnTo = params.get('returnTo');
+  var storedReturnTo = null;
+
+  try {
+    storedReturnTo = window.sessionStorage.getItem('demoReturnTo');
+  } catch {
+    storedReturnTo = null;
+  }
+
+  var returnTo = isSafeReturnPath(queryReturnTo)
+    ? queryReturnTo
+    : isSafeReturnPath(storedReturnTo)
+      ? storedReturnTo
+      : defaultReturnTo;
+
+  try {
+    window.sessionStorage.setItem('demoReturnTo', returnTo);
+  } catch {
+    // Ignore storage failures and fall back to the default return path.
+  }
+
+  var backToPackagesLink = document.querySelector('.demo-banner a[href^="/tc-packages"]');
+  if (backToPackagesLink) {
+    backToPackagesLink.setAttribute('href', returnTo);
+  }
+
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+      return;
+    }
+
+    var url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin || !url.pathname.startsWith('/demos/')) {
+      return;
+    }
+
+    url.searchParams.set('returnTo', returnTo);
+    link.setAttribute('href', url.pathname + url.search + url.hash);
+  });
+
   /* ---------- Header scroll shadow ---------- */
   const header = document.getElementById('siteHeader');
 
