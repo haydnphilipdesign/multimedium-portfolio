@@ -55,14 +55,14 @@ const packages = [
         timeline: "1–2 weeks",
         pages: "1 page",
         features: [
-            "Single-page scrollable website",
-            "Hero, services, about, and contact sections",
-            "Mobile-responsive design",
-            "SEO-ready meta tags",
-            "Template-guided copy with your input",
-            "Custom color scheme from your branding",
+            "A professional page that gives agents confidence to work with you",
+            "Your services, story, and contact info in one clear, easy-to-share place",
+            "Mobile-friendly design so agents can reach you from their phones",
+            "SEO fundamentals so local agents can actually find you",
+            "Structured messaging based on your input",
+            "Your brand colors and logo woven throughout the site",
         ],
-        cta: "Perfect for getting started",
+        cta: "A strong first step",
         demoHref: "/demos/starter/",
     },
     {
@@ -75,12 +75,12 @@ const packages = [
         pages: "4 pages",
         featured: true,
         features: [
-            "Home, Services, Submit a File, and Careers pages",
-            "Embedded intake forms (Cognito, Jotform, etc.)",
-            "Strategic messaging and positioning",
-            "Benefit cards, process steps, differentiators",
-            "Scroll animations and polished interactions",
-            "Collaborative copywriting included",
+            "4 dedicated pages: Home, Services, File Submission, and Careers",
+            "Online intake form so agents can submit files without phone tag",
+            "Strategic messaging that positions you above lookalike competitors",
+            "A polished walkthrough of your process, differentiators, and next steps",
+            "Scroll animations and thoughtful interactions that feel established",
+            "Copywriting collaboration where we shape the message and you refine it",
         ],
         cta: "Most popular for established TCs",
         demoHref: "/demos/growth/",
@@ -94,14 +94,14 @@ const packages = [
         timeline: "4–6 weeks",
         pages: "5+ pages",
         features: [
-            "Everything in Growth, plus custom pages",
-            "Testimonials and social proof sections",
-            "Referral partner landing pages",
-            "Advanced intake with multi-step forms",
-            "Fully written copy and brand positioning",
-            "First year of managed hosting included",
+            "Everything in Growth, plus pages shaped around your exact workflow",
+            "Testimonials and social proof that reinforce trust before the first call",
+            "Referral partner and team-facing landing pages when you need them",
+            "Advanced intake with multi-step forms and more guided submissions",
+            "Fully written copy and positioning for a stronger market presence",
+            "First year of managed hosting included so launch feels supported",
         ],
-        cta: "For serious operators",
+        cta: "For teams ready to grow",
         demoHref: "/demos/pro/",
     },
 ];
@@ -115,7 +115,7 @@ const allPackagesInclude = [
     {
         icon: IconPalette,
         title: "Custom branding",
-        description: "Your colors, your logo, your identity — not a generic template with your name on it.",
+        description: "Your colors, your logo, your identity — designed around your brand, not pulled from a generic library.",
     },
     {
         icon: IconChecklist,
@@ -159,7 +159,7 @@ const faqs = [
     },
     {
         q: "Do you write the copy?",
-        a: "Starter includes template-guided copy where you provide the details and we adapt the structure. Growth includes collaborative copywriting where we write and you review. Pro includes fully written copy with strategic positioning.",
+        a: "Starter includes structured messaging — you provide the details, and we shape them into clear, professional copy using our proven framework. Growth includes collaborative copywriting where we write and you review. Pro includes fully written copy with strategic positioning.",
     },
     {
         q: "What platform do you build on?",
@@ -220,9 +220,11 @@ export default function TCPackagesPage() {
                             <p className="mt-6 text-lg md:text-xl text-muted-foreground">
                                 My mom has been a transaction coordinator since 2013. I grew up
                                 watching files get managed, deadlines tracked, and agents
-                                coordinated. These packages exist because I know what your
-                                business actually needs from a website — not what a generic
-                                template thinks you need.
+                                coordinated through long days of Dotloop uploads, compliance
+                                checklists, and last-minute closing changes. These packages
+                                exist because I know what your business actually needs from a
+                                website — clear trust signals, an easy way to start a file, and
+                                a brand that feels like a real business.
                             </p>
 
                             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -470,12 +472,13 @@ export default function TCPackagesPage() {
                                 <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
                                     Refer your students. We&apos;ll build their websites.
                                 </h2>
-                                <p className="mt-4 text-muted-foreground leading-relaxed">
+                            <p className="mt-4 text-muted-foreground leading-relaxed">
                                     If you run a TC course, mentorship, or coaching program, we can
                                     create a dedicated referral page for your students with a
                                     preferred perk. Your students get a vetted web designer who
-                                    understands TC businesses. You get a resource that adds value
-                                    to your program.
+                                    understands the cadence of a TC business, from file intake to
+                                    broker compliance. You get a resource that adds real value to
+                                    your program instead of another generic recommendation.
                                 </p>
                                 <Link
                                     href="/contact?source=tc-packages&projectType=referral-partnership"

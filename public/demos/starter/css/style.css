@@ -549,6 +549,10 @@ ul, ol { list-style: none; }
   position: relative;
 }
 
+.steps-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* Connector line */
 .steps-grid::before {
   content: '';
@@ -558,6 +562,11 @@ ul, ol { list-style: none; }
   right: calc(12.5% + 16px);
   height: 2px;
   background: var(--gray-200);
+}
+
+.steps-grid--three::before {
+  left: calc(16.667% + 16px);
+  right: calc(16.667% + 16px);
 }
 
 .step {
