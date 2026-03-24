@@ -50,16 +50,16 @@ const packages = [
         name: "TC Starter",
         icon: IconRocket,
         price: "$750",
-        description: "A clean, professional single-page website to establish your online presence fast.",
+        description: "A clean, professional one-page website that helps you look established quickly.",
         bestFor: "New solo TCs who need credibility and a professional web presence from day one.",
         timeline: "1–2 weeks",
         pages: "1 page",
         features: [
-            "A professional page that gives agents confidence to work with you",
+            "A polished website that helps agents trust you quickly",
             "Your services, story, and contact info in one clear, easy-to-share place",
             "Mobile-friendly design so agents can reach you from their phones",
-            "SEO fundamentals so local agents can actually find you",
-            "Structured messaging based on your input",
+            "Basic search setup so local agents can find you online",
+            "Clear website wording shaped from your answers and experience",
             "Your brand colors and logo woven throughout the site",
         ],
         cta: "A strong first step",
@@ -69,18 +69,19 @@ const packages = [
         name: "TC Growth",
         icon: IconTrendingUp,
         price: "$1,500",
-        description: "A polished multi-page website with services, intake forms, and a careers page.",
+        description:
+            "A polished multi-page website with room to explain your services and make it easy for agents to get started.",
         bestFor: "Established TCs who want stronger branding, a real intake workflow, and room to grow.",
         timeline: "3–4 weeks",
         pages: "4 pages",
         featured: true,
         features: [
             "4 dedicated pages: Home, Services, File Submission, and Careers",
-            "Online intake form so agents can submit files without phone tag",
-            "Strategic messaging that positions you above lookalike competitors",
-            "A polished walkthrough of your process, differentiators, and next steps",
-            "Scroll animations and thoughtful interactions that feel established",
-            "Copywriting collaboration where we shape the message and you refine it",
+            "Online file submission form so agents can get started without phone tag",
+            "Clear messaging that helps agents quickly see why they should choose you",
+            "A polished walkthrough of your process, what makes you different, and what happens next",
+            "Thoughtful design details that make your business feel established",
+            "Collaborative copywriting where I shape the message and you refine it",
         ],
         cta: "Most popular for established TCs",
         demoHref: "/demos/growth/",
@@ -89,16 +90,17 @@ const packages = [
         name: "TC Pro",
         icon: IconCrown,
         price: "$3,000+",
-        description: "A fully custom website for teams, coaches, or TCs building real authority.",
+        description:
+            "A fully custom website for teams, coaches, or TCs ready for a more built-out brand presence.",
         bestFor: "TC teams, coaches, or operators who want their website to actively generate business.",
         timeline: "4–6 weeks",
         pages: "5+ pages",
         features: [
             "Everything in Growth, plus pages shaped around your exact workflow",
-            "Testimonials and social proof that reinforce trust before the first call",
-            "Referral partner and team-facing landing pages when you need them",
-            "Advanced intake with multi-step forms and more guided submissions",
-            "Fully written copy and positioning for a stronger market presence",
+            "Testimonials and trust-building proof placed where they matter most",
+            "Referral or team pages when your business needs them",
+            "A more guided file submission process for higher-volume businesses",
+            "Fully written website copy that presents your business clearly and professionally",
             "First year of managed hosting included so launch feels supported",
         ],
         cta: "For teams ready to grow",
@@ -109,43 +111,72 @@ const packages = [
 const allPackagesInclude = [
     {
         icon: IconDeviceMobile,
-        title: "Mobile-first design",
-        description: "Responsive across all devices — because most of your visitors are on their phones.",
+        title: "Looks great on phones",
+        description: "Designed to work beautifully on phones, tablets, and desktops.",
     },
     {
         icon: IconPalette,
-        title: "Custom branding",
-        description: "Your colors, your logo, your identity — designed around your brand, not pulled from a generic library.",
+        title: "Branding that feels like you",
+        description:
+            "Your colors, logo, and overall look are tailored to your business instead of pulled from a generic template.",
     },
     {
         icon: IconChecklist,
-        title: "SEO fundamentals",
-        description: "Meta tags, Open Graph, structured markup — so you show up when agents search for TCs.",
+        title: "Search-friendly setup",
+        description:
+            "Behind-the-scenes setup that helps your site show up better in search and look polished when shared.",
     },
     {
         icon: IconBolt,
-        title: "Fast page speed",
-        description: "Clean code, optimized assets, no framework bloat. Your site loads fast everywhere.",
+        title: "Fast-loading pages",
+        description:
+            "Your site is built to load quickly, which helps it feel more professional and easier to use.",
     },
     {
         icon: IconFileText,
-        title: "Copy guidance or writing",
-        description: "You won't stare at blank pages. Every package includes messaging support at its tier level.",
+        title: "Help with the words",
+        description:
+            "You won't be left staring at a blank page. Every package includes support with the wording at the level that fits that tier.",
     },
     {
         icon: IconHeadset,
-        title: "Launch support",
-        description: "Help with domain setup, DNS, and going live. You're not on your own after handoff.",
+        title: "Launch help",
+        description:
+            "Help connecting your domain and getting everything live. You're not on your own at launch.",
     },
 ];
 
 const addOns = [
-    { name: "Domain registration + setup", price: "Varies" },
-    { name: "Managed hosting", price: "$59/mo" },
-    { name: "Logo design", price: "From $300" },
-    { name: "OG image / social sharing graphic", price: "$100" },
-    { name: "Additional pages", price: "$200–400 each" },
-    { name: "Ongoing maintenance retainer", price: "Custom" },
+    {
+        name: "Custom domain setup",
+        description: "Help buying your domain and connecting it to your site.",
+        price: "Varies",
+    },
+    {
+        name: "Managed hosting",
+        description: "Keeps your site live, secure, and monitored each month.",
+        price: "$59/mo",
+    },
+    {
+        name: "Logo design",
+        description: "A custom logo if you want a more polished brand look.",
+        price: "From $300",
+    },
+    {
+        name: "Custom link sharing image",
+        description: "A polished image that appears when someone shares your site link.",
+        price: "$100",
+    },
+    {
+        name: "Extra pages",
+        description: "Add more pages now or later as your business grows.",
+        price: "$200–400 each",
+    },
+    {
+        name: "Ongoing website support",
+        description: "For ongoing edits, updates, or hands-on help after launch.",
+        price: "Custom",
+    },
 ];
 
 const faqs = [
@@ -158,16 +189,16 @@ const faqs = [
         a: "Yes. Every package is built on the same design system, so upgrading from Starter to Growth or Growth to Pro doesn't mean starting over. Your branding, colors, and content carry forward.",
     },
     {
-        q: "Do you write the copy?",
-        a: "Starter includes structured messaging — you provide the details, and we shape them into clear, professional copy using our proven framework. Growth includes collaborative copywriting where we write and you review. Pro includes fully written copy with strategic positioning.",
+        q: "Do you help with the wording?",
+        a: "Yes. You do not have to write everything from scratch. Starter includes guided messaging based on your answers. Growth includes collaborative copywriting where I draft and you refine. Pro includes fully written copy with a stronger strategic angle.",
     },
     {
-        q: "What platform do you build on?",
-        a: "These packages use clean HTML, CSS, and JavaScript — no heavy frameworks or page builders. The result is fast, portable, and easy to host anywhere. For clients who need a CMS, we can discuss options.",
+        q: "Will my website be easy to manage?",
+        a: "Yes. These sites are built to be fast, reliable, and easy to host without locking you into a clunky template builder. If you want something you can update yourself or a content management system, we can talk through the best fit.",
     },
     {
         q: "Do you offer hosting?",
-        a: "Yes. Managed hosting is available as an add-on at $59/month, which includes SSL, uptime monitoring, and basic maintenance. Pro packages include the first year of hosting.",
+        a: "Yes. Managed hosting is available as an add-on at $59/month and covers keeping your site live, secure, and monitored. If you want ongoing edits, content changes, or hands-on support after launch, that would be a separate website support plan. Pro packages include the first year of hosting.",
     },
     {
         q: "I was referred by a TC coach. Is there a referral perk?",
@@ -390,13 +421,13 @@ export default function TCPackagesPage() {
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                            Optional add-ons
+                            Optional extras
                         </span>
                         <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                            Extend any package
+                            Add what you need
                         </h2>
                         <p className="mt-3 text-muted-foreground">
-                            These can be added to any tier based on what your business needs.
+                            These can be added to any package now or later, depending on what would help your business most.
                         </p>
                     </div>
                 </AnimatedSection>
@@ -405,11 +436,16 @@ export default function TCPackagesPage() {
                     {addOns.map((item) => (
                         <div
                             key={item.name}
-                            className="flex items-center justify-between rounded-xl border border-border/60 bg-card px-5 py-3.5"
+                            className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card px-5 py-3.5"
                         >
-                            <span className="text-sm text-foreground font-medium">
-                                {item.name}
-                            </span>
+                            <div>
+                                <p className="text-sm text-foreground font-medium">
+                                    {item.name}
+                                </p>
+                                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
                             <span className="text-sm text-muted-foreground font-medium">
                                 {item.price}
                             </span>
