@@ -18,3 +18,11 @@ Use these filenames when sourcing images for the Growth showcase demo.
 - Growth should feel established, systematic, and polished.
 - Favor organized office and workflow imagery over lifestyle shots.
 - The impression should be “this business has a process.”
+
+## Selected sources
+
+Verified March 24, 2026.
+
+- `hero-operations-office.*` - [Professional woman analyzing a document on a digital tablet in a modern office setting](https://www.pexels.com/photo/businesswoman-reviewing-document-on-tablet-indoors-29377236/)
+- `maria-headshot.*` - [Confident businesswoman with tablet in an office, smiling and approachable](https://www.pexels.com/photo/mature-woman-with-short-hair-holding-tablet-8730027/)
+- `services-workflow.*` - [Business woman focused on paperwork at office desk, reviewing documents](https://www.pexels.com/photo/woman-working-at-the-desk-in-office-8111853/)

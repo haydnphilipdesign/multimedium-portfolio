@@ -18,3 +18,11 @@ Use these filenames when sourcing images for the Pro showcase demo.
 - Pro should feel premium, team-oriented, and authority-led.
 - Prefer real collaboration imagery over generic handshake photos.
 - The impression should be “this team can support serious volume.”
+
+## Selected sources
+
+Verified March 24, 2026.
+
+- `hero-team-collaboration.*` - [Professional team discussing around a laptop in a modern conference room](https://www.pexels.com/photo/people-having-a-meeting-8133989/)
+- `jordan-headshot.*` - [Portrait of a smiling Asian man in a beige blazer, sitting confidently in a studio setting](https://www.pexels.com/photo/professional-portrait-of-an-asian-man-in-studio-31268612/)
+- `services-team-meeting.*` - [Business professionals in a board meeting in a modern conference room, engaging in discussion](https://www.pexels.com/photo/professional-people-having-meeting-6949476/)
