@@ -13,9 +13,9 @@ import {
 import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "Web Design Services for Real Estate and Service Businesses",
+    title: "Web Design Services for Real Estate Professionals and TCs",
     description:
-        "Website design, landing page design, and SEO-focused growth retainers for real estate professionals, transaction coordinators, and niche service businesses.",
+        "Website design, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs — built to turn visitors into inquiries.",
     path: "/services",
     keywords: [
         "web design services",
@@ -56,7 +56,7 @@ const services = [
 ];
 
 export default function ServicesPage() {
-    const clientProjectCount = projects.filter((project) => project.kind === "Client").length;
+    const featuredProjectCount = projects.filter((p) => p.featured).length;
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
@@ -65,7 +65,7 @@ export default function ServicesPage() {
         getCollectionPageStructuredData({
             name: "Multimedium Web Design Services",
             description:
-                "Website design, landing page design, and growth retainers for real estate professionals, transaction coordinators, and service businesses.",
+                "Website design, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs.",
             path: "/services",
         }),
     ];
@@ -83,12 +83,12 @@ export default function ServicesPage() {
                                 <span className="text-gradient">turn visitors into inquiries.</span>
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                Website builds, landing pages, and SEO-focused growth support for real estate businesses, transaction coordinators, and service companies that need better-fit leads.
+                                Website builds, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Portfolio snapshot</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">{clientProjectCount} client projects</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Case studies</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">{featuredProjectCount} published projects</p>
                                 </div>
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Typical launch</p>
@@ -151,21 +151,16 @@ export default function ServicesPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                        <div className="max-w-2xl">
-                            <p className="text-sm font-medium text-foreground">Focused recently:</p>
-                            <p className="mt-1 text-muted-foreground">
-                                Real estate professionals, transaction coordinators, and HOAs.
-                            </p>
-                        </div>
+                        <p className="text-sm font-medium text-foreground">See how I work with your niche:</p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Link href="/industries/real-estate-professionals?source=services" className="btn-secondary">
-                                For real estate professionals
+                                Real estate professionals
                             </Link>
                             <Link href="/industries/transaction-coordinators?source=services" className="btn-secondary">
-                                For transaction coordinators
+                                Transaction coordinators
                             </Link>
                             <Link href="/industries/real-estate-coaches?source=services" className="btn-secondary">
-                                For coaches & brokerages
+                                Coaches & brokerages
                             </Link>
                         </div>
                     </div>
@@ -175,8 +170,8 @@ export default function ServicesPage() {
             <Section>
                 <AnimatedSection>
                     <SectionHeading
-                        title="What I offer"
-                        subtitle="Flexible scope for different business stages, same level of craft."
+                        title="Services"
+                        subtitle="Three ways to work together — choose the scope that fits where you are now."
                     />
                 </AnimatedSection>
 

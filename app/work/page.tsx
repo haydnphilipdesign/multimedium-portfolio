@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import { Section } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
-import { WorkFilters } from "@/components/work/WorkFilters";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { projects, type Project } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
@@ -26,12 +24,6 @@ const industryMeta: Record<string, { title: string; description: string; heading
         heading: "Real Estate Work",
         subheading: "Projects built for property managers, investors, and real estate teams.",
     },
-    wellness: {
-        title: "Wellness Web Design Case Studies",
-        description: "Web design for wellness centers, retreat properties, and healing-focused businesses.",
-        heading: "Wellness Work",
-        subheading: "Projects built for retreat centers, healers, and wellness brands.",
-    },
     coaching: {
         title: "Coaching & Consulting Web Design",
         description: "Web design for coaches, consultants, and service-based businesses—from premium coaching sites to scroll-driven experiences.",
@@ -40,105 +32,40 @@ const industryMeta: Record<string, { title: string; description: string; heading
     },
 };
 
-const categoryMeta: Record<string, { title: string; description: string }> = {
-    "Web Design": {
-        title: "Web Design Case Studies",
-        description: "Motion-rich web design projects with strong visual craft and clear results.",
-    },
-    "SaaS": {
-        title: "SaaS Product Case Studies",
-        description: "Product design and development for software-as-a-service applications.",
-    },
-    "Real Estate": {
-        title: "Real Estate Web Design Case Studies",
-        description: "Websites for real estate professionals, property managers, and transaction coordinators.",
-    },
-    "Portal": {
-        title: "Client Portal Case Studies",
-        description: "Secure, client-facing portal builds focused on visibility, requests, and operational clarity.",
-    },
-};
-
-// Only count featured (visible) projects for filter options
-const visibleProjects = projects.filter((p) => p.featured);
-
-// Helper to get unique categories with counts
-function getCategoryOptions() {
-    const counts = new Map<string, number>();
-    visibleProjects.forEach((p) => {
-        counts.set(p.category, (counts.get(p.category) || 0) + 1);
-    });
-    return Array.from(counts.entries())
-        .map(([value, count]) => ({ value, label: value, count }))
-        .sort((a, b) => b.count - a.count);
-}
-
-// Helper to get unique industries with counts
-function getIndustryOptions() {
-    const counts = new Map<string, number>();
-    visibleProjects.forEach((p) => {
-        p.industries?.forEach((ind) => {
-            counts.set(ind, (counts.get(ind) || 0) + 1);
-        });
-    });
-    return Array.from(counts.entries())
-        .map(([value, count]) => ({ value, label: value, count }))
-        .sort((a, b) => b.count - a.count);
-}
-
 export async function generateMetadata({
     searchParams,
 }: {
-    searchParams: Promise<{ industry?: string; category?: string }>;
+    searchParams: Promise<{ industry?: string }>;
 }): Promise<Metadata> {
     const params = await searchParams;
     const industry = params.industry;
-    const category = params.category;
     const indMeta = industry ? industryMeta[industry] : null;
-    const catMeta = category ? categoryMeta[category] : null;
-
-    // Priority: industry > category > default
-    const title = indMeta?.title ?? catMeta?.title ?? "Case Studies";
-    const description =
-        indMeta?.description ??
-        catMeta?.description ??
-        "A collection of recent projects — real builds with clear goals, design decisions, and measurable outcomes.";
-
-    // Build canonical URL
-    const params_arr: string[] = [];
-    if (industry) params_arr.push(`industry=${industry}`);
-    if (category) params_arr.push(`category=${encodeURIComponent(category)}`);
-    const canonical = "/work";
 
     return createPageMetadata({
-        title,
-        description,
-        path: canonical,
-        robots: params_arr.length > 0 ? { index: false, follow: true } : undefined,
+        title: indMeta?.title ?? "Case Studies",
+        description:
+            indMeta?.description ??
+            "Real estate and transaction coordinator website projects — real builds with clear goals, design decisions, and measurable outcomes.",
+        path: "/work",
+        robots: industry ? { index: false, follow: true } : undefined,
     });
 }
 
 export default async function WorkPage({
     searchParams,
 }: {
-    searchParams: Promise<{ industry?: string; category?: string }>;
+    searchParams: Promise<{ industry?: string }>;
 }) {
     const params = await searchParams;
     const industry = params.industry;
-    const category = params.category;
     const indMeta = industry ? industryMeta[industry] : null;
 
-    // Filter projects — only show featured (visible) projects
+    // Only show featured (visible) projects
     let filteredProjects = projects.filter((p) => p.featured);
 
     if (industry) {
         filteredProjects = filteredProjects.filter((p) => p.industries?.includes(industry));
     }
-    if (category) {
-        filteredProjects = filteredProjects.filter((p) => p.category === category);
-    }
-
-    const hasFilters = Boolean(industry || category);
 
     const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
     const spotlightOrder =
@@ -155,13 +82,7 @@ export default async function WorkPage({
     const spotlightSlugs = new Set(spotlightProjects.map((p) => p.slug));
     const remainingProjects = filteredProjects.filter((project) => !spotlightSlugs.has(project.slug));
 
-    const clientProjects = remainingProjects.filter((project) => project.kind === "Client");
-    const otherProjects = remainingProjects.filter((project) => project.kind !== "Client");
     const getGridCols = (count: number) => (count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3");
-
-    // Get filter options
-    const categoryOptions = getCategoryOptions();
-    const industryOptions = getIndustryOptions();
 
     const spotlightHeading =
         industry === "tc" ? "TC work — sites + tools"
@@ -172,8 +93,8 @@ export default async function WorkPage({
         industry === "tc"
             ? "Client websites first, with additional tooling shown lower on the page."
             : industry === "coaching"
-                ? "Premium websites for coaches and consultants—designed to command authority and justify high-ticket pricing."
-                : "A mix of client websites and operational tooling—designed for clarity, trust, and fewer manual follow-ups.";
+                ? "Premium websites for coaches and consultants — designed to command authority and justify high-ticket pricing."
+                : "The strongest examples of positioning, design, and build quality across client sites and product work.";
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
@@ -197,48 +118,28 @@ export default async function WorkPage({
                         <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                    <span className="text-gradient">{indMeta?.heading ?? "Website Design Case Studies"}</span>
+                                    <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
-                                    {indMeta?.subheading ?? "Client sites and product builds with clear goals, design decisions, and real outcomes, with the strongest examples centered on real estate and transaction coordinator work."}
+                                    {indMeta?.subheading ?? "Real builds for real estate professionals and transaction coordinators — each with clear goals, deliberate design decisions, and measurable outcomes."}
                                 </p>
-                                {!industry && !category ? (
+                                {!industry && (
                                     <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-                                        If you are evaluating fit, start with the case studies tied closest to
+                                        Evaluating fit? Start with the work closest to
                                         <Link href="/industries/real-estate-professionals" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
-                                            real estate website design
+                                            real estate
                                         </Link>
                                         or
                                         <Link href="/industries/transaction-coordinators" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
-                                            transaction coordinator websites
+                                            transaction coordinators
                                         </Link>
                                         .
                                     </p>
-                                ) : null}
+                                )}
                             </div>
                         </div>
                     </AnimatedSection>
                 </Section>
-
-                {/* Filters */}
-                <Section className="pt-8 pb-0" padding="none">
-                    <Suspense fallback={null}>
-                        <WorkFilters
-                            categories={categoryOptions}
-                            industries={industryOptions}
-                            currentCategory={category}
-                            currentIndustry={industry}
-                        />
-                    </Suspense>
-                </Section>
-
-                {hasFilters && (
-                    <Section className="pt-5 pb-0" padding="none">
-                        <p className="text-sm text-muted-foreground">
-                            Showing <span className="text-foreground font-medium">{filteredProjects.length}</span> project{filteredProjects.length === 1 ? "" : "s"}
-                        </p>
-                    </Section>
-                )}
 
                 <div className="h-12 md:h-16" />
             </div>
@@ -266,77 +167,25 @@ export default async function WorkPage({
                 </Section>
             )}
 
-            {/* No Results */}
-            {filteredProjects.length === 0 && (
-                <Section>
-                    <div className="text-center py-16">
-                        <p className="text-lg text-muted-foreground mb-4">
-                            No projects match the current filters.
-                        </p>
-                        <Link
-                            href="/work"
-                            className="text-primary hover:underline"
-                        >
-                            Clear filters to see all work
-                        </Link>
-                    </div>
-                </Section>
-            )}
-
-            {/* Client Work */}
-            {clientProjects.length > 0 && (
+            {/* Remaining Projects */}
+            {remainingProjects.length > 0 && (
                 <Section>
                     <AnimatedSection>
                         <div className="max-w-3xl mb-8">
                             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                Client work
-                                {hasFilters && (
-                                    <span className="text-muted-foreground font-normal text-lg ml-2">
-                                        ({clientProjects.length})
-                                    </span>
-                                )}
+                                More work
                             </h2>
-                            {!hasFilters && (
-                                <p className="text-muted-foreground mt-3">
-                                    Full builds and redesigns — positioning, copy, and UI decisions shaped by each client&apos;s audience.
-                                </p>
-                            )}
+                            <p className="text-muted-foreground mt-3">
+                                Client sites, product builds, and tools — each shaped by the same positioning-first process.
+                            </p>
                         </div>
                     </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(clientProjects.length)}`}>
-                        {clientProjects.map((project, index) => (
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(remainingProjects.length)}`}>
+                        {remainingProjects.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
                     </div>
                 </Section>
-            )}
-
-            {/* Tools, Products, and Internal Builds */}
-            {otherProjects.length > 0 && (
-                <div className="relative rounded-2xl border border-border/60 bg-muted/35">
-                    <Section>
-                        <AnimatedSection>
-                            <div className="max-w-3xl">
-                                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                                    Tools, products, and internal builds
-                                    {hasFilters && (
-                                        <span className="text-muted-foreground font-normal text-lg ml-2">
-                                            ({otherProjects.length})
-                                        </span>
-                                    )}
-                                </h2>
-                                <p className="text-muted-foreground">
-                                    Supporting work that shows product thinking, systems design, and technical range beyond client delivery.
-                                </p>
-                            </div>
-                        </AnimatedSection>
-                        <div className={`mt-10 grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(otherProjects.length)}`}>
-                            {otherProjects.map((project, index) => (
-                                <ProjectCard key={project.slug} project={project} index={index} />
-                            ))}
-                        </div>
-                    </Section>
-                </div>
             )}
 
             {/* CTA Section */}
@@ -358,5 +207,3 @@ export default async function WorkPage({
         </>
     );
 }
-
-
