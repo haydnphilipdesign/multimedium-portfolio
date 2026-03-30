@@ -21,12 +21,13 @@ import {
 export const metadata: Metadata = createPageMetadata({
     title: "Web Design for Transaction Coordinators",
     description:
-        "Web design for transaction coordinators with stronger positioning, fast performance, fit-filtered lead capture, and optional intake automation.",
+        "Web design for transaction coordinators — professional messaging, fast mobile performance, and a clear intake flow that filters out poor-fit agents. Built by someone who grew up in the TC world.",
     path: "/industries/transaction-coordinators",
     keywords: [
         "transaction coordinator website design",
         "web design for transaction coordinators",
         "real estate transaction coordinator website",
+        "transaction coordinator website",
         "tc website packages",
     ],
 });
@@ -122,6 +123,14 @@ const automationPackages = [
 
 const faqs = [
     {
+        q: "How much does a transaction coordinator website cost?",
+        a: "TC website packages start at $750 for a clean one-page site and go up to $3,000+ for a full multi-page build with intake forms, careers pages, and custom copy. The right package depends on where you are in your business — see the TC packages page for a full breakdown.",
+    },
+    {
+        q: "Do I need a website if I get all my TC clients through referrals?",
+        a: "Yes. Even referral-based leads will Google you before reaching out. A professional website validates what the referral already told them — and gives agents something to share when they recommend you. Without one, you're relying entirely on trust you haven't built yet.",
+    },
+    {
         q: "Do you write the copy?",
         a: "Yes. Positioning and copy are part of the build. We make the offer obvious, add proof, and write the sections that prevent low-fit leads from booking.",
     },
@@ -166,6 +175,7 @@ export default function TransactionCoordinatorsPage() {
             description:
                 "Website design and optional intake automation for transaction coordinators who need clearer positioning and better-fit leads.",
             path: "/industries/transaction-coordinators",
+            priceRange: "$750 – $3,000+",
             audience: ["Transaction coordinators", "Real estate operations teams"],
         }),
         getFaqStructuredData(faqs),
@@ -202,6 +212,9 @@ export default function TransactionCoordinatorsPage() {
                                          View packages <IconArrowRight className="w-4 h-4" stroke={2} />
                                      </Link>
                                  </div>
+                                 <p className="text-sm text-muted-foreground">
+                                     Built by someone who grew up watching files managed, deadlines tracked, and agents coordinated — my mom has been a transaction coordinator since 2013.
+                                 </p>
                              </div>
 
                             <div className="lg:col-span-2">
@@ -430,7 +443,7 @@ export default function TransactionCoordinatorsPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <SectionHeading
-                        title="Free TC templates"
+                        title="Free transaction coordinator templates"
                         subtitle="Templates and checklists I can auto-populate or structure around your intake (Jotform/Forms). Use them as-is, or adapt the structure for your workflow."
                     />
                 </AnimatedSection>
@@ -534,8 +547,8 @@ export default function TransactionCoordinatorsPage() {
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
                     <SectionHeading
-                        title="FAQ"
-                        subtitle="A few common questions TCs ask before a build."
+                        title="Transaction Coordinator Website FAQ"
+                        subtitle="Common questions from transaction coordinators before starting a website build."
                     />
                 </AnimatedSection>
 

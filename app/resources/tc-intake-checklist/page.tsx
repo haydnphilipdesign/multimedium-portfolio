@@ -13,11 +13,11 @@ import { requestChecklist } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "TC Lead Intake Checklist",
+    title: "Transaction Coordinator Lead Intake Checklist",
     description:
         "Free downloadable transaction coordinator lead intake checklist PDF to help qualify faster, reduce back-and-forth, and start each file clean.",
     path: "/resources/tc-intake-checklist",
-    keywords: ["transaction coordinator intake checklist", "tc intake checklist pdf", "transaction coordinator lead form template"],
+    keywords: ["transaction coordinator intake checklist", "transaction coordinator lead intake checklist", "tc intake checklist pdf", "transaction coordinator lead form template"],
 });
 
 interface PageProps {
@@ -37,10 +37,10 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
             { name: "Resources", path: "/resources" },
-            { name: "TC Lead Intake Checklist", path: "/resources/tc-intake-checklist" },
+            { name: "Transaction Coordinator Lead Intake Checklist", path: "/resources/tc-intake-checklist" },
         ]),
         getCreativeWorkStructuredData({
-            name: "TC Lead Intake Checklist",
+            name: "Transaction Coordinator Lead Intake Checklist",
             description:
                 "Free downloadable transaction coordinator lead intake checklist PDF for cleaner qualification and file starts.",
             path: "/resources/tc-intake-checklist",
@@ -61,7 +61,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                             Free resource
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            TC Lead Intake Checklist
+                            Transaction Coordinator Lead Intake Checklist
                         </h1>
                         <p className="text-lg text-muted-foreground">
                             A clean, printable checklist you can use to qualify faster, reduce back-and-forth, and start every file organized.
@@ -197,6 +197,60 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         </div>
                     </AnimatedSection>
                 </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                            What&apos;s in this transaction coordinator intake checklist
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            The checklist is organized to capture everything needed to qualify a new lead and start a file cleanly — before the back-and-forth begins.
+                        </p>
+                    </div>
+                </AnimatedSection>
+                <div className="mt-8 grid gap-3 max-w-3xl">
+                    {[
+                        {
+                            label: "Transaction type and side",
+                            detail: "Buyer, seller, or dual representation — and whether it's a purchase, refinance, or listing coordination.",
+                        },
+                        {
+                            label: "Agent and brokerage info",
+                            detail: "Referring agent name, brokerage, license number, and preferred communication method.",
+                        },
+                        {
+                            label: "Property and contract details",
+                            detail: "Property address, list price, contract price, and earnest money amount.",
+                        },
+                        {
+                            label: "Key contingency dates",
+                            detail: "Inspection period, financing contingency, appraisal deadline, and projected closing date.",
+                        },
+                        {
+                            label: "Lender and title info",
+                            detail: "Lender name and contact, loan type, title/escrow company, and attorney (if applicable).",
+                        },
+                        {
+                            label: "Urgency and special notes",
+                            detail: "Rush flag, known complications, and any brokerage-specific requirements the TC needs to be aware of.",
+                        },
+                    ].map((item) => (
+                        <div
+                            key={item.label}
+                            className="flex items-start gap-4 rounded-xl border border-border/60 bg-card px-5 py-3.5"
+                        >
+                            <div>
+                                <p className="text-sm font-medium text-foreground">{item.label}</p>
+                                <p className="mt-0.5 text-xs text-muted-foreground">{item.detail}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <p className="mt-5 max-w-3xl text-sm text-muted-foreground">
+                    Use it as a printable checklist you fill in manually, or as a blueprint for structuring a digital intake form. If you want to convert it into a structured online form with required fields, routing, and an auto-generated summary, that&apos;s what the intake automation add-on covers.
+                </p>
             </Section>
 
             <Section className="border-t border-border/40">

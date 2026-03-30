@@ -28,15 +28,16 @@ import {
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "What Every TC Website Needs",
+    title: "What Every Transaction Coordinator Website Needs",
     description:
         "The definitive checklist for transaction coordinator websites. What to include, what to avoid, and what separates a site that builds trust from one that gets ignored.",
     path: "/resources/what-every-tc-website-needs",
     keywords: [
         "transaction coordinator website",
-        "tc website checklist",
-        "what should a tc website have",
+        "what should a transaction coordinator website have",
+        "transaction coordinator website checklist",
         "transaction coordinator web design",
+        "tc website checklist",
     ],
 });
 
@@ -155,7 +156,7 @@ export default function WhatEveryTCWebsiteNeedsPage() {
                             Free resource
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            What every TC website needs
+                            What every transaction coordinator website needs
                         </h1>
                         <p className="mt-6 text-lg md:text-xl text-muted-foreground">
                             The definitive checklist for transaction coordinator websites.

@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${siteUrl}/tc-packages`,
             changeFrequency: "monthly",
-            priority: 0.8,
+            priority: 0.9,
             lastModified,
         },
         {
@@ -110,19 +110,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${siteUrl}/resources/tc-task-list`,
             changeFrequency: "yearly",
-            priority: 0.6,
+            priority: 0.7,
             lastModified,
         },
         {
             url: `${siteUrl}/resources/tc-cover-sheet`,
             changeFrequency: "yearly",
-            priority: 0.6,
+            priority: 0.7,
             lastModified,
         },
         {
             url: `${siteUrl}/resources/tc-intake-checklist`,
             changeFrequency: "yearly",
-            priority: 0.6,
+            priority: 0.7,
+            lastModified,
+        },
+        {
+            url: `${siteUrl}/resources/what-every-tc-website-needs`,
+            changeFrequency: "yearly",
+            priority: 0.7,
             lastModified,
         },
     ];

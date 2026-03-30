@@ -13,11 +13,11 @@ import { requestTcCoverSheet } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "TC Cover Sheet Template",
+    title: "Transaction Coordinator Cover Sheet Template",
     description:
         "Free downloadable transaction coordinator cover sheet template with a clean, file-ready summary you can use across most TC workflows.",
     path: "/resources/tc-cover-sheet",
-    keywords: ["transaction coordinator cover sheet", "tc cover sheet template", "transaction coordinator quick reference pdf"],
+    keywords: ["transaction coordinator cover sheet", "transaction coordinator cover sheet template", "tc cover sheet template", "transaction coordinator quick reference pdf"],
 });
 
 interface PageProps {
@@ -37,10 +37,10 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
             { name: "Resources", path: "/resources" },
-            { name: "TC Cover Sheet Template", path: "/resources/tc-cover-sheet" },
+            { name: "Transaction Coordinator Cover Sheet Template", path: "/resources/tc-cover-sheet" },
         ]),
         getCreativeWorkStructuredData({
-            name: "TC Cover Sheet Template",
+            name: "Transaction Coordinator Cover Sheet Template",
             description:
                 "Free downloadable transaction coordinator cover sheet template with a clean, file-ready summary.",
             path: "/resources/tc-cover-sheet",
@@ -61,7 +61,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                             Free resource
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            TC Cover Sheet{" "}
+                            Transaction Coordinator Cover Sheet{" "}
                             <span className="text-muted-foreground font-normal">/ Quick Ref</span>
                         </h1>
                         <p className="text-lg text-muted-foreground">
@@ -221,6 +221,56 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                         </div>
                     </AnimatedSection>
                 </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                            What&apos;s in this transaction coordinator cover sheet
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            The template is designed to capture everything you need at the start of a file — in one clean, printable document.
+                        </p>
+                    </div>
+                </AnimatedSection>
+                <div className="mt-8 grid gap-3 max-w-3xl">
+                    {[
+                        {
+                            label: "Property details",
+                            detail: "Address, legal description, MLS/list number, and property type.",
+                        },
+                        {
+                            label: "Transaction parties",
+                            detail: "Buyer and seller names, agent names, brokerage info, and roles.",
+                        },
+                        {
+                            label: "Key dates",
+                            detail: "Contract date, inspection deadline, financing contingency, appraisal deadline, and closing date.",
+                        },
+                        {
+                            label: "Contact directory",
+                            detail: "Phone and email for buyer agent, seller agent, lender, title/escrow officer, and attorney (if applicable).",
+                        },
+                        {
+                            label: "File notes section",
+                            detail: "Open space for TC-specific notes, custom fields, or reminders that don't fit standard fields.",
+                        },
+                    ].map((item) => (
+                        <div
+                            key={item.label}
+                            className="flex items-start gap-4 rounded-xl border border-border/60 bg-card px-5 py-3.5"
+                        >
+                            <div>
+                                <p className="text-sm font-medium text-foreground">{item.label}</p>
+                                <p className="mt-0.5 text-xs text-muted-foreground">{item.detail}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <p className="mt-5 max-w-3xl text-sm text-muted-foreground">
+                    The layout is clean and print-ready. You can use it as-is, adapt the fields for your state or brokerage, or later connect a version to your intake automation so it generates automatically from each new submission.
+                </p>
             </Section>
 
             <Section className="border-t border-border/40">

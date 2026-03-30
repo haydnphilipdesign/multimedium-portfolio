@@ -13,11 +13,11 @@ import { requestTcTaskList } from "./actions";
 import { IconArrowRight, IconDownload, IconFileText } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "TC Task List Sheet Example",
+    title: "Transaction Coordinator Task List Template",
     description:
         "Free downloadable transaction coordinator task list sheet based on a Poconos workflow example that you can customize for your own process.",
     path: "/resources/tc-task-list",
-    keywords: ["transaction coordinator task list", "tc checklist pdf", "transaction coordinator workflow template"],
+    keywords: ["transaction coordinator task list", "transaction coordinator task list template", "tc checklist pdf", "transaction coordinator workflow template"],
 });
 
 interface PageProps {
@@ -37,10 +37,10 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
             { name: "Resources", path: "/resources" },
-            { name: "TC Task List Sheet Example", path: "/resources/tc-task-list" },
+            { name: "Transaction Coordinator Task List Template", path: "/resources/tc-task-list" },
         ]),
         getCreativeWorkStructuredData({
-            name: "TC Task List Sheet Example",
+            name: "Transaction Coordinator Task List Template",
             description:
                 "Free downloadable transaction coordinator task list sheet based on a Poconos workflow example.",
             path: "/resources/tc-task-list",
@@ -61,7 +61,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                             Free resource
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                            TC Task List Sheet{" "}
+                            Transaction Coordinator Task List{" "}
                             <span className="text-muted-foreground font-normal">(example)</span>
                         </h1>
                         <p className="text-lg text-muted-foreground">
@@ -221,6 +221,60 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         </div>
                     </AnimatedSection>
                 </div>
+            </Section>
+
+            <Section className="pt-10 md:pt-14" padding="none">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                            What this transaction coordinator task list covers
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            Based on a real Poconos workflow — organized by phase so every deadline and handoff has a clear place in the process.
+                        </p>
+                    </div>
+                </AnimatedSection>
+                <div className="mt-8 grid gap-3 max-w-3xl">
+                    {[
+                        {
+                            label: "Contract execution phase",
+                            detail: "Tasks to complete immediately after contract is signed — document collection, deadline entry, and party notifications.",
+                        },
+                        {
+                            label: "Inspection and contingency period",
+                            detail: "Scheduling inspections, tracking repair requests, addendum management, and contingency deadline follow-ups.",
+                        },
+                        {
+                            label: "Financing and appraisal coordination",
+                            detail: "Lender communication, appraisal scheduling, clear-to-close follow-up, and financing contingency removal.",
+                        },
+                        {
+                            label: "Title and escrow coordination",
+                            detail: "Title search tracking, preliminary HUD/closing disclosure review, wire instructions confirmation, and closing date coordination.",
+                        },
+                        {
+                            label: "Closing preparation",
+                            detail: "Final walkthrough coordination, document delivery, closing confirmation with all parties, and last-minute change tracking.",
+                        },
+                        {
+                            label: "Post-closing",
+                            detail: "Commission disbursement follow-up, compliance checklist submission, file archiving, and agent feedback.",
+                        },
+                    ].map((item) => (
+                        <div
+                            key={item.label}
+                            className="flex items-start gap-4 rounded-xl border border-border/60 bg-card px-5 py-3.5"
+                        >
+                            <div>
+                                <p className="text-sm font-medium text-foreground">{item.label}</p>
+                                <p className="mt-0.5 text-xs text-muted-foreground">{item.detail}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <p className="mt-5 max-w-3xl text-sm text-muted-foreground">
+                    This is a Poconos-specific example — rules, timelines, and requirements vary by state and brokerage. Use it as a reference to build your own, or as a starting point to standardize your workflow across files.
+                </p>
             </Section>
 
             <Section className="border-t border-border/40">

@@ -26,6 +26,7 @@ type ServiceSchemaInput = {
     path: string;
     serviceType?: string;
     audience?: string[];
+    priceRange?: string;
 };
 
 type CollectionPageSchemaInput = {
@@ -168,6 +169,7 @@ export function getServiceStructuredData({
     path,
     serviceType,
     audience,
+    priceRange,
 }: ServiceSchemaInput) {
     return {
         "@context": "https://schema.org",
@@ -176,6 +178,7 @@ export function getServiceStructuredData({
         description,
         url: absoluteUrl(path),
         serviceType: serviceType ?? name,
+        ...(priceRange ? { priceRange } : {}),
         provider: {
             "@type": "ProfessionalService",
             name: siteName,

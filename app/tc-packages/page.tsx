@@ -34,14 +34,16 @@ import {
 } from "@/lib/structuredData";
 
 export const metadata: Metadata = createPageMetadata({
-    title: "TC Website Packages",
+    title: "Transaction Coordinator Website Packages",
     description:
-        "Website packages designed specifically for transaction coordinators with professional design, niche positioning, and pages that turn visitors into real leads.",
+        "Transaction coordinator website packages starting at $750. Three tiers built for how TC businesses work — from solo operators to growing teams. Includes copywriting, mobile design, and intake forms.",
     path: "/tc-packages",
     keywords: [
-        "tc website packages",
         "transaction coordinator website packages",
         "transaction coordinator website design pricing",
+        "transaction coordinator website cost",
+        "tc website packages",
+        "how much does a transaction coordinator website cost",
     ],
 });
 
@@ -226,6 +228,7 @@ export default function TCPackagesPage() {
             description:
                 "Website packages for transaction coordinators with niche positioning, clear lead capture, and optional intake automation support.",
             path: "/tc-packages",
+            priceRange: "$750 – $3,000+",
             audience: ["Transaction coordinators", "Transaction coordinator teams"],
         }),
         getFaqStructuredData(faqs),
@@ -246,7 +249,7 @@ export default function TCPackagesPage() {
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                                 Website packages built{" "}
                                 <span className="text-gradient">
-                                    specifically for TCs.
+                                    specifically for transaction coordinators.
                                 </span>
                             </h1>
                             <p className="mt-6 text-lg md:text-xl text-muted-foreground">
@@ -268,10 +271,10 @@ export default function TCPackagesPage() {
                                     <IconArrowRight className="w-4 h-4" stroke={2} />
                                 </Link>
                                 <Link
-                                    href="#packages"
+                                    href="/work?industry=tc"
                                     className="btn-secondary inline-flex items-center justify-center gap-2"
                                 >
-                                    Preview demos
+                                    See TC work
                                 </Link>
                             </div>
                         </div>
@@ -464,7 +467,7 @@ export default function TCPackagesPage() {
                                 Real work
                             </span>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                TC websites we&apos;ve built
+                                Transaction coordinator websites we&apos;ve built
                             </h2>
                             <p className="mt-3 text-muted-foreground">
                                 Real projects for real businesses in the TC and real estate space.
