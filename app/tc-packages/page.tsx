@@ -57,12 +57,13 @@ const packages = [
         timeline: "1–2 weeks",
         pages: "1 page",
         features: [
-            "A polished website that helps agents trust you quickly",
-            "Your services, story, and contact info in one clear, easy-to-share place",
-            "Mobile-friendly design so agents can reach you from their phones",
+            "A one-page site with a hero, services overview, about section, and contact — everything agents need to reach out",
+            "Mobile-friendly design so agents can look you up right from their phones",
+            "Your brand colors and logo woven throughout — not a generic template",
+            "Guided copywriting — you answer a few questions, I write the words",
             "Basic search setup so local agents can find you online",
-            "Clear website wording shaped from your answers and experience",
-            "Your brand colors and logo woven throughout the site",
+            "Custom link preview image so your site looks polished when shared on social or text",
+            "3 months of managed hosting included",
         ],
         cta: "A strong first step",
         demoHref: "/demos/starter/",
@@ -79,11 +80,13 @@ const packages = [
         featured: true,
         features: [
             "4 dedicated pages: Home, Services, File Submission, and Careers",
-            "Online file submission form so agents can get started without phone tag",
-            "Clear messaging that helps agents quickly see why they should choose you",
-            "A polished walkthrough of your process, what makes you different, and what happens next",
-            "Thoughtful design details that make your business feel established",
-            "Collaborative copywriting where I shape the message and you refine it",
+            "Online intake form so agents can submit files without phone tag — no back-and-forth to get started",
+            "Collaborative copywriting — I draft every section, you refine until it sounds right",
+            "Your services, process, and proof laid out so agents immediately see why you're the right TC",
+            "Design that makes your business look established — clean, structured, and built to convert",
+            "Custom link preview image so your site looks polished when shared",
+            "6 months of managed hosting included",
+            "30 days of post-launch support for minor tweaks and adjustments",
         ],
         cta: "Most popular for established TCs",
         demoHref: "/demos/growth/",
@@ -98,12 +101,14 @@ const packages = [
         timeline: "4–6 weeks",
         pages: "5+ pages",
         features: [
-            "Everything in Growth, plus pages shaped around your exact workflow",
-            "Testimonials and trust-building proof placed where they matter most",
-            "Referral or team pages when your business needs them",
-            "A more guided file submission process for higher-volume businesses",
-            "Fully written website copy that presents your business clearly and professionally",
-            "First year of managed hosting included so launch feels supported",
+            "Everything in Growth, plus additional pages shaped around your exact workflow and team structure",
+            "Testimonials and social proof placed where they actually influence the decision",
+            "Referral or team pages for businesses that have outgrown a solo site",
+            "Multi-step intake form with conditional logic for organized, higher-volume file starts",
+            "Done-for-you copywriting — fully written, strategically positioned, ready to publish",
+            "Custom link preview image so your site looks polished when shared",
+            "12 months of managed hosting included — a $708 value",
+            "60-day post-launch support window for updates and refinements",
         ],
         cta: "For teams ready to grow",
         demoHref: "/demos/pro/",
@@ -142,9 +147,9 @@ const allPackagesInclude = [
     },
     {
         icon: IconHeadset,
-        title: "Launch help",
+        title: "Launch support",
         description:
-            "Help connecting your domain and getting everything live. You're not on your own at launch.",
+            "Help connecting your domain and getting everything live — plus a post-launch support window for minor tweaks. You're not on your own.",
     },
 ];
 
@@ -156,18 +161,13 @@ const addOns = [
     },
     {
         name: "Managed hosting",
-        description: "Keeps your site live, secure, and monitored each month.",
+        description: "Keeps your site live, secure, and monitored each month. Each package includes a free introductory period before billing begins.",
         price: "$59/mo",
     },
     {
         name: "Logo design",
         description: "A custom logo if you want a more polished brand look.",
         price: "From $300",
-    },
-    {
-        name: "Custom link sharing image",
-        description: "A polished image that appears when someone shares your site link.",
-        price: "$100",
     },
     {
         name: "Extra pages",
@@ -192,7 +192,7 @@ const faqs = [
     },
     {
         q: "Do you help with the wording?",
-        a: "Yes. You do not have to write everything from scratch. Starter includes guided messaging based on your answers. Growth includes collaborative copywriting where I draft and you refine. Pro includes fully written copy with a stronger strategic angle.",
+        a: "Yes. You do not have to write everything from scratch. Starter includes guided copywriting — you answer questions and I write the words. Growth includes collaborative copywriting where I draft every section and you refine it. Pro includes done-for-you copywriting — fully written and strategically positioned from the start.",
     },
     {
         q: "Will my website be easy to manage?",
@@ -200,7 +200,7 @@ const faqs = [
     },
     {
         q: "Do you offer hosting?",
-        a: "Yes. Managed hosting is available as an add-on at $59/month and covers keeping your site live, secure, and monitored. If you want ongoing edits, content changes, or hands-on support after launch, that would be a separate website support plan. Pro packages include the first year of hosting.",
+        a: "Yes. Every package includes a free introductory period of managed hosting — 3 months with Starter, 6 months with Growth, and 12 months with Pro (a $708 value). After your intro period, hosting continues at $59/month. Ongoing edits, content changes, or hands-on support after launch would be a separate website support plan.",
     },
     {
         q: "I was referred by a TC coach. Is there a referral perk?",
