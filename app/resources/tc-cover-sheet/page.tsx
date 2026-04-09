@@ -44,7 +44,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
             description:
                 "Free downloadable transaction coordinator cover sheet template with a clean, file-ready summary.",
             path: "/resources/tc-cover-sheet",
-            image: "/resources/tc-cover-sheet.jpg",
+            image: "/resources/tc-cover-sheet.webp",
             about: ["Transaction coordinators", "Cover sheet templates"],
         }),
     ];
@@ -97,7 +97,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                         <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-cover-sheet.jpg"
+                                    src="/resources/tc-cover-sheet.webp"
                                     alt="TC Cover Sheet preview"
                                     fill
                                     className="object-cover"

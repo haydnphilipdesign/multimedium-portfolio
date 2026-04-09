@@ -44,7 +44,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
             description:
                 "Free downloadable transaction coordinator lead intake checklist PDF for cleaner qualification and file starts.",
             path: "/resources/tc-intake-checklist",
-            image: "/resources/tc-intake-checklist.jpg",
+            image: "/resources/tc-intake-checklist.webp",
             about: ["Transaction coordinators", "Intake checklists"],
         }),
     ];
@@ -95,7 +95,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-intake-checklist.jpg"
+                                    src="/resources/tc-intake-checklist.webp"
                                     alt="TC Lead Intake Checklist preview"
                                     fill
                                     className="object-cover"

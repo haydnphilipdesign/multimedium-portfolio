@@ -42,7 +42,7 @@ const resources: Resource[] = [
         description:
             "A real transaction task list built for the Poconos region—use it as a reference or starting point for your own workflow.",
         href: "/resources/tc-task-list",
-        image: "/resources/tc-task-list.jpg",
+        image: "/resources/tc-task-list.webp",
         badge: "PDF template",
         ctaText: "Get the PDF",
     },
@@ -51,7 +51,7 @@ const resources: Resource[] = [
         description:
             "A clean cover-sheet style summary you can drop into a file—designed to be useful for most TC workflows.",
         href: "/resources/tc-cover-sheet",
-        image: "/resources/tc-cover-sheet.jpg",
+        image: "/resources/tc-cover-sheet.webp",
         badge: "PDF template",
         ctaText: "Get the PDF",
     },
@@ -60,7 +60,7 @@ const resources: Resource[] = [
         description:
             "A clean, printable lead intake checklist PDF—so you qualify faster and start every file clean.",
         href: "/resources/tc-intake-checklist",
-        image: "/resources/tc-intake-checklist.jpg",
+        image: "/resources/tc-intake-checklist.webp",
         badge: "PDF template",
         ctaText: "Get the PDF",
     },
@@ -81,7 +81,7 @@ const tools: Resource[] = [
         description:
             "A guided seller form that generates a clean, shareable utility info sheet. Free plan includes 3 submissions/month; Pro is $9/month.",
         href: "https://utilitysheet.com",
-        image: "/images/projects/utilitysheet/utilitysheet-thumb.png",
+        image: "/images/projects/utilitysheet/utilitysheet-thumb.webp",
         badge: "Tool (free + pro)",
         ctaText: "Try UtilitySheet",
         external: true,
@@ -91,7 +91,7 @@ const tools: Resource[] = [
         description:
             "Early-access TC “Closing Desk” software built around Outlook/Microsoft 365 workflows, dependencies, and deadline signal—join the waitlist.",
         href: "https://normatc.com",
-        image: "/images/projects/norma/norma-thumb.png",
+        image: "/images/projects/norma/norma-thumb.webp",
         badge: "Tool (early access)",
         ctaText: "Join the waitlist",
         external: true,

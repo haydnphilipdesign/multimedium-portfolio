@@ -94,7 +94,7 @@ export default function AboutPage() {
                     <AnimatedSection delay={0.2}>
                         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-muted shadow-[var(--shadow-soft)]">
                             <Image
-                                src="/haydn.png"
+                                src="/haydn.webp"
                                 alt="Haydn, founder of Multimedium in the Poconos, Pennsylvania"
                                 fill
                                 className="object-cover"

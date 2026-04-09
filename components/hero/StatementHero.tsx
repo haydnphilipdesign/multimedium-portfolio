@@ -106,7 +106,7 @@ export function StatementHero() {
                         <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-muted/40 shadow-[var(--shadow-soft)]">
                             <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
                                 <Image
-                                    src="/haydn.png"
+                                    src="/haydn.webp"
                                     alt="Haydn, founder of Multimedium, a web design studio serving the Poconos and real estate professionals"
                                     width={520}
                                     height={620}

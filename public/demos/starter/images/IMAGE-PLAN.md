@@ -7,9 +7,7 @@ Use these filenames when sourcing images for the Starter showcase demo.
 | Filename | Placement | What to source | Target size |
 |---|---|---|---|
 | `hero-home-office.webp` | Home hero | Professional woman at a tidy home-office desk with laptop, paperwork, and natural light. Personal, calm, approachable. | 1200x900 |
-| `hero-home-office.jpg` | Home hero fallback | JPG fallback for the same image above. | 1200x900 |
 | `sarah-headshot.webp` | About section | Friendly professional woman, natural lighting, approachable expression, simple wardrobe. | 760x1014 |
-| `sarah-headshot.jpg` | About section fallback | JPG fallback for the same headshot. | 760x1014 |
 
 ## Tone notes
 
@@ -21,7 +19,7 @@ Use these filenames when sourcing images for the Starter showcase demo.
 
 Verified March 24, 2026.
 
-### `hero-home-office.webp` / `hero-home-office.jpg`
+### `hero-home-office.webp`
 
 Primary pick:
 
@@ -38,7 +36,7 @@ Crop notes:
 - Keep the laptop, hands, and at least one paper/notebook in frame so the service reads as operational support, not generic remote work.
 - Avoid crops that make the office feel too design-forward or luxury-coded.
 
-### `sarah-headshot.webp` / `sarah-headshot.jpg`
+### `sarah-headshot.webp`
 
 Primary pick:
 

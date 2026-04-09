@@ -453,7 +453,7 @@ export default function TransactionCoordinatorsPage() {
                         <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-task-list.jpg"
+                                    src="/resources/tc-task-list.webp"
                                     alt="TC Task List Sheet preview"
                                     fill
                                     className="object-cover"
@@ -484,7 +484,7 @@ export default function TransactionCoordinatorsPage() {
                         <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-cover-sheet.jpg"
+                                    src="/resources/tc-cover-sheet.webp"
                                     alt="TC Cover Sheet preview"
                                     fill
                                     className="object-cover"
@@ -515,7 +515,7 @@ export default function TransactionCoordinatorsPage() {
                         <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-intake-checklist.jpg"
+                                    src="/resources/tc-intake-checklist.webp"
                                     alt="TC Lead Intake Checklist preview"
                                     fill
                                     className="object-cover"

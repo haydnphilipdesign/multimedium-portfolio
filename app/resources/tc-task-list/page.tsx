@@ -44,7 +44,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
             description:
                 "Free downloadable transaction coordinator task list sheet based on a Poconos workflow example.",
             path: "/resources/tc-task-list",
-            image: "/resources/tc-task-list.jpg",
+            image: "/resources/tc-task-list.webp",
             about: ["Transaction coordinators", "Workflow templates"],
         }),
     ];
@@ -97,7 +97,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] overflow-hidden">
                             <div className="relative aspect-[16/10] bg-muted">
                                 <Image
-                                    src="/resources/tc-task-list.jpg"
+                                    src="/resources/tc-task-list.webp"
                                     alt="TC Task List Sheet preview"
                                     fill
                                     className="object-cover"
