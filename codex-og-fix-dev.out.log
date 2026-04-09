@@ -1,0 +1,16 @@
+
+> next-app@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+
+✓ Starting...
+✓ Ready in 866ms
+ GET /work/utility-sheet 200 in 1868ms (compile: 1294ms, generate-params: 440ms, render: 574ms)
+ GET /work/utility-sheet 200 in 200ms (compile: 15ms, generate-params: 7ms, render: 186ms)
+ GET /work/utility-sheet 200 in 140ms (compile: 11ms, generate-params: 7ms, render: 129ms)
+ GET /work/utility-sheet/opengraph-image 200 in 1702ms (compile: 915ms, render: 787ms)
+ GET /work/utility-sheet/twitter-image 200 in 1631ms (compile: 916ms, render: 715ms)
+[?25h

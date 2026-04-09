@@ -38,7 +38,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title,
         description,
         path: `/work/${project.slug}`,
-        ogImage: project.heroImage,
+        ogImage: {
+            url: `/work/${project.slug}/opengraph-image`,
+            width: 1200,
+            height: 630,
+            alt: `${title} case study preview`,
+        },
+        twitterImage: {
+            url: `/work/${project.slug}/twitter-image`,
+            width: 1200,
+            height: 600,
+            alt: `${title} case study preview`,
+        },
         keywords: project.tags,
         robots: project.featured ? undefined : { index: false, follow: true },
     });
@@ -547,5 +558,4 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </>
     );
 }
-
 
