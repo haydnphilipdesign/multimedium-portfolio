@@ -51,66 +51,67 @@ const packages = [
     {
         name: "TC Starter",
         icon: IconRocket,
-        price: "$750",
-        description: "A clean, professional one-page website that helps you look established quickly.",
+        price: "From $750",
+        description:
+            "A one-page site that lets new TCs look established from day one and gives agents a clear way to reach out.",
         bestFor: "New solo TCs who need credibility and a professional web presence from day one.",
         timeline: "1–2 weeks",
         pages: "1 page",
         features: [
-            "A one-page site with a hero, services overview, about section, and contact — everything agents need to reach out",
-            "Mobile-friendly design so agents can look you up right from their phones",
-            "Your brand colors and logo woven throughout — not a generic template",
-            "Guided copywriting — you answer a few questions, I write the words",
-            "Basic search setup so local agents can find you online",
+            "A one-page site with hero, services overview, about, and contact — everything agents need to reach out",
+            "Mobile-friendly design so agents can look you up from their phones",
+            "Your brand colors and logo applied throughout — not a generic template",
+            "Guided copywriting — you answer a few questions, I write the page",
+            "Search-friendly setup so local agents can find you online",
             "Custom link preview image so your site looks polished when shared on social or text",
-            "3 months of managed hosting included",
+            "3 months of managed hosting included — a $177 value",
         ],
-        cta: "A strong first step",
+        cta: "Start with Starter",
         demoHref: "/demos/starter/",
     },
     {
         name: "TC Growth",
         icon: IconTrendingUp,
-        price: "$1,500",
+        price: "From $1,500",
         description:
-            "A polished multi-page website with room to explain your services and make it easy for agents to get started.",
+            "A four-page site with a real intake workflow, so agents can submit files without phone tag and you stop losing time on back-and-forth.",
         bestFor: "Established TCs who want stronger branding, a real intake workflow, and room to grow.",
         timeline: "3–4 weeks",
         pages: "4 pages",
         featured: true,
         features: [
-            "4 dedicated pages: Home, Services, File Submission, and Careers",
-            "Online intake form so agents can submit files without phone tag — no back-and-forth to get started",
+            "4 dedicated pages: Home, Services, Submit a File, and Careers",
+            "Online intake form so agents can start files without phone tag",
             "Collaborative copywriting — I draft every section, you refine until it sounds right",
-            "Your services, process, and proof laid out so agents immediately see why you're the right TC",
-            "Design that makes your business look established — clean, structured, and built to convert",
+            "Services, process, and proof laid out so agents immediately see why you're the right TC",
             "Custom link preview image so your site looks polished when shared",
-            "6 months of managed hosting included",
+            "6 months of managed hosting included — a $354 value",
             "30 days of post-launch support for minor tweaks and adjustments",
         ],
-        cta: "Most popular for established TCs",
+        cta: "Choose Growth",
         demoHref: "/demos/growth/",
     },
     {
         name: "TC Pro",
         icon: IconCrown,
-        price: "$3,000+",
+        price: "From $3,000",
         description:
-            "A fully custom website for teams, coaches, or TCs ready for a more built-out brand presence.",
+            "A custom site for TC teams, coaches, and operators whose website needs to actively generate business, not just exist online.",
         bestFor: "TC teams, coaches, or operators who want their website to actively generate business.",
         timeline: "4–6 weeks",
         pages: "5+ pages",
         features: [
             "Everything in Growth, plus additional pages shaped around your exact workflow and team structure",
+            "Done-for-you copywriting — I write positioning, messaging, and page content, with review rounds built in",
+            "Deep discovery call to align on brand, audience, and competitive positioning before design starts",
+            "Multi-step intake with conditional logic and file upload for higher-volume file starts",
+            "Referral partner landing pages for coaches, mentors, or partner programs",
             "Testimonials and social proof placed where they actually influence the decision",
-            "Referral or team pages for businesses that have outgrown a solo site",
-            "Multi-step intake form with conditional logic for organized, higher-volume file starts",
-            "Done-for-you copywriting — fully written, strategically positioned, ready to publish",
             "Custom link preview image so your site looks polished when shared",
             "12 months of managed hosting included — a $708 value",
             "60-day post-launch support window for updates and refinements",
         ],
-        cta: "For teams ready to grow",
+        cta: "Request a Pro proposal",
         demoHref: "/demos/pro/",
     },
 ];
@@ -118,38 +119,39 @@ const packages = [
 const allPackagesInclude = [
     {
         icon: IconDeviceMobile,
-        title: "Looks great on phones",
-        description: "Designed to work beautifully on phones, tablets, and desktops.",
+        title: "Mobile-first design",
+        description:
+            "Built to look and work properly on phones, tablets, and desktops — not retrofitted from a desktop layout.",
     },
     {
         icon: IconPalette,
-        title: "Branding that feels like you",
+        title: "Brand-tailored visuals",
         description:
-            "Your colors, logo, and overall look are tailored to your business instead of pulled from a generic template.",
+            "Your colors, logo, and overall look are applied throughout instead of pulled from a generic template.",
     },
     {
         icon: IconChecklist,
-        title: "Search-friendly setup",
+        title: "Search-ready setup",
         description:
-            "Behind-the-scenes setup that helps your site show up better in search and look polished when shared.",
+            "Technical SEO groundwork so your site shows up in local search and looks polished when shared.",
     },
     {
         icon: IconBolt,
-        title: "Fast-loading pages",
+        title: "Performance-tuned",
         description:
-            "Your site is built to load quickly, which helps it feel more professional and easier to use.",
+            "Fast-loading pages built on modern infrastructure — faster sites feel more professional and convert better.",
     },
     {
         icon: IconFileText,
-        title: "Help with the words",
+        title: "Copywriting support",
         description:
-            "You won't be left staring at a blank page. Every package includes support with the wording at the level that fits that tier.",
+            "You won't be left staring at a blank page. Every tier includes hands-on copy support — from guided to fully written.",
     },
     {
         icon: IconHeadset,
-        title: "Launch support",
+        title: "Guided launch",
         description:
-            "Help connecting your domain and getting everything live — plus a post-launch support window for minor tweaks. You're not on your own.",
+            "I handle domain connection, go-live checks, and post-launch tweaks. You're not on your own when it's time to ship.",
     },
 ];
 
@@ -184,7 +186,7 @@ const addOns = [
 const faqs = [
     {
         q: "Which package is right for me?",
-        a: "If you're just getting started and need a professional presence fast, TC Starter is the move. If you have active deal flow and want a real intake workflow, TC Growth is the sweet spot. If you're building a team or coaching business, TC Pro gives you everything.",
+        a: "If you're just getting started and need a professional presence fast, TC Starter is the right fit. If you have active deal flow and want a real intake workflow, TC Growth is the sweet spot. If you're running a team, coaching business, or referral program, TC Pro is built for that level of operation.",
     },
     {
         q: "Can I upgrade later?",
@@ -200,7 +202,7 @@ const faqs = [
     },
     {
         q: "Do you offer hosting?",
-        a: "Yes. Every package includes a free introductory period of managed hosting — 3 months with Starter, 6 months with Growth, and 12 months with Pro (a $708 value). After your intro period, hosting continues at $59/month. Ongoing edits, content changes, or hands-on support after launch would be a separate website support plan.",
+        a: "Yes. Every package includes a free introductory period of managed hosting: 3 months with Starter, 6 months with Growth, and 12 months with Pro. After the intro period, hosting continues at $59/month. Ongoing edits or content changes are handled separately under a website support plan.",
     },
     {
         q: "I was referred by a TC coach. Is there a referral perk?",
@@ -254,12 +256,10 @@ export default function TCPackagesPage() {
                             </h1>
                             <p className="mt-6 text-lg md:text-xl text-muted-foreground">
                                 My mom has been a transaction coordinator since 2013. I grew up
-                                watching files get managed, deadlines tracked, and agents
-                                coordinated through long days of Dotloop uploads, compliance
-                                checklists, and last-minute closing changes. These packages
-                                exist because I know what your business actually needs from a
-                                website — clear trust signals, an easy way to start a file, and
-                                a brand that feels like a real business.
+                                around Dotloop uploads, compliance checklists, and last-minute
+                                closing changes — so I know what a TC business actually needs
+                                from a website: clear trust signals, an easy way to start a
+                                file, and a brand agents take seriously.
                             </p>
 
                             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -467,10 +467,10 @@ export default function TCPackagesPage() {
                                 Real work
                             </span>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                Transaction coordinator websites we&apos;ve built
+                                Transaction coordinator websites I&apos;ve built
                             </h2>
                             <p className="mt-3 text-muted-foreground">
-                                Real projects for real businesses in the TC and real estate space.
+                                Recent projects for businesses in the TC and real estate space.
                             </p>
                         </div>
                     </AnimatedSection>
@@ -510,11 +510,11 @@ export default function TCPackagesPage() {
                                     For TC coaches + referral partners
                                 </span>
                                 <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                    Refer your students. We&apos;ll build their websites.
+                                    Refer your students. I&apos;ll build their websites.
                                 </h2>
                             <p className="mt-4 text-muted-foreground leading-relaxed">
-                                    If you run a TC course, mentorship, or coaching program, we can
-                                    create a dedicated referral page for your students with a
+                                    If you run a TC course, mentorship, or coaching program, I can
+                                    set up a dedicated referral page for your students with a
                                     preferred perk. Your students get a vetted web designer who
                                     understands the cadence of a TC business, from file intake to
                                     broker compliance. You get a resource that adds real value to
@@ -534,7 +534,7 @@ export default function TCPackagesPage() {
                                 </p>
                                 <div className="mt-4 space-y-4">
                                     {[
-                                        { step: "1", text: "We create a private referral page on our site for your program" },
+                                        { step: "1", text: "I create a private referral page on my site for your program" },
                                         { step: "2", text: "Your students reach out through that page and mention your program" },
                                         { step: "3", text: "They get a clear proposal with a preferred perk included" },
                                     ].map((item) => (
