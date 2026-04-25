@@ -56,7 +56,7 @@ export function MobileStickyCTA() {
                         href={primaryHref}
                         className="btn-primary touch-target flex-1 justify-center gap-1.5 px-4 text-sm"
                     >
-                        Get in touch
+                        Book a call
                         <IconArrowRight className="h-4 w-4" stroke={1.8} />
                     </Link>
                 )}

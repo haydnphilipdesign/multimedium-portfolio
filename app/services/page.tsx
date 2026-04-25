@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { projects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
@@ -10,12 +10,12 @@ import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
-import { IconLayout, IconCode, IconChartLine, IconArrowRight } from "@tabler/icons-react";
+import { IconLayout, IconCode, IconArrowRight, IconPackage, IconSettings } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Web Design Services for Real Estate Professionals and TCs",
     description:
-        "Website design, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs — built to turn visitors into inquiries.",
+        "Website packages, custom websites, landing pages, and retainers for transaction coordinators, real estate professionals, coaches, and select service businesses.",
     path: "/services",
     keywords: [
         "web design services",
@@ -27,33 +27,44 @@ export const metadata: Metadata = createPageMetadata({
 
 const services = [
     {
-        icon: IconLayout,
-        title: "Website Build / Redesign",
+        icon: IconPackage,
+        title: "TC Website Packages",
         description:
-            "A professional website that explains what you do, builds trust, and turns visits into inquiries.",
+            "Productized Starter, Growth, and Pro packages for transaction coordinators who need trust, clear services, and easier file starts.",
+        href: "/tc-packages",
+        timeline: "1–6 weeks",
+        cta: "Compare TC packages",
+    },
+    {
+        icon: IconLayout,
+        title: "Custom Websites",
+        description:
+            "Full sites and redesigns for real estate professionals, coaches, brokerages, and select service businesses.",
         href: "/services/website",
         timeline: "4–6 weeks",
         cta: "See website scope",
     },
     {
         icon: IconCode,
-        title: "Landing Pages + Funnels",
+        title: "Landing Pages",
         description:
-            "Focused pages for offers and campaigns—built to capture leads, bookings, and sign-ups.",
+            "Single-focus pages for referral partners, recruiting, offers, campaigns, and booking paths.",
         href: "/services/landing-pages",
         timeline: "1–3 weeks",
-        cta: "See landing-page scope",
+        cta: "See landing page scope",
     },
     {
-        icon: IconChartLine,
-        title: "Growth Retainers",
+        icon: IconSettings,
+        title: "Hosting, Maintenance & Retainers",
         description:
-            "Ongoing improvements so your site keeps getting clearer, faster, and higher-converting after launch.",
+            "Managed hosting, support, and practical improvements after launch so the site keeps working.",
         href: "/services/growth-retainers",
         timeline: "Ongoing",
-        cta: "See retainer scope",
+        cta: "See support options",
     },
 ];
+
+type ServiceItem = (typeof services)[number];
 
 export default function ServicesPage() {
     const featuredProjectCount = projects.filter((p) => p.featured).length;
@@ -65,7 +76,7 @@ export default function ServicesPage() {
         getCollectionPageStructuredData({
             name: "Multimedium Web Design Services",
             description:
-                "Website design, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs.",
+                "Website packages, custom websites, landing pages, and retainers for transaction coordinators, real estate professionals, coaches, and select service businesses.",
             path: "/services",
         }),
     ];
@@ -78,12 +89,10 @@ export default function ServicesPage() {
                     <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                         <div className="relative max-w-3xl">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                Web design services that
-                                <br />
-                                <span className="text-gradient">turn visitors into inquiries.</span>
+                                Choose the simplest path to a better website.
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                Website builds, landing pages, and growth retainers for real estate professionals, transaction coordinators, and HOAs.
+                                Website packages, custom builds, landing pages, and ongoing support for transaction coordinators, real estate professionals, coaches, and select service businesses.
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-3">
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
@@ -96,7 +105,7 @@ export default function ServicesPage() {
                                 </div>
                                 <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
                                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Core lanes</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">Real estate, TCs, HOAs</p>
+                                    <p className="mt-1 text-sm font-medium text-foreground">TCs, agents, coaches</p>
                                 </div>
                             </div>
                         </div>
@@ -167,42 +176,28 @@ export default function ServicesPage() {
                 </AnimatedSection>
             </Section>
 
-            <Section>
-                <AnimatedSection>
-                    <SectionHeading
-                        title="Services"
-                        subtitle="Three ways to work together — choose the scope that fits where you are now."
-                    />
-                </AnimatedSection>
+            <Section className="bg-white" size="full">
+                <div className="mx-auto max-w-6xl">
+                    <AnimatedSection>
+                        <SectionHeading
+                            title="Two ways to work together"
+                            subtitle="Pick the path that matches what you already know. If you are not sure, the discovery call is where we choose the simplest option."
+                        />
+                    </AnimatedSection>
 
-                <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.12}>
-                    {services.map((service) => (
-                        <StaggerItem key={service.title}>
-                            <Link
-                                href={service.href}
-                                className="group block h-full relative p-6 sm:p-8 rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
-                            >
-                                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                                    <service.icon className="w-6 h-6" stroke={1.5} />
-                                </div>
-
-                                <h2 className="text-xl font-semibold text-foreground mb-3">
-                                    {service.title}
-                                </h2>
-                                <p className="text-muted-foreground mb-6 text-sm">
-                                    {service.description}
-                                </p>
-                                <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
-                                    <span className="font-mono">Typical timeline: {service.timeline}</span>
-                                    <span className="inline-flex items-center gap-2 text-foreground group-hover:text-primary transition-colors">
-                                        {service.cta}
-                                        <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                                    </span>
-                                </div>
-                            </Link>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
+                    <div className="grid gap-6 lg:grid-cols-2">
+                        <ServicePath
+                            eyebrow="Path A"
+                            title="I know I need a website"
+                            services={services.slice(0, 2)}
+                        />
+                        <ServicePath
+                            eyebrow="Path B"
+                            title="I need something specific"
+                            services={services.slice(2)}
+                        />
+                    </div>
+                </div>
             </Section>
 
             <Section className="rounded-2xl bg-muted/35">
@@ -218,7 +213,7 @@ export default function ServicesPage() {
                         Tell me what you&apos;re building and what matters most. I&apos;ll recommend the simplest path to results.
                     </p>
                     <Link href="/contact?source=services" className="btn-primary">
-                        Get a recommendation
+                        Book a free discovery call
                     </Link>
                 </AnimatedSection>
             </Section>
@@ -226,3 +221,43 @@ export default function ServicesPage() {
     );
 }
 
+function ServicePath({
+    eyebrow,
+    title,
+    services,
+}: {
+    eyebrow: string;
+    title: string;
+    services: ServiceItem[];
+}) {
+    return (
+        <div className="rounded-xl border border-border/70 bg-card p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                {eyebrow}
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-foreground">{title}</h2>
+            <div className="mt-6 grid gap-4">
+                {services.map((service) => (
+                    <Link
+                        key={service.title}
+                        href={service.href}
+                        className="group block rounded-xl border border-border/60 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40"
+                    >
+                        <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                            <service.icon className="w-5 h-5" stroke={1.5} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground">{service.description}</p>
+                        <div className="mt-5 flex items-center justify-between gap-4 text-xs text-muted-foreground">
+                            <span className="font-mono">{service.timeline}</span>
+                            <span className="inline-flex items-center gap-2 text-foreground group-hover:text-primary transition-colors">
+                                {service.cta}
+                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}

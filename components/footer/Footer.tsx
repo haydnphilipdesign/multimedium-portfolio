@@ -26,7 +26,7 @@ export function Footer() {
                             Multimedium
                         </Link>
                         <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-                            Web design for real estate professionals, transaction coordinators, coaches, and niche service businesses — clearer messaging, a stronger presence, and more qualified inquiries.
+                            Web design for transaction coordinators, real estate professionals, coaches, and select service businesses — clearer trust signals, easier next steps, and more qualified inquiries.
                         </p>
                         <p className="text-sm text-muted-foreground">
                             Poconos, PA
@@ -45,7 +45,10 @@ export function Footer() {
                                 Industries
                             </Link>
                             <Link href="/work" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Case Studies
+                                Work
+                            </Link>
+                            <Link href="/tools" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Tools
                             </Link>
                             <Link href="/resources" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 Resources
@@ -76,6 +79,15 @@ export function Footer() {
                             <Link href="/tc-packages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 TC Website Packages
                             </Link>
+                            <Link href="/services/website?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Custom Websites
+                            </Link>
+                            <Link href="/services/landing-pages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Landing Pages
+                            </Link>
+                            <Link href="/services/growth-retainers?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                                Hosting & Retainers
+                            </Link>
                             <Link href="/industries/homeowners-associations?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                                 HOAs
                             </Link>
@@ -91,7 +103,7 @@ export function Footer() {
                         </p>
                         <div className="flex flex-col items-start gap-2">
                             <Link href="/contact?source=footer" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
-                                Get in touch
+                                Contact Haydn
                             </Link>
                             {schedulingUrl && (
                                 <a

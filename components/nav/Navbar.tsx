@@ -10,11 +10,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
     { href: "/industries", label: "Industries" },
-    { href: "/work", label: "Case Studies" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -103,22 +102,23 @@ export function Navbar() {
                         </div>
 
                         <div className="hidden md:flex items-center gap-2">
-                            {schedulingUrl && (
+                            {schedulingUrl ? (
                                 <a
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="touch-target inline-flex h-10 items-center rounded-lg px-2.5 text-sm font-medium leading-none whitespace-nowrap text-muted-foreground transition-colors hover:text-primary"
+                                    className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
                                 >
                                     Book a call
                                 </a>
+                            ) : (
+                                <Link
+                                    href={contactHref}
+                                    className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
+                                >
+                                    Book a call
+                                </Link>
                             )}
-                            <Link
-                                href={contactHref}
-                                className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
-                            >
-                                Get in touch
-                            </Link>
                         </div>
 
                         <Dialog.Trigger
@@ -161,7 +161,7 @@ export function Navbar() {
                         </div>
 
                         <p className="mt-2 text-xs text-muted-foreground">
-                            Websites for service businesses that need to look professional and bring in better leads.
+                            Websites for transaction coordinators, real estate professionals, coaches, and select service businesses.
                         </p>
 
                         <div className="mt-8 space-y-2.5">
@@ -184,23 +184,31 @@ export function Navbar() {
                         </div>
 
                         <div className="mt-auto pt-6 space-y-3 border-t border-border/40">
-                            {schedulingUrl && (
+                            {schedulingUrl ? (
                                 <a
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     onClick={() => setIsOpen(false)}
-                                    className="btn-secondary w-full text-center block text-sm"
+                                    className="btn-primary w-full text-center block text-sm"
                                 >
                                     Book a call
                                 </a>
+                            ) : (
+                                <Link
+                                    href={contactHref}
+                                    onClick={() => setIsOpen(false)}
+                                    className="btn-primary w-full text-center block text-sm"
+                                >
+                                    Book a call
+                                </Link>
                             )}
                             <Link
                                 href={contactHref}
                                 onClick={() => setIsOpen(false)}
-                                className="btn-primary w-full text-center block text-sm"
+                                className="block w-full text-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                Get in touch
+                                Prefer email? Contact Haydn
                             </Link>
                         </div>
                     </div>

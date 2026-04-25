@@ -85,7 +85,7 @@
   --secondary: oklch(0.95 0.01 92);
   --secondary-foreground: oklch(0.32 0.015 252);
   --muted: oklch(0.95 0.008 96);
-  --muted-foreground: oklch(0.46 0.016 252);
+  --muted-foreground: oklch(0.39 0.016 252);
   --accent: oklch(0.95 0.008 96);
   --accent-foreground: oklch(0.32 0.015 252);
   --destructive: oklch(0.63 0.21 28);
@@ -100,7 +100,7 @@
   --chart-3: oklch(0.67 0.14 153);
   --chart-4: oklch(0.64 0.19 30);
   --chart-5: oklch(0.56 0.05 250);
-  --radius: 0.8rem;
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0.008 95);
   --sidebar-foreground: oklch(0.28 0.02 252);
   --sidebar-primary: oklch(0.52 0.09 244);
@@ -110,8 +110,8 @@
   --sidebar-border: oklch(0.86 0.012 252 / 0.7);
   --sidebar-ring: oklch(0.52 0.09 244);
   --shadow-color: oklch(0.02 0 0);
-  --shadow-soft: 0 16px 40px oklch(0.22 0.02 252 / 0.12);
-  --shadow-elevated: 0 24px 56px oklch(0.22 0.02 252 / 0.18);
+  --shadow-soft: 0 8px 24px oklch(0.22 0.02 252 / 0.08);
+  --shadow-elevated: 0 18px 42px oklch(0.22 0.02 252 / 0.14);
   --grid-line: oklch(0.5 0.012 252 / 0.11);
   --nav-offset: 96px;
   --mobile-cta-height: 74px;
@@ -204,14 +204,14 @@
   /* Heading letter-spacing refinements */
   h1 {
     font-family: var(--font-brand-display), var(--font-brand-sans), serif;
-    letter-spacing: -0.025em;
+    letter-spacing: 0;
     line-height: 1.04;
     text-wrap: balance;
   }
 
   h2 {
     font-family: var(--font-brand-display), var(--font-brand-sans), serif;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: 1.08;
     text-wrap: balance;
   }
@@ -219,7 +219,7 @@
   h3,
   h4 {
     font-family: var(--font-brand-display), var(--font-brand-sans), serif;
-    letter-spacing: -0.015em;
+    letter-spacing: 0;
     line-height: 1.14;
   }
 
@@ -308,6 +308,10 @@
   /* Accent text — static, intentional color */
   .text-gradient {
     color: var(--primary);
+  }
+
+  .tracking-tight {
+    letter-spacing: 0;
   }
 
   /* Card hover lift effect */

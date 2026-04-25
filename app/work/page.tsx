@@ -13,13 +13,13 @@ import {
 
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
-        title: "Transaction Coordinator Case Studies",
+        title: "Transaction Coordinator Work",
         description: "Web design and development projects for transaction coordinators — professional messaging, lead capture, and builds that bring in better clients.",
         heading: "Transaction Coordinator Work",
         subheading: "Client-first projects for TCs and real estate ops teams, designed to qualify leads and drive bookings.",
     },
     "real-estate": {
-        title: "Real Estate Web Design Case Studies",
+        title: "Real Estate Web Design Work",
         description: "Web design and development projects for real estate professionals—property management, investor portals, and service-based sites.",
         heading: "Real Estate Work",
         subheading: "Projects built for property managers, investors, and real estate teams.",
@@ -42,7 +42,7 @@ export async function generateMetadata({
     const indMeta = industry ? industryMeta[industry] : null;
 
     return createPageMetadata({
-        title: indMeta?.title ?? "Case Studies",
+            title: indMeta?.title ?? "Work",
         description:
             indMeta?.description ??
             "Real estate and transaction coordinator website projects — real builds with clear goals, design decisions, and measurable outcomes.",
@@ -70,10 +70,10 @@ export default async function WorkPage({
     const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
     const spotlightOrder =
         industry === "tc"
-            ? ["utility-sheet", "norma-intake", "pa-real-estate-support", "tag-landing-page"]
+            ? ["pa-real-estate-support", "tag-landing-page"]
             : industry === "coaching"
                 ? ["momentum-coaching", "clarity-growth"]
-                : ["utility-sheet", "norma-intake", "pa-real-estate-support", "tag-landing-page"];
+                : ["pa-real-estate-support", "tag-landing-page", "northpoint-realty", "momentum-coaching"];
     const spotlightProjects: Project[] = showSpotlight
         ? (spotlightOrder
             .map((slug) => filteredProjects.find((p) => p.slug === slug))
@@ -85,23 +85,23 @@ export default async function WorkPage({
     const getGridCols = (count: number) => (count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3");
 
     const spotlightHeading =
-        industry === "tc" ? "TC work — sites + tools"
-            : industry === "real-estate" ? "Real estate ops — sites + tools"
+        industry === "tc" ? "TC website work"
+            : industry === "real-estate" ? "Real estate website work"
                 : industry === "coaching" ? "Coaching & consulting sites"
-                    : "Featured work";
+                    : "Selected work";
     const spotlightSubheading =
         industry === "tc"
-            ? "Client websites first, with additional tooling shown lower on the page."
+            ? "Client websites and landing pages for transaction coordinators and real estate ops teams."
             : industry === "coaching"
                 ? "Premium websites for coaches and consultants — designed to command authority and justify high-ticket pricing."
-                : "The strongest examples of positioning, design, and build quality across client sites and product work.";
+                : "Client projects with clear positioning, practical design decisions, and visible business goals.";
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
-            { name: "Case Studies", path: "/work" },
+            { name: "Work", path: "/work" },
         ]),
         getCollectionPageStructuredData({
-            name: "Multimedium Case Studies",
+            name: "Multimedium Work",
             description:
                 "Case studies for real estate, transaction coordinator, and service-business website projects by Multimedium.",
             path: "/work",
@@ -118,7 +118,7 @@ export default async function WorkPage({
                         <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
                             <div className="max-w-3xl">
                                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                    <span className="text-gradient">{indMeta?.heading ?? "Case Studies"}</span>
+                                    <span className="text-gradient">{indMeta?.heading ?? "Work"}</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
                                     {indMeta?.subheading ?? "Real builds for real estate professionals and transaction coordinators — each with clear goals, deliberate design decisions, and measurable outcomes."}
@@ -176,7 +176,7 @@ export default async function WorkPage({
                                 More work
                             </h2>
                             <p className="text-muted-foreground mt-3">
-                                Client sites, product builds, and tools — each shaped by the same positioning-first process.
+                                Additional client sites and service-business projects, each shaped by the same positioning-first process.
                             </p>
                         </div>
                     </AnimatedSection>
@@ -199,7 +199,7 @@ export default async function WorkPage({
                             Tell me what you do, who you want to attract, and what&apos;s not working today. I&apos;ll reply within one business day.
                         </p>
                         <Link href="/contact?source=work-cta" className="btn-primary">
-                            Start a conversation
+                            Book a free discovery call
                         </Link>
                     </AnimatedSection>
                 </Section>

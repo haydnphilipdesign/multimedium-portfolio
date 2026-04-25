@@ -147,14 +147,14 @@ export const projects: Project[] = [
             { metric: "Browse Flow", value: "Category-first", description: "Exploration stays structured and easy to scan" },
             { metric: "Conversion Path", value: "Clear", description: "CTAs stay obvious throughout the scroll" },
         ],
-        featured: false,
+        featured: true,
         color: "#3a5a40",
         externalUrl: "https://nomad-gear.vercel.app",
     },
     {
         slug: "velvet-rose",
         title: "Velvet Rose",
-        kind: "Client",
+        kind: "Product",
         metaTitle: "Velvet Rose - Luxury Florist Website Design",
         metaDescription:
             "Romantic, premium florist website design with graceful motion, clear category browsing, and a conversion-forward storefront layout.",
@@ -611,7 +611,7 @@ export const projects: Project[] = [
             { metric: "Follow-ups", value: "Reduced", description: "Fewer “who’s the provider?” emails and texts" },
             { metric: "Output", value: "Shareable", description: "Clean PDF sheet that’s easy to forward and file" },
         ],
-        featured: true,
+        featured: false,
         color: "#8b5cf6",
         externalUrl: "https://utilitysheet.com",
     },
@@ -704,7 +704,7 @@ export const projects: Project[] = [
             { metric: "Integrations", value: "Microsoft 365", description: "Graph API email, calendar, and task sync" },
             { metric: "Automation Style", value: "Rules + AI", description: "Compliance logic plus triage/missing-info signals" },
         ],
-        featured: true,
+        featured: false,
         color: "#4f46e5",
     },
     {
@@ -799,7 +799,7 @@ export const projects: Project[] = [
             { metric: "Data Entry", value: "AI-automated", description: "Purchase agreement parsing replaces manual retyping" },
             { metric: "Delivery", value: "Automatic", description: "Branded cover sheet PDF emailed to TC on submission" },
         ],
-        featured: true,
+        featured: false,
         color: "#4f46e5",
     },
     {
@@ -1506,10 +1506,10 @@ export function getFeaturedProjects(): Project[] {
 }
 
 const homeFeaturedProjectSlugs: string[] = [
-    "utility-sheet",
-    "norma-intake",
-    "tag-landing-page",
     "pa-real-estate-support",
+    "tag-landing-page",
+    "northpoint-realty",
+    "momentum-coaching",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {

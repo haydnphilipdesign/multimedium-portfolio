@@ -10,7 +10,6 @@ export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const prefersReducedMotion = useReducedMotion();
     const [isMobile, setIsMobile] = useState(false);
-    const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
 
     useEffect(() => {
         if (typeof window === "undefined") return;
@@ -58,40 +57,31 @@ export function StatementHero() {
                         >
                             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/80 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm">
                                 <span className="status-dot !h-2 !w-2" />
-                                Poconos, PA studio • taking on 1–2 projects each month
+                                Poconos, PA • Taking on 2 projects per month
                             </div>
 
                             <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                                <span className="text-gradient">Websites that turn visitors into clients.</span>
+                                Your website should make agents take you seriously before you ever pick up the phone.
                             </h1>
 
-                            <p className="mb-5 max-w-2xl text-lg text-muted-foreground md:text-xl">
-                                I design and build websites for real estate professionals, transaction coordinators, brokerages, and niche service businesses so your site makes reaching out feel obvious.
-                            </p>
-
-                            <p className="mb-9 text-sm text-muted-foreground">
-                                Projects start at <span className="font-semibold text-foreground">$750</span> depending on scope, with optional hosting &amp; maintenance from <span className="font-semibold text-foreground">$59/month</span>.
+                            <p className="mb-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
+                                I design and build websites for transaction coordinators and real estate professionals, so when an agent visits your site, calling you feels like the obvious next step.
                             </p>
 
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <Link href="/contact?source=home-hero" className="btn-primary group">
-                                    Start a conversation
+                                    Book a free discovery call
                                     <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                 </Link>
-                                {schedulingUrl ? (
-                                    <a
-                                        href={schedulingUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-secondary"
-                                    >
-                                        Book a call
-                                    </a>
-                                ) : (
-                                    <Link href="/work" className="btn-secondary">
-                                        Browse case studies
-                                    </Link>
-                                )}
+                                <Link href="/work" className="btn-secondary">
+                                    View selected work
+                                </Link>
+                            </div>
+
+                            <div className="mt-9 max-w-2xl border-y border-border/70 py-4">
+                                <p className="text-sm font-medium text-foreground">
+                                    Trusted by transaction coordinators, real estate teams, and service businesses in Pennsylvania and beyond.
+                                </p>
                             </div>
                         </motion.div>
                     </motion.div>

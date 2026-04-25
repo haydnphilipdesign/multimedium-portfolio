@@ -17,7 +17,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const [imageError, setImageError] = useState(false);
 
     const cardContent = (
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]">
+            <div className="border-b border-border/60 bg-muted/50 px-3 py-2">
+                <div className="flex gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-border" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-border" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-border" />
+                </div>
+            </div>
             <div className="relative aspect-[16/10] overflow-hidden bg-muted/70">
                 {!imageError ? (
                     <Image
@@ -38,7 +45,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     />
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/72 via-transparent to-transparent" />
 
                 <span className="absolute bottom-4 left-4 text-[11px] font-medium text-muted-foreground/90">
                     {project.year}
@@ -74,7 +81,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         return (
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-2xl"
+                className="focus-ring block h-full rounded-xl"
             >
                 {cardContent}
             </Link>
@@ -95,7 +102,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-2xl"
+                className="focus-ring block h-full rounded-xl"
             >
                 {cardContent}
             </Link>
@@ -119,7 +126,7 @@ export function ProjectCardCompact({ project, index = 0 }: ProjectCardProps) {
         >
             <Link
                 href={`/work/${project.slug}`}
-                className="group block overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
+                className="group block overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
             >
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                     {!imageError ? (
