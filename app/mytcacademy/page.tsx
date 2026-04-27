@@ -125,11 +125,11 @@ const faqs = [
     },
     {
         q: "How much does a TC website cost?",
-        a: "TC Starter is $750 for a single-page site. TC Growth is $1,500 for a full multi-page build with intake forms. TC Pro starts at $3,000+ for fully custom projects. As a My TC Academy student, you also get 3 months of free managed hosting with any package.",
+        a: "TC Presence is $595 for a tightly scoped one-page credibility site. TC Starter is $795 for a one-page site with a simple agent action flow. TC Growth is $1,495 for a polished multi-page build with a submit workflow. TC Pro starts at $2,495+ for fuller custom projects. As a My TC Academy student, you also get 3 months of free managed hosting with any package.",
     },
     {
         q: "How long does a project typically take?",
-        a: "TC Starter takes 1–2 weeks. TC Growth takes 3–4 weeks. TC Pro takes 4–6 weeks. I'll give you a clear timeline after we talk through your goals.",
+        a: "TC Presence is built for a fast turnaround. TC Starter takes 1–2 weeks. TC Growth takes 3–4 weeks. TC Pro takes 4–6 weeks. I'll give you a clear timeline after we talk through your goals.",
     },
     {
         q: "What's the My TC Academy referral perk?",
@@ -372,13 +372,13 @@ export default function MyTCAcademyPage() {
                             TC website packages
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                            Three tiers — built for how TC businesses{" "}
+                            Four tiers — built for how TC businesses{" "}
                             <span className="text-gradient">actually work.</span>
                         </h2>
                         <p className="mt-4 text-muted-foreground">
                             Whether you&apos;re just getting started or scaling a team, there&apos;s a
-                            package designed for your stage. Every package includes strategy,
-                            design, development, and launch support.
+                            package designed for your stage, from a focused credibility site to a
+                            fuller custom system. Every package includes design, development, and launch support.
                         </p>
                     </div>
                 </AnimatedSection>
@@ -403,38 +403,55 @@ export default function MyTCAcademyPage() {
                 </AnimatedSection>
 
                 <StaggerContainer
-                    className="mt-8 grid gap-6 lg:grid-cols-3"
+                    className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4"
                     staggerDelay={0.08}
                 >
                     {[
                         {
+                            name: "TC Presence",
+                            icon: IconShieldCheck,
+                            price: "$595",
+                            pages: "1 proven layout",
+                            timeline: "Fast turnaround",
+                            description: "A streamlined, template-based credibility site so agents see a real business when they look you up.",
+                            bestFor: "New solo TCs who need to look legitimate quickly without a custom website scope.",
+                            features: [
+                                "One-page credibility site",
+                                "Logo, colors, photos, and basic details applied",
+                                "Guided copy based on your answers",
+                                "Mobile-responsive design",
+                                "Basic SEO and social link preview setup",
+                            ],
+                            cta: "Fast credibility site",
+                        },
+                        {
                             name: "TC Starter",
                             icon: IconRocket,
-                            price: "$750",
-                            pages: "1 page",
+                            price: "$795",
+                            pages: "1 page + action flow",
                             timeline: "1–2 weeks",
-                            description: "A clean, professional single-page website to establish your online presence fast.",
-                            bestFor: "New solo TCs who need credibility from day one.",
+                            description: "A one-page website with a simple intake/contact flow so agents know how to start working with you.",
+                            bestFor: "Solo TCs who are beginning to work with agents and need more than an online business card.",
                             features: [
-                                "Single-page scrollable website",
-                                "Hero, services, about, and contact sections",
+                                "Everything in TC Presence",
+                                "Simple intake/contact workflow",
+                                "Clearer service explanation",
+                                "Basic file-start instructions",
                                 "Mobile-responsive design",
-                                "SEO-ready meta tags",
-                                "Custom color scheme from your branding",
                             ],
-                            cta: "Perfect for getting started",
+                            cta: "Credibility plus action",
                         },
                         {
                             name: "TC Growth",
                             icon: IconTrendingUp,
-                            price: "$1,500",
-                            pages: "4 pages",
+                            price: "$1,495",
+                            pages: "Multi-page",
                             timeline: "3–4 weeks",
                             featured: true,
-                            description: "A polished multi-page website with services, intake forms, and a careers page.",
+                            description: "A polished multi-page website with stronger service positioning and a dedicated submit workflow.",
                             bestFor: "Established TCs who want stronger branding and a real intake workflow.",
                             features: [
-                                "Home, Services, Submit a File, and Careers pages",
+                                "Home, Services, Submit a File, and About or Careers pages",
                                 "Embedded intake forms (Cognito, Jotform, etc.)",
                                 "Strategic messaging and positioning",
                                 "Scroll animations and polished interactions",
@@ -445,11 +462,11 @@ export default function MyTCAcademyPage() {
                         {
                             name: "TC Pro",
                             icon: IconCrown,
-                            price: "$3,000+",
+                            price: "$2,495+",
                             pages: "5+ pages",
                             timeline: "4–6 weeks",
-                            description: "A fully custom website for teams, coaches, or TCs building real authority.",
-                            bestFor: "TC teams or operators who want their website to actively generate business.",
+                            description: "A fuller custom website for TC teams, coaches, referral-driven operators, or authority builders.",
+                            bestFor: "TC teams, coaches, or operators who need deeper trust-building and conversion strategy.",
                             features: [
                                 "Everything in Growth, plus custom pages",
                                 "Testimonials and social proof sections",

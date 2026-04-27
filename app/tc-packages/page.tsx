@@ -36,7 +36,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
     title: "Transaction Coordinator Website Packages",
     description:
-        "Transaction coordinator website packages starting at $750. Three tiers built for how TC businesses work — from solo operators to growing teams. Includes copywriting, mobile design, and intake forms.",
+        "Transaction coordinator website packages from $595 to $2,495+. Four tiers built around credibility, clearer service messaging, agent next steps, and intake workflows.",
     path: "/tc-packages",
     keywords: [
         "transaction coordinator website packages",
@@ -49,42 +49,63 @@ export const metadata: Metadata = createPageMetadata({
 
 const packages = [
     {
+        name: "TC Presence",
+        icon: IconShieldCheck,
+        price: "$595",
+        description:
+            "A streamlined one-page credibility site so agents see a real business instead of only a Facebook profile or unfinished DIY site.",
+        bestFor: "New solo TCs with little or no deal flow who need to look legitimate quickly.",
+        timeline: "Fast turnaround",
+        pages: "1 proven layout",
+        features: [
+            "One-page website built from a proven TC-focused layout",
+            "Your logo, colors, photos, and basic business details applied",
+            "Guided copy based on your answers, not full custom copywriting from scratch",
+            "Mobile-responsive design, basic SEO/meta setup, and Open Graph preview",
+            "Clear contact CTA so agents know the next step",
+            "One draft and one light refinement pass",
+            "Tightly scoped: no embedded intake form, submit page, or custom section strategy",
+        ],
+        cta: "Start with Presence",
+        demoHref: "/demos/presence/",
+    },
+    {
         name: "TC Starter",
         icon: IconRocket,
-        price: "From $750",
+        price: "$795",
         description:
-            "A one-page site that lets new TCs look established from day one and gives agents a clear way to reach out.",
-        bestFor: "New solo TCs who need credibility and a professional web presence from day one.",
+            "A one-page site with a simple intake or contact flow so agents know who you are, what you do, and how to start working with you.",
+        bestFor: "Solo TCs beginning to work with agents who need more than an online business card.",
         timeline: "1–2 weeks",
-        pages: "1 page",
+        pages: "1 page + action flow",
         features: [
-            "A one-page site with hero, services overview, about, and contact — everything agents need to reach out",
-            "Mobile-friendly design so agents can look you up from their phones",
-            "Your brand colors and logo applied throughout — not a generic template",
-            "Guided copywriting — you answer a few questions, I write the page",
-            "Search-friendly setup so local agents can find you online",
-            "Custom link preview image so your site looks polished when shared on social or text",
+            "Everything in TC Presence",
+            "Embedded intake/contact form section or simple submit workflow",
+            "More complete service explanation and stronger CTA flow",
+            "Basic file-start instructions to reduce back-and-forth",
+            "Mobile-friendly design, SEO/meta setup, and custom link preview",
+            "One refinement round and launch support",
             "3 months of managed hosting included — a $177 value",
         ],
-        cta: "Start with Starter",
+        cta: "Choose Starter",
         demoHref: "/demos/starter/",
     },
     {
         name: "TC Growth",
         icon: IconTrendingUp,
-        price: "From $1,500",
+        price: "$1,495",
         description:
-            "A four-page site with a real intake workflow, so agents can submit files without phone tag and you stop losing time on back-and-forth.",
-        bestFor: "Established TCs who want stronger branding, a real intake workflow, and room to grow.",
+            "A polished multi-page website with dedicated service positioning and a submit-a-file workflow for a more established operation.",
+        bestFor: "Established TCs who want stronger branding, better service communication, and a real intake workflow.",
         timeline: "3–4 weeks",
-        pages: "4 pages",
+        pages: "Multi-page",
         featured: true,
         features: [
-            "4 dedicated pages: Home, Services, Submit a File, and Careers",
-            "Online intake form so agents can start files without phone tag",
-            "Collaborative copywriting — I draft every section, you refine until it sounds right",
-            "Services, process, and proof laid out so agents immediately see why you're the right TC",
-            "Custom link preview image so your site looks polished when shared",
+            "Recommended structure: Home, Services, Submit a File, and About or Careers",
+            "Dedicated submit/intake page with embedded forms such as Jotform, Cognito, Tally, or Typeform",
+            "Strategic service positioning and collaborative copywriting",
+            "Services, process, and proof laid out so agents understand the value faster",
+            "SEO/meta setup, Open Graph preview, polished interactions, and stronger visual presentation",
             "6 months of managed hosting included — a $354 value",
             "30 days of post-launch support for minor tweaks and adjustments",
         ],
@@ -94,20 +115,20 @@ const packages = [
     {
         name: "TC Pro",
         icon: IconCrown,
-        price: "From $3,000",
+        price: "$2,495+",
         description:
-            "A custom site for TC teams, coaches, and operators whose website needs to actively generate business, not just exist online.",
-        bestFor: "TC teams, coaches, or operators who want their website to actively generate business.",
+            "A fuller custom website for TC teams, coaches, referral-driven operators, and higher-volume businesses.",
+        bestFor: "Teams, coaches, referral partners, and operators who need deeper trust-building and conversion strategy.",
         timeline: "4–6 weeks",
         pages: "5+ pages",
         features: [
             "Everything in Growth, plus additional pages shaped around your exact workflow and team structure",
-            "Done-for-you copywriting — I write positioning, messaging, and page content, with review rounds built in",
+            "Fully written or more heavily supported copy, with review rounds built in",
             "Deep discovery call to align on brand, audience, and competitive positioning before design starts",
-            "Multi-step intake with conditional logic and file upload for higher-volume file starts",
+            "Advanced intake options, including multi-step or conditional forms when scoped",
             "Referral partner landing pages for coaches, mentors, or partner programs",
             "Testimonials and social proof placed where they actually influence the decision",
-            "Custom link preview image so your site looks polished when shared",
+            "Analytics setup if appropriate and stronger conversion strategy",
             "12 months of managed hosting included — a $708 value",
             "60-day post-launch support window for updates and refinements",
         ],
@@ -186,15 +207,23 @@ const addOns = [
 const faqs = [
     {
         q: "Which package is right for me?",
-        a: "If you're just getting started and need a professional presence fast, TC Starter is the right fit. If you have active deal flow and want a real intake workflow, TC Growth is the sweet spot. If you're running a team, coaching business, or referral program, TC Pro is built for that level of operation.",
+        a: "If you need credibility only, choose TC Presence. If you want a one-page site plus a simple agent action flow, choose TC Starter. TC Growth is the sweet spot for serious TCs with active deal flow who need stronger positioning and a submit-a-file workflow. TC Pro is for teams, coaches, referral-driven operators, and more custom conversion systems.",
     },
     {
         q: "Can I upgrade later?",
-        a: "Yes. Every package is built on the same design system, so upgrading from Starter to Growth or Growth to Pro doesn't mean starting over. Your branding, colors, and content carry forward.",
+        a: "Yes. Every package is built on the same design system, so upgrading from Presence to Starter, Starter to Growth, or Growth to Pro doesn't mean starting over. Your branding, colors, and content can carry forward.",
+    },
+    {
+        q: "Can I just build this myself on Wix or Squarespace?",
+        a: "Yes, you can. But many new TCs start there and end up with a half-finished site, generic copy, and no clear workflow for agents to submit a file. These packages are for TCs who want the site handled properly so they can focus on getting clients and closing files.",
+    },
+    {
+        q: "How is TC Presence different from discounted custom work?",
+        a: "TC Presence is a constrained product: a one-page credibility site built from a proven layout, with your branding and guided copy applied. It does not include intake forms, a separate submit page, custom section ordering, deep strategy, or full copywriting from scratch.",
     },
     {
         q: "Do you help with the wording?",
-        a: "Yes. You do not have to write everything from scratch. Starter includes guided copywriting — you answer questions and I write the words. Growth includes collaborative copywriting where I draft every section and you refine it. Pro includes done-for-you copywriting — fully written and strategically positioned from the start.",
+        a: "Yes. You do not have to write everything from scratch. Presence and Starter include guided copy support, Growth includes collaborative copywriting, and Pro includes fully written or more heavily supported copy depending on scope.",
     },
     {
         q: "Will my website be easy to manage?",
@@ -202,7 +231,7 @@ const faqs = [
     },
     {
         q: "Do you offer hosting?",
-        a: "Yes. Every package includes a free introductory period of managed hosting: 3 months with Starter, 6 months with Growth, and 12 months with Pro. After the intro period, hosting continues at $59/month. Ongoing edits or content changes are handled separately under a website support plan.",
+        a: "Yes. Managed hosting is available at $59/month. Starter includes 3 months, Growth includes 6 months, and Pro includes 12 months. Presence can add managed hosting if you want me to handle it. Ongoing edits or content changes are handled separately under a website support plan.",
     },
     {
         q: "I was referred by a TC coach. Is there a referral perk?",
@@ -228,9 +257,9 @@ export default function TCPackagesPage() {
         getServiceStructuredData({
             name: "Transaction Coordinator Website Packages",
             description:
-                "Website packages for transaction coordinators with niche positioning, clear lead capture, and optional intake automation support.",
+                "Website packages for transaction coordinators with credibility positioning, clear service messaging, agent next steps, and optional intake automation support.",
             path: "/tc-packages",
-            priceRange: "$750 – $3,000+",
+            priceRange: "$595 – $2,495+",
             audience: ["Transaction coordinators", "Transaction coordinator teams"],
         }),
         getFaqStructuredData(faqs),
@@ -287,12 +316,12 @@ export default function TCPackagesPage() {
                 <AnimatedSection>
                     <SectionHeading
                         title="Choose your package"
-                        subtitle="Three tiers designed around how TC businesses actually work — from solo operators to growing teams."
+                        subtitle="Four tiers designed around what the website needs to accomplish: credibility, clear services, less back-and-forth, and a next step agents can act on."
                     />
                 </AnimatedSection>
 
                 <StaggerContainer
-                    className="grid gap-6 lg:grid-cols-3"
+                    className="grid gap-6 md:grid-cols-2 xl:grid-cols-4"
                     staggerDelay={0.08}
                 >
                     {packages.map((pkg) => (
@@ -370,20 +399,96 @@ export default function TCPackagesPage() {
                                         {pkg.cta}
                                         <IconArrowRight className="w-4 h-4" stroke={2} />
                                     </Link>
-                                    <a
-                                        href={`${pkg.demoHref}?returnTo=${encodeURIComponent(packagesSectionHref)}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        Preview live demo
-                                        <IconExternalLink className="w-3.5 h-3.5" stroke={2} />
-                                    </a>
+                                    {pkg.demoHref ? (
+                                        <a
+                                            href={`${pkg.demoHref}?returnTo=${encodeURIComponent(packagesSectionHref)}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                                        >
+                                            Preview live demo
+                                            <IconExternalLink className="w-3.5 h-3.5" stroke={2} />
+                                        </a>
+                                    ) : null}
                                 </div>
                             </div>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
+            </Section>
+
+            {/* Comparison */}
+            <Section className="border-t border-border/40">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
+                            Package comparison
+                        </span>
+                        <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
+                            Pick the level of business support you need
+                        </h2>
+                        <p className="mt-3 text-muted-foreground">
+                            The difference is not just page count. It is how clearly the site explains your services, how much action it gives agents, and how much strategic support goes into the build.
+                        </p>
+                    </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.08} direction="none">
+                    <div className="mt-8 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
+                        <div className="grid grid-cols-1 divide-y divide-border/60 text-sm md:grid-cols-5 md:divide-x md:divide-y-0">
+                            <div className="bg-muted/35 p-5 font-semibold text-foreground">Best use</div>
+                            {packages.map((pkg) => (
+                                <div key={pkg.name} className="p-5">
+                                    <p className="font-semibold text-foreground">{pkg.name}</p>
+                                    <p className="mt-1 text-primary font-semibold">{pkg.price}</p>
+                                    <p className="mt-3 text-muted-foreground">{pkg.bestFor}</p>
+                                </div>
+                            ))}
+                        </div>
+                        {[
+                            ["Primary outcome", "Look credible fast", "Add a simple agent action flow", "Operate with a dedicated submit flow", "Build authority and conversion depth"],
+                            ["Intake support", "Contact CTA only", "Basic intake/contact workflow", "Dedicated submit page with embedded form", "Advanced intake options when scoped"],
+                            ["Copy support", "Guided answers applied to proven copy flow", "Guided copy plus clearer service explanation", "Collaborative copywriting and positioning", "Fully written or deeply supported copy"],
+                            ["Customization level", "Proven layout with light branding", "One-page build with workflow section", "Polished multi-page site", "Custom structure for teams, coaches, or referral systems"],
+                        ].map((row) => (
+                            <div
+                                key={row[0]}
+                                className="grid grid-cols-1 divide-y divide-border/60 border-t border-border/60 text-sm md:grid-cols-5 md:divide-x md:divide-y-0"
+                            >
+                                {row.map((cell, index) => (
+                                    <div
+                                        key={`${row[0]}-${index}`}
+                                        className={index === 0 ? "bg-muted/35 p-5 font-semibold text-foreground" : "p-5 text-muted-foreground"}
+                                    >
+                                        {cell}
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </AnimatedSection>
+            </Section>
+
+            <Section className="border-t border-border/40">
+                <AnimatedSection>
+                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
+                        <div className="relative max-w-3xl">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
+                                Not another DIY template
+                            </span>
+                            <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
+                                Built around how agents evaluate a TC
+                            </h2>
+                            <p className="mt-4 text-muted-foreground leading-relaxed">
+                                Wix, Squarespace, GoDaddy, and Fiverr can give you a page. The hard part is making that page explain your services clearly, answer the questions agents ask before they contact you, and make the next step feel obvious. These packages are structured around the way transaction coordinators actually get found, evaluated, and contacted.
+                            </p>
+                            <p className="mt-3 text-muted-foreground leading-relaxed">
+                                You answer guided questions about your business. I handle the structure, copy flow, design, mobile experience, launch details, and the places where generic templates usually leave TCs sounding vague.
+                            </p>
+                        </div>
+                    </div>
+                </AnimatedSection>
             </Section>
 
             {/* What every package includes */}

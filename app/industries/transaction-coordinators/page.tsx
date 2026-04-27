@@ -124,7 +124,7 @@ const automationPackages = [
 const faqs = [
     {
         q: "How much does a transaction coordinator website cost?",
-        a: "TC website packages start at $750 for a clean one-page site and go up to $3,000+ for a full multi-page build with intake forms, careers pages, and custom copy. The right package depends on where you are in your business — see the TC packages page for a full breakdown.",
+        a: "TC website packages start at $595 for a tightly scoped one-page credibility site. TC Starter is $795, TC Growth is $1,495, and TC Pro starts at $2,495+ for fuller custom builds. The right package depends on whether you need credibility only, a simple agent action flow, a dedicated submit workflow, or a deeper team/referral system.",
     },
     {
         q: "Do I need a website if I get all my TC clients through referrals?",
@@ -175,7 +175,7 @@ export default function TransactionCoordinatorsPage() {
             description:
                 "Website design and optional intake automation for transaction coordinators who need clearer positioning and better-fit leads.",
             path: "/industries/transaction-coordinators",
-            priceRange: "$750 – $3,000+",
+            priceRange: "$595 – $2,495+",
             audience: ["Transaction coordinators", "Real estate operations teams"],
         }),
         getFaqStructuredData(faqs),
@@ -307,10 +307,10 @@ export default function TransactionCoordinatorsPage() {
                                     TC website packages
                                 </span>
                                 <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                    Three tiers — built for how TC businesses actually work.
+                                    Four tiers — built for how TC businesses actually work.
                                 </h2>
                                 <p className="mt-4 text-muted-foreground leading-relaxed">
-                                    Whether you&apos;re just getting started or scaling a team, there&apos;s a package designed for your stage. Starting at $750.
+                                    Whether you need a fast credibility site, a simple intake/contact flow, or a fuller custom build, there&apos;s a package designed for your stage. Starting at $595.
                                 </p>
                                 <Link
                                     href="/tc-packages"
@@ -322,9 +322,10 @@ export default function TransactionCoordinatorsPage() {
                             </div>
                             <div className="grid gap-3">
                                 {[
-                                    { name: "TC Starter", desc: "1 page, professional presence", price: "$750" },
-                                    { name: "TC Growth", desc: "4 pages, intake forms, careers", price: "$1,500" },
-                                    { name: "TC Pro", desc: "5+ pages, fully custom", price: "$3,000+" },
+                                    { name: "TC Presence", desc: "Template-based credibility site", price: "$595" },
+                                    { name: "TC Starter", desc: "One-page site plus simple action flow", price: "$795" },
+                                    { name: "TC Growth", desc: "Multi-page site with submit workflow", price: "$1,495" },
+                                    { name: "TC Pro", desc: "Fuller custom site for teams or coaches", price: "$2,495+" },
                                 ].map((pkg) => (
                                     <div
                                         key={pkg.name}
@@ -585,6 +586,5 @@ export default function TransactionCoordinatorsPage() {
         </>
     );
 }
-
 
 

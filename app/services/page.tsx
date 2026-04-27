@@ -30,7 +30,7 @@ const services = [
         icon: IconPackage,
         title: "TC Website Packages",
         description:
-            "Productized Starter, Growth, and Pro packages for transaction coordinators who need trust, clear services, and easier file starts.",
+            "Productized Presence, Starter, Growth, and Pro packages for transaction coordinators who need trust, clear services, and easier file starts.",
         href: "/tc-packages",
         timeline: "1–6 weeks",
         cta: "Compare TC packages",

@@ -37,7 +37,7 @@ const services = [
     {
         icon: IconPackage,
         title: "TC Website Packages",
-        description: "Starter, Growth, and Pro website tiers designed around how transaction coordinator businesses actually work.",
+        description: "Presence, Starter, Growth, and Pro website tiers designed around how transaction coordinator businesses actually work.",
         href: "/tc-packages",
         timeline: "1–6 weeks",
     },
@@ -93,18 +93,23 @@ const nichePages = [
 
 const packageTeasers = [
     {
+        name: "Presence",
+        price: "$595",
+        detail: "A tightly scoped, template-based credibility site for new solo TCs.",
+    },
+    {
         name: "Starter",
-        price: "$750",
-        detail: "A focused one-page site for new solo TCs who need credibility quickly.",
+        price: "$795",
+        detail: "A one-page site with a simple agent intake or contact workflow.",
     },
     {
         name: "Growth",
-        price: "$1,500",
+        price: "$1,495",
         detail: "A multi-page site with file submission and clearer service positioning.",
     },
     {
         name: "Pro",
-        price: "$3,000+",
+        price: "$2,495+",
         detail: "A custom site for teams, coaches, or operators ready for a fuller system.",
     },
 ];
@@ -215,12 +220,12 @@ export default function HomePage() {
                                 Transaction coordinator website packages
                             </h2>
                             <p className="mt-3 text-muted-foreground">
-                                Three tiers designed around how TC businesses actually work, from your first agent to a fuller intake path.
+                                Four tiers designed around how TC businesses actually work, from credibility only to a fuller intake and conversion path.
                             </p>
                         </div>
                     </AnimatedSection>
 
-                    <div className="grid gap-4 md:grid-cols-3">
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                         {packageTeasers.map((pkg) => (
                             <div
                                 key={pkg.name}

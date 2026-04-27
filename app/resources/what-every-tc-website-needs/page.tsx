@@ -122,7 +122,7 @@ const faqs = [
     },
     {
         q: "How much should a TC website cost?",
-        a: "A good TC website ranges from $750 for a single-page site to $3,000+ for a full multi-page site with intake forms, careers pages, and custom copy. The key is getting one that's built for your workflow — not paying for features you don't need.",
+        a: "MULTIMEDIUM's TC website packages start at $595 for a tightly scoped credibility site, with TC Starter at $795, TC Growth at $1,495, and TC Pro starting at $2,495+. The key is matching the package to the business job: credibility, clearer services, less back-and-forth, or a fuller intake and conversion system.",
     },
     {
         q: "What's more important — how it looks or what it says?",
@@ -282,7 +282,7 @@ export default function WhatEveryTCWebsiteNeedsPage() {
                                 I build websites specifically for transaction coordinators.
                                 Every item on this checklist is baked into the packages — intake
                                 forms, mobile-first design, SEO, copy, and professional
-                                positioning. Three tiers starting at $750.
+                                positioning. Four packages starting at $595.
                             </p>
                             <div className="mt-8 flex flex-col sm:flex-row gap-3">
                                 <Link

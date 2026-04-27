@@ -283,7 +283,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         Need a website that matches your professionalism?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build websites specifically for transaction coordinators — with intake forms, clear service pages, and messaging that makes agents want to work with you. Three packages starting at $750.
+                        I build websites specifically for transaction coordinators — from a $595 credibility site to intake-driven packages with clear service pages and messaging that makes agents want to work with you.
                     </p>
                     <Link href="/tc-packages?source=tc-task-list" className="btn-primary">
                         See TC website packages
@@ -293,7 +293,6 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
         </>
     );
 }
-
 
 
 
