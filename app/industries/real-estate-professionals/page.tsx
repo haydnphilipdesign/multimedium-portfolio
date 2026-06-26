@@ -5,6 +5,8 @@ import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { getClientProjectsByIndustry, getProductProjects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import {
@@ -15,12 +17,9 @@ import {
 import {
     IconArrowRight,
     IconBolt,
-    IconBuildingSkyscraper,
     IconChartLine,
-    IconCircleCheck,
     IconClock,
     IconMail,
-    IconMapPin,
     IconShieldCheck,
 } from "@tabler/icons-react";
 
@@ -133,113 +132,85 @@ export default function RealEstateProfessionalsPage() {
         <>
             <JsonLd data={structuredData} />
 
-            <div className="relative overflow-hidden border-b border-border/40">
-                <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <div className="border-b border-rule">
+                <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                     <AnimatedSection>
                         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-start">
                             <div className="max-w-2xl">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60 mb-6">
-                                    <IconBuildingSkyscraper className="w-4 h-4 text-primary" stroke={1.5} />
-                                    Real estate website design
-                                </span>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                                <MonoLabel className="mb-6">Real estate website design</MonoLabel>
+                                <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-[4.25rem] display-balance">
                                     A real estate website that <span className="text-gradient">wins trust fast</span> and makes contacting you the obvious next step.
                                 </h1>
-                                <p className="mt-6 text-lg md:text-xl text-muted-foreground">
+                                <p className="mt-7 text-lg md:text-xl leading-relaxed text-foreground/80">
                                     Built for agents, teams, and brokerages that want fewer tire-kickers, clearer positioning,
                                     and a site that feels credible on mobile and in local search.
                                 </p>
 
-                                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                                <div className="mt-9 flex flex-col sm:flex-row gap-3">
                                     {schedulingUrl ? (
                                         <a
                                             href={schedulingUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn-primary inline-flex items-center justify-center gap-2"
+                                            className="btn btn-primary group"
                                         >
                                             <IconBolt className="w-4 h-4" stroke={2} />
                                             Book a quick call
                                         </a>
                                     ) : (
-                                        <Link href={contactHref} className="btn-primary inline-flex items-center justify-center gap-2">
+                                        <Link href={contactHref} className="btn btn-primary">
                                             <IconMail className="w-4 h-4" stroke={2} />
                                             Get a quote
                                         </Link>
                                     )}
 
-                                    <Link
-                                        href={contactHref}
-                                        className="btn-secondary inline-flex items-center justify-center gap-2"
-                                    >
+                                    <Link href={contactHref} className="btn btn-secondary group">
                                         Send a message
-                                        <IconArrowRight className="w-4 h-4" stroke={2} />
+                                        <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                     </Link>
                                 </div>
 
-                                <p className="mt-4 text-sm text-muted-foreground">
-                                    Based in the Poconos, serving real-estate-focused businesses locally and remotely.
+                                <p className="mono-meta mt-6">
+                                    Based in the Poconos — serving real-estate-focused businesses locally and remotely.
                                 </p>
                             </div>
 
-                            <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
-                                <div className="relative space-y-6">
-                                    <p className="text-sm font-semibold text-foreground">
-                                        What you get
-                                    </p>
-                                    <ul className="space-y-3 text-sm text-muted-foreground">
-                                        {[
-                                            "Homepage plus focused buyer, seller, or specialty pathways",
-                                            "Neighborhood, market, or service-area structure without bloat",
-                                            "Lead capture that feels credible instead of pushy",
-                                            "Fast performance, analytics, and clean technical SEO",
-                                            "A site that supports your brand beyond listing portals",
-                                        ].map((item) => (
-                                            <li key={item} className="flex items-start gap-3">
-                                                <IconCircleCheck className="mt-0.5 h-4 w-4 text-primary" stroke={1.6} />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                            <div className="rounded-2xl border border-border/70 bg-surface-1 p-6 shadow-[var(--shadow-soft)] sm:p-7">
+                                <MonoLabel className="mb-4 text-muted-foreground">What you get</MonoLabel>
+                                <ul className="ledger border-t border-rule">
+                                    {[
+                                        "Homepage plus focused buyer, seller, or specialty pathways",
+                                        "Neighborhood, market, or service-area structure without bloat",
+                                        "Lead capture that feels credible instead of pushy",
+                                        "Fast performance, analytics, and clean technical SEO",
+                                        "A site that supports your brand beyond listing portals",
+                                    ].map((item) => (
+                                        <CheckRow key={item} className="py-3">{item}</CheckRow>
+                                    ))}
+                                </ul>
 
-                                    <div className="rounded-xl border border-border/60 bg-muted/25 p-4">
-                                        <div className="flex items-start gap-3">
-                                            <IconMapPin className="mt-0.5 h-4 w-4 text-primary" stroke={1.6} />
-                                            <div>
-                                                <p className="text-sm font-medium text-foreground">
-                                                    Built for local trust
-                                                </p>
-                                                <p className="mt-1 text-sm text-muted-foreground">
-                                                    Your website should feel like the most credible option in your market before anyone opens Zillow or asks for a referral.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p className="mt-5 border-l-2 border-primary/50 pl-4 text-sm leading-relaxed text-foreground/75">
+                                    <span className="font-semibold text-foreground">Built for local trust:</span> your
+                                    website should feel like the most credible option in your market before anyone opens
+                                    Zillow or asks for a referral.
+                                </p>
                             </div>
                         </div>
                     </AnimatedSection>
-                </Section>
 
-                <Section className="pt-10 pb-14 md:pb-20" padding="none">
-                    <StaggerContainer className="grid gap-4 sm:grid-cols-3" staggerDelay={0.06}>
-                        {proof.map((item) => (
-                            <StaggerItem key={item.label}>
-                                <div className="rounded-2xl border border-border/60 bg-card/82 backdrop-blur-sm px-6 py-5">
-                                    <div className="flex items-start gap-3">
-                                        <item.icon className="h-5 w-5 text-primary" stroke={1.6} />
-                                        <div>
-                                            <p className="text-lg font-semibold text-foreground">
-                                                {item.value} <span className="text-muted-foreground font-medium">{item.label}</span>
-                                            </p>
-                                            <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
-                                        </div>
+                    <Section className="pt-10 pb-14 md:pb-20" padding="none">
+                        <StaggerContainer className="grid gap-px border-y border-rule sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-rule" staggerDelay={0.06}>
+                            {proof.map((item) => (
+                                <StaggerItem key={item.label}>
+                                    <div className="py-6 sm:px-6 sm:first:pl-0">
+                                        <p className="font-display text-2xl text-foreground">{item.value}</p>
+                                        <p className="mono-meta mt-1">{item.label}</p>
+                                        <p className="mt-3 text-sm leading-relaxed text-foreground/70">{item.detail}</p>
                                     </div>
-                                </div>
-                            </StaggerItem>
-                        ))}
-                    </StaggerContainer>
+                                </StaggerItem>
+                            ))}
+                        </StaggerContainer>
+                    </Section>
                 </Section>
             </div>
 
@@ -267,59 +238,55 @@ export default function RealEstateProfessionalsPage() {
                 </StaggerContainer>
             </Section>
 
-            <div className="relative border-y border-border/40 rounded-2xl bg-muted/35">
+            <section className="border-y border-rule bg-surface-1">
                 <Section>
-                    <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14 items-start">
+                    <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
                         <AnimatedSection>
                             <div className="max-w-xl">
-                                <h2 className="text-2xl md:text-3xl font-bold text-foreground">Great fit if…</h2>
-                                <p className="mt-3 text-muted-foreground">
+                                <MonoLabel className="mb-5">Great fit if…</MonoLabel>
+                                <h2 className="font-display text-3xl text-foreground sm:text-4xl">A clearer story, stronger local trust</h2>
+                                <p className="mt-5 text-lg leading-relaxed text-foreground/78">
                                     You do not need more fluff pages. You need a clearer story, stronger local trust, and a path that turns visits into conversations.
                                 </p>
                             </div>
                         </AnimatedSection>
                         <AnimatedSection delay={0.1}>
-                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-7">
-                                <ul className="space-y-3 text-sm text-muted-foreground">
-                                    {fit.map((item) => (
-                                        <li key={item} className="flex items-start gap-3">
-                                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                                    <Link href={contactHref} className="btn-primary inline-flex items-center justify-center gap-2">
-                                        Get pricing + timeline
-                                        <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
-                                    <Link href="/work?industry=real-estate&source=real-estate-professionals" className="btn-secondary inline-flex items-center justify-center gap-2">
-                                        See real estate work
-                                        <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
-                                </div>
+                            <ul className="ledger border-t border-rule">
+                                {fit.map((item) => (
+                                    <CheckRow key={item}>{item}</CheckRow>
+                                ))}
+                            </ul>
+                            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+                                <Link href={contactHref} className="btn btn-primary group">
+                                    Get pricing + timeline
+                                    <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
+                                <Link href="/work?industry=real-estate&source=real-estate-professionals" className="btn btn-secondary">
+                                    See real estate work
+                                </Link>
                             </div>
                         </AnimatedSection>
                     </div>
                 </Section>
-            </div>
+            </section>
 
-            <Section className="rounded-2xl bg-muted/35">
+            <Section>
                 <AnimatedSection>
-                    <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+                    <div className="grid gap-8 border-t border-rule pt-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                            <MonoLabel className="mb-4">Adjacent audiences</MonoLabel>
+                            <h2 className="font-display text-2xl text-foreground sm:text-3xl">
                                 Also serving real estate coaches and transaction coordinators
                             </h2>
-                            <p className="mt-3 text-muted-foreground">
+                            <p className="mt-4 text-lg leading-relaxed text-foreground/78">
                                 If your business is adjacent to brokerage work, there are separate pages for coaching brands and TC businesses so each audience gets more relevant messaging.
                             </p>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <Link href="/industries/real-estate-coaches" className="btn-secondary text-center">
+                            <Link href="/industries/real-estate-coaches" className="btn btn-secondary">
                                 See the coach page
                             </Link>
-                            <Link href="/industries/transaction-coordinators" className="btn-secondary text-center">
+                            <Link href="/industries/transaction-coordinators" className="btn btn-secondary">
                                 See the TC page
                             </Link>
                         </div>
@@ -351,56 +318,35 @@ export default function RealEstateProfessionalsPage() {
                 <HowItWorks contactSource="real-estate-professionals-how-it-works" />
             </Section>
 
-            <Section className="border-t border-border/40">
+            <Section className="border-t border-rule">
                 <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">FAQ</h2>
-                        <p className="mt-3 text-muted-foreground">
-                            A few common questions from agents, teams, and brokerages.
-                        </p>
-                    </div>
+                    <MonoLabel className="mb-5">FAQ</MonoLabel>
+                    <h2 className="font-display text-3xl text-foreground sm:text-4xl">Common questions</h2>
+                    <p className="mt-4 max-w-2xl text-lg leading-relaxed text-foreground/75">
+                        A few common questions from agents, teams, and brokerages.
+                    </p>
                 </AnimatedSection>
 
-                <div className="mt-10 grid gap-4 md:max-w-4xl">
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {faq.map((item) => (
-                        <details
-                            key={item.q}
-                            className="group rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-5 open:bg-card/80 transition-colors"
-                        >
-                            <summary className="cursor-pointer list-none">
-                                <div className="flex items-start justify-between gap-6">
-                                    <p className="text-base font-semibold text-foreground">{item.q}</p>
-                                    <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/60 text-muted-foreground group-open:text-foreground">
-                                        +
-                                    </span>
-                                </div>
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span aria-hidden className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45">+</span>
                             </summary>
-                            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">{item.a}</p>
                         </details>
                     ))}
                 </div>
             </Section>
 
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Get a clear plan and next steps in one reply.
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me your market, what you sell, and what you want the site to accomplish. I&apos;ll respond within one business day.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                        <Link href={contactHref} className="btn-primary inline-flex items-center justify-center gap-2">
-                            Send a message
-                            <IconArrowRight className="w-4 h-4" stroke={2} />
-                        </Link>
-                        <Link href="/work?industry=real-estate&source=real-estate-professionals" className="btn-secondary inline-flex items-center justify-center gap-2">
-                            See real estate work
-                            <IconArrowRight className="w-4 h-4" stroke={2} />
-                        </Link>
-                    </div>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Get a clear plan and next steps in one reply."
+                body="Tell me your market, what you sell, and what you want the site to accomplish. I'll respond within one business day."
+                primary={{ label: "Send a message", href: contactHref }}
+                secondary={{ label: "See real estate work", href: "/work?industry=real-estate&source=real-estate-professionals" }}
+            />
         </>
     );
 }

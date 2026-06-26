@@ -29,32 +29,34 @@ export function HowItWorks({ contactSource = "how-it-works" }: { contactSource?:
         <div>
             <AnimatedSection>
                 <SectionHeading
+                    eyebrow="The process"
                     title="How it works"
-                    subtitle="A straightforward process with clear checkpoints—so you always know what’s happening and what comes next."
-                    align="center"
+                    subtitle="A straightforward process with clear checkpoints—so you always know what's happening and what comes next."
                 />
             </AnimatedSection>
 
-            <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
+            <StaggerContainer className="ledger border-t border-rule" staggerDelay={0.06}>
                 {steps.map((step, index) => (
                     <StaggerItem key={step.title}>
-                        <div className="h-full rounded-2xl border border-border/60 bg-card px-6 py-6 shadow-[var(--shadow-soft)]">
-                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                                Step {index + 1}
-                            </p>
-                            <p className="text-lg font-semibold text-foreground">{step.title}</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                {step.description}
-                            </p>
+                        <div className="ledger-row grid gap-x-6 gap-y-2 py-7 md:grid-cols-[4rem_1fr] md:gap-x-10">
+                            <span className="font-mono text-sm text-primary md:pt-1.5">
+                                {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <div className="max-w-2xl">
+                                <p className="font-display text-xl text-foreground sm:text-2xl">{step.title}</p>
+                                <p className="mt-2 text-base leading-relaxed text-foreground/72">
+                                    {step.description}
+                                </p>
+                            </div>
                         </div>
                     </StaggerItem>
                 ))}
             </StaggerContainer>
 
-            <AnimatedSection className="mt-10 text-center">
+            <AnimatedSection className="mt-10">
                 <Link
                     href={`/contact?source=${encodeURIComponent(contactSource)}`}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group"
+                    className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
                 >
                     Book a free discovery call
                     <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />

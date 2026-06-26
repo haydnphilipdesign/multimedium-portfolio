@@ -5,12 +5,13 @@ import type { ComponentType } from "react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel } from "@/components/sections/Editorial";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
-import { IconArrowRight, IconChecklist, IconFileText } from "@tabler/icons-react";
+import { IconArrowRight, IconChecklist } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Free Transaction Coordinator Resources",
@@ -115,25 +116,16 @@ export default function ResourcesPage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative max-w-3xl space-y-4">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                <IconFileText className="w-4 h-4" stroke={1.5} />
-                                Resources
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Free transaction coordinator
-                                <br />
-                                templates and PDFs
-                            </h1>
-                            <p className="text-lg text-muted-foreground">
-                                Downloadable transaction coordinator templates you can use immediately, plus structure examples you can adapt for your own workflow.
-                            </p>
-                        </div>
-                    </div>
+                    <MonoLabel className="mb-6">Resources</MonoLabel>
+                    <h1 className="max-w-3xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                        Free transaction coordinator templates &amp; PDFs
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                        Downloadable transaction coordinator templates you can use immediately, plus structure
+                        examples you can adapt for your own workflow.
+                    </p>
                 </AnimatedSection>
             </Section>
 

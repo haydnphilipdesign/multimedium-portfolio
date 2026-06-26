@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Section, SectionHeading } from "@/components/sections/Section";
+import { Section } from "@/components/sections/Section";
 import {
     AnimatedSection,
     StaggerContainer,
     StaggerItem,
 } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel, SectionOpener, RuledRow } from "@/components/sections/Editorial";
+import { CTADark } from "@/components/marketing/CTA";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import {
     IconArrowRight,
@@ -23,7 +25,6 @@ import {
     IconHeadset,
     IconUsers,
     IconShieldCheck,
-    IconSparkles,
     IconExternalLink,
 } from "@tabler/icons-react";
 import { createPageMetadata } from "@/lib/seo";
@@ -269,119 +270,86 @@ export default function TCPackagesPage() {
         <>
             <JsonLd data={structuredData} />
             {/* Hero */}
-            <div className="relative overflow-hidden border-b border-border/40">
-                <Section className="pt-28 sm:pt-32 md:pt-40 pb-14 md:pb-20" padding="none">
-                    <AnimatedSection>
-                        <div className="max-w-3xl">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60 mb-6">
-                                <IconShieldCheck className="w-4 h-4 text-primary" stroke={1.5} />
-                                Built by someone who grew up in the TC world
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Website packages built{" "}
-                                <span className="text-gradient">
-                                    specifically for transaction coordinators.
-                                </span>
-                            </h1>
-                            <p className="mt-6 text-lg md:text-xl text-muted-foreground">
-                                My mom has been a transaction coordinator since 2013. I grew up
-                                around Dotloop uploads, compliance checklists, and last-minute
-                                closing changes — so I know what a TC business actually needs
-                                from a website: clear trust signals, an easy way to start a
-                                file, and a brand agents take seriously.
-                            </p>
+            <Section className="pt-32 sm:pt-36 md:pt-44 pb-14 md:pb-20" padding="none">
+                <AnimatedSection>
+                    <div className="max-w-3xl">
+                        <MonoLabel className="mb-6">Built from inside the TC world</MonoLabel>
+                        <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                            Website packages built{" "}
+                            <span className="text-gradient">for transaction coordinators.</span>
+                        </h1>
+                        <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                            My mom has been a transaction coordinator since 2013. I grew up around
+                            Dotloop uploads, compliance checklists, and last-minute closing changes —
+                            so I know what a TC business actually needs from a website: clear trust
+                            signals, an easy way to start a file, and a brand agents take seriously.
+                        </p>
 
-                            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                                <Link
-                                    href="#packages"
-                                    className="btn-primary inline-flex items-center justify-center gap-2"
-                                >
-                                    See packages
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
-                                <Link
-                                    href="/work?industry=tc"
-                                    className="btn-secondary inline-flex items-center justify-center gap-2"
-                                >
-                                    See TC work
-                                </Link>
-                            </div>
+                        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                            <Link href="#packages" className="btn btn-primary group">
+                                See packages
+                                <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </Link>
+                            <Link href="/work?industry=tc" className="btn btn-secondary">
+                                See TC work
+                            </Link>
                         </div>
-                    </AnimatedSection>
-                </Section>
-            </div>
+                    </div>
+                </AnimatedSection>
+            </Section>
 
             {/* Package comparison */}
             <Section id="packages">
                 <AnimatedSection>
-                    <SectionHeading
+                    <SectionOpener
+                        eyebrow="Pricing"
+                        eyebrowIndex="01"
                         title="Choose your package"
-                        subtitle="Four tiers designed around what the website needs to accomplish: credibility, clear services, less back-and-forth, and a next step agents can act on."
+                        lead="Four tiers designed around what the website needs to accomplish: credibility, clear services, less back-and-forth, and a next step agents can act on."
                     />
                 </AnimatedSection>
 
                 <StaggerContainer
-                    className="grid gap-6 md:grid-cols-2 xl:grid-cols-4"
+                    className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4"
                     staggerDelay={0.08}
                 >
                     {packages.map((pkg) => (
-                        <StaggerItem key={pkg.name}>
+                        <StaggerItem key={pkg.name} className="h-full">
                             <div
-                                className={`relative h-full rounded-2xl border bg-card shadow-[var(--shadow-soft)] p-7 flex flex-col ${
+                                className={`relative flex h-full flex-col rounded-2xl border p-7 ${
                                     pkg.featured
-                                        ? "border-primary/40 ring-1 ring-primary/20"
-                                        : "border-border/60"
+                                        ? "border-primary/45 bg-card shadow-[var(--shadow-elevated)] ring-1 ring-primary/25"
+                                        : "border-border/70 bg-card shadow-[var(--shadow-soft)]"
                                 }`}
                             >
                                 {pkg.featured && (
-                                    <span className="absolute -top-3 left-6 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground">
+                                    <span className="absolute -top-3 left-7 inline-flex items-center rounded-full bg-primary px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-primary-foreground">
                                         Most popular
                                     </span>
                                 )}
 
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                        <pkg.icon className="w-5 h-5" stroke={1.5} />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-foreground">
-                                            {pkg.name}
-                                        </h3>
-                                    </div>
+                                <p className="mono-label text-muted-foreground">{pkg.name}</p>
+                                <div className="mt-4 flex items-baseline gap-2">
+                                    <span className="font-display text-4xl text-foreground">{pkg.price}</span>
+                                </div>
+                                <div className="mono-meta mt-2 flex flex-wrap gap-x-2">
+                                    <span>{pkg.pages}</span>
+                                    <span aria-hidden>·</span>
+                                    <span>{pkg.timeline}</span>
                                 </div>
 
-                                <div className="mb-4">
-                                    <span className="text-3xl font-bold text-foreground">
-                                        {pkg.price}
-                                    </span>
-                                    <div className="mt-1 flex gap-3 text-xs text-muted-foreground">
-                                        <span>{pkg.pages}</span>
-                                        <span>&middot;</span>
-                                        <span>{pkg.timeline}</span>
-                                    </div>
-                                </div>
-
-                                <p className="text-sm text-muted-foreground mb-4">
+                                <p className="mt-5 text-sm leading-relaxed text-foreground/75">
                                     {pkg.description}
                                 </p>
 
-                                <div className="rounded-xl border border-border/60 bg-muted/25 p-3 mb-5">
-                                    <p className="text-xs font-medium text-muted-foreground">
-                                        <strong className="text-foreground">Best for:</strong>{" "}
-                                        {pkg.bestFor}
-                                    </p>
-                                </div>
+                                <p className="mt-5 border-l-2 border-primary/40 pl-3 text-xs leading-relaxed text-foreground/70">
+                                    <span className="font-semibold text-foreground">Best for:</span> {pkg.bestFor}
+                                </p>
 
-                                <ul className="space-y-2.5 mb-6 flex-1">
+                                <ul className="mb-7 mt-6 flex-1 space-y-3 border-t border-rule pt-6">
                                     {pkg.features.map((feature) => (
-                                        <li
-                                            key={feature}
-                                            className="flex items-start gap-2.5 text-sm text-muted-foreground"
-                                        >
-                                            <IconCircleCheck
-                                                className="mt-0.5 h-4 w-4 text-primary shrink-0"
-                                                stroke={1.6}
-                                            />
+                                        <li key={feature} className="flex items-start gap-2.5 text-sm leading-relaxed text-foreground/75">
+                                            <IconCircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" stroke={1.6} />
                                             <span>{feature}</span>
                                         </li>
                                     ))}
@@ -390,24 +358,20 @@ export default function TCPackagesPage() {
                                 <div className="flex flex-col gap-2.5">
                                     <Link
                                         href={`${contactHref}&package=${encodeURIComponent(pkg.name)}`}
-                                        className={`inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
-                                            pkg.featured
-                                                ? "btn-primary"
-                                                : "btn-secondary"
-                                        }`}
+                                        className={`btn btn-sm w-full ${pkg.featured ? "btn-primary" : "btn-secondary"}`}
                                     >
                                         {pkg.cta}
-                                        <IconArrowRight className="w-4 h-4" stroke={2} />
+                                        <IconArrowRight className="h-4 w-4" stroke={2} />
                                     </Link>
                                     {pkg.demoHref ? (
                                         <a
                                             href={`${pkg.demoHref}?returnTo=${encodeURIComponent(packagesSectionHref)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                                            className="inline-flex w-full items-center justify-center gap-2 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:text-primary"
                                         >
                                             Preview live demo
-                                            <IconExternalLink className="w-3.5 h-3.5" stroke={2} />
+                                            <IconExternalLink className="h-3.5 w-3.5" stroke={2} />
                                         </a>
                                     ) : null}
                                 </div>
@@ -418,30 +382,25 @@ export default function TCPackagesPage() {
             </Section>
 
             {/* Comparison */}
-            <Section className="border-t border-border/40">
+            <Section className="border-t border-rule">
                 <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                            Package comparison
-                        </span>
-                        <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                            Pick the level of business support you need
-                        </h2>
-                        <p className="mt-3 text-muted-foreground">
-                            The difference is not just page count. It is how clearly the site explains your services, how much action it gives agents, and how much strategic support goes into the build.
-                        </p>
-                    </div>
+                    <SectionOpener
+                        eyebrow="Package comparison"
+                        eyebrowIndex="02"
+                        title="Pick the level of business support you need"
+                        lead="The difference is not just page count. It is how clearly the site explains your services, how much action it gives agents, and how much strategic support goes into the build."
+                    />
                 </AnimatedSection>
 
                 <AnimatedSection delay={0.08} direction="none">
-                    <div className="mt-8 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
-                        <div className="grid grid-cols-1 divide-y divide-border/60 text-sm md:grid-cols-5 md:divide-x md:divide-y-0">
-                            <div className="bg-muted/35 p-5 font-semibold text-foreground">Best use</div>
+                    <div className="mt-10 overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-soft)]">
+                        <div className="grid grid-cols-1 divide-y divide-rule text-sm md:grid-cols-5 md:divide-x md:divide-y-0">
+                            <div className="bg-surface-2 p-5"><span className="mono-label text-muted-foreground">Best use</span></div>
                             {packages.map((pkg) => (
                                 <div key={pkg.name} className="p-5">
-                                    <p className="font-semibold text-foreground">{pkg.name}</p>
-                                    <p className="mt-1 text-primary font-semibold">{pkg.price}</p>
-                                    <p className="mt-3 text-muted-foreground">{pkg.bestFor}</p>
+                                    <p className="font-display text-lg text-foreground">{pkg.name}</p>
+                                    <p className="mt-1 font-mono text-base text-primary">{pkg.price}</p>
+                                    <p className="mt-3 text-foreground/70">{pkg.bestFor}</p>
                                 </div>
                             ))}
                         </div>
@@ -453,14 +412,14 @@ export default function TCPackagesPage() {
                         ].map((row) => (
                             <div
                                 key={row[0]}
-                                className="grid grid-cols-1 divide-y divide-border/60 border-t border-border/60 text-sm md:grid-cols-5 md:divide-x md:divide-y-0"
+                                className="grid grid-cols-1 divide-y divide-rule border-t border-rule text-sm md:grid-cols-5 md:divide-x md:divide-y-0"
                             >
                                 {row.map((cell, index) => (
                                     <div
                                         key={`${row[0]}-${index}`}
-                                        className={index === 0 ? "bg-muted/35 p-5 font-semibold text-foreground" : "p-5 text-muted-foreground"}
+                                        className={index === 0 ? "bg-surface-2 p-5" : "p-5 text-foreground/70"}
                                     >
-                                        {cell}
+                                        {index === 0 ? <span className="mono-meta text-foreground">{cell}</span> : cell}
                                     </div>
                                 ))}
                             </div>
@@ -469,21 +428,21 @@ export default function TCPackagesPage() {
                 </AnimatedSection>
             </Section>
 
-            <Section className="border-t border-border/40">
+            {/* Not another DIY template — statement */}
+            <Section className="border-t border-rule">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
-                        <div className="relative max-w-3xl">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                Not another DIY template
-                            </span>
-                            <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
+                    <div className="grid gap-8 md:grid-cols-[0.4fr_0.6fr] md:gap-14">
+                        <div>
+                            <MonoLabel className="mb-5">Not another DIY template</MonoLabel>
+                            <h2 className="font-display text-3xl text-foreground sm:text-4xl">
                                 Built around how agents evaluate a TC
                             </h2>
-                            <p className="mt-4 text-muted-foreground leading-relaxed">
+                        </div>
+                        <div className="space-y-4 text-lg leading-relaxed text-foreground/78">
+                            <p>
                                 Wix, Squarespace, GoDaddy, and Fiverr can give you a page. The hard part is making that page explain your services clearly, answer the questions agents ask before they contact you, and make the next step feel obvious. These packages are structured around the way transaction coordinators actually get found, evaluated, and contacted.
                             </p>
-                            <p className="mt-3 text-muted-foreground leading-relaxed">
+                            <p>
                                 You answer guided questions about your business. I handle the structure, copy flow, design, mobile experience, launch details, and the places where generic templates usually leave TCs sounding vague.
                             </p>
                         </div>
@@ -491,70 +450,52 @@ export default function TCPackagesPage() {
                 </AnimatedSection>
             </Section>
 
-            {/* What every package includes */}
-            <div className="relative rounded-2xl bg-muted/35">
+            {/* What every package includes — ruled rows */}
+            <section className="bg-surface-1 border-t border-rule">
                 <Section>
                     <AnimatedSection>
-                        <SectionHeading
+                        <SectionOpener
+                            eyebrow="Standard on every tier"
+                            eyebrowIndex="03"
                             title="Included in every package"
-                            subtitle="No matter which tier you choose, you get a professional foundation built for TC businesses."
+                            lead="No matter which tier you choose, you get a professional foundation built for TC businesses."
                         />
                     </AnimatedSection>
 
-                    <StaggerContainer
-                        className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-                        staggerDelay={0.08}
-                    >
-                        {allPackagesInclude.map((item) => (
+                    <StaggerContainer className="mt-12 ledger border-t border-rule" staggerDelay={0.06}>
+                        {allPackagesInclude.map((item, idx) => (
                             <StaggerItem key={item.title}>
-                                <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                    <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                        <item.icon className="w-5 h-5" stroke={1.5} />
-                                    </div>
-                                    <h3 className="mt-5 text-lg font-semibold text-foreground">
-                                        {item.title}
-                                    </h3>
-                                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                </div>
+                                <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                    {item.description}
+                                </RuledRow>
                             </StaggerItem>
                         ))}
                     </StaggerContainer>
                 </Section>
-            </div>
+            </section>
 
-            {/* Add-ons */}
+            {/* Add-ons — price ledger */}
             <Section>
                 <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                            Optional extras
-                        </span>
-                        <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                            Add what you need
-                        </h2>
-                        <p className="mt-3 text-muted-foreground">
-                            These can be added to any package now or later, depending on what would help your business most.
-                        </p>
-                    </div>
+                    <SectionOpener
+                        eyebrow="Optional extras"
+                        eyebrowIndex="04"
+                        title="Add what you need"
+                        lead="These can be added to any package now or later, depending on what would help your business most."
+                    />
                 </AnimatedSection>
 
-                <div className="mt-8 grid gap-3 max-w-2xl">
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {addOns.map((item) => (
                         <div
                             key={item.name}
-                            className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card px-5 py-3.5"
+                            className="ledger-row grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-1 py-5 sm:grid-cols-[14rem_1fr_auto] sm:gap-x-10"
                         >
-                            <div>
-                                <p className="text-sm text-foreground font-medium">
-                                    {item.name}
-                                </p>
-                                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                                    {item.description}
-                                </p>
-                            </div>
-                            <span className="text-sm text-muted-foreground font-medium">
+                            <p className="font-display text-lg text-foreground">{item.name}</p>
+                            <p className="col-span-2 text-sm leading-relaxed text-foreground/70 sm:col-span-1 sm:order-2 sm:max-w-md">
+                                {item.description}
+                            </p>
+                            <span className="font-mono text-base text-foreground sm:order-3 sm:text-right">
                                 {item.price}
                             </span>
                         </div>
@@ -564,131 +505,102 @@ export default function TCPackagesPage() {
 
             {/* Work samples */}
             {featured.length > 0 && (
-                <Section className="relative overflow-hidden border-t border-border/40">
-                    <div className="pointer-events-none absolute -top-28 left-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+                <Section className="border-t border-rule">
                     <AnimatedSection>
-                        <div className="max-w-3xl">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                Real work
-                            </span>
-                            <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                Transaction coordinator websites I&apos;ve built
-                            </h2>
-                            <p className="mt-3 text-muted-foreground">
-                                Recent projects for businesses in the TC and real estate space.
-                            </p>
-                        </div>
+                        <SectionOpener
+                            eyebrow="Real work"
+                            eyebrowIndex="05"
+                            title="Transaction coordinator websites I've built"
+                            lead="Recent projects for businesses in the TC and real estate space."
+                            action={
+                                <Link
+                                    href="/work?industry=tc"
+                                    className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
+                                >
+                                    Browse all TC work
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
+                            }
+                        />
                     </AnimatedSection>
-                    <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2">
+                    <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2">
                         {featured.map((project, index) => (
-                            <ProjectCard
-                                key={project.slug}
-                                project={project}
-                                index={index}
-                            />
+                            <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
                     </div>
-                    <AnimatedSection className="mt-10">
-                        <Link
-                            href="/work?industry=tc"
-                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group"
-                        >
-                            Browse all TC work
-                            <IconArrowRight
-                                className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                                stroke={2}
-                            />
-                        </Link>
-                    </AnimatedSection>
                 </Section>
             )}
 
             {/* Referral partners callout */}
-            <Section className="border-t border-border/40">
+            <Section className="border-t border-rule">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
-                        <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-                            <div>
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                    <IconUsers className="w-3.5 h-3.5" stroke={1.5} />
-                                    For TC coaches + referral partners
-                                </span>
-                                <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                    Refer your students. I&apos;ll build their websites.
-                                </h2>
-                            <p className="mt-4 text-muted-foreground leading-relaxed">
-                                    If you run a TC course, mentorship, or coaching program, I can
-                                    set up a dedicated referral page for your students with a
-                                    preferred perk. Your students get a vetted web designer who
-                                    understands the cadence of a TC business, from file intake to
-                                    broker compliance. You get a resource that adds real value to
-                                    your program instead of another generic recommendation.
-                                </p>
-                                <Link
-                                    href="/contact?source=tc-packages&projectType=referral-partnership"
-                                    className="mt-6 btn-primary inline-flex items-center justify-center gap-2"
-                                >
-                                    Discuss a referral partnership
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
-                            </div>
-                            <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                <p className="text-sm font-semibold text-foreground">
-                                    How it works
-                                </p>
-                                <div className="mt-4 space-y-4">
-                                    {[
-                                        { step: "1", text: "I create a private referral page on my site for your program" },
-                                        { step: "2", text: "Your students reach out through that page and mention your program" },
-                                        { step: "3", text: "They get a clear proposal with a preferred perk included" },
-                                    ].map((item) => (
-                                        <div key={item.step} className="flex items-start gap-4">
-                                            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-border/60 bg-muted/50 text-xs font-semibold text-foreground shrink-0">
-                                                {item.step}
-                                            </span>
-                                            <p className="text-sm text-muted-foreground">
-                                                {item.text}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
+                    <div className="grid gap-10 rounded-2xl border border-border/70 bg-surface-1 p-8 shadow-[var(--shadow-soft)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+                        <div>
+                            <MonoLabel className="mb-5 inline-flex items-center gap-2">
+                                <IconUsers className="h-3.5 w-3.5" stroke={1.8} />
+                                For TC coaches + referral partners
+                            </MonoLabel>
+                            <h2 className="font-display text-3xl text-foreground sm:text-4xl">
+                                Refer your students. I&apos;ll build their websites.
+                            </h2>
+                            <p className="mt-5 text-lg leading-relaxed text-foreground/78">
+                                If you run a TC course, mentorship, or coaching program, I can set up a
+                                dedicated referral page for your students with a preferred perk. Your
+                                students get a vetted web designer who understands the cadence of a TC
+                                business, from file intake to broker compliance. You get a resource that
+                                adds real value to your program instead of another generic recommendation.
+                            </p>
+                            <Link
+                                href="/contact?source=tc-packages&projectType=referral-partnership"
+                                className="btn btn-primary group mt-7"
+                            >
+                                Discuss a referral partnership
+                                <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </Link>
+                        </div>
+                        <div className="rounded-2xl border border-rule bg-background/60 p-6">
+                            <p className="mono-label mb-4 text-muted-foreground">How it works</p>
+                            <div className="ledger border-t border-rule">
+                                {[
+                                    "I create a private referral page on my site for your program",
+                                    "Your students reach out through that page and mention your program",
+                                    "They get a clear proposal with a preferred perk included",
+                                ].map((text, i) => (
+                                    <div key={i} className="ledger-row flex items-start gap-4 py-4">
+                                        <span className="font-mono text-sm text-primary">{String(i + 1).padStart(2, "0")}</span>
+                                        <p className="text-sm leading-relaxed text-foreground/80">{text}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            {/* FAQ */}
-            <Section className="border-t border-border/40">
+            {/* FAQ — hairline list */}
+            <Section className="border-t border-rule">
                 <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                            Common questions
-                        </h2>
-                        <p className="mt-3 text-muted-foreground">
-                            What TCs usually want to know before getting started.
-                        </p>
-                    </div>
+                    <SectionOpener
+                        eyebrow="FAQ"
+                        eyebrowIndex="06"
+                        title="Common questions"
+                        lead="What TCs usually want to know before getting started."
+                    />
                 </AnimatedSection>
 
-                <div className="mt-10 grid gap-4 md:max-w-4xl">
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {faqs.map((item) => (
-                        <details
-                            key={item.q}
-                            className="group rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-5 open:bg-card/80 transition-colors"
-                        >
-                            <summary className="cursor-pointer list-none">
-                                <div className="flex items-start justify-between gap-6">
-                                    <p className="text-base font-semibold text-foreground">
-                                        {item.q}
-                                    </p>
-                                    <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/60 text-muted-foreground group-open:text-foreground shrink-0">
-                                        +
-                                    </span>
-                                </div>
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span
+                                    aria-hidden
+                                    className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45"
+                                >
+                                    +
+                                </span>
                             </summary>
-                            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">
                                 {item.a}
                             </p>
                         </details>
@@ -696,40 +608,14 @@ export default function TCPackagesPage() {
                 </div>
             </Section>
 
-            {/* Final CTA */}
-            <Section className="border-t border-border/40">
-                <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="relative flex flex-col items-center text-center">
-                            <IconSparkles className="w-8 h-8 text-primary mb-4" stroke={1.5} />
-                            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                Ready to get a website that works for your TC business?
-                            </h2>
-                            <p className="mt-3 max-w-2xl text-muted-foreground">
-                                Tell me about your business, where you are in your journey, and
-                                what you want your website to accomplish. I&apos;ll respond within
-                                one business day with a clear plan.
-                            </p>
-                            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                                <Link
-                                    href={contactHref}
-                                    className="btn-primary inline-flex items-center justify-center gap-2"
-                                >
-                                    Start a conversation
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
-                                <Link
-                                    href="/work?industry=tc"
-                                    className="btn-secondary inline-flex items-center justify-center gap-2"
-                                >
-                                    See TC work
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </AnimatedSection>
-            </Section>
+            {/* Final CTA — dark ink closer */}
+            <CTADark
+                eyebrow="Start here"
+                title="Ready to get a website that works for your TC business?"
+                body="Tell me about your business, where you are in your journey, and what you want your website to accomplish. I'll respond within one business day with a clear plan."
+                primary={{ label: "Start a conversation", href: contactHref }}
+                secondary={{ label: "See TC work", href: "/work?industry=tc" }}
+            />
         </>
     );
 }

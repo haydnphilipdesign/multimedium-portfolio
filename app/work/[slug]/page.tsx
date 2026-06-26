@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel, PullQuote, CheckRow } from "@/components/sections/Editorial";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getProjectBySlug, getAllProjectSlugs, projects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
@@ -11,7 +12,7 @@ import {
     getBreadcrumbStructuredData,
     getCreativeWorkStructuredData,
 } from "@/lib/structuredData";
-import { IconArrowLeft, IconArrowRight, IconArrowUpRight, IconQuote } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -127,95 +128,87 @@ export default async function CaseStudyPage({ params }: PageProps) {
     return (
         <>
             <JsonLd data={structuredData} />
-            {/* Hero Section */}
-            <section className="relative pt-28 sm:pt-32 md:pt-40 pb-16 md:pb-24">
+            {/* Editorial hero */}
+            <Section size="wide" padding="none" className="pt-32 sm:pt-36 md:pt-44">
+                <AnimatedSection>
+                    <Link
+                        href="/work"
+                        className="touch-target mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        <IconArrowLeft className="w-4 h-4" stroke={1.5} />
+                        Back to work
+                    </Link>
+                </AnimatedSection>
 
-                <Section size="wide" padding="none" className="relative z-10">
-                    <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
-                    <AnimatedSection>
-                        <Link
-                            href="/work"
-                            className="touch-target mb-8 inline-flex items-center gap-2 rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            <IconArrowLeft className="w-4 h-4" stroke={1.5} />
-                            Back to case studies
-                        </Link>
+                {isConcept && (
+                    <AnimatedSection delay={0.1}>
+                        <div className="mb-7 max-w-2xl border-l-2 border-primary/50 pl-5 text-sm leading-relaxed text-foreground/70">
+                            <span className="font-semibold text-foreground">Concept project.</span>{" "}
+                            A self-initiated design exploration for a fictional brand — not commissioned client work. Any names, stats, or testimonials shown in the mockups are placeholder content.
+                        </div>
                     </AnimatedSection>
+                )}
 
-                    {isConcept && (
-                        <AnimatedSection delay={0.1}>
-                            <div className="mb-6 rounded-xl border border-border/60 bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
-                                <span className="font-semibold text-foreground">Concept project.</span>{" "}
-                                A self-initiated design exploration for a fictional brand — not commissioned client work. Any names, stats, or testimonials shown in the mockups are placeholder content.
-                            </div>
-                        </AnimatedSection>
-                    )}
+                <AnimatedSection delay={0.15}>
+                    <MonoLabel className="mb-6">
+                        {isConcept ? "Concept · demo" : project.category}
+                    </MonoLabel>
+                    <h1 className="max-w-4xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                        {project.title}
+                    </h1>
+                </AnimatedSection>
 
-                    <AnimatedSection delay={0.15}>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-                            {project.title}
-                        </h1>
-                    </AnimatedSection>
+                <AnimatedSection delay={0.25}>
+                    <p className="mt-6 max-w-2xl text-xl leading-relaxed text-foreground/80 md:text-2xl">
+                        {project.tagline}
+                    </p>
+                </AnimatedSection>
 
-                    <AnimatedSection delay={0.25}>
-                        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mb-10 sm:mb-12">
-                            {project.tagline}
-                        </p>
-                    </AnimatedSection>
-
-                    {/* Project Meta */}
-                    <AnimatedSection delay={0.3}>
-                        <div className="grid grid-cols-1 gap-4 border-y border-border/40 py-6 sm:grid-cols-2 sm:gap-6 sm:py-8 lg:grid-cols-4">
-                            <div>
-                                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    {isConcept ? "Project type" : "Client"}
-                                </p>
-                                <p className="text-sm font-medium text-foreground">
-                                    {isConcept ? "Concept (fictional brand)" : project.client}
-                                </p>
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Role
-                                </p>
-                                <p className="text-sm font-medium text-foreground">{project.role}</p>
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Live
-                                </p>
+                {/* Project meta — ledger */}
+                <AnimatedSection delay={0.3}>
+                    <dl className="ledger mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-foreground/15 pt-8 lg:grid-cols-4">
+                        <div>
+                            <dt className="mono-label text-muted-foreground">
+                                {isConcept ? "Project type" : "Client"}
+                            </dt>
+                            <dd className="mt-2 text-sm font-medium text-foreground">
+                                {isConcept ? "Concept (fictional brand)" : project.client}
+                            </dd>
+                        </div>
+                        <div>
+                            <dt className="mono-label text-muted-foreground">Role</dt>
+                            <dd className="mt-2 text-sm font-medium text-foreground">{project.role}</dd>
+                        </div>
+                        <div>
+                            <dt className="mono-label text-muted-foreground">Live</dt>
+                            <dd className="mt-2 text-sm font-medium text-foreground">
                                 {project.externalUrl ? (
                                     <Link
                                         href={project.externalUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                                        className="inline-flex items-center gap-1 transition-colors hover:text-primary"
                                     >
                                         Visit site
                                         <IconArrowUpRight className="h-4 w-4" stroke={1.5} />
                                     </Link>
                                 ) : (
-                                    <p className="text-sm text-muted-foreground">—</p>
+                                    <span className="text-muted-foreground">—</span>
                                 )}
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Built with (for the curious)
-                                </p>
-                                <p className="text-sm font-medium text-foreground">
-                                    {toolsSummary}
-                                </p>
-                            </div>
+                            </dd>
                         </div>
-                    </AnimatedSection>
-                    </div>
-                </Section>
-            </section>
+                        <div>
+                            <dt className="mono-label text-muted-foreground">Built with</dt>
+                            <dd className="mt-2 text-sm font-medium text-foreground">{toolsSummary}</dd>
+                        </div>
+                    </dl>
+                </AnimatedSection>
+            </Section>
 
-            {/* Hero Image */}
-            <Section size="wide" padding="none" className="mb-16 md:mb-24">
+            {/* Hero Image — full and large */}
+            <Section size="wide" padding="none" className="mt-12 mb-16 md:mt-16 md:mb-24">
                 <AnimatedSection>
-                    <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted border border-border/60 shadow-[var(--shadow-soft)]">
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border/60 bg-surface-2 shadow-[var(--shadow-elevated)]">
                         <Image
                             src={project.heroImage}
                             alt={`${project.title} website design case study hero image`}
@@ -228,15 +221,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </AnimatedSection>
             </Section>
 
-            {/* Summary */}
+            {/* Summary — editorial lead */}
             {hasSummary ? (
-                <Section id="summary" className="pt-0" padding="none">
+                <Section id="summary" size="narrow" className="pt-0" padding="none">
                     <AnimatedSection>
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-6 sm:px-8">
-                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                                Summary
-                            </p>
-                            <p className="text-muted-foreground leading-relaxed">
+                        <div className="border-l-2 border-primary/60 pl-6 sm:pl-8">
+                            <MonoLabel className="mb-4">Summary</MonoLabel>
+                            <p className="font-display text-xl leading-relaxed text-foreground sm:text-2xl">
                                 {summaryText}
                             </p>
                         </div>
@@ -246,158 +237,114 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Jump links */}
             {tocItems.length > 1 ? (
-                <Section className={hasSummary ? "pt-8" : "pt-0"} padding="none">
+                <Section className={hasSummary ? "pt-10" : "pt-0"} padding="none">
                     <AnimatedSection delay={0.05}>
-                        <nav aria-label="On this page" className="flex flex-col gap-3">
-                            <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                                On this page
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {tocItems.map((item) => (
-                                    <a
-                                        key={item.href}
-                                        href={item.href}
-                                        className="touch-target inline-flex items-center rounded-full border border-border/60 bg-card/80 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
-                                    >
-                                        {item.label}
-                                    </a>
-                                ))}
-                            </div>
+                        <nav aria-label="On this page" className="flex flex-wrap items-center gap-x-2 gap-y-2">
+                            <span className="mono-label mr-2 text-muted-foreground">On this page</span>
+                            {tocItems.map((item) => (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    className="touch-target inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-colors hover:border-primary/40 hover:text-primary"
+                                >
+                                    {item.label}
+                                </a>
+                            ))}
                         </nav>
                     </AnimatedSection>
                 </Section>
             ) : null}
 
-            {/* Overview Section */}
+            {/* Overview — Challenge / Solution */}
             <Section id="overview">
-                <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
+                <div className="grid gap-10 md:grid-cols-2 md:gap-16">
                     <AnimatedSection>
-                        <h2 className="text-2xl font-bold text-foreground mb-4">
-                            The Challenge
-                        </h2>
-                        <p className="text-muted-foreground leading-relaxed">
-                            {project.problem}
-                        </p>
+                        <MonoLabel index="01" className="mb-4">The challenge</MonoLabel>
+                        <p className="text-lg leading-relaxed text-foreground/80">{project.problem}</p>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.1}>
-                        <h2 className="text-2xl font-bold text-foreground mb-4">
-                            The Solution
-                        </h2>
-                        <p className="text-muted-foreground leading-relaxed">
-                            {project.solution}
-                        </p>
+                        <MonoLabel index="02" className="mb-4">The solution</MonoLabel>
+                        <p className="text-lg leading-relaxed text-foreground/80">{project.solution}</p>
                     </AnimatedSection>
                 </div>
             </Section>
 
-            {/* Project Snapshot */}
+            {/* Project Snapshot — ruled lists */}
             {project.caseStudy?.goals?.length || project.caseStudy?.constraints?.length ? (
-                <Section id="snapshot" className="rounded-2xl bg-muted/35">
-                    <AnimatedSection>
-                        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
-                            Project Snapshot
-                        </h2>
-                    </AnimatedSection>
+                <section className="bg-surface-1">
+                    <Section id="snapshot">
+                        <AnimatedSection>
+                            <h2 className="mb-10 font-display text-3xl text-foreground sm:text-4xl">
+                                Project snapshot
+                            </h2>
+                        </AnimatedSection>
 
-                    <div className="grid gap-6 md:grid-cols-2">
-                        {project.caseStudy?.goals?.length ? (
-                            <AnimatedSection>
-                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
-                                        Goals
-                                    </h3>
-                                    <ul className="space-y-3">
+                        <div className="grid gap-x-16 gap-y-10 md:grid-cols-2">
+                            {project.caseStudy?.goals?.length ? (
+                                <AnimatedSection>
+                                    <MonoLabel className="mb-3">Goals</MonoLabel>
+                                    <ul className="ledger border-t border-rule">
                                         {project.caseStudy.goals.map((goal) => (
-                                            <li key={goal} className="flex items-start gap-3 text-muted-foreground">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                <span className="leading-relaxed">{goal}</span>
-                                            </li>
+                                            <CheckRow key={goal}>{goal}</CheckRow>
                                         ))}
                                     </ul>
-                                </div>
-                            </AnimatedSection>
-                        ) : null}
+                                </AnimatedSection>
+                            ) : null}
 
-                        {project.caseStudy?.constraints?.length ? (
-                            <AnimatedSection delay={0.1}>
-                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
-                                        Constraints / Requirements
-                                    </h3>
-                                    <ul className="space-y-3">
+                            {project.caseStudy?.constraints?.length ? (
+                                <AnimatedSection delay={0.1}>
+                                    <MonoLabel className="mb-3">Constraints / requirements</MonoLabel>
+                                    <ul className="ledger border-t border-rule">
                                         {project.caseStudy.constraints.map((constraint) => (
-                                            <li
-                                                key={constraint}
-                                                className="flex items-start gap-3 text-muted-foreground"
-                                            >
-                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                <span className="leading-relaxed">{constraint}</span>
-                                            </li>
+                                            <CheckRow key={constraint}>{constraint}</CheckRow>
                                         ))}
                                     </ul>
-                                </div>
-                            </AnimatedSection>
-                        ) : null}
-                    </div>
-                </Section>
+                                </AnimatedSection>
+                            ) : null}
+                        </div>
+                    </Section>
+                </section>
             ) : null}
 
-            {/* Deliverables */}
+            {/* Deliverables — ruled lists */}
             {project.caseStudy?.delivered?.length || project.caseStudy?.whyItWorks?.length || project.caseStudy?.approval ? (
                 <Section id="deliverables">
                     <AnimatedSection>
-                        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
-                            Deliverables & Rationale
+                        <h2 className="mb-10 font-display text-3xl text-foreground sm:text-4xl">
+                            Deliverables &amp; rationale
                         </h2>
                     </AnimatedSection>
 
-                    <div className="grid gap-6 md:grid-cols-2 md:items-start">
+                    <div className="grid gap-x-16 gap-y-10 md:grid-cols-2 md:items-start">
                         {project.caseStudy?.delivered?.length ? (
                             <AnimatedSection>
-                                <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
-                                        What I Delivered
-                                    </h3>
-                                    <ul className="space-y-3">
-                                        {project.caseStudy.delivered.map((item) => (
-                                            <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                <span className="leading-relaxed">{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                <MonoLabel className="mb-3">What I delivered</MonoLabel>
+                                <ul className="ledger border-t border-rule">
+                                    {project.caseStudy.delivered.map((item) => (
+                                        <CheckRow key={item}>{item}</CheckRow>
+                                    ))}
+                                </ul>
                             </AnimatedSection>
                         ) : null}
 
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             {project.caseStudy?.whyItWorks?.length ? (
                                 <AnimatedSection delay={0.1}>
-                                    <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                                        <h3 className="text-xl font-semibold text-foreground mb-4">
-                                            Why This Works
-                                        </h3>
-                                        <ul className="space-y-3">
-                                            {project.caseStudy.whyItWorks.map((item) => (
-                                                <li
-                                                    key={item}
-                                                    className="flex items-start gap-3 text-muted-foreground"
-                                                >
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                                    <span className="leading-relaxed">{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
+                                    <MonoLabel className="mb-3">Why this works</MonoLabel>
+                                    <ul className="ledger border-t border-rule">
+                                        {project.caseStudy.whyItWorks.map((item) => (
+                                            <CheckRow key={item}>{item}</CheckRow>
+                                        ))}
+                                    </ul>
                                 </AnimatedSection>
                             ) : null}
 
                             {project.caseStudy?.approval ? (
                                 <AnimatedSection delay={0.2}>
-                                    <div className="rounded-2xl border border-primary/20 bg-primary/10 px-6 py-5 text-sm text-foreground">
+                                    <p className="border-l-2 border-primary/50 pl-5 text-sm italic leading-relaxed text-foreground/75">
                                         {project.caseStudy.approval}
-                                    </div>
+                                    </p>
                                 </AnimatedSection>
                             ) : null}
                         </div>
@@ -405,86 +352,82 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </Section>
             ) : null}
 
-            {/* Process Section */}
+            {/* Process — numbered editorial spreads */}
             {project.process.length > 0 && (
-                <Section id="process" className="rounded-2xl bg-muted/35">
-                    <AnimatedSection>
-                        <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-                            Process
-                        </h2>
-                    </AnimatedSection>
+                <section className="bg-surface-1">
+                    <Section id="process">
+                        <AnimatedSection>
+                            <h2 className="mb-12 font-display text-3xl text-foreground sm:text-4xl">
+                                Process
+                            </h2>
+                        </AnimatedSection>
 
-                    <div className="space-y-10 sm:space-y-12 md:space-y-16">
-                        {project.process.map((step, index) => {
-                            const processImage = step.image ?? project.images[index];
+                        <div className="space-y-14 md:space-y-20">
+                            {project.process.map((step, index) => {
+                                const processImage = step.image ?? project.images[index];
 
-                            return (
-                                <AnimatedSection key={index} delay={index * 0.1}>
-                                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-                                        <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                                            <div className="flex items-center gap-4 mb-4">
-                                                <span
-                                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/25 bg-primary/10 text-sm font-bold text-primary"
-                                                >
-                                                    {index + 1}
+                                return (
+                                    <AnimatedSection key={index} delay={index * 0.1}>
+                                        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+                                            <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                                                <span className="font-display text-5xl text-primary/35 md:text-6xl">
+                                                    {String(index + 1).padStart(2, "0")}
                                                 </span>
-                                                <h3 className="text-xl font-semibold text-foreground">
+                                                <h3 className="mt-3 font-display text-2xl text-foreground sm:text-3xl">
                                                     {step.title}
                                                 </h3>
+                                                <p className="mt-4 text-lg leading-relaxed text-foreground/75">
+                                                    {step.description}
+                                                </p>
                                             </div>
-                                            <p className="text-muted-foreground leading-relaxed">
-                                                {step.description}
-                                            </p>
-                                        </div>
-                                        <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/60">
-                                                {processImage ? (
-                                                    <Image
-                                                        src={processImage}
-                                                        alt={`${project.title} - ${step.title}`}
-                                                        fill
-                                                        className="object-cover"
-                                                        sizes="(min-width: 768px) 50vw, 100vw"
-                                                    />
-                                                ) : (
-                                                    <div
-                                                        className="absolute inset-0"
-                                                        style={{
-                                                            background:
-                                                                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--primary) 8%, transparent))",
-                                                        }}
-                                                    />
-                                                )}
+                                            <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                                                <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/60 bg-surface-2 shadow-[var(--shadow-soft)]">
+                                                    {processImage ? (
+                                                        <Image
+                                                            src={processImage}
+                                                            alt={`${project.title} - ${step.title}`}
+                                                            fill
+                                                            className="object-cover"
+                                                            sizes="(min-width: 768px) 50vw, 100vw"
+                                                        />
+                                                    ) : (
+                                                        <div
+                                                            className="absolute inset-0"
+                                                            style={{
+                                                                background:
+                                                                    "linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--primary) 8%, transparent))",
+                                                            }}
+                                                        />
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </AnimatedSection>
-                            );
-                        })}
-                    </div>
-                </Section>
+                                    </AnimatedSection>
+                                );
+                            })}
+                        </div>
+                    </Section>
+                </section>
             )}
 
-            {/* Outcomes Section */}
+            {/* Outcomes — ledger of results */}
             {project.outcomes.length > 0 && (
                 <Section id="results">
                     <AnimatedSection>
-                        <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-                            Results & Impact
+                        <h2 className="mb-12 font-display text-3xl text-foreground sm:text-4xl">
+                            Results &amp; impact
                         </h2>
                     </AnimatedSection>
 
-                    <StaggerContainer className="grid gap-6 sm:gap-8 md:grid-cols-3" staggerDelay={0.1}>
+                    <StaggerContainer className="grid border-y border-rule md:grid-cols-3 md:divide-x md:divide-rule" staggerDelay={0.1}>
                         {project.outcomes.map((outcome, index) => (
                             <StaggerItem key={index}>
-                                <div className="text-center p-6 sm:p-8 rounded-2xl bg-card shadow-[var(--shadow-soft)] border border-border/60">
-                                    <p className="mb-2 text-4xl font-bold text-primary md:text-5xl">
+                                <div className="py-8 md:px-8 md:first:pl-0">
+                                    <p className="font-display text-4xl text-foreground md:text-5xl">
                                         {outcome.value}
                                     </p>
-                                    <p className="text-lg font-medium text-foreground mb-2">
-                                        {outcome.metric}
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
+                                    <p className="mono-label mt-3 text-muted-foreground">{outcome.metric}</p>
+                                    <p className="mt-3 text-base leading-relaxed text-foreground/70">
                                         {outcome.description}
                                     </p>
                                 </div>
@@ -494,28 +437,19 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </Section>
             )}
 
-            {/* Testimonial Section */}
+            {/* Testimonial — Fraunces italic pull quote */}
             {project.testimonial && (
-                <Section id="testimonial" className="rounded-2xl bg-muted/35">
-                    <AnimatedSection className="max-w-3xl mx-auto text-center">
-                        <IconQuote className="w-12 h-12 text-primary/30 mx-auto mb-6" stroke={1} />
-                        <blockquote className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">
+                <Section id="testimonial" size="narrow" padding="large">
+                    <AnimatedSection>
+                        <PullQuote cite={`${project.testimonial.author} — ${project.testimonial.role}`}>
                             &ldquo;{project.testimonial.quote}&rdquo;
-                        </blockquote>
-                        <div>
-                            <p className="font-medium text-foreground">
-                                {project.testimonial.author}
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                                {project.testimonial.role}
-                            </p>
-                        </div>
+                        </PullQuote>
                     </AnimatedSection>
                 </Section>
             )}
 
             {/* Project Navigation */}
-            <Section className="border-t border-border/40">
+            <Section className="border-t border-rule">
                 <div className="grid gap-6 sm:grid-cols-2 sm:items-center">
                     {prevProject ? (
                         <Link
@@ -524,8 +458,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         >
                             <IconArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" stroke={1.5} />
                             <div className="text-left">
-                                <p className="text-xs uppercase tracking-wider mb-1">Previous</p>
-                                <p className="font-medium text-foreground">{prevProject.title}</p>
+                                <p className="mono-label mb-1.5 text-muted-foreground">Previous</p>
+                                <p className="font-display text-lg text-foreground">{prevProject.title}</p>
                             </div>
                         </Link>
                     ) : (
@@ -538,8 +472,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                             className="group touch-target flex w-full items-center justify-end gap-3 rounded-lg text-right text-muted-foreground transition-colors hover:text-foreground"
                         >
                             <div>
-                                <p className="text-xs uppercase tracking-wider mb-1">Next</p>
-                                <p className="font-medium text-foreground">{nextProject.title}</p>
+                                <p className="mono-label mb-1.5 text-muted-foreground">Next</p>
+                                <p className="font-display text-lg text-foreground">{nextProject.title}</p>
                             </div>
                             <IconArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" stroke={1.5} />
                         </Link>
@@ -549,25 +483,27 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </div>
             </Section>
 
-            {/* CTA Section */}
-            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        {cta.headline}
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        {cta.body}
-                    </p>
-                    <Link
-                        href={cta.href}
-                        className="btn-primary w-full sm:w-auto"
-                        target={ctaExternal ? "_blank" : undefined}
-                        rel={ctaExternal ? "noopener noreferrer" : undefined}
-                    >
-                        {cta.ctaText}
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            {/* CTA — flooded ochre closer */}
+            <section className="bg-flood text-flood-foreground">
+                <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 md:py-24 lg:px-8">
+                    <AnimatedSection>
+                        <h2 className="font-display text-3xl text-flood-foreground sm:text-4xl md:text-5xl display-balance">
+                            {cta.headline}
+                        </h2>
+                        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-flood-foreground/80">
+                            {cta.body}
+                        </p>
+                        <Link
+                            href={cta.href}
+                            className="btn mt-9 bg-foreground text-background hover:-translate-y-px hover:bg-foreground/90"
+                            target={ctaExternal ? "_blank" : undefined}
+                            rel={ctaExternal ? "noopener noreferrer" : undefined}
+                        >
+                            {cta.ctaText}
+                        </Link>
+                    </AnimatedSection>
+                </div>
+            </section>
         </>
     );
 }

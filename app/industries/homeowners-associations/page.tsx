@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Section, SectionHeading } from "@/components/sections/Section";
+import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel, SectionOpener, RuledRow, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { createPageMetadata } from "@/lib/seo";
 import {
     IconCalendarEvent,
@@ -110,169 +112,126 @@ const faqs = [
 export default function HomeownersAssociationsPage() {
     return (
         <>
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
-                            <div className="lg:col-span-3 space-y-6">
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Websites for HOAs
-                                    <br />
-                                    <span className="text-gradient">that keep residents informed.</span>
-                                </h1>
-                                <p className="text-lg text-muted-foreground max-w-2xl">
-                                    A professional site that organizes community documents, board info, events, and payment details — so the board spends less time answering repeat questions.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <Link
-                                        href="/contact?source=hoa-hero"
-                                        className="btn-primary"
-                                    >
-                                        Get started
-                                    </Link>
-                                    <Link
-                                        href="/services?source=hoa-hero"
-                                        className="btn-secondary inline-flex items-center gap-2"
-                                    >
-                                        See services <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                    <p className="text-sm font-semibold text-foreground">Built for community operations</p>
-                                    <div className="mt-4 grid gap-3">
-                                        {expectations.map((item) => (
-                                            <div
-                                                key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
-                                            >
-                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
-                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="mt-4 rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                                            Core stack
-                                        </p>
-                                        <p className="mt-1 text-sm text-foreground">
-                                            Documents, events, dues info, and board communication in one clean site.
-                                        </p>
-                                    </div>
-                                </div>
+                    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                        <div>
+                            <MonoLabel className="mb-6">HOAs &amp; community associations</MonoLabel>
+                            <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                                Websites for HOAs that keep residents{" "}
+                                <span className="text-gradient">informed.</span>
+                            </h1>
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                                A professional site that organizes community documents, board info, events, and
+                                payment details — so the board spends less time answering repeat questions.
+                            </p>
+                            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <Link href="/contact?source=hoa-hero" className="btn btn-primary">Get started</Link>
+                                <Link href="/services?source=hoa-hero" className="btn btn-secondary group">
+                                    See services
+                                    <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
                             </div>
                         </div>
+                        <dl className="ledger border-t border-rule">
+                            {expectations.map((item) => (
+                                <div key={item.label} className="ledger-row flex items-baseline justify-between gap-6 py-4">
+                                    <dt className="mono-label text-muted-foreground">{item.label}</dt>
+                                    <dd className="text-right font-display text-base text-foreground">{item.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
-                    {outcomes.map((item) => (
+            <Section>
+                <StaggerContainer className="ledger border-t border-rule" staggerDelay={0.07}>
+                    {outcomes.map((item, idx) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <item.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
+                            <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                {item.description}
+                            </RuledRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-2xl bg-muted/35">
-                <AnimatedSection>
-                    <SectionHeading
-                        title="What I build for HOAs"
-                        subtitle="Everything residents need to stay informed — organized, accessible, and easy for the board to maintain."
-                    />
-                </AnimatedSection>
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
+                    <AnimatedSection>
+                        <SectionOpener
+                            eyebrow="What I build"
+                            eyebrowIndex="01"
+                            title="What I build for HOAs"
+                            lead="Everything residents need to stay informed — organized, accessible, and easy for the board to maintain."
+                        />
+                    </AnimatedSection>
 
-                <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
-                    {included.map((item) => (
-                        <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <item.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
-            </Section>
+                    <StaggerContainer className="mt-12 ledger border-t border-rule" staggerDelay={0.08}>
+                        {included.map((item, idx) => (
+                            <StaggerItem key={item.title}>
+                                <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                    {item.description}
+                                </RuledRow>
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
+                </Section>
+            </section>
 
             <Section>
-                <div className="grid gap-10 md:grid-cols-2">
+                <div className="grid gap-12 md:grid-cols-2 md:gap-16">
                     <AnimatedSection>
-                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                            <h2 className="text-lg font-semibold text-foreground mb-4">Great fit if</h2>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                {fitFor.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <MonoLabel className="mb-4">Great fit if</MonoLabel>
+                        <ul className="ledger border-t border-rule">
+                            {fitFor.map((item) => (
+                                <CheckRow key={item}>{item}</CheckRow>
+                            ))}
+                        </ul>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.08}>
-                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                            <h2 className="text-lg font-semibold text-foreground mb-4">Best results when</h2>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                {bestResultsWhen.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <MonoLabel className="mb-4">Best results when</MonoLabel>
+                        <ul className="ledger border-t border-rule">
+                            {bestResultsWhen.map((item) => (
+                                <CheckRow key={item}>{item}</CheckRow>
+                            ))}
+                        </ul>
                     </AnimatedSection>
                 </div>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
+            <Section>
                 <AnimatedSection>
-                    <SectionHeading
-                        title="FAQ"
-                        subtitle="A few common questions HOA boards ask before a build."
+                    <SectionOpener
+                        eyebrow="FAQ"
+                        eyebrowIndex="02"
+                        title="Common questions"
+                        lead="A few common questions HOA boards ask before a build."
                     />
                 </AnimatedSection>
 
-                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {faqs.map((item) => (
-                        <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
-                            </div>
-                        </StaggerItem>
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span aria-hidden className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45">+</span>
+                            </summary>
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">{item.a}</p>
+                        </details>
                     ))}
-                </StaggerContainer>
+                </div>
             </Section>
 
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want a site that keeps your community informed?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me about your community, what info residents need access to, and what the board is tired of repeating. I&apos;ll reply within one business day with next steps.
-                    </p>
-                    <Link href="/contact?source=hoa-cta" className="btn-primary">
-                        Get started
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Want a site that keeps your community informed?"
+                body="Tell me about your community, what info residents need access to, and what the board is tired of repeating. I'll reply within one business day with next steps."
+                primary={{ label: "Get started", href: "/contact?source=hoa-cta" }}
+                secondary={{ label: "See all services", href: "/services" }}
+            />
         </>
     );
 }

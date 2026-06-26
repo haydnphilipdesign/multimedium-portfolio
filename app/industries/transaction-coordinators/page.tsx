@@ -5,6 +5,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel, SectionOpener, RuledRow, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import { getBreadcrumbStructuredData, getFaqStructuredData, getServiceStructuredData } from "@/lib/structuredData";
@@ -184,161 +186,124 @@ export default function TransactionCoordinatorsPage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
-                            <div className="lg:col-span-3 space-y-6">
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Websites for transaction coordinators
-                                    <br />
-                                    <span className="text-gradient">that make booking feel obvious.</span>
-                                </h1>
-                                <p className="text-lg text-muted-foreground max-w-2xl">
-                                    Professional messaging, strong design, and a clear path that filters out poor-fit leads — so you spend less time &quot;selling&quot; and more time coordinating.
-                                </p>
-                                 <div className="flex flex-col sm:flex-row gap-3">
-                                     <Link
-                                         href="/contact?source=tc-hero"
-                                         className="btn-primary"
-                                     >
-                                         Get started
-                                     </Link>
-                                     <Link
-                                         href="/tc-packages"
-                                         className="btn-secondary inline-flex items-center gap-2"
-                                     >
-                                         View packages <IconArrowRight className="w-4 h-4" stroke={2} />
-                                     </Link>
-                                 </div>
-                                 <p className="text-sm text-muted-foreground">
-                                     Built by someone who grew up watching files managed, deadlines tracked, and agents coordinated — my mom has been a transaction coordinator since 2013.
-                                 </p>
-                             </div>
-
-                            <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                    <p className="text-sm font-semibold text-foreground">Built for qualified bookings</p>
-                                    <div className="mt-4 grid gap-3">
-                                        {expectations.map((item) => (
-                                            <div
-                                                key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
-                                            >
-                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
-                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="mt-4 rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                                            Core stack
-                                        </p>
-                                        <p className="mt-1 text-sm text-foreground">
-                                            Positioning, proof structure, and fit-filtered lead capture in one flow.
-                                        </p>
-                                    </div>
-                                </div>
+                    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                        <div>
+                            <MonoLabel className="mb-6">For transaction coordinators</MonoLabel>
+                            <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                                Websites for TCs that make booking{" "}
+                                <span className="text-gradient">feel obvious.</span>
+                            </h1>
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                                Professional messaging, strong design, and a clear path that filters out
+                                poor-fit leads — so you spend less time &quot;selling&quot; and more time coordinating.
+                            </p>
+                            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <Link href="/contact?source=tc-hero" className="btn btn-primary">Get started</Link>
+                                <Link href="/tc-packages" className="btn btn-secondary group">
+                                    View packages
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
                             </div>
+                            <p className="mt-7 max-w-xl border-l-2 border-primary/50 pl-4 text-sm italic leading-relaxed text-foreground/70">
+                                Built by someone who grew up watching files managed, deadlines tracked, and agents
+                                coordinated — my mom has been a transaction coordinator since 2013.
+                            </p>
                         </div>
+
+                        <dl className="ledger border-t border-rule">
+                            {expectations.map((item) => (
+                                <div key={item.label} className="ledger-row flex items-baseline justify-between gap-6 py-4">
+                                    <dt className="mono-label text-muted-foreground">{item.label}</dt>
+                                    <dd className="font-display text-lg text-foreground">{item.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
-                    {outcomes.map((item) => (
+            <Section>
+                <StaggerContainer className="ledger border-t border-rule" staggerDelay={0.07}>
+                    {outcomes.map((item, idx) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <item.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
+                            <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                {item.description}
+                            </RuledRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-2xl bg-muted/35">
-                <AnimatedSection>
-                    <SectionHeading
-                        title="What I build for TCs"
-                        subtitle="A clear offer, a page that converts, and a system that stays consistent as you grow."
-                    />
-                </AnimatedSection>
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
+                    <AnimatedSection>
+                        <SectionOpener
+                            eyebrow="What I build"
+                            eyebrowIndex="01"
+                            title="What I build for TCs"
+                            lead="A clear offer, a page that converts, and a system that stays consistent as you grow."
+                        />
+                    </AnimatedSection>
 
-                <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
-                    {included.map((item) => (
-                        <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <item.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <h3 className="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
+                    <StaggerContainer className="mt-12 ledger border-t border-rule" staggerDelay={0.08}>
+                        {included.map((item, idx) => (
+                            <StaggerItem key={item.title}>
+                                <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                    {item.description}
+                                </RuledRow>
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
 
-                <AnimatedSection delay={0.08} direction="none">
-                    <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-border/60 bg-card/82 p-6 sm:flex-row sm:items-center sm:justify-between">
-                        <p className="text-sm text-muted-foreground">
-                            Want intake + cover-sheet automation too? It’s an optional add-on.
-                        </p>
-                        <Link href="#automation" className="btn-secondary inline-flex items-center justify-center gap-2">
-                            See automation options <IconArrowRight className="w-4 h-4" stroke={2} />
-                        </Link>
-                    </div>
-                </AnimatedSection>
-            </Section>
+                    <AnimatedSection delay={0.08} direction="none">
+                        <div className="mt-8 flex flex-col gap-4 border-t border-rule pt-6 sm:flex-row sm:items-center sm:justify-between">
+                            <p className="text-base text-foreground/75">
+                                Want intake + cover-sheet automation too? It&apos;s an optional add-on.
+                            </p>
+                            <Link href="#automation" className="btn btn-sm btn-secondary group">
+                                See automation options
+                                <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </Link>
+                        </div>
+                    </AnimatedSection>
+                </Section>
+            </section>
 
             {/* Packages bridge */}
             <Section>
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
-                        <div className="relative grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
-                            <div>
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                                    TC website packages
-                                </span>
-                                <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                    Four tiers — built for how TC businesses actually work.
-                                </h2>
-                                <p className="mt-4 text-muted-foreground leading-relaxed">
-                                    Whether you need a fast credibility site, a simple intake/contact flow, or a fuller custom build, there&apos;s a package designed for your stage. Starting at $595.
-                                </p>
-                                <Link
-                                    href="/tc-packages"
-                                    className="mt-6 btn-primary inline-flex items-center justify-center gap-2"
-                                >
-                                    Compare packages
-                                    <IconArrowRight className="w-4 h-4" stroke={2} />
-                                </Link>
-                            </div>
-                            <div className="grid gap-3">
-                                {[
-                                    { name: "TC Presence", desc: "Template-based credibility site", price: "$595" },
-                                    { name: "TC Starter", desc: "One-page site plus simple action flow", price: "$795" },
-                                    { name: "TC Growth", desc: "Multi-page site with submit workflow", price: "$1,495" },
-                                    { name: "TC Pro", desc: "Fuller custom site for teams or coaches", price: "$2,495+" },
-                                ].map((pkg) => (
-                                    <div
-                                        key={pkg.name}
-                                        className="flex items-center justify-between rounded-xl border border-border/60 bg-background/55 backdrop-blur-sm px-5 py-3.5"
-                                    >
-                                        <div>
-                                            <p className="text-sm font-semibold text-foreground">{pkg.name}</p>
-                                            <p className="text-xs text-muted-foreground">{pkg.desc}</p>
-                                        </div>
-                                        <span className="text-sm font-semibold text-foreground">{pkg.price}</span>
+                    <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
+                        <div>
+                            <MonoLabel className="mb-5">TC website packages</MonoLabel>
+                            <h2 className="font-display text-3xl text-foreground sm:text-4xl">
+                                Four tiers — built for how TC businesses actually work.
+                            </h2>
+                            <p className="mt-5 text-lg leading-relaxed text-foreground/78">
+                                Whether you need a fast credibility site, a simple intake/contact flow, or a
+                                fuller custom build, there&apos;s a package designed for your stage. Starting at $595.
+                            </p>
+                            <Link href="/tc-packages" className="btn btn-primary group mt-7">
+                                Compare packages
+                                <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                            </Link>
+                        </div>
+                        <div className="ledger border-t border-foreground/15">
+                            {[
+                                { name: "TC Presence", desc: "Template-based credibility site", price: "$595" },
+                                { name: "TC Starter", desc: "One-page site plus simple action flow", price: "$795" },
+                                { name: "TC Growth", desc: "Multi-page site with submit workflow", price: "$1,495" },
+                                { name: "TC Pro", desc: "Fuller custom site for teams or coaches", price: "$2,495+" },
+                            ].map((pkg) => (
+                                <div key={pkg.name} className="ledger-row flex items-baseline justify-between gap-4 py-4">
+                                    <div>
+                                        <p className="font-display text-lg text-foreground">{pkg.name}</p>
+                                        <p className="mono-meta mt-1">{pkg.desc}</p>
                                     </div>
-                                ))}
-                            </div>
+                                    <span className="font-mono text-base text-foreground">{pkg.price}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </AnimatedSection>
@@ -378,68 +343,57 @@ export default function TransactionCoordinatorsPage() {
                 </Section>
             ) : null}
 
-            <Section id="automation" className="rounded-2xl bg-muted/35">
-                <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted/50 text-muted-foreground border border-border/60">
-                            Optional add-on
-                        </span>
-                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                            Stop chasing missing info.
-                        </h2>
-                        <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-                            TCs waste time tracking down missing details. This add-on forces required fields, routes submissions,
-                            and outputs a clean cover-sheet style summary (email + optional PDF) so every file starts organized.
-                            It’s done-for-you setup in your tools—and you own the accounts.
-                        </p>
-                        <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-                            {automationBullets.map((item) => (
-                                <li key={item} className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </AnimatedSection>
+            <section id="automation" className="bg-surface-1 border-y border-rule">
+                <Section padding="none" className="py-16 sm:py-20 md:py-24">
+                    <AnimatedSection>
+                        <div className="max-w-3xl">
+                            <MonoLabel className="mb-5">Optional add-on</MonoLabel>
+                            <h2 className="font-display text-3xl text-foreground sm:text-4xl md:text-5xl display-balance">
+                                Stop chasing missing info.
+                            </h2>
+                            <p className="mt-5 text-lg leading-relaxed text-foreground/78">
+                                TCs waste time tracking down missing details. This add-on forces required fields, routes submissions,
+                                and outputs a clean cover-sheet style summary (email + optional PDF) so every file starts organized.
+                                It&apos;s done-for-you setup in your tools — and you own the accounts.
+                            </p>
+                            <ul className="mt-7 ledger border-t border-rule">
+                                {automationBullets.map((item) => (
+                                    <CheckRow key={item}>{item}</CheckRow>
+                                ))}
+                            </ul>
+                        </div>
+                    </AnimatedSection>
 
-                <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.08}>
-                    {automationPackages.map((tier) => (
-                        <StaggerItem key={tier.name}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <div className="flex items-start justify-between gap-4">
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-foreground">{tier.name}</h3>
-                                        <p className="mt-1 text-sm font-medium text-primary">{tier.price}</p>
-                                    </div>
+                    <StaggerContainer className="mt-12 grid gap-5 md:grid-cols-3" staggerDelay={0.08}>
+                        {automationPackages.map((tier) => (
+                            <StaggerItem key={tier.name} className="h-full">
+                                <div className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-7 shadow-[var(--shadow-soft)]">
+                                    <p className="mono-label text-muted-foreground">{tier.name}</p>
+                                    <p className="mt-3 font-display text-2xl text-foreground">{tier.price}</p>
+                                    <ul className="mt-5 flex-1 space-y-2.5 border-t border-rule pt-5 text-sm leading-relaxed text-foreground/75">
+                                        {tier.bullets.map((bullet) => (
+                                            <li key={bullet} className="flex items-start gap-2.5">
+                                                <span aria-hidden className="text-primary">—</span>
+                                                {bullet}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <p className="mt-5 text-xs leading-relaxed text-foreground/70">
+                                        <span className="font-semibold text-foreground">Best for:</span> {tier.bestFor}
+                                    </p>
                                 </div>
-                                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                                    {tier.bullets.map((bullet) => (
-                                        <li key={bullet} className="flex items-start gap-2">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                                            {bullet}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p className="mt-5 text-xs text-muted-foreground">
-                                    <span className="font-semibold text-foreground">Best for:</span> {tier.bestFor}
-                                </p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
 
-                <p className="mt-6 text-sm text-muted-foreground">
-                    Team builds available for higher volume / broker ops.
-                </p>
+                    <p className="mono-meta mt-6">Team builds available for higher volume / broker ops.</p>
 
-                <div className="mt-6 rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                    <p className="text-sm font-semibold text-foreground">Best results when</p>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                        You are ready to standardize intake and respond quickly to qualified leads.
+                    <p className="mt-8 border-l-2 border-primary/50 pl-5 text-base leading-relaxed text-foreground/75">
+                        <span className="font-semibold text-foreground">Best results when:</span> you&apos;re ready to
+                        standardize intake and respond quickly to qualified leads.
                     </p>
-                </div>
-            </Section>
+                </Section>
+            </section>
 
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
@@ -545,44 +499,36 @@ export default function TransactionCoordinatorsPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
+            <Section>
                 <AnimatedSection>
-                    <SectionHeading
-                        title="Transaction Coordinator Website FAQ"
-                        subtitle="Common questions from transaction coordinators before starting a website build."
+                    <SectionOpener
+                        eyebrow="FAQ"
+                        eyebrowIndex="02"
+                        title="Transaction coordinator website FAQ"
+                        lead="Common questions from transaction coordinators before starting a website build."
                     />
                 </AnimatedSection>
 
-                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {faqs.map((item) => (
-                        <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
-                            </div>
-                        </StaggerItem>
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span aria-hidden className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45">+</span>
+                            </summary>
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">{item.a}</p>
+                        </details>
                     ))}
-                </StaggerContainer>
+                </div>
             </Section>
 
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want a TC site that attracts better-fit leads?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Send a link to your current site (if you have one) and tell me what you want the page to do. I&apos;ll reply within one business day with next steps.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                        <Link href="/contact?source=tc-cta" className="btn-primary">
-                            Get started
-                        </Link>
-                        <Link href="/tc-packages" className="btn-secondary inline-flex items-center gap-2">
-                            Compare packages <IconArrowRight className="w-4 h-4" stroke={2} />
-                        </Link>
-                    </div>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Want a TC site that attracts better-fit leads?"
+                body="Send a link to your current site (if you have one) and tell me what you want the page to do. I'll reply within one business day with next steps."
+                primary={{ label: "Get started", href: "/contact?source=tc-cta" }}
+                secondary={{ label: "Compare packages", href: "/tc-packages" }}
+            />
         </>
     );
 }

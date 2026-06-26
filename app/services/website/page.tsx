@@ -3,16 +3,13 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel, SectionOpener, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import { getBreadcrumbStructuredData, getFaqStructuredData, getServiceStructuredData } from "@/lib/structuredData";
-import {
-    IconCheck,
-    IconArrowRight,
-    IconChartBar,
-    IconShieldCheck,
-} from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Website Build and Redesign",
@@ -83,128 +80,85 @@ export default function WebsiteServicePage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            {/* Editorial hero */}
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
-                            <div className="lg:col-span-3 space-y-6">
-                                <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    ← Back to services
+                    <Link href="/services" className="mb-8 inline-flex text-sm text-muted-foreground transition-colors hover:text-foreground">
+                        ← Back to services
+                    </Link>
+                    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                        <div>
+                            <MonoLabel className="mb-6">Custom websites</MonoLabel>
+                            <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                                Website build / redesign
+                            </h1>
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                                For teams that need to look established, load fast, and turn visitors into
+                                real leads — without the site turning into a patchwork over time.
+                            </p>
+                            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <Link href="/contact?source=services-website" className="btn btn-primary">
+                                    Discuss your redesign
                                 </Link>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Website build / redesign
-                                </h1>
-                                <p className="text-lg text-muted-foreground max-w-2xl">
-                                    For teams that need to look established, load fast, and turn visitors into real leads without the site turning into a patchwork over time.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <Link href="/contact?source=services-website" className="btn-primary">
-                                        Discuss your redesign
-                                    </Link>
-                                    <Link href="/work?source=services-website" className="btn-secondary inline-flex items-center gap-2">
-                                        Browse case studies <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                    <p className="text-sm font-semibold text-foreground">Built for clarity and trust</p>
-                                    <div className="mt-4 grid gap-3">
-                                        {expectations.map((item) => (
-                                            <div
-                                                key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
-                                            >
-                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
-                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                <Link href="/work?source=services-website" className="btn btn-secondary group">
+                                    Browse case studies
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
                             </div>
                         </div>
+
+                        <dl className="ledger border-t border-rule">
+                            {expectations.map((item) => (
+                                <div key={item.label} className="ledger-row flex items-baseline justify-between gap-6 py-4">
+                                    <dt className="mono-label text-muted-foreground">{item.label}</dt>
+                                    <dd className="font-display text-lg text-foreground">{item.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <AnimatedSection direction="none" delay={0.02}>
-                    <div className="grid gap-4 sm:grid-cols-3">
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconCheck className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Premium positioning</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Clear offer, proof, and process so visitors trust you before they ask about price.
-                            </p>
-                        </div>
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconShieldCheck className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Consistent system</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Reusable sections and patterns so new pages do not break the design over time.
-                            </p>
-                        </div>
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconChartBar className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Measure results</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Tracking ties to inquiries so you can improve the site based on real outcomes.
-                            </p>
-                        </div>
-                    </div>
-                </AnimatedSection>
-            </Section>
-
+            {/* What's included — ruled rows */}
             <Section>
                 <AnimatedSection>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                        What&apos;s included
-                    </h2>
+                    <SectionOpener
+                        eyebrow="Scope"
+                        eyebrowIndex="01"
+                        title="What's included"
+                        lead="A complete, conversion-focused build — strategy, design, and code in one loop."
+                    />
                 </AnimatedSection>
-
-                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.1}>
+                <StaggerContainer className="mt-12 ledger border-t border-rule md:grid md:grid-cols-2 md:gap-x-16 md:border-t-0" staggerDelay={0.06}>
                     {included.map((item) => (
-                        <StaggerItem key={item}>
-                            <div className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border/60">
-                                <IconCheck className="w-5 h-5 text-primary mt-0.5" stroke={2} />
-                                <p className="text-sm text-muted-foreground">{item}</p>
-                            </div>
+                        <StaggerItem key={item} className="md:border-t md:border-rule">
+                            <CheckRow>{item}</CheckRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
             </Section>
 
             {featured.length > 0 ? (
-                <Section className="pt-10 md:pt-14" padding="none">
+                <Section className="pt-4" padding="none">
                     <AnimatedSection>
-                        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
-                            <div className="max-w-2xl">
-                                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                    Recent builds
-                                </h2>
-                                <p className="mt-2 text-muted-foreground">
-                                    Proof-focused sites and systems designed to convert without feeling like marketing fluff.
-                                </p>
-                            </div>
-                            <Link
-                                href="/work?source=services-website"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
-                            >
-                                <span className="font-medium">Browse all case studies</span>
-                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                            </Link>
-                        </div>
+                        <SectionOpener
+                            eyebrow="Proof"
+                            eyebrowIndex="02"
+                            title="Recent builds"
+                            lead="Proof-focused sites and systems designed to convert without feeling like marketing fluff."
+                            action={
+                                <Link
+                                    href="/work?source=services-website"
+                                    className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
+                                >
+                                    Browse all case studies
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
+                            }
+                        />
                     </AnimatedSection>
 
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${featured.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
+                    <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2">
                         {featured.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
@@ -212,58 +166,51 @@ export default function WebsiteServicePage() {
                 </Section>
             ) : null}
 
-            <Section className="rounded-2xl bg-muted/35">
-                <div className="grid gap-10 md:grid-cols-2">
-                    <AnimatedSection>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Timeline
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Typical builds run 4–6 weeks depending on scope, content readiness, and review cadence.
-                        </p>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.1}>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Budget guidance
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Full website builds typically range from $1,500 to $5,000+ depending on scope and content readiness. Simpler projects start at $750, and we can always scope a focused first phase and expand over time.
-                        </p>
-                    </AnimatedSection>
-                </div>
-            </Section>
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
+                    <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+                        <AnimatedSection>
+                            <MonoLabel className="mb-4">Timeline</MonoLabel>
+                            <h2 className="font-display text-2xl text-foreground sm:text-3xl">4–6 weeks, typically</h2>
+                            <p className="mt-4 text-lg leading-relaxed text-foreground/78">
+                                Typical builds run 4–6 weeks depending on scope, content readiness, and review cadence.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.1}>
+                            <MonoLabel className="mb-4">Budget guidance</MonoLabel>
+                            <h2 className="font-display text-2xl text-foreground sm:text-3xl">$1,500 – $5,000+</h2>
+                            <p className="mt-4 text-lg leading-relaxed text-foreground/78">
+                                Full website builds typically range from $1,500 to $5,000+ depending on scope and content readiness. Simpler projects start at $750, and we can always scope a focused first phase and expand over time.
+                            </p>
+                        </AnimatedSection>
+                    </div>
+                </Section>
+            </section>
 
             <Section>
                 <AnimatedSection>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                        FAQs
-                    </h2>
+                    <SectionOpener eyebrow="FAQ" eyebrowIndex="03" title="Common questions" />
                 </AnimatedSection>
-                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.08}>
+                <div className="mt-10 ledger border-t border-foreground/15">
                     {faq.map((item) => (
-                        <StaggerItem key={item.q}>
-                            <div className="p-6 rounded-2xl bg-card border border-border/60 h-full">
-                                <p className="font-semibold text-foreground mb-3">{item.q}</p>
-                                <p className="text-sm text-muted-foreground">{item.a}</p>
-                            </div>
-                        </StaggerItem>
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span aria-hidden className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45">+</span>
+                            </summary>
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">{item.a}</p>
+                        </details>
                     ))}
-                </StaggerContainer>
+                </div>
             </Section>
 
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want to upgrade your website this quarter?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me what you do and what’s not working on the current site. I’ll reply with next steps and a plan within one business day.
-                    </p>
-                    <Link href="/contact?source=services-website-cta" className="btn-primary">
-                        Discuss your redesign
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Want to upgrade your website this quarter?"
+                body="Tell me what you do and what's not working on the current site. I'll reply with next steps and a plan within one business day."
+                primary={{ label: "Discuss your redesign", href: "/contact?source=services-website-cta" }}
+                secondary={{ label: "See TC packages", href: "/tc-packages" }}
+            />
         </>
     );
 }

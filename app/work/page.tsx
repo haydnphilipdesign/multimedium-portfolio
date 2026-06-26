@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
-import { ProjectCard } from "@/components/work/ProjectCard";
+import { ProjectCard, FeaturedProject } from "@/components/work/ProjectCard";
+import { SectionOpener } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
     getClientProjectsByIndustry,
@@ -98,57 +100,57 @@ export default async function WorkPage({
     return (
         <>
             <JsonLd data={structuredData} />
-            <div className="relative overflow-hidden">
-                {/* Hero Section */}
-                <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
-                    <AnimatedSection>
-                        <div className="rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
-                            <div className="max-w-3xl">
-                                <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                    <span className="text-gradient">{indMeta?.heading ?? "Work"}</span>
-                                </h1>
-                                <p className="text-lg text-muted-foreground md:text-xl">
-                                    {indMeta?.subheading ?? "Real builds for real estate professionals and transaction coordinators — each with clear goals, deliberate design decisions, and measurable outcomes."}
-                                </p>
-                                {!industry && (
-                                    <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-                                        Evaluating fit? Start with the work closest to
-                                        <Link href="/industries/real-estate-professionals" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
-                                            real estate
-                                        </Link>
-                                        or
-                                        <Link href="/industries/transaction-coordinators" className="mx-1 text-foreground underline underline-offset-4 hover:text-primary">
-                                            transaction coordinators
-                                        </Link>
-                                        .
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    </AnimatedSection>
-                </Section>
+            {/* Editorial hero */}
+            <Section size="wide" className="pt-32 sm:pt-36 md:pt-44" padding="none">
+                <AnimatedSection>
+                    <p className="mono-label mb-6">
+                        {industry ? "Portfolio — filtered" : "Portfolio · 2024–2026"}
+                    </p>
+                    <h1 className="max-w-4xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem] display-balance">
+                        {indMeta?.heading ?? (
+                            <>
+                                The work, <span className="text-gradient">shown big.</span>
+                            </>
+                        )}
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                        {indMeta?.subheading ?? "Real builds for real estate professionals and transaction coordinators — each with clear goals, deliberate design decisions, and measurable outcomes."}
+                    </p>
+                    {!industry && (
+                        <p className="mt-5 max-w-2xl text-base text-foreground/65">
+                            Evaluating fit? Start with the work closest to
+                            <Link href="/industries/real-estate-professionals" className="mx-1 text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary">
+                                real estate
+                            </Link>
+                            or
+                            <Link href="/industries/transaction-coordinators" className="mx-1 text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary">
+                                transaction coordinators
+                            </Link>
+                            .
+                        </p>
+                    )}
+                </AnimatedSection>
+            </Section>
 
-                <div className="h-12 md:h-16" />
-            </div>
-
-            {/* Real client work */}
+            {/* Real client work — shown large */}
             {clientProjects.length > 0 && (
-                <Section className="pt-14 md:pt-20">
+                <Section size="wide" padding="large" className="pt-14 md:pt-20">
                     <AnimatedSection>
-                        <div className="flex items-end justify-between gap-8 mb-8">
-                            <div className="max-w-3xl">
-                                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                    {clientHeading}
-                                </h2>
-                                <p className="text-muted-foreground mt-3">
-                                    {clientSubheading}
-                                </p>
-                            </div>
-                        </div>
+                        <SectionOpener
+                            eyebrow="Client work"
+                            eyebrowIndex="01"
+                            title={clientHeading}
+                            lead={clientSubheading}
+                        />
                     </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(clientProjects.length)}`}>
+                    <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
                         {clientProjects.map((project, index) => (
-                            <ProjectCard key={project.slug} project={project} index={index} />
+                            <FeaturedProject
+                                key={project.slug}
+                                project={project}
+                                index={index}
+                                reverse={index % 2 === 1}
+                            />
                         ))}
                     </div>
                 </Section>
@@ -156,39 +158,37 @@ export default async function WorkPage({
 
             {/* Internal products & tools */}
             {productProjects.length > 0 && (
-                <Section>
-                    <AnimatedSection>
-                        <div className="max-w-3xl mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                Internal products &amp; tools
-                            </h2>
-                            <p className="text-muted-foreground mt-3">
-                                Software I designed and built for the real estate and transaction-coordination world — proof of how deeply I understand the workflow, not client commissions.
-                            </p>
+                <section className="bg-surface-1">
+                    <Section size="wide" padding="large">
+                        <AnimatedSection>
+                            <SectionOpener
+                                eyebrow="Built in-house"
+                                eyebrowIndex="02"
+                                title="Internal products & tools"
+                                lead="Software I designed and built for the real estate and transaction-coordination world — proof of how deeply I understand the workflow, not client commissions."
+                            />
+                        </AnimatedSection>
+                        <div className={`mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 ${getGridCols(productProjects.length)}`}>
+                            {productProjects.map((project, index) => (
+                                <ProjectCard key={project.slug} project={project} index={index} />
+                            ))}
                         </div>
-                    </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(productProjects.length)}`}>
-                        {productProjects.map((project, index) => (
-                            <ProjectCard key={project.slug} project={project} index={index} />
-                        ))}
-                    </div>
-                </Section>
+                    </Section>
+                </section>
             )}
 
             {/* Concept & demo designs */}
             {conceptProjects.length > 0 && (
-                <Section>
+                <Section size="wide" padding="large">
                     <AnimatedSection>
-                        <div className="max-w-3xl mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                Concept &amp; demo designs
-                            </h2>
-                            <p className="text-muted-foreground mt-3">
-                                Self-initiated design explorations for fictional brands, shown to demonstrate range. These are not client projects — each card opens a live demo.
-                            </p>
-                        </div>
+                        <SectionOpener
+                            eyebrow="Range"
+                            eyebrowIndex="03"
+                            title="Concept & demo designs"
+                            lead="Self-initiated design explorations for fictional brands, shown to demonstrate range. These are not client projects — each opens a live demo."
+                        />
                     </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(conceptProjects.length)}`}>
+                    <div className={`mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 ${getGridCols(conceptProjects.length)}`}>
                         {conceptProjects.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
@@ -196,22 +196,14 @@ export default async function WorkPage({
                 </Section>
             )}
 
-            {/* CTA Section */}
-            <div>
-                <Section>
-                    <AnimatedSection className="mx-auto max-w-2xl rounded-2xl border border-border/60 bg-card/80 px-6 py-10 text-center shadow-[var(--shadow-soft)] sm:px-8">
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Have a project in mind?
-                        </h2>
-                        <p className="text-muted-foreground mb-8">
-                            Tell me what you do, who you want to attract, and what&apos;s not working today. I&apos;ll reply within one business day.
-                        </p>
-                        <Link href="/contact?source=work-cta" className="btn-primary">
-                            Book a free discovery call
-                        </Link>
-                    </AnimatedSection>
-                </Section>
-            </div>
+            {/* CTA */}
+            <CTARuled
+                eyebrow="Next step"
+                title="Have a project in mind?"
+                body="Tell me what you do, who you want to attract, and what's not working today. I'll reply within one business day."
+                primary={{ label: "Book a free discovery call", href: "/contact?source=work-cta" }}
+                secondary={{ label: "See TC packages", href: "/tc-packages" }}
+            />
         </>
     );
 }

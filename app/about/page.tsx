@@ -3,13 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel, RuledRow, PullQuote, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { createPageMetadata } from "@/lib/seo";
-import {
-    IconMapPin,
-    IconStack2,
-    IconShieldCheck,
-    IconChecklist,
-} from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "About Haydn",
@@ -25,22 +21,19 @@ export const metadata: Metadata = createPageMetadata({
 
 const values = [
     {
-        icon: IconStack2,
         title: "Strategy, design, and build together",
         description:
             "One person, one feedback loop. You get fewer handoffs, faster decisions, and a website that stays consistent as you grow.",
     },
     {
-        icon: IconShieldCheck,
         title: "Performance + accessibility",
         description:
-            "Fast pages and accessible design aren’t extras — they show visitors your business is professional. They also keep your site usable for more people.",
+            "Fast pages and accessible design aren't extras — they show visitors your business is professional, and they keep your site usable for more people.",
     },
     {
-        icon: IconChecklist,
         title: "Clear process, real progress",
         description:
-            "We ship the right version, then improve what matters. The goal is outcomes—more clarity, more leads, less back-and-forth.",
+            "We ship the right version, then improve what matters. The goal is outcomes — more clarity, more leads, less back-and-forth.",
     },
 ];
 
@@ -50,7 +43,7 @@ const toolbox = [
     "Forms, email routing, and booking calendars",
     "Content editing (CMS) so you can update the site",
     "Analytics + simple conversion tracking",
-    "Fast, modern builds (Next.js) when it’s a fit",
+    "Fast, modern builds (Next.js) when it's a fit",
 ];
 
 const workProcess = [
@@ -63,103 +56,111 @@ const workProcess = [
 export default function AboutPage() {
     return (
         <>
-            {/* Hero Section */}
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
-                <div className="grid items-center gap-12 rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] md:grid-cols-2 md:gap-16 md:px-8 md:py-10">
+            {/* Editorial hero */}
+            <Section size="wide" className="pt-32 sm:pt-36 md:pt-44" padding="none">
+                <div className="grid items-end gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
                     <AnimatedSection>
-                        <div className="mb-6">
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-4 py-1.5 text-xs text-muted-foreground">
-                                <IconMapPin className="h-3.5 w-3.5 text-primary" stroke={1.5} />
-                                Poconos, PA · Remote-friendly
-                            </span>
-                        </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-                            I&apos;m Haydn.
-                            <br />
-                            <span className="text-gradient">I build websites that make it easy to trust you.</span>
+                        <MonoLabel className="mb-6">Poconos, PA · Remote-friendly</MonoLabel>
+                        <h1 className="font-display text-5xl leading-[1.02] text-foreground sm:text-6xl md:text-7xl">
+                            I&apos;m Haydn. I build websites that make it{" "}
+                            <em className="italic text-primary">easy to trust you.</em>
                         </h1>
-                        <p className="text-lg text-muted-foreground mb-8">
-                            Multimedium is my solo practice. I help real estate teams, transaction coordinators, and HOAs build sites that work harder — strategy, design, and code in one loop, refined across real estate, transaction coordination, and property operations.
+                        <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                            Multimedium is my solo practice. I help real estate teams, transaction
+                            coordinators, and HOAs build sites that work harder — strategy, design,
+                            and code in one loop.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <Link href="/contact?source=about-hero" className="btn-primary">
+                        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                            <Link href="/contact?source=about-hero" className="btn btn-primary">
                                 Work with me
                             </Link>
-                            <Link href="/work" className="btn-secondary inline-flex items-center gap-2">
+                            <Link href="/work" className="btn btn-secondary">
                                 Browse case studies
                             </Link>
                         </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.2}>
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-muted shadow-[var(--shadow-soft)]">
+                        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-surface-2 shadow-[var(--shadow-elevated)]">
                             <Image
                                 src="/haydn.webp"
                                 alt="Haydn, founder of Multimedium in the Poconos, Pennsylvania"
                                 fill
                                 className="object-cover"
-                                sizes="(min-width: 768px) 50vw, 100vw"
+                                sizes="(min-width: 768px) 45vw, 100vw"
                                 priority
                             />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 to-transparent px-5 pb-5 pt-12">
+                                <p className="mono-meta">Designer + Developer · Solo practice</p>
+                            </div>
                         </div>
                     </AnimatedSection>
                 </div>
             </Section>
 
-            {/* Values Section */}
-            <Section>
-                <StaggerContainer className="grid gap-6 sm:grid-cols-2 md:grid-cols-3" staggerDelay={0.1}>
-                    {values.map((value) => (
-                        <StaggerItem key={value.title}>
-                            <div className="p-7 rounded-2xl bg-card border border-border/60 h-full">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary mb-5">
-                                    <value.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <h2 className="text-xl font-semibold text-foreground mb-3">
-                                    {value.title}
-                                </h2>
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {value.description}
-                                </p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
+            {/* Story — pull quote moment */}
+            <Section size="narrow" padding="large">
+                <AnimatedSection>
+                    <PullQuote cite="The whole point of Multimedium">
+                        A good website should do the quiet work of making a stranger feel like
+                        you&apos;re the obvious, safe choice — before you ever speak.
+                    </PullQuote>
+                </AnimatedSection>
             </Section>
 
-            {/* How I Work Section */}
-            <Section className="rounded-2xl bg-muted/35">
-                <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
+            {/* Values — numbered ruled rows */}
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
                     <AnimatedSection>
-                        <div className="space-y-4">
-                            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                Clear deliverables, no agency fog
-                            </h2>
-                            <p className="text-muted-foreground">
-                                You&apos;ll always know what&apos;s happening, what you need to review, and what comes next. I keep projects moving with weekly checkpoints and simple decision docs.
-                            </p>
-                            <ul className="grid gap-2 text-sm text-muted-foreground">
-                                {workProcess.map((item) => (
-                                    <li key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <MonoLabel index="01" className="mb-5">How I think about the work</MonoLabel>
+                        <h2 className="max-w-2xl font-display text-3xl text-foreground sm:text-4xl md:text-5xl">
+                            Fewer handoffs. Clearer outcomes.
+                        </h2>
+                    </AnimatedSection>
+
+                    <StaggerContainer className="mt-12 ledger border-t border-rule" staggerDelay={0.07}>
+                        {values.map((value, idx) => (
+                            <StaggerItem key={value.title}>
+                                <RuledRow index={String(idx + 1).padStart(2, "0")} title={value.title}>
+                                    {value.description}
+                                </RuledRow>
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
+                </Section>
+            </section>
+
+            {/* How I work — asymmetric */}
+            <Section>
+                <div className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+                    <AnimatedSection>
+                        <MonoLabel index="02" className="mb-5">How projects run</MonoLabel>
+                        <h2 className="font-display text-3xl text-foreground sm:text-4xl">
+                            Clear deliverables, no agency fog
+                        </h2>
+                        <p className="mt-5 text-lg leading-relaxed text-foreground/78">
+                            You&apos;ll always know what&apos;s happening, what you need to review, and
+                            what comes next. I keep projects moving with weekly checkpoints and simple
+                            decision docs.
+                        </p>
+                        <ul className="mt-8 ledger border-t border-rule">
+                            {workProcess.map((item) => (
+                                <CheckRow key={item}>{item}</CheckRow>
+                            ))}
+                        </ul>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.1}>
-                        <div className="space-y-4">
-                            <h3 className="text-2xl font-semibold text-foreground">What I can help with</h3>
-                            <p className="text-sm text-muted-foreground">
+                        <div className="rounded-2xl border border-border/70 bg-surface-1 p-7 shadow-[var(--shadow-soft)]">
+                            <MonoLabel className="mb-3 text-muted-foreground">What I can help with</MonoLabel>
+                            <p className="text-base leading-relaxed text-foreground/75">
                                 Clear on outcomes, flexible on implementation.
                             </p>
-                            <div className="mt-2 flex flex-wrap gap-2">
+                            <div className="mt-5 flex flex-wrap gap-2">
                                 {toolbox.map((item) => (
                                     <span
                                         key={item}
-                                        className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs text-muted-foreground"
+                                        className="rounded-full border border-rule bg-background/60 px-3 py-1.5 font-mono text-[0.72rem] text-foreground/75"
                                     >
                                         {item}
                                     </span>
@@ -170,22 +171,14 @@ export default function AboutPage() {
                 </div>
             </Section>
 
-            {/* CTA Section */}
-            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-3xl font-bold text-foreground mb-6">
-                        Want a site that brings in better leads?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me what you do, who you want to attract, and what&apos;s not working on the current site. I&apos;ll reply within one business day with next steps.
-                    </p>
-                    <Link href="/contact?source=about-cta" className="btn-primary">
-                        Let&apos;s talk
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            {/* CTA — quiet ruled closer */}
+            <CTARuled
+                eyebrow="Let's talk"
+                title="Want a site that brings in better leads?"
+                body="Tell me what you do, who you want to attract, and what's not working on the current site. I'll reply within one business day with next steps."
+                primary={{ label: "Let's talk", href: "/contact?source=about-cta" }}
+                secondary={{ label: "Browse work", href: "/work" }}
+            />
         </>
     );
 }
-
-

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel, RuledRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import {
@@ -138,63 +140,48 @@ export default function HomeServicesPage() {
 
     return (
         <>
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
-                            <div className="lg:col-span-3 space-y-6">
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Websites for home service companies
-                                    <br />
-                                    <span className="text-gradient">that turn searches into booked jobs.</span>
-                                </h1>
-                                <p className="text-lg text-muted-foreground max-w-2xl">
-                                    Premium positioning, fast performance, and lead capture that filters for the right jobs.
-                                    Built for HVAC, plumbing, electrical, roofing, and local service teams.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <Link href="/contact?source=home-services-hero" className="btn-primary">
-                                        Request a proposal
-                                    </Link>
-                                    <Link href="#concept" className="btn-secondary inline-flex items-center gap-2">
-                                        View concept build <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                    <p className="text-sm font-semibold text-foreground">Built for the way home services win</p>
-                                    <div className="mt-4 grid gap-3">
-                                        {expectations.map((item) => (
-                                            <div
-                                                key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
-                                            >
-                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
-                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                        <div>
+                            <MonoLabel className="mb-6">Home services</MonoLabel>
+                            <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                                Home service websites that turn searches into{" "}
+                                <span className="text-gradient">booked jobs.</span>
+                            </h1>
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                                Premium positioning, fast performance, and lead capture that filters for the right
+                                jobs. Built for HVAC, plumbing, electrical, roofing, and local service teams.
+                            </p>
+                            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <Link href="/contact?source=home-services-hero" className="btn btn-primary">
+                                    Request a proposal
+                                </Link>
+                                <Link href="#concept" className="btn btn-secondary group">
+                                    View concept build
+                                    <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
                             </div>
                         </div>
+                        <dl className="ledger border-t border-rule">
+                            {expectations.map((item) => (
+                                <div key={item.label} className="ledger-row flex items-baseline justify-between gap-6 py-4">
+                                    <dt className="mono-label text-muted-foreground">{item.label}</dt>
+                                    <dd className="text-right font-display text-base text-foreground">{item.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <StaggerContainer className="grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
-                    {outcomes.map((item) => (
+            <Section>
+                <StaggerContainer className="ledger border-t border-rule" staggerDelay={0.07}>
+                    {outcomes.map((item, idx) => (
                         <StaggerItem key={item.title}>
-                            <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <item.icon className="w-5 h-5" stroke={1.5} />
-                                </div>
-                                <p className="mt-4 text-lg font-semibold text-foreground">{item.title}</p>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
+                            <RuledRow index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                                {item.description}
+                            </RuledRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
@@ -234,7 +221,7 @@ export default function HomeServicesPage() {
                 </AnimatedSection>
             </Section>
 
-            <Section className="rounded-2xl bg-muted/35">
+            <Section className="border-y border-rule bg-surface-1">
                 <AnimatedSection>
                     <SectionHeading
                         title="What you get"
@@ -257,7 +244,7 @@ export default function HomeServicesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section id="concept" className="rounded-2xl bg-muted/35">
+            <Section id="concept" className="border-y border-rule bg-surface-1">
                 <AnimatedSection>
                     <SectionHeading
                         title="Concept build (sample direction)"
@@ -323,7 +310,7 @@ export default function HomeServicesPage() {
                             <div className="mt-6 grid gap-3 sm:grid-cols-2 text-sm text-muted-foreground">
                                 {conceptHighlights.map((item) => (
                                     <div key={item} className="flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+                                        <span aria-hidden className="mt-0.5 text-primary">—</span>
                                         {item}
                                     </div>
                                 ))}
@@ -349,19 +336,19 @@ export default function HomeServicesPage() {
                             <h4 className="text-lg font-semibold text-foreground">What this direction solves</h4>
                             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+                                    <span aria-hidden className="mt-0.5 text-primary">—</span>
                                     Clear emergency CTA on every view
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+                                    <span aria-hidden className="mt-0.5 text-primary">—</span>
                                     Proof without fluff
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+                                    <span aria-hidden className="mt-0.5 text-primary">—</span>
                                     Service area and response time clarity
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+                                    <span aria-hidden className="mt-0.5 text-primary">—</span>
                                     Stronger average job value through financing
                                 </li>
                             </ul>
@@ -428,7 +415,7 @@ export default function HomeServicesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="rounded-2xl bg-muted/35">
+            <Section className="border-y border-rule bg-surface-1">
                 <AnimatedSection>
                     <SectionHeading
                         title="Simple, fast, and built to convert"
@@ -451,20 +438,13 @@ export default function HomeServicesPage() {
                 </StaggerContainer>
             </Section>
 
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Want a home services site that attracts better jobs?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me your trade, service area, and the types of jobs you want more of. I will reply within one
-                        business day with next steps.
-                    </p>
-                    <Link href="/contact?source=home-services-cta" className="btn-primary">
-                        Request a proposal
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Want a home services site that attracts better jobs?"
+                body="Tell me your trade, service area, and the types of jobs you want more of. I'll reply within one business day with next steps."
+                primary={{ label: "Request a proposal", href: "/contact?source=home-services-cta" }}
+                secondary={{ label: "See all services", href: "/services" }}
+            />
         </>
     );
 }

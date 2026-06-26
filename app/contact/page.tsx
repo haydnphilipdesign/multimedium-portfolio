@@ -89,18 +89,19 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     return (
         <>
             {/* Hero Section */}
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
-                        <div className="space-y-4">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                Let&apos;s talk about your project
-                            </h1>
-                            <p className="text-lg text-muted-foreground max-w-2xl">
-                                Share what you do, who it&apos;s for, and what you want the site to accomplish. I&apos;ll reply within one business day. If you&apos;re not sure about fit, just ask.
-                            </p>
-                        </div>
-                    </div>
+                    <span className="mono-label mb-6 inline-flex items-center gap-2.5">
+                        <span className="status-dot !h-2 !w-2" />
+                        Currently available for new builds
+                    </span>
+                    <h1 className="max-w-3xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                        Let&apos;s talk about your project
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                        Share what you do, who it&apos;s for, and what you want the site to accomplish.
+                        I&apos;ll reply within one business day. If you&apos;re not sure about fit, just ask.
+                    </p>
                 </AnimatedSection>
             </Section>
 

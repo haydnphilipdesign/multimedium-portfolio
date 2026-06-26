@@ -14,95 +14,96 @@ export function Footer() {
         { label: "Facebook", href: facebookUrl },
     ].filter((link): link is { label: string; href: string } => Boolean(link.href));
 
+    const exploreLinks = [
+        { href: "/services", label: "Services" },
+        { href: "/industries", label: "Industries" },
+        { href: "/work", label: "Work" },
+        { href: "/tools", label: "Tools" },
+        { href: "/resources", label: "Resources" },
+        { href: "/about", label: "About" },
+        { href: "/contact?source=footer", label: "Contact" },
+    ];
+
+    const industryLinks = [
+        { href: "/industries/real-estate-professionals?source=footer", label: "Real Estate Professionals" },
+        { href: "/industries/transaction-coordinators?source=footer", label: "Transaction Coordinators" },
+        { href: "/industries/real-estate-coaches?source=footer", label: "Coaches & Brokerages" },
+        { href: "/tc-packages?source=footer", label: "TC Website Packages" },
+        { href: "/services/website?source=footer", label: "Custom Websites" },
+        { href: "/services/landing-pages?source=footer", label: "Landing Pages" },
+        { href: "/services/growth-retainers?source=footer", label: "Hosting & Retainers" },
+        { href: "/industries/homeowners-associations?source=footer", label: "HOAs" },
+        { href: "/industries/trades?source=footer", label: "Trades & Services" },
+    ];
+
     return (
-        <footer className="border-t border-border/60">
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-                <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
-                    <div className="sm:col-span-2 md:col-span-1 space-y-4">
-                        <Link
-                            href="/"
-                            className="inline-block text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
-                        >
-                            Multimedium
+        <footer className="border-t border-foreground/15 bg-surface-1">
+            {/* Brand band */}
+            <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+                <div className="grid gap-10 border-b border-rule pb-12 md:grid-cols-[1.4fr_1fr] md:items-end md:pb-14">
+                    <div>
+                        <p className="mono-label mb-5">Web design · Poconos, PA</p>
+                        <Link href="/" className="inline-block">
+                            <span className="font-display text-5xl text-foreground transition-colors hover:text-primary sm:text-6xl md:text-7xl">
+                                Multimedium
+                            </span>
                         </Link>
-                        <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-                            Web design for transaction coordinators, real estate professionals, coaches, and select service businesses — clearer trust signals, easier next steps, and more qualified inquiries.
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                            Poconos, PA
+                        <p className="mt-6 max-w-md text-lg leading-relaxed text-foreground/75">
+                            Websites that make it easy to trust you — clearer signals, easier next steps, and
+                            more qualified inquiries.
                         </p>
                     </div>
+                    <div className="md:text-right">
+                        <Link href="/contact?source=footer" className="btn btn-primary group">
+                            Start a project
+                            <IconArrowUpRight
+                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                stroke={2}
+                            />
+                        </Link>
+                        <p className="mono-meta mt-5">Currently taking 2 projects / month</p>
+                    </div>
+                </div>
 
+                {/* Link columns */}
+                <div className="grid gap-10 py-12 sm:grid-cols-2 md:grid-cols-4">
                     <div>
-                        <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                            Explore
-                        </p>
-                        <nav className="flex flex-col items-start gap-2">
-                            <Link href="/services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Services
-                            </Link>
-                            <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Industries
-                            </Link>
-                            <Link href="/work" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Work
-                            </Link>
-                            <Link href="/tools" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Tools
-                            </Link>
-                            <Link href="/resources" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Resources
-                            </Link>
-                            <Link href="/about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                About
-                            </Link>
-                            <Link href="/contact?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Contact
-                            </Link>
+                        <p className="mono-label mb-5 text-muted-foreground">Explore</p>
+                        <nav className="flex flex-col items-start gap-2.5">
+                            {exploreLinks.map((link) => (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                        <p className="mono-label mb-5 text-muted-foreground">Services & Industries</p>
+                        <nav className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                            {industryLinks.map((link) => (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
                         </nav>
                     </div>
 
                     <div>
-                        <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                            Industries
-                        </p>
-                        <nav className="flex flex-col items-start gap-2">
-                            <Link href="/industries/real-estate-professionals?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Real Estate Professionals
-                            </Link>
-                            <Link href="/industries/transaction-coordinators?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Transaction Coordinators
-                            </Link>
-                            <Link href="/industries/real-estate-coaches?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Coaches & Brokerages
-                            </Link>
-                            <Link href="/tc-packages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                TC Website Packages
-                            </Link>
-                            <Link href="/services/website?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Custom Websites
-                            </Link>
-                            <Link href="/services/landing-pages?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Landing Pages
-                            </Link>
-                            <Link href="/services/growth-retainers?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Hosting & Retainers
-                            </Link>
-                            <Link href="/industries/homeowners-associations?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                HOAs
-                            </Link>
-                            <Link href="/industries/trades?source=footer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                                Trades & Services
-                            </Link>
-                        </nav>
-                    </div>
-
-                    <div>
-                        <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                            Connect
-                        </p>
-                        <div className="flex flex-col items-start gap-2">
-                            <Link href="/contact?source=footer" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
+                        <p className="mono-label mb-5 text-muted-foreground">Connect</p>
+                        <div className="flex flex-col items-start gap-2.5">
+                            <Link
+                                href="/contact?source=footer"
+                                className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+                            >
                                 Contact Haydn
                             </Link>
                             {schedulingUrl && (
@@ -110,7 +111,7 @@ export function Footer() {
                                     href={schedulingUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                    className="inline-flex items-center gap-1 text-sm text-foreground/70 transition-colors hover:text-primary"
                                 >
                                     Book a call
                                     <IconArrowUpRight className="h-3.5 w-3.5" stroke={1.8} />
@@ -122,7 +123,7 @@ export function Footer() {
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                    className="inline-flex items-center gap-1 text-sm text-foreground/70 transition-colors hover:text-primary"
                                 >
                                     {link.label}
                                     <IconArrowUpRight className="h-3 w-3" stroke={1.8} />
@@ -132,10 +133,9 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-10 border-t border-border/40 pt-6">
-                    <p className="text-xs text-muted-foreground">
-                        &copy; {currentYear} Multimedium
-                    </p>
+                <div className="flex flex-col gap-2 border-t border-rule py-7 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="mono-meta">&copy; {currentYear} Multimedium</p>
+                    <p className="mono-meta">Designed &amp; built in the Poconos</p>
                 </div>
             </div>
         </footer>

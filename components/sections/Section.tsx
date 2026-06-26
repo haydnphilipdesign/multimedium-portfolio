@@ -46,10 +46,12 @@ export function Section({
     );
 }
 
-// Section heading component for consistent typography
+// Section heading component for consistent editorial typography
 interface SectionHeadingProps {
     title: string;
     subtitle?: string;
+    eyebrow?: string;
+    eyebrowIndex?: string;
     align?: "left" | "center";
     className?: string;
 }
@@ -57,6 +59,8 @@ interface SectionHeadingProps {
 export function SectionHeading({
     title,
     subtitle,
+    eyebrow,
+    eyebrowIndex,
     align = "left",
     className,
 }: SectionHeadingProps) {
@@ -64,17 +68,28 @@ export function SectionHeading({
         <div
             className={cn(
                 "mb-8 sm:mb-10 md:mb-12 lg:mb-14",
-                align === "center" && "text-center",
+                align === "center" && "flex flex-col items-center text-center",
                 className
             )}
         >
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+            {eyebrow && (
+                <span className="mono-label mb-5 inline-flex items-center gap-2.5">
+                    {eyebrowIndex && (
+                        <>
+                            <span aria-hidden className="text-foreground/55">{eyebrowIndex}</span>
+                            <span aria-hidden className="h-px w-5 bg-current opacity-40" />
+                        </>
+                    )}
+                    {eyebrow}
+                </span>
+            )}
+            <h2 className="font-display text-3xl text-foreground sm:text-4xl md:text-5xl">
                 {title}
             </h2>
             {subtitle && (
                 <p
                     className={cn(
-                        "mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed text-pretty",
+                        "mt-5 max-w-2xl text-lg text-foreground/75 leading-relaxed text-pretty",
                         align === "center" ? "mx-auto" : "mx-0"
                     )}
                 >

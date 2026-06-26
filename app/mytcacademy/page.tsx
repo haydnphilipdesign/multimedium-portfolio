@@ -7,6 +7,7 @@ import {
     StaggerItem,
 } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel } from "@/components/sections/Editorial";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import {
     IconArrowRight,
@@ -161,17 +162,15 @@ export default function MyTCAcademyPage() {
                     <AnimatedSection>
                         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-start">
                             <div className="max-w-2xl">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60 mb-6">
-                                    <IconUsers className="w-4 h-4 text-primary" stroke={1.5} />
+                                <MonoLabel className="mb-6 inline-flex items-center gap-2">
+                                    <IconUsers className="w-3.5 h-3.5" stroke={1.8} />
                                     Private referral — My TC Academy
-                                </span>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                                </MonoLabel>
+                                <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
                                     Your TC business deserves a website that{" "}
-                                    <span className="text-gradient">
-                                        matches your ambition.
-                                    </span>
+                                    <span className="text-gradient">matches your ambition.</span>
                                 </h1>
-                                <p className="mt-6 text-lg md:text-xl text-muted-foreground">
+                                <p className="mt-7 text-lg md:text-xl leading-relaxed text-foreground/80">
                                     Jennifer connected you with this page because she trusts the work.
                                     I design websites specifically for transaction coordinators, real
                                     estate professionals, and service-based businesses — built to win
@@ -546,11 +545,7 @@ export default function MyTCAcademyPage() {
 
                                 <Link
                                     href={`${contactHref}&package=${encodeURIComponent(pkg.name)}`}
-                                    className={`inline-flex items-center justify-center gap-2 w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
-                                        pkg.featured
-                                            ? "btn-primary"
-                                            : "btn-secondary"
-                                    }`}
+                                    className={`btn btn-sm w-full ${pkg.featured ? "btn-primary" : "btn-secondary"}`}
                                 >
                                     {pkg.cta}
                                     <IconArrowRight className="w-4 h-4" stroke={2} />

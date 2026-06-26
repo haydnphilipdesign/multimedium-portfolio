@@ -65,7 +65,7 @@ export function Navbar() {
                         >
                             <div className="flex items-center">
                                 <div>
-                                    <p className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                                    <p className="font-display text-xl text-foreground sm:text-[1.4rem]">
                                         Multimedium
                                     </p>
                                 </div>
@@ -148,7 +148,7 @@ export function Navbar() {
                             <Link
                                 href="/"
                                 onClick={() => setIsOpen(false)}
-                                className="touch-target -mx-2 -my-1 rounded-md px-2 py-1 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
+                                className="touch-target -mx-2 -my-1 rounded-md px-2 py-1 font-display text-xl text-foreground transition-colors hover:text-primary"
                             >
                                 Multimedium
                             </Link>

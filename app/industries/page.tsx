@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Section, SectionHeading } from "@/components/sections/Section";
+import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
+import { MonoLabel, SectionOpener, RuledRow } from "@/components/sections/Editorial";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
@@ -91,49 +92,47 @@ export default function IndustriesPage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
-                        <div className="relative max-w-3xl">
-                            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                Industry website design for
-                                <br />
-                                <span className="text-gradient">real estate and service businesses.</span>
-                            </h1>
-                            <p className="mt-6 text-lg text-muted-foreground">
-                                Pick the audience closest to your business. Each page sharpens the messaging, conversion path, and examples around how that market actually decides.
-                            </p>
-                        </div>
-                    </div>
+                    <MonoLabel className="mb-6">Industries</MonoLabel>
+                    <h1 className="max-w-3xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                        Industry website design for{" "}
+                        <span className="text-gradient">real estate &amp; service businesses.</span>
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                        Pick the audience closest to your business. Each page sharpens the messaging,
+                        conversion path, and examples around how that market actually decides.
+                    </p>
                 </AnimatedSection>
             </Section>
 
             <Section>
                 <AnimatedSection>
-                    <SectionHeading
-                        title="Choose your industry"
-                        subtitle="Same standard of craft, tuned for different buyers and how they make decisions."
+                    <SectionOpener
+                        eyebrow="Choose your industry"
+                        eyebrowIndex="01"
+                        title="Same craft, tuned per market"
+                        lead="One standard of design, tuned for different buyers and how they make decisions."
                     />
                 </AnimatedSection>
-                <StaggerContainer className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-                    {industries.map((industry) => (
+                <StaggerContainer className="mt-12 ledger border-t border-foreground/15" staggerDelay={0.06}>
+                    {industries.map((industry, idx) => (
                         <StaggerItem key={industry.title}>
-                            <Link
-                                href={industry.href}
-                                className="group block h-full rounded-2xl border border-border/60 bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)] sm:p-8"
+                            <RuledRow
+                                index={String(idx + 1).padStart(2, "0")}
+                                title={industry.title}
+                                action={
+                                    <Link
+                                        href={industry.href}
+                                        className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                                    >
+                                        {industry.cta}
+                                        <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                    </Link>
+                                }
                             >
-                                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                    <industry.icon className="h-5 w-5" stroke={1.6} />
-                                </div>
-                                <h2 className="text-xl font-semibold text-foreground">{industry.title}</h2>
-                                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                                    {industry.description}
-                                </p>
-                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                                    {industry.cta}
-                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                                </div>
-                            </Link>
+                                {industry.description}
+                            </RuledRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>

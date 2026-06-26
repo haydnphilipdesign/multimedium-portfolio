@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Section, SectionHeading } from "@/components/sections/Section";
+import { Section } from "@/components/sections/Section";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { MonoLabel, SectionOpener, RuledList, CheckRow } from "@/components/sections/Editorial";
+import { CTAFlooded } from "@/components/marketing/CTA";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { projects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
@@ -10,7 +12,7 @@ import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
-import { IconLayout, IconCode, IconArrowRight, IconPackage, IconSettings } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Web Design Services for Real Estate Professionals and TCs",
@@ -27,7 +29,6 @@ export const metadata: Metadata = createPageMetadata({
 
 const services = [
     {
-        icon: IconPackage,
         title: "TC Website Packages",
         description:
             "Productized Presence, Starter, Growth, and Pro packages for transaction coordinators who need trust, clear services, and easier file starts.",
@@ -36,7 +37,6 @@ const services = [
         cta: "Compare TC packages",
     },
     {
-        icon: IconLayout,
         title: "Custom Websites",
         description:
             "Full sites and redesigns for real estate professionals, coaches, brokerages, and select service businesses.",
@@ -45,7 +45,6 @@ const services = [
         cta: "See website scope",
     },
     {
-        icon: IconCode,
         title: "Landing Pages",
         description:
             "Single-focus pages for referral partners, recruiting, offers, campaigns, and booking paths.",
@@ -54,7 +53,6 @@ const services = [
         cta: "See landing page scope",
     },
     {
-        icon: IconSettings,
         title: "Hosting, Maintenance & Retainers",
         description:
             "Managed hosting, support, and practical improvements after launch so the site keeps working.",
@@ -65,6 +63,18 @@ const services = [
 ];
 
 type ServiceItem = (typeof services)[number];
+
+const greatFit = [
+    "You want more inquiries, bookings, or leads from the site.",
+    "Your current site feels outdated, unclear, or slow on mobile.",
+    "You want one person to own strategy, design, and build.",
+];
+
+const bestResults = [
+    "You can support a realistic timeline instead of a rush launch.",
+    "You want clear messaging and conversion structure, not a template refresh.",
+    "You are ready to review content and give timely decisions.",
+];
 
 export default function ServicesPage() {
     const featuredProjectCount = projects.filter((p) => p.featured).length;
@@ -81,142 +91,111 @@ export default function ServicesPage() {
         }),
     ];
 
+    const stats = [
+        { label: "Case studies", value: `${featuredProjectCount} published projects` },
+        { label: "Typical launch", value: "4–6 weeks" },
+        { label: "Core lanes", value: "TCs, agents, coaches" },
+    ];
+
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            {/* Editorial hero */}
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10">
-                        <div className="relative max-w-3xl">
-                            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                                Choose the simplest path to a better website.
-                            </h1>
-                            <p className="mt-6 text-lg text-muted-foreground">
-                                Website packages, custom builds, landing pages, and ongoing support for transaction coordinators, real estate professionals, coaches, and select service businesses.
-                            </p>
-                            <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Case studies</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">{featuredProjectCount} published projects</p>
-                                </div>
-                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Typical launch</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">4–6 weeks</p>
-                                </div>
-                                <div className="rounded-xl border border-border/60 bg-background/70 px-4 py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Core lanes</p>
-                                    <p className="mt-1 text-sm font-medium text-foreground">TCs, agents, coaches</p>
-                                </div>
+                    <MonoLabel className="mb-6">Services</MonoLabel>
+                    <h1 className="max-w-3xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                        Choose the simplest path to a better website.
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                        Website packages, custom builds, landing pages, and ongoing support for
+                        transaction coordinators, real estate professionals, coaches, and select
+                        service businesses.
+                    </p>
+                    <dl className="mt-10 grid gap-px border-y border-rule sm:grid-cols-3 sm:divide-x sm:divide-rule">
+                        {stats.map((stat) => (
+                            <div key={stat.label} className="py-5 sm:px-6 sm:first:pl-0">
+                                <dt className="mono-label text-muted-foreground">{stat.label}</dt>
+                                <dd className="mt-2 font-display text-lg text-foreground">{stat.value}</dd>
                             </div>
-                        </div>
-                    </div>
+                        ))}
+                    </dl>
                 </AnimatedSection>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <div className="grid gap-6 md:grid-cols-2">
+            {/* Fit — ruled lists */}
+            <Section className="pt-4 md:pt-6" padding="none">
+                <div className="grid gap-x-16 gap-y-10 md:grid-cols-2">
                     <AnimatedSection>
-                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                            <h2 className="text-lg font-semibold text-foreground mb-4">Great fit if</h2>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    You want more inquiries, bookings, or leads from the site.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    Your current site feels outdated, unclear, or slow on mobile.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    You want one person to own strategy, design, and build.
-                                </li>
-                            </ul>
-                        </div>
+                        <MonoLabel index="01" className="mb-4">Great fit if</MonoLabel>
+                        <ul className="ledger border-t border-rule">
+                            {greatFit.map((item) => (
+                                <CheckRow key={item}>{item}</CheckRow>
+                            ))}
+                        </ul>
                     </AnimatedSection>
-
                     <AnimatedSection delay={0.08}>
-                        <div className="h-full rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8">
-                            <h2 className="text-lg font-semibold text-foreground mb-4">Best results when</h2>
-                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    You can support a realistic timeline instead of a rush launch.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    You want clear messaging and conversion structure, not just a template refresh.
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                                    You are ready to review content and give timely decisions.
-                                </li>
-                            </ul>
-                        </div>
+                        <MonoLabel index="02" className="mb-4">Best results when</MonoLabel>
+                        <ul className="ledger border-t border-rule">
+                            {bestResults.map((item) => (
+                                <CheckRow key={item}>{item}</CheckRow>
+                            ))}
+                        </ul>
                     </AnimatedSection>
                 </div>
             </Section>
 
+            {/* Niche links */}
             <Section className="pt-10 md:pt-14" padding="none">
                 <AnimatedSection>
-                    <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6 sm:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                        <p className="text-sm font-medium text-foreground">See how I work with your niche:</p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <Link href="/industries/real-estate-professionals?source=services" className="btn-secondary">
+                    <div className="flex flex-col gap-4 border-t border-rule pt-8 md:flex-row md:items-center md:justify-between">
+                        <p className="mono-label text-muted-foreground">See how I work with your niche</p>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                            <Link href="/industries/real-estate-professionals?source=services" className="btn btn-sm btn-secondary">
                                 Real estate professionals
                             </Link>
-                            <Link href="/industries/transaction-coordinators?source=services" className="btn-secondary">
+                            <Link href="/industries/transaction-coordinators?source=services" className="btn btn-sm btn-secondary">
                                 Transaction coordinators
                             </Link>
-                            <Link href="/industries/real-estate-coaches?source=services" className="btn-secondary">
-                                Coaches & brokerages
+                            <Link href="/industries/real-estate-coaches?source=services" className="btn btn-sm btn-secondary">
+                                Coaches &amp; brokerages
                             </Link>
                         </div>
                     </div>
                 </AnimatedSection>
             </Section>
 
-            <Section className="bg-white" size="full">
-                <div className="mx-auto max-w-6xl">
+            {/* Two ways to work — asymmetric ruled tracks */}
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
                     <AnimatedSection>
-                        <SectionHeading
+                        <SectionOpener
+                            eyebrow="Ways to work together"
+                            eyebrowIndex="03"
                             title="Two ways to work together"
-                            subtitle="Pick the path that matches what you already know. If you are not sure, the discovery call is where we choose the simplest option."
+                            lead="Pick the path that matches what you already know. If you're not sure, the discovery call is where we choose the simplest option."
                         />
                     </AnimatedSection>
 
-                    <div className="grid gap-6 lg:grid-cols-2">
-                        <ServicePath
-                            eyebrow="Path A"
-                            title="I know I need a website"
-                            services={services.slice(0, 2)}
-                        />
-                        <ServicePath
-                            eyebrow="Path B"
-                            title="I need something specific"
-                            services={services.slice(2)}
-                        />
+                    <div className="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
+                        <ServicePath eyebrow="Path A" title="I know I need a website" services={services.slice(0, 2)} />
+                        <ServicePath eyebrow="Path B" title="I need something specific" services={services.slice(2)} />
                     </div>
-                </div>
-            </Section>
+                </Section>
+            </section>
 
-            <Section className="rounded-2xl bg-muted/35">
+            <Section>
                 <HowItWorks contactSource="services-how-it-works" />
             </Section>
 
-            <Section className="rounded-2xl border border-border/60 bg-card/80" padding="large">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Not sure which one fits?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Tell me what you&apos;re building and what matters most. I&apos;ll recommend the simplest path to results.
-                    </p>
-                    <Link href="/contact?source=services" className="btn-primary">
-                        Book a free discovery call
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            {/* CTA */}
+            <CTAFlooded
+                eyebrow="Not sure which fits?"
+                title="Tell me what you're building."
+                body="Share what matters most and I'll recommend the simplest path to results — usually within one business day."
+                primary={{ label: "Book a free discovery call", href: "/contact?source=services" }}
+                secondary={{ label: "Compare TC packages", href: "/tc-packages" }}
+            />
         </>
     );
 }
@@ -231,33 +210,26 @@ function ServicePath({
     services: ServiceItem[];
 }) {
     return (
-        <div className="rounded-xl border border-border/70 bg-card p-6 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                {eyebrow}
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-foreground">{title}</h2>
-            <div className="mt-6 grid gap-4">
+        <div>
+            <p className="mono-label mb-1 text-muted-foreground">{eyebrow}</p>
+            <h3 className="font-display text-2xl text-foreground">{title}</h3>
+            <RuledList className="mt-5">
                 {services.map((service) => (
-                    <Link
-                        key={service.title}
-                        href={service.href}
-                        className="group block rounded-xl border border-border/60 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40"
-                    >
-                        <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                            <service.icon className="w-5 h-5" stroke={1.5} />
+                    <Link key={service.title} href={service.href} className="group ledger-row block py-5">
+                        <div className="flex items-baseline justify-between gap-4">
+                            <h4 className="font-display text-lg text-foreground transition-colors group-hover:text-primary sm:text-xl">
+                                {service.title}
+                            </h4>
+                            <span className="mono-meta shrink-0">{service.timeline}</span>
                         </div>
-                        <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground">{service.description}</p>
-                        <div className="mt-5 flex items-center justify-between gap-4 text-xs text-muted-foreground">
-                            <span className="font-mono">{service.timeline}</span>
-                            <span className="inline-flex items-center gap-2 text-foreground group-hover:text-primary transition-colors">
-                                {service.cta}
-                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                            </span>
-                        </div>
+                        <p className="mt-2 text-[15px] leading-relaxed text-foreground/70">{service.description}</p>
+                        <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-foreground/80 transition-colors group-hover:text-primary">
+                            {service.cta}
+                            <IconArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" stroke={2} />
+                        </span>
                     </Link>
                 ))}
-            </div>
+            </RuledList>
         </div>
     );
 }

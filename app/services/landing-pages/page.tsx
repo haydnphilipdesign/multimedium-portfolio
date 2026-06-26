@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
+import { MonoLabel, SectionOpener, RuledList, RuledRow, CheckRow } from "@/components/sections/Editorial";
+import { CTARuled } from "@/components/marketing/CTA";
 import { getProjectBySlug, type Project } from "@/content/projects";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
@@ -11,13 +13,22 @@ import {
     getFaqStructuredData,
     getServiceStructuredData,
 } from "@/lib/structuredData";
-import {
-    IconCheck,
-    IconArrowRight,
-    IconChartBar,
-    IconPlugConnected,
-    IconTargetArrow,
-} from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
+
+const highlights = [
+    {
+        title: "One clear action",
+        description: "The page stays focused on one conversion goal: call, book, sign up, or request a quote.",
+    },
+    {
+        title: "Measure what matters",
+        description: "Tracking ties to leads and bookings so you can improve conversion with confidence.",
+    },
+    {
+        title: "Fast follow-up",
+        description: "Route leads into your inbox, calendar, or CRM so you respond before they keep shopping.",
+    },
+];
 
 export const metadata: Metadata = createPageMetadata({
     title: "Landing Page Design for Lead Generation",
@@ -92,130 +103,86 @@ export default function LandingPagesServicePage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
+            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
                 <AnimatedSection>
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-8 sm:px-8 sm:py-10">
-
-                        <div className="relative grid gap-8 lg:grid-cols-5 lg:items-end">
-                            <div className="lg:col-span-3 space-y-6">
-                                <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    ← Back to services
+                    <Link href="/services" className="mb-8 inline-flex text-sm text-muted-foreground transition-colors hover:text-foreground">
+                        ← Back to services
+                    </Link>
+                    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                        <div>
+                            <MonoLabel className="mb-6">Landing pages</MonoLabel>
+                            <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
+                                Landing pages for lead generation
+                            </h1>
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+                                Focused landing pages and simple funnels for launches, offers, and campaigns
+                                when you need qualified responses faster than a full site build.
+                            </p>
+                            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <Link href="/contact?source=services-landing-pages" className="btn btn-primary">
+                                    Plan your landing page
                                 </Link>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                                    Landing page design for
-                                    <br />
-                                    lead generation
-                                </h1>
-                                <p className="text-lg text-muted-foreground max-w-2xl">
-                                    Focused landing pages and simple funnels for launches, offers, and campaigns when you need qualified responses faster than a full site build.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <Link href="/contact?source=services-landing-pages" className="btn-primary">
-                                        Plan your landing page
-                                    </Link>
-                                    <Link href="/work?source=services-landing-pages" className="btn-secondary inline-flex items-center gap-2">
-                                        See examples <IconArrowRight className="w-4 h-4" stroke={2} />
-                                    </Link>
+                                <Link href="/work?source=services-landing-pages" className="btn btn-secondary group">
+                                    See examples
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
+                            </div>
+                        </div>
+                        <dl className="ledger border-t border-rule">
+                            {expectations.map((item) => (
+                                <div key={item.label} className="ledger-row flex items-baseline justify-between gap-6 py-4">
+                                    <dt className="mono-label text-muted-foreground">{item.label}</dt>
+                                    <dd className="font-display text-lg text-foreground">{item.value}</dd>
                                 </div>
-                            </div>
-
-                            <div className="lg:col-span-2">
-                                <div className="rounded-2xl border border-border/60 bg-background/55 backdrop-blur-sm p-6">
-                                    <p className="text-sm font-semibold text-foreground">Built for high-intent traffic</p>
-                                    <div className="mt-4 grid gap-3">
-                                        {expectations.map((item) => (
-                                            <div
-                                                key={item.label}
-                                                className="flex items-start justify-between gap-4 rounded-xl border border-border/60 bg-card/55 px-4 py-3"
-                                            >
-                                                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
-                                                <p className="text-sm font-semibold text-foreground text-right">{item.value}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </AnimatedSection>
-            </Section>
-
-            <Section className="pt-10 md:pt-14" padding="none">
-                <AnimatedSection direction="none" delay={0.02}>
-                    <div className="grid gap-4 sm:grid-cols-3">
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconTargetArrow className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">One clear action</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                The page stays focused on one conversion goal: call, book, sign up, or request a quote.
-                            </p>
-                        </div>
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconChartBar className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Measure what matters</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Tracking ties to leads and bookings so you can improve conversion with confidence.
-                            </p>
-                        </div>
-                        <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-6">
-                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 bg-muted/50 text-primary">
-                                <IconPlugConnected className="w-5 h-5" stroke={1.5} />
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-foreground">Fast follow-up</p>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                Route leads into your inbox, calendar, or CRM so you respond before they keep shopping.
-                            </p>
-                        </div>
+                            ))}
+                        </dl>
                     </div>
                 </AnimatedSection>
             </Section>
 
             <Section>
                 <AnimatedSection>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                        What&apos;s included
-                    </h2>
+                    <SectionOpener eyebrow="How it works" eyebrowIndex="01" title="One page, one job" />
                 </AnimatedSection>
+                <RuledList className="mt-10 border-t border-rule">
+                    {highlights.map((item, idx) => (
+                        <RuledRow key={item.title} index={String(idx + 1).padStart(2, "0")} title={item.title}>
+                            {item.description}
+                        </RuledRow>
+                    ))}
+                </RuledList>
+            </Section>
 
-                <StaggerContainer className="grid gap-4 md:grid-cols-2" staggerDelay={0.1}>
+            <Section className="pt-0">
+                <AnimatedSection>
+                    <SectionOpener eyebrow="Scope" eyebrowIndex="02" title="What's included" />
+                </AnimatedSection>
+                <StaggerContainer className="mt-10 ledger border-t border-rule md:grid md:grid-cols-2 md:gap-x-16 md:border-t-0" staggerDelay={0.06}>
                     {included.map((item) => (
-                        <StaggerItem key={item}>
-                            <div className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border/60">
-                                <IconCheck className="w-5 h-5 text-primary mt-0.5" stroke={2} />
-                                <p className="text-sm text-muted-foreground">{item}</p>
-                            </div>
+                        <StaggerItem key={item} className="md:border-t md:border-rule">
+                            <CheckRow>{item}</CheckRow>
                         </StaggerItem>
                     ))}
                 </StaggerContainer>
             </Section>
 
             {featured.length > 0 ? (
-                <Section className="pt-10 md:pt-14" padding="none">
+                <Section className="pt-0">
                     <AnimatedSection>
-                        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
-                            <div className="max-w-2xl">
-                                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                    Recent landing page work
-                                </h2>
-                                <p className="mt-2 text-muted-foreground">
-                                    Focused builds that prioritize one action and a clean conversion path.
-                                </p>
-                            </div>
-                            <Link
-                                href="/work?source=services-landing-pages"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
-                            >
-                                <span className="font-medium">Browse all case studies</span>
-                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                            </Link>
-                        </div>
+                        <SectionOpener
+                            eyebrow="Proof"
+                            eyebrowIndex="03"
+                            title="Recent landing page work"
+                            lead="Focused builds that prioritize one action and a clean conversion path."
+                            action={
+                                <Link href="/work?source=services-landing-pages" className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary">
+                                    Browse all case studies
+                                    <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
+                                </Link>
+                            }
+                        />
                     </AnimatedSection>
-
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${featured.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
+                    <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2">
                         {featured.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
@@ -223,64 +190,51 @@ export default function LandingPagesServicePage() {
                 </Section>
             ) : null}
 
-            <Section className="rounded-2xl bg-muted/35">
-                <div className="grid gap-10 md:grid-cols-2">
-                    <AnimatedSection>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Timeline
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Most landing page engagements ship in 1–3 weeks depending on scope, assets, and review cadence.
-                        </p>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.1}>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                            Budget guidance
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Landing pages start at $750 depending on copy, assets, variants, and integrations — making them the most accessible starting point.
-                        </p>
-                    </AnimatedSection>
+            <section className="bg-surface-1 border-y border-rule">
+                <Section>
+                    <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+                        <AnimatedSection>
+                            <MonoLabel className="mb-4">Timeline</MonoLabel>
+                            <h2 className="font-display text-2xl text-foreground sm:text-3xl">1–3 weeks</h2>
+                            <p className="mt-4 text-lg leading-relaxed text-foreground/78">
+                                Most landing page engagements ship in 1–3 weeks depending on scope, assets, and review cadence.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.1}>
+                            <MonoLabel className="mb-4">Budget guidance</MonoLabel>
+                            <h2 className="font-display text-2xl text-foreground sm:text-3xl">From $750</h2>
+                            <p className="mt-4 text-lg leading-relaxed text-foreground/78">
+                                Landing pages start at $750 depending on copy, assets, variants, and integrations — making them the most accessible starting point.
+                            </p>
+                        </AnimatedSection>
+                    </div>
+                </Section>
+            </section>
+
+            <Section>
+                <AnimatedSection>
+                    <SectionOpener eyebrow="FAQ" eyebrowIndex="04" title="Common questions" lead="A few common questions about landing pages, tracking, and iteration." />
+                </AnimatedSection>
+                <div className="mt-10 ledger border-t border-foreground/15">
+                    {faqs.map((item) => (
+                        <details key={item.q} className="group ledger-row py-1">
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                                <p className="font-display text-lg text-foreground sm:text-xl">{item.q}</p>
+                                <span aria-hidden className="shrink-0 font-mono text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45">+</span>
+                            </summary>
+                            <p className="max-w-3xl pb-6 text-base leading-relaxed text-foreground/72">{item.a}</p>
+                        </details>
+                    ))}
                 </div>
             </Section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <AnimatedSection>
-                    <div className="mb-6">
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                            FAQ
-                        </h2>
-                    </div>
-                    <p className="text-muted-foreground max-w-2xl">
-                        A few common questions about landing pages, tracking, and iteration.
-                    </p>
-                </AnimatedSection>
-
-                <StaggerContainer className="grid gap-4 md:grid-cols-2 mt-8" staggerDelay={0.08}>
-                    {faqs.map((item) => (
-                        <StaggerItem key={item.q}>
-                            <div className="rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                                <h3 className="text-lg font-semibold text-foreground">{item.q}</h3>
-                                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
-            </Section>
-
-            <Section className="border-t border-border/40">
-                <AnimatedSection className="text-center max-w-2xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Need a landing page that actually gets responses?
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Share the offer, the audience, and where you want the traffic to go. I’ll reply with a simple plan and timeline within one business day.
-                    </p>
-                    <Link href="/contact?source=services-landing-pages-cta" className="btn-primary">
-                        Plan your landing page
-                    </Link>
-                </AnimatedSection>
-            </Section>
+            <CTARuled
+                eyebrow="Next step"
+                title="Need a landing page that actually gets responses?"
+                body="Share the offer, the audience, and where you want the traffic to go. I'll reply with a simple plan and timeline within one business day."
+                primary={{ label: "Plan your landing page", href: "/contact?source=services-landing-pages-cta" }}
+                secondary={{ label: "See all services", href: "/services" }}
+            />
         </>
     );
 }
