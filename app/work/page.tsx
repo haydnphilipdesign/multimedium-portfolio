@@ -3,7 +3,11 @@ import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { ProjectCard } from "@/components/work/ProjectCard";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { projects, type Project } from "@/content/projects";
+import {
+    getClientProjectsByIndustry,
+    getConceptProjectsByIndustry,
+    getProductProjects,
+} from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
 import {
@@ -60,41 +64,24 @@ export default async function WorkPage({
     const industry = params.industry;
     const indMeta = industry ? industryMeta[industry] : null;
 
-    // Only show featured (visible) projects
-    let filteredProjects = projects.filter((p) => p.featured);
-
-    if (industry) {
-        filteredProjects = filteredProjects.filter((p) => p.industries?.includes(industry));
-    }
-
-    const showSpotlight = !industry || industry === "tc" || industry === "real-estate" || industry === "coaching";
-    const spotlightOrder =
-        industry === "tc"
-            ? ["pa-real-estate-support", "tag-landing-page"]
-            : industry === "coaching"
-                ? ["momentum-coaching", "clarity-growth"]
-                : ["pa-real-estate-support", "tag-landing-page", "northpoint-realty", "momentum-coaching"];
-    const spotlightProjects: Project[] = showSpotlight
-        ? (spotlightOrder
-            .map((slug) => filteredProjects.find((p) => p.slug === slug))
-            .filter(Boolean) as Project[])
-        : [];
-    const spotlightSlugs = new Set(spotlightProjects.map((p) => p.slug));
-    const remainingProjects = filteredProjects.filter((project) => !spotlightSlugs.has(project.slug));
+    // Honest, classification-based selection — never mix demo work into client proof.
+    const clientProjects = getClientProjectsByIndustry(industry);
+    const productProjects = getProductProjects().filter(
+        (p) => !industry || p.industries?.includes(industry)
+    );
+    const conceptProjects = getConceptProjectsByIndustry(industry);
 
     const getGridCols = (count: number) => (count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3");
 
-    const spotlightHeading =
+    const clientHeading =
         industry === "tc" ? "TC website work"
             : industry === "real-estate" ? "Real estate website work"
-                : industry === "coaching" ? "Coaching & consulting sites"
-                    : "Selected work";
-    const spotlightSubheading =
+                : industry === "coaching" ? "Coaching & consulting work"
+                    : "Selected client work";
+    const clientSubheading =
         industry === "tc"
-            ? "Client websites and landing pages for transaction coordinators and real estate ops teams."
-            : industry === "coaching"
-                ? "Premium websites for coaches and consultants — designed to command authority and justify high-ticket pricing."
-                : "Client projects with clear positioning, practical design decisions, and visible business goals.";
+            ? "Real client websites and landing pages for transaction coordinators and real estate ops teams."
+            : "Real client projects with clear positioning, practical design decisions, and visible business goals.";
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
@@ -144,44 +131,65 @@ export default async function WorkPage({
                 <div className="h-12 md:h-16" />
             </div>
 
-            {/* Spotlight */}
-            {spotlightProjects.length > 0 && (
+            {/* Real client work */}
+            {clientProjects.length > 0 && (
                 <Section className="pt-14 md:pt-20">
                     <AnimatedSection>
                         <div className="flex items-end justify-between gap-8 mb-8">
                             <div className="max-w-3xl">
                                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                    {spotlightHeading}
+                                    {clientHeading}
                                 </h2>
                                 <p className="text-muted-foreground mt-3">
-                                    {spotlightSubheading}
+                                    {clientSubheading}
                                 </p>
                             </div>
                         </div>
                     </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(spotlightProjects.length)}`}>
-                        {spotlightProjects.map((project, index) => (
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(clientProjects.length)}`}>
+                        {clientProjects.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
                     </div>
                 </Section>
             )}
 
-            {/* Remaining Projects */}
-            {remainingProjects.length > 0 && (
+            {/* Internal products & tools */}
+            {productProjects.length > 0 && (
                 <Section>
                     <AnimatedSection>
                         <div className="max-w-3xl mb-8">
                             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                                More work
+                                Internal products &amp; tools
                             </h2>
                             <p className="text-muted-foreground mt-3">
-                                Additional client sites and service-business projects, each shaped by the same positioning-first process.
+                                Software I designed and built for the real estate and transaction-coordination world — proof of how deeply I understand the workflow, not client commissions.
                             </p>
                         </div>
                     </AnimatedSection>
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(remainingProjects.length)}`}>
-                        {remainingProjects.map((project, index) => (
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(productProjects.length)}`}>
+                        {productProjects.map((project, index) => (
+                            <ProjectCard key={project.slug} project={project} index={index} />
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {/* Concept & demo designs */}
+            {conceptProjects.length > 0 && (
+                <Section>
+                    <AnimatedSection>
+                        <div className="max-w-3xl mb-8">
+                            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                                Concept &amp; demo designs
+                            </h2>
+                            <p className="text-muted-foreground mt-3">
+                                Self-initiated design explorations for fictional brands, shown to demonstrate range. These are not client projects — each card opens a live demo.
+                            </p>
+                        </div>
+                    </AnimatedSection>
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${getGridCols(conceptProjects.length)}`}>
+                        {conceptProjects.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
                     </div>

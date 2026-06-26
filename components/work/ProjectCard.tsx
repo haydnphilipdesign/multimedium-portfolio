@@ -16,6 +16,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     const prefersReducedMotion = useReducedMotion();
     const [imageError, setImageError] = useState(false);
 
+    // Concept/demo work links to its live external demo (so visitors see the real
+    // thing) rather than to an internal "case study" — and is never framed as a client.
+    const isConcept = project.kind === "Concept";
+    const conceptHref = project.externalUrl ?? `/work/${project.slug}`;
+
     const cardContent = (
         <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]">
             <div className="border-b border-border/60 bg-muted/50 px-3 py-2">
@@ -29,7 +34,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 {!imageError ? (
                     <Image
                         src={project.thumbnail}
-                        alt={`${project.title} website design case study preview`}
+                        alt={
+                            isConcept
+                                ? `${project.title} — concept website design (fictional brand)`
+                                : `${project.title} website design case study preview`
+                        }
                         fill
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -40,12 +49,18 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         className="absolute inset-0"
                         style={{
                             background:
-                                "linear-gradient(145deg, color-mix(in oklab, var(--primary) 34%, transparent), color-mix(in oklab, var(--glow) 22%, transparent))",
+                                "linear-gradient(145deg, color-mix(in oklab, var(--primary) 34%, transparent), color-mix(in oklab, var(--primary) 12%, transparent))",
                         }}
                     />
                 )}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-background/72 via-transparent to-transparent" />
+
+                {isConcept && (
+                    <span className="absolute left-4 top-4 inline-flex items-center rounded-full border border-border/60 bg-background/85 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur-sm">
+                        Concept · demo
+                    </span>
+                )}
 
                 <span className="absolute bottom-4 left-4 text-[11px] font-medium text-muted-foreground/90">
                     {project.year}
@@ -67,9 +82,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </div>
 
                 <div className="mt-auto flex items-center justify-between border-t border-border/60 pt-4 text-xs text-muted-foreground">
-                    <span>{project.role.split(",")[0]}</span>
+                    <span>{isConcept ? "Concept design" : project.role.split(",")[0]}</span>
                     <span className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-primary">
-                        View project
+                        {isConcept ? "View live demo" : "View project"}
                         <IconArrowUpRight className="h-3.5 w-3.5" stroke={2} />
                     </span>
                 </div>
@@ -77,12 +92,13 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </article>
     );
 
+    const linkProps = isConcept
+        ? { href: conceptHref, target: "_blank" as const, rel: "noopener noreferrer" }
+        : { href: `/work/${project.slug}` };
+
     if (prefersReducedMotion) {
         return (
-            <Link
-                href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-xl"
-            >
+            <Link {...linkProps} className="focus-ring block h-full rounded-xl">
                 {cardContent}
             </Link>
         );
@@ -100,10 +116,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 ease: [0.22, 0.61, 0.36, 1],
             }}
         >
-            <Link
-                href={`/work/${project.slug}`}
-                className="focus-ring block h-full rounded-xl"
-            >
+            <Link {...linkProps} className="focus-ring block h-full rounded-xl">
                 {cardContent}
             </Link>
         </motion.div>

@@ -114,6 +114,9 @@ const packageTeasers = [
     },
 ];
 
+// TODO(trust): Returns null until a real client testimonial is added to
+// content/projects.ts. The testimonial section below is intentionally hidden
+// while none exist — do not add placeholder/invented quotes to fill it.
 function getBestTestimonial() {
     for (const p of projects) {
         if (p.testimonial) return p.testimonial;
@@ -189,9 +192,9 @@ export default function HomePage() {
                 <AnimatedSection>
                     <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                         <div className="max-w-2xl">
-                            <h2 className="text-3xl font-bold text-foreground md:text-4xl">Selected work</h2>
+                            <h2 className="text-3xl font-bold text-foreground md:text-4xl">Real client work</h2>
                             <p className="mt-3 text-muted-foreground">
-                                Client projects first: real websites with clear goals, deliberate design decisions, and honest business outcomes.
+                                Real websites for real businesses — clear goals, deliberate design decisions, and honest outcomes. (Concept and demo designs are labeled as such on the work page.)
                             </p>
                         </div>
                         <Link

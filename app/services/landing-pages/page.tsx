@@ -66,9 +66,9 @@ const faqs = [
 
 export default function LandingPagesServicePage() {
     const tag = getProjectBySlug("tag-landing-page");
-    const northpoint = getProjectBySlug("northpoint-realty");
     const paRes = getProjectBySlug("pa-real-estate-support");
-    const featured = [tag, northpoint, paRes].filter((project): project is Project => Boolean(project));
+    // Real client landing/conversion work only — no concept/demo work here.
+    const featured = [tag, paRes].filter((project): project is Project => Boolean(project));
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },

@@ -129,9 +129,10 @@ const faqs = [
 
 export default function HomeServicesPage() {
     const paRes = getProjectBySlug("pa-real-estate-support");
-    const northpoint = getProjectBySlug("northpoint-realty");
     const tag = getProjectBySlug("tag-landing-page");
-    const featured = [paRes, northpoint, tag].filter(
+    const threePenn = getProjectBySlug("three-penn-properties");
+    // Real client work only — the spec direction is in the labeled "Concept build" section above.
+    const featured = [paRes, tag, threePenn].filter(
         (project): project is Project => Boolean(project)
     );
 

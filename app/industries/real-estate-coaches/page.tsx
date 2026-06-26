@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { ProjectCard } from "@/components/work/ProjectCard";
-import { getProjectBySlug, type Project } from "@/content/projects";
+import { getConceptProjectsByIndustry } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
@@ -110,12 +110,8 @@ const faqs = [
 ];
 
 export default function RealEstateCoachesPage() {
-    const momentum = getProjectBySlug("momentum-coaching");
-    const northpoint = getProjectBySlug("northpoint-realty");
-    const clarity = getProjectBySlug("clarity-growth");
-    const featured = [momentum, northpoint, clarity].filter(
-        (project): project is Project => Boolean(project)
-    );
+    // No real coaching clients yet — show clearly-labeled concept designs, never as client proof.
+    const conceptDesigns = getConceptProjectsByIndustry("coaching");
 
     const structuredData = [
         getBreadcrumbStructuredData([
@@ -264,28 +260,21 @@ export default function RealEstateCoachesPage() {
                 </div>
             </Section>
 
-            {featured.length > 0 ? (
+            {conceptDesigns.length > 0 ? (
                 <Section>
                     <AnimatedSection>
                         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
                             <div className="max-w-2xl">
-                                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Relevant work</h2>
+                                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Concept designs for this niche</h2>
                                 <p className="mt-2 text-muted-foreground">
-                                    These projects show the mix of premium positioning, conversion thinking, and niche messaging this audience usually needs.
+                                    Self-initiated design explorations for fictional coaching brands — shown to demonstrate the premium positioning and conversion thinking this audience needs. These are concepts, not client projects, and each opens a live demo. Want to be the first real coaching client featured here? <Link href="/contact?source=real-estate-coaches-concepts" className="text-foreground underline underline-offset-4 hover:text-primary">Let&apos;s talk</Link>.
                                 </p>
                             </div>
-                            <Link
-                                href="/work?industry=coaching"
-                                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
-                            >
-                                <span className="font-medium">Browse related case studies</span>
-                                <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                            </Link>
                         </div>
                     </AnimatedSection>
 
-                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${featured.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
-                        {featured.map((project, index) => (
+                    <div className={`grid gap-6 sm:gap-8 md:grid-cols-2 ${conceptDesigns.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
+                        {conceptDesigns.map((project, index) => (
                             <ProjectCard key={project.slug} project={project} index={index} />
                         ))}
                     </div>

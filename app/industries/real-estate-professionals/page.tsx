@@ -5,7 +5,7 @@ import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { projects } from "@/content/projects";
+import { getClientProjectsByIndustry, getProductProjects } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
@@ -107,9 +107,11 @@ export default function RealEstateProfessionalsPage() {
     const schedulingUrl = process.env.NEXT_PUBLIC_SCHEDULING_URL;
     const contactHref = "/contact?source=real-estate-professionals&projectType=website";
 
-    const realEstateProjects = projects
-        .filter((project) => project.industries?.includes("real-estate"))
-        .slice(0, 3);
+    // Real client work first, then internal products — never concept/demo work.
+    const realEstateProjects = [
+        ...getClientProjectsByIndustry("real-estate"),
+        ...getProductProjects().filter((p) => p.industries?.includes("real-estate")),
+    ].slice(0, 3);
 
     const structuredData = [
         getBreadcrumbStructuredData([

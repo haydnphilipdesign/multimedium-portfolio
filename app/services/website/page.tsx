@@ -58,10 +58,10 @@ const faq = [
 ];
 
 export default function WebsiteServicePage() {
-    const northpoint = getProjectBySlug("northpoint-realty");
     const threePenn = getProjectBySlug("three-penn-properties");
     const paRes = getProjectBySlug("pa-real-estate-support");
-    const featured = [paRes, northpoint, threePenn].filter(
+    // Real client redesigns only — no concept/demo work in this proof grid.
+    const featured = [paRes, threePenn].filter(
         (project): project is Project => Boolean(project)
     );
     const structuredData = [

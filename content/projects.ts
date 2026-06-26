@@ -3,7 +3,13 @@ export interface Project {
     title: string;
     tagline: string;
     description: string;
-    kind: "Client" | "Product" | "Personal";
+    // Honest classification used across the site to keep proof trustworthy:
+    //  - "Client":  real, paid client work (safe to present as client proof)
+    //  - "Product": internal product/tool built by Multimedium (label as product)
+    //  - "Concept": self-initiated concept/demo/spec design for a FICTIONAL brand
+    //               (never present as client work; always badge as a concept)
+    //  - "Personal": personal/hobby project
+    kind: "Client" | "Product" | "Concept" | "Personal";
     category: "Web Design" | "SaaS" | "Automation" | "Portal" | "Wellness" | "Real Estate" | "Fitness";
     year: string;
     client: string;
@@ -46,6 +52,9 @@ export interface Project {
         value: string;
         description: string;
     }[];
+    // TODO(trust): No real testimonials exist yet. When real client quotes are
+    // collected, add them here (quote/author/role). Do NOT invent testimonials —
+    // the homepage and case-study testimonial blocks render only when this is set.
     testimonial?: {
         quote: string;
         author: string;
@@ -60,7 +69,7 @@ export const projects: Project[] = [
     {
         slug: "nomad-gear",
         title: "Nomad Gear",
-        kind: "Client",
+        kind: "Concept",
         metaTitle: "Nomad Gear - Camping Rental Website Design",
         metaDescription:
             "Story-driven, motion-forward website design for a premium outdoor gear rental company—built to feel adventurous while keeping the booking path clear.",
@@ -117,7 +126,7 @@ export const projects: Project[] = [
                 "CTA hierarchy makes booking the obvious next step",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
             headline: "Need a website that stands out?",
@@ -147,14 +156,14 @@ export const projects: Project[] = [
             { metric: "Browse Flow", value: "Category-first", description: "Exploration stays structured and easy to scan" },
             { metric: "Conversion Path", value: "Clear", description: "CTAs stay obvious throughout the scroll" },
         ],
-        featured: true,
+        featured: false,
         color: "#3a5a40",
         externalUrl: "https://nomad-gear.vercel.app",
     },
     {
         slug: "velvet-rose",
         title: "Velvet Rose",
-        kind: "Product",
+        kind: "Concept",
         metaTitle: "Velvet Rose - Luxury Florist Website Design",
         metaDescription:
             "Romantic, premium florist website design with graceful motion, clear category browsing, and a conversion-forward storefront layout.",
@@ -211,7 +220,7 @@ export const projects: Project[] = [
                 "Typography + spacing reinforce premium positioning",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
             headline: "Want a website that feels alive?",
@@ -248,7 +257,7 @@ export const projects: Project[] = [
     {
         slug: "gentlemans-blade",
         title: "Gentleman's Blade Barbershop",
-        kind: "Client",
+        kind: "Concept",
         metaTitle: "Gentleman's Blade - Vintage Barbershop Website Design",
         metaDescription:
             "Heritage-inspired barbershop website design with editorial layout, clear services, and a booking-first path that feels premium.",
@@ -305,7 +314,7 @@ export const projects: Project[] = [
                 "Clear booking CTAs are integrated naturally throughout",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
             headline: "Need a website with character?",
@@ -342,7 +351,7 @@ export const projects: Project[] = [
     {
         slug: "pop-playground",
         title: "Pop Playground",
-        kind: "Client",
+        kind: "Concept",
         metaTitle: "Pop Playground - Memphis Design Kids' Creative Website",
         metaDescription:
             "Playful Memphis-inspired website for a children’s creative studio—bold color, lively motion, and parent-friendly clarity.",
@@ -398,7 +407,7 @@ export const projects: Project[] = [
                 "Premium polish makes parents trust while kids feel excited",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
             headline: "Need a website that's full of energy?",
@@ -710,7 +719,7 @@ export const projects: Project[] = [
     {
         slug: "norma-intake",
         title: "Norma Intake",
-        kind: "Client",
+        kind: "Product",
         industries: ["tc", "real-estate"],
         metaTitle: "Norma Intake - AI-Powered Transaction Intake for TCs",
         metaDescription:
@@ -1145,7 +1154,7 @@ export const projects: Project[] = [
             { metric: "Admin Time", value: "-6 hrs/week", description: "Saved through automated confirmations and reminders" },
             { metric: "Engagement", value: "More time-on-site", description: "Higher time-on-site and return visits" },
         ],
-        featured: false,
+        featured: true,
         color: "#10b981",
         externalUrl: "https://blissfulexistencehealingacres.com",
     },
@@ -1215,7 +1224,7 @@ export const projects: Project[] = [
     {
         slug: "northpoint-realty",
         title: "NorthPoint Realty Group",
-        kind: "Client",
+        kind: "Concept",
         industries: ["real-estate"],
         metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website",
         metaDescription:
@@ -1274,7 +1283,7 @@ export const projects: Project[] = [
                 "Prominent forms on every section maximize conversion opportunities",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
         },
         cta: {
             headline: "Need a real estate website that converts?",
@@ -1304,14 +1313,14 @@ export const projects: Project[] = [
             { metric: "Trust Signals", value: "Layered", description: "Stats, testimonials, and team profiles" },
             { metric: "Intake Forms", value: "3", description: "Strategically placed throughout the site" },
         ],
-        featured: true,
+        featured: false,
         color: "#0A2540",
         externalUrl: "https://northpoint-realty-group.vercel.app/",
     },
     {
         slug: "momentum-coaching",
         title: "Momentum Real Estate Coaching",
-        kind: "Client",
+        kind: "Concept",
         industries: ["real-estate", "coaching"],
         metaTitle: "Momentum Real Estate Coaching - Premium Coaching Website",
         metaDescription:
@@ -1369,7 +1378,7 @@ export const projects: Project[] = [
                 "Bold claims backed by social proof build immediate trust",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
         },
         cta: {
             headline: "Need a website that commands premium prices?",
@@ -1399,14 +1408,14 @@ export const projects: Project[] = [
             { metric: "Trust Signals", value: "5+", description: "Major brokerage logos displayed" },
             { metric: "Results Shown", value: "Specific", description: "Exact revenue and transaction growth" },
         ],
-        featured: true,
+        featured: false,
         color: "#C9A227",
         externalUrl: "https://momentum-real-estate-coaching.vercel.app/",
     },
     {
         slug: "clarity-growth",
         title: "Clarity Growth Co",
-        kind: "Client",
+        kind: "Concept",
         industries: ["wellness", "coaching"],
         metaTitle: "Clarity Growth Co - Scroll-Driven Business Coaching Website",
         metaDescription:
@@ -1465,7 +1474,7 @@ export const projects: Project[] = [
                 "The calm aesthetic matches the brand promise of less hustle, more margin",
             ],
             approval:
-                "Client approved the design direction and granted permission to feature this project in my portfolio.",
+                "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
         },
         cta: {
             headline: "Need a website that feels different?",
@@ -1505,18 +1514,55 @@ export function getFeaturedProjects(): Project[] {
     return projects.filter((p) => p.featured);
 }
 
+// --- Honest classification selectors -------------------------------------
+// Use these instead of hardcoding demo slugs so trust sections only ever
+// surface real client work (and clearly-labeled products/concepts).
+
+/** Real, paid client work. Safe to present as client proof anywhere. */
+export function getClientProjects(): Project[] {
+    return projects.filter((p) => p.kind === "Client");
+}
+
+/** Internal products/tools built by Multimedium. Label as products, never clients. */
+export function getProductProjects(): Project[] {
+    return projects.filter((p) => p.kind === "Product");
+}
+
+/** Self-initiated concept/demo/spec designs for fictional brands. Never client proof. */
+export function getConceptProjects(): Project[] {
+    return projects.filter((p) => p.kind === "Concept");
+}
+
+/** Real client work, optionally narrowed to an industry tag. */
+export function getClientProjectsByIndustry(industry?: string): Project[] {
+    const clients = getClientProjects();
+    if (!industry) return clients;
+    return clients.filter((p) => p.industries?.includes(industry));
+}
+
+/** Concept designs, optionally narrowed to an industry tag. */
+export function getConceptProjectsByIndustry(industry?: string): Project[] {
+    const concepts = getConceptProjects();
+    if (!industry) return concepts;
+    return concepts.filter((p) => p.industries?.includes(industry));
+}
+
+/**
+ * Homepage "Selected work" — real client work only, in priority order.
+ * Do NOT add concept/demo slugs here; that is what broke trust before.
+ */
 const homeFeaturedProjectSlugs: string[] = [
     "pa-real-estate-support",
     "tag-landing-page",
-    "northpoint-realty",
-    "momentum-coaching",
+    "three-penn-properties",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {
     const bySlug = new Map(projects.map((project) => [project.slug, project]));
     return homeFeaturedProjectSlugs
         .map((slug) => bySlug.get(slug))
-        .filter((project): project is Project => Boolean(project));
+        .filter((project): project is Project => Boolean(project))
+        .filter((project) => project.kind === "Client");
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

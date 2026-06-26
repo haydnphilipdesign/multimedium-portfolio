@@ -98,6 +98,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             ? project.tools.join(", ")
             : `${project.tools.slice(0, 3).join(", ")} +${project.tools.length - 3} more`;
 
+    const isConcept = project.kind === "Concept";
+
     const cta = project.cta ?? {
         headline: "Interested in working together?",
         body: "Tell me what you do, who you want to attract, and what you want the site to accomplish.",
@@ -140,6 +142,15 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         </Link>
                     </AnimatedSection>
 
+                    {isConcept && (
+                        <AnimatedSection delay={0.1}>
+                            <div className="mb-6 rounded-xl border border-border/60 bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
+                                <span className="font-semibold text-foreground">Concept project.</span>{" "}
+                                A self-initiated design exploration for a fictional brand — not commissioned client work. Any names, stats, or testimonials shown in the mockups are placeholder content.
+                            </div>
+                        </AnimatedSection>
+                    )}
+
                     <AnimatedSection delay={0.15}>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
                             {project.title}
@@ -157,9 +168,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
                         <div className="grid grid-cols-1 gap-4 border-y border-border/40 py-6 sm:grid-cols-2 sm:gap-6 sm:py-8 lg:grid-cols-4">
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                                    Client
+                                    {isConcept ? "Project type" : "Client"}
                                 </p>
-                                <p className="text-sm font-medium text-foreground">{project.client}</p>
+                                <p className="text-sm font-medium text-foreground">
+                                    {isConcept ? "Concept (fictional brand)" : project.client}
+                                </p>
                             </div>
                             <div>
                                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
