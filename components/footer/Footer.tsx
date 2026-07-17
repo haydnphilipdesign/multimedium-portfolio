@@ -18,6 +18,7 @@ export function Footer() {
         { href: "/services", label: "Services" },
         { href: "/industries", label: "Industries" },
         { href: "/work", label: "Work" },
+        { href: "/lab", label: "Lab" },
         { href: "/tools", label: "Tools" },
         { href: "/resources", label: "Resources" },
         { href: "/about", label: "About" },

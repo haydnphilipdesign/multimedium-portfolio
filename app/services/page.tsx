@@ -193,7 +193,7 @@ export default function ServicesPage() {
                 eyebrow="Not sure which fits?"
                 title="Tell me what you're building."
                 body="Share what matters most and I'll recommend the simplest path to results — usually within one business day."
-                primary={{ label: "Book a free discovery call", href: "/contact?source=services" }}
+                primary={{ label: "Start a project", href: "/contact?source=services" }}
                 secondary={{ label: "Compare TC packages", href: "/tc-packages" }}
             />
         </>

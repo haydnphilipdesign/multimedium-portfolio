@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
+    { href: "/lab", label: "Lab" },
     { href: "/services", label: "Services" },
     { href: "/industries", label: "Industries" },
     { href: "/about", label: "About" },
@@ -116,7 +117,7 @@ export function Navbar() {
                                     href={contactHref}
                                     className="btn-primary inline-flex items-center whitespace-nowrap text-sm"
                                 >
-                                    Book a call
+                                    Start a project
                                 </Link>
                             )}
                         </div>
@@ -137,10 +138,10 @@ export function Navbar() {
 
             <Dialog.Portal>
                 <Dialog.Backdrop
-                    className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[60] bg-overlay backdrop-blur-sm md:hidden"
+                    className="data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-[80] bg-overlay backdrop-blur-sm md:hidden"
                 />
                 <Dialog.Popup
-                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[70] w-full max-w-sm border-l border-border/40 bg-background/95 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
+                    className="data-open:animate-in data-closed:animate-out data-open:fade-in-0 data-closed:fade-out-0 data-open:slide-in-from-right-2 data-closed:slide-out-to-right-2 fixed inset-y-0 right-0 z-[90] w-full max-w-sm border-l border-border/40 bg-background/95 shadow-[var(--shadow-elevated)] outline-none supports-backdrop-filter:backdrop-blur-xl md:hidden"
                 >
                     <Dialog.Title className="sr-only">Navigation</Dialog.Title>
                     <div className="flex h-full flex-col p-5 sm:p-6">
@@ -200,7 +201,7 @@ export function Navbar() {
                                     onClick={() => setIsOpen(false)}
                                     className="btn-primary w-full text-center block text-sm"
                                 >
-                                    Book a call
+                                    Start a project
                                 </Link>
                             )}
                             <Link

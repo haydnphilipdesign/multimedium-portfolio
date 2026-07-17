@@ -73,7 +73,7 @@ export function StatementHero() {
 
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <Link href="/contact?source=home-hero" className="btn btn-primary group">
-                                    Book a free discovery call
+                                    Start a project
                                     <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                 </Link>
                                 <Link href="/work" className="btn btn-secondary">
