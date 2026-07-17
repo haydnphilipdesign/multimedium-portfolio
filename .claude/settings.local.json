@@ -7,7 +7,19 @@
       "Bash(git push)",
       "Bash(git add components/work/ProjectCard.tsx)",
       "Bash(npx next:*)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(xargs wc -l)",
+      "Bash(grep -nB3 \"quote:\" content/projects.ts)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(pnpm build *)",
+      "Bash(pnpm lint *)",
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(cd \"C:/Users/haydn/.claude/projects/c--Users-haydn-Documents-web-design-portfolio-new-website-next-app/memory\")",
+      "Bash(cat MEMORY.md)",
+      "Bash(npm run *)",
+      "Bash(npx eslint *)"
     ]
   }
 }
