@@ -1,21 +1,18 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
-import { ProjectCard, FeaturedProject } from "@/components/work/ProjectCard";
+import { FeaturedProject } from "@/components/work/ProjectCard";
 import { SectionOpener } from "@/components/sections/Editorial";
 import { CTARuled } from "@/components/marketing/CTA";
 import { JsonLd } from "@/components/seo/JsonLd";
-import {
-    getClientProjectsByIndustry,
-    getConceptProjectsByIndustry,
-    getProductProjects,
-} from "@/content/projects";
+import { getClientProjectsByIndustry } from "@/content/projects";
 import { AnimatedSection } from "@/components/motion/AnimatedSection";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
     tc: {
@@ -51,7 +48,7 @@ export async function generateMetadata({
             title: indMeta?.title ?? "Work",
         description:
             indMeta?.description ??
-            "Real estate and transaction coordinator website projects — real builds with clear goals, design decisions, and measurable outcomes.",
+            "Commissioned website projects for real estate professionals, transaction coordinators, and service businesses—shown with honest briefs, design decisions, and live project facts.",
         path: "/work",
         robots: industry ? { index: false, follow: true } : undefined,
     });
@@ -68,12 +65,6 @@ export default async function WorkPage({
 
     // Honest, classification-based selection — never mix demo work into client proof.
     const clientProjects = getClientProjectsByIndustry(industry);
-    const productProjects = getProductProjects().filter(
-        (p) => !industry || p.industries?.includes(industry)
-    );
-    const conceptProjects = getConceptProjectsByIndustry(industry);
-
-    const getGridCols = (count: number) => (count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3");
 
     const clientHeading =
         industry === "tc" ? "TC website work"
@@ -114,7 +105,7 @@ export default async function WorkPage({
                         )}
                     </h1>
                     <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                        {indMeta?.subheading ?? "Real builds for real estate professionals and transaction coordinators — each with clear goals, deliberate design decisions, and measurable outcomes."}
+                        {indMeta?.subheading ?? "Commissioned websites for real businesses—each shown with the brief, constraints, decisions, and delivered result."}
                     </p>
                     {!industry && (
                         <p className="mt-5 max-w-2xl text-base text-foreground/65">
@@ -156,52 +147,34 @@ export default async function WorkPage({
                 </Section>
             )}
 
-            {/* Internal products & tools */}
-            {productProjects.length > 0 && (
-                <section className="bg-surface-1">
-                    <Section size="wide" padding="large">
-                        <AnimatedSection>
-                            <SectionOpener
-                                eyebrow="Built in-house"
-                                eyebrowIndex="02"
-                                title="Internal products & tools"
-                                lead="Software I designed and built for the real estate and transaction-coordination world — proof of how deeply I understand the workflow, not client commissions."
-                            />
-                        </AnimatedSection>
-                        <div className={`mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 ${getGridCols(productProjects.length)}`}>
-                            {productProjects.map((project, index) => (
-                                <ProjectCard key={project.slug} project={project} index={index} />
-                            ))}
-                        </div>
-                    </Section>
-                </section>
-            )}
-
-            {/* Concept & demo designs */}
-            {conceptProjects.length > 0 && (
+            <section className="bg-surface-1">
                 <Section size="wide" padding="large">
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="Range"
-                            eyebrowIndex="03"
-                            title="Concept & demo designs"
-                            lead="Self-initiated design explorations for fictional brands, shown to demonstrate range. These are not client projects — each opens a live demo."
+                            eyebrow="Products & experiments"
+                            eyebrowIndex="02"
+                            title="Looking for the products and concept work?"
+                            lead="The Lab contains software built in-house and clearly labeled design experiments. They demonstrate domain depth and range without being presented as client commissions."
+                            action={
+                                <Link
+                                    href="/lab"
+                                    className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
+                                >
+                                    Explore the Lab
+                                    <IconArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke={1.9} />
+                                </Link>
+                            }
                         />
                     </AnimatedSection>
-                    <div className={`mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 ${getGridCols(conceptProjects.length)}`}>
-                        {conceptProjects.map((project, index) => (
-                            <ProjectCard key={project.slug} project={project} index={index} />
-                        ))}
-                    </div>
                 </Section>
-            )}
+            </section>
 
             {/* CTA */}
             <CTARuled
                 eyebrow="Next step"
                 title="Have a project in mind?"
                 body="Tell me what you do, who you want to attract, and what's not working today. I'll reply within one business day."
-                primary={{ label: "Book a free discovery call", href: "/contact?source=work-cta" }}
+                primary={{ label: "Start a project", href: "/contact?source=work-cta" }}
                 secondary={{ label: "See TC packages", href: "/tc-packages" }}
             />
         </>
