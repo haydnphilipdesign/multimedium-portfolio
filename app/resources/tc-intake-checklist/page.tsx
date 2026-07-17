@@ -259,7 +259,7 @@ export default async function TcIntakeChecklistPage({ searchParams }: PageProps)
                         Want a website with a real intake system built in?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build websites specifically for transaction coordinators — from a $595 credibility site to intake-driven packages with service pages and messaging designed for your workflow.
+                        This checklist works on paper, but it works better as a structured intake form on your own site. TC Growth and TC Pro packages include a dedicated submit-a-file workflow; packages start at $595.
                     </p>
                     <Link href="/tc-packages?source=tc-intake-checklist" className="btn-primary">
                         See TC website packages

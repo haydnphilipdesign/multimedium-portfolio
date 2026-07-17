@@ -129,8 +129,8 @@ export const projects: Project[] = [
                 "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
-            headline: "Need a website that stands out?",
-            body: "I build immersive, motion-rich websites that create emotional connections with visitors—turning scrolls into stories.",
+            headline: "Want this level of craft on your own site?",
+            body: "I build motion-rich websites where the animation supports the offer instead of hiding it. If your brand needs more personality, I can help.",
             ctaText: "Start a conversation",
             href: "/contact?source=case-study-nomad-gear",
         },
@@ -223,8 +223,8 @@ export const projects: Project[] = [
                 "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
         },
         cta: {
-            headline: "Want a website that feels alive?",
-            body: "I design romantic, motion-rich experiences that connect with visitors emotionally—perfect for premium brands and artisan businesses.",
+            headline: "Want a website with this much feel?",
+            body: "I design sites with softness and craft for brands where atmosphere matters — without letting the design get in the way of ordering.",
             ctaText: "Get in touch",
             href: "/contact?source=case-study-velvet-rose",
         },
@@ -1226,15 +1226,15 @@ export const projects: Project[] = [
         title: "NorthPoint Realty Group",
         kind: "Concept",
         industries: ["real-estate"],
-        metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website",
+        metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website Concept",
         metaDescription:
-            "Website design for a real estate team. Features dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
+            "Concept website design for a real estate team with dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
         socialCaption:
-            "New build: a high-converting real estate team website for NorthPoint Realty Group — dual buyer/seller funnels, market stats, and lead capture designed to bring in better leads.",
+            "Concept design: a real estate team website for the fictional NorthPoint Realty Group — dual buyer/seller funnels, market stats, and prominent lead capture.",
         tags: ["Web Design", "Lead Generation", "Real Estate", "Conversion Design", "Mobile-First"],
-        tagline: "Lead-generating website for a real estate team driving buyer and seller inquiries",
+        tagline: "Concept real estate team site with separate buyer and seller inquiry paths",
         description:
-            "High-converting website optimized for lead generation with dual buyer/seller pathways, scrolling testimonials, market stats, and prominent intake forms throughout.",
+            "Concept design for a real estate team website with dual buyer/seller pathways, scrolling testimonials, market stats, and prominent intake forms throughout.",
         category: "Real Estate",
         year: "2026",
         client: "NorthPoint Realty Group",
@@ -1286,8 +1286,8 @@ export const projects: Project[] = [
                 "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
         },
         cta: {
-            headline: "Need a real estate website that converts?",
-            body: "I build lead-focused real estate websites that turn visitors into clients—with clear pathways, strong credibility, and forms that actually get filled out.",
+            headline: "Want a real estate site built around lead capture?",
+            body: "I design real estate websites around clear buyer and seller pathways, credible proof, and intake forms that are easy to complete.",
             ctaText: "Start a conversation",
             href: "/contact?source=case-study-northpoint-realty",
         },
@@ -1326,7 +1326,7 @@ export const projects: Project[] = [
         metaDescription:
             "Premium website for a real estate coaching program with bold typography, tiered pricing cards, and results-focused testimonials.",
         socialCaption:
-            "New build: a premium coaching website for Momentum Real Estate Coaching—bold typography, tiered pricing, and results-focused design that commands authority.",
+            "Concept design: a premium coaching website for the fictional Momentum Real Estate Coaching — bold typography, tiered pricing, and a results-focused layout.",
         tags: ["Web Design", "Premium Design", "Coaching", "Real Estate", "Conversion Design"],
         tagline: "Premium coaching website for real estate professionals building empires",
         description:
@@ -1421,7 +1421,7 @@ export const projects: Project[] = [
         metaDescription:
             "Editorial coaching website with scroll-driven sections, GSAP motion, and a calm visual system designed for clarity and sustainable growth.",
         socialCaption:
-            "New build: a scroll-driven editorial website for Clarity Growth Co—pinned sections, GSAP animations, and a calm, tactile design that feels like a curated workbook.",
+            "Concept design: a scroll-driven editorial website for the fictional Clarity Growth Co — pinned sections, GSAP animations, and a calm, tactile feel.",
         tags: ["Web Design", "Motion Design", "React", "GSAP", "Scroll Animations"],
         tagline: "Scroll-driven editorial website for busy founders seeking work-life balance",
         description:

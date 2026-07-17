@@ -388,7 +388,7 @@ export default function TCPackagesPage() {
                         eyebrow="Package comparison"
                         eyebrowIndex="02"
                         title="Pick the level of business support you need"
-                        lead="The difference is not just page count. It is how clearly the site explains your services, how much action it gives agents, and how much strategic support goes into the build."
+                        lead="Page count is the smallest difference between tiers. What changes is how clearly the site explains your services, what agents can do next, and how much strategy goes into the build."
                     />
                 </AnimatedSection>
 
@@ -611,8 +611,8 @@ export default function TCPackagesPage() {
             {/* Final CTA — dark ink closer */}
             <CTADark
                 eyebrow="Start here"
-                title="Ready to get a website that works for your TC business?"
-                body="Tell me about your business, where you are in your journey, and what you want your website to accomplish. I'll respond within one business day with a clear plan."
+                title="Ready to get your TC website handled?"
+                body="Tell me where your business is right now and what you want the website to do. I'll respond within one business day with a recommended package and a clear plan."
                 primary={{ label: "Start a conversation", href: contactHref }}
                 secondary={{ label: "See TC work", href: "/work?industry=tc" }}
             />

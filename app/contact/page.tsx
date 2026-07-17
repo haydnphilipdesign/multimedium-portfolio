@@ -214,7 +214,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                                         htmlFor="referral"
                                         className="block text-sm font-medium text-foreground mb-2"
                                     >
-                                        How did you hear about us?{" "}
+                                        How did you hear about me?{" "}
                                         <span className="text-muted-foreground font-normal">
                                             (optional)
                                         </span>

@@ -283,7 +283,7 @@ export default async function TcTaskListResourcePage({ searchParams }: PageProps
                         Need a website that matches your professionalism?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build websites specifically for transaction coordinators — from a $595 credibility site to intake-driven packages with clear service pages and messaging that makes agents want to work with you.
+                        I build websites specifically for transaction coordinators, starting at $595 for a one-page credibility site. Every package includes copy support, so your services read as clearly as your checklists.
                     </p>
                     <Link href="/tc-packages?source=tc-task-list" className="btn-primary">
                         See TC website packages

@@ -43,15 +43,15 @@ const outcomes = [
     },
     {
         icon: IconShieldCheck,
-        title: "Authority that feels real",
+        title: "Credibility agents can verify",
         description:
-            "Trust signals, clear process, and firm positioning so you stop attracting poor-fit leads.",
+            "Your services, your process, and who you work with — stated plainly enough that the wrong leads filter themselves out.",
     },
     {
         icon: IconBolt,
         title: "Fast on mobile",
         description:
-            "Speed + accessibility built in—because “professional” starts with performance.",
+            "Agents will open your site from their phone between showings. It has to load fast and read cleanly there first.",
     },
 ];
 
@@ -240,10 +240,10 @@ export default function TransactionCoordinatorsPage() {
                 <Section>
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="What I build"
+                            eyebrow="Scope"
                             eyebrowIndex="01"
                             title="What I build for TCs"
-                            lead="A clear offer, a page that converts, and a system that stays consistent as you grow."
+                            lead="A defined offer, a page agents can act on, and a structure that stays consistent as you grow."
                         />
                     </AnimatedSection>
 
@@ -315,14 +315,14 @@ export default function TransactionCoordinatorsPage() {
                         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
                             <div className="max-w-2xl">
                                 <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                    Real estate work
+                                    Work from the TC and real estate space
                                 </h2>
                                 <p className="mt-2 text-muted-foreground">
-                                    A few relevant builds that show the direction: authority, clarity, and conversion. Includes product work too (
+                                    Client sites alongside product work like{" "}
                                     <Link href="/work/norma" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">
                                         Norma
-                                    </Link>
-                                    —early access).
+                                    </Link>{" "}
+                                    (early access). Products are labeled as products — they&apos;re tools I built, not client projects.
                                 </p>
                             </div>
                             <Link

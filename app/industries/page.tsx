@@ -111,8 +111,8 @@ export default function IndustriesPage() {
                     <SectionOpener
                         eyebrow="Choose your industry"
                         eyebrowIndex="01"
-                        title="Same craft, tuned per market"
-                        lead="One standard of design, tuned for different buyers and how they make decisions."
+                        title="Same craft, different buyers"
+                        lead="The design standard stays the same. What changes is the messaging, the proof, and the next step — because a TC, a broker, and an HOA board don't decide the same way."
                     />
                 </AnimatedSection>
                 <StaggerContainer className="mt-12 ledger border-t border-foreground/15" staggerDelay={0.06}>

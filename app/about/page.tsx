@@ -33,7 +33,7 @@ const values = [
     {
         title: "Clear process, real progress",
         description:
-            "We ship the right version, then improve what matters. The goal is outcomes — more clarity, more leads, less back-and-forth.",
+            "We launch the right version first, then improve what matters most. You'll never wonder where the project stands or what your money bought.",
     },
 ];
 
@@ -66,9 +66,9 @@ export default function AboutPage() {
                             <em className="italic text-primary">easy to trust you.</em>
                         </h1>
                         <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                            Multimedium is my solo practice. I help real estate teams, transaction
-                            coordinators, and HOAs build sites that work harder — strategy, design,
-                            and code in one loop.
+                            Multimedium is my solo practice. I help transaction coordinators, real
+                            estate teams, and HOAs get websites that earn trust and bring in the
+                            right inquiries — strategy, design, and code in one loop.
                         </p>
                         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                             <Link href="/contact?source=about-hero" className="btn btn-primary">
@@ -173,10 +173,10 @@ export default function AboutPage() {
 
             {/* CTA — quiet ruled closer */}
             <CTARuled
-                eyebrow="Let's talk"
-                title="Want a site that brings in better leads?"
-                body="Tell me what you do, who you want to attract, and what's not working on the current site. I'll reply within one business day with next steps."
-                primary={{ label: "Let's talk", href: "/contact?source=about-cta" }}
+                eyebrow="Next step"
+                title="Wondering if we'd be a good fit?"
+                body="Tell me what you do and what's not working on the current site. I'll reply within one business day — and if you're not sure about fit, just ask."
+                primary={{ label: "Start the conversation", href: "/contact?source=about-cta" }}
                 secondary={{ label: "Browse work", href: "/work" }}
             />
         </>

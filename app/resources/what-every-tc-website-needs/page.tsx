@@ -30,7 +30,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
     title: "What Every Transaction Coordinator Website Needs",
     description:
-        "The definitive checklist for transaction coordinator websites. What to include, what to avoid, and what separates a site that builds trust from one that gets ignored.",
+        "A practical checklist for transaction coordinator websites: 9 must-haves, 10 common mistakes, and what separates a site that builds trust from one that gets ignored.",
     path: "/resources/what-every-tc-website-needs",
     keywords: [
         "transaction coordinator website",
@@ -122,7 +122,7 @@ const faqs = [
     },
     {
         q: "How much should a TC website cost?",
-        a: "MULTIMEDIUM's TC website packages start at $595 for a tightly scoped credibility site, with TC Starter at $795, TC Growth at $1,495, and TC Pro starting at $2,495+. The key is matching the package to the business job: credibility, clearer services, less back-and-forth, or a fuller intake and conversion system.",
+        a: "My TC website packages start at $595 for a tightly scoped credibility site, with TC Starter at $795, TC Growth at $1,495, and TC Pro starting at $2,495+. The key is matching the package to the job: credibility, clearer services, less back-and-forth, or a fuller intake and conversion system.",
     },
     {
         q: "What's more important — how it looks or what it says?",
@@ -159,8 +159,7 @@ export default function WhatEveryTCWebsiteNeedsPage() {
                             What every transaction coordinator website needs
                         </h1>
                         <p className="mt-6 text-lg md:text-xl text-muted-foreground">
-                            The definitive checklist for transaction coordinator websites.
-                            What to include, what to skip, and what separates a site that
+                            What to include, what to skip, and what separates a TC site that
                             builds trust from one that gets ignored.
                         </p>
                         <p className="mt-4 text-sm text-muted-foreground">

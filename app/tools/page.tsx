@@ -57,8 +57,9 @@ export default function ToolsPage() {
                         Tools built from inside the industry
                     </h1>
                     <p className="mt-7 max-w-3xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                        I don&apos;t just design TC websites. I build tools that solve the same workflow
-                        problems my clients deal with every day. That depth shows up in the websites I make.
+                        UtilitySheet, Norma Intake, and Norma Closing Desk are software I built for
+                        problems I kept seeing in TC work: messy file starts, missing info, and deadlines
+                        buried in email. Building them shapes how I design TC websites.
                     </p>
                 </AnimatedSection>
             </Section>
@@ -66,10 +67,10 @@ export default function ToolsPage() {
             <Section>
                 <AnimatedSection>
                     <SectionOpener
-                        eyebrow="Domain depth"
+                        eyebrow="The tools"
                         eyebrowIndex="01"
-                        title="Practical proof, not primary portfolio"
-                        lead="UtilitySheet, Norma Intake, and Norma Closing Desk are framed here as workflow experience: file starts, intake clarity, transaction organization, and fewer back-and-forth questions."
+                        title="Working software, kept separate from client work"
+                        lead="These are products, not client commissions. Each one handles a specific piece of the TC workflow: utility info, file intake, or day-to-day transaction tracking."
                     />
                 </AnimatedSection>
 
@@ -86,7 +87,7 @@ export default function ToolsPage() {
                     <div>
                         <p className="mono-label !text-flood mb-5">Why this matters</p>
                         <h2 className="font-display text-3xl leading-tight text-ink-foreground md:text-[2.7rem] md:leading-[1.12]">
-                            A TC website is not just pages. It is part of the workflow.
+                            A TC website is part of the workflow.
                         </h2>
                     </div>
                     <div className="rounded-2xl border border-ink-foreground/15 bg-ink-foreground/[0.04] p-7 sm:p-8">

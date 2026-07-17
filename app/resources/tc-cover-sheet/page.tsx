@@ -279,7 +279,7 @@ export default async function TcCoverSheetResourcePage({ searchParams }: PagePro
                         Need a website that attracts better-fit leads?
                     </h2>
                     <p className="text-muted-foreground mb-8">
-                        I build websites specifically for transaction coordinators — from a $595 credibility site to intake-driven packages with service pages and positioning that makes agents want to work with you.
+                        A clean cover sheet starts the file right — a clear website starts the relationship right. TC website packages run from a $595 credibility site to builds with a full submit-a-file workflow.
                     </p>
                     <Link href="/tc-packages?source=tc-cover-sheet" className="btn-primary">
                         See TC website packages

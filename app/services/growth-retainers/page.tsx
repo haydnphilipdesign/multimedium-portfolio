@@ -46,14 +46,14 @@ const included = [
     "Monthly / quarterly experiment plan",
     "Landing pages + conversion improvements",
     "SEO roadmap + content support",
-    "Reporting that ties to leads, not vanity metrics",
+    "Reporting tied to inquiries and booked calls",
     "Design + dev support as you grow",
 ];
 
 const expectations = [
     { label: "Cadence", value: "Monthly / quarterly" },
     { label: "Focus", value: "Conversion + clarity + SEO" },
-    { label: "Reporting", value: "Leads, not vanity metrics" },
+    { label: "Reporting", value: "Leads, not pageviews" },
 ];
 
 const faqs = [

@@ -114,7 +114,7 @@ export default function TradesPage() {
                                 contacting you feel simple — on mobile especially.
                             </p>
                             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                                <Link href="/contact?source=trades-hero" className="btn btn-primary">Get a free estimate</Link>
+                                <Link href="/contact?source=trades-hero" className="btn btn-primary">Request a quote</Link>
                                 <Link href="/services?source=trades-hero" className="btn btn-secondary group">
                                     See services
                                     <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" stroke={2} />
@@ -149,7 +149,7 @@ export default function TradesPage() {
                 <Section>
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="What you get"
+                            eyebrow="Scope"
                             eyebrowIndex="01"
                             title="What you get"
                             lead="A site that looks trustworthy, loads fast, and makes it easy to request an estimate."
@@ -223,9 +223,9 @@ export default function TradesPage() {
 
             <CTARuled
                 eyebrow="Next step"
-                title="Want a site that brings in better local leads?"
+                title="Want a site that pulls in better local jobs?"
                 body="Tell me your trade, service area, and what you want more of (calls, forms, bookings). I'll reply within one business day."
-                primary={{ label: "Get a free estimate", href: "/contact?source=trades-cta" }}
+                primary={{ label: "Request a quote", href: "/contact?source=trades-cta" }}
                 secondary={{ label: "See all services", href: "/services" }}
             />
         </>

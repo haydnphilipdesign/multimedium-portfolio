@@ -170,7 +170,7 @@ export default function ServicesPage() {
                 <Section>
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="Ways to work together"
+                            eyebrow="Pick a path"
                             eyebrowIndex="03"
                             title="Two ways to work together"
                             lead="Pick the path that matches what you already know. If you're not sure, the discovery call is where we choose the simplest option."
@@ -192,7 +192,7 @@ export default function ServicesPage() {
             <CTAFlooded
                 eyebrow="Not sure which fits?"
                 title="Tell me what you're building."
-                body="Share what matters most and I'll recommend the simplest path to results — usually within one business day."
+                body="Describe the business and what the site needs to do. I'll recommend the option that fits — usually within one business day."
                 primary={{ label: "Start a project", href: "/contact?source=services" }}
                 secondary={{ label: "Compare TC packages", href: "/tc-packages" }}
             />

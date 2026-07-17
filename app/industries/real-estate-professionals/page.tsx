@@ -46,23 +46,23 @@ const proof = [
     },
     {
         icon: IconShieldCheck,
-        value: "High-trust",
-        label: "positioning",
-        detail: "Clear messaging, proof, and page flow for skeptical leads.",
+        value: "One owner",
+        label: "strategy to launch",
+        detail: "Messaging, design, and build handled by one person.",
     },
     {
         icon: IconChartLine,
         value: "Lead-ready",
-        label: "conversion path",
-        detail: "CTAs, forms, and structure built for real inquiries.",
+        label: "inquiry path",
+        detail: "CTAs, forms, and page flow aimed at real inquiries.",
     },
 ];
 
 const outcomes = [
     {
-        title: "Win trust fast",
+        title: "Look like the safe choice",
         description:
-            "Messaging and layout built for clarity so buyers, sellers, and referral partners feel confident reaching out quickly.",
+            "Messaging and layout that give buyers, sellers, and referral partners a reason to feel confident reaching out.",
     },
     {
         title: "Look established in your market",
@@ -139,7 +139,7 @@ export default function RealEstateProfessionalsPage() {
                             <div className="max-w-2xl">
                                 <MonoLabel className="mb-6">Real estate website design</MonoLabel>
                                 <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-[4.25rem] display-balance">
-                                    A real estate website that <span className="text-gradient">wins trust fast</span> and makes contacting you the obvious next step.
+                                    A real estate website that <span className="text-gradient">holds up</span> when buyers and sellers check you out.
                                 </h1>
                                 <p className="mt-7 text-lg md:text-xl leading-relaxed text-foreground/80">
                                     Built for agents, teams, and brokerages that want fewer tire-kickers, clearer positioning,
@@ -218,10 +218,10 @@ export default function RealEstateProfessionalsPage() {
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                            A site that feels credible and converts without sounding like canned agent copy.
+                            Credible without sounding like canned agent copy.
                         </h2>
                         <p className="mt-4 text-muted-foreground">
-                            The opportunity is not just to look better. It is to make your positioning clearer so the right visitors understand what makes you different.
+                            Looking better is the easy part. The harder job is saying what you do differently — clearly enough that the right visitors reach out and the wrong ones move on.
                         </p>
                     </div>
                 </AnimatedSection>
@@ -246,7 +246,7 @@ export default function RealEstateProfessionalsPage() {
                                 <MonoLabel className="mb-5">Great fit if…</MonoLabel>
                                 <h2 className="font-display text-3xl text-foreground sm:text-4xl">A clearer story, stronger local trust</h2>
                                 <p className="mt-5 text-lg leading-relaxed text-foreground/78">
-                                    You do not need more fluff pages. You need a clearer story, stronger local trust, and a path that turns visits into conversations.
+                                    You don&apos;t need more pages. You need a sharper story about your market and a path that turns visits into conversations.
                                 </p>
                             </div>
                         </AnimatedSection>

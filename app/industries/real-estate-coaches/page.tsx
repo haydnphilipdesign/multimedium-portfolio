@@ -53,9 +53,9 @@ const outcomes = [
     },
     {
         icon: IconShieldCheck,
-        title: "Proof that feels credible",
+        title: "Proof that reads as evidence",
         description:
-            "Testimonials, outcomes, and offer structure work harder when they are framed like evidence instead of hype.",
+            "Testimonials and outcomes land better when they're framed as evidence instead of hype — organized, attributed, and tied to the offer.",
     },
 ];
 
@@ -146,8 +146,8 @@ export default function RealEstateCoachesPage() {
                         <div>
                             <MonoLabel className="mb-6">Coaches &amp; brokerages</MonoLabel>
                             <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
-                                Websites for coaches &amp; brokerages that{" "}
-                                <span className="text-gradient">command authority.</span>
+                                Coaching &amp; brokerage websites that{" "}
+                                <span className="text-gradient">earn the strategy call.</span>
                             </h1>
                             <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
                                 For coaching brands, educators, team leaders, and brokerages that need stronger
@@ -195,10 +195,10 @@ export default function RealEstateCoachesPage() {
                 <Section>
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="What this niche needs"
+                            eyebrow="Scope"
                             eyebrowIndex="01"
                             title="What this niche usually needs"
-                            lead="A premium-feeling site with stronger offer clarity, proof, and pathways for the right leads."
+                            lead="A site that looks worth the program fee, explains the offers plainly, and gives the right people a clear way in."
                         />
                     </AnimatedSection>
 
@@ -288,8 +288,8 @@ export default function RealEstateCoachesPage() {
 
             <CTARuled
                 eyebrow="Next step"
-                title="Want a site that supports premium offers and stronger leads?"
-                body="Tell me what you sell, who it is for, and where the current site falls short. I'll respond within one business day with clear next steps."
+                title="Selling a serious program? The website should carry its weight."
+                body="Tell me what you sell, who it's for, and where the current site falls short. I'll respond within one business day with clear next steps."
                 primary={{ label: "Start the conversation", href: "/contact?source=real-estate-coaches" }}
                 secondary={{ label: "See all services", href: "/services" }}
             />

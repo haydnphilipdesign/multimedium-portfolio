@@ -204,7 +204,7 @@ export default function LandingPagesServicePage() {
                             <MonoLabel className="mb-4">Budget guidance</MonoLabel>
                             <h2 className="font-display text-2xl text-foreground sm:text-3xl">From $750</h2>
                             <p className="mt-4 text-lg leading-relaxed text-foreground/78">
-                                Landing pages start at $750 depending on copy, assets, variants, and integrations — making them the most accessible starting point.
+                                Landing pages start at $750 depending on copy, assets, variants, and integrations. If you&apos;re not ready for a full site, this is the fastest way to start.
                             </p>
                         </AnimatedSection>
                     </div>
@@ -230,8 +230,8 @@ export default function LandingPagesServicePage() {
 
             <CTARuled
                 eyebrow="Next step"
-                title="Need a landing page that actually gets responses?"
-                body="Share the offer, the audience, and where you want the traffic to go. I'll reply with a simple plan and timeline within one business day."
+                title="Have an offer that needs its own page?"
+                body="Share the offer, the audience, and where the traffic is coming from. I'll reply with a simple plan and timeline within one business day."
                 primary={{ label: "Plan your landing page", href: "/contact?source=services-landing-pages-cta" }}
                 secondary={{ label: "See all services", href: "/services" }}
             />

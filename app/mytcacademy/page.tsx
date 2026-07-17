@@ -167,8 +167,8 @@ export default function MyTCAcademyPage() {
                                     Private referral — My TC Academy
                                 </MonoLabel>
                                 <h1 className="font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
-                                    Your TC business deserves a website that{" "}
-                                    <span className="text-gradient">matches your ambition.</span>
+                                    A website that matches{" "}
+                                    <span className="text-gradient">the business you&apos;re building.</span>
                                 </h1>
                                 <p className="mt-7 text-lg md:text-xl leading-relaxed text-foreground/80">
                                     Jennifer connected you with this page because she trusts the work.
@@ -297,8 +297,8 @@ export default function MyTCAcademyPage() {
                             Why it matters
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                            A strong website isn&apos;t a luxury — it&apos;s{" "}
-                            <span className="text-gradient">your foundation.</span>
+                            The first thing an agent does is{" "}
+                            <span className="text-gradient">look you up.</span>
                         </h2>
                         <p className="mt-4 text-muted-foreground">
                             You&apos;re investing in your skills and your business through My TC Academy.
@@ -371,8 +371,8 @@ export default function MyTCAcademyPage() {
                             TC website packages
                         </span>
                         <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                            Four tiers — built for how TC businesses{" "}
-                            <span className="text-gradient">actually work.</span>
+                            Four tiers, one for{" "}
+                            <span className="text-gradient">each stage.</span>
                         </h2>
                         <p className="mt-4 text-muted-foreground">
                             Whether you&apos;re just getting started or scaling a team, there&apos;s a
@@ -678,7 +678,7 @@ export default function MyTCAcademyPage() {
                             Common questions
                         </h2>
                         <p className="mt-3 text-muted-foreground">
-                            A few things MTC Academy students usually want to know before getting
+                            A few things My TC Academy students usually want to know before getting
                             started.
                         </p>
                     </div>
@@ -717,7 +717,7 @@ export default function MyTCAcademyPage() {
                                 My TC Academy referral
                             </p>
                             <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
-                                Ready to build a website that works as hard as you do?
+                                Ready to get your website started?
                             </h2>
                             <p className="mt-3 max-w-2xl text-muted-foreground">
                                 Pick a package, tell me about your TC business, and mention

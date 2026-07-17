@@ -126,7 +126,7 @@ export default function WebsiteServicePage() {
                         eyebrow="Scope"
                         eyebrowIndex="01"
                         title="What's included"
-                        lead="A complete, conversion-focused build — strategy, design, and code in one loop."
+                        lead="A complete build with strategy, design, and code in one loop — nothing handed off, nothing lost in between."
                     />
                 </AnimatedSection>
                 <StaggerContainer className="mt-12 ledger border-t border-rule md:grid md:grid-cols-2 md:gap-x-16 md:border-t-0" staggerDelay={0.06}>
@@ -145,7 +145,7 @@ export default function WebsiteServicePage() {
                             eyebrow="Proof"
                             eyebrowIndex="02"
                             title="Recent builds"
-                            lead="Proof-focused sites and systems designed to convert without feeling like marketing fluff."
+                            lead="Client redesigns you can visit — built to explain services quickly and route inquiries to the right place."
                             action={
                                 <Link
                                     href="/work?source=services-website"
@@ -206,8 +206,8 @@ export default function WebsiteServicePage() {
 
             <CTARuled
                 eyebrow="Next step"
-                title="Want to upgrade your website this quarter?"
-                body="Tell me what you do and what's not working on the current site. I'll reply with next steps and a plan within one business day."
+                title="Thinking about a redesign?"
+                body="Send a link to your current site and tell me what it isn't doing for you. I'll come back with a plan and a price range within one business day."
                 primary={{ label: "Discuss your redesign", href: "/contact?source=services-website-cta" }}
                 secondary={{ label: "See TC packages", href: "/tc-packages" }}
             />

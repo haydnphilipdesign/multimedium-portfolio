@@ -50,8 +50,9 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="mt-6 max-w-md text-lg leading-relaxed text-foreground/75">
-                            Websites that make it easy to trust you — clearer signals, easier next steps, and
-                            more qualified inquiries.
+                            Websites that make it easy to trust you. I design and build sites for
+                            transaction coordinators, real estate professionals, and the businesses
+                            around them.
                         </p>
                     </div>
                     <div className="md:text-right">

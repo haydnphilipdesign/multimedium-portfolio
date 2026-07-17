@@ -70,8 +70,8 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.95)",
                         }}
                     >
-                        <span>Websites that</span>
-                        <span style={{ color: "#e8b34b" }}>convert with clarity.</span>
+                        <span>Websites that make it</span>
+                        <span style={{ color: "#e8b34b" }}>easy to trust you.</span>
                     </div>
                     <div
                         style={{
@@ -81,8 +81,8 @@ export default function OpenGraphImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Web design for real estate ops and service teams.
-                        Built to bring in better leads.
+                        Web design for transaction coordinators and
+                        real estate professionals.
                     </div>
                 </div>
 

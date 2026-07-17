@@ -150,8 +150,8 @@ export default function HomeServicesPage() {
                                 <span className="text-gradient">booked jobs.</span>
                             </h1>
                             <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                                Premium positioning, fast performance, and lead capture that filters for the right
-                                jobs. Built for HVAC, plumbing, electrical, roofing, and local service teams.
+                                A professional site, fast pages, and lead capture that filters for the right
+                                jobs. For HVAC, plumbing, electrical, roofing, and local service teams.
                             </p>
                             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                                 <Link href="/contact?source=home-services-hero" className="btn btn-primary">
@@ -418,8 +418,8 @@ export default function HomeServicesPage() {
             <Section className="border-y border-rule bg-surface-1">
                 <AnimatedSection>
                     <SectionHeading
-                        title="Simple, fast, and built to convert"
-                        subtitle="No bloated builds. Just the messaging, proof, and calls-to-action that convert."
+                        title="Three weeks from kickoff to launch"
+                        subtitle="A focused build: messaging, proof placement, and clear next actions — nothing you don't need."
                     />
                 </AnimatedSection>
 

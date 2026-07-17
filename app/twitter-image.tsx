@@ -71,8 +71,8 @@ export default function TwitterImage() {
                     >
                         <span>Web design for</span>
                         <span style={{ display: "flex", flexWrap: "wrap", gap: 18 }}>
-                            <span>TCs + service teams</span>
-                            <span style={{ color: "#e8b34b" }}>that need better leads.</span>
+                            <span>TCs + real estate pros</span>
+                            <span style={{ color: "#e8b34b" }}>agents take seriously.</span>
                         </span>
                     </div>
                     <div
@@ -83,7 +83,7 @@ export default function TwitterImage() {
                             color: "rgba(255,255,255,0.65)",
                         }}
                     >
-                        Clear messaging, fast performance, and pages that bring in better leads.
+                        Clear messaging, fast performance, and an easy next step for the right clients.
                     </div>
                 </div>
 

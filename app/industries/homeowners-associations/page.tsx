@@ -161,7 +161,7 @@ export default function HomeownersAssociationsPage() {
                 <Section>
                     <AnimatedSection>
                         <SectionOpener
-                            eyebrow="What I build"
+                            eyebrow="Scope"
                             eyebrowIndex="01"
                             title="What I build for HOAs"
                             lead="Everything residents need to stay informed — organized, accessible, and easy for the board to maintain."

@@ -15,7 +15,7 @@ import { IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
 export const metadata: Metadata = createPageMetadata({
     title: "Real Estate Web Design and TC Websites",
     description:
-        "Multimedium builds high-trust websites for real estate professionals, transaction coordinators, brokerages, and real estate coaches in the Poconos and beyond.",
+        "Web design for real estate professionals, transaction coordinators, brokerages, and real estate coaches — based in the Poconos, working with clients across Pennsylvania and beyond.",
     path: "/",
     keywords: [
         "real estate web design",
@@ -29,27 +29,31 @@ export const metadata: Metadata = createPageMetadata({
 const services = [
     {
         title: "TC Website Packages",
-        description: "Presence, Starter, Growth, and Pro tiers built around how transaction coordinator businesses actually work.",
+        description: "Four tiers — Presence, Starter, Growth, and Pro — matched to where your transaction coordination business is right now.",
         href: "/tc-packages",
         meta: "From $595",
+        cta: "Compare packages",
     },
     {
         title: "Custom Websites",
         description: "A complete website or redesign for agents, teams, brokerages, coaches, and select service businesses.",
         href: "/services/website",
         meta: "4–6 weeks",
+        cta: "See what's included",
     },
     {
         title: "Landing Pages",
         description: "Focused pages for campaigns, recruiting, referral partners, and single-offer conversion paths.",
         href: "/services/landing-pages",
         meta: "1–3 weeks",
+        cta: "See landing page scope",
     },
     {
         title: "Hosting, Maintenance & Retainers",
         description: "Ongoing support that keeps the site fast, useful, and easier to improve after launch.",
         href: "/services/growth-retainers",
         meta: "Ongoing",
+        cta: "See support options",
     },
 ];
 
@@ -95,8 +99,8 @@ export default function HomePage() {
                     <SectionOpener
                         eyebrow="Selected work"
                         eyebrowIndex="01"
-                        title="Real client work, shown big."
-                        lead="Commissioned websites with clear briefs, deliberate design decisions, and live results you can inspect."
+                        title="Recent client work."
+                        lead="Commissioned websites you can visit today. Each case study covers the brief, the decisions, and what shipped."
                         action={
                             <Link
                                 href="/work"
@@ -129,10 +133,10 @@ export default function HomePage() {
                     </p>
                     <div>
                         <h2 className="font-display text-3xl leading-tight text-ink-foreground md:text-[2.9rem] md:leading-[1.12]">
-                            I don&apos;t just design TC websites. I build around the same workflow problems my clients deal with every day.
+                            I also build software for the TC workflow.
                         </h2>
                         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-foreground/75">
-                            UtilitySheet, Norma Intake, and Norma Closing Desk are proof of domain depth, not the main client portfolio. That experience shows up in practical website choices: clearer services, cleaner file starts, and fewer back-and-forth inquiries.
+                            UtilitySheet, Norma Intake, and Norma Closing Desk are products I built and run — they live in the Lab, separate from client work. Working on them keeps me close to what matters on a TC website: which services need explaining, what agents ask before submitting a file, and where inquiries stall.
                         </p>
                         <Link
                             href="/lab"
@@ -169,7 +173,7 @@ export default function HomePage() {
                                         href={service.href}
                                         className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
                                     >
-                                        Learn more
+                                        {service.cta}
                                         <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
                                     </Link>
                                 }

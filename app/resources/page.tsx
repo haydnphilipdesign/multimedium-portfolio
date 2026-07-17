@@ -68,7 +68,7 @@ const resources: Resource[] = [
     {
         title: "What Every TC Website Needs",
         description:
-            "The definitive checklist—9 must-haves and 10 common mistakes, with specifics on why each one matters.",
+            "9 must-haves and 10 common mistakes for TC websites, with the reasoning behind each one.",
         href: "/resources/what-every-tc-website-needs",
         badge: "Guide",
         ctaText: "Read the guide",
