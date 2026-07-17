@@ -6,7 +6,14 @@ import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { MonoLabel, PullQuote, CheckRow } from "@/components/sections/Editorial";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getProjectBySlug, getAllProjectSlugs, projects } from "@/content/projects";
+import {
+    getAllProjectSlugs,
+    getClientProjects,
+    getConceptProjects,
+    getProductProjects,
+    getProjectBySlug,
+    projects,
+} from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
@@ -75,8 +82,60 @@ export default async function CaseStudyPage({ params }: PageProps) {
             project.caseStudy?.approval
     );
     const hasProcess = project.process.length > 0;
-    const hasResults = project.outcomes.length > 0;
+    const isClient = project.kind === "Client";
+    const isProduct = project.kind === "Product";
+    const isConcept = project.kind === "Concept";
+    const hasProjectFacts = !isClient && project.outcomes.length > 0;
     const hasTestimonial = Boolean(project.testimonial);
+
+    const collectionHref = isClient ? "/work" : "/lab";
+    const collectionLabel = isClient ? "Back to work" : "Back to the Lab";
+    const visibleProjects = isClient
+        ? getClientProjects()
+        : isProduct
+            ? getProductProjects()
+            : isConcept
+                ? getConceptProjects()
+                : projects.filter((item) => item.kind === project.kind);
+    const currentIndex = visibleProjects.findIndex((item) => item.slug === slug);
+    const prevProject = currentIndex > 0 ? visibleProjects[currentIndex - 1] : null;
+    const nextProject =
+        currentIndex >= 0 && currentIndex < visibleProjects.length - 1
+            ? visibleProjects[currentIndex + 1]
+            : null;
+
+    const verifiedProof = isClient
+        ? [
+            {
+                value: "Commissioned",
+                label: "Project type",
+                description: "Real client engagement",
+            },
+            project.caseStudy?.approval
+                ? {
+                    value: "Approved",
+                    label: "Portfolio permission",
+                    description: "Client-approved feature",
+                }
+                : null,
+            project.externalUrl
+                ? {
+                    value: "Live",
+                    label: "Current status",
+                    description: "Public website available",
+                }
+                : null,
+            {
+                value: project.year,
+                label: "Delivered",
+                description: project.role,
+            },
+        ].filter(Boolean) as {
+            value: string;
+            label: string;
+            description: string;
+        }[]
+        : [];
 
     const tocItems = [
         hasSummary ? { href: "#summary", label: "Summary" } : null,
@@ -84,22 +143,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
         hasSnapshot ? { href: "#snapshot", label: "Snapshot" } : null,
         hasDeliverables ? { href: "#deliverables", label: "Deliverables" } : null,
         hasProcess ? { href: "#process", label: "Process" } : null,
-        hasResults ? { href: "#results", label: "Results" } : null,
+        hasProjectFacts ? { href: "#project-facts", label: "Project facts" } : null,
         hasTestimonial ? { href: "#testimonial", label: "Testimonial" } : null,
     ].filter(Boolean) as { href: string; label: string }[];
-
-    // Get adjacent projects for navigation (only featured/visible projects)
-    const visibleProjects = projects.filter((p) => p.featured);
-    const currentIndex = visibleProjects.findIndex((p) => p.slug === slug);
-    const prevProject = currentIndex > 0 ? visibleProjects[currentIndex - 1] : null;
-    const nextProject = currentIndex < visibleProjects.length - 1 ? visibleProjects[currentIndex + 1] : null;
 
     const toolsSummary =
         project.tools.length <= 3
             ? project.tools.join(", ")
             : `${project.tools.slice(0, 3).join(", ")} +${project.tools.length - 3} more`;
-
-    const isConcept = project.kind === "Concept";
 
     const cta = project.cta ?? {
         headline: "Interested in working together?",
@@ -112,7 +163,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     const structuredData = [
         getBreadcrumbStructuredData([
             { name: "Home", path: "/" },
-            { name: "Case Studies", path: "/work" },
+            { name: isClient ? "Case Studies" : "Lab", path: collectionHref },
             { name: project.title, path: `/work/${project.slug}` },
         ]),
         getCreativeWorkStructuredData({
@@ -132,11 +183,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Section size="wide" padding="none" className="pt-32 sm:pt-36 md:pt-44">
                 <AnimatedSection>
                     <Link
-                        href="/work"
+                        href={collectionHref}
                         className="touch-target mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                         <IconArrowLeft className="w-4 h-4" stroke={1.5} />
-                        Back to work
+                        {collectionLabel}
                     </Link>
                 </AnimatedSection>
 
@@ -220,6 +271,24 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </div>
                 </AnimatedSection>
             </Section>
+
+            {verifiedProof.length > 0 && (
+                <Section size="wide" padding="none" className="mb-16 md:mb-24">
+                    <AnimatedSection>
+                        <div className="grid border-y border-rule sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-rule">
+                            {verifiedProof.map((item) => (
+                                <div key={item.label} className="py-6 sm:px-6 lg:first:pl-0">
+                                    <p className="font-display text-2xl text-foreground">{item.value}</p>
+                                    <p className="mono-label mt-2 text-muted-foreground">{item.label}</p>
+                                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </AnimatedSection>
+                </Section>
+            )}
 
             {/* Summary — editorial lead */}
             {hasSummary ? (
@@ -410,12 +479,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </section>
             )}
 
-            {/* Outcomes — ledger of results */}
-            {project.outcomes.length > 0 && (
-                <Section id="results">
+            {/* Project facts — non-client structural facts only */}
+            {hasProjectFacts && (
+                <Section id="project-facts">
                     <AnimatedSection>
                         <h2 className="mb-12 font-display text-3xl text-foreground sm:text-4xl">
-                            Results &amp; impact
+                            Project facts
                         </h2>
                     </AnimatedSection>
 
@@ -507,4 +576,3 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </>
     );
 }
-
