@@ -126,7 +126,7 @@ const faqs = [
     },
     {
         q: "How much does a TC website cost?",
-        a: "TC Presence is $595 for a tightly scoped one-page credibility site. TC Starter is $795 for a one-page site with a simple agent action flow. TC Growth is $1,495 for a polished multi-page build with a submit workflow. TC Pro starts at $2,495+ for fuller custom projects. As a My TC Academy student, you also get 3 months of free managed hosting with any package.",
+        a: "TC Presence is $595 for a tightly scoped one-page credibility site. TC Starter is $795 for a one-page site with a simple agent action flow. TC Growth is $1,495 for a polished multi-page build with a submit workflow. TC Pro starts at $2,495+ for fuller custom projects. Every project includes the first month of managed hosting, and as a My TC Academy student you get 3 more months on top — four months before the $59/month begins.",
     },
     {
         q: "How long does a project typically take?",
@@ -134,7 +134,7 @@ const faqs = [
     },
     {
         q: "What's the My TC Academy referral perk?",
-        a: "3 months of free managed hosting ($59/month, $177 value) included with any package. This isn't a discount — it's a perk Jennifer set up so her students can get started without the added hosting cost upfront.",
+        a: "Every project includes the first month of managed hosting. Because Jennifer sent you, you get 3 more months on top — four months total before the $59/month begins (a $177 value on the referral perk). It isn't a discount; it's a perk she set up so her students start without the hosting cost upfront.",
     },
     {
         q: "What if I already have a website and just want it improved?",
@@ -393,7 +393,7 @@ export default function MyTCAcademyPage() {
                                         My TC Academy referral perk
                                     </p>
                                     <p className="text-sm text-muted-foreground">
-                                        3 months free managed hosting with any package — a $177 value, included because Jennifer sent you.
+                                        3 extra months of free managed hosting on top of the first month every project includes — a $177 value, because Jennifer sent you.
                                     </p>
                                 </div>
                             </div>
@@ -471,7 +471,7 @@ export default function MyTCAcademyPage() {
                                 "Testimonials and social proof sections",
                                 "Advanced intake with multi-step forms",
                                 "Fully written copy and brand positioning",
-                                "First year of managed hosting included",
+                                "Referral partner landing pages",
                             ],
                             cta: "For serious operators",
                         },

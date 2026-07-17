@@ -65,6 +65,7 @@ const packages = [
             "Mobile-responsive design, basic SEO/meta setup, and Open Graph preview",
             "Clear contact CTA so agents know the next step",
             "One draft and one light refinement pass",
+            "First month of managed hosting included, then $59/mo",
             "Tightly scoped: no embedded intake form, submit page, or custom section strategy",
         ],
         cta: "Start with Presence",
@@ -86,7 +87,7 @@ const packages = [
             "Basic file-start instructions to reduce back-and-forth",
             "Mobile-friendly design, SEO/meta setup, and custom link preview",
             "One refinement round and launch support",
-            "3 months of managed hosting included — a $177 value",
+            "First month of managed hosting included, then $59/mo",
         ],
         cta: "Choose Starter",
         demoHref: "/demos/starter/",
@@ -107,7 +108,7 @@ const packages = [
             "Strategic service positioning and collaborative copywriting",
             "Services, process, and proof laid out so agents understand the value faster",
             "SEO/meta setup, Open Graph preview, polished interactions, and stronger visual presentation",
-            "6 months of managed hosting included — a $354 value",
+            "First month of managed hosting included, then $59/mo",
             "30 days of post-launch support for minor tweaks and adjustments",
         ],
         cta: "Choose Growth",
@@ -130,7 +131,7 @@ const packages = [
             "Referral partner landing pages for coaches, mentors, or partner programs",
             "Testimonials and social proof placed where they actually influence the decision",
             "Analytics setup if appropriate and stronger conversion strategy",
-            "12 months of managed hosting included — a $708 value",
+            "First month of managed hosting included, then $59/mo",
             "60-day post-launch support window for updates and refinements",
         ],
         cta: "Request a Pro proposal",
@@ -185,7 +186,7 @@ const addOns = [
     },
     {
         name: "Managed hosting",
-        description: "Keeps your site live, secure, and monitored each month. Each package includes a free introductory period before billing begins.",
+        description: "Keeps your site live, secure, and monitored. Your first month is included with every package; billing starts after that.",
         price: "$59/mo",
     },
     {
@@ -232,7 +233,7 @@ const faqs = [
     },
     {
         q: "Do you offer hosting?",
-        a: "Yes. Managed hosting is available at $59/month. Starter includes 3 months, Growth includes 6 months, and Pro includes 12 months. Presence can add managed hosting if you want me to handle it. Ongoing edits or content changes are handled separately under a website support plan.",
+        a: "Yes. Managed hosting is $59/month, and your first month is included with every package. It covers SSL, uptime monitoring, and basic upkeep. Ongoing edits or content changes are handled separately under a website support plan.",
     },
     {
         q: "I was referred by a TC coach. Is there a referral perk?",

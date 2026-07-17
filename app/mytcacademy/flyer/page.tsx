@@ -246,11 +246,11 @@ export default function FlyerPage() {
                                     My TC Academy Referral Perk
                                 </p>
                                 <p style={{ fontSize: "13px", fontWeight: 600, margin: "0 0 6px", lineHeight: 1.35 }}>
-                                    A preferred perk for Jennifer&apos;s students — not a coupon.
+                                    3 months of free managed hosting — not a coupon.
                                 </p>
                                 <p style={{ fontSize: "11.5px", color: "#c0c3ce", margin: 0, lineHeight: 1.55 }}>
-                                    As a My TC Academy student, you&apos;ll receive a preferred perk on your project.
-                                    The details depend on scope and will be discussed during our initial conversation.
+                                    Every project includes the first month of managed hosting. As a My TC Academy
+                                    student, you get 3 more months on top — four months before the $59/month begins.
                                 </p>
                             </div>
                         </div>
