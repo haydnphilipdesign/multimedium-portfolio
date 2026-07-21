@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo } from "react";
 import { IconArrowRight } from "@tabler/icons-react";
 
-const hiddenPathPrefixes = ["/contact", "/contact/thanks"];
+const hiddenPathPrefixes = ["/contact", "/review"];
 
 export function MobileStickyCTA() {
     const pathname = usePathname();

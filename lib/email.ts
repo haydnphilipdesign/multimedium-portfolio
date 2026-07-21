@@ -34,6 +34,25 @@ export interface LeadMagnetPayload {
     resourceFilePath?: string;
 }
 
+export interface ReviewEmailPayload {
+    name: string;
+    companyOrRole?: string;
+    testimonial: string;
+    publicPermission: boolean;
+    submittedAt: string;
+    meta?: {
+        ip?: string;
+        userAgent?: string;
+        referer?: string;
+    };
+}
+
+export interface ReviewEmailContent {
+    subject: string;
+    html: string;
+    text: string;
+}
+
 interface EmailField {
     label: string;
     value?: string;
@@ -219,6 +238,96 @@ function buildEmailHtml(options: EmailTemplateOptions): string {
         </table>
     </body>
 </html>`;
+}
+
+export function buildReviewEmailContent(
+    payload: ReviewEmailPayload,
+): ReviewEmailContent {
+    const permissionLabel = payload.publicPermission
+        ? "Approved for public use with name and company"
+        : "Private feedback - do not publish";
+    const subject = payload.publicPermission
+        ? `New approved testimonial - ${payload.name}`
+        : `New private client feedback - ${payload.name}`;
+
+    const textLines: string[] = [
+        `Name: ${payload.name}`,
+        payload.companyOrRole
+            ? `Company or role: ${payload.companyOrRole}`
+            : "",
+        `Permission: ${permissionLabel}`,
+        `Submitted at: ${payload.submittedAt}`,
+        payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
+        payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
+        payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
+    ].filter(Boolean);
+    textLines.push("", payload.testimonial);
+
+    const html = buildEmailHtml({
+        preheader: `${permissionLabel}: feedback from ${payload.name}`,
+        title: payload.publicPermission
+            ? "Approved Client Testimonial"
+            : "Private Client Feedback",
+        subtitle: permissionLabel,
+        paragraphs: [
+            payload.publicPermission
+                ? "The client approved this testimonial for public use with their name and company."
+                : "The client submitted this feedback privately. Do not publish or reuse it publicly.",
+        ],
+        fieldsTitle: "Submission Details",
+        fields: [
+            { label: "Name", value: payload.name },
+            { label: "Company or Role", value: payload.companyOrRole },
+            { label: "Permission", value: permissionLabel },
+            { label: "Submitted At", value: payload.submittedAt },
+            { label: "IP", value: payload.meta?.ip },
+            { label: "Referer", value: payload.meta?.referer },
+            { label: "User Agent", value: payload.meta?.userAgent },
+        ],
+        messageTitle: "Client Feedback",
+        message: payload.testimonial,
+        footerNote: permissionLabel,
+    });
+
+    return {
+        subject,
+        html,
+        text: textLines.join("\n"),
+    };
+}
+
+export function assertReviewEmailDeliverySucceeded(result: {
+    error?: unknown;
+}): void {
+    if (result.error == null) return;
+
+    const message =
+        typeof result.error === "object" &&
+        result.error !== null &&
+        "message" in result.error &&
+        typeof result.error.message === "string"
+            ? result.error.message
+            : "Unknown Resend error";
+    throw new Error(`Review email delivery failed: ${message}`);
+}
+
+export async function sendReviewEmail(payload: ReviewEmailPayload) {
+    const resendApiKey = requiredEnv("RESEND_API_KEY");
+    const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
+    const fromEmail =
+        process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
+
+    const resend = new Resend(resendApiKey);
+    const content = buildReviewEmailContent(payload);
+
+    const result = await resend.emails.send({
+        from: fromEmail,
+        to: [toEmail],
+        subject: content.subject,
+        html: content.html,
+        text: content.text,
+    });
+    assertReviewEmailDeliverySucceeded(result);
 }
 
 export async function sendContactEmail(payload: ContactEmailPayload) {

@@ -1,8 +1,11 @@
 import crypto from "node:crypto";
 
+export type ContactFormTokenPurpose = "review-retry";
+
 export type ContactFormTokenPayload = {
     ts: number;
     nonce: string;
+    purpose?: ContactFormTokenPurpose;
 };
 
 type NonceEntry = {
@@ -39,13 +42,16 @@ function sign(data: string, secret: string): string {
     return base64UrlEncode(crypto.createHmac("sha256", secret).update(data).digest());
 }
 
-export function createContactFormToken(): string | null {
+export function createContactFormToken(
+    options: { purpose?: ContactFormTokenPurpose } = {},
+): string | null {
     const secret = getContactFormSecret();
     if (!secret) return null;
 
     const payload: ContactFormTokenPayload = {
         ts: Date.now(),
         nonce: crypto.randomUUID(),
+        ...(options.purpose ? { purpose: options.purpose } : {}),
     };
     const payloadEncoded = base64UrlEncode(JSON.stringify(payload));
     const signature = sign(payloadEncoded, secret);
@@ -73,11 +79,18 @@ export function verifyContactFormToken(
         if (typeof parsed.ts !== "number" || typeof parsed.nonce !== "string") {
             return { ok: false };
         }
+        if (parsed.purpose !== undefined && parsed.purpose !== "review-retry") {
+            return { ok: false };
+        }
         const ageMs = Date.now() - parsed.ts;
         return {
             ok: true,
             skipped: false,
-            payload: { ts: parsed.ts, nonce: parsed.nonce },
+            payload: {
+                ts: parsed.ts,
+                nonce: parsed.nonce,
+                ...(parsed.purpose ? { purpose: parsed.purpose } : {}),
+            },
             ageMs,
         };
     } catch {

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:review": "node --experimental-strip-types --experimental-default-type=module --test tests/review-validation.test.mjs tests/review-email.test.mjs tests/review-anti-spam.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
