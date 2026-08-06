@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
+import { HaydnPortrait } from "@/components/haydn-portrait";
 
 export function StatementHero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -98,11 +98,7 @@ export function StatementHero() {
                     >
                         <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-surface-2 shadow-[var(--shadow-elevated)]">
                             <motion.div style={{ scale: disableParallax ? 1 : imageScale }}>
-                                <Image
-                                    src="/haydn.webp"
-                                    alt="Haydn, founder of Multimedium, a web design studio serving the Poconos and real estate professionals"
-                                    width={520}
-                                    height={620}
+                                <HaydnPortrait
                                     className="h-auto w-full"
                                     priority
                                     sizes="(min-width: 1024px) 420px, (min-width: 768px) 380px, 100vw"

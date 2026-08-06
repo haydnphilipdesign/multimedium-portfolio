@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/sections/Section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
 import { MonoLabel, RuledRow, PullQuote, CheckRow } from "@/components/sections/Editorial";
 import { CTARuled } from "@/components/marketing/CTA";
 import { createPageMetadata } from "@/lib/seo";
+import { HaydnPortrait } from "@/components/haydn-portrait";
 
 export const metadata: Metadata = createPageMetadata({
     title: "About Haydn",
@@ -82,9 +82,7 @@ export default function AboutPage() {
 
                     <AnimatedSection delay={0.2}>
                         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/60 bg-surface-2 shadow-[var(--shadow-elevated)]">
-                            <Image
-                                src="/haydn.webp"
-                                alt="Haydn, founder of Multimedium in the Poconos, Pennsylvania"
+                            <HaydnPortrait
                                 fill
                                 className="object-cover"
                                 sizes="(min-width: 768px) 45vw, 100vw"
