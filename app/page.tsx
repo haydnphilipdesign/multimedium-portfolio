@@ -1,209 +1,271 @@
-import type { Metadata } from "next";
-import { StatementHero } from "@/components/hero/StatementHero";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { Section } from "@/components/sections/Section";
-import { FeaturedProject } from "@/components/work/ProjectCard";
-import { getHomeFeaturedProjects, projects } from "@/content/projects";
-import { AnimatedSection } from "@/components/motion/AnimatedSection";
-import { SectionOpener, RuledList, RuledRow, PullQuote } from "@/components/sections/Editorial";
-import { CTAFlooded } from "@/components/marketing/CTA";
-import { createPageMetadata } from "@/lib/seo";
-import { getBreadcrumbStructuredData, getServiceStructuredData } from "@/lib/structuredData";
+import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
-
-export const metadata: Metadata = createPageMetadata({
-    title: "Real Estate Web Design and TC Websites",
-    description:
-        "Web design for real estate professionals, transaction coordinators, brokerages, and real estate coaches — based in the Poconos, working with clients across Pennsylvania and beyond.",
-    path: "/",
-    keywords: [
-        "real estate web design",
-        "transaction coordinator website design",
-        "real estate marketing website",
-        "website design for real estate coaches",
-        "poconos web designer",
-    ],
+import { projects } from "@/content/projects";
+import {
+  ProjectTile,
+  ProjectCTA,
+  Process,
+} from "@/components/marketing/Studio";
+import { createPageMetadata } from "@/lib/seo";
+export const metadata = createPageMetadata({
+  title: "Custom Web Design for Small & Service Businesses",
+  description:
+    "Custom websites by independent designer and developer Haydn. Thoughtful design, clear communication, and technical depth. Full websites from $1,500.",
+  path: "/",
 });
-
-const services = [
-    {
-        title: "TC Website Packages",
-        description: "Four tiers — Presence, Starter, Growth, and Pro — matched to where your transaction coordination business is right now.",
-        href: "/tc-packages",
-        meta: "From $595",
-        cta: "Compare packages",
-    },
-    {
-        title: "Custom Websites",
-        description: "A complete website or redesign for agents, teams, brokerages, coaches, and select service businesses.",
-        href: "/services/website",
-        meta: "4–6 weeks",
-        cta: "See what's included",
-    },
-    {
-        title: "Landing Pages",
-        description: "Focused pages for campaigns, recruiting, referral partners, and single-offer conversion paths.",
-        href: "/services/landing-pages",
-        meta: "1–3 weeks",
-        cta: "See landing page scope",
-    },
-    {
-        title: "Hosting, Maintenance & Retainers",
-        description: "Ongoing support that keeps the site fast, useful, and easier to improve after launch.",
-        href: "/services/growth-retainers",
-        meta: "Ongoing",
-        cta: "See support options",
-    },
-];
-
-// TODO(trust): Returns null until a real client testimonial is added to
-// content/projects.ts. The testimonial section below is intentionally hidden
-// while none exist — do not add placeholder/invented quotes to fill it.
-function getBestTestimonial() {
-    for (const p of projects) {
-        if (p.testimonial) return p.testimonial;
-    }
-    return null;
-}
-
 export default function HomePage() {
-    const featuredProjects = getHomeFeaturedProjects().slice(0, 2);
-    const testimonial = getBestTestimonial();
-    const structuredData = [
-        getBreadcrumbStructuredData([{ name: "Home", path: "/" }]),
-        getServiceStructuredData({
-            name: "Real Estate Web Design and TC Website Design",
-            description:
-                "Custom website design for real estate professionals, transaction coordinators, brokerages, and coaches who need clearer messaging and stronger lead generation.",
-            path: "/",
-            serviceType: "Web design and development",
-            audience: [
-                "Real estate professionals",
-                "Transaction coordinators",
-                "Brokerages",
-                "Real estate coaches",
-            ],
-        }),
-    ];
-
-    return (
-        <>
-            <JsonLd data={structuredData} />
-            {/* Hero */}
-            <StatementHero />
-
-            {/* Featured Work — show it big */}
-            <Section id="work" size="wide" padding="large">
-                <AnimatedSection>
-                    <SectionOpener
-                        eyebrow="Selected work"
-                        eyebrowIndex="01"
-                        title="Recent client work."
-                        lead="Commissioned websites you can visit today. Each case study covers the brief, the decisions, and what shipped."
-                        action={
-                            <Link
-                                href="/work"
-                                className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
-                            >
-                                Browse client work
-                                <IconArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke={1.9} />
-                            </Link>
-                        }
-                    />
-                </AnimatedSection>
-
-                <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
-                    {featuredProjects.map((project, index) => (
-                        <FeaturedProject
-                            key={project.slug}
-                            project={project}
-                            index={index}
-                            reverse={index % 2 === 1}
-                        />
-                    ))}
-                </div>
-            </Section>
-
-            {/* Dark statement — domain depth (flooded ink) */}
-            <section className="bg-ink text-ink-foreground">
-                <AnimatedSection className="mx-auto grid max-w-6xl gap-8 px-4 py-20 sm:px-6 md:grid-cols-[0.85fr_1.15fr] md:items-center md:py-28 lg:px-8">
-                    <p className="mono-label !text-flood">
-                        Tools built from inside the industry
-                    </p>
-                    <div>
-                        <h2 className="font-display text-3xl leading-tight text-ink-foreground md:text-[2.9rem] md:leading-[1.12]">
-                            I also build software for the TC workflow.
-                        </h2>
-                        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-foreground/75">
-                            UtilitySheet, Norma Intake, and Norma Closing Desk are products I built and run — they live in the Lab, separate from client work. Working on them keeps me close to what matters on a TC website: which services need explaining, what agents ask before submitting a file, and where inquiries stall.
-                        </p>
-                        <Link
-                            href="/lab"
-                            className="group mt-8 inline-flex items-center gap-2 text-base font-medium text-ink-foreground transition-colors hover:text-flood"
-                        >
-                            Explore the Lab
-                            <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                        </Link>
-                    </div>
-                </AnimatedSection>
-            </section>
-
-            {/* Services — concise ruled ledger */}
-            <Section padding="large">
-                <AnimatedSection>
-                    <SectionOpener
-                        eyebrow="Ways to work together"
-                        eyebrowIndex="02"
-                        title="Choose the simplest path that fits."
-                        lead="Start with a focused TC package, a custom site, a campaign page, or ongoing support."
-                    />
-                </AnimatedSection>
-
-                <AnimatedSection className="mt-12">
-                    <RuledList>
-                        {services.map((service, index) => (
-                            <RuledRow
-                                key={service.title}
-                                index={String(index + 1).padStart(2, "0")}
-                                title={service.title}
-                                meta={service.meta}
-                                action={
-                                    <Link
-                                        href={service.href}
-                                        className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
-                                    >
-                                        {service.cta}
-                                        <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" stroke={2} />
-                                    </Link>
-                                }
-                            >
-                                {service.description}
-                            </RuledRow>
-                        ))}
-                    </RuledList>
-                </AnimatedSection>
-            </Section>
-
-            {/* Testimonial — editorial pull quote (only renders when a real one exists) */}
-            {testimonial && (
-                <Section size="narrow" padding="large">
-                    <AnimatedSection>
-                        <PullQuote cite={`${testimonial.author} — ${testimonial.role}`}>
-                            &ldquo;{testimonial.quote}&rdquo;
-                        </PullQuote>
-                    </AnimatedSection>
-                </Section>
-            )}
-
-            {/* CTA — flooded ochre closer */}
-            <CTAFlooded
-                eyebrow="Let's talk"
-                title="Ready for a website that brings in better leads?"
-                body="Tell me what you're working on. I'll reply within one business day with a clear next step."
-                primary={{ label: "Start a project", href: "/contact?source=home-cta" }}
-                secondary={{ label: "View selected work", href: "/work" }}
+  const selected = ["tag-landing-page", "blissful-existence"].map(
+    (s) => projects.find((p) => p.slug === s)!,
+  );
+  return (
+    <>
+      <section className="studio-shell home-hero">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="small-cross" aria-hidden="true">
+              ✳
+            </span>{" "}
+            Independent web design & development
+          </p>
+          <h1>
+            Good businesses
+            <br />
+            deserve{" "}
+            <em>
+              better
+              <br className="desktop-break" /> websites.
+            </em>
+          </h1>
+          <p className="hero-description">
+            Custom websites that make your business look the part—and make it
+            easier for the right customers to get in touch.
+          </p>
+          <div className="hero-actions">
+            <Link href="/contact?source=home-hero" className="btn-primary">
+              Start a project <span aria-hidden="true">↗</span>
+            </Link>
+            <Link href="/work" className="text-link">
+              Explore the work <span aria-hidden="true">↓</span>
+            </Link>
+          </div>
+          <p className="hero-price">
+            Full websites from <strong>$1,500</strong> · One-page sites from{" "}
+            <strong>$750</strong>
+          </p>
+        </div>
+        <div className="hero-work">
+          <div className="hero-work-top">
+            <span>SELECTED CLIENT WORK / 01</span>
+            <span aria-hidden="true">↗</span>
+          </div>
+          <Link href="/work/pa-real-estate-support" className="hero-screen">
+            <Image
+              src="/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-hero.webp"
+              alt="PA Real Estate Support Services custom website"
+              width={1440}
+              height={1000}
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 800px) 100vw, 50vw"
             />
-        </>
-    );
+          </Link>
+          <div className="hero-work-caption">
+            <div>
+              <strong>PA Real Estate Support</strong>
+              <span>Strategy · Design · Development</span>
+            </div>
+            <Link
+              href="/work/pa-real-estate-support"
+              aria-label="View project: PA Real Estate Support"
+            >
+              View project ↗
+            </Link>
+          </div>
+          <div className="hero-work-note">
+            <span aria-hidden="true">✳</span> Real businesses. Thoughtfully
+            built.
+          </div>
+        </div>
+      </section>
+      <div className="expertise-strip">
+        <div className="studio-shell">
+          <span>Built around your business</span>
+          <span>Custom design & code</span>
+          <span>Direct access to your designer</span>
+          <span>Support after launch</span>
+        </div>
+      </div>
+      <section className="studio-shell studio-section">
+        <div className="section-top">
+          <div>
+            <p className="eyebrow">Selected work</p>
+            <h2>
+              Different businesses.
+              <br />
+              <em>The same care.</em>
+            </h2>
+          </div>
+          <Link href="/work" className="text-link">
+            View all client work ↗
+          </Link>
+        </div>
+        <div className="project-grid">
+          {selected.map((p) => (
+            <ProjectTile key={p.slug} project={p} />
+          ))}
+        </div>
+      </section>
+      <section className="services-band">
+        <div className="studio-shell studio-section">
+          <div className="section-top">
+            <div>
+              <p className="eyebrow">What I can help with</p>
+              <h2>
+                A website that fits
+                <br />
+                where you’re going.
+              </h2>
+            </div>
+            <p className="section-aside">
+              Starting fresh, outgrowing your old site, or finally making your
+              business look as good online as it is in person.
+            </p>
+          </div>
+          <div className="offer-grid">
+            {[
+              [
+                "01",
+                "Custom websites",
+                "A complete website or redesign shaped around your services, your customers, and your next stage of business.",
+                "From $1,500",
+                "/services/website",
+              ],
+              [
+                "02",
+                "One-page websites",
+                "A focused home for your business, a new offer, or a campaign—with a clear path from interest to inquiry.",
+                "From $750",
+                "/services/landing-pages",
+              ],
+              [
+                "03",
+                "Hosting & support",
+                "A dependable home for your site, with maintenance and a familiar person to turn to when you need help.",
+                "From $59/month",
+                "/services/growth-retainers",
+              ],
+            ].map(([n, t, d, p, h]) => (
+              <article key={n}>
+                <span className="eyebrow">{n} /</span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+                <div>
+                  <strong>{p}</strong>
+                  <Link href={h} aria-label={"Explore " + t.toLowerCase()}>
+                    Explore ↗
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="scope-note">
+            Need visual direction, lead capture, integrations, or a custom
+            workflow? We can include those in your project scope.
+          </p>
+        </div>
+      </section>
+      <section className="studio-shell studio-section specialty-section">
+        <div>
+          <p className="eyebrow">A specialty, built on experience</p>
+          <h2>
+            Especially fluent
+            <br />
+            in <em>real estate.</em>
+          </h2>
+        </div>
+        <div>
+          <p className="large-copy">
+            Transaction coordinators, real estate professionals, and the
+            businesses around them: I know your world.
+          </p>
+          <p>
+            From explaining your value to agents to making intake easier, I
+            bring relevant client work and hands-on industry knowledge. You
+            won’t have to explain the basics before we can make progress.
+          </p>
+          <Link href="/tc-packages" className="text-link">
+            Explore TC website packages ↗
+          </Link>
+        </div>
+      </section>
+      <Process />
+      <section className="founder-band">
+        <div className="studio-shell founder-grid">
+          <Image
+            src="/images/haydn-portrait/haydn-portrait-square.webp"
+            alt="Haydn, independent designer and developer behind Multimedium"
+            width={420}
+            height={420}
+            sizes="(max-width: 700px) 70vw, 300px"
+          />
+          <div>
+            <p className="eyebrow">Meet your designer & developer</p>
+            <h2>
+              Hi, I’m Haydn.
+              <br />
+              <em>I’ll be the one building it.</em>
+            </h2>
+            <p>
+              I work directly with small business owners to turn a good business
+              into a clear, credible online presence. Design, development, and
+              communication all stay with me.
+            </p>
+            <p>
+              I also build my own software products, including Norma Suite. That
+              technical depth comes with your website—whether you need a simple
+              inquiry form or something more connected.
+            </p>
+            <Link href="/about" className="text-link">
+              A little more about me ↗
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="studio-shell studio-section faq-section">
+        <div>
+          <p className="eyebrow">Before we talk</p>
+          <h2>A few good questions.</h2>
+        </div>
+        <div>
+          {[
+            [
+              "What does a custom website cost?",
+              "Full websites start at $1,500, with larger or more involved projects at $3,000 and above. Focused one-page projects start at $750. I’ll quote your project based on its pages, content, and functionality before work begins.",
+            ],
+            [
+              "Do you only work with real estate businesses?",
+              "No. I work with small businesses and service providers across industries. Transaction coordination and real estate are specialties, supported by relevant client work.",
+            ],
+            [
+              "Can you improve my existing website?",
+              "Yes. We’ll look at what is working, what is holding the site back, and whether an update or a full redesign is the better fit.",
+            ],
+            [
+              "What if I need help after launch?",
+              "Hosting and maintenance start at $59/month. We’ll agree on the support included, with larger updates and new functionality quoted separately.",
+            ],
+          ].map(([q, a]) => (
+            <details key={q}>
+              <summary>
+                {q}
+                <span aria-hidden="true">+</span>
+              </summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+      <ProjectCTA />
+    </>
+  );
 }

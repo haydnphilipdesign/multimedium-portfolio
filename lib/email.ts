@@ -3,113 +3,114 @@ import { readFile } from "node:fs/promises";
 import { isAbsolute, join } from "node:path";
 
 export interface ContactEmailPayload {
-    name: string;
-    email: string;
-    phone?: string;
-    contactPreference?: string;
-    source?: string;
-    company?: string;
-    projectType?: string;
-    budgetRange?: string;
-    timeline?: string;
-    currentUrl?: string;
-    referral?: string;
-    message: string;
-    meta?: {
-        ip?: string;
-        userAgent?: string;
-        referer?: string;
-    };
+  name: string;
+  email: string;
+  phone?: string;
+  contactPreference?: string;
+  source?: string;
+  company?: string;
+  projectType?: string;
+  budgetRange?: string;
+  package?: string;
+  timeline?: string;
+  currentUrl?: string;
+  referral?: string;
+  message: string;
+  meta?: {
+    ip?: string;
+    userAgent?: string;
+    referer?: string;
+  };
 }
 
 export interface LeadMagnetPayload {
-    leadMagnet: string;
-    name: string;
-    email: string;
-    company?: string;
-    source?: string;
-    resourceUrl?: string;
-    resourceText?: string;
-    resourceFilename?: string;
-    resourceFilePath?: string;
+  leadMagnet: string;
+  name: string;
+  email: string;
+  company?: string;
+  source?: string;
+  resourceUrl?: string;
+  resourceText?: string;
+  resourceFilename?: string;
+  resourceFilePath?: string;
 }
 
 export interface ReviewEmailPayload {
-    name: string;
-    companyOrRole?: string;
-    testimonial: string;
-    publicPermission: boolean;
-    submittedAt: string;
-    meta?: {
-        ip?: string;
-        userAgent?: string;
-        referer?: string;
-    };
+  name: string;
+  companyOrRole?: string;
+  testimonial: string;
+  publicPermission: boolean;
+  submittedAt: string;
+  meta?: {
+    ip?: string;
+    userAgent?: string;
+    referer?: string;
+  };
 }
 
 export interface ReviewEmailContent {
-    subject: string;
-    html: string;
-    text: string;
+  subject: string;
+  html: string;
+  text: string;
 }
 
 interface EmailField {
-    label: string;
-    value?: string;
+  label: string;
+  value?: string;
 }
 
 interface EmailTemplateOptions {
-    preheader: string;
-    title: string;
-    subtitle?: string;
-    paragraphs?: string[];
-    fieldsTitle?: string;
-    fields?: EmailField[];
-    messageTitle?: string;
-    message?: string;
-    cta?: {
-        label: string;
-        href: string;
-    };
-    footerNote?: string;
+  preheader: string;
+  title: string;
+  subtitle?: string;
+  paragraphs?: string[];
+  fieldsTitle?: string;
+  fields?: EmailField[];
+  messageTitle?: string;
+  message?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+  footerNote?: string;
 }
 
 function requiredEnv(name: string): string {
-    const value = process.env[name];
-    if (!value) {
-        throw new Error(`${name} is not set`);
-    }
-    return value;
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`${name} is not set`);
+  }
+  return value;
 }
 
 function escapeHtml(value: string): string {
-    return value
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function formatForHtml(value: string): string {
-    return escapeHtml(value).replace(/\n/g, "<br />");
+  return escapeHtml(value).replace(/\n/g, "<br />");
 }
 
 function renderParagraphs(paragraphs: string[]): string {
-    return paragraphs
-        .filter(Boolean)
-        .map(
-            (paragraph) =>
-                `<p style="margin:0 0 14px;font-size:16px;line-height:1.65;color:#111827;">${formatForHtml(paragraph)}</p>`,
-        )
-        .join("");
+  return paragraphs
+    .filter(Boolean)
+    .map(
+      (paragraph) =>
+        `<p style="margin:0 0 14px;font-size:16px;line-height:1.65;color:#111827;">${formatForHtml(paragraph)}</p>`,
+    )
+    .join("");
 }
 
 function renderFieldsCard(title: string, fields: EmailField[]): string {
-    const rows = fields
-        .filter((field) => field.value)
-        .map(
-            (field) => `
+  const rows = fields
+    .filter((field) => field.value)
+    .map(
+      (field) => `
                 <tr>
                     <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;vertical-align:top;width:160px;font-size:13px;font-weight:700;line-height:1.5;color:#6b7280;text-transform:uppercase;letter-spacing:0.04em;">
                         ${escapeHtml(field.label)}
@@ -118,12 +119,12 @@ function renderFieldsCard(title: string, fields: EmailField[]): string {
                         ${formatForHtml(field.value ?? "")}
                     </td>
                 </tr>`,
-        )
-        .join("");
+    )
+    .join("");
 
-    if (!rows) return "";
+  if (!rows) return "";
 
-    return `
+  return `
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:18px 0 22px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:0 18px;">
             <tr>
                 <td style="padding:16px 0 6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6b7280;">
@@ -135,7 +136,7 @@ function renderFieldsCard(title: string, fields: EmailField[]): string {
 }
 
 function renderMessageCard(title: string, message: string): string {
-    return `
+  return `
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:8px 0 24px;background:#fffdf7;border:1px solid #f3e8c8;border-radius:14px;">
             <tr>
                 <td style="padding:16px 18px 8px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9a6a15;">
@@ -151,8 +152,8 @@ function renderMessageCard(title: string, message: string): string {
 }
 
 function renderCtaButton(label: string, href: string): string {
-    const safeHref = escapeHtml(href);
-    return `
+  const safeHref = escapeHtml(href);
+  return `
         <table role="presentation" cellspacing="0" cellpadding="0" style="margin:4px 0 8px;">
             <tr>
                 <td align="center" bgcolor="#d97706" style="border-radius:999px;">
@@ -168,25 +169,25 @@ function renderCtaButton(label: string, href: string): string {
 }
 
 function buildEmailHtml(options: EmailTemplateOptions): string {
-    const {
-        preheader,
-        title,
-        subtitle,
-        paragraphs = [],
-        fieldsTitle,
-        fields = [],
-        messageTitle,
-        message,
-        cta,
-        footerNote,
-    } = options;
+  const {
+    preheader,
+    title,
+    subtitle,
+    paragraphs = [],
+    fieldsTitle,
+    fields = [],
+    messageTitle,
+    message,
+    cta,
+    footerNote,
+  } = options;
 
-    const fieldsCard = fieldsTitle ? renderFieldsCard(fieldsTitle, fields) : "";
-    const messageCard =
-        messageTitle && message ? renderMessageCard(messageTitle, message) : "";
-    const ctaMarkup = cta ? renderCtaButton(cta.label, cta.href) : "";
+  const fieldsCard = fieldsTitle ? renderFieldsCard(fieldsTitle, fields) : "";
+  const messageCard =
+    messageTitle && message ? renderMessageCard(messageTitle, message) : "";
+  const ctaMarkup = cta ? renderCtaButton(cta.label, cta.href) : "";
 
-    return `<!doctype html>
+  return `<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -226,8 +227,8 @@ function buildEmailHtml(options: EmailTemplateOptions): string {
                                 ${ctaMarkup}
                                 <p style="margin:0;font-size:13px;line-height:1.6;color:#6b7280;">
                                     ${escapeHtml(
-                                        footerNote ??
-                                            "Sent from multimedium.dev. Reply to this email if you need anything.",
+                                      footerNote ??
+                                        "Sent from multimedium.dev. Reply to this email if you need anything.",
                                     )}
                                 </p>
                             </td>
@@ -241,282 +242,287 @@ function buildEmailHtml(options: EmailTemplateOptions): string {
 }
 
 export function buildReviewEmailContent(
-    payload: ReviewEmailPayload,
+  payload: ReviewEmailPayload,
 ): ReviewEmailContent {
-    const permissionLabel = payload.publicPermission
-        ? "Approved for public use with name and company"
-        : "Private feedback - do not publish";
-    const subject = payload.publicPermission
-        ? `New approved testimonial - ${payload.name}`
-        : `New private client feedback - ${payload.name}`;
+  const permissionLabel = payload.publicPermission
+    ? "Approved for public use with name and company"
+    : "Private feedback - do not publish";
+  const subject = payload.publicPermission
+    ? `New approved testimonial - ${payload.name}`
+    : `New private client feedback - ${payload.name}`;
 
-    const textLines: string[] = [
-        `Name: ${payload.name}`,
-        payload.companyOrRole
-            ? `Company or role: ${payload.companyOrRole}`
-            : "",
-        `Permission: ${permissionLabel}`,
-        `Submitted at: ${payload.submittedAt}`,
-        payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
-        payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
-        payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
-    ].filter(Boolean);
-    textLines.push("", payload.testimonial);
+  const textLines: string[] = [
+    `Name: ${payload.name}`,
+    payload.companyOrRole ? `Company or role: ${payload.companyOrRole}` : "",
+    `Permission: ${permissionLabel}`,
+    `Submitted at: ${payload.submittedAt}`,
+    payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
+    payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
+    payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
+  ].filter(Boolean);
+  textLines.push("", payload.testimonial);
 
-    const html = buildEmailHtml({
-        preheader: `${permissionLabel}: feedback from ${payload.name}`,
-        title: payload.publicPermission
-            ? "Approved Client Testimonial"
-            : "Private Client Feedback",
-        subtitle: permissionLabel,
-        paragraphs: [
-            payload.publicPermission
-                ? "The client approved this testimonial for public use with their name and company."
-                : "The client submitted this feedback privately. Do not publish or reuse it publicly.",
-        ],
-        fieldsTitle: "Submission Details",
-        fields: [
-            { label: "Name", value: payload.name },
-            { label: "Company or Role", value: payload.companyOrRole },
-            { label: "Permission", value: permissionLabel },
-            { label: "Submitted At", value: payload.submittedAt },
-            { label: "IP", value: payload.meta?.ip },
-            { label: "Referer", value: payload.meta?.referer },
-            { label: "User Agent", value: payload.meta?.userAgent },
-        ],
-        messageTitle: "Client Feedback",
-        message: payload.testimonial,
-        footerNote: permissionLabel,
-    });
+  const html = buildEmailHtml({
+    preheader: `${permissionLabel}: feedback from ${payload.name}`,
+    title: payload.publicPermission
+      ? "Approved Client Testimonial"
+      : "Private Client Feedback",
+    subtitle: permissionLabel,
+    paragraphs: [
+      payload.publicPermission
+        ? "The client approved this testimonial for public use with their name and company."
+        : "The client submitted this feedback privately. Do not publish or reuse it publicly.",
+    ],
+    fieldsTitle: "Submission Details",
+    fields: [
+      { label: "Name", value: payload.name },
+      { label: "Company or Role", value: payload.companyOrRole },
+      { label: "Permission", value: permissionLabel },
+      { label: "Submitted At", value: payload.submittedAt },
+      { label: "IP", value: payload.meta?.ip },
+      { label: "Referer", value: payload.meta?.referer },
+      { label: "User Agent", value: payload.meta?.userAgent },
+    ],
+    messageTitle: "Client Feedback",
+    message: payload.testimonial,
+    footerNote: permissionLabel,
+  });
 
-    return {
-        subject,
-        html,
-        text: textLines.join("\n"),
-    };
+  return {
+    subject,
+    html,
+    text: textLines.join("\n"),
+  };
 }
 
 export function assertReviewEmailDeliverySucceeded(result: {
-    error?: unknown;
+  error?: unknown;
 }): void {
-    if (result.error == null) return;
+  if (result.error == null) return;
 
-    const message =
-        typeof result.error === "object" &&
-        result.error !== null &&
-        "message" in result.error &&
-        typeof result.error.message === "string"
-            ? result.error.message
-            : "Unknown Resend error";
-    throw new Error(`Review email delivery failed: ${message}`);
+  const message =
+    typeof result.error === "object" &&
+    result.error !== null &&
+    "message" in result.error &&
+    typeof result.error.message === "string"
+      ? result.error.message
+      : "Unknown Resend error";
+  throw new Error(`Review email delivery failed: ${message}`);
 }
 
 export async function sendReviewEmail(payload: ReviewEmailPayload) {
-    const resendApiKey = requiredEnv("RESEND_API_KEY");
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
-    const fromEmail =
-        process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
+  const resendApiKey = requiredEnv("RESEND_API_KEY");
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
+  const fromEmail =
+    process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
 
-    const resend = new Resend(resendApiKey);
-    const content = buildReviewEmailContent(payload);
+  const resend = new Resend(resendApiKey);
+  const content = buildReviewEmailContent(payload);
 
-    const result = await resend.emails.send({
-        from: fromEmail,
-        to: [toEmail],
-        subject: content.subject,
-        html: content.html,
-        text: content.text,
-    });
-    assertReviewEmailDeliverySucceeded(result);
+  const result = await resend.emails.send({
+    from: fromEmail,
+    to: [toEmail],
+    subject: content.subject,
+    html: content.html,
+    text: content.text,
+  });
+  assertReviewEmailDeliverySucceeded(result);
 }
 
 export async function sendContactEmail(payload: ContactEmailPayload) {
-    const resendApiKey = requiredEnv("RESEND_API_KEY");
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
-    const fromEmail =
-        process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
+  const resendApiKey = requiredEnv("RESEND_API_KEY");
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
+  const fromEmail =
+    process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
 
-    const resend = new Resend(resendApiKey);
+  const resend = new Resend(resendApiKey);
 
-    const subjectParts = ["New website inquiry", payload.name];
-    if (payload.company) subjectParts.push(payload.company);
-    if (payload.projectType) subjectParts.push(payload.projectType);
-    const subject = subjectParts.join(" - ");
+  const subjectParts = ["New website inquiry", payload.name];
+  if (payload.company) subjectParts.push(payload.company);
+  if (payload.projectType) subjectParts.push(payload.projectType);
+  const subject = subjectParts.join(" - ");
 
-    const textLines: string[] = [
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        payload.phone ? `Phone: ${payload.phone}` : "",
-        payload.contactPreference
-            ? `Contact preference: ${payload.contactPreference}`
-            : "",
-        payload.source ? `Source: ${payload.source}` : "",
-        payload.company ? `Company: ${payload.company}` : "",
-        payload.projectType ? `Project type: ${payload.projectType}` : "",
-        payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
-        payload.timeline ? `Timeline: ${payload.timeline}` : "",
-        payload.currentUrl ? `Current site: ${payload.currentUrl}` : "",
-        payload.referral ? `Referral: ${payload.referral}` : "",
-        payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
-        payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
-        payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
-        "",
-        payload.message,
-    ].filter(Boolean);
-    const contactSubtitleParts = [payload.name, payload.email];
-    if (payload.company) contactSubtitleParts.push(payload.company);
-    const contactHtml = buildEmailHtml({
-        preheader: `New inquiry from ${payload.name}`,
-        title: "New Website Inquiry",
-        subtitle: contactSubtitleParts.join(" - "),
-        paragraphs: [
-            "A new contact request came in from your website.",
-            "Reply directly to this email to continue the conversation.",
-        ],
-        fieldsTitle: "Lead Details",
-        fields: [
-            { label: "Name", value: payload.name },
-            { label: "Email", value: payload.email },
-            { label: "Phone", value: payload.phone },
-            { label: "Contact Preference", value: payload.contactPreference },
-            { label: "Source", value: payload.source },
-            { label: "Company", value: payload.company },
-            { label: "Project Type", value: payload.projectType },
-            { label: "Budget", value: payload.budgetRange },
-            { label: "Timeline", value: payload.timeline },
-            { label: "Current Site", value: payload.currentUrl },
-            { label: "Referral", value: payload.referral },
-            { label: "IP", value: payload.meta?.ip },
-            { label: "Referer", value: payload.meta?.referer },
-            { label: "User Agent", value: payload.meta?.userAgent },
-        ],
-        messageTitle: "Message",
-        message: payload.message,
-        footerNote: "Reply to this thread to respond to the lead.",
-    });
+  const textLines: string[] = [
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    payload.phone ? `Phone: ${payload.phone}` : "",
+    payload.contactPreference
+      ? `Contact preference: ${payload.contactPreference}`
+      : "",
+    payload.source ? `Source: ${payload.source}` : "",
+    payload.company ? `Company: ${payload.company}` : "",
+    payload.projectType ? `Project type: ${payload.projectType}` : "",
+    payload.budgetRange ? `Budget: ${payload.budgetRange}` : "",
+    payload.package ? `Package: ${payload.package}` : "",
+    payload.timeline ? `Timeline: ${payload.timeline}` : "",
+    payload.currentUrl ? `Current site: ${payload.currentUrl}` : "",
+    payload.referral ? `Referral: ${payload.referral}` : "",
+    payload.meta?.ip ? `IP: ${payload.meta.ip}` : "",
+    payload.meta?.referer ? `Referer: ${payload.meta.referer}` : "",
+    payload.meta?.userAgent ? `User agent: ${payload.meta.userAgent}` : "",
+    "",
+    payload.message,
+  ].filter(Boolean);
+  const contactSubtitleParts = [payload.name, payload.email];
+  if (payload.company) contactSubtitleParts.push(payload.company);
+  const contactHtml = buildEmailHtml({
+    preheader: `New inquiry from ${payload.name}`,
+    title: "New Website Inquiry",
+    subtitle: contactSubtitleParts.join(" - "),
+    paragraphs: [
+      "A new contact request came in from your website.",
+      "Reply directly to this email to continue the conversation.",
+    ],
+    fieldsTitle: "Lead Details",
+    fields: [
+      { label: "Name", value: payload.name },
+      { label: "Email", value: payload.email },
+      { label: "Phone", value: payload.phone },
+      { label: "Contact Preference", value: payload.contactPreference },
+      { label: "Source", value: payload.source },
+      { label: "Company", value: payload.company },
+      { label: "Project Type", value: payload.projectType },
+      { label: "Budget", value: payload.budgetRange },
+      { label: "Package", value: payload.package },
+      { label: "Timeline", value: payload.timeline },
+      { label: "Current Site", value: payload.currentUrl },
+      { label: "Referral", value: payload.referral },
+      { label: "IP", value: payload.meta?.ip },
+      { label: "Referer", value: payload.meta?.referer },
+      { label: "User Agent", value: payload.meta?.userAgent },
+    ],
+    messageTitle: "Message",
+    message: payload.message,
+    footerNote: "Reply to this thread to respond to the lead.",
+  });
 
-    await resend.emails.send({
-        from: fromEmail,
-        to: [toEmail],
-        replyTo: payload.email,
-        subject,
-        html: contactHtml,
-        text: textLines.join("\n"),
-    });
+  const result = await resend.emails.send({
+    from: fromEmail,
+    to: [toEmail],
+    replyTo: payload.email,
+    subject,
+    html: contactHtml,
+    text: textLines.join("\n"),
+  });
+  if (result.error || !result.data?.id) {
+    throw new Error("Contact email was not accepted by the provider");
+  }
 }
 
 export async function sendLeadMagnetEmail(payload: LeadMagnetPayload) {
-    const resendApiKey = requiredEnv("RESEND_API_KEY");
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
-    const fromEmail =
-        process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
+  const resendApiKey = requiredEnv("RESEND_API_KEY");
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? "haydn@multimedium.dev";
+  const fromEmail =
+    process.env.CONTACT_FROM_EMAIL ?? "Multimedium <onboarding@resend.dev>";
 
-    const resend = new Resend(resendApiKey);
+  const resend = new Resend(resendApiKey);
 
-    let attachments:
-        | Array<{ filename: string; content: Buffer }>
-        | undefined;
-    if (payload.resourceFilename && payload.resourceFilePath) {
-        const resolvedPath = isAbsolute(payload.resourceFilePath)
-            ? payload.resourceFilePath
-            : join(process.cwd(), payload.resourceFilePath);
-        const fileBuffer = await readFile(resolvedPath);
-        attachments = [
-            {
-                filename: payload.resourceFilename,
-                content: fileBuffer,
-            },
-        ];
-    }
+  let attachments: Array<{ filename: string; content: Buffer }> | undefined;
+  if (payload.resourceFilename && payload.resourceFilePath) {
+    const resolvedPath = isAbsolute(payload.resourceFilePath)
+      ? payload.resourceFilePath
+      : join(process.cwd(), payload.resourceFilePath);
+    const fileBuffer = await readFile(resolvedPath);
+    attachments = [
+      {
+        filename: payload.resourceFilename,
+        content: fileBuffer,
+      },
+    ];
+  }
 
-    const leadSubject = `${payload.leadMagnet} - download`;
-    const leadTextLines: string[] = [
-        `Hi ${payload.name},`,
-        "",
-        `Here is your ${payload.leadMagnet}.`,
-        attachments?.length
-            ? `Attached file: ${payload.resourceFilename}`
-            : "",
-        payload.resourceUrl && !attachments?.length
-            ? `Download link: ${payload.resourceUrl}`
-            : "",
-        "",
-        payload.resourceText ?? "",
-        "",
-        "If you want help turning this into a lead capture system, just reply to this email.",
-        "- Haydn",
-    ].filter(Boolean);
-    const leadHtml = buildEmailHtml({
-        preheader: `${payload.leadMagnet} is attached`,
-        title: `Your ${payload.leadMagnet}`,
-        subtitle: attachments?.length ? "PDF attached" : "Download link inside",
-        paragraphs: [
-            `Hi ${payload.name}, here is your ${payload.leadMagnet}.`,
-            attachments?.length
-                ? "The PDF is attached to this email."
-                : "Use the link below to open the PDF.",
-            payload.resourceText ?? "",
-            "If you want this routed from an intake form into your workflow, just reply and tell me what tools you use.",
-        ],
-        cta: payload.resourceUrl && !attachments?.length
-            ? {
-                  label: "Open PDF Download",
-                  href: payload.resourceUrl,
-              }
-            : undefined,
-        footerNote: "Need a custom or auto-populated version? Reply and I can help you set it up.",
-    });
+  const leadSubject = `${payload.leadMagnet} - download`;
+  const leadTextLines: string[] = [
+    `Hi ${payload.name},`,
+    "",
+    `Here is your ${payload.leadMagnet}.`,
+    attachments?.length ? `Attached file: ${payload.resourceFilename}` : "",
+    payload.resourceUrl && !attachments?.length
+      ? `Download link: ${payload.resourceUrl}`
+      : "",
+    "",
+    payload.resourceText ?? "",
+    "",
+    "If you want help turning this into a lead capture system, just reply to this email.",
+    "- Haydn",
+  ].filter(Boolean);
+  const leadHtml = buildEmailHtml({
+    preheader: `${payload.leadMagnet} is attached`,
+    title: `Your ${payload.leadMagnet}`,
+    subtitle: attachments?.length ? "PDF attached" : "Download link inside",
+    paragraphs: [
+      `Hi ${payload.name}, here is your ${payload.leadMagnet}.`,
+      attachments?.length
+        ? "The PDF is attached to this email."
+        : "Use the link below to open the PDF.",
+      payload.resourceText ?? "",
+      "If you want this routed from an intake form into your workflow, just reply and tell me what tools you use.",
+    ],
+    cta:
+      payload.resourceUrl && !attachments?.length
+        ? {
+            label: "Open PDF Download",
+            href: payload.resourceUrl,
+          }
+        : undefined,
+    footerNote:
+      "Need a custom or auto-populated version? Reply and I can help you set it up.",
+  });
 
+  await resend.emails.send({
+    from: fromEmail,
+    to: [payload.email],
+    replyTo: toEmail,
+    subject: leadSubject,
+    html: leadHtml,
+    text: leadTextLines.join("\n"),
+    attachments,
+  });
+
+  const notifySubjectParts = [
+    "Lead magnet request",
+    payload.leadMagnet,
+    payload.name,
+  ];
+  if (payload.company) notifySubjectParts.push(payload.company);
+  const notifySubject = notifySubjectParts.join(" - ");
+
+  const notifyTextLines: string[] = [
+    `Lead magnet: ${payload.leadMagnet}`,
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    payload.company ? `Company: ${payload.company}` : "",
+    payload.source ? `Source: ${payload.source}` : "",
+  ].filter(Boolean);
+  const notifyHtml = buildEmailHtml({
+    preheader: `New ${payload.leadMagnet} request from ${payload.name}`,
+    title: "Lead Magnet Request",
+    subtitle: payload.leadMagnet,
+    paragraphs: [
+      "A visitor requested a resource from the site.",
+      "Reply to this email to follow up directly.",
+    ],
+    fieldsTitle: "Request Details",
+    fields: [
+      { label: "Resource", value: payload.leadMagnet },
+      { label: "Name", value: payload.name },
+      { label: "Email", value: payload.email },
+      { label: "Company", value: payload.company },
+      { label: "Source", value: payload.source },
+    ],
+    footerNote: "This notification was generated by the lead magnet form.",
+  });
+
+  try {
     await resend.emails.send({
-        from: fromEmail,
-        to: [payload.email],
-        replyTo: toEmail,
-        subject: leadSubject,
-        html: leadHtml,
-        text: leadTextLines.join("\n"),
-        attachments,
+      from: fromEmail,
+      to: [toEmail],
+      replyTo: payload.email,
+      subject: notifySubject,
+      html: notifyHtml,
+      text: notifyTextLines.join("\n"),
     });
-
-    const notifySubjectParts = ["Lead magnet request", payload.leadMagnet, payload.name];
-    if (payload.company) notifySubjectParts.push(payload.company);
-    const notifySubject = notifySubjectParts.join(" - ");
-
-    const notifyTextLines: string[] = [
-        `Lead magnet: ${payload.leadMagnet}`,
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        payload.company ? `Company: ${payload.company}` : "",
-        payload.source ? `Source: ${payload.source}` : "",
-    ].filter(Boolean);
-    const notifyHtml = buildEmailHtml({
-        preheader: `New ${payload.leadMagnet} request from ${payload.name}`,
-        title: "Lead Magnet Request",
-        subtitle: payload.leadMagnet,
-        paragraphs: [
-            "A visitor requested a resource from the site.",
-            "Reply to this email to follow up directly.",
-        ],
-        fieldsTitle: "Request Details",
-        fields: [
-            { label: "Resource", value: payload.leadMagnet },
-            { label: "Name", value: payload.name },
-            { label: "Email", value: payload.email },
-            { label: "Company", value: payload.company },
-            { label: "Source", value: payload.source },
-        ],
-        footerNote: "This notification was generated by the lead magnet form.",
-    });
-
-    try {
-        await resend.emails.send({
-            from: fromEmail,
-            to: [toEmail],
-            replyTo: payload.email,
-            subject: notifySubject,
-            html: notifyHtml,
-            text: notifyTextLines.join("\n"),
-        });
-    } catch (error) {
-        console.error("Lead magnet notify failed", error);
-    }
+  } catch (error) {
+    console.error("Lead magnet notify failed", error);
+  }
 }

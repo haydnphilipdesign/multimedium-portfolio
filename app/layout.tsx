@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -11,15 +11,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { siteName, siteUrl } from "@/lib/site";
 import { getSiteStructuredData } from "@/lib/structuredData";
 
-const spaceGrotesk = Space_Grotesk({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-brand-sans",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-brand-mono",
   display: "swap",
 });
 
@@ -28,17 +22,17 @@ const fraunces = Fraunces({
   variable: "--font-brand-display",
   display: "swap",
   style: ["normal", "italic"],
-  axes: ["opsz"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Real Estate Web Design in the Poconos | Multimedium",
+    default: "Custom Web Design for Small Businesses | Multimedium",
     template: `%s | ${siteName}`,
   },
   description:
-    "Multimedium designs websites for real estate professionals, transaction coordinators, brokerages, coaches, and related service businesses in the Poconos and beyond.",
+    "Multimedium designs websites for small businesses, service providers, and real estate professionals in the Poconos and beyond.",
   keywords: [
     "real estate web design",
     "transaction coordinator website design",
@@ -52,9 +46,9 @@ export const metadata: Metadata = {
   creator: siteName,
   publisher: siteName,
   openGraph: {
-    title: "Real Estate Web Design in the Poconos | Multimedium",
+    title: "Custom Web Design for Small Businesses | Multimedium",
     description:
-      "Custom websites for real estate professionals, transaction coordinators, and related service businesses that need better-qualified leads.",
+      "Custom websites for small businesses and service providers that need better-qualified leads.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -70,9 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Real Estate Web Design in the Poconos | Multimedium",
-    description:
-      "Custom websites for real estate professionals, transaction coordinators, and related service businesses.",
+    title: "Custom Web Design for Small Businesses | Multimedium",
+    description: "Custom websites for small businesses and service providers.",
     images: ["/twitter-image"],
   },
   robots: {
@@ -89,10 +82,7 @@ export default function RootLayout({
   const structuredData = getSiteStructuredData();
 
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
-    >
+    <html lang="en" className={`${manrope.variable} ${fraunces.variable}`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
         <JsonLd data={structuredData} />
         <a
@@ -103,14 +93,21 @@ export default function RootLayout({
         </a>
         <Navbar />
         <PageTransition>
-          <main id="main-content" className="pb-[var(--mobile-cta-offset)] md:pb-0">
+          <main
+            id="main-content"
+            className="pb-[var(--mobile-cta-offset)] md:pb-0"
+          >
             {children}
           </main>
         </PageTransition>
         <MobileStickyCTA />
         <Footer />
-        <Analytics />
-        <SpeedInsights />
+        {process.env.VERCEL === "1" && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

@@ -3,21 +3,25 @@
    ========================================================================== */
 
 (function () {
-  'use strict';
+  "use strict";
 
   /* ---------- Preserve return path back to packages ---------- */
-  var defaultReturnTo = '/tc-packages#packages';
+  var defaultReturnTo = "/tc-packages#packages";
 
   function isSafeReturnPath(path) {
-    return typeof path === 'string' && path.charAt(0) === '/' && !path.startsWith('//');
+    return (
+      typeof path === "string" &&
+      path.charAt(0) === "/" &&
+      !path.startsWith("//")
+    );
   }
 
   var params = new URLSearchParams(window.location.search);
-  var queryReturnTo = params.get('returnTo');
+  var queryReturnTo = params.get("returnTo");
   var storedReturnTo = null;
 
   try {
-    storedReturnTo = window.sessionStorage.getItem('demoReturnTo');
+    storedReturnTo = window.sessionStorage.getItem("demoReturnTo");
   } catch {
     storedReturnTo = null;
   }
@@ -29,76 +33,91 @@
       : defaultReturnTo;
 
   try {
-    window.sessionStorage.setItem('demoReturnTo', returnTo);
+    window.sessionStorage.setItem("demoReturnTo", returnTo);
   } catch {
     // Ignore storage failures and fall back to the default return path.
   }
 
-  var backToPackagesLink = document.querySelector('.demo-banner a[href^="/tc-packages"]');
+  var backToPackagesLink = document.querySelector(
+    '.demo-banner a[href^="/tc-packages"]',
+  );
   if (backToPackagesLink) {
-    backToPackagesLink.setAttribute('href', returnTo);
+    backToPackagesLink.setAttribute("href", returnTo);
   }
 
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    var href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:")
+    ) {
       return;
     }
 
-    var url = new URL(href, window.location.href);
-    if (url.origin !== window.location.origin || !url.pathname.startsWith('/demos/')) {
+    var url = new URL(href, document.baseURI);
+    if (
+      url.origin !== window.location.origin ||
+      !url.pathname.startsWith("/demos/")
+    ) {
       return;
     }
 
-    url.searchParams.set('returnTo', returnTo);
-    link.setAttribute('href', url.pathname + url.search + url.hash);
+    url.searchParams.set("returnTo", returnTo);
+    link.setAttribute("href", url.pathname + url.search + url.hash);
   });
 
   /* ---------- Header scroll shadow ---------- */
-  const header = document.getElementById('siteHeader');
+  const header = document.getElementById("siteHeader");
 
   function onScroll() {
     if (window.scrollY > 10) {
-      header.classList.add('scrolled');
+      header.classList.add("scrolled");
     } else {
-      header.classList.remove('scrolled');
+      header.classList.remove("scrolled");
     }
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
   /* ---------- Mobile menu toggle ---------- */
-  const toggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('headerNav');
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("headerNav");
 
-  toggle.addEventListener('click', function () {
-    toggle.classList.toggle('open');
-    nav.classList.toggle('open');
+  toggle.addEventListener("click", function () {
+    toggle.classList.toggle("open");
+    nav.classList.toggle("open");
+    toggle.setAttribute(
+      "aria-expanded",
+      String(nav.classList.contains("open")),
+    );
   });
 
   // Close mobile nav when a link is clicked
-  nav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      toggle.classList.remove('open');
-      nav.classList.remove('open');
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      toggle.classList.remove("open");
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
     });
   });
 
   /* ---------- Scroll fade-in animation ---------- */
-  var fadeEls = document.querySelectorAll('.fade-up');
+  var fadeEls = document.querySelectorAll(".fade-up");
 
-  if ('IntersectionObserver' in window) {
+  if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
     );
 
     fadeEls.forEach(function (el) {
@@ -107,23 +126,30 @@
   } else {
     // Fallback: show all elements immediately
     fadeEls.forEach(function (el) {
-      el.classList.add('visible');
+      el.classList.add("visible");
     });
   }
 
   /* ---------- Smooth scroll for anchor links ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '#submit-file') return;
+    anchor.addEventListener("click", function (e) {
+      var targetId = this.getAttribute("href");
+      if (targetId === "#" || targetId === "#submit-file") return;
 
       var target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
         var headerHeight = header.offsetHeight;
-        var bannerHeight = document.querySelector('.demo-banner') ? document.querySelector('.demo-banner').offsetHeight : 0;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - bannerHeight - 20;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        var bannerHeight = document.querySelector(".demo-banner")
+          ? document.querySelector(".demo-banner").offsetHeight
+          : 0;
+        var top =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          bannerHeight -
+          20;
+        window.scrollTo({ top: top, behavior: "smooth" });
       }
     });
   });

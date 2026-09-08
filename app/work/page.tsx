@@ -1,182 +1,74 @@
-import { Metadata } from "next";
 import Link from "next/link";
-import { Section } from "@/components/sections/Section";
-import { FeaturedProject } from "@/components/work/ProjectCard";
-import { SectionOpener } from "@/components/sections/Editorial";
-import { CTARuled } from "@/components/marketing/CTA";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { getClientProjectsByIndustry } from "@/content/projects";
-import { AnimatedSection } from "@/components/motion/AnimatedSection";
-import { createPageMetadata } from "@/lib/seo";
 import {
-    getBreadcrumbStructuredData,
-    getCollectionPageStructuredData,
-} from "@/lib/structuredData";
-import { IconArrowUpRight } from "@tabler/icons-react";
-
-const industryMeta: Record<string, { title: string; description: string; heading: string; subheading: string }> = {
-    tc: {
-        title: "Transaction Coordinator Work",
-        description: "Web design and development projects for transaction coordinators — professional messaging, lead capture, and builds that bring in better clients.",
-        heading: "Transaction Coordinator Work",
-        subheading: "Client-first projects for TCs and real estate ops teams, designed to qualify leads and drive bookings.",
-    },
-    "real-estate": {
-        title: "Real Estate Web Design Work",
-        description: "Web design and development projects for real estate professionals—property management, investor portals, and service-based sites.",
-        heading: "Real Estate Work",
-        subheading: "Projects built for property managers, investors, and real estate teams.",
-    },
-    coaching: {
-        title: "Coaching & Consulting Web Design",
-        description: "Web design for coaches, consultants, and service-based businesses—from premium coaching sites to scroll-driven experiences.",
-        heading: "Coaching Work",
-        subheading: "Websites for coaches and consultants who want their web presence to match their expertise.",
-    },
-};
-
-export async function generateMetadata({
-    searchParams,
+  PageIntro,
+  ProjectTile,
+  ProjectCTA,
+} from "@/components/marketing/Studio";
+import { getClientProjectsByIndustry } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
+export const metadata = createPageMetadata({
+  title: "Selected Client Websites",
+  description:
+    "Custom websites for transaction coordinators, real estate businesses, and service providers. Explore real projects designed and built by Haydn at Multimedium.",
+  path: "/work",
+});
+export default async function Work({
+  searchParams,
 }: {
-    searchParams: Promise<{ industry?: string }>;
-}): Promise<Metadata> {
-    const params = await searchParams;
-    const industry = params.industry;
-    const indMeta = industry ? industryMeta[industry] : null;
-
-    return createPageMetadata({
-            title: indMeta?.title ?? "Work",
-        description:
-            indMeta?.description ??
-            "Commissioned website projects for real estate professionals, transaction coordinators, and service businesses—shown with honest briefs, design decisions, and live project facts.",
-        path: "/work",
-        robots: industry ? { index: false, follow: true } : undefined,
-    });
-}
-
-export default async function WorkPage({
-    searchParams,
-}: {
-    searchParams: Promise<{ industry?: string }>;
+  searchParams: Promise<{ industry?: string }>;
 }) {
-    const params = await searchParams;
-    const industry = params.industry;
-    const indMeta = industry ? industryMeta[industry] : null;
-
-    // Honest, classification-based selection — never mix demo work into client proof.
-    const clientProjects = getClientProjectsByIndustry(industry);
-
-    const clientHeading =
-        industry === "tc" ? "TC website work"
-            : industry === "real-estate" ? "Real estate website work"
-                : industry === "coaching" ? "Coaching & consulting work"
-                    : "Selected client work";
-    const clientSubheading =
-        industry === "tc"
-            ? "Real client websites and landing pages for transaction coordinators and real estate ops teams."
-            : "Real client projects with clear positioning, practical design decisions, and visible business goals.";
-    const structuredData = [
-        getBreadcrumbStructuredData([
-            { name: "Home", path: "/" },
-            { name: "Work", path: "/work" },
-        ]),
-        getCollectionPageStructuredData({
-            name: "Multimedium Work",
-            description:
-                "Case studies for real estate, transaction coordinator, and service-business website projects by Multimedium.",
-            path: "/work",
-        }),
-    ];
-
-    return (
-        <>
-            <JsonLd data={structuredData} />
-            {/* Editorial hero */}
-            <Section size="wide" className="pt-32 sm:pt-36 md:pt-44" padding="none">
-                <AnimatedSection>
-                    <p className="mono-label mb-6">
-                        {industry ? "Portfolio — filtered" : "Portfolio · 2024–2026"}
-                    </p>
-                    <h1 className="max-w-4xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem] display-balance">
-                        {indMeta?.heading ?? (
-                            <>
-                                The work, <span className="text-gradient">shown big.</span>
-                            </>
-                        )}
-                    </h1>
-                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                        {indMeta?.subheading ?? "Commissioned websites for real businesses—each shown with the brief, constraints, decisions, and delivered result."}
-                    </p>
-                    {!industry && (
-                        <p className="mt-5 max-w-2xl text-base text-foreground/65">
-                            Evaluating fit? Start with the work closest to
-                            <Link href="/industries/real-estate-professionals" className="mx-1 text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary">
-                                real estate
-                            </Link>
-                            or
-                            <Link href="/industries/transaction-coordinators" className="mx-1 text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary">
-                                transaction coordinators
-                            </Link>
-                            .
-                        </p>
-                    )}
-                </AnimatedSection>
-            </Section>
-
-            {/* Real client work — shown large */}
-            {clientProjects.length > 0 && (
-                <Section size="wide" padding="large" className="pt-14 md:pt-20">
-                    <AnimatedSection>
-                        <SectionOpener
-                            eyebrow="Client work"
-                            eyebrowIndex="01"
-                            title={clientHeading}
-                            lead={clientSubheading}
-                        />
-                    </AnimatedSection>
-                    <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
-                        {clientProjects.map((project, index) => (
-                            <FeaturedProject
-                                key={project.slug}
-                                project={project}
-                                index={index}
-                                reverse={index % 2 === 1}
-                            />
-                        ))}
-                    </div>
-                </Section>
-            )}
-
-            <section className="bg-surface-1">
-                <Section size="wide" padding="large">
-                    <AnimatedSection>
-                        <SectionOpener
-                            eyebrow="Products & experiments"
-                            eyebrowIndex="02"
-                            title="Looking for the products and concept work?"
-                            lead="The Lab contains software built in-house and clearly labeled design experiments. They demonstrate domain depth and range without being presented as client commissions."
-                            action={
-                                <Link
-                                    href="/lab"
-                                    className="group inline-flex items-center gap-2 text-base font-medium text-foreground transition-colors hover:text-primary"
-                                >
-                                    Explore the Lab
-                                    <IconArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke={1.9} />
-                                </Link>
-                            }
-                        />
-                    </AnimatedSection>
-                </Section>
-            </section>
-
-            {/* CTA */}
-            <CTARuled
-                eyebrow="Next step"
-                title="Have a project in mind?"
-                body="Tell me what you do, who you want to attract, and what's not working today. I'll reply within one business day."
-                primary={{ label: "Start a project", href: "/contact?source=work-cta" }}
-                secondary={{ label: "See TC packages", href: "/tc-packages" }}
-            />
-        </>
-    );
+  const { industry } = await searchParams;
+  const work = getClientProjectsByIndustry(industry);
+  return (
+    <>
+      <PageIntro
+        eyebrow="Selected client work"
+        title="Custom websites for real businesses."
+        body="A closer look at the sites I’ve designed and developed—from transaction coordination and property services to a wellness business with a very different story."
+      />
+      <section className="studio-shell pb-20">
+        <nav className="filters" aria-label="Filter client work">
+          {[
+            ["", "All client work"],
+            ["tc", "Transaction coordination"],
+            ["real-estate", "Real estate"],
+          ].map(([v, l]) => (
+            <Link
+              key={v}
+              href={v ? "/work?industry=" + v : "/work"}
+              aria-current={(industry || "") === v ? "page" : undefined}
+            >
+              {l}
+            </Link>
+          ))}
+        </nav>
+        {work.length ? (
+          <div className="project-grid">
+            {work.map((p, i) => (
+              <ProjectTile key={p.slug} project={p} priority={i < 2} />
+            ))}
+          </div>
+        ) : (
+          <div className="detail-panel">
+            <h2>No client projects in this category yet.</h2>
+            <Link href="/work" className="text-link">
+              View all client work ↗
+            </Link>
+          </div>
+        )}
+        <div className="mt-14 border-t border-border pt-7 flex flex-wrap gap-6">
+          <p className="text-muted-foreground">
+            Want to see the technical side?
+          </p>
+          <Link href="/tools" className="text-link">
+            Products I’ve built ↗
+          </Link>
+          <Link href="/lab" className="text-link">
+            Concepts & experiments ↗
+          </Link>
+        </div>
+      </section>
+      <ProjectCTA />
+    </>
+  );
 }

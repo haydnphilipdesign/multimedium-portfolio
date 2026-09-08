@@ -1,196 +1,107 @@
 "use server";
-
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
+import { track } from "@vercel/analytics/server";
 import { sendContactEmail } from "@/lib/email";
 import { checkRateLimit } from "@/lib/rateLimit";
 import {
-    consumeNonceOnce,
-    containsUrlLikeText,
-    getClientIpFromHeaders,
-    verifyContactFormToken,
-    verifyTurnstileToken,
+  consumeNonceOnce,
+  createContactFormToken,
+  getClientIpFromHeaders,
+  verifyContactFormToken,
+  verifyTurnstileToken,
 } from "@/lib/contactAntiSpam";
-
-const allowedProjectTypes: Record<string, string> = {
-    website: "Website Build / Redesign",
-    landing: "Landing page (lead gen)",
-    retainer: "Ongoing improvements (retainer)",
-    other: "Not sure yet / something else",
-};
-
-const allowedContactPreferences: Record<string, string> = {
-    email: "Email",
-    call: "Phone call",
-    sms: "SMS / text",
-};
-
-const allowedBudgetRanges: Record<string, string> = {
-    under5k: "Under $5k",
-    "5to10k": "$5k–$10k",
-    "10to25k": "$10k–$25k",
-    "25kplus": "$25k+",
-    unsure: "Not sure yet",
-};
-
-const allowedTimelines: Record<string, string> = {
-    asap: "ASAP",
-    "1to2mo": "1–2 months",
-    "3to6mo": "3–6 months",
-    flexible: "Flexible",
-};
-
-function getText(formData: FormData, key: string): string {
-    const value = formData.get(key);
-    return typeof value === "string" ? value.trim() : "";
-}
-
-function isValidEmail(email: string): boolean {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function isValidPhone(phone: string): boolean {
-    const digitsOnly = phone.replace(/\D/g, "");
-    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
-}
-
-export async function submitContact(formData: FormData) {
-    const source = getText(formData, "source");
-    const sourceQuery = source ? `&source=${encodeURIComponent(source)}` : "";
-    const thanksUrl = source
-        ? `/contact/thanks?source=${encodeURIComponent(source)}`
-        : "/contact/thanks";
-
-    const requestHeaders = await headers();
-    const ip = getClientIpFromHeaders(requestHeaders) ?? undefined;
-    const userAgent = requestHeaders.get("user-agent") ?? undefined;
-    const referer = requestHeaders.get("referer") ?? undefined;
-
-    const honeypot = getText(formData, "website");
-    if (honeypot) {
-        redirect(thanksUrl);
-    }
-
-    const formToken = getText(formData, "formToken");
-    const tokenResult = verifyContactFormToken(formToken);
-    if (!tokenResult.ok) {
-        redirect(thanksUrl);
-    }
-
-    if (!tokenResult.skipped) {
-        const minSubmitMs = 2500;
-        const maxSubmitMs = 2 * 60 * 60 * 1000;
-        if (tokenResult.ageMs < minSubmitMs || tokenResult.ageMs > maxSubmitMs) {
-            redirect(thanksUrl);
-        }
-
-        if (!consumeNonceOnce(tokenResult.payload.nonce, maxSubmitMs)) {
-            redirect(thanksUrl);
-        }
-    }
-
-    if (ip) {
-        const limit = checkRateLimit(`contact:ip:${ip}`, {
-            limit: 8,
-            windowMs: 60 * 60 * 1000,
-        });
-        if (!limit.allowed) {
-            redirect(`/contact?error=rate${sourceQuery}`);
-        }
-    }
-
-    const turnstileResponse = getText(formData, "cf-turnstile-response");
-    const turnstileOk = await verifyTurnstileToken({ token: turnstileResponse, remoteIp: ip });
-    if (!turnstileOk) {
-        redirect(`/contact?error=captcha${sourceQuery}`);
-    }
-
-    const name = getText(formData, "name");
-    const email = getText(formData, "email");
-    const phone = getText(formData, "phone");
-    const contactPreferenceRaw = getText(formData, "contactPreference");
-    const company = getText(formData, "company");
-    const projectTypeRaw = getText(formData, "projectType");
-    const budgetRangeRaw = getText(formData, "budgetRange");
-    const timelineRaw = getText(formData, "timeline");
-    const currentUrl = getText(formData, "currentUrl");
-    const referral = getText(formData, "referral");
-    const message = getText(formData, "message");
-
-    if (!name || !email || !message) {
-        redirect(`/contact?error=missing${sourceQuery}`);
-    }
-
-    if (!isValidEmail(email)) {
-        redirect(`/contact?error=email${sourceQuery}`);
-    }
-
-    const emailLimit = checkRateLimit(`contact:email:${email.toLowerCase()}`, {
-        limit: 3,
-        windowMs: 60 * 60 * 1000,
+import {
+  readContactValues,
+  validateContact,
+  contactLabels,
+  type ContactState,
+} from "./validation";
+export async function submitContact(
+  previous: ContactState,
+  data: FormData,
+): Promise<ContactState> {
+  const values = readContactValues(data);
+  const fail = (error: string): ContactState => ({
+    status: "error",
+    error,
+    values,
+    formToken: createContactFormToken() || "",
+    attempt: previous.attempt + 1,
+  });
+  // Bot submissions do not create a conversion event.
+  if (data.get("website")) redirect("/contact/thanks");
+  const invalid = validateContact(values);
+  if (invalid) return fail(invalid);
+  const token = verifyContactFormToken(String(data.get("formToken") || ""));
+  if (!token.ok)
+    return fail(
+      "Your form session expired. Your details are saved below; please try again.",
+    );
+  if (!token.skipped && (token.ageMs < 2500 || token.ageMs > 7200000))
+    return fail(
+      "Please take a moment to review your details, then submit again.",
+    );
+  const h = await headers();
+  const ip = getClientIpFromHeaders(h) || undefined;
+  if (
+    ip &&
+    !checkRateLimit("contact:ip:" + ip, { limit: 8, windowMs: 3600000 }).allowed
+  )
+    return fail(
+      "Too many attempts. Please try again later or email haydn@multimedium.dev.",
+    );
+  if (
+    !(await verifyTurnstileToken({
+      token: String(data.get("cf-turnstile-response") || ""),
+      remoteIp: ip,
+    }))
+  )
+    return fail("Please complete the spam check and try again.");
+  if (
+    !checkRateLimit("contact:email:" + values.email.toLowerCase(), {
+      limit: 3,
+      windowMs: 3600000,
+    }).allowed
+  )
+    return fail(
+      "Too many attempts. Please try again later or email haydn@multimedium.dev.",
+    );
+  if (!token.skipped && !consumeNonceOnce(token.payload.nonce, 7200000))
+    return fail(
+      "This form session has already been used. Please try again with the refreshed form.",
+    );
+  const labels = contactLabels(values);
+  try {
+    await sendContactEmail({
+      ...values,
+      ...labels,
+      package: values.package || undefined,
+      meta: {
+        ip,
+        userAgent: h.get("user-agent")?.slice(0, 512),
+        referer: h.get("referer")?.slice(0, 1024),
+      },
     });
-    if (!emailLimit.allowed) {
-        redirect(`/contact?error=rate${sourceQuery}`);
-    }
-
-    const contactPreferenceKey =
-        contactPreferenceRaw && contactPreferenceRaw in allowedContactPreferences
-            ? contactPreferenceRaw
-            : "email";
-
-    if ((contactPreferenceKey === "call" || contactPreferenceKey === "sms") && !phone) {
-        redirect(`/contact?error=phone_required${sourceQuery}`);
-    }
-
-    if (phone && !isValidPhone(phone)) {
-        redirect(`/contact?error=phone_invalid${sourceQuery}`);
-    }
-
-    if (message.length > 5000) {
-        redirect(`/contact?error=message${sourceQuery}`);
-    }
-
-    if (containsUrlLikeText(message)) {
-        redirect(`/contact?error=links${sourceQuery}`);
-    }
-
-    const projectType = projectTypeRaw
-        ? allowedProjectTypes[projectTypeRaw] ?? allowedProjectTypes.other
-        : undefined;
-    const contactPreference = allowedContactPreferences[contactPreferenceKey];
-    const budgetRange =
-        budgetRangeRaw && budgetRangeRaw in allowedBudgetRanges
-            ? allowedBudgetRanges[budgetRangeRaw]
-            : undefined;
-    const timeline =
-        timelineRaw && timelineRaw in allowedTimelines
-            ? allowedTimelines[timelineRaw]
-            : undefined;
-
-    try {
-        await sendContactEmail({
-            name,
-            email,
-            phone: phone || undefined,
-            contactPreference,
-            source: source || undefined,
-            company: company || undefined,
-            projectType,
-            budgetRange,
-            timeline,
-            currentUrl: currentUrl || undefined,
-            referral: referral || undefined,
-            message,
-            meta: {
-                ip,
-                userAgent,
-                referer,
-            },
-        });
-    } catch (error) {
-        console.error("Contact email failed", error);
-        redirect(`/contact?error=send${sourceQuery}`);
-    }
-
-    redirect(thanksUrl);
+  } catch {
+    console.error("Contact email delivery failed");
+    return fail(
+      "Your message couldn’t be sent. Your details are still here. Please retry or email haydn@multimedium.dev.",
+    );
+  }
+  // Send only categorical data; never names, emails, URLs, or message content.
+  try {
+    await track(
+      "contact_submit",
+      {
+        projectType: values.projectType,
+        budgetRange: values.budgetRange,
+        timeline: values.timeline,
+      },
+      { headers: h },
+    );
+  } catch {
+    console.error("Contact conversion tracking unavailable");
+  }
+  redirect("/contact/thanks");
 }

@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return ["presence", "starter", "growth", "pro"].map((tier) => ({
+      source: "/demos/" + tier,
+      destination: "/demos/" + tier + "/index.html",
+    }));
+  },
 };
-
 export default nextConfig;

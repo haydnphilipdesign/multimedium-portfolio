@@ -1,16 +1,5 @@
-"use client";
-
-import { useEffect } from "react";
-import { track } from "@vercel/analytics";
-
-interface ContactThanksTrackerProps {
-    source?: string;
-}
-
-export function ContactThanksTracker({ source }: ContactThanksTrackerProps) {
-    useEffect(() => {
-        track("contact_submit", source ? { source } : undefined);
-    }, [source]);
-
-    return null;
+// Conversion tracking happens on the server after the email provider accepts
+// the inquiry. Visiting or refreshing the thank-you page is not a conversion.
+export function ContactThanksTracker() {
+  return null;
 }

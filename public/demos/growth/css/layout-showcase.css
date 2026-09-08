@@ -306,3 +306,9 @@
     padding: 56px 24px;
   }
 }
+
+/* Keep small labels and actions readable on both theme surfaces. */
+.btn--primary{background:#85502f;color:#fff}.btn--primary:hover{background:#704126}.placeholder-logo{color:#51483f}.section-label,.mini-label{color:#85502f}.hero-label,.hero .section-label,.page-hero .section-label{color:#edc5a4}.footer-bottom p,.footer-credit{color:#bbb4af}
+.careers-badge{background:#85502f;color:#fff}
+.tab-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.tab-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 18px;border:1px solid #777;border-radius:6px;background:#fff;color:#222;font:inherit;cursor:pointer}.tab-btn svg{width:20px;height:20px}.tab-btn.active{background:#222;color:#fff}.tab-btn:focus-visible{outline:3px solid #245dcc;outline-offset:3px}
+@media(max-width:768px){.demo-banner{height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:20px;font-size:12px;padding:6px 12px}.demo-banner a{color:#fff;margin-left:0}.site-header{top:64px!important}.hero{padding-top:calc(var(--header-h) + 48px + 64px)!important}.page-hero{padding-top:calc(var(--header-h) + 24px + 64px)!important}.header-nav{top:calc(var(--header-h) + 64px)!important}}
