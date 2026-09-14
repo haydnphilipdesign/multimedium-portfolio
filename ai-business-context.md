@@ -160,7 +160,7 @@ I partner with TC coaches and educators. They get a dedicated referral page on m
 
 Real projects for real businesses, primarily in the real estate and TC space:
 
-- **PA Real Estate Support** — TC-focused website
+- **PA Real Estate Support Services** — TC-focused website
 - **Structured Closings** (Jennifer Cortes) — The TC project that became the proof-of-concept for the TC Growth template
 - **TAG Landing Page** — Real estate education
 - **Three Penn Properties** — Real estate

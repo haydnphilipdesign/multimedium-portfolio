@@ -71,12 +71,12 @@ export default function HomePage() {
           </Link>
           <div className="hero-work-caption">
             <div>
-              <strong>PA Real Estate Support</strong>
+              <strong>PA Real Estate Support Services</strong>
               <span>Strategy · Design · Development</span>
             </div>
             <Link
               href="/work/pa-real-estate-support"
-              aria-label="View project: PA Real Estate Support"
+              aria-label="View project: PA Real Estate Support Services"
             >
               View project ↗
             </Link>
