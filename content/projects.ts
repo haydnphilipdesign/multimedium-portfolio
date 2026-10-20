@@ -1,3 +1,24 @@
+import type { PackageId } from "./packages";
+
+// Case study content for client work (docs/brand/case-studies.md §3).
+// Only approved copy goes here. Anything still marked [ASK CLIENT] or
+// [CONFIRM] in case-studies.md stays out until it is answered.
+export interface CaseStudyStory {
+  /** One line on what changed. No outcomes unless sourced. */
+  summary: string;
+  /** e.g., "Brokerage", "TC company". */
+  businessType: string;
+  location?: string;
+  whatIDid: string;
+  package?: PackageId;
+  /** Relationship disclosure (brief §5.6). Shown in "The starting point". */
+  relationship?: string;
+  /** "The starting point" paragraphs, client-approved wording only. */
+  startingPoint?: string[];
+  /** "Decisions worth noting": specific choices and why. */
+  decisions?: { title: string; body: string }[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -30,8 +51,9 @@ export interface Project {
   thumbnail: string;
   heroImage: string;
   images: string[];
-  problem: string;
-  solution: string;
+  problem?: string;
+  solution?: string;
+  story?: CaseStudyStory;
   caseStudy?: {
     headline?: string;
     subheadline?: string;
@@ -49,6 +71,8 @@ export interface Project {
     ctaText: string;
     href: string;
   };
+  // For client work, each step is an annotated screenshot on the case
+  // study page ("What I built"): a heading plus 1–2 sentences on why.
   process: {
     title: string;
     description: string;
@@ -76,6 +100,167 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "haven-compass-realty",
+    title: "Haven Compass Realty",
+    kind: "Client",
+    industries: ["real-estate", "brokerage"],
+    metaTitle: "Haven Compass Realty — Website for a New Connecticut Brokerage",
+    metaDescription:
+      "A launch website for a new Connecticut brokerage: seller packages priced in plain sight, real client reviews linked to the originals, and clear paths for buyers and sellers.",
+    socialCaption:
+      "Haven Compass Realty: a launch site for a new Connecticut brokerage, with seller packages priced in plain sight and real client reviews.",
+    tagline: "A launch site for a new Connecticut brokerage.",
+    description:
+      "A launch website for a new Connecticut brokerage, built to earn trust from day one with transparent seller packages, real client reviews, and clear paths for buyers and sellers.",
+    category: "Real Estate",
+    year: "2026",
+    client: "Haven Compass Realty",
+    role: "Design, development, and site copy (written with Chelsea Daley)",
+    tools: ["Custom build", "Seller package comparison", "Review pages"],
+    thumbnail:
+      "/images/projects/haven-compass-realty/haven-compass-realty-thumb.webp",
+    heroImage:
+      "/images/projects/haven-compass-realty/haven-compass-realty-hero.webp",
+    images: [
+      "/images/projects/haven-compass-realty/haven-compass-realty-1.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-2.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-3.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-4.webp",
+    ],
+    story: {
+      summary:
+        "A launch website for a new Connecticut brokerage, built to earn trust from day one with transparent seller packages, real client reviews, and clear paths for buyers and sellers.",
+      businessType: "Brokerage",
+      location: "Connecticut",
+      whatIDid:
+        "Design, development, and site copy, written with Chelsea Daley. The logo is the client’s own.",
+      package: "custom",
+      decisions: [
+        {
+          title: "Fees appear on the site.",
+          body: "Transparency is the brand’s promise, so the seller packages show their listing fees, along with a note that commissions are negotiable and cover the seller’s side only.",
+        },
+        {
+          title: "No placeholder listings.",
+          body: "MLS listings aren’t live yet, so the listings page doesn’t pretend. It explains that Chelsea searches the full Connecticut market for each buyer, including coming-soon homes, and asks what they’re looking for.",
+        },
+      ],
+    },
+    caseStudy: {
+      approval: "Client approved being featured, 2026-10-20.",
+    },
+    process: [
+      {
+        title: "Three seller packages, priced in plain sight",
+        description:
+          "Each package has its fee, a “best for” line, and what’s included, followed by a side-by-side comparison table. Sellers can compare without a sales call.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-1.webp",
+      },
+      {
+        title: "Reviews that carry the agent’s track record honestly",
+        description:
+          "The brand is new, but Chelsea’s past clients aren’t. Six Google reviews are quoted word for word, labeled with their context and date, and linked to the originals.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-2.webp",
+      },
+      {
+        title: "Step-by-step paths for buyers and sellers",
+        description:
+          "A four-step selling process and a five-step buying process, with guidance for first-time, move-up, and relocating buyers.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-3.webp",
+      },
+      {
+        title: "A page for clients already under contract",
+        description:
+          "Earnest money instructions with a wire-fraud warning: a practical page most agent sites don’t have.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-4.webp",
+      },
+    ],
+    outcomes: [],
+    featured: true,
+    color: "#145a5f",
+    externalUrl: "https://www.havencompassrealty.com",
+  },
+  {
+    slug: "structured-closings",
+    title: "Structured Closings",
+    kind: "Client",
+    industries: ["tc"],
+    metaTitle: "Structured Closings — Website for a Transaction Coordination Company",
+    metaDescription:
+      "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and gives agents one form to start a file.",
+    socialCaption:
+      "Structured Closings: every service in one place, and one guided form for agents to start a file.",
+    tagline: "A TC company site with one guided form to start a file.",
+    description:
+      "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and turns “start a file” into one guided form.",
+    category: "Real Estate",
+    year: "2026",
+    client: "Structured Closings",
+    role: "Design and development",
+    tools: ["Full website", "Cognito Forms intake", "Careers page"],
+    thumbnail:
+      "/images/projects/structured-closings/structured-closings-thumb.webp",
+    heroImage:
+      "/images/projects/structured-closings/structured-closings-hero.webp",
+    images: [
+      "/images/projects/structured-closings/structured-closings-1.webp",
+      "/images/projects/structured-closings/structured-closings-2.webp",
+      "/images/projects/structured-closings/structured-closings-3.webp",
+    ],
+    story: {
+      summary:
+        "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and turns “start a file” into one guided form.",
+      businessType: "Transaction coordination company",
+      whatIDid:
+        "Design and development. Copy supplied by Structured Closings; the logo is the client’s own.",
+      package: "full",
+      decisions: [
+        {
+          title: "Pricing lives in the intake form.",
+          body: "Each service’s price appears at the moment an agent commits to it, inside the Submit a File form, instead of on a separate pricing page.",
+        },
+        {
+          title: "Testimonial consent is collected with the testimonial.",
+          body: "The Share Feedback page asks whether the comment can be published and how the client’s name should appear, so reviews on the site are collected properly instead of chased afterward.",
+        },
+      ],
+    },
+    caseStudy: {
+      approval: "Client approved being featured, 2026-10-20.",
+    },
+    process: [
+      {
+        title: "A Submit a File page that does the intake work",
+        description:
+          "Agents pick the service they need and see its price, add client details, communication preferences (including Spanish-language service) and lockbox information, and upload the contract, all in one Cognito Forms intake.",
+        image:
+          "/images/projects/structured-closings/structured-closings-1.webp",
+      },
+      {
+        title: "Services organized the way agents shop for them",
+        description:
+          "Listing coordination, transaction coordination, and compliance support, each with what’s included.",
+        image:
+          "/images/projects/structured-closings/structured-closings-2.webp",
+      },
+      {
+        title: "Room for investor and luxury work",
+        description:
+          "Creative deal types such as Subject-To, seller financing, and novations, plus luxury transaction coordination, each have their own section. A careers page supports hiring as the company grows.",
+        image:
+          "/images/projects/structured-closings/structured-closings-3.webp",
+      },
+    ],
+    outcomes: [],
+    featured: true,
+    color: "#c39a3f",
+    externalUrl: "https://www.structuredclosings.com",
+  },
   {
     slug: "nomad-gear",
     title: "Nomad Gear",
@@ -536,26 +721,19 @@ export const projects: Project[] = [
     title: "Transaction Authority Group (TAG)",
     kind: "Client",
     industries: ["tc"],
-    metaTitle: "Transaction Authority Group Landing Page",
+    metaTitle: "Transaction Authority Group — One-Page Site for a TC Company",
     metaDescription:
-      "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+      "A one-page site that tells established transaction coordinators what Transaction Authority Group is, who it’s for, and who it isn’t for, then books a discovery call.",
     socialCaption:
-      "New build: a focused booking funnel for Transaction Authority Group — professional positioning, qualification-driven, and designed to convert into discovery calls.",
-    tags: ["Landing Page", "Lead Generation", "Booking Flow", "Mobile-First"],
-    tagline:
-      "A focused landing page with clear fit criteria and discovery-call booking.",
+      "Transaction Authority Group: one page that says who it’s for, and who it isn’t for, then books the call.",
+    tagline: "A one-page site that qualifies visitors and books calls.",
     description:
-      "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+      "A single-page site that tells established transaction coordinators what TAG is, who it’s for, and who it isn’t for, and then asks for one thing: book a discovery call.",
     category: "Real Estate",
     year: "2026",
     client: "Transaction Authority Group (TAG)",
-    role: "Landing Page Strategy, Copy, Design, Development",
-    tools: [
-      "Fast, mobile-first build",
-      "Booking calendar integration",
-      "Lead qualification flow",
-      "Vercel hosting",
-    ],
+    role: "Strategy, copy, design, and development",
+    tools: ["One-page site", "Booking calendar", "Fit & filter section"],
     thumbnail: "/images/projects/tag-landing-page/tag-landing-page-thumb.webp",
     heroImage: "/images/projects/tag-landing-page/tag-landing-page-hero.webp",
     images: [
@@ -563,89 +741,38 @@ export const projects: Project[] = [
       "/images/projects/tag-landing-page/tag-landing-page-2.webp",
       "/images/projects/tag-landing-page/tag-landing-page-3.webp",
     ],
-    problem:
-      "TAG needed a focused landing page that converts the right visitors—established transaction coordinators and TC companies—into booked discovery calls. The goal wasn’t content depth; it was a clean, credible page that clarifies the offer, filters for fit, and pushes one action: book the call.",
-    solution:
-      "Built a single-page booking funnel designed to establish credibility quickly, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page stays focused on conversions.",
+    story: {
+      summary:
+        "A single-page site that tells established transaction coordinators what TAG is, who it’s for, and who it isn’t for, and then asks for one thing: book a discovery call.",
+      businessType: "TC infrastructure company",
+      whatIDid: "Strategy, copy, design, and development",
+      package: "one-page",
+    },
     caseStudy: {
-      headline: "Transaction Authority Group — Lead-Gen Landing Page",
-      subheadline:
-        "A single-page booking funnel designed to establish authority fast, filter for fit, and drive qualified discovery calls.",
-      tldr: "Built a one-page lead-generation landing page for Transaction Authority Group designed to establish authority quickly, filter for fit, and drive discovery call bookings. Mobile-first, lightweight, and intentionally avoids stock imagery—keeping the focus on qualification and scheduling.",
-      goals: [
-        "Establish authority immediately (institutional, serious, systems-driven)",
-        "Filter for the right audience (not brand-new TCs or “quick money” seekers)",
-        "Drive calendar bookings as the primary conversion action",
-      ],
-      constraints: [
-        "One-page scroll layout (no multi-page site)",
-        "Clean, neutral visual design (no stock photos, no people imagery)",
-        "Fast load and mobile-first performance",
-        "Persistent call-to-action to book a discovery call",
-        "Simple structure that supports quick iteration",
-      ],
-      delivered: [
-        "One-page landing page designed for conversion (not content consumption)",
-        "Professional hero section with clear positioning and immediate CTA",
-        "Social proof / credibility bar to reinforce legitimacy without hype",
-        "Problem → solution narrative written to create self-identification",
-        "Fit & Filter section to improve lead quality and reduce unqualified calls",
-        "Discovery call expectations to reduce hesitation",
-        "Scheduler-ready booking section (calendar embed/link integration)",
-        "Mobile-first styling with a clean, institutional aesthetic",
-      ],
-      whyItWorks: [
-        "Visitors quickly understand what TAG is and who it’s for",
-        "The “Not For” section prevents low-fit bookings",
-        "The CTA is repeated and reinforced so the page stays focused on one action: book the call",
-      ],
       approval:
         "Client approved the design direction and granted permission to feature this project in my portfolio.",
     },
-    cta: {
-      headline: "Need a landing page that converts?",
-      body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
-      ctaText: "Plan your landing page",
-      href: "/contact?source=case-study-tag-landing-page",
-    },
     process: [
       {
-        title: "Credibility-Led Positioning",
+        title: "The problem, then the answer",
         description:
-          "Designed an institutional hero with immediate CTA plus a credibility bar to reinforce legitimacy—without hype, gimmicks, or stock imagery.",
-        image: "/images/projects/tag-landing-page/tag-landing-page-1.webp",
+          "The page names the ceiling most TCs hit, then shows how TAG helps, so the right visitors recognize themselves before they book.",
+        image: "/images/projects/tag-landing-page/tag-landing-page-3.webp",
       },
       {
-        title: "Qualification-Driven Copy",
+        title: "Who it’s for, and who it isn’t",
         description:
-          "Wrote a problem → solution narrative that creates self-identification, plus a Fit & Filter (“For / Not For”) section to reduce unqualified bookings.",
+          "A “For / Not for” section lets unqualified prospects filter themselves out, and a short list of what happens on the call makes booking feel low-risk.",
         image: "/images/projects/tag-landing-page/tag-landing-page-2.webp",
       },
       {
-        title: "Booking-First Funnel",
+        title: "One action, all the way down",
         description:
-          "Kept the page centered on scheduling with repeated CTAs, expectation-setting, and a scheduler-ready booking section for fast iteration during launch.",
-        image: "/images/projects/tag-landing-page/tag-landing-page-3.webp",
+          "The booking calendar sits on the page itself, and every button leads to it.",
+        image: "/images/projects/tag-landing-page/tag-landing-page-1.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Layout",
-        value: "1 page",
-        description: "Single-scroll booking funnel built for speed and clarity",
-      },
-      {
-        metric: "Lead Quality",
-        value: "Fit-filtered",
-        description: "Clear “For / Not For” messaging to reduce low-fit calls",
-      },
-      {
-        metric: "Build",
-        value: "Lightweight",
-        description:
-          "Mobile-first, performance-focused implementation without stock imagery",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#0f766e",
     externalUrl: "https://www.transactionauthority.com",
@@ -1187,32 +1314,19 @@ export const projects: Project[] = [
     title: "PA Real Estate Support Services",
     kind: "Client",
     industries: ["tc", "real-estate"],
-    metaTitle: "PA Real Estate Support Services Website Redesign (TC)",
+    metaTitle: "PA Real Estate Support Services — Website for a TC Business",
     metaDescription:
-      "Website redesign for a Pennsylvania transaction coordination team — clear service pages, pricing, and an intake flow designed to bring in better leads.",
+      "A redesign for a Pocono-area transaction coordination business, built around the question agents ask first: “How do I send you a file?”",
     socialCaption:
-      "Website redesign for PA Real Estate Support Services: clearer services + pricing, a guided intake flow, and a faster mobile experience for TC leads.",
-    tags: [
-      "Transaction Coordination",
-      "Service Pages",
-      "Pricing",
-      "Intake Flow",
-      "Conversion Copy",
-    ],
-    tagline:
-      "Clear services, pricing, and guided intake for a Pennsylvania TC team.",
+      "PA Real Estate Support Services: a TC website built around one question agents ask, “How do I send you a file?”",
+    tagline: "My mom’s TC business, rebuilt around starting a file.",
     description:
-      "Complete website redesign with clear services, pricing, and intake flows that sync directly with the team's workflow.",
+      "A redesign for a Pocono-area transaction coordination business, built around one question agents ask: “How do I send you a file?”",
     category: "Real Estate",
     year: "2024",
     client: "PA Real Estate Support Services, LLC",
-    role: "Designer & Developer",
-    tools: [
-      "Clear service pages + pricing",
-      "Guided intake form",
-      "Fast, mobile-first build",
-      "Easy updates",
-    ],
+    role: "Design and development, including the agent intake form",
+    tools: ["Full website", "Agent intake form", "Norma integration"],
     thumbnail:
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-thumb.webp",
     heroImage:
@@ -1220,44 +1334,46 @@ export const projects: Project[] = [
     images: [
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.webp",
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-2.webp",
-      "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-3.webp",
     ],
-    problem:
-      "The team relied on spreadsheets and email to collect brokerage requests. Their DIY site left prospects unsure which services were covered and how to start.",
-    solution:
-      "Created a revised brand voice, service breakdown, and guided intake forms that sync to the team's workflow. A component library empowers future landing pages and campaigns.",
-    caseStudy: {
-      headline: "PA Real Estate Support Services - Clarity + Intake Conversion",
-      subheadline:
-        "A TC-focused redesign built around clear services and guided intake.",
-      tldr: "Redesigned the site around clear service positioning, visible pricing, and guided intake paths.",
-      goals: [
-        "Clarify service scope before the first conversation",
-        "Increase completed intake submissions",
-        "Reduce manual back-and-forth before engagement",
+    story: {
+      summary:
+        "A redesign for a Pocono-area transaction coordination business, built around one question agents ask: “How do I send you a file?”",
+      businessType: "Transaction coordination business",
+      location: "Pocono Mountains, Pennsylvania",
+      whatIDid:
+        "Design and development, including the agent intake form, which creates transactions in Norma",
+      package: "full",
+      // Disclosure required by brief §5.6. Facts from the brief's facts register.
+      relationship:
+        "This is my mom’s business. Debbie O’Brien has worked in real estate for more than 30 years and has been a transaction coordinator since 2013, serving agents across the Pocono market.",
+      decisions: [
+        {
+          title: "Intake goes straight into her workspace.",
+          body: "Agents fill out a start-transaction form whenever a file goes under contract, and the details arrive in Norma, the TC software I build, as a new transaction, ready for Debbie to work. No retyping from emails.",
+        },
       ],
     },
     process: [
       {
-        title: "Clear Hero Messaging",
+        title: "One action on every page",
         description:
-          "Clarified the offer with a strong headline, clear supporting copy, and immediate CTAs—so prospects know exactly what to do next.",
+          "A clear headline about who Debbie serves, and a “Start Transaction” button in the navigation on every page.",
+        image:
+          "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-hero.webp",
+      },
+      {
+        title: "Services in scannable groups",
+        description:
+          "Agents can see what’s covered, from contract management to deadlines and compliance, before they call.",
         image:
           "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.webp",
       },
       {
-        title: "Service Breakdown & Trust Signals",
+        title: "Call, email, or form",
         description:
-          "Organized the service into scannable pillars, added social proof, and designed supporting sections that reinforce credibility.",
+          "The Work With Me page puts every way to reach Debbie in one place, with business hours, so agents know what to expect.",
         image:
           "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-2.webp",
-      },
-      {
-        title: "Intake Form Integration",
-        description:
-          "Integrated the transaction intake flow and made it easy to start via multiple contact paths (call, email, and form).",
-        image:
-          "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-3.webp",
       },
     ],
     outcomes: [],
@@ -1389,19 +1505,14 @@ export const projects: Project[] = [
     kind: "Client",
     industries: ["wellness"],
     tagline:
-      "A welcoming, nature-inspired website for a wellness retreat business.",
+      "A website for an equine-assisted gestalt therapy farm.",
     description:
-      "Immersive website with event booking flows, story-driven copy, and automation-ready forms for a wellness retreat property.",
+      "A photo-led website for an equine-assisted gestalt therapy farm in East Stroudsburg, PA, with its sessions, group experiences, and workshops laid out clearly.",
     category: "Wellness",
     year: "2024",
     client: "Blissful Existence Healing Acres",
-    role: "Designer & Developer",
-    tools: [
-      "Story-driven design",
-      "Event + booking flow",
-      "Automation-ready forms",
-      "Fast, mobile-first build",
-    ],
+    role: "Design and development",
+    tools: ["Photo-led design", "Events and services pages"],
     thumbnail:
       "/images/projects/blissful-existence/blissful-existence-thumb.webp",
     heroImage:
@@ -1411,38 +1522,30 @@ export const projects: Project[] = [
       "/images/projects/blissful-existence/blissful-existence-2.webp",
       "/images/projects/blissful-existence/blissful-existence-3.webp",
     ],
-    problem:
-      "Retreats were filling via phone call sign-ups. The team needed a site that reflected the property experience and captured bookings without manual follow-up.",
-    solution:
-      "Built a photo-led website with event and service information, a gallery, and clear pathways to booking and contact.",
-    caseStudy: {
-      headline: "Blissful Existence - Story-Led Retreat Conversion",
-      subheadline:
-        "A wellness web experience that balanced atmosphere with clear booking pathways and automation.",
-      tldr: "Built a retreat website with photography, service information, event listings, and clear booking pathways.",
-      goals: [
-        "Reflect the retreat atmosphere while maintaining conversion clarity",
-        "Increase direct online bookings",
-        "Reduce manual follow-up and confirmation overhead",
-      ],
+    story: {
+      summary:
+        "A photo-led website for an equine-assisted gestalt therapy farm, with its sessions, group experiences, and workshops laid out clearly.",
+      businessType: "Equine-assisted therapy farm",
+      location: "East Stroudsburg, Pennsylvania",
+      whatIDid: "Design and development",
     },
     process: [
       {
-        title: "Events & Services Page Design",
+        title: "Events and services",
         description:
-          "Built a photo-first events/services layout with clear headings and CTAs so visitors can quickly understand offerings and join.",
+          "Each offering has a clear heading and a next step, so visitors can see what’s available and how to join.",
         image: "/images/projects/blissful-existence/blissful-existence-1.webp",
       },
       {
-        title: "Gallery Layout System",
+        title: "A gallery of the land",
         description:
-          "Created a distinctive gallery pattern to showcase the land, horses, and community moments while keeping the page airy and calm.",
+          "The farm, the horses, and the community, laid out so the page stays calm.",
         image: "/images/projects/blissful-existence/blissful-existence-2.webp",
       },
       {
-        title: "Offerings Breakdown",
+        title: "Offerings in scannable sections",
         description:
-          "Structured offerings into scannable sections that support the story (community, workshops, and experiences) without overwhelming the reader.",
+          "Coaching, group experiences, and workshops each get their own section.",
         image: "/images/projects/blissful-existence/blissful-existence-3.webp",
       },
     ],
@@ -1457,19 +1560,14 @@ export const projects: Project[] = [
     kind: "Client",
     industries: ["real-estate"],
     tagline:
-      "A clear home for property services, investors, and tenant resources.",
+      "Separate paths for tenants and investors, with TenantCloud onboarding.",
     description:
-      "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step—including the TenantCloud portal.",
+      "A website for a Stroudsburg, PA rental property company, with separate paths for tenants and investors and an introduction to the TenantCloud tenant portal.",
     category: "Real Estate",
     year: "2023",
     client: "Three Penn Properties, LLC",
-    role: "Designer & Developer",
-    tools: [
-      "Portfolio + proof sections",
-      "Tenant / investor pathways",
-      "CMS for easy updates",
-      "Fast, mobile-first build",
-    ],
+    role: "Design and development",
+    tools: ["Tenant and investor paths", "TenantCloud portal link"],
     thumbnail: "/images/projects/threepenn/threepenn-thumb.webp",
     heroImage: "/images/projects/threepenn/threepenn-hero.webp",
     images: [
@@ -1477,38 +1575,30 @@ export const projects: Project[] = [
       "/images/projects/threepenn/threepenn-2.webp",
       "/images/projects/threepenn/threepenn-3.webp",
     ],
-    problem:
-      "Investors and tenants received PDFs and ad-hoc updates. Leadership wanted a modern hub that showcased portfolio metrics and routed leads correctly.",
-    solution:
-      "Created a modern hub with portfolio highlights, clear tenant/investor pathways, and TenantCloud onboarding so leads and requests route correctly.",
-    caseStudy: {
-      headline: "Three Penn Properties - Multi-Audience Clarity",
-      subheadline:
-        "A modern property hub that serves investors and tenants with clearer pathways and faster support routing.",
-      tldr: "Built a central website with dedicated investor and tenant pathways and a connection to TenantCloud.",
-      goals: [
-        "Create a clearer multi-audience navigation structure",
-        "Improve investor confidence with stronger proof presentation",
-        "Route tenant support and onboarding more efficiently",
-      ],
+    story: {
+      summary:
+        "A website for a rental property company, with separate paths for tenants and investors and an introduction to the TenantCloud tenant portal.",
+      businessType: "Rental property company",
+      location: "Stroudsburg, Pennsylvania",
+      whatIDid: "Design and development",
     },
     process: [
       {
-        title: "Brand & Hero Refresh",
+        title: "Who they are, up front",
         description:
-          "Updated the hero and messaging to quickly establish credibility and set context for both investors and tenants.",
+          "The company’s story and what it offers tenants, in its own words.",
         image: "/images/projects/threepenn/threepenn-1.webp",
       },
       {
-        title: "Proof Through Portfolio",
+        title: "The properties, in photos",
         description:
-          "Designed a gallery-forward section that showcases outcomes and builds trust through visuals.",
+          "A gallery of renovated units shows the work instead of describing it.",
         image: "/images/projects/threepenn/threepenn-2.webp",
       },
       {
-        title: "Tenant Portal Integration",
+        title: "Tenants know where to go",
         description:
-          "Added a dedicated TenantCloud explainer so renters know how to submit requests, pay invoices, and contact the office.",
+          "A TenantCloud section explains how to submit maintenance requests, pay invoices, and reach the office, with office hours alongside.",
         image: "/images/projects/threepenn/threepenn-3.webp",
       },
     ],
@@ -1896,9 +1986,36 @@ export function getFeaturedProjects(): Project[] {
 // Use these instead of hardcoding demo slugs so trust sections only ever
 // surface real client work (and clearly-labeled products/concepts).
 
-/** Real, paid client work. Safe to present as client proof anywhere. */
+// Client work order from the brief (§8): Haven Compass Realty first, then
+// the TC companies, then older real estate work. Blissful Existence is shown
+// last, under "Other work".
+const clientWorkOrder = [
+  "haven-compass-realty",
+  "structured-closings",
+  "pa-real-estate-support",
+  "tag-landing-page",
+  "three-penn-properties",
+  "blissful-existence",
+];
+
+/** Real, paid client work in brief order. Safe to present as client proof. */
 export function getClientProjects(): Project[] {
-  return projects.filter((p) => p.kind === "Client");
+  const rank = (p: Project) => {
+    const i = clientWorkOrder.indexOf(p.slug);
+    return i === -1 ? clientWorkOrder.length : i;
+  };
+  return projects
+    .filter((p) => p.kind === "Client")
+    .sort((a, b) => rank(a) - rank(b));
+}
+
+/** Client work split for /work: real estate first, everything else after. */
+export function getClientWork() {
+  const clients = getClientProjects();
+  return {
+    realEstate: clients.filter((p) => p.category === "Real Estate"),
+    other: clients.filter((p) => p.category !== "Real Estate"),
+  };
 }
 
 /** Internal products/tools built by Multimedium. Label as products, never clients. */
@@ -1926,13 +2043,12 @@ export function getConceptProjectsByIndustry(industry?: string): Project[] {
 }
 
 /**
- * Homepage "Selected work" — real client work only, in priority order.
+ * Homepage "Recent work": real client work only, in priority order.
  * Do NOT add concept/demo slugs here; that is what broke trust before.
  */
 const homeFeaturedProjectSlugs: string[] = [
-  "pa-real-estate-support",
-  "tag-landing-page",
-  "three-penn-properties",
+  "haven-compass-realty",
+  "structured-closings",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {
