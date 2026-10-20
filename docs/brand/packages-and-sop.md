@@ -1,7 +1,7 @@
 # Packages, Terms & Project SOP
 
-**Status:** Draft for Haydn's sign-off · **Last updated:** 2026-10-20
-Items marked **[PROPOSED]** are my recommended defaults. They're common, sensible terms for a solo web business at this price point, but they are your call. Items marked **[SET]** need a number from you. Once signed off, this document drives `content/packages.ts`, the Pricing page, and your proposals.
+**Status:** Approved by Haydn 2026-10-20 (except the hourly rate) · **Last updated:** 2026-10-20
+These terms are approved. The one open item is the hourly rate, marked **[SET]**. This document drives `content/packages.ts`, the Pricing page, and your proposals.
 
 ---
 
@@ -16,8 +16,8 @@ Items marked **[PROPOSED]** are my recommended defaults. They're common, sensibl
 | **Pages** | 1 scrolling page | Up to 5 pages | 6+ pages, or anything with special features |
 | **Copywriting** | You fill in a short questionnaire; I write the page from it | I write every page from your questionnaire + a 30-minute call | I write every page from a 60-minute discovery session |
 | **Forms** | 1 form (contact or simple file start), delivered to your email | Up to 2 forms. A built-in form, or I connect your form tool (e.g., Cognito Forms, Jotform) | Multi-step intake, multiple forms, scoped integrations |
-| **Revision rounds** [PROPOSED] | 2 combined rounds | 2 copy + 2 design rounds | 3 copy + 3 design rounds |
-| **Typical timeline** [PROPOSED] | ~2 weeks | ~3–4 weeks | ~5–8 weeks |
+| **Revision rounds** | 2 combined rounds | 2 copy + 2 design rounds | 3 copy + 3 design rounds |
+| **Typical timeline** | ~2 weeks | ~3–4 weeks | ~5–8 weeks |
 | **Hosting & care** | First month included, then $59/month | Same | Same |
 
 **What the pages look like, by audience** (shown on each audience page):
@@ -38,20 +38,20 @@ Real examples to link from each column: One-page → TAG · Full → Structured 
 - Accessibility basics: readable contrast, keyboard navigation, labeled forms
 - Fast loading
 - Connecting your domain at launch
-- A walkthrough at handoff and a **14-day post-launch fix window** [PROPOSED] (anything I built that isn't working is fixed free)
+- A walkthrough at handoff and a **14-day post-launch fix window** (anything I built that isn't working is fixed free)
 
 ### A3. Not included (quoted separately or paid directly by you)
 
 - **Paid directly by you:** domain registration, email (e.g., Google Workspace), form tool subscriptions, MLS/IDX vendor fees, stock photography or photographers
 - Logo design: from $300 (existing add-on)
-- Extra standard page beyond a package: **$250 each** [PROPOSED; your notes said $200–400]
+- Extra standard page beyond a package: **$250 each**
 - Ongoing SEO campaigns, ads, social media management
 - MLS/IDX listings: not a standard offer yet; scoped per MLS (see brief §7)
 - Hourly rate for changes outside scope and for extra revision rounds: **$[SET]/hour**
 
 ### A4. Hosting & care — $59/month (first month included)
 
-**Included** [PROPOSED]:
+**Included**:
 - Hosting and SSL (the padlock)
 - Uptime monitoring. I'm alerted if the site goes down.
 - Security and software updates
@@ -63,7 +63,7 @@ Real examples to link from each column: One-page → TAG · Full → Structured 
 
 **Referral perk:** My TC Academy students get 3 additional free months (4 months total before $59/month starts).
 
-### A5. Terms [PROPOSED]
+### A5. Terms
 
 1. **Payment:** 50% to reserve your start date, 50% before launch (before the domain is switched over). The same split applies at every package level.
 2. **The schedule starts** when the content questionnaire and your logo, photos, and access details are received.
@@ -155,8 +155,8 @@ Switch the domain, re-test the forms on the live domain, and walk the client thr
 
 ## Part C — Referral partners
 
-- **Current partner:** My TC Academy (Jennifer Cortes). Students land on `/mytcacademy` (private, noindex) and inquiries arrive tagged `source=mytcacademy`.
+- **Current partner:** Jennifer Cortes (My TC Academy). Students land on `/mytcacademy` (private, noindex) and inquiries arrive tagged `source=mytcacademy`. Jennifer is also a client twice over (Structured Closings, TAG), and she referred Haven Compass Realty.
 - **Student perk:** 3 extra months of free hosting.
-- **Commissions** (from your earlier notes; confirm they're current): One-page/TC Starter $150 · Full/TC Growth $250 · Custom/TC Pro $500.
-- **Disclosure:** if a partner's quote appears on multimedium.dev, note the partnership (brief §5.6).
+- **Commissions** (confirmed current 2026-10-20; paid after the client pays the final invoice): One-page/TC Starter $150 · Full/TC Growth $250 · Custom/TC Pro $500.
+- **Disclosure:** only needed where a partner *endorses* Multimedium, i.e., her quote is published. Showing her sites as case studies needs no disclosure. Wording: brief §5.6.
 - **Prospective partner:** Mandy Riedinger. Build a page only when she confirms.

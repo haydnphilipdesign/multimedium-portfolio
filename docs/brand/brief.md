@@ -1,6 +1,6 @@
 # Multimedium — Brand & Site Brief (source of truth)
 
-**Owner:** Haydn · **Last updated:** 2026-10-20 · **Status:** Phase 1 draft, approved decisions marked ✅, items awaiting Haydn marked ⚠️
+**Owner:** Haydn · **Last updated:** 2026-10-20 · **Status:** Approved by Haydn 2026-10-20. Remaining open items are marked ⚠️ (Norma Reports status; hourly rate in the packages doc).
 
 This is the **single source of truth** for positioning, audience, voice, proof, offers, and site structure. If any other document in this repo disagrees with this one, this one wins. Older strategy docs live in `docs/archive/` for history only. Do not use them as instructions.
 
@@ -56,7 +56,7 @@ Companion documents:
 - **Norma Reports**: agent-facing transaction progress reports. Status: ⚠️ not publicly launched. Describe it as part of the suite's direction, not as a shipped feature.
 - **UtilitySheet**: collects seller utility details and produces branded utility sheets. It keeps its own brand and domain. Status: **live, free tier (3 sheets/mo), paid Pro/Teams** (utilitysheet.com).
 - **NormaTC**: the older name, still the domain (normatc.com). Mention it once where needed: "Norma (formerly NormaTC)."
-- **Client Portal** (portal.multimedium.dev): ⚠️ status and audience unconfirmed. Leave it off the site until Haydn decides.
+- **Client Portal** (portal.multimedium.dev): ✅ discontinued work in progress. **Not shown on the site.** Remove `/work/client-portal` in Phase 3.
 - Always distinguish **what exists today** from **where the suite is headed**.
 
 ## 5. Proof rules ✅ (non-negotiable)
@@ -66,7 +66,7 @@ Companion documents:
 3. **Client quotes** need the client's written permission and are shown with name, role, and company. Collect them through `/review`, which records consent.
 4. **Testimonials about a client's own business** (e.g., Chelsea Daley's Google reviews, Structured Closings' client quotes) are **not** testimonials for Multimedium. They may appear only inside screenshots of the client's site.
 5. **Outcomes and metrics** appear only when the client confirms them and they have a source (analytics export, form counts, client statement). Store the source in a code comment next to the number.
-6. **Disclose relationships.** PA Real Estate Support Services is Haydn's mom's business, so say so in its case study. Jennifer Cortes (Structured Closings) is also a Multimedium referral partner through My TC Academy. If her quote is used, add "Jennifer is also a Multimedium referral partner." ⚠️ Haydn to confirm wording. Disclosing a material connection is expected for endorsements.
+6. **Disclose relationships.** PA Real Estate Support Services is Haydn's mom's business, so say so in its case study. Jennifer Cortes (Structured Closings, TAG) is also a paid referral partner. Showing her sites as case studies needs no disclosure. **If a quote from Jennifer is published**, put this line directly under it: *"Jennifer is also a referral partner. I pay her a fee when she refers a client."* A paid relationship behind an endorsement is a material connection, and disclosing it is expected.
 7. **Client sites credit** ("Site by Multimedium") are fine, and Structured Closings already has one.
 
 ## 6. Facts register (approved for public copy)
@@ -76,17 +76,20 @@ Companion documents:
 | Haydn is a solo designer and developer; Multimedium is his business | Owner | ✅ |
 | Based in the Poconos, PA; clients across the US and Puerto Rico | Owner, 2026-10-20 | ✅ |
 | Haydn's mom, Debbie O'Brien, owns PA Real Estate Support Services, a TC business serving Pocono-area agents | poconotc.com/about; owner | ✅ |
-| Debbie has "over three decades in real estate" | poconotc.com/about | ✅ (attribute to her site) |
-| Debbie "has been a TC since 2013" | `/resources/tc-task-list` and `/resources/what-every-tc-website-needs` | ⚠️ Confirm. If not exact, update those two pages. |
-| Haven Compass Realty: new Connecticut brokerage founded by Chelsea Daley; site built 2026 | havencompassrealty.com; owner | ✅ Approved to feature |
+| Debbie has worked in real estate, in different roles, for more than 30 years | Owner, 2026-10-20; poconotc.com/about | ✅ |
+| Debbie has been a transaction coordinator since 2013 | Owner, 2026-10-20 | ✅ |
+| PA RESS agent intake: agents fill out a start-transaction form when a file goes under contract, and it creates the transaction in Norma for Debbie | Owner, 2026-10-20 | ✅ |
+| Haven Compass Realty: new Connecticut brokerage founded by Chelsea Daley; site built 2026; referred by Jennifer Cortes | havencompassrealty.com; owner | ✅ Approved to feature |
+| Haven Compass role: design, development, and site copy (at least in part; written with Chelsea). Logo is the client's own. | Owner, 2026-10-20 | ✅ |
 | Haven Compass next phase: MLS listings via SmartMLS | Owner | ✅ In progress. Don't present it as delivered. |
-| Structured Closings: TC company founded by Jennifer Cortes; site (Home, Services, Careers, Submit a File, Share Feedback) with a Cognito Forms intake | structuredclosings.com; owner | ✅ Approved to feature. ⚠️ Confirm build year. |
-| Jennifer Cortes also runs My TC Academy (Multimedium referral partner) | `ai-business-context.md` (archived) | ✅ |
-| TAG (Transaction Authority Group) landing page, 2026; client approved portfolio use | `content/projects.ts` | ✅ |
+| Structured Closings: TC company founded by Jennifer Cortes; site (Home, Services, Careers, Submit a File, Share Feedback) with a Cognito Forms intake; built 2026 | structuredclosings.com; owner | ✅ Approved to feature |
+| Structured Closings role: design and development. Copy supplied by the client; logo is the client's own (minor tweaks only). | Owner, 2026-10-20 | ✅ |
+| Jennifer Cortes runs Structured Closings, TAG, and My TC Academy, and is a paid Multimedium referral partner | Owner, 2026-10-20 | ✅ |
+| TAG (Transaction Authority Group) landing page, 2026; client approved portfolio use | `content/projects.ts`; owner | ✅ |
 | PA Real Estate Support Services redesign, 2024 | `content/projects.ts`; owner | ✅ |
 | Three Penn Properties (2023), Blissful Existence Healing Acres (2024) | `content/projects.ts`; owner | ✅ May be shown as past work. No quotes or metrics. |
-| Reply within one business day | Current site promise | ✅ Keep only if reliably true |
-| Prices (see packages doc) | Owner | ⚠️ Proposed terms pending sign-off |
+| Reply within one business day | Owner, 2026-10-20 | ✅ |
+| Prices and terms | `packages-and-sop.md` | ✅ Approved 2026-10-20 (hourly rate still to set) |
 
 **Not approved (remove if found):** any outcome percentages, "trusted by … teams", transaction or volume counts attributed to Multimedium, and "years of experience" claims for Haydn (none provided yet).
 
@@ -103,7 +106,7 @@ Details and terms are in `docs/brand/packages-and-sop.md`. Public summary:
 
 The same three packages serve every audience. Audience pages describe what each package contains for that audience. The TC-branded names (TC Starter / Growth / Pro) appear only on `/mytcacademy` for continuity, mapped one-to-one.
 
-**MLS/IDX:** not a standard offer yet. Until the SmartMLS integration ships, use the FAQ answer in `copy-deck.md` §1, which is candid that the first integration is in progress (⚠️ Haydn to approve that level of candor). Never list IDX as an included feature. Once it ships, it becomes a Custom-build add-on with its own case study note.
+**MLS/IDX:** not a standard offer yet. Until the SmartMLS integration ships, use the FAQ answer in `copy-deck.md` §1 ✅. It says honestly that an integration is under way without calling it a first. Never list IDX as an included feature. Once it ships, it becomes a Custom-build add-on with its own case study note.
 
 ## 8. Site structure ✅
 

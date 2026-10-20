@@ -57,7 +57,8 @@ It is **not** a list of buzzwords ("conversion-focused, mobile-first, lightweigh
 ### 4.1 Haven Compass Realty — brokerage · Custom build · 2026
 
 **Slug:** `/work/haven-compass-realty` · **Live:** https://www.havencompassrealty.com · **Approved to feature:** ✅ (2026-10-20)
-**Role:** [CONFIRM: strategy, copywriting, design, development? logo/brand?]
+**Role:** Design, development, and site copy (written with Chelsea). Logo: the client's own.
+**Internal (don't publish):** referred by Jennifer Cortes. Billed $1,500 in 2026, before the current packages. This scope (9 pages, package comparison, reviews, client pages) is now a Custom build.
 
 **Title:** Haven Compass Realty
 **Summary:** A launch website for a new Connecticut brokerage, built to earn trust from day one with transparent seller packages, real client reviews, and clear paths for buyers and sellers.
@@ -83,11 +84,11 @@ Chelsea Daley was launching Haven Compass Realty, a new brokerage in Connecticut
 
 ---
 
-### 4.2 Structured Closings — TC company · Full website · [CONFIRM year]
+### 4.2 Structured Closings — TC company · Full website · 2026
 
 **Slug:** `/work/structured-closings` · **Live:** https://www.structuredclosings.com · **Approved to feature:** ✅ (2026-10-20)
-**Role:** [CONFIRM: copy, design, development; who set up the Cognito form?]
-**Disclosure:** Jennifer Cortes is also a Multimedium referral partner (My TC Academy). Include it if her quote is used.
+**Role:** Design and development. Copy supplied by Structured Closings; logo is the client's own (minor tweaks). [CONFIRM: did Haydn embed/configure the Cognito form, or did the client supply it?]
+**Disclosure:** Jennifer Cortes is also a paid referral partner. If her quote is used, add the brief §5.6 line under it.
 
 **Title:** Structured Closings
 **Summary:** A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and turns "start a file" into one guided form.
@@ -114,18 +115,18 @@ Structured Closings coordinates transactions for agents and investors, including
 ### 4.3 PA Real Estate Support Services — TC business · Full website · 2024
 
 **Slug:** `/work/pa-real-estate-support` (keep) · **Live:** https://www.poconotc.com · **Relationship:** Haydn's mom's business (disclose)
-**Role:** Designer & developer [CONFIRM: copy? the Agent Portal "Start Transaction" form with PDF generation?]
+**Role:** Design and development, including the agent intake form, which creates transactions in Norma
 
 **Title:** PA Real Estate Support Services
 **Summary:** A redesign for a Pocono-area transaction coordination business, built around one question agents ask: "How do I send you a file?"
 
 **The starting point**
-This is my mom's business. Debbie O'Brien has spent more than three decades in real estate and coordinates transactions for agents across the Pocono market. Her old do-it-yourself site didn't make it clear which services were covered or how to start, so requests arrived by email and text and had to be sorted by hand. [CONFIRM wording with Debbie]
+This is my mom's business. Debbie O'Brien has worked in real estate for more than 30 years and has been a transaction coordinator since 2013, serving agents across the Pocono market. Her old do-it-yourself site didn't make it clear which services were covered or how to start, so requests arrived by email and text and had to be sorted by hand. [CONFIRM wording with Debbie]
 
 **What I built**
 - **A clear headline and a single "Start Transaction" action** in the navigation on every page
 - **Services broken into scannable groups** so agents can see what's covered before they call
-- **An agent portal with a start-transaction form** [CONFIRM: what it does, e.g., produces a PDF summary of the file]
+- **An agent intake that goes straight into her workspace.** Agents fill out a start-transaction form whenever a file goes under contract, and the details arrive in Norma, the TC software I build, as a new transaction, ready for Debbie to work. No retyping from emails.
 - **Call, email, and form options** on the Work With Me page, with business hours and response expectations
 
 **Why it matters for this portfolio:** it's the closest look at what agents need from a TC's website, from someone who coordinates files every day. [CONFIRM Haydn is comfortable with this framing]
@@ -136,6 +137,8 @@ This is my mom's business. Debbie O'Brien has spent more than three decades in r
 ---
 
 ### 4.4 Transaction Authority Group (TAG) — TC infrastructure company · One-page site · 2026
+
+**Client:** run by Jennifer Cortes (also Structured Closings; paid referral partner, so the disclosure rule applies to any quote).
 
 **Slug:** `/work/tag-landing-page` (keep) · **Live:** https://www.transactionauthority.com · **Approval:** recorded in `projects.ts`
 **Role:** Landing page strategy, copy, design, development

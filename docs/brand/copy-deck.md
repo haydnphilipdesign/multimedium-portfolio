@@ -1,7 +1,7 @@
 # Copy Deck — Redesign (Phase 2 input)
 
 **Status:** Draft for Haydn's review · **Last updated:** 2026-10-20
-Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. Lines marked **[DEPENDS: SOP]** rely on terms in `packages-and-sop.md` that are still awaiting sign-off. *Italic* marks the one serif-italic accent allowed per page. → links stay on the site; ↗ links leave it.
+Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. Package terms were approved 2026-10-20. *Italic* marks the one serif-italic accent allowed per page. → links stay on the site; ↗ links leave it.
 
 ---
 
@@ -57,7 +57,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 
 **Why me**
 - H2: Why real estate professionals hire me
-- **I know the business.** My mom, Debbie O'Brien, runs a transaction coordination business in the Poconos, and I build software for TCs, including Norma and UtilitySheet. You won't have to explain what a cover sheet or a file start is.
+- **I know the business.** My mom, Debbie O'Brien, has been a transaction coordinator since 2013 and runs her own TC business in the Poconos. I also build software for TCs, including Norma and UtilitySheet. You won't have to explain what a cover sheet or a file start is.
 - **One person, start to finish.** The person on your first call writes your copy, designs your site, builds it, and answers your email after launch. Nothing gets lost in a handoff.
 - **Clear prices, clear scope.** Packages start at $750, and you'll see exactly what's included in writing before you pay anything.
 
@@ -82,11 +82,11 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 
 **FAQ**
 - H2: Questions people ask first
-- **Can my website show MLS listings?** It depends on your MLS's rules and data provider. I'm setting up my first MLS integration now, for a Connecticut brokerage on SmartMLS. If you need listings, tell me which MLS you're with and I'll give you a straight answer on what's possible and what it costs.
-- **Do I own my website?** Yes. Once it's paid in full, your content, domain, and site are yours. If you ever move hosting, you get a complete copy of your site files. [DEPENDS: SOP]
+- **Can my website show MLS listings?** Usually, yes. It depends on your MLS. Listing feeds (IDX) are governed by each MLS's rules and approved data providers, so I scope them per project. I'm currently setting up SmartMLS listings for a Connecticut brokerage. Tell me which MLS you're with and I'll tell you what's possible and what it costs.
+- **Do I own my website?** Yes. Once it's paid in full, your content, domain, and site are yours. If you ever move hosting, you get a complete copy of your site files.
 - **What do you need from me?** A short questionnaire, your logo and photos, any reviews you'd like to use, and time to review drafts. I handle the writing, design, and build.
-- **How long does it take?** About 2 weeks for a one-page site, 3–4 weeks for a full website, and 5–8 weeks for a custom build. The schedule starts when your questionnaire and photos are in. [DEPENDS: SOP]
-- **What does hosting cost?** $59/month after your first month, which is included. That covers hosting, security updates, monitoring, and small edits each month. [DEPENDS: SOP]
+- **How long does it take?** About 2 weeks for a one-page site, 3–4 weeks for a full website, and 5–8 weeks for a custom build. The schedule starts when your questionnaire and photos are in.
+- **What does hosting cost?** $59/month after your first month, which is included. That covers hosting, security updates, monitoring, and small edits each month.
 - **Do you work outside real estate?** Occasionally, by referral. Most of my work, and all of my software, is for real estate professionals.
 
 **Closing CTA band** (global)
@@ -127,7 +127,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 
 **Built by someone who knows the desk**
 - H2: Built by someone who knows the desk
-- Body: My mom has run her TC business in the Poconos for years. I also build Norma Suite, software for transaction coordinators (Norma, Norma Intake, and UtilitySheet), so the details of intake, cover sheets, and agent communication aren't new to me.
+- Body: My mom has been a transaction coordinator since 2013. Her agents start every file through a form on the site I built for her, and it lands in Norma, the TC workspace I build, as a new transaction. Between her business and Norma Suite (Norma, Norma Intake, and UtilitySheet), the details of intake, cover sheets, and agent communication aren't new to me.
 - Link: About Norma Suite →
 
 **Free resources**
@@ -200,14 +200,14 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 
 **Hosting & care** (id `hosting`)
 - H2: Hosting & care — $59/month
-- Body: Your first month is included. After that, $59/month covers: (list from §A4). Bigger changes, like new pages or features, are quoted first. [DEPENDS: SOP]
+- Body: Your first month is included. After that, $59/month covers: (list from §A4). Bigger changes, like new pages or features, are quoted first.
 
 **Not included:** (list from §A3)
 
-**How payment works** [DEPENDS: SOP]
+**How payment works**
 - Half to reserve your start date, half before your site goes live. No surprise invoices: anything outside the proposal is quoted in writing first.
 
-**FAQ:** ownership · how long it takes · what counts as a revision round · adding pages later ("Yes. Everything is built so it can grow; extra pages are $250 each.") [DEPENDS: SOP]
+**FAQ:** ownership · how long it takes · what counts as a revision round · adding pages later ("Yes. Everything is built so it can grow; extra pages are $250 each.")
 
 ---
 
@@ -223,7 +223,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 
 **Story**
 - H2: How I got here
-- My mom, Debbie O'Brien, has spent more than three decades in real estate. She runs PA Real Estate Support Services, a transaction coordination business serving agents in the Pocono market. Building her website taught me what agents need from a coordinator, and how much a clear site can take off her plate.
+- My mom, Debbie O'Brien, has worked in real estate for more than 30 years and has been a transaction coordinator since 2013. She runs PA Real Estate Support Services, serving agents in the Pocono market. I built her website, including the intake form her agents use to start every file, which feeds straight into Norma, the TC software I build.
 - I've also built websites for TC companies, an independent brokerage, and other real estate businesses, and I build software for transaction coordinators (more on that below).
 
 **How I work**
@@ -288,6 +288,6 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. L
 ## 8. Smaller updates
 
 - **Case study pages:** see `docs/brand/case-studies.md` §3–4.
-- **Resources:** keep the copy. Remove "Tools you can use." Update "since 2013" if Debbie's TC start year differs. Restyle in Phase 2. In Phase 3, update internal links that point to `/industries/transaction-coordinators#automation` (e.g., in `app/resources/tc-cover-sheet/page.tsx`): the redirect drops the anchor.
+- **Resources:** keep the copy. Remove "Tools you can use." ("since 2013" is confirmed.) Restyle in Phase 2. In Phase 3, update internal links that point to `/industries/transaction-coordinators#automation` (e.g., in `app/resources/tc-cover-sheet/page.tsx`): the redirect drops the anchor.
 - **`/mytcacademy`:** keep the TC-branded names, mapped as TC Starter = One-page site ($750), TC Growth = Full website ($1,500), TC Pro = Custom build (from $3,000). Point package links to `/transaction-coordinators#packages`.
 - **404:** already updated in Phase 0. Update its links to the new pages in Phase 3.

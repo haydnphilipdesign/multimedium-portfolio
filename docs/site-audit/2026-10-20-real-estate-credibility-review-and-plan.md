@@ -53,7 +53,28 @@ Effort: **S** under half a day · **M** 1–3 days · **L** 4+ days.
 - Superseded strategy docs moved to `docs/archive/` (with a README). A root `CLAUDE.md` points every future session to the brief.
 - Both new clients have approved being featured (2026-10-20). Haven Compass Realty leads the homepage.
 
-**Sign-off needed before Phase 2 copy is final:** (1) the proposed terms, plus an hourly rate (`packages-and-sop.md` §A3–A5); (2) whether the referral commissions are current; (3) Debbie's TC start year vs. "three decades in real estate"; (4) Haydn's role on Haven Compass and Structured Closings, the Structured Closings build year, and what the PA RESS agent-portal form does; (5) the client interview sent to Jennifer and Chelsea (and optionally Debbie and TAG); (6) how candid the MLS FAQ should be; (7) the referral-partner disclosure wording; (8) Client Portal and Norma Reports status; (9) a new founder photo; (10) confirmation that "reply within one business day" is reliably true. Design (Phase 2) can start in parallel. Copy marked [DEPENDS: SOP] or [CONFIRM] stays provisional.
+**Phase 1 sign-off (2026-10-20):**
+
+- **Approved:** package terms; commissions unchanged.
+- **Debbie:** 30+ years in real estate, TC since 2013.
+- **Roles:**
+  - Haven Compass: design, development, and copy (written with Chelsea). Not the logo.
+  - Structured Closings: design and development (copy supplied). Built 2026.
+- **PA RESS:** the intake form feeds transactions into Norma.
+- **Jennifer Cortes:** runs Structured Closings, TAG, and My TC Academy. She is a paid referral partner and referred Haven Compass. Disclose only under a published quote from her.
+- **MLS FAQ:** reworded so it doesn't read as a first attempt.
+- **Client Portal:** discontinued; not shown.
+- **Reply time:** within one business day, confirmed.
+
+**Still open:**
+
+- Hourly rate.
+- Norma Reports status.
+- Interview answers from Jennifer, Chelsea, and optionally Debbie.
+- Whether Haydn set up the Structured Closings Cognito form.
+- A new founder photo.
+
+None of these block Phase 2. Copy marked [CONFIRM]/[ASK CLIENT] stays out of the build until it's answered.
 
 ---
 
