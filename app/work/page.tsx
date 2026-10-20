@@ -28,6 +28,7 @@ export default function Work() {
         body="Brokerages, transaction coordination companies, and the people behind them. Every project here is real client work."
       />
       <section className="studio-shell pb-20">
+        <h2 className="sr-only">Real estate clients</h2>
         <div className="project-grid">
           {realEstate.map((p, i) => (
             <ProjectTile key={p.slug} project={p} priority={i < 2} />

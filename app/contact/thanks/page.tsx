@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Section } from "@/components/sections/Section";
-import { AnimatedSection } from "@/components/motion/AnimatedSection";
+import { PageIntro } from "@/components/marketing/Studio";
 
 export const metadata: Metadata = {
   title: "Message sent",
@@ -18,34 +17,19 @@ export const metadata: Metadata = {
 
 export default function ContactThanksPage() {
   return (
-    <>
-      <Section className="pt-28 sm:pt-32 md:pt-40" padding="none">
-        <AnimatedSection>
-          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] px-6 py-10 sm:px-8 sm:py-12 text-center">
-            <div className="relative space-y-4 max-w-2xl mx-auto">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30">
-                Message sent
-              </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-                Thanks, got it.
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                I&apos;ll reply within one business day. If you included a
-                current website link, I&apos;ll review it before responding with
-                next steps.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
-                <Link href="/work" className="btn-secondary">
-                  Browse case studies
-                </Link>
-                <Link href="/" className="btn-primary">
-                  Back to home
-                </Link>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      </Section>
-    </>
+    <PageIntro
+      eyebrow="Message sent"
+      title="Thanks, got it."
+      body="I’ll reply within one business day. If you included a current website link, I’ll review it before responding with next steps."
+    >
+      <div className="hero-actions pb-24">
+        <Link href="/work" className="btn-primary">
+          See client work <span aria-hidden="true">→</span>
+        </Link>
+        <Link href="/" className="text-link">
+          Back to home →
+        </Link>
+      </div>
+    </PageIntro>
   );
 }

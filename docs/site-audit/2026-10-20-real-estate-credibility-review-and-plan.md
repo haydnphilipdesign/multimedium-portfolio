@@ -76,6 +76,38 @@ Effort: **S** under half a day · **M** 1–3 days · **L** 4+ days.
 
 None of these block Phase 2. Copy marked [CONFIRM]/[ASK CLIENT] stays out of the build until it's answered.
 
+**Phase 2 (built 2026-10-20 on `claude/amazing-maxwell-lm56lg`; not yet live)**
+
+- **Data:**
+  - `content/packages.ts` is the single source for package names, prices, terms, hosting, and inclusions. It mirrors `packages-and-sop.md`.
+  - `content/faqs.ts` holds the shared FAQ answers.
+  - `content/projects.ts` adds Haven Compass Realty and Structured Closings. Every client entry gets a `story` (summary, snapshot, disclosure, decisions), and the client order follows brief §8.
+- **Screenshots:** fresh captures of havencompassrealty.com and structuredclosings.com, plus a refresh of poconotc.com (the old intake shot showed a Jotform the site no longer uses). Every client screenshot is shown in one browser frame (`BrowserFrame`).
+- **Pages:**
+  - Rebuilt from the copy deck: Home, `/transaction-coordinators`, `/agents-and-brokerages`, `/pricing`, `/work`, `/work/[slug]` (case-studies.md §3 template), and `/about` (with `#software`).
+  - Restyled to the studio system: `/resources` and its children, `/mytcacademy`, `/review`, and `/contact/thanks`.
+  - `Editorial`, `Section`, `AnimatedSection`, and `ProjectCard` are deleted.
+- **Tokens:**
+  - The lime accent, ochre theme, and flood/ledger/grain/glow tokens are gone, along with the legacy button layer and unused utilities.
+  - The `tw-animate-css` and `shadcn` CSS imports are removed. The packages themselves are still in `package.json`.
+  - A type scale (`--text-h1/h2/h3`) and one tint (`--tint`) are in place. Arrows follow brief §3.
+- **Copy fixes beyond the deck:**
+  - `/mytcacademy` timelines now match the packages doc. The "4–6 weeks" stat strip and the "Why Jennifer recommends this" box are removed.
+  - Resource pages no longer offer an "automation add-on" and no longer use the TC-branded package names.
+- **Verified:** `pnpm build`, `pnpm lint`, and both test suites pass. Every changed page, on a production build at 1440 and 390 px, has 0 axe violations (WCAG 2.1 AA + best practice), 0 console errors, and no horizontal overflow.
+
+**Phase 3 still to do:**
+
+- Nav, footer, and mobile sticky bar. They still link to `/services`, `/tc-packages`, `/industries`, `/tools`, and `/lab`.
+- Redirects and route/data deletions.
+- Sitemap and JSON-LD.
+- Contact form tweaks.
+- Flyer links.
+- Removing `framer-motion`, `shadcn`, `tw-animate-css`, and `class-variance-authority` from `package.json`.
+- Deleting `lib/resources/tc-intake-checklist.ts`, which is now unused.
+
+Merge Phase 2 only together with Phase 3. Until then the new pages aren't in the nav, and the old pages duplicate them.
+
 ---
 
 ## 0. Executive summary
