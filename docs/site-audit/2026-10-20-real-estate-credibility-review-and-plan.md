@@ -44,6 +44,17 @@ Effort: **S** under half a day · **M** 1–3 days · **L** 4+ days.
 - Fixed the `/mytcacademy` duplicate brand in its title, added the brand to the homepage title, and added a branded `app/not-found.tsx`.
 - Deleted unused components (`components/hero/*`, `haydn-portrait.tsx`, `marketing/CTA.tsx`, `marketing/HowItWorks.tsx`, all of `components/ui/*`). `framer-motion` and `class-variance-authority` are now unreferenced; remove them in Phase 3. `shadcn` and `tw-animate-css` are still `@import`ed by `app/globals.css` and should be evaluated during the CSS prune.
 
+**Phase 1 (drafted 2026-10-20; awaiting Haydn's sign-off on the items below)**
+
+- `docs/brand/brief.md`: the single source of truth (positioning, audiences, voice, naming, proof rules, facts register, offer summary, sitemap, nav, redirect map, visual principles).
+- `docs/brand/packages-and-sop.md`: one package set with per-audience page lists, proposed terms, hosting inclusions, and an 11-step project SOP with templates.
+- `docs/brand/case-studies.md`: what a case study is, a client interview, the page template, and drafts for Haven Compass Realty, Structured Closings, PA Real Estate Support Services, and TAG.
+- `docs/brand/copy-deck.md`: copy for Global, Home, Transaction coordinators, Agents & brokerages, Pricing, About, Work, and Contact.
+- Superseded strategy docs moved to `docs/archive/` (with a README). A root `CLAUDE.md` points every future session to the brief.
+- Both new clients have approved being featured (2026-10-20). Haven Compass Realty leads the homepage.
+
+**Sign-off needed before Phase 2 copy is final:** (1) the proposed terms, plus an hourly rate (`packages-and-sop.md` §A3–A5); (2) whether the referral commissions are current; (3) Debbie's TC start year vs. "three decades in real estate"; (4) Haydn's role on Haven Compass and Structured Closings, the Structured Closings build year, and what the PA RESS agent-portal form does; (5) the client interview sent to Jennifer and Chelsea (and optionally Debbie and TAG); (6) how candid the MLS FAQ should be; (7) the referral-partner disclosure wording; (8) Client Portal and Norma Reports status; (9) a new founder photo; (10) confirmation that "reply within one business day" is reliably true. Design (Phase 2) can start in parallel. Copy marked [DEPENDS: SOP] or [CONFIRM] stays provisional.
+
 ---
 
 ## 0. Executive summary
