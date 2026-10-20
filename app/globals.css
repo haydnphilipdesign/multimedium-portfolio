@@ -994,6 +994,75 @@ em {
   left: 0;
   color: var(--primary);
 }
+.check-list.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 50px;
+  margin: 0;
+}
+.plain-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--muted-foreground);
+}
+/* Pricing: three columns whose rows line up (subgrid), stacked on mobile. */
+.pricing-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 22px;
+  padding-bottom: 30px;
+}
+.pricing-column {
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  align-content: start;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 30px;
+}
+.pricing-column.featured {
+  border: 2px solid var(--primary);
+}
+.pricing-column h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.pricing-column .package-best {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.pricing-column dl {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  margin-top: 18px;
+}
+.pricing-column dl div {
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+.pricing-column dt {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-bottom: 4px;
+}
+.pricing-column dd {
+  font-size: 15px;
+}
+.pricing-column .btn-primary {
+  margin-top: 18px;
+  align-self: end;
+}
+.pricing-column .package-example {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-top: 14px;
+}
 .studio-section {
   padding-block: 85px;
 }
@@ -1484,8 +1553,16 @@ em {
   .feature-list,
   .split-section,
   .featured-case,
-  .project-grid.three-up {
+  .project-grid.three-up,
+  .pricing-columns,
+  .check-list.two-col {
     grid-template-columns: 1fr;
+  }
+  .pricing-columns {
+    gap: 22px;
+  }
+  .pricing-column {
+    padding: 24px;
   }
   .split-section,
   .featured-case {
