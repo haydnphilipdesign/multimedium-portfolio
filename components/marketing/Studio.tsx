@@ -105,9 +105,15 @@ export function BrowserFrame({
 export function ProjectTile({
   project,
   priority = false,
+  eyebrow,
+  description,
 }: {
   project: Project;
   priority?: boolean;
+  /** Overrides the business type line, e.g. with the package name. */
+  eyebrow?: string;
+  /** Overrides the project's tagline with page-specific copy. */
+  description?: string;
 }) {
   const href = "/work/" + project.slug;
   return (
@@ -131,8 +137,9 @@ export function ProjectTile({
       <div className="project-tile-caption">
         <div>
           <p className="eyebrow">
-            {project.story?.businessType ?? project.category}
-            {project.story?.location ? " · " + project.story.location : ""}
+            {eyebrow ??
+              (project.story?.businessType ?? project.category) +
+                (project.story?.location ? " · " + project.story.location : "")}
           </p>
           <h3>
             <Link href={href}>{project.title}</Link>
@@ -140,7 +147,7 @@ export function ProjectTile({
         </div>
         <span className="project-year">{project.year}</span>
       </div>
-      <p className="project-description">{project.tagline}</p>
+      <p className="project-description">{description ?? project.tagline}</p>
     </article>
   );
 }
@@ -173,7 +180,24 @@ export function FaqList({
   );
 }
 
-/** Package cards for an audience page or the pricing summary. */
+export function FeatureList({
+  items,
+}: {
+  items: { title: string; body: string }[];
+}) {
+  return (
+    <div className="feature-list">
+      {items.map((f) => (
+        <div key={f.title}>
+          <h3>{f.title}</h3>
+          <p>{f.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Package cards for an audience page. */
 export function PackageCards({
   audience,
   source,

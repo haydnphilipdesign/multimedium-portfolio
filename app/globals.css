@@ -946,6 +946,54 @@ em {
   border-top: 1px solid var(--border);
   padding-top: 22px;
 }
+.project-grid.three-up {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 28px;
+}
+.three-up .project-tile h3 {
+  font-size: 20px;
+}
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+.split-section p {
+  color: var(--muted-foreground);
+  font-size: 16px;
+  margin-bottom: 18px;
+  max-width: 620px;
+}
+.featured-case {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.featured-case figure {
+  min-width: 0;
+}
+.featured-case figcaption,
+.case-figure figcaption {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin-top: 12px;
+}
+.check-list {
+  margin-block: 24px;
+}
+.check-list li {
+  position: relative;
+  padding: 12px 0 12px 26px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
 .studio-section {
   padding-block: 85px;
 }
@@ -1341,6 +1389,9 @@ em {
 .package-facts dd {
   font-size: 15px;
 }
+.package-example {
+  min-height: 3.2em;
+}
 .package-example a {
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -1430,8 +1481,15 @@ em {
   .price-row,
   .reasons-grid,
   .path-grid,
-  .feature-list {
+  .feature-list,
+  .split-section,
+  .featured-case,
+  .project-grid.three-up {
     grid-template-columns: 1fr;
+  }
+  .split-section,
+  .featured-case {
+    gap: 28px;
   }
   .price-row > div {
     padding: 24px 0;
