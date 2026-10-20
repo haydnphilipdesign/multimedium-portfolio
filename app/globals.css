@@ -1088,6 +1088,156 @@ em {
 .next-case a:hover {
   color: var(--primary);
 }
+/* Free TC resources */
+.resource-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 32px;
+}
+.resource-cards article > * + * {
+  margin-top: 10px;
+}
+.resource-cards .eyebrow {
+  margin: 20px 0 0;
+}
+.resource-cards h2 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.resource-cards h2 a:hover {
+  color: var(--primary);
+}
+.resource-cards p:not(.eyebrow) {
+  color: var(--muted-foreground);
+  font-size: 15px;
+}
+.resource-thumb {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--frame);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.resource-thumb img,
+.resource-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.resource-thumb-text {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+.resource-preview > img {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+}
+.resource-preview figcaption {
+  margin-top: 28px;
+}
+.resource-preview h2,
+.resource-form h2 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.resource-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 28px;
+}
+.resource-form > p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 10px 0 20px;
+}
+.resource-fields {
+  display: grid;
+  gap: 18px;
+}
+.resource-fields label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.resource-fields label span {
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+.form-success {
+  padding: 14px 18px;
+  border: 1px solid var(--primary);
+  background: var(--primary-soft);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.plain-defs div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.plain-defs dt {
+  font-size: 15px;
+  font-weight: 600;
+}
+.plain-defs dd {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+.numbered-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px 40px;
+  counter-reset: item;
+}
+.numbered-list li {
+  counter-increment: item;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+.numbered-list li::before {
+  content: counter(item, decimal-leading-zero);
+  display: block;
+  font-size: 12px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.numbered-list h3 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.numbered-list p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.mistake-list li {
+  position: relative;
+  padding-left: 26px;
+}
+.mistake-list li::before {
+  content: "×";
+  position: absolute;
+  left: 2px;
+  color: #b42318;
+}
 /* Pricing: three columns whose rows line up (subgrid), stacked on mobile. */
 .pricing-columns {
   display: grid;
@@ -1637,7 +1787,10 @@ em {
   .featured-case,
   .project-grid.three-up,
   .pricing-columns,
-  .check-list.two-col {
+  .check-list.two-col,
+  .resource-cards,
+  .resource-grid,
+  .numbered-list {
     grid-template-columns: 1fr;
   }
   .pricing-columns {

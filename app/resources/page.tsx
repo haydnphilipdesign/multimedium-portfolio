@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type { ComponentType } from "react";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Section, SectionHeading } from "@/components/sections/Section";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/motion/AnimatedSection";
-import { MonoLabel } from "@/components/sections/Editorial";
+import { PageIntro } from "@/components/marketing/Studio";
 import { createPageMetadata } from "@/lib/seo";
 import {
     getBreadcrumbStructuredData,
     getCollectionPageStructuredData,
 } from "@/lib/structuredData";
-import { IconArrowRight, IconChecklist } from "@tabler/icons-react";
 
 export const metadata: Metadata = createPageMetadata({
     title: "Free Transaction Coordinator Resources",
@@ -33,8 +29,6 @@ type Resource = {
     image?: string;
     badge: string;
     ctaText: string;
-    external?: boolean;
-    icon?: ComponentType<{ className?: string; stroke?: number }>;
 };
 
 const resources: Resource[] = [
@@ -72,30 +66,6 @@ const resources: Resource[] = [
         href: "/resources/what-every-tc-website-needs",
         badge: "Guide",
         ctaText: "Read the guide",
-        icon: IconChecklist,
-    },
-];
-
-const tools: Resource[] = [
-    {
-        title: "UtilitySheet",
-        description:
-            "A guided seller form that generates a clean, shareable utility info sheet. Free plan includes 3 submissions/month; Pro is $9/month.",
-        href: "https://utilitysheet.com",
-        image: "/images/projects/utilitysheet/utilitysheet-thumb.webp",
-        badge: "Tool (free + pro)",
-        ctaText: "Try UtilitySheet",
-        external: true,
-    },
-    {
-        title: "NormaTC",
-        description:
-            "Early-access TC “Closing Desk” software built around Outlook/Microsoft 365 workflows, dependencies, and deadline signal—join the waitlist.",
-        href: "https://normatc.com",
-        image: "/images/projects/norma/norma-thumb.webp",
-        badge: "Tool (early access)",
-        ctaText: "Join the waitlist",
-        external: true,
     },
 ];
 
@@ -116,150 +86,55 @@ export default function ResourcesPage() {
     return (
         <>
             <JsonLd data={structuredData} />
-            <Section className="pt-32 sm:pt-36 md:pt-44" padding="none">
-                <AnimatedSection>
-                    <MonoLabel className="mb-6">Resources</MonoLabel>
-                    <h1 className="max-w-3xl font-display text-5xl text-foreground sm:text-6xl md:text-7xl display-balance">
-                        Free transaction coordinator templates &amp; PDFs
-                    </h1>
-                    <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-                        Downloadable transaction coordinator templates you can use immediately, plus structure
-                        examples you can adapt for your own workflow.
-                    </p>
-                </AnimatedSection>
-            </Section>
+            <PageIntro
+                eyebrow="Free TC resources"
+                title="Free transaction coordinator templates & PDFs"
+                body="Downloadable transaction coordinator templates you can use immediately, plus structure examples you can adapt for your own workflow."
+            />
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <AnimatedSection>
-                    <SectionHeading
-                        title="Downloads"
-                        subtitle="Download a template and adapt the structure for your own workflow."
-                    />
-                </AnimatedSection>
-
-                <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+            <section className="studio-shell pb-20">
+                <div className="resource-cards">
                     {resources.map((res) => (
-                        <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
-                                <div className="relative aspect-[16/10] bg-muted">
-                                    {res.image ? (
-                                        <Image
-                                            src={res.image}
-                                            alt={res.title}
-                                            fill
-                                            className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
-                                            quality={68}
-                                        />
-                                    ) : (
-                                        <>
-                                                                <div className="relative h-full w-full grid place-items-center">
-                                                {res.icon ? (
-                                                    <res.icon className="h-12 w-12 text-primary" stroke={1.5} />
-                                                ) : null}
-                                            </div>
-                                        </>
-                                    )}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
-                                    <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
-                                            {res.badge}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="p-7">
-                                    <h2 className="text-xl font-semibold text-foreground">{res.title}</h2>
-                                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                        {res.description}
-                                    </p>
-                                    <div className="mt-5">
-                                        <Link href={res.href} className="btn-secondary inline-flex items-center gap-2">
-                                            {res.ctaText} <IconArrowRight className="w-4 h-4" stroke={2} />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </StaggerItem>
+                        <article key={res.href}>
+                            <Link href={res.href} className="resource-thumb" tabIndex={-1} aria-hidden="true">
+                                {res.image ? (
+                                    <Image
+                                        src={res.image}
+                                        alt=""
+                                        width={800}
+                                        height={500}
+                                        sizes="(max-width: 800px) 100vw, 50vw"
+                                        quality={68}
+                                    />
+                                ) : (
+                                    <span className="resource-thumb-text">9 must-haves · 10 mistakes</span>
+                                )}
+                            </Link>
+                            <p className="eyebrow">{res.badge}</p>
+                            <h2>
+                                <Link href={res.href}>{res.title}</Link>
+                            </h2>
+                            <p>{res.description}</p>
+                            <Link href={res.href} className="text-link" aria-label={res.ctaText + ": " + res.title}>
+                                {res.ctaText} →
+                            </Link>
+                        </article>
                     ))}
-                </StaggerContainer>
-
-                <div className="mt-10 rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)] p-7">
-                    <p className="text-sm text-muted-foreground">
-                        If you eventually want these auto-populated from intake data, optional automation setup is available on the TC page.
-                    </p>
-                    <div className="mt-4">
-                        <Link
-                            href="/industries/transaction-coordinators#automation"
-                            className="btn-secondary inline-flex items-center gap-2"
-                        >
-                            See automation options <IconArrowRight className="w-4 h-4" stroke={2} />
-                        </Link>
-                    </div>
                 </div>
-            </Section>
+            </section>
 
-            <Section className="pt-10 md:pt-14" padding="none">
-                <AnimatedSection>
-                    <SectionHeading
-                        title="Tools you can use"
-                        subtitle="A couple TC workflow tools I’ve built—use them as-is, or as inspiration for something tailored to your process."
-                    />
-                </AnimatedSection>
-
-                <StaggerContainer className="grid gap-6 md:grid-cols-2" staggerDelay={0.08}>
-                    {tools.map((res) => (
-                        <StaggerItem key={res.href}>
-                            <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[var(--shadow-soft)]">
-                                <div className="relative aspect-[16/10] bg-muted">
-                                    {res.image ? (
-                                        <Image
-                                            src={res.image}
-                                            alt={res.title}
-                                            fill
-                                            className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
-                                            quality={68}
-                                        />
-                                    ) : (
-                                        <>
-                                                                <div className="relative h-full w-full grid place-items-center">
-                                                {res.icon ? (
-                                                    <res.icon className="h-12 w-12 text-primary" stroke={1.5} />
-                                                ) : null}
-                                            </div>
-                                        </>
-                                    )}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70" />
-                                    <div className="absolute top-4 left-4">
-                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm text-foreground border border-border/60">
-                                            {res.badge}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="p-7">
-                                    <h2 className="text-xl font-semibold text-foreground">{res.title}</h2>
-                                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                                        {res.description}
-                                    </p>
-                                    <div className="mt-5">
-                                        <Link
-                                            href={res.href}
-                                            className="btn-secondary inline-flex items-center gap-2"
-                                            target={res.external ? "_blank" : undefined}
-                                            rel={res.external ? "noopener noreferrer" : undefined}
-                                        >
-                                            {res.ctaText} <IconArrowRight className="w-4 h-4" stroke={2} />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
-            </Section>
+            <section className="studio-shell studio-section rule-top split-section">
+                <h2>Need a website where agents can start a file in one step?</h2>
+                <div>
+                    <p>
+                        I build websites for transaction coordinators: clear services, a Start a File page, and
+                        copy written for you.
+                    </p>
+                    <Link href="/transaction-coordinators?source=resources" className="text-link">
+                        Websites for TCs →
+                    </Link>
+                </div>
+            </section>
         </>
     );
 }
-
-
-
