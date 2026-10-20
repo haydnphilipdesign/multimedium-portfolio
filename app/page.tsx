@@ -7,12 +7,18 @@ import {
   Process,
 } from "@/components/marketing/Studio";
 import { createPageMetadata } from "@/lib/seo";
-export const metadata = createPageMetadata({
-  title: "Custom Web Design for Small & Service Businesses",
-  description:
-    "Custom websites by independent designer and developer Haydn. Thoughtful design, clear communication, and technical depth. Full websites from $1,500.",
-  path: "/",
-});
+export const metadata = {
+  ...createPageMetadata({
+    title: "Custom Web Design for Small & Service Businesses",
+    description:
+      "Custom websites by independent designer and developer Haydn. Thoughtful design, clear communication, and technical depth. Full websites from $1,500.",
+    path: "/",
+  }),
+  // The root layout's title template doesn't apply to the root page itself.
+  title: {
+    absolute: "Custom Web Design for Small & Service Businesses | Multimedium",
+  },
+};
 export default function HomePage() {
   const selected = ["tag-landing-page", "blissful-existence"].map(
     (s) => projects.find((p) => p.slug === s)!,

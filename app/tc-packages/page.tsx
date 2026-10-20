@@ -26,8 +26,7 @@ export default function Packages() {
         <p className="scope-note mb-12">
           Starting prices reflect the scopes above. Your final pages, features,
           timeline, and price are agreed before work begins. Hosting and
-          maintenance are available from $59/month. Examples are demonstrations
-          of possible structures; your website will reflect your business.
+          maintenance are available from $59/month.
         </p>
       </section>
       <section className="services-band">

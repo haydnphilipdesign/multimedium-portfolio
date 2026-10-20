@@ -54,6 +54,9 @@ export interface Project {
     description: string;
     image?: string;
   }[];
+  // TODO(trust): Only add outcomes the client has confirmed and that can be
+  // sourced (analytics export, form counts, client statement). Leave empty
+  // otherwise — earlier unsourced figures were removed.
   outcomes: {
     metric: string;
     value: string;
@@ -1233,11 +1236,6 @@ export const projects: Project[] = [
         "Increase completed intake submissions",
         "Reduce manual back-and-forth before engagement",
       ],
-      whyItWorks: [
-        "Service hierarchy made offerings easier to understand quickly",
-        "Trust and proof blocks reduced hesitation before action",
-        "Guided intake flow improved lead quality and readiness",
-      ],
     },
     process: [
       {
@@ -1262,26 +1260,10 @@ export const projects: Project[] = [
           "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Intake Completion",
-        value: "+42%",
-        description: "Increase in completed intake forms",
-      },
-      {
-        metric: "Search Impressions",
-        value: "+37%",
-        description: "Growth in branded search impressions within 60 days",
-      },
-      {
-        metric: "Scope Clarity",
-        value: "Less back-and-forth",
-        description: "Less time spent clarifying scope before projects begin",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#3b82f6",
-    externalUrl: "https://parealestatesupport.com",
+    externalUrl: "https://www.poconotc.com",
   },
   {
     slug: "client-portal",
@@ -1443,11 +1425,6 @@ export const projects: Project[] = [
         "Increase direct online bookings",
         "Reduce manual follow-up and confirmation overhead",
       ],
-      whyItWorks: [
-        "Photo-first storytelling supported emotional connection",
-        "Scannable offerings reduced decision friction",
-        "Automated confirmations improved operational consistency",
-      ],
     },
     process: [
       {
@@ -1469,23 +1446,7 @@ export const projects: Project[] = [
         image: "/images/projects/blissful-existence/blissful-existence-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Online Bookings",
-        value: "2x",
-        description: "Doubled within 90 days of launch",
-      },
-      {
-        metric: "Admin Time",
-        value: "-6 hrs/week",
-        description: "Saved through automated confirmations and reminders",
-      },
-      {
-        metric: "Engagement",
-        value: "More time-on-site",
-        description: "Higher time-on-site and return visits",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#10b981",
     externalUrl: "https://blissfulexistencehealingacres.com",
@@ -1530,11 +1491,6 @@ export const projects: Project[] = [
         "Improve investor confidence with stronger proof presentation",
         "Route tenant support and onboarding more efficiently",
       ],
-      whyItWorks: [
-        "Audience-specific pathways reduced navigation confusion",
-        "Portfolio proof improved investor trust signals",
-        "TenantCloud integration lowered support friction",
-      ],
     },
     process: [
       {
@@ -1556,23 +1512,7 @@ export const projects: Project[] = [
         image: "/images/projects/threepenn/threepenn-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Investor Inquiries",
-        value: "+55%",
-        description: "Increase in qualified investor leads",
-      },
-      {
-        metric: "Response Time",
-        value: "<12 hrs",
-        description: "Support ticket response time",
-      },
-      {
-        metric: "Performance",
-        value: "95+",
-        description: "Speed + accessibility scores across key pages",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#f59e0b",
     externalUrl: "https://threepenn.com",

@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return ["presence", "starter", "growth", "pro"].map((tier) => ({
-      source: "/demos/" + tier,
-      destination: "/demos/" + tier + "/index.html",
-    }));
+  async redirects() {
+    return [
+      // The static TC package demo sites were retired (2026-10).
+      { source: "/demos", destination: "/tc-packages", permanent: true },
+      { source: "/demos/:path*", destination: "/tc-packages", permanent: true },
+    ];
   },
 };
 export default nextConfig;

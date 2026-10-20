@@ -16,6 +16,36 @@ Effort: **S** under half a day · **M** 1–3 days · **L** 4+ days.
 
 ---
 
+## Decisions log (updated 2026-10-20, after owner answers)
+
+> Where this section conflicts with anything below, **this section wins**. Phase 1 turns these decisions into `docs/brand/brief.md`.
+
+**Owner answers → decisions**
+
+| # | Answer | Decision |
+|---|---|---|
+| 1 | Real estate is where the success is; mom is in the industry. | **Commit to real estate.** Market only to real estate professionals. Non-real-estate work is still accepted by referral, and the FAQ says so. Blissful Existence stays on `/work` under "Other work." |
+| 2 | Just built **havencompassrealty.com** for a new CT brokerage. The next phase is IDX with **SmartMLS**, which is new to Haydn. | Haven Compass Realty becomes **priority case study #1** for agents and brokerages (needs client permission + screenshots). Don't list IDX as a standard offer until the SmartMLS integration ships. Until then: "MLS listing integration available for select projects. Ask about your MLS." |
+| 3 | Wants more brokerage clients. | Brokerages move up from tertiary. The second audience page becomes **"Agents & brokerages"** (`/agents-and-brokerages`), which also covers teams and replaces `/agents-and-teams` throughout §6–§7. |
+| 4 | Structured Closings: probably. Good relationship with Jennifer Cortes. Unsure how case studies work. | Structured Closings is **priority case study #2** for TCs. Phase 1 includes a short client interview template and a case study outline. |
+| 5 | No contact with Three Penn (years) or Blissful (1+ year). PA RESS is mom's company. | Keep Three Penn and Blissful as real past work, but don't feature them or seek quotes. **Disclose that PA RESS is Haydn's mom's business** in its case study. That's a strength, and it pre-empts "is this a real client?" |
+| 6 | PA RESS numbers are undocumented and likely AI-fabricated. | **Done in Phase 0:** removed all unsourced outcome numbers (PA RESS, Blissful, Three Penn) and the unverified "why it works" result claims. |
+| 7 | OK to feature mom's background. | Use it on Home and About (§6.5). Details from parealestatesupport.com / poconotc.com (same site). |
+| 8 | SOPs are new. Wants help. | Phase 1 deliverable: **package & service SOP draft** with recommended defaults (revisions, copy responsibility, timelines, hosting inclusions, ownership/handoff) for Haydn to accept or edit. |
+| — | Had Cal.com before; unsure about public scheduling. | **No public scheduler.** Inquiries come through the form; Haydn replies personally and sends a booking link when a call makes sense. |
+| — | Prefers "Multimedium". | Keep **Multimedium** (one capital M). Unify the lockup (nav and footer). |
+| — | Clients across the USA and Puerto Rico. | Present as **remote, nationwide**, "Based in the Poconos, PA. Working with clients across the US and Puerto Rico." Drop the local-SEO emphasis. |
+| — | Product naming. | **Norma** = the core TC workspace (transactions, tasks, deadlines, documents). **Norma Suite** = the family: Norma, **Norma Intake** (collects and structures transaction info/docs), **Norma Reports** (agent-facing progress reports), and **UtilitySheet** (own brand/domain). Explain "NormaTC" once where needed (older name; normatc.com domain). Distinguish shipped functionality from the longer-term suite vision. |
+
+**Phase 0 (completed, see commit "Phase 0: remove TC demos and unsourced proof; fix titles and 404")**
+
+- Removed the four static demo sites (`public/demos/`), the "Explore an example" links, and the demo disclaimer. `/demos` and `/demos/*` now 308-redirect to `/tc-packages` (retarget to `/transaction-coordinators` in Phase 3).
+- Removed unsourced outcome figures and result claims from `content/projects.ts`, and added a TODO(trust) rule on `outcomes`. The PA RESS link now points to its current domain (www.poconotc.com).
+- Fixed the `/mytcacademy` duplicate brand in its title, added the brand to the homepage title, and added a branded `app/not-found.tsx`.
+- Deleted unused components (`components/hero/*`, `haydn-portrait.tsx`, `marketing/CTA.tsx`, `marketing/HowItWorks.tsx`, all of `components/ui/*`). `framer-motion` and `class-variance-authority` are now unreferenced; remove them in Phase 3. `shadcn` and `tw-animate-css` are still `@import`ed by `app/globals.css` and should be evaluated during the CSS prune.
+
+---
+
 ## 0. Executive summary
 
 The site is technically sound. It is fast (desktop LCP ≈ 0.5 s; throttled mobile LCP ≈ 1.0–1.7 s), axe-clean on every main page, keyboard-navigable, and visually calm. The problems are about **strategy and proof**, not engineering:

@@ -27,7 +27,7 @@ import {
 } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
-  title: "My TC Academy Students — Private Referral | Multimedium",
+  title: "My TC Academy Students — Private Referral",
   description:
     "A private referral page for My TC Academy students. Web design built specifically for transaction coordinators — professional messaging, fast performance, and pages that turn visitors into real leads.",
   robots: {

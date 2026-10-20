@@ -39,12 +39,6 @@ export function TCPackages({ source = "tc-packages" }: { source?: string }) {
           >
             Discuss {p.name.replace("TC ", "")} ↗
           </Link>
-          <Link
-            className="text-link"
-            href={"/demos/" + p.key + "/index.html?returnTo=/tc-packages"}
-          >
-            Explore an example ↗
-          </Link>
         </article>
       ))}
     </div>
