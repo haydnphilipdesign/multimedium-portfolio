@@ -21,8 +21,8 @@ export default function NotFound() {
           <Link href="/work" className="text-link">
             See client work →
           </Link>
-          <Link href="/tc-packages" className="text-link">
-            TC website packages →
+          <Link href="/pricing" className="text-link">
+            Pricing →
           </Link>
           <Link href="/" className="text-link">
             Back to the homepage →

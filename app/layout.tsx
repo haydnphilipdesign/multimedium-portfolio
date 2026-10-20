@@ -6,7 +6,6 @@ import "./globals.css";
 import { Navbar } from "@/components/nav/Navbar";
 import { MobileStickyCTA } from "@/components/nav/MobileStickyCTA";
 import { Footer } from "@/components/footer/Footer";
-import { PageTransition } from "@/components/motion/PageTransition";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteName, siteUrl } from "@/lib/site";
 import { getSiteStructuredData } from "@/lib/structuredData";
@@ -28,27 +27,24 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Custom Web Design for Small Businesses | Multimedium",
+    default: "Websites for Transaction Coordinators, Agents & Brokerages | Multimedium",
     template: `%s | ${siteName}`,
   },
   description:
-    "Multimedium designs websites for small businesses, service providers, and real estate professionals in the Poconos and beyond.",
+    "Custom websites for transaction coordinators, real estate agents, and brokerages, designed, written, and built by Haydn. One-page sites from $750. Full websites from $1,500.",
   keywords: [
-    "real estate web design",
     "transaction coordinator website design",
-    "real estate marketing website",
-    "website design for real estate coaches",
+    "real estate agent website design",
     "brokerage website design",
-    "local web design poconos pa",
     "web designer for real estate professionals",
   ],
   authors: [{ name: "Haydn", url: siteUrl }],
   creator: siteName,
   publisher: siteName,
   openGraph: {
-    title: "Custom Web Design for Small Businesses | Multimedium",
+    title: "Websites for Transaction Coordinators, Agents & Brokerages | Multimedium",
     description:
-      "Custom websites for small businesses and service providers that need better-qualified leads.",
+      "Custom websites for transaction coordinators, real estate agents, and brokerages, designed, written, and built by Haydn. One-page sites from $750. Full websites from $1,500.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -58,14 +54,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Multimedium real estate web design and transaction coordinator websites",
+        alt: "Multimedium: websites for transaction coordinators, agents, and brokerages",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Web Design for Small Businesses | Multimedium",
-    description: "Custom websites for small businesses and service providers.",
+    title: "Websites for Transaction Coordinators, Agents & Brokerages | Multimedium",
+    description:
+      "Custom websites for transaction coordinators, real estate agents, and brokerages, designed, written, and built by Haydn. One-page sites from $750. Full websites from $1,500.",
     images: ["/twitter-image"],
   },
   robots: {
@@ -92,14 +89,12 @@ export default function RootLayout({
           Skip to content
         </a>
         <Navbar />
-        <PageTransition>
-          <main
-            id="main-content"
-            className="pb-[var(--mobile-cta-offset)] md:pb-0"
-          >
-            {children}
-          </main>
-        </PageTransition>
+        <main
+          id="main-content"
+          className="pb-[var(--mobile-cta-offset)] md:pb-0"
+        >
+          {children}
+        </main>
         <MobileStickyCTA />
         <Footer />
         {process.env.VERCEL === "1" && (

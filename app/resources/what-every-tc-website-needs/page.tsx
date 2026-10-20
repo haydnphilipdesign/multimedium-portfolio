@@ -9,7 +9,6 @@ import {
 import { createPageMetadata } from "@/lib/seo";
 import {
   getBreadcrumbStructuredData,
-  getFaqStructuredData,
 } from "@/lib/structuredData";
 
 export const metadata: Metadata = createPageMetadata({
@@ -115,7 +114,6 @@ const structuredData = [
       path: "/resources/what-every-tc-website-needs",
     },
   ]),
-  getFaqStructuredData(faqs),
 ];
 
 export default function WhatEveryTCWebsiteNeedsPage() {

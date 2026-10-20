@@ -25,10 +25,10 @@ export function ContactForm({
   return (
     <form action={action} className="inquiry-form">
       <div className="form-heading">
-        <h2>Tell me about your project.</h2>
+        <h2>Project details</h2>
         <p>
-          Fields marked * are required. Unsure about scope or budget? Choose the
-          guidance option.
+          Fields marked * are required. Unsure about scope or budget? Choose
+          “Not sure yet” or guidance on budget.
         </p>
       </div>
       {state.error && (
@@ -135,11 +135,10 @@ export function ContactForm({
             </select>
           </label>
           <label htmlFor="timeline" className="form-full">
-            When are you hoping to launch? *
+            When are you hoping to launch? <span>(optional)</span>
             <select
               id="timeline"
               name="timeline"
-              required
               defaultValue={v.timeline}
               className="form-control form-select"
             >
@@ -152,7 +151,8 @@ export function ContactForm({
             </select>
           </label>
           <label htmlFor="message" className="form-full">
-            What would you like the website to do? *
+            What does your business do, and what should the website help
+            with? *
             <textarea
               id="message"
               name="message"
@@ -160,7 +160,7 @@ export function ContactForm({
               maxLength={5000}
               rows={5}
               defaultValue={v.message}
-              placeholder="A little about your business, your customers, and what needs to change."
+              placeholder="e.g., I’m a TC in Ohio working with about 15 agents. I want a site where agents can see my services and send me files."
               className="form-control form-textarea"
             />
           </label>
@@ -212,7 +212,7 @@ export function ContactForm({
           <TurnstileWidget siteKey={siteKey} resetKey={state.attempt} />
         )}
         <button type="submit" className="btn-primary mt-6" disabled={pending}>
-          {pending ? "Sending your inquiry…" : "Send project inquiry ↗"}
+          {pending ? "Sending your inquiry…" : "Send project inquiry"}
         </button>
         <p aria-live="polite" className="form-note">
           {pending

@@ -7,12 +7,13 @@ export function Footer() {
         <div className="footer-grid">
           <div>
             <Link href="/" className="studio-wordmark">
-              multimedium.
+              <span className="brand-symbol" aria-hidden="true">
+                m.
+              </span>
+              multimedium<span className="brand-period">.</span>
             </Link>
             <p className="mt-5 max-w-xs text-muted-foreground">
-              Independent web design & development.
-              <br />
-              Based in the Poconos. Built for your business.
+              Websites for transaction coordinators, agents, and brokerages.
             </p>
             <a
               href={"mailto:" + siteEmail}
@@ -21,27 +22,24 @@ export function Footer() {
               {siteEmail}
             </a>
           </div>
+          <nav aria-label="Footer">
+            <Link href="/work">Work</Link>
+            <Link href="/transaction-coordinators">Transaction coordinators</Link>
+            <Link href="/agents-and-brokerages">Agents & brokerages</Link>
+            <Link href="/pricing">Pricing</Link>
+          </nav>
           <div>
-            <p className="eyebrow">Work together</p>
-            <Link href="/services/website">Custom websites</Link>
-            <Link href="/services/landing-pages">One-page websites</Link>
-            <Link href="/services/growth-retainers">Hosting & support</Link>
-            <Link href="/tc-packages">TC website packages</Link>
-            <Link href="/contact">Start a project</Link>
-          </div>
-          <div>
-            <p className="eyebrow">Explore</p>
-            <Link href="/work">Client work</Link>
-            <Link href="/about">About Haydn</Link>
-            <Link href="/industries">Who I work with</Link>
-            <Link href="/tools">Products & tools</Link>
-            <Link href="/lab">Design lab</Link>
+            <Link href="/about">About</Link>
             <Link href="/resources">Free TC resources</Link>
+            <Link href="/contact?source=footer">Start a project</Link>
           </div>
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Multimedium</span>
-          <span>Design, development, and a person you can reach.</span>
+          <span>
+            Based in the Poconos, PA. Working with clients across the US and
+            Puerto Rico.
+          </span>
         </div>
       </div>
     </footer>

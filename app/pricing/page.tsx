@@ -13,7 +13,9 @@ import {
   ProjectCTA,
   SectionHeading,
 } from "@/components/marketing/Studio";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
+import { getServiceStructuredData } from "@/lib/structuredData";
 
 export const metadata = createPageMetadata({
   title: "Pricing — Real Estate Websites from $750",
@@ -33,6 +35,16 @@ const rows = [
 export default function Pricing() {
   return (
     <>
+      <JsonLd
+        data={packages.map((p) =>
+          getServiceStructuredData({
+            name: p.name,
+            description: p.bestFor + ". " + p.pages + ".",
+            path: "/pricing",
+            price: p.startingPrice,
+          }),
+        )}
+      />
       <PageIntro
         title={
           <>

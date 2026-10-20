@@ -96,17 +96,37 @@ None of these block Phase 2. Copy marked [CONFIRM]/[ASK CLIENT] stays out of the
   - Resource pages no longer offer an "automation add-on" and no longer use the TC-branded package names.
 - **Verified:** `pnpm build`, `pnpm lint`, and both test suites pass. Every changed page, on a production build at 1440 and 390 px, has 0 axe violations (WCAG 2.1 AA + best practice), 0 console errors, and no horizontal overflow.
 
-**Phase 3 still to do:**
+**Phase 3 (built 2026-10-20 on the same branch; ships together with Phase 2)**
 
-- Nav, footer, and mobile sticky bar. They still link to `/services`, `/tc-packages`, `/industries`, `/tools`, and `/lab`.
-- Redirects and route/data deletions.
-- Sitemap and JSON-LD.
-- Contact form tweaks.
-- Flyer links.
-- Removing `framer-motion`, `shadcn`, `tw-animate-css`, and `class-variance-authority` from `package.json`.
-- Deleting `lib/resources/tc-intake-checklist.ts`, which is now unused.
+- **Owner decision:** email and form only on `/contact`. No booking link, and no phone number anywhere, including structured data.
+- **Navigation:**
+  - The nav and footer follow copy deck §0. Below 1000px the five nav links collapse into the menu.
+  - The mobile bar reads "Replies within 1 business day · Start a project", with no price.
+  - The 404 page links to Pricing.
+- **Removed:** `/industries/*`, `/services/*`, `/tc-packages`, `/tools`, `/lab`, `/lp/real-estate`, and every non-client project with its images. Also removed:
+  - the Client Portal images and the starter SVGs
+  - `content/services.ts` and `content/tc-packages.ts`
+  - the `TCPackages`, `IndustryDetail`, `ServiceDetail`, and `PageTransition` components
+  - `lib/utils.ts` and `lib/resources/`
+  - `components.json`, the stray logs, and `output/`
+- **Dependencies removed:** `framer-motion`, `shadcn`, `class-variance-authority`, `clsx`, `tailwind-merge`, and `tw-animate-css`. The lockfile is regenerated.
+- **Redirects:** the brief §8 map lives in `next.config.ts`, plus `/agents-and-teams`. Every old URL was verified to resolve in a single 308 hop.
+- **Data:** `getAllProjectSlugs()` returns client work only, and unknown `/work/*` slugs 404.
+- **SEO:**
+  - The sitemap lists only the 18 indexable URLs, with no build-time `lastModified`.
+  - Site-wide title, description, OG/Twitter images, and JSON-LD now describe the real estate positioning: service area US + Puerto Rico, no telephone.
+  - Every FAQ section emits FAQ schema, and `/pricing` emits one Service per package.
+- **Contact:**
+  - Copy deck §7 copy: the "What happens next" aside, the new message label and placeholder, and the package-based project types.
+  - Timeline is optional.
+  - Legacy `projectType=website/landing` links still pre-fill correctly.
+- **Copy cleanup:** "managed hosting" is now "hosting & care" on `/mytcacademy` and the flyer, and the flyer no longer says "service-based businesses."
+- **Verified on a production build:**
+  - lint, TypeScript, and both test suites pass (a test for the optional timeline was added)
+  - a full crawl found 27 URLs, all 200, with no internal links to redirects or 404s
+  - 0 axe violations, 0 console errors, and no horizontal overflow at 1440 and 390 px
 
-Merge Phase 2 only together with Phase 3. Until then the new pages aren't in the nav, and the old pages duplicate them.
+**Left for Phase 4/5:** screen reader pass, a real contact form submission on the Vercel preview, throttled-mobile performance numbers, Search Console, external links (Facebook posts in `content/marketing/facebook/`, the flyer PDF, email signature), and a README rewrite.
 
 ---
 

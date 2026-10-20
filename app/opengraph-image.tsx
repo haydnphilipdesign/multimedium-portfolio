@@ -23,14 +23,14 @@ export default function Image() {
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: 76,
+            fontSize: 64,
             fontWeight: 600,
             letterSpacing: -4,
             lineHeight: 1.08,
           }}
         >
-          <span>Good businesses deserve</span>
-          <span style={{ color: "#204bcc" }}>better websites.</span>
+          <span>Websites for the people who get</span>
+          <span style={{ color: "#204bcc" }}>deals to the closing table.</span>
         </div>
         <div
           style={{
@@ -39,7 +39,7 @@ export default function Image() {
             fontSize: 23,
           }}
         >
-          <span>Custom web design & development</span>
+          <span>For transaction coordinators, agents & brokerages</span>
           <span>multimedium.dev</span>
         </div>
       </div>

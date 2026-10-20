@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Project } from "@/content/projects";
 import type { Faq } from "@/content/faqs";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getFaqStructuredData } from "@/lib/structuredData";
 import {
   packages,
   hosting,
@@ -161,6 +163,7 @@ export function FaqList({
 }) {
   return (
     <section className="studio-shell studio-section faq-section">
+      <JsonLd data={getFaqStructuredData(faqs)} />
       <div>
         <p className="eyebrow">FAQ</p>
         <h2>{title}</h2>

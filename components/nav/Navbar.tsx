@@ -3,12 +3,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Dialog } from "@base-ui/react/dialog";
-import { IconMenu2, IconX, IconArrowUpRight } from "@tabler/icons-react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 const links = [
   { href: "/work", label: "Work" },
-  { href: "/services", label: "Services" },
+  { href: "/transaction-coordinators", label: "Transaction coordinators" },
+  { href: "/agents-and-brokerages", label: "Agents & brokerages" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
-  { href: "/tc-packages", label: "TC websites" },
 ];
 export function Navbar() {
   const pathname = usePathname();
@@ -36,7 +37,7 @@ export function Navbar() {
             ))}
           </div>
           <Link className="btn-primary nav-project" href={contact}>
-            Start a project <IconArrowUpRight size={18} />
+            Start a project <span aria-hidden="true">→</span>
           </Link>
           <Dialog.Trigger
             className="mobile-menu touch-target"
@@ -75,12 +76,12 @@ export function Navbar() {
               href={contact}
               onClick={() => setOpen(false)}
             >
-              Start a project <IconArrowUpRight size={18} />
+              Start a project <span aria-hidden="true">→</span>
             </Link>
           </nav>
           <p className="mt-8 text-muted-foreground">
-            Custom websites. Direct communication. Thoughtful work from start to
-            launch.
+            Websites for real estate professionals. One person, start to
+            finish.
           </p>
         </Dialog.Popup>
       </Dialog.Portal>

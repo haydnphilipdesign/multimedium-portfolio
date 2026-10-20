@@ -104,7 +104,7 @@ const faqs = [
   },
   {
     q: "What's the My TC Academy referral perk?",
-    a: "Every project includes the first month of managed hosting. Because Jennifer sent you, you get 3 more months on top — four months total before the $59/month begins (a $177 value on the referral perk). It isn't a discount; it's a perk she set up so her students start without the hosting cost upfront.",
+    a: "Every project includes the first month of hosting & care. Because Jennifer sent you, you get 3 more months on top — four months total before the $59/month begins (a $177 value on the referral perk). It isn't a discount; it's a perk she set up so her students start without the hosting cost upfront.",
   },
   {
     q: "What if I already have a website and just want it improved?",
@@ -120,7 +120,7 @@ const tcNames = {
   custom: "TC Pro",
 } as const;
 
-const contactHref = "/contact?source=mytcacademy&projectType=website";
+const contactHref = "/contact?source=mytcacademy";
 
 export default function MyTCAcademyPage() {
   const featured = [
@@ -277,8 +277,8 @@ export default function MyTCAcademyPage() {
           </p>
         </div>
         <div>
-          <h3 className="academy-steps-title">How it works</h3>
-          <ol className="academy-steps">
+          <h3 className="steps-list-title">How it works</h3>
+          <ol className="steps-list">
             <li>Pick a package and reach out through this page</li>
             <li>
               We&apos;ll have a quick conversation about your business and goals

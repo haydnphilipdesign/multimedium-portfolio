@@ -91,7 +91,7 @@ export default async function ReviewPage({ searchParams }: ReviewPageProps) {
                 </div>
                 <div className="academy-panel">
                     <h2>Not sure what to write? Start with what mattered.</h2>
-                    <ol className="academy-steps">
+                    <ol className="steps-list">
                         <li>What problem or goal brought you to me?</li>
                         <li>What was working together like?</li>
                         <li>What changed or improved after the project?</li>

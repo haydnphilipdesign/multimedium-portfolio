@@ -4,7 +4,6 @@ import {
   getAllProjectSlugs,
   getClientProjects,
   getProjectBySlug,
-  type Project,
 } from "@/content/projects";
 import { getPackage, packageContactHref } from "@/content/packages";
 import {
@@ -15,6 +14,8 @@ import {
 import { createPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
@@ -38,9 +39,8 @@ function hostname(url: string) {
 export default async function CaseStudy({ params }: Props) {
   const p = getProjectBySlug((await params).slug);
   if (!p) notFound();
-  // Products, concepts, and personal projects are removed in Phase 3.
-  // Until then they keep a minimal page, clearly labeled.
-  if (p.kind !== "Client" || !p.story) return <LegacyProject p={p} />;
+  // Case studies are client work only (brief §5).
+  if (p.kind !== "Client" || !p.story) notFound();
 
   const story = p.story;
   const pkg = story.package ? getPackage(story.package) : undefined;
@@ -251,42 +251,6 @@ export default async function CaseStudy({ params }: Props) {
           <Link href={"/work/" + next.slug}>{next.title} →</Link>
         </nav>
       )}
-      <ProjectCTA />
-    </>
-  );
-}
-
-function LegacyProject({ p }: { p: Project }) {
-  const label =
-    p.kind === "Product"
-      ? "Independent product"
-      : p.kind === "Concept"
-        ? "Self-initiated concept · fictional business"
-        : "Personal project";
-  return (
-    <>
-      <header className="studio-shell page-intro">
-        <Link href="/work" className="text-link">
-          ← Client work
-        </Link>
-        <p className="eyebrow mt-8">
-          {label} / {p.year}
-        </p>
-        <h1>{p.title}</h1>
-        <p className="intro-copy">{p.description}</p>
-      </header>
-      <section className="studio-shell studio-section case-steps">
-        {[p.heroImage, ...p.images.filter((i) => i !== p.heroImage)].map(
-          (src) => (
-            <BrowserFrame
-              key={src}
-              src={src}
-              alt={p.title + " screenshot"}
-              sizes="(max-width: 1300px) 100vw, 1240px"
-            />
-          ),
-        )}
-      </section>
       <ProjectCTA />
     </>
   );

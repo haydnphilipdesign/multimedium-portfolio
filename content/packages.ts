@@ -10,6 +10,8 @@ export type Package = {
   id: PackageId;
   name: string;
   price: string;
+  /** Starting price in USD, for structured data. */
+  startingPrice: number;
   /** Short line for summaries (home pricing row). */
   summary: string;
   bestFor: string;
@@ -23,7 +25,7 @@ export type Package = {
   /** Real client work at this level, linked from pricing and audience pages. */
   examples: { slug: string; title: string }[];
   /** Contact form pre-fill keys (see app/contact/validation.ts). */
-  projectType: "landing" | "website";
+  projectType: PackageId;
   budgetRange: "under1k" | "1to3k" | "3to5k";
 };
 
@@ -32,6 +34,7 @@ export const packages: Package[] = [
     id: "one-page",
     name: "One-page site",
     price: "$750",
+    startingPrice: 750,
     summary: "One focused page, written for you. About 2 weeks.",
     bestFor: "New solo TCs or agents who need a credible home quickly",
     pages: "1 scrolling page",
@@ -47,13 +50,14 @@ export const packages: Package[] = [
     examples: [
       { slug: "tag-landing-page", title: "Transaction Authority Group" },
     ],
-    projectType: "landing",
+    projectType: "one-page",
     budgetRange: "under1k",
   },
   {
     id: "full",
     name: "Full website",
     price: "$1,500",
+    startingPrice: 1500,
     summary: "Up to 5 pages, intake forms, copy written for you. About 3–4 weeks.",
     bestFor:
       "Established TCs, agents, and small offices ready for a complete site",
@@ -75,13 +79,14 @@ export const packages: Package[] = [
         title: "PA Real Estate Support Services",
       },
     ],
-    projectType: "website",
+    projectType: "full",
     budgetRange: "1to3k",
   },
   {
     id: "custom",
     name: "Custom build",
     price: "from $3,000",
+    startingPrice: 3000,
     summary:
       "Brokerages, TC companies, and bigger projects. About 5–8 weeks.",
     bestFor:
@@ -97,7 +102,7 @@ export const packages: Package[] = [
         "Brokerage brand, seller-package comparisons, agent profiles, recruiting, and client resources. MLS listings when your MLS allows.",
     },
     examples: [{ slug: "haven-compass-realty", title: "Haven Compass Realty" }],
-    projectType: "website",
+    projectType: "custom",
     budgetRange: "3to5k",
   },
 ];

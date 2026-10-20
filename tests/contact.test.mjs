@@ -13,7 +13,7 @@ const valid = {
   name: "Test Owner",
   email: "owner@example.com",
   message: "A custom website for my service business.",
-  projectType: "website",
+  projectType: "full",
   budgetRange: "1to3k",
   timeline: "1to2mo",
   package: "TC Growth",
@@ -42,6 +42,10 @@ test("rejects invalid selections and accepts guidance", () => {
     }),
     undefined,
   );
+});
+test("timeline is optional but must be a listed value when given", () => {
+  assert.equal(validateContact({ ...valid, timeline: "" }), undefined);
+  assert.ok(validateContact({ ...valid, timeline: "yesterday" }));
 });
 test("validates contact information and website URLs", () => {
   assert.ok(validateContact({ ...valid, email: "invalid" }));

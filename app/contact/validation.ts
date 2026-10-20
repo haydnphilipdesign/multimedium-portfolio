@@ -1,9 +1,16 @@
+// Keys for the three packages match the ids in content/packages.ts.
 export const projectTypes: Record<string, string> = {
-  website: "Full website / redesign",
-  landing: "One-page website / landing page",
-  retainer: "Hosting, maintenance, or updates",
+  "one-page": "One-page site",
+  full: "Full website",
+  custom: "Custom build",
+  retainer: "Hosting or updates to an existing site",
   "referral-partnership": "Referral partnership",
-  other: "Something else / help me decide",
+  other: "Not sure yet. Help me decide.",
+};
+// Older links (flyer PDF, social posts) use these values.
+export const legacyProjectTypes: Record<string, string> = {
+  landing: "one-page",
+  website: "full",
 };
 export const budgetRanges: Record<string, string> = {
   under1k: "$750–$1,499 · focused one-page project",
@@ -82,9 +89,9 @@ export function validateContact(v: ContactValues): string | undefined {
   if (
     !Object.hasOwn(projectTypes, v.projectType) ||
     !Object.hasOwn(budgetRanges, v.budgetRange) ||
-    !Object.hasOwn(timelines, v.timeline)
+    (v.timeline !== "" && !Object.hasOwn(timelines, v.timeline))
   )
-    return "Please choose a project type, budget, and timeline. It’s fine to choose guidance or flexible.";
+    return "Please choose a project type and budget. It’s fine to choose “Not sure yet” or guidance on budget.";
   if (v.message.length > 5000)
     return "Please keep your message under 5,000 characters.";
   if (v.currentUrl.length > 1000)
