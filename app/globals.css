@@ -1006,6 +1006,88 @@ em {
   font-size: 15px;
   color: var(--muted-foreground);
 }
+/* Case studies */
+.case-snapshot {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
+  margin-top: 40px;
+}
+.case-snapshot div {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+.case-snapshot dt {
+  font-size: 11px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  margin-bottom: 6px;
+}
+.case-snapshot dd {
+  font-size: 15px;
+}
+.case-steps {
+  display: grid;
+  gap: 64px;
+}
+.case-step {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.case-step:nth-child(even) {
+  grid-template-columns: 1fr 1.6fr;
+}
+.case-step:nth-child(even) .browser-frame {
+  order: 2;
+}
+.case-step h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.case-step p {
+  color: var(--muted-foreground);
+  font-size: 16px;
+}
+.client-quote p {
+  font-family: var(--font-brand-display), serif;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.35;
+  max-width: 900px;
+}
+.client-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-top: 18px;
+}
+.next-case {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-block: 36px 70px;
+}
+.next-case .eyebrow {
+  margin: 0;
+}
+.next-case a {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.next-case a:hover {
+  color: var(--primary);
+}
 /* Pricing: three columns whose rows line up (subgrid), stacked on mobile. */
 .pricing-columns {
   display: grid;
@@ -1560,6 +1642,20 @@ em {
   }
   .pricing-columns {
     gap: 22px;
+  }
+  .case-snapshot {
+    grid-template-columns: 1fr;
+  }
+  .case-step,
+  .case-step:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .case-step:nth-child(even) .browser-frame {
+    order: 0;
+  }
+  .case-steps {
+    gap: 44px;
   }
   .pricing-column {
     padding: 24px;

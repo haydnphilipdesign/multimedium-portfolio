@@ -1,163 +1,290 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
-import { getAllProjectSlugs, getProjectBySlug } from "@/content/projects";
-import { ProjectCTA } from "@/components/marketing/Studio";
+import {
+  getAllProjectSlugs,
+  getClientProjects,
+  getProjectBySlug,
+  type Project,
+} from "@/content/projects";
+import { getPackage, packageContactHref } from "@/content/packages";
+import {
+  BrowserFrame,
+  ProjectCTA,
+  SectionHeading,
+} from "@/components/marketing/Studio";
 import { createPageMetadata } from "@/lib/seo";
+
 type Props = { params: Promise<{ slug: string }> };
+
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
+
 export async function generateMetadata({ params }: Props) {
   const p = getProjectBySlug((await params).slug);
   if (!p) return { title: "Project not found" };
   return createPageMetadata({
     title: p.metaTitle || p.title,
-    description: p.description,
+    description: p.metaDescription || p.description,
     path: "/work/" + p.slug,
     robots: p.featured ? undefined : { index: false, follow: true },
   });
 }
+
+function hostname(url: string) {
+  return new URL(url).hostname.replace(/^www\./, "");
+}
+
 export default async function CaseStudy({ params }: Props) {
   const p = getProjectBySlug((await params).slug);
   if (!p) notFound();
+  // Products, concepts, and personal projects are removed in Phase 3.
+  // Until then they keep a minimal page, clearly labeled.
+  if (p.kind !== "Client" || !p.story) return <LegacyProject p={p} />;
+
+  const story = p.story;
+  const pkg = story.package ? getPackage(story.package) : undefined;
+  const clients = getClientProjects();
+  const next = clients[(clients.indexOf(p) + 1) % clients.length];
+  // When the hero is also the first annotated screenshot, show it once.
+  const heroInSteps = p.process.some((s) => s.image === p.heroImage);
+  const startingPoint = [
+    ...(story.relationship ? [story.relationship] : []),
+    ...(story.startingPoint ?? []),
+  ];
+
   return (
     <>
-      <div className="studio-shell page-intro">
-        <Link
-          href={
-            p.kind === "Client"
-              ? "/work"
-              : p.kind === "Product"
-                ? "/tools"
-                : "/lab"
-          }
-          className="text-link"
-        >
-          ←{" "}
-          {p.kind === "Client"
-            ? "Client work"
-            : p.kind === "Product"
-              ? "Products"
-              : "Design lab"}
+      <header className="studio-shell page-intro case-header">
+        <Link href="/work" className="text-link">
+          ← Client work
         </Link>
         <p className="eyebrow mt-8">
-          {p.kind === "Client"
-            ? "Client website"
-            : p.kind === "Product"
-              ? "Independent product"
-              : p.kind === "Concept"
-                ? "Self-initiated concept · fictional business"
-                : "Personal project"}{" "}
-          / {p.year}
+          {[story.businessType, pkg?.name, p.year].filter(Boolean).join(" · ")}
         </p>
         <h1>{p.title}</h1>
-        <p className="intro-copy">{p.tagline}</p>
-        <div className="hero-actions">
-          {p.externalUrl && (
+        <p className="intro-copy">{story.summary}</p>
+        {p.externalUrl && (
+          <div className="hero-actions">
             <a
               href={p.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              Visit {p.kind === "Concept" ? "demo" : "live site"} ↗
+              Visit live site <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
-          )}
-          <Link
-            href={"/contact?source=project-" + p.slug}
-            className="text-link"
-          >
-            Discuss a project like this ↗
-          </Link>
-        </div>
-      </div>
+          </div>
+        )}
+      </header>
+
       <section className="studio-shell">
-        <div className="case-hero">
-          <Image
+        {!heroInSteps && (
+          <BrowserFrame
             src={p.heroImage}
-            alt={p.title + " website overview"}
-            width={1600}
-            height={1100}
-            sizes="(max-width:800px) 100vw, 1240px"
+            alt={"The " + p.title + " homepage"}
+            url={p.externalUrl}
+            width={1920}
+            height={1080}
+            sizes="(max-width: 1300px) 100vw, 1240px"
             priority
           />
-        </div>
-        <div className="case-overview studio-section">
+        )}
+        <dl className="case-snapshot">
           <div>
-            <p className="eyebrow">The project</p>
-            <h2>
-              {p.kind === "Client"
-                ? "A site built around the business."
-                : "Design and development in practice."}
-            </h2>
-            <p className="mt-6 text-muted-foreground">{p.description}</p>
+            <dt>Client</dt>
+            <dd>{p.client}</dd>
           </div>
-          <dl>
+          {story.location && (
             <div>
-              <dt>My role</dt>
-              <dd>{p.role}</dd>
+              <dt>Location</dt>
+              <dd>{story.location}</dd>
             </div>
+          )}
+          <div>
+            <dt>Type of business</dt>
+            <dd>{story.businessType}</dd>
+          </div>
+          <div>
+            <dt>What I did</dt>
+            <dd>{story.whatIDid}</dd>
+          </div>
+          {pkg && (
             <div>
-              <dt>Category</dt>
-              <dd>{p.category}</dd>
+              <dt>Package</dt>
+              <dd>
+                <Link href="/pricing" className="text-link">
+                  {pkg.name}
+                </Link>
+              </dd>
             </div>
+          )}
+          {p.externalUrl && (
             <div>
-              <dt>Built with</dt>
-              <dd>{p.tools.join(" · ")}</dd>
+              <dt>Live site</dt>
+              <dd>
+                <a
+                  href={p.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                >
+                  {hostname(p.externalUrl)} ↗
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </dd>
             </div>
-          </dl>
-        </div>
-        <div className="case-story">
-          <section>
-            <p className="eyebrow">01 / The challenge</p>
-            <h2>What the site needed to solve.</h2>
-            <p>{p.problem}</p>
-          </section>
-          <section>
-            <p className="eyebrow">02 / The approach</p>
-            <h2>How I approached it.</h2>
-            <p>{p.solution}</p>
-          </section>
-        </div>
-        {p.caseStudy?.delivered?.length ? (
-          <section className="studio-section">
-            <p className="eyebrow">What was delivered</p>
-            <ul className="deliverables">
-              {p.caseStudy.delivered.map((t) => (
-                <li key={t}>
-                  <span aria-hidden="true">✓</span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-        <div className="case-gallery">
-          {p.images
-            .filter((src) => src !== p.heroImage)
-            .map((src, i) => (
-              <figure key={src}>
-                <Image
-                  src={src}
-                  alt={p.title + " — website detail " + (i + 1)}
-                  width={1440}
-                  height={1000}
-                  sizes="(max-width:800px) 100vw, 60vw"
-                />
-                <figcaption>
-                  Website detail / {String(i + 1).padStart(2, "0")}
-                </figcaption>
-              </figure>
+          )}
+        </dl>
+      </section>
+
+      {startingPoint.length > 0 && (
+        <section className="studio-shell studio-section split-section">
+          <h2>The starting point</h2>
+          <div>
+            {startingPoint.map((t) => (
+              <p key={t}>{t}</p>
             ))}
+          </div>
+        </section>
+      )}
+
+      <section className="studio-shell studio-section rule-top">
+        <SectionHeading title="What I built" />
+        <div className="case-steps">
+          {p.process.map((step) => (
+            <figure key={step.title} className="case-step">
+              {step.image && (
+                <BrowserFrame
+                  src={step.image}
+                  alt={p.title + " website: " + step.title.toLowerCase()}
+                  url={p.externalUrl}
+                  {...(step.image === p.heroImage
+                    ? { width: 1920, height: 1080 }
+                    : {})}
+                  sizes="(max-width: 800px) 100vw, 60vw"
+                />
+              )}
+              <figcaption>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
-        {p.testimonial && (
-          <blockquote className="studio-section text-2xl">
-            “{p.testimonial.quote}”
-            <cite className="block text-sm mt-4">
+      </section>
+
+      {story.decisions?.length ? (
+        <section className="tint-band">
+          <div className="studio-shell studio-section">
+            <SectionHeading title="Decisions worth noting" />
+            <div className="reasons-grid">
+              {story.decisions.map((d) => (
+                <div key={d.title}>
+                  <h3>{d.title}</h3>
+                  <p>{d.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Renders only with an approved quote (brief §5.3). */}
+      {p.testimonial && (
+        <section className="studio-shell studio-section">
+          <blockquote className="client-quote">
+            <p>“{p.testimonial.quote}”</p>
+            <cite>
               {p.testimonial.author}, {p.testimonial.role}
             </cite>
           </blockquote>
+        </section>
+      )}
+
+      {/* Renders only with confirmed, sourced results (brief §5.5). */}
+      {p.outcomes.length > 0 && (
+        <section className="studio-shell studio-section">
+          <SectionHeading title="Results" />
+          <dl className="case-snapshot">
+            {p.outcomes.map((o) => (
+              <div key={o.metric}>
+                <dt>{o.metric}</dt>
+                <dd>
+                  <strong>{o.value}</strong> {o.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      {pkg && (
+        <section className="studio-shell studio-section rule-top split-section">
+          <div>
+            <p className="eyebrow">A project like this</p>
+            <h2>
+              {pkg.name}, {pkg.price}
+            </h2>
+          </div>
+          <div>
+            <p>{pkg.summary}</p>
+            <div className="hero-actions">
+              <Link
+                href={packageContactHref(pkg, "case-study-" + p.slug)}
+                className="btn-primary"
+              >
+                Start a project like this <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/pricing" className="text-link">
+                Compare packages →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {next && next.slug !== p.slug && (
+        <nav className="studio-shell next-case" aria-label="Next case study">
+          <span className="eyebrow">Next case study</span>
+          <Link href={"/work/" + next.slug}>{next.title} →</Link>
+        </nav>
+      )}
+      <ProjectCTA />
+    </>
+  );
+}
+
+function LegacyProject({ p }: { p: Project }) {
+  const label =
+    p.kind === "Product"
+      ? "Independent product"
+      : p.kind === "Concept"
+        ? "Self-initiated concept · fictional business"
+        : "Personal project";
+  return (
+    <>
+      <header className="studio-shell page-intro">
+        <Link href="/work" className="text-link">
+          ← Client work
+        </Link>
+        <p className="eyebrow mt-8">
+          {label} / {p.year}
+        </p>
+        <h1>{p.title}</h1>
+        <p className="intro-copy">{p.description}</p>
+      </header>
+      <section className="studio-shell studio-section case-steps">
+        {[p.heroImage, ...p.images.filter((i) => i !== p.heroImage)].map(
+          (src) => (
+            <BrowserFrame
+              key={src}
+              src={src}
+              alt={p.title + " screenshot"}
+              sizes="(max-width: 1300px) 100vw, 1240px"
+            />
+          ),
         )}
       </section>
       <ProjectCTA />
