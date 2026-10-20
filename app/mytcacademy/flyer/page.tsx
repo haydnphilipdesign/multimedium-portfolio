@@ -159,8 +159,8 @@ export default function FlyerPage() {
             >
               Hi! I&apos;m Haydn, the designer behind Multimedium. Jennifer
               connected you with this page because she trusts the work I do for
-              transaction coordinators, real estate professionals, and
-              service-based businesses. I build websites that help TCs look
+              transaction coordinators and real estate professionals. I build
+              websites that help TCs look
               credible, explain their services clearly, and turn visitors into
               real leads.
             </p>
@@ -341,7 +341,7 @@ export default function FlyerPage() {
                     lineHeight: 1.35,
                   }}
                 >
-                  3 months of free managed hosting — not a coupon.
+                  3 months of free hosting & care — not a coupon.
                 </p>
                 <p
                   style={{
@@ -351,7 +351,7 @@ export default function FlyerPage() {
                     lineHeight: 1.55,
                   }}
                 >
-                  Every project includes the first month of managed hosting. As
+                  Every project includes the first month of hosting & care. As
                   a My TC Academy student, you get 3 more months on top — four
                   months before the $59/month begins.
                 </p>

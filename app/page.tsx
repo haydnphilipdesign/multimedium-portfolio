@@ -1,270 +1,224 @@
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "@/content/projects";
+import { getHomeFeaturedProjects, getProjectBySlug } from "@/content/projects";
+import { packages, hosting } from "@/content/packages";
+import { homeFaqs } from "@/content/faqs";
 import {
+  BrowserFrame,
+  FaqList,
   ProjectTile,
   ProjectCTA,
   Process,
+  SectionHeading,
 } from "@/components/marketing/Studio";
 import { createPageMetadata } from "@/lib/seo";
-export const metadata = createPageMetadata({
-  title: "Custom Web Design for Small & Service Businesses",
-  description:
-    "Custom websites by independent designer and developer Haydn. Thoughtful design, clear communication, and technical depth. Full websites from $1,500.",
-  path: "/",
-});
+
+const title =
+  "Websites for Transaction Coordinators, Agents & Brokerages | Multimedium";
+
+export const metadata = {
+  ...createPageMetadata({
+    title,
+    description:
+      "Custom websites for transaction coordinators, real estate agents, and brokerages, designed, written, and built by Haydn. One-page sites from $750. Full websites from $1,500.",
+    path: "/",
+  }),
+  // The root layout's title template doesn't apply to the root page itself.
+  title: { absolute: title },
+};
+
+const proofBar = [
+  "haven-compass-realty",
+  "structured-closings",
+  "pa-real-estate-support",
+  "tag-landing-page",
+];
+
 export default function HomePage() {
-  const selected = ["tag-landing-page", "blissful-existence"].map(
-    (s) => projects.find((p) => p.slug === s)!,
-  );
+  const recent = getHomeFeaturedProjects();
+  const haven = getProjectBySlug("haven-compass-realty")!;
   return (
     <>
       <section className="studio-shell home-hero">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="small-cross" aria-hidden="true">
-              ✳
-            </span>{" "}
-            Independent web design & development
+            Web design for transaction coordinators, agents & brokerages
           </p>
           <h1>
-            Good businesses
-            <br />
-            deserve{" "}
-            <em>
-              better
-              <br className="desktop-break" /> websites.
-            </em>
+            Websites for the people who get deals to the{" "}
+            <em>closing table.</em>
           </h1>
           <p className="hero-description">
-            Custom websites that make your business look the part—and make it
-            easier for the right customers to get in touch.
+            I’m Haydn. I design, write, and build websites for real estate
+            professionals: sites that explain what you do in plain terms, look
+            as organized as you are, and make it easy to hire you, start a file,
+            or book a consultation.
           </p>
           <div className="hero-actions">
             <Link href="/contact?source=home-hero" className="btn-primary">
-              Start a project <span aria-hidden="true">↗</span>
+              Start a project <span aria-hidden="true">→</span>
             </Link>
-            <Link href="/work" className="text-link">
-              Explore the work <span aria-hidden="true">↓</span>
+            <Link href="/pricing" className="text-link">
+              See pricing →
             </Link>
           </div>
           <p className="hero-price">
-            Full websites from <strong>$1,500</strong> · One-page sites from{" "}
-            <strong>$750</strong>
+            One-page sites from {packages[0].price} · Full websites from{" "}
+            {packages[1].price}
           </p>
         </div>
-        <div className="hero-work">
-          <div className="hero-work-top">
-            <span>SELECTED CLIENT WORK / 01</span>
-            <span aria-hidden="true">↗</span>
-          </div>
-          <Link href="/work/pa-real-estate-support" className="hero-screen">
-            <Image
-              src="/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-hero.webp"
-              alt="PA Real Estate Support Services custom website"
-              width={1440}
-              height={1000}
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 800px) 100vw, 50vw"
-            />
-          </Link>
-          <div className="hero-work-caption">
-            <div>
-              <strong>PA Real Estate Support Services</strong>
-              <span>Strategy · Design · Development</span>
-            </div>
-            <Link
-              href="/work/pa-real-estate-support"
-              aria-label="View project: PA Real Estate Support Services"
-            >
-              View project ↗
+        <figure className="hero-work">
+          <BrowserFrame
+            src={haven.heroImage}
+            alt="The Haven Compass Realty homepage: “A clear path home.” with buttons to request a consultation or explore selling"
+            url={haven.externalUrl}
+            width={1920}
+            height={1080}
+            sizes="(max-width: 800px) 100vw, 50vw"
+            priority
+          />
+          <figcaption>
+            Haven Compass Realty, a new Connecticut brokerage.{" "}
+            <Link href="/work/haven-compass-realty" className="text-link">
+              View the case study →
             </Link>
-          </div>
-          <div className="hero-work-note">
-            <span aria-hidden="true">✳</span> Real businesses. Thoughtfully
-            built.
-          </div>
-        </div>
+          </figcaption>
+        </figure>
       </section>
-      <div className="expertise-strip">
+
+      <div className="proof-bar">
         <div className="studio-shell">
-          <span>Built around your business</span>
-          <span>Custom design & code</span>
-          <span>Direct access to your designer</span>
-          <span>Support after launch</span>
+          <p className="eyebrow">Recent work for</p>
+          <ul>
+            {proofBar.map((slug) => {
+              const p = getProjectBySlug(slug)!;
+              return (
+                <li key={slug}>
+                  <Link href={"/work/" + slug}>{p.title}</Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
+
       <section className="studio-shell studio-section">
-        <div className="section-top">
-          <div>
-            <p className="eyebrow">Selected work</p>
-            <h2>
-              Different businesses.
-              <br />
-              <em>The same care.</em>
-            </h2>
-          </div>
-          <Link href="/work" className="text-link">
-            View all client work ↗
+        <SectionHeading title="Who I build for" />
+        <div className="path-grid">
+          <Link href="/transaction-coordinators">
+            <h3>Transaction coordinators & TC companies</h3>
+            <p>
+              Agents decide whether to send you a file after a quick look at
+              your site. I make what you handle, what it costs, and how to start
+              a file obvious.
+            </p>
+            <span className="text-link">Websites for TCs →</span>
+          </Link>
+          <Link href="/agents-and-brokerages">
+            <h3>Agents & brokerages</h3>
+            <p>
+              Your own brand, not a franchise template, with clear paths for
+              buyers and sellers, honest service details, and your real reviews.
+            </p>
+            <span className="text-link">
+              Websites for agents & brokerages →
+            </span>
           </Link>
         </div>
-        <div className="project-grid">
-          {selected.map((p) => (
-            <ProjectTile key={p.slug} project={p} />
-          ))}
-        </div>
       </section>
-      <section className="services-band">
+
+      <section className="tint-band">
         <div className="studio-shell studio-section">
-          <div className="section-top">
-            <div>
-              <p className="eyebrow">What I can help with</p>
-              <h2>
-                A website that fits
-                <br />
-                where you’re going.
-              </h2>
-            </div>
-            <p className="section-aside">
-              Starting fresh, outgrowing your old site, or finally making your
-              business look as good online as it is in person.
-            </p>
-          </div>
-          <div className="offer-grid">
-            {[
-              [
-                "01",
-                "Custom websites",
-                "A complete website or redesign shaped around your services, your customers, and your next stage of business.",
-                "From $1,500",
-                "/services/website",
-              ],
-              [
-                "02",
-                "One-page websites",
-                "A focused home for your business, a new offer, or a campaign—with a clear path from interest to inquiry.",
-                "From $750",
-                "/services/landing-pages",
-              ],
-              [
-                "03",
-                "Hosting & support",
-                "A dependable home for your site, with maintenance and a familiar person to turn to when you need help.",
-                "From $59/month",
-                "/services/growth-retainers",
-              ],
-            ].map(([n, t, d, p, h]) => (
-              <article key={n}>
-                <span className="eyebrow">{n} /</span>
-                <h3>{t}</h3>
-                <p>{d}</p>
-                <div>
-                  <strong>{p}</strong>
-                  <Link href={h} aria-label={"Explore " + t.toLowerCase()}>
-                    Explore ↗
-                  </Link>
-                </div>
-              </article>
+          <SectionHeading title="Recent work">
+            <Link href="/work" className="text-link">
+              All client work →
+            </Link>
+          </SectionHeading>
+          <div className="project-grid">
+            {recent.map((p) => (
+              <ProjectTile key={p.slug} project={p} />
             ))}
           </div>
-          <p className="scope-note">
-            Need visual direction, lead capture, integrations, or a custom
-            workflow? We can include those in your project scope.
-          </p>
         </div>
       </section>
-      <section className="studio-shell studio-section specialty-section">
-        <div>
-          <p className="eyebrow">A specialty, built on experience</p>
-          <h2>
-            Especially fluent
-            <br />
-            in <em>real estate.</em>
-          </h2>
+
+      <section className="studio-shell studio-section">
+        <SectionHeading title="Why real estate professionals hire me" />
+        <div className="reasons-grid">
+          <div>
+            <h3>I know the business.</h3>
+            <p>
+              My mom, Debbie O’Brien, has been a transaction coordinator since
+              2013 and runs her own TC business in the Poconos. I also build
+              software for TCs, including Norma and UtilitySheet. You won’t have
+              to explain what a cover sheet or a file start is.
+            </p>
+          </div>
+          <div>
+            <h3>One person, start to finish.</h3>
+            <p>
+              The person on your first call writes your copy, designs your site,
+              builds it, and answers your email after launch. Nothing gets lost
+              in a handoff.
+            </p>
+          </div>
+          <div>
+            <h3>Clear prices, clear scope.</h3>
+            <p>
+              Packages start at {packages[0].price}, and you’ll see exactly
+              what’s included in writing before you pay anything.
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="large-copy">
-            Transaction coordinators, real estate professionals, and the
-            businesses around them: I know your world.
-          </p>
-          <p>
-            From explaining your value to agents to making intake easier, I
-            bring relevant client work and hands-on industry knowledge. You
-            won’t have to explain the basics before we can make progress.
-          </p>
-          <Link href="/tc-packages" className="text-link">
-            Explore TC website packages ↗
+      </section>
+
+      <section className="studio-shell studio-section rule-top">
+        <SectionHeading title="Three ways to work together">
+          <Link href="/pricing" className="text-link">
+            Compare packages →
           </Link>
+        </SectionHeading>
+        <div className="price-row">
+          {packages.map((p) => (
+            <div key={p.id}>
+              <h3>{p.name}</h3>
+              <strong>{p.price}</strong>
+              <p>{p.summary}</p>
+            </div>
+          ))}
         </div>
+        <p className="scope-note">
+          Hosting & care is {hosting.price}, and your first month is included.
+        </p>
       </section>
+
       <Process />
+
       <section className="founder-band">
         <div className="studio-shell founder-grid">
           <Image
             src="/images/haydn-portrait/haydn-portrait-square.webp"
-            alt="Haydn, independent designer and developer behind Multimedium"
+            alt="Haydn, the designer and developer behind Multimedium"
             width={420}
             height={420}
             sizes="(max-width: 700px) 70vw, 300px"
           />
           <div>
-            <p className="eyebrow">Meet your designer & developer</p>
-            <h2>
-              Hi, I’m Haydn.
-              <br />
-              <em>I’ll be the one building it.</em>
-            </h2>
+            <h2>Hi, I’m Haydn.</h2>
             <p>
-              I work directly with small business owners to turn a good business
-              into a clear, credible online presence. Design, development, and
-              communication all stay with me.
-            </p>
-            <p>
-              I also build my own software products, including Norma Suite. That
-              technical depth comes with your website—whether you need a simple
-              inquiry form or something more connected.
+              I’m a designer and developer based in the Poconos, PA, working
+              with real estate clients across the US and Puerto Rico. My mom’s
+              TC business is one of my clients, and it’s where I learned what
+              agents actually need from a coordinator’s website.
             </p>
             <Link href="/about" className="text-link">
-              A little more about me ↗
+              More about me →
             </Link>
           </div>
         </div>
       </section>
-      <section className="studio-shell studio-section faq-section">
-        <div>
-          <p className="eyebrow">Before we talk</p>
-          <h2>A few good questions.</h2>
-        </div>
-        <div>
-          {[
-            [
-              "What does a custom website cost?",
-              "Full websites start at $1,500, with larger or more involved projects at $3,000 and above. Focused one-page projects start at $750. I’ll quote your project based on its pages, content, and functionality before work begins.",
-            ],
-            [
-              "Do you only work with real estate businesses?",
-              "No. I work with small businesses and service providers across industries. Transaction coordination and real estate are specialties, supported by relevant client work.",
-            ],
-            [
-              "Can you improve my existing website?",
-              "Yes. We’ll look at what is working, what is holding the site back, and whether an update or a full redesign is the better fit.",
-            ],
-            [
-              "What if I need help after launch?",
-              "Hosting and maintenance start at $59/month. We’ll agree on the support included, with larger updates and new functionality quoted separately.",
-            ],
-          ].map(([q, a]) => (
-            <details key={q}>
-              <summary>
-                {q}
-                <span aria-hidden="true">+</span>
-              </summary>
-              <p>{a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+
+      <FaqList faqs={homeFaqs} />
       <ProjectCTA />
     </>
   );

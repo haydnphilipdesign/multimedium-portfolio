@@ -2,10 +2,8 @@ import {
   absoluteUrl,
   siteAddress,
   siteEmail,
-  siteLocationLabel,
   siteName,
   siteOwnerName,
-  sitePhone,
   siteServiceAreas,
   siteUrl,
 } from "@/lib/site";
@@ -24,9 +22,8 @@ type ServiceSchemaInput = {
   name: string;
   description: string;
   path: string;
-  serviceType?: string;
-  audience?: string[];
-  priceRange?: string;
+  /** Starting price in USD, e.g. 750. */
+  price: number;
 };
 
 type CollectionPageSchemaInput = {
@@ -68,7 +65,6 @@ export function getSiteStructuredData() {
     name: siteName,
     url: siteUrl,
     email: siteEmail,
-    telephone: sitePhone,
     ...(sameAs.length ? { sameAs } : {}),
   };
 
@@ -92,7 +88,6 @@ export function getSiteStructuredData() {
     name: siteName,
     url: siteUrl,
     email: siteEmail,
-    telephone: sitePhone,
     image: absoluteUrl("/opengraph-image"),
     areaServed: siteServiceAreas.map((name) => ({
       "@type": "Place",
@@ -111,13 +106,12 @@ export function getSiteStructuredData() {
       "@id": organizationId,
     },
     description:
-      "Custom website design and development for small businesses and service providers, with a specialty in transaction coordination and real estate.",
+      "Websites for real estate professionals: transaction coordinators, agents, and brokerages. Planned, written, designed, and built by one person.",
     knowsAbout: [
-      "Real estate web design",
       "Transaction coordinator website design",
-      "Real estate marketing websites",
-      "Website design for real estate coaches",
-      "Local SEO foundations",
+      "Real estate agent website design",
+      "Brokerage website design",
+      "Transaction intake forms",
     ],
   };
 
@@ -167,9 +161,7 @@ export function getServiceStructuredData({
   name,
   description,
   path,
-  serviceType,
-  audience,
-  priceRange,
+  price,
 }: ServiceSchemaInput) {
   return {
     "@context": "https://schema.org",
@@ -177,34 +169,18 @@ export function getServiceStructuredData({
     name,
     description,
     url: absoluteUrl(path),
-    serviceType: serviceType ?? name,
-    ...(priceRange ? { priceRange } : {}),
-    provider: {
-      "@type": "ProfessionalService",
-      name: siteName,
-      url: siteUrl,
-    },
+    serviceType: "Website design and development",
+    provider: { "@id": absoluteUrl("/#professional-service") },
     areaServed: siteServiceAreas.map((value) => ({
       "@type": "Place",
       name: value,
     })),
-    availableChannel: {
-      "@type": "ServiceChannel",
-      serviceUrl: absoluteUrl(path),
-      servicePhone: sitePhone,
-      serviceLocation: {
-        "@type": "Place",
-        name: siteLocationLabel,
-      },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price,
+      url: absoluteUrl(path),
     },
-    ...(audience?.length
-      ? {
-          audience: audience.map((audienceType) => ({
-            "@type": "Audience",
-            audienceType,
-          })),
-        }
-      : {}),
   };
 }
 

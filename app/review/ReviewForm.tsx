@@ -41,13 +41,13 @@ export function ReviewForm({
     }, [state.status, state.attempt]);
 
     return (
-        <div className="card-raised p-6 sm:p-8 lg:p-10">
+        <div className="inquiry-form">
             {sent ? (
                 <div role="status" className="py-3 sm:py-6">
                     <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-soft text-primary">
                         <IconCheck aria-hidden className="h-6 w-6" stroke={2} />
                     </span>
-                    <h3 className="font-display text-3xl text-foreground sm:text-4xl">
+                    <h3 className="text-3xl font-medium text-foreground">
                         Thank you for sharing.
                     </h3>
                     <p className="mt-4 max-w-xl text-foreground/75">
@@ -178,7 +178,7 @@ export function ReviewForm({
                         <button
                             type="submit"
                             disabled={isPending}
-                            className="btn btn-primary touch-target"
+                            className="btn-primary"
                         >
                             {isPending ? "Sending…" : "Send feedback"}
                         </button>

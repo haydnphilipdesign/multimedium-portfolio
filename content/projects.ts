@@ -1,3 +1,24 @@
+import type { PackageId } from "./packages";
+
+// Case study content for client work (docs/brand/case-studies.md §3).
+// Only approved copy goes here. Anything still marked [ASK CLIENT] or
+// [CONFIRM] in case-studies.md stays out until it is answered.
+export interface CaseStudyStory {
+  /** One line on what changed. No outcomes unless sourced. */
+  summary: string;
+  /** e.g., "Brokerage", "TC company". */
+  businessType: string;
+  location?: string;
+  whatIDid: string;
+  package?: PackageId;
+  /** Relationship disclosure (brief §5.6). Shown in "The starting point". */
+  relationship?: string;
+  /** "The starting point" paragraphs, client-approved wording only. */
+  startingPoint?: string[];
+  /** "Decisions worth noting": specific choices and why. */
+  decisions?: { title: string; body: string }[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -30,8 +51,9 @@ export interface Project {
   thumbnail: string;
   heroImage: string;
   images: string[];
-  problem: string;
-  solution: string;
+  problem?: string;
+  solution?: string;
+  story?: CaseStudyStory;
   caseStudy?: {
     headline?: string;
     subheadline?: string;
@@ -49,11 +71,16 @@ export interface Project {
     ctaText: string;
     href: string;
   };
+  // For client work, each step is an annotated screenshot on the case
+  // study page ("What I built"): a heading plus 1–2 sentences on why.
   process: {
     title: string;
     description: string;
     image?: string;
   }[];
+  // TODO(trust): Only add outcomes the client has confirmed and that can be
+  // sourced (analytics export, form counts, client statement). Leave empty
+  // otherwise — earlier unsourced figures were removed.
   outcomes: {
     metric: string;
     value: string;
@@ -74,485 +101,184 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "nomad-gear",
-    title: "Nomad Gear",
-    kind: "Concept",
-    metaTitle: "Nomad Gear - Camping Rental Website Design",
+    slug: "haven-compass-realty",
+    title: "Haven Compass Realty",
+    kind: "Client",
+    industries: ["real-estate", "brokerage"],
+    metaTitle: "Haven Compass Realty — Website for a New Connecticut Brokerage",
     metaDescription:
-      "Story-driven, motion-forward website design for a premium outdoor gear rental company—built to feel adventurous while keeping the booking path clear.",
+      "A launch website for a new Connecticut brokerage: seller packages priced in plain sight, real client reviews linked to the originals, and clear paths for buyers and sellers.",
     socialCaption:
-      "Nomad Gear: an adventure-forward rental site with layered depth, grounded typography, and a clear booking path.",
-    tags: ["Web Design", "Motion Design", "React", "GSAP", "WebGL"],
-    tagline: "Adventure-forward rental site with a clear booking path",
+      "Haven Compass Realty: a launch site for a new Connecticut brokerage, with seller packages priced in plain sight and real client reviews.",
+    tagline: "A launch site for a new Connecticut brokerage.",
     description:
-      "A motion-forward marketing site with layered depth and a category-first browse flow—built to make booking feel obvious.",
-    category: "Web Design",
+      "A launch website for a new Connecticut brokerage, built to earn trust from day one with transparent seller packages, real client reviews, and clear paths for buyers and sellers.",
+    category: "Real Estate",
     year: "2026",
-    client: "Nomad Gear",
-    role: "Motion Design, UI/UX Design, Front-End Development",
-    tools: ["React + TypeScript", "GSAP ScrollTrigger", "Tailwind CSS", "Vite"],
-    thumbnail: "/images/projects/nomad-gear/nomad-gear-thumb.webp",
-    heroImage: "/images/projects/nomad-gear/nomad-gear-hero.webp",
+    client: "Haven Compass Realty",
+    role: "Design, development, and site copy (written with Chelsea Daley)",
+    tools: ["Custom build", "Seller package comparison", "Review pages"],
+    thumbnail:
+      "/images/projects/haven-compass-realty/haven-compass-realty-thumb.webp",
+    heroImage:
+      "/images/projects/haven-compass-realty/haven-compass-realty-hero.webp",
     images: [
-      "/images/projects/nomad-gear/nomad-gear-1.webp",
-      "/images/projects/nomad-gear/nomad-gear-2.webp",
-      "/images/projects/nomad-gear/nomad-gear-3.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-1.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-2.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-3.webp",
+      "/images/projects/haven-compass-realty/haven-compass-realty-4.webp",
     ],
-    problem:
-      "Nomad Gear needed a site that felt like stepping outside—not just another rental catalog. The goal was to make browsing feel like adventure while keeping the path to booking obvious.",
-    solution:
-      "Designed and built a story-led site with tactile motion, category-first browsing, and a persistent booking path. Depth and animation support the vibe, while hierarchy and CTAs keep the next step clear.",
-    caseStudy: {
-      headline: "Nomad Gear — Adventure Awaits",
-      subheadline:
-        "A story-led, motion-forward website that feels outdoorsy while keeping booking simple.",
-      tldr: "Designed and built a motion-forward gear rental site with layered depth, category browsing, product highlights, and a clear booking CTA—optimized for performance and reduced-motion.",
-      goals: [
-        "Create an experience that feels like stepping into nature",
-        "Showcase gear rentals in an engaging, non-catalog way",
-        "Use motion and depth to build emotional connection",
-        "Maintain fast performance despite rich animations",
+    story: {
+      summary:
+        "A launch website for a new Connecticut brokerage, built to earn trust from day one with transparent seller packages, real client reviews, and clear paths for buyers and sellers.",
+      businessType: "Brokerage",
+      location: "Connecticut",
+      whatIDid:
+        "Design, development, and site copy, written with Chelsea Daley. The logo is the client’s own.",
+      package: "custom",
+      decisions: [
+        {
+          title: "Fees appear on the site.",
+          body: "Transparency is the brand’s promise, so the seller packages show their listing fees, along with a note that commissions are negotiable and cover the seller’s side only.",
+        },
+        {
+          title: "No placeholder listings.",
+          body: "MLS listings aren’t live yet, so the listings page doesn’t pretend. It explains that Chelsea searches the full Connecticut market for each buyer, including coming-soon homes, and asks what they’re looking for.",
+        },
       ],
-      constraints: [
-        "Single-page scroll experience with multiple layered sections",
-        "Mobile-first responsive design with reduced-motion fallbacks",
-        "WebGL effects must not block main thread or hurt performance",
-        "Consistent earthy color palette (greens, creams, browns)",
-      ],
-      delivered: [
-        "Full-screen hero with layered depth and a strong primary CTA",
-        "Category-first browse section with tactile card interactions",
-        "Product highlight strip designed for quick scanning",
-        "Story-driven brand section that reinforces positioning",
-        "Testimonials + trust signals woven into the scroll",
-        "Final CTA section designed for booking",
-        "Scroll-aware navigation with reduced-motion support",
-      ],
-      whyItWorks: [
-        "Motion supports the story without hiding the offer",
-        "Category-first browsing keeps exploration structured",
-        "Performance budgets + reduced-motion keep it usable",
-        "CTA hierarchy makes booking the obvious next step",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
     },
-    cta: {
-      headline: "Want this level of craft on your own site?",
-      body: "I build motion-rich websites where the animation supports the offer instead of hiding it. If your brand needs more personality, I can help.",
-      ctaText: "Start a conversation",
-      href: "/contact?source=case-study-nomad-gear",
+    caseStudy: {
+      approval: "Client approved being featured, 2026-10-20.",
     },
     process: [
       {
-        title: "Immersive Hero Experience",
+        title: "Three seller packages, priced in plain sight",
         description:
-          "Layered depth and restrained motion set the tone fast—without delaying the CTA or readability.",
-        image: "/images/projects/nomad-gear/nomad-gear-hero.webp",
+          "Each package has its fee, a “best for” line, and what’s included, followed by a side-by-side comparison table. Sellers can compare without a sales call.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-1.webp",
       },
       {
-        title: "Organic Motion System",
+        title: "Reviews that carry the agent’s track record honestly",
         description:
-          "Tactile card interactions and scroll pacing add energy while keeping hierarchy, text, and CTAs clear.",
-        image: "/images/projects/nomad-gear/nomad-gear-1.webp",
+          "The brand is new, but Chelsea’s past clients aren’t. Six Google reviews are quoted word for word, labeled with their context and date, and linked to the originals.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-2.webp",
       },
       {
-        title: "Cinematic Storytelling",
+        title: "Step-by-step paths for buyers and sellers",
         description:
-          "Section rhythm changes (products, brand story, testimonials) keep the scroll engaging and easy to skim.",
-        image: "/images/projects/nomad-gear/nomad-gear-2.webp",
+          "A four-step selling process and a five-step buying process, with guidance for first-time, move-up, and relocating buyers.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-3.webp",
+      },
+      {
+        title: "A page for clients already under contract",
+        description:
+          "Earnest money instructions with a wire-fraud warning: a practical page most agent sites don’t have.",
+        image:
+          "/images/projects/haven-compass-realty/haven-compass-realty-4.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Brand Feel",
-        value: "Adventure-forward",
-        description: "Earthy palette + layered depth that feels outdoorsy",
-      },
-      {
-        metric: "Browse Flow",
-        value: "Category-first",
-        description: "Exploration stays structured and easy to scan",
-      },
-      {
-        metric: "Conversion Path",
-        value: "Clear",
-        description: "CTAs stay obvious throughout the scroll",
-      },
-    ],
-    featured: false,
-    color: "#3a5a40",
-    externalUrl: "https://nomad-gear.vercel.app",
+    outcomes: [],
+    featured: true,
+    color: "#145a5f",
+    externalUrl: "https://www.havencompassrealty.com",
   },
   {
-    slug: "velvet-rose",
-    title: "Velvet Rose",
-    kind: "Concept",
-    metaTitle: "Velvet Rose - Luxury Florist Website Design",
+    slug: "structured-closings",
+    title: "Structured Closings",
+    kind: "Client",
+    industries: ["tc"],
+    metaTitle: "Structured Closings — Website for a Transaction Coordination Company",
     metaDescription:
-      "Romantic, premium florist website design with graceful motion, clear category browsing, and a conversion-forward storefront layout.",
+      "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and gives agents one form to start a file.",
     socialCaption:
-      "Velvet Rose: a romantic florist site with gentle motion, editorial typography, and a clean path from browse to cart.",
-    tags: ["Web Design", "Motion Design", "React", "GSAP", "E-Commerce"],
-    tagline:
-      "Romantic florist site with graceful motion and a clear shopping flow",
+      "Structured Closings: every service in one place, and one guided form for agents to start a file.",
+    tagline: "A TC company site with one guided form to start a file.",
     description:
-      "A premium storefront with gentle motion, category browsing, and product cards designed to make ordering feel easy.",
-    category: "Web Design",
+      "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and turns “start a file” into one guided form.",
+    category: "Real Estate",
     year: "2026",
-    client: "Velvet Rose",
-    role: "Motion Design, UI/UX Design, Front-End Development",
-    tools: ["React + TypeScript", "GSAP ScrollTrigger", "Tailwind CSS", "Vite"],
-    thumbnail: "/images/projects/velvet-rose/velvet-rose-thumb.webp",
-    heroImage: "/images/projects/velvet-rose/velvet-rose-hero.webp",
+    client: "Structured Closings",
+    role: "Design and development",
+    tools: ["Full website", "Cognito Forms intake", "Careers page"],
+    thumbnail:
+      "/images/projects/structured-closings/structured-closings-thumb.webp",
+    heroImage:
+      "/images/projects/structured-closings/structured-closings-hero.webp",
     images: [
-      "/images/projects/velvet-rose/velvet-rose-1.webp",
-      "/images/projects/velvet-rose/velvet-rose-2.webp",
-      "/images/projects/velvet-rose/velvet-rose-3.webp",
+      "/images/projects/structured-closings/structured-closings-1.webp",
+      "/images/projects/structured-closings/structured-closings-2.webp",
+      "/images/projects/structured-closings/structured-closings-3.webp",
     ],
-    problem:
-      "Velvet Rose needed a website that conveyed the romance and artistry of their arrangements. Generic flower shop templates felt cold and transactional—they wanted visitors to feel the craft before making a purchase.",
-    solution:
-      "Designed an editorial, botanical storefront with gentle motion inspired by petals and stems. Category browsing and product hierarchy keep shopping straightforward, while typography and pacing maintain a premium feel.",
-    caseStudy: {
-      headline: "Velvet Rose — Botanical Elegance",
-      subheadline:
-        "A romantic florist website that feels premium—and makes ordering easy.",
-      tldr: "Designed a premium florist storefront with gentle, organic motion, a category browse section, and a clean product grid—built to feel romantic without getting in the way of conversion.",
-      goals: [
-        "Capture the romance and elegance of artisan floristry",
-        "Create an immersive browsing experience for flower categories",
-        "Use organic motion that mimics natural growth and bloom",
-        "Drive conversions while maintaining an emotional, premium feel",
+    story: {
+      summary:
+        "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and turns “start a file” into one guided form.",
+      businessType: "Transaction coordination company",
+      whatIDid:
+        "Design and development. Copy supplied by Structured Closings; the logo is the client’s own.",
+      package: "full",
+      decisions: [
+        {
+          title: "Pricing lives in the intake form.",
+          body: "Each service’s price appears at the moment an agent commits to it, inside the Submit a File form, instead of on a separate pricing page.",
+        },
+        {
+          title: "Testimonial consent is collected with the testimonial.",
+          body: "The Share Feedback page asks whether the comment can be published and how the client’s name should appear, so reviews on the site are collected properly instead of chased afterward.",
+        },
       ],
-      constraints: [
-        "Single-page scroll with horizontal category browsing section",
-        "Soft, romantic color palette (corals, pinks, creams)",
-        "Performance-optimized for mobile flower orders",
-        "Accessible reduced-motion fallbacks for all animations",
-      ],
-      delivered: [
-        "Editorial hero with refined type and image-forward composition",
-        "Category browsing section that stays playful but structured",
-        "Story/brand section that reinforces positioning",
-        "Product grid with clear pricing, CTAs, and hover states",
-        "Testimonials and trust signals integrated into the scroll",
-        "Final CTA section that keeps ordering the focus",
-        "Reduced-motion support and mobile-first spacing",
-      ],
-      whyItWorks: [
-        "Motion adds softness and craft without slowing shopping",
-        "Category browsing improves discovery without clutter",
-        "Product cards keep pricing and CTAs unmissable",
-        "Typography + spacing reinforce premium positioning",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
     },
-    cta: {
-      headline: "Want a website with this much feel?",
-      body: "I design sites with softness and craft for brands where atmosphere matters — without letting the design get in the way of ordering.",
-      ctaText: "Get in touch",
-      href: "/contact?source=case-study-velvet-rose",
+    caseStudy: {
+      approval: "Client approved being featured, 2026-10-20.",
     },
     process: [
       {
-        title: "Romantic Hero Gateway",
+        title: "A Submit a File page that does the intake work",
         description:
-          "An editorial hero with gentle motion and a clear hierarchy—designed to feel romantic without feeling busy.",
-        image: "/images/projects/velvet-rose/velvet-rose-hero.webp",
+          "Agents pick the service they need and see its price, add client details, communication preferences (including Spanish-language service) and lockbox information, and upload the contract, all in one Cognito Forms intake.",
+        image:
+          "/images/projects/structured-closings/structured-closings-1.webp",
       },
       {
-        title: "Kinetic Garden Categories",
+        title: "Services organized the way agents shop for them",
         description:
-          "A category-led browse section that encourages exploration while keeping the shopping flow structured.",
-        image: "/images/projects/velvet-rose/velvet-rose-1.webp",
+          "Listing coordination, transaction coordination, and compliance support, each with what’s included.",
+        image:
+          "/images/projects/structured-closings/structured-closings-2.webp",
       },
       {
-        title: "Floating Product Market",
+        title: "Room for investor and luxury work",
         description:
-          "A clean product grid with strong CTAs, clear pricing, and hover states that add delight without hiding key actions.",
-        image: "/images/projects/velvet-rose/velvet-rose-2.webp",
+          "Creative deal types such as Subject-To, seller financing, and novations, plus luxury transaction coordination, each have their own section. A careers page supports hiring as the company grows.",
+        image:
+          "/images/projects/structured-closings/structured-closings-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Motion Style",
-        value: "Botanical",
-        description: "Gentle, organic motion that supports the brand tone",
-      },
-      {
-        metric: "Browse UX",
-        value: "Category-led",
-        description: "Structured exploration without a catalog feel",
-      },
-      {
-        metric: "Conversion Clarity",
-        value: "Checkout-forward",
-        description: "Product cards keep CTAs and pricing clear",
-      },
-    ],
-    featured: false,
-    color: "#f76b6c",
-    externalUrl: "https://velvet-rose-floral.vercel.app",
-  },
-  {
-    slug: "gentlemans-blade",
-    title: "Gentleman's Blade Barbershop",
-    kind: "Concept",
-    metaTitle: "Gentleman's Blade - Vintage Barbershop Website Design",
-    metaDescription:
-      "Heritage-inspired barbershop website design with editorial layout, clear services, and a booking-first path that feels premium.",
-    socialCaption:
-      "Gentleman's Blade: a heritage-forward barbershop site with editorial layout, clear service hierarchy, and a confident booking CTA.",
-    tags: ["Web Design", "Motion Design", "React", "Three.js", "WebGL"],
-    tagline: "Heritage-forward barbershop site with a booking-first flow",
-    description:
-      "A cinematic, editorial site blending vintage tone with modern hierarchy—services, barber profiles, and a clear path to booking.",
-    category: "Web Design",
-    year: "2026",
-    client: "Gentleman's Blade Barbershop",
-    role: "Motion Design, UI/UX Design, Front-End Development",
-    tools: [
-      "React + TypeScript",
-      "Three.js/WebGL",
-      "GSAP ScrollTrigger",
-      "Tailwind CSS",
-    ],
-    thumbnail: "/images/projects/gentlemans-blade/gentlemans-blade-thumb.webp",
-    heroImage: "/images/projects/gentlemans-blade/gentlemans-blade-hero.webp",
-    images: [
-      "/images/projects/gentlemans-blade/gentlemans-blade-1.webp",
-      "/images/projects/gentlemans-blade/gentlemans-blade-2.webp",
-      "/images/projects/gentlemans-blade/gentlemans-blade-3.webp",
-    ],
-    problem:
-      "Gentleman's Blade wanted a website that honored classic barbershop heritage while feeling modern and confident. Standard service-listing sites felt generic—they needed something with real character that still books easily.",
-    solution:
-      "Built a 'Cinematic Americana' site with editorial hierarchy, tactile motion, and a booking-first flow. Services stay scannable, barber profiles feel premium, and CTAs stay clear throughout.",
-    caseStudy: {
-      headline: "Gentleman's Blade — Precision Heritage",
-      subheadline:
-        "A cinematic barbershop website that blends 1950s Americana with modern editorial sophistication.",
-      tldr: "Built a heritage-inspired barbershop website with an editorial layout, tactile interactions, and a booking-first flow. Service sections stay scannable, barber profiles feel premium, and CTAs stay clear.",
-      goals: [
-        "Honor classic barbershop heritage with modern confidence",
-        "Create a cinematic, editorial experience that stands out",
-        "Showcase services and barbers in memorable, interactive ways",
-        "Drive bookings while reinforcing the premium craft brand",
-      ],
-      constraints: [
-        "Red, Navy, Beige color palette with vintage typography",
-        "3D effects must perform well on all devices",
-        "Horizontal scroll pinned sections for services and barbers",
-        "Film grain overlay for consistent vintage aesthetic",
-      ],
-      delivered: [
-        "Hero that sets tone fast with a strong booking CTA",
-        "Services layout designed for quick scanning and confident selection",
-        "Barber gallery that highlights personality and craft",
-        "Testimonials + social proof styled to match the brand tone",
-        "Contact/booking section designed for mobile",
-        "Subtle motion + texture for a cinematic feel",
-        "Reduced-motion support and accessible focus states",
-      ],
-      whyItWorks: [
-        "Cinematic motion creates a premium, confident brand feeling",
-        "Heritage elements (vinyl, neon, blueprints) reinforce tradition",
-        "3D effects add depth and modernity without losing the classic vibe",
-        "Clear booking CTAs are integrated naturally throughout",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
-    },
-    cta: {
-      headline: "Need a website with character?",
-      body: "I build cinematic, heritage-inspired websites that tell your brand's story through motion and depth—perfect for businesses with craft and tradition.",
-      ctaText: "Let's talk",
-      href: "/contact?source=case-study-gentlemans-blade",
-    },
-    process: [
-      {
-        title: "Split-Blade Hero",
-        description:
-          "Bold, asymmetrical hero with depth and restrained motion—built to feel cinematic while keeping booking front-and-center.",
-        image: "/images/projects/gentlemans-blade/gentlemans-blade-hero.webp",
-      },
-      {
-        title: "Accordion Deck Services",
-        description:
-          "Services presented as a physical stack of cards that fan out horizontally on scroll. Each card lifts and dims others on hover, with shutter-wipe description reveals.",
-        image: "/images/projects/gentlemans-blade/gentlemans-blade-2.webp",
-      },
-      {
-        title: "Rogue's Gallery Barbers",
-        description:
-          "A barber gallery that feels like a 'meet the artists' moment—personality-forward, premium, and easy to scan.",
-        image: "/images/projects/gentlemans-blade/gentlemans-blade-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Brand Tone",
-        value: "Cinematic Americana",
-        description: "Heritage feel with modern editorial hierarchy",
-      },
-      {
-        metric: "Service UX",
-        value: "Scannable",
-        description: "Clear offerings without generic lists",
-      },
-      {
-        metric: "Booking Path",
-        value: "Prominent",
-        description: "CTAs integrated throughout the scroll",
-      },
-    ],
-    featured: false,
-    color: "#E63946",
-    externalUrl: "https://gentlemans-blade.vercel.app",
-  },
-  {
-    slug: "pop-playground",
-    title: "Pop Playground",
-    kind: "Concept",
-    metaTitle: "Pop Playground - Memphis Design Kids' Creative Website",
-    metaDescription:
-      "Playful Memphis-inspired website for a children’s creative studio—bold color, lively motion, and parent-friendly clarity.",
-    socialCaption:
-      "Pop Playground: a Memphis-inspired studio site with bold color, playful motion, and a clear path to classes and booking.",
-    tags: ["Web Design", "Motion Design", "React", "GSAP", "WebGL"],
-    tagline:
-      "Memphis-inspired studio site with playful motion and parent-friendly clarity",
-    description:
-      "A bright, playful site with lively motion and a clear path to classes, camps, and bookings.",
-    category: "Web Design",
-    year: "2026",
-    client: "Pop Playground",
-    role: "Motion Design, UI/UX Design, Front-End Development",
-    tools: [
-      "React + TypeScript",
-      "GSAP ScrollTrigger",
-      "WebGL Shaders",
-      "Tailwind CSS",
-    ],
-    thumbnail: "/images/projects/pop-playground/pop-playground-thumb.webp",
-    heroImage: "/images/projects/pop-playground/pop-playground-hero.webp",
-    images: [
-      "/images/projects/pop-playground/pop-playground-1.webp",
-      "/images/projects/pop-playground/pop-playground-2.webp",
-      "/images/projects/pop-playground/pop-playground-3.webp",
-    ],
-    problem:
-      "Pop Playground needed a website that captured the energy of kids’ creativity without feeling chaotic for parents. Standard templates felt too grown-up—they wanted something playful that still makes classes and booking easy to find.",
-    solution:
-      "Created a Memphis-inspired site with playful motion, bold pattern work, and a gallery that feels like scattered art on a table. The layout stays simple enough for parents to quickly understand programs, pricing, and the next step.",
-    caseStudy: {
-      headline: "Pop Playground — Creative Chaos",
-      subheadline:
-        "A playful Memphis-inspired website that feels fun—and stays clear for parents.",
-      tldr: "Designed a Memphis-inspired website for a children’s creative studio: bold color, playful motion, and a gallery-forward layout—built to delight kids while keeping schedule, pricing, and booking easy to find.",
-      goals: [
-        "Capture the explosive energy of children's creativity",
-        "Create interactions that feel lively and responsive",
-        "Use Memphis design patterns with modern motion sophistication",
-        "Appeal to both kids and parents with premium playfulness",
-      ],
-      constraints: [
-        "Bold Memphis color palette (pinks, purples, greens, yellows)",
-        "Playful motion without sacrificing performance",
-        "Single-page experience with pinned scroll sections",
-        "Cursor-reactive elements without React state updates",
-      ],
-      delivered: [
-        "Hero with bold color system and playful motion cues",
-        "Pattern + shape system that supports the brand without clutter",
-        "About/story section with strong hierarchy for parents",
-        "Gallery layout that feels like scattered polaroids",
-        "Program highlights designed for quick scanning",
-        "Mobile-first spacing + reduced-motion support",
-      ],
-      whyItWorks: [
-        "Playful motion makes the site feel alive without feeling chaotic",
-        "Memphis patterns add visual excitement without overwhelming",
-        "Scattered, organic layouts mirror the creative chaos of art-making",
-        "Premium polish makes parents trust while kids feel excited",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work.",
-    },
-    cta: {
-      headline: "Need a website that's full of energy?",
-      body: "I build playful, high-craft websites that capture attention without sacrificing clarity—great for brands that need energy and trust.",
-      ctaText: "Send a message",
-      href: "/contact?source=case-study-pop-playground",
-    },
-    process: [
-      {
-        title: "Explosive Hero Gateway",
-        description:
-          "A hero that sets the tone fast with bold color, pattern, and motion—while keeping the CTA clear and easy to spot.",
-        image: "/images/projects/pop-playground/pop-playground-hero.webp",
-      },
-      {
-        title: "Orbital About Composition",
-        description:
-          "An image-forward layout that keeps parents oriented (what it is, who it’s for, how to join) while staying playful.",
-        image: "/images/projects/pop-playground/pop-playground-1.webp",
-      },
-      {
-        title: "Scattered Polaroid Gallery",
-        description:
-          "A gallery pattern that feels like scattered photos on a table—fun to explore, but still scannable and readable.",
-        image: "/images/projects/pop-playground/pop-playground-2.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Motion Style",
-        value: "Kinetic Memphis",
-        description: "Playful motion and pattern work throughout",
-      },
-      {
-        metric: "Color System",
-        value: "Bold + controlled",
-        description: "High-energy palette with clear hierarchy",
-      },
-      {
-        metric: "Parent UX",
-        value: "Clear",
-        description: "Programs and booking stay easy to find",
-      },
-    ],
-    featured: false,
-    color: "#F795E9",
-    externalUrl: "https://pop-playground-memphis.vercel.app",
+    outcomes: [],
+    featured: true,
+    color: "#c39a3f",
+    externalUrl: "https://www.structuredclosings.com",
   },
   {
     slug: "tag-landing-page",
     title: "Transaction Authority Group (TAG)",
     kind: "Client",
     industries: ["tc"],
-    metaTitle: "Transaction Authority Group Landing Page",
+    metaTitle: "Transaction Authority Group — One-Page Site for a TC Company",
     metaDescription:
-      "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+      "A one-page site that tells established transaction coordinators what Transaction Authority Group is, who it’s for, and who it isn’t for, then books a discovery call.",
     socialCaption:
-      "New build: a focused booking funnel for Transaction Authority Group — professional positioning, qualification-driven, and designed to convert into discovery calls.",
-    tags: ["Landing Page", "Lead Generation", "Booking Flow", "Mobile-First"],
-    tagline:
-      "A focused landing page with clear fit criteria and discovery-call booking.",
+      "Transaction Authority Group: one page that says who it’s for, and who it isn’t for, then books the call.",
+    tagline: "A one-page site that qualifies visitors and books calls.",
     description:
-      "Lead-gen landing page for TAG built to establish authority, filter for fit, and drive qualified discovery call bookings. Mobile-first and lightweight.",
+      "A single-page site that tells established transaction coordinators what TAG is, who it’s for, and who it isn’t for, and then asks for one thing: book a discovery call.",
     category: "Real Estate",
     year: "2026",
     client: "Transaction Authority Group (TAG)",
-    role: "Landing Page Strategy, Copy, Design, Development",
-    tools: [
-      "Fast, mobile-first build",
-      "Booking calendar integration",
-      "Lead qualification flow",
-      "Vercel hosting",
-    ],
+    role: "Strategy, copy, design, and development",
+    tools: ["One-page site", "Booking calendar", "Fit & filter section"],
     thumbnail: "/images/projects/tag-landing-page/tag-landing-page-thumb.webp",
     heroImage: "/images/projects/tag-landing-page/tag-landing-page-hero.webp",
     images: [
@@ -560,656 +286,60 @@ export const projects: Project[] = [
       "/images/projects/tag-landing-page/tag-landing-page-2.webp",
       "/images/projects/tag-landing-page/tag-landing-page-3.webp",
     ],
-    problem:
-      "TAG needed a focused landing page that converts the right visitors—established transaction coordinators and TC companies—into booked discovery calls. The goal wasn’t content depth; it was a clean, credible page that clarifies the offer, filters for fit, and pushes one action: book the call.",
-    solution:
-      "Built a single-page booking funnel designed to establish credibility quickly, create self-identification through a problem → solution narrative, and drive one primary action: book the call. The layout avoids stock imagery, stays lightweight, and keeps CTAs persistent so the page stays focused on conversions.",
+    story: {
+      summary:
+        "A single-page site that tells established transaction coordinators what TAG is, who it’s for, and who it isn’t for, and then asks for one thing: book a discovery call.",
+      businessType: "TC infrastructure company",
+      whatIDid: "Strategy, copy, design, and development",
+      package: "one-page",
+    },
     caseStudy: {
-      headline: "Transaction Authority Group — Lead-Gen Landing Page",
-      subheadline:
-        "A single-page booking funnel designed to establish authority fast, filter for fit, and drive qualified discovery calls.",
-      tldr: "Built a one-page lead-generation landing page for Transaction Authority Group designed to establish authority quickly, filter for fit, and drive discovery call bookings. Mobile-first, lightweight, and intentionally avoids stock imagery—keeping the focus on qualification and scheduling.",
-      goals: [
-        "Establish authority immediately (institutional, serious, systems-driven)",
-        "Filter for the right audience (not brand-new TCs or “quick money” seekers)",
-        "Drive calendar bookings as the primary conversion action",
-      ],
-      constraints: [
-        "One-page scroll layout (no multi-page site)",
-        "Clean, neutral visual design (no stock photos, no people imagery)",
-        "Fast load and mobile-first performance",
-        "Persistent call-to-action to book a discovery call",
-        "Simple structure that supports quick iteration",
-      ],
-      delivered: [
-        "One-page landing page designed for conversion (not content consumption)",
-        "Professional hero section with clear positioning and immediate CTA",
-        "Social proof / credibility bar to reinforce legitimacy without hype",
-        "Problem → solution narrative written to create self-identification",
-        "Fit & Filter section to improve lead quality and reduce unqualified calls",
-        "Discovery call expectations to reduce hesitation",
-        "Scheduler-ready booking section (calendar embed/link integration)",
-        "Mobile-first styling with a clean, institutional aesthetic",
-      ],
-      whyItWorks: [
-        "Visitors quickly understand what TAG is and who it’s for",
-        "The “Not For” section prevents low-fit bookings",
-        "The CTA is repeated and reinforced so the page stays focused on one action: book the call",
-      ],
       approval:
         "Client approved the design direction and granted permission to feature this project in my portfolio.",
     },
-    cta: {
-      headline: "Need a landing page that converts?",
-      body: "I build focused, mobile-first pages designed to drive calls and leads—without bloated pages or slow load times.",
-      ctaText: "Plan your landing page",
-      href: "/contact?source=case-study-tag-landing-page",
-    },
     process: [
       {
-        title: "Credibility-Led Positioning",
+        title: "The problem, then the answer",
         description:
-          "Designed an institutional hero with immediate CTA plus a credibility bar to reinforce legitimacy—without hype, gimmicks, or stock imagery.",
-        image: "/images/projects/tag-landing-page/tag-landing-page-1.webp",
+          "The page names the ceiling most TCs hit, then shows how TAG helps, so the right visitors recognize themselves before they book.",
+        image: "/images/projects/tag-landing-page/tag-landing-page-3.webp",
       },
       {
-        title: "Qualification-Driven Copy",
+        title: "Who it’s for, and who it isn’t",
         description:
-          "Wrote a problem → solution narrative that creates self-identification, plus a Fit & Filter (“For / Not For”) section to reduce unqualified bookings.",
+          "A “For / Not for” section lets unqualified prospects filter themselves out, and a short list of what happens on the call makes booking feel low-risk.",
         image: "/images/projects/tag-landing-page/tag-landing-page-2.webp",
       },
       {
-        title: "Booking-First Funnel",
+        title: "One action, all the way down",
         description:
-          "Kept the page centered on scheduling with repeated CTAs, expectation-setting, and a scheduler-ready booking section for fast iteration during launch.",
-        image: "/images/projects/tag-landing-page/tag-landing-page-3.webp",
+          "The booking calendar sits on the page itself, and every button leads to it.",
+        image: "/images/projects/tag-landing-page/tag-landing-page-1.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Layout",
-        value: "1 page",
-        description: "Single-scroll booking funnel built for speed and clarity",
-      },
-      {
-        metric: "Lead Quality",
-        value: "Fit-filtered",
-        description: "Clear “For / Not For” messaging to reduce low-fit calls",
-      },
-      {
-        metric: "Build",
-        value: "Lightweight",
-        description:
-          "Mobile-first, performance-focused implementation without stock imagery",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#0f766e",
     externalUrl: "https://www.transactionauthority.com",
-  },
-  {
-    slug: "utility-sheet",
-    title: "UtilitySheet",
-    kind: "Product",
-    industries: ["tc", "real-estate"],
-    metaTitle: "UtilitySheet - Real Estate Utility Info App",
-    metaDescription:
-      "UtilitySheet is a lightweight SaaS app that replaces utility-info back-and-forth with a guided form and clean, shareable PDF output for real estate transactions.",
-    tagline:
-      "Lightweight SaaS that eliminates utility info back-and-forth in real estate transactions",
-    description:
-      "A guided form app that helps sellers provide accurate utility provider info, generating clean, shareable PDF sheets for buyers, agents, title, and transaction coordinators. Available at UtilitySheet.com (free plan includes 3 submissions/month; Pro is $9/month).",
-    category: "SaaS",
-    year: "2025",
-    client: "Internal Product",
-    role: "Product Strategy, UX/UI Design, Full-Stack Development",
-    tools: [
-      "Guided form experience",
-      "Clean PDF output",
-      "Smart provider suggestions",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/utilitysheet/utilitysheet-thumb.webp",
-    heroImage: "/images/projects/utilitysheet/utilitysheet-hero.webp",
-    images: [
-      "/images/projects/utilitysheet/utilitysheet-2.webp",
-      "/images/projects/utilitysheet/utilitysheet-1.webp",
-      "/images/projects/utilitysheet/utilitysheet-3.webp",
-    ],
-    problem:
-      "Real estate transactions involve constant back-and-forth to get accurate utility provider info from sellers. Agents and TCs spend hours chasing vague answers like 'I think it's the gas company?' This delays closings and frustrates everyone involved.",
-    solution:
-      "UtilitySheet replaces the 'Who's your gas company again?' emails with a single guided link. Sellers complete a quick form, and the app automatically generates a clean, PDF-ready utility info sheet that can be sent to all parties.",
-    caseStudy: {
-      headline: "UtilitySheet — From Problem to Product",
-      subheadline:
-        "A SaaS product I built from scratch to solve a real workflow problem—end-to-end product thinking, design, and execution.",
-      tldr: "As founder of UtilitySheet, I turned a common real estate workflow problem into a working SaaS product you can use today. It shows how I approach builds: start with the workflow, design for clarity, and ship a system people can actually use.",
-      goals: [
-        "Eliminate the back-and-forth emails about utility providers",
-        "Create a guided experience that even tech-averse sellers can complete",
-        "Generate professional, branded PDF output",
-        "Build a sustainable SaaS business model",
-      ],
-      constraints: [
-        "Must work for users of all technical abilities",
-        "Sub-3-minute completion time",
-        "Mobile-first responsive design",
-        "White-label branding for agents and TCs",
-      ],
-      delivered: [
-        "AI-assisted provider picker for location-based suggestions",
-        "Step-by-step guided form with smart validation",
-        "Request dashboard for agents and coordinators",
-        "Branded PDF generation with custom logos",
-        "Email notification system for form completion",
-        "Subscription billing and user management",
-      ],
-      whyItWorks: [
-        "Solves a genuine pain point I discovered working with TCs",
-        "Turns a fuzzy question into a quick, guided workflow",
-        "Professional output builds trust with all transaction parties",
-        "Demonstrates full-stack product building capability",
-      ],
-    },
-    cta: {
-      headline: "Want to try UtilitySheet?",
-      body: "UtilitySheet is live at UtilitySheet.com. The free plan includes 3 submissions/month; Pro is $9/month.",
-      ctaText: "Sign up / log in",
-      href: "https://utilitysheet.com",
-    },
-    process: [
-      {
-        title: "AI-Assisted Provider Picker",
-        description:
-          "As sellers fill out the form, the system suggests likely utility providers for their area—so they can choose from relevant options instead of guessing. Faster completion, fewer errors, less manual chasing.",
-        image: "/images/projects/utilitysheet/utilitysheet-2.webp",
-      },
-      {
-        title: "Request Dashboard",
-        description:
-          "A simple dashboard for agents and coordinators to track every request at a glance, see status, and follow up without digging through email threads.",
-        image: "/images/projects/utilitysheet/utilitysheet-1.webp",
-      },
-      {
-        title: "PDF Output & Branding",
-        description:
-          "Generates polished, professional utility sheets that can be shared, printed, or attached to transaction files—branded for the sending agent or TC.",
-        image: "/images/projects/utilitysheet/utilitysheet-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Seller Experience",
-        value: "Guided",
-        description: "Clear steps and validation reduce guesswork",
-      },
-      {
-        metric: "Follow-ups",
-        value: "Reduced",
-        description: "Fewer “who’s the provider?” emails and texts",
-      },
-      {
-        metric: "Output",
-        value: "Shareable",
-        description: "Clean PDF sheet that’s easy to forward and file",
-      },
-    ],
-    featured: false,
-    color: "#8b5cf6",
-    externalUrl: "https://utilitysheet.com",
-  },
-  {
-    slug: "norma",
-    title: "Norma",
-    kind: "Product",
-    industries: ["tc", "real-estate"],
-    metaTitle: "Norma - Closing Desk Software for Transaction Coordinators",
-    metaDescription:
-      "Early-access Closing Desk platform for transaction coordinators with Microsoft 365 integration, workflow rules, and AI-assisted triage to reduce inbox chaos.",
-    socialCaption:
-      "Building Norma: a Closing Desk platform for transaction coordinators—Outlook-native workflows, dependency tracking, and AI-assisted triage (early access).",
-    tags: [
-      "SaaS",
-      "Real Estate Ops",
-      "Microsoft Graph",
-      "Workflow Automation",
-      "AI",
-    ],
-    tagline:
-      "Early-access Closing Desk platform that keeps every transaction organized, compliant, and moving.",
-    description:
-      "A Closing Desk platform for transaction coordinators that integrates with Microsoft 365 to centralize deadlines, dependencies, and file setup—built for the way TCs actually work.",
-    category: "SaaS",
-    year: "2026",
-    client: "Internal Product (Early Access)",
-    role: "Full-Stack Development, Product Architecture",
-    tools: [
-      "Next.js (App Router)",
-      "PostgreSQL + Prisma",
-      "Microsoft Graph API",
-      "LLM workflows (Gemini)",
-    ],
-    thumbnail: "/images/projects/norma/norma-thumb.webp",
-    heroImage: "/images/projects/norma/norma-hero.webp",
-    externalUrl: "https://normatc.com",
-    images: [
-      "/images/projects/norma/norma-1.webp",
-      "/images/projects/norma/norma-2.webp",
-      "/images/projects/norma/norma-3.webp",
-    ],
-    problem:
-      "Transaction Coordinators live in a flood of emails, deadlines, compliance rules, and “who-owes-me-what” follow-ups across dozens of active files. Traditional CRMs and generic task tools don’t map cleanly to TC workflows—so important signals get buried, dependencies slip, and setup stays manual.",
-    solution:
-      "Built Norma as a dedicated “Closing Desk” that augments the tools TCs already use. It centralizes today’s deadlines and follow-ups, syncs context into Outlook/Calendar/To Do, and uses rules + AI to catch missing info early—so each file starts organized and stays on track.",
-    caseStudy: {
-      headline: "Norma — The Closing Desk for Transaction Coordinators",
-      subheadline:
-        "A TC-first operations platform designed to reduce inbox chaos, enforce consistency, and prevent missed follow-ups.",
-      tldr: "Norma is an early-access Closing Desk platform for transaction coordinators. It integrates with Microsoft 365, tracks “Waiting On” dependencies, and automates workflow signals (rules + AI) so files start clean and deadlines don’t get buried.",
-      goals: [
-        "Centralize deadlines + follow-ups into a single daily view",
-        "Make “Waiting On” dependencies obvious and actionable",
-        "Integrate with Outlook/Calendar/To Do (instead of replacing them)",
-        "Reduce setup + missing-info back-and-forth at file start",
-      ],
-      constraints: [
-        "TC workflows vary by state/brokerage—needs flexible rule packs",
-        "Must keep the user in familiar tools (Microsoft 365)",
-        "Fast daily use: minimal clicks, high signal-to-noise",
-        "Secure OAuth + careful handling of sensitive deal data",
-      ],
-      delivered: [
-        "Daily “Closing Desk” dashboard that surfaces what matters today",
-        "Deep Microsoft Graph integration (email, calendar, To Do sync)",
-        "“Waiting On” engine for tracking external dependencies",
-        "Rule-based compliance workflows (deadline + stage logic)",
-        "AI-assisted inbox triage + document/missing-info signals",
-        "Webhook-based canonical intake pipeline (forms → transaction seed)",
-      ],
-      whyItWorks: [
-        "Meets TCs where they already work: Outlook + Microsoft 365",
-        "Dependency-first design solves the real coordination bottleneck",
-        "Rules enforce consistency without forcing rigid templates",
-        "AI is used for triage + signal, not gimmicky chat",
-      ],
-    },
-    cta: {
-      headline: "Want early access to Norma?",
-      body: "Norma is in early access for transaction coordinators. If your day lives in Outlook and you want a real Closing Desk, join the waitlist at NormaTC.com.",
-      ctaText: "Join the waitlist",
-      href: "https://normatc.com",
-    },
-    process: [
-      {
-        title: "Closing Desk Daily View",
-        description:
-          "A single dashboard built for the questions TCs ask every morning: what’s due, who am I waiting on, and what’s at risk.",
-        image: "/images/projects/norma/norma-1.webp",
-      },
-      {
-        title: "Dependency Tracking (“Waiting On”)",
-        description:
-          "A dedicated dependency system that makes follow-ups explicit—so nothing gets buried in threads or side notes.",
-        image: "/images/projects/norma/norma-2.webp",
-      },
-      {
-        title: "AI-Assisted Signals",
-        description:
-          "AI triage to classify inbound updates and flag missing info early—used for signal and speed, not novelty.",
-        image: "/images/projects/norma/norma-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Primary Workflow",
-        value: "TC-first",
-        description: "Built around deadlines, dependencies, and file setup",
-      },
-      {
-        metric: "Integrations",
-        value: "Microsoft 365",
-        description: "Graph API email, calendar, and task sync",
-      },
-      {
-        metric: "Automation Style",
-        value: "Rules + AI",
-        description: "Compliance logic plus triage/missing-info signals",
-      },
-    ],
-    featured: false,
-    color: "#4f46e5",
-  },
-  {
-    slug: "norma-intake",
-    title: "Norma Intake",
-    kind: "Product",
-    industries: ["tc", "real-estate"],
-    metaTitle: "Norma Intake - AI-Powered Transaction Intake for TCs",
-    metaDescription:
-      "AI-powered intake platform that lets agents upload purchase agreements and auto-generates branded cover sheets for transaction coordinators. No logins, no chasing—just one link.",
-    socialCaption:
-      "New product: Norma Intake — agents upload a purchase agreement, AI pre-fills the form, and a polished cover sheet lands in the TC's inbox. One link, zero chasing.",
-    tags: [
-      "SaaS",
-      "AI",
-      "Real Estate Ops",
-      "Transaction Coordination",
-      "Automation",
-    ],
-    tagline:
-      "One-link intake that turns purchase agreements into polished cover sheets automatically",
-    description:
-      "AI-powered intake platform where agents upload a purchase agreement, AI extracts the data, and the TC gets a branded cover sheet PDF in their inbox—no logins, no chasing, no retyping.",
-    category: "SaaS",
-    year: "2026",
-    client: "Internal Product",
-    role: "Product Strategy, UX/UI Design, Full-Stack Development",
-    tools: [
-      "Next.js (App Router)",
-      "AI document parsing",
-      "PDF generation",
-      "Webhook integrations",
-    ],
-    thumbnail: "/images/projects/norma-intake/norma-intake-thumb.webp",
-    heroImage: "/images/projects/norma-intake/norma-intake-hero.webp",
-    externalUrl: "https://intake.normatc.com",
-    images: [
-      "/images/projects/norma-intake/norma-intake-1.webp",
-      "/images/projects/norma-intake/norma-intake-2.webp",
-      "/images/projects/norma-intake/norma-intake-3.webp",
-    ],
-    problem:
-      "Transaction coordinators waste hours re-reading purchase agreements and chasing agents for missing info. Agents submit incomplete forms, forget fields, or send unstructured emails—forcing TCs to manually piece together every new file before work can even begin.",
-    solution:
-      "Built Norma Intake as a single-link intake tool. TCs share one URL with their agents. Agents upload the purchase agreement, AI extracts the key data (address, price, dates, contacts, commission), and the TC receives a branded cover sheet PDF by email—ready to file. No accounts for agents, no manual retyping, no chasing.",
-    caseStudy: {
-      headline: "Norma Intake — One Link. Zero Chasing.",
-      subheadline:
-        "An AI-powered intake platform that turns purchase agreement uploads into polished, ready-to-file cover sheets.",
-      tldr: "Built an AI-powered transaction intake tool for TCs. Agents upload a purchase agreement via a single shared link, AI pre-fills the form, and a branded cover sheet PDF is delivered to the TC's inbox automatically. Free tier includes 5 submissions/month; Pro is $14/month for unlimited.",
-      goals: [
-        "Eliminate manual data entry from purchase agreements",
-        "Remove the need for agents to create accounts or remember passwords",
-        "Deliver a professional, branded cover sheet without TC intervention",
-        "Integrate with existing TC workflows via webhooks",
-      ],
-      constraints: [
-        "Zero-friction agent experience (no signup, no app install)",
-        "AI extraction must handle varied purchase agreement formats",
-        "Cover sheet PDFs must be professional enough to file immediately",
-        "Must work on mobile for agents submitting from the field",
-      ],
-      delivered: [
-        "Single reusable intake link that TCs share with all their agents",
-        "AI document parsing that extracts address, price, dates, contacts, and commission",
-        "Agent review step so extracted data can be verified before submission",
-        "Branded cover sheet PDF auto-delivered to the TC's inbox",
-        "Agent confirmation emails on successful submission",
-        "Webhook integration (Zapier, Make, custom) with built-in retries",
-        "Free tier (5/month) and Pro tier ($14/month unlimited)",
-      ],
-      whyItWorks: [
-        "Agents face zero friction—one link, upload, review, submit",
-        "AI handles the tedious extraction TCs used to do manually",
-        "Auto-delivery means TCs never need to check a dashboard",
-        "Webhook sync keeps the TC's existing tools in the loop",
-      ],
-      approval:
-        "This is an internal product built and owned by the portfolio author.",
-    },
-    cta: {
-      headline: "Want to try Norma Intake?",
-      body: "Norma Intake is live at intake.normatc.com. The free plan includes 5 submissions/month; Pro is $14/month for unlimited.",
-      ctaText: "Get started free",
-      href: "https://intake.normatc.com",
-    },
-    process: [
-      {
-        title: "One-Link Agent Experience",
-        description:
-          "TCs generate a single intake URL. Agents open it, upload the purchase agreement, and AI pre-fills the form—no account, no password, no app to install.",
-        image: "/images/projects/norma-intake/norma-intake-1.webp",
-      },
-      {
-        title: "AI-Powered Data Extraction",
-        description:
-          "The platform reads the purchase agreement and extracts property address, sale price, key dates, party contacts, and commission details. Agents review and correct before submitting.",
-        image: "/images/projects/norma-intake/norma-intake-2.webp",
-      },
-      {
-        title: "Auto-Delivered Cover Sheets",
-        description:
-          "Each submission generates a branded, professional cover sheet PDF delivered straight to the TC's inbox—ready to file without any manual formatting.",
-        image: "/images/projects/norma-intake/norma-intake-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Agent Friction",
-        value: "Zero",
-        description: "No accounts, passwords, or app installs required",
-      },
-      {
-        metric: "Data Entry",
-        value: "AI-automated",
-        description: "Purchase agreement parsing replaces manual retyping",
-      },
-      {
-        metric: "Delivery",
-        value: "Automatic",
-        description: "Branded cover sheet PDF emailed to TC on submission",
-      },
-    ],
-    featured: false,
-    color: "#4f46e5",
-  },
-  {
-    slug: "peppers-portal",
-    title: "Pepper's Portal",
-    kind: "Personal",
-    metaTitle: "Pepper's Portal - Family Dog Care Tracker PWA",
-    metaDescription:
-      "Family-focused dog care tracker PWA with one-tap walk logging, shared routines, and a playful leaderboard to keep daily coordination simple.",
-    tagline:
-      "Family PWA for tracking dog walks, routines, and care with gamification",
-    description:
-      "A Progressive Web App built for my family to quickly log our dog Pepper's walks (pee/poop/both), track feeding, grooming, vet visits, and medications—with a leaderboard to make it fun.",
-    category: "Portal",
-    year: "2025",
-    client: "Personal Project",
-    role: "Product Design, Full-Stack Development",
-    tools: [
-      "Mobile-friendly app (PWA)",
-      "One-tap logging",
-      "Shared dashboard + history",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/peppers-portal/peppers-portal-thumb.webp",
-    heroImage: "/images/projects/peppers-portal/peppers-portal-hero.webp",
-    images: [
-      "/images/projects/peppers-portal/peppers-portal-1.webp",
-      "/images/projects/peppers-portal/peppers-portal-2.webp",
-      "/images/projects/peppers-portal/peppers-portal-3.webp",
-    ],
-    problem:
-      "With multiple family members walking and caring for our dog Pepper, we constantly asked 'Did anyone walk her?' or 'When was she last fed?' No one had a clear picture of who did what or when.",
-    solution:
-      "Built a PWA that lets anyone in the family log walks in seconds, track daily routines like feeding and toy refills, and see a live history. A leaderboard adds friendly competition, and a public dashboard lets us share Pepper's status with anyone.",
-    caseStudy: {
-      headline: "Pepper's Portal - Family Coordination Made Simple",
-      subheadline:
-        "A lightweight personal portal that removes routine confusion with one-tap logging and shared visibility.",
-      tldr: "Designed and built a family-facing PWA for walk tracking, routine logging, and shared visibility. The product solved everyday coordination gaps with a fast, mobile-first interface.",
-      goals: [
-        "Remove routine confusion across multiple household members",
-        "Make logging so fast that usage stays consistent",
-        "Create shared visibility without account friction",
-      ],
-      whyItWorks: [
-        "One-tap actions reduce friction at the moment of use",
-        "Shared history gives everyone the same source of truth",
-        "Gamification increased consistency without adding complexity",
-      ],
-    },
-    process: [
-      {
-        title: "Quick Walk Logging",
-        description:
-          "One-tap interface to log walks with pee/poop/both options. Optimized for speed so anyone can log a walk while still outside.",
-        image: "/images/projects/peppers-portal/peppers-portal-1.webp",
-      },
-      {
-        title: "Daily Routines & Care Tracking",
-        description:
-          "Track feeding, toy refills, grooming, vet visits, and medications. Everyone knows at a glance what's been done today.",
-        image: "/images/projects/peppers-portal/peppers-portal-2.webp",
-      },
-      {
-        title: "Leaderboard & Analytics",
-        description:
-          "Gamified the experience with a family leaderboard. History and analytics show patterns over time.",
-        image: "/images/projects/peppers-portal/peppers-portal-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Family Adoption",
-        value: "100%",
-        description: "All family members actively use the app",
-      },
-      {
-        metric: "Walk Confusion",
-        value: "Eliminated",
-        description: "No more 'did anyone walk her?' questions",
-      },
-      {
-        metric: "Routine Tracking",
-        value: "5+ categories",
-        description: "Walks, feeding, toys, grooming, vet, meds",
-      },
-    ],
-    featured: false,
-    color: "#ec4899",
-    externalUrl: "https://peppers-portal.vercel.app/public",
-  },
-  {
-    slug: "workout-tracker",
-    title: "7-Day Workout Tracker",
-    kind: "Personal",
-    tagline:
-      "Personal web app for tracking a custom 7-day workout split with local storage",
-    description:
-      "A simple, no-backend web app customized for my personal 7-day workout routine. Stores all data locally in the browser—no database needed for solo use.",
-    category: "Fitness",
-    year: "2025",
-    client: "Personal Project",
-    role: "Design & Development",
-    tools: [
-      "Local-only storage",
-      "No accounts required",
-      "Mobile-friendly UI",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/workout-tracker/workout-tracker-thumb.webp",
-    heroImage: "/images/projects/workout-tracker/workout-tracker-hero.webp",
-    images: [
-      "/images/projects/workout-tracker/workout-tracker-1.webp",
-      "/images/projects/workout-tracker/workout-tracker-2.webp",
-      "/images/projects/workout-tracker/workout-tracker-3.webp",
-    ],
-    problem:
-      "Generic workout apps don't match my specific 7-day split, and I didn't want to manage a database for something only I would use.",
-    solution:
-      "Built a lightweight web app tailored to my exact workout routine. Data persists in localStorage, so it's always available on my device without any server or account setup.",
-    caseStudy: {
-      headline: "7-Day Workout Tracker - Built for a Single User Workflow",
-      subheadline:
-        "A local-first personal tool designed around one training system instead of generic app templates.",
-      tldr: "Built a no-backend workout tracker tailored to a specific 7-day split. The app prioritizes fast logging, private local data storage, and zero account setup.",
-      goals: [
-        "Match a specific training split exactly",
-        "Avoid backend and account overhead",
-        "Keep progress tracking simple and consistent",
-      ],
-      whyItWorks: [
-        "Exact-fit structure beats generic fitness templates",
-        "Local storage removes setup barriers and privacy concerns",
-        "Simple interfaces increase daily usage reliability",
-      ],
-    },
-    process: [
-      {
-        title: "Custom 7-Day Split",
-        description:
-          "Designed around my specific workout plan with each day's exercises, sets, and reps laid out exactly how I train.",
-        image: "/images/projects/workout-tracker/workout-tracker-1.webp",
-      },
-      {
-        title: "Progress Tracking",
-        description:
-          "Log weights and reps for each exercise. See history and progress over time without any external dependencies.",
-        image: "/images/projects/workout-tracker/workout-tracker-2.webp",
-      },
-      {
-        title: "Local-First Storage",
-        description:
-          "All data stays in the browser via localStorage. No accounts, no database, no sync—just simple, private, personal tracking.",
-        image: "/images/projects/workout-tracker/workout-tracker-3.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Setup Time",
-        value: "0 min",
-        description: "No account or database configuration needed",
-      },
-      {
-        metric: "Data Privacy",
-        value: "100% local",
-        description: "All workout data stays on the device",
-      },
-      {
-        metric: "Customization",
-        value: "Perfect fit",
-        description: "Matches my exact 7-day split",
-      },
-    ],
-    featured: false,
-    color: "#06b6d4",
-    externalUrl: "https://7dayplan.vercel.app/",
   },
   {
     slug: "pa-real-estate-support",
     title: "PA Real Estate Support Services",
     kind: "Client",
     industries: ["tc", "real-estate"],
-    metaTitle: "PA Real Estate Support Services Website Redesign (TC)",
+    metaTitle: "PA Real Estate Support Services — Website for a TC Business",
     metaDescription:
-      "Website redesign for a Pennsylvania transaction coordination team — clear service pages, pricing, and an intake flow designed to bring in better leads.",
+      "A redesign for a Pocono-area transaction coordination business, built around the question agents ask first: “How do I send you a file?”",
     socialCaption:
-      "Website redesign for PA Real Estate Support Services: clearer services + pricing, a guided intake flow, and a faster mobile experience for TC leads.",
-    tags: [
-      "Transaction Coordination",
-      "Service Pages",
-      "Pricing",
-      "Intake Flow",
-      "Conversion Copy",
-    ],
-    tagline:
-      "Clear services, pricing, and guided intake for a Pennsylvania TC team.",
+      "PA Real Estate Support Services: a TC website built around one question agents ask, “How do I send you a file?”",
+    tagline: "My mom’s TC business, rebuilt around starting a file.",
     description:
-      "Complete website redesign with clear services, pricing, and intake flows that sync directly with the team's workflow.",
+      "A redesign for a Pocono-area transaction coordination business, built around one question agents ask: “How do I send you a file?”",
     category: "Real Estate",
     year: "2024",
     client: "PA Real Estate Support Services, LLC",
-    role: "Designer & Developer",
-    tools: [
-      "Clear service pages + pricing",
-      "Guided intake form",
-      "Fast, mobile-first build",
-      "Easy updates",
-    ],
+    role: "Design and development, including the agent intake form",
+    tools: ["Full website", "Agent intake form", "Norma integration"],
     thumbnail:
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-thumb.webp",
     heroImage:
@@ -1217,189 +347,52 @@ export const projects: Project[] = [
     images: [
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.webp",
       "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-2.webp",
-      "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-3.webp",
     ],
-    problem:
-      "The team relied on spreadsheets and email to collect brokerage requests. Their DIY site left prospects unsure which services were covered and how to start.",
-    solution:
-      "Created a revised brand voice, service breakdown, and guided intake forms that sync to the team's workflow. A component library empowers future landing pages and campaigns.",
-    caseStudy: {
-      headline: "PA Real Estate Support Services - Clarity + Intake Conversion",
-      subheadline:
-        "A TC-focused redesign built around clear services and guided intake.",
-      tldr: "Redesigned the site around clear service positioning, visible pricing, and guided intake paths.",
-      goals: [
-        "Clarify service scope before the first conversation",
-        "Increase completed intake submissions",
-        "Reduce manual back-and-forth before engagement",
-      ],
-      whyItWorks: [
-        "Service hierarchy made offerings easier to understand quickly",
-        "Trust and proof blocks reduced hesitation before action",
-        "Guided intake flow improved lead quality and readiness",
+    story: {
+      summary:
+        "A redesign for a Pocono-area transaction coordination business, built around one question agents ask: “How do I send you a file?”",
+      businessType: "Transaction coordination business",
+      location: "Pocono Mountains, Pennsylvania",
+      whatIDid:
+        "Design and development, including the agent intake form, which creates transactions in Norma",
+      package: "full",
+      // Disclosure required by brief §5.6. Facts from the brief's facts register.
+      relationship:
+        "This is my mom’s business. Debbie O’Brien has worked in real estate for more than 30 years and has been a transaction coordinator since 2013, serving agents across the Pocono market.",
+      decisions: [
+        {
+          title: "Intake goes straight into her workspace.",
+          body: "Agents fill out a start-transaction form whenever a file goes under contract, and the details arrive in Norma, the TC software I build, as a new transaction, ready for Debbie to work. No retyping from emails.",
+        },
       ],
     },
     process: [
       {
-        title: "Clear Hero Messaging",
+        title: "One action on every page",
         description:
-          "Clarified the offer with a strong headline, clear supporting copy, and immediate CTAs—so prospects know exactly what to do next.",
+          "A clear headline about who Debbie serves, and a “Start Transaction” button in the navigation on every page.",
+        image:
+          "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-hero.webp",
+      },
+      {
+        title: "Services in scannable groups",
+        description:
+          "Agents can see what’s covered, from contract management to deadlines and compliance, before they call.",
         image:
           "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-1.webp",
       },
       {
-        title: "Service Breakdown & Trust Signals",
+        title: "Call, email, or form",
         description:
-          "Organized the service into scannable pillars, added social proof, and designed supporting sections that reinforce credibility.",
+          "The Work With Me page puts every way to reach Debbie in one place, with business hours, so agents know what to expect.",
         image:
           "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-2.webp",
       },
-      {
-        title: "Intake Form Integration",
-        description:
-          "Integrated the transaction intake flow and made it easy to start via multiple contact paths (call, email, and form).",
-        image:
-          "/images/projects/pa-real-estate-support-services/pa-real-estate-support-services-3.webp",
-      },
     ],
-    outcomes: [
-      {
-        metric: "Intake Completion",
-        value: "+42%",
-        description: "Increase in completed intake forms",
-      },
-      {
-        metric: "Search Impressions",
-        value: "+37%",
-        description: "Growth in branded search impressions within 60 days",
-      },
-      {
-        metric: "Scope Clarity",
-        value: "Less back-and-forth",
-        description: "Less time spent clarifying scope before projects begin",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#3b82f6",
-    externalUrl: "https://parealestatesupport.com",
-  },
-  {
-    slug: "client-portal",
-    title: "Client Portal",
-    kind: "Product",
-    industries: ["tc", "real-estate"],
-    metaTitle:
-      "Client Portal - Secure Dashboard for Requests, Status, and Files",
-    metaDescription:
-      "A secure, mobile-friendly client portal that centralizes project status, requests, and file sharing in one streamlined interface.",
-    socialCaption:
-      "Client Portal case study: secure login, request tracking, and shared visibility in one clean, mobile-friendly workflow.",
-    tags: [
-      "Portal",
-      "UX Design",
-      "Client Experience",
-      "Dashboard",
-      "Product Build",
-    ],
-    tagline:
-      "Secure client dashboard for status visibility, requests, and streamlined communication",
-    description:
-      "A portal experience that gives clients one place to log in, check progress, submit requests, and stay aligned without email sprawl.",
-    category: "Portal",
-    year: "2026",
-    client: "Internal product build",
-    role: "Product Design, UI/UX, Full-Stack Development",
-    tools: [
-      "Secure authentication",
-      "Role-based views",
-      "Request dashboard",
-      "Responsive UI patterns",
-    ],
-    thumbnail: "/images/portal/portal-dashboard-desktop.webp",
-    heroImage: "/images/portal/portal-login-desktop.webp",
-    images: [
-      "/images/portal/portal-dashboard-desktop.webp",
-      "/images/portal/portal-dashboard-mobile.webp",
-      "/images/portal/portal-login-desktop.webp",
-      "/images/portal/portal-login-mobile.webp",
-    ],
-    problem:
-      "Client communication and handoffs were scattered across email, DMs, and shared docs. That made status hard to track and created avoidable follow-up loops.",
-    solution:
-      "Built a dedicated portal with secure login, dashboard visibility, and request tracking so clients always know current status, next steps, and where to submit updates.",
-    caseStudy: {
-      headline: "Client Portal - One Source of Truth",
-      subheadline:
-        "A structured portal experience that keeps project communication, status, and requests in one place.",
-      tldr: "Designed and built a client portal that consolidates status, communication, and request intake into a single workflow. Clients get clear visibility without needing to chase updates.",
-      goals: [
-        "Replace fragmented communication with a centralized client experience",
-        "Give clients real-time status visibility with less manual follow-up",
-        "Standardize request intake to reduce context switching",
-      ],
-      constraints: [
-        "Mobile-first UX for busy users checking updates from phones",
-        "Simple authentication flow without adding friction",
-        "Clear information hierarchy for quick scanning",
-      ],
-      delivered: [
-        "Secure login experience with clear session states",
-        "Dashboard that surfaces active requests and current status",
-        "Responsive layouts optimized for desktop and mobile usage",
-        "Structured request workflow for cleaner handoffs",
-      ],
-      whyItWorks: [
-        "Centralized visibility reduces email ping-pong and uncertainty",
-        "Clients can self-serve status checks at any time",
-        "Standardized request capture improves delivery consistency",
-      ],
-    },
-    cta: {
-      headline: "Need a client-facing portal in your workflow?",
-      body: "I design and build portal experiences that help clients get answers faster while keeping operations organized behind the scenes.",
-      ctaText: "Get in touch",
-      href: "/contact?source=case-study-client-portal",
-    },
-    process: [
-      {
-        title: "Secure Login Experience",
-        description:
-          "Designed a clean login flow that feels professional, keeps friction low, and guides users clearly into the portal.",
-        image: "/images/portal/portal-login-desktop.webp",
-      },
-      {
-        title: "Operational Dashboard Design",
-        description:
-          "Built a dashboard layout focused on fast scanning so users can see priorities, request status, and next actions at a glance.",
-        image: "/images/portal/portal-dashboard-desktop.webp",
-      },
-      {
-        title: "Mobile Portal Optimization",
-        description:
-          "Adapted the portal experience for mobile so clients can check updates, review status, and submit requests from anywhere.",
-        image: "/images/portal/portal-dashboard-mobile.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Portal Access",
-        value: "24/7",
-        description: "Clients can check status and updates whenever needed",
-      },
-      {
-        metric: "Status Visibility",
-        value: "Centralized",
-        description: "One dashboard for updates, requests, and next steps",
-      },
-      {
-        metric: "Workflow Quality",
-        value: "More consistent",
-        description: "Structured intake reduces follow-up friction",
-      },
-    ],
-    featured: false,
-    color: "#0f766e",
-    externalUrl: "https://portal.multimedium.dev",
+    externalUrl: "https://www.poconotc.com",
   },
   {
     slug: "blissful-existence",
@@ -1407,19 +400,14 @@ export const projects: Project[] = [
     kind: "Client",
     industries: ["wellness"],
     tagline:
-      "A welcoming, nature-inspired website for a wellness retreat business.",
+      "A website for an equine-assisted gestalt therapy farm.",
     description:
-      "Immersive website with event booking flows, story-driven copy, and automation-ready forms for a wellness retreat property.",
+      "A photo-led website for an equine-assisted gestalt therapy farm in East Stroudsburg, PA, with its sessions, group experiences, and workshops laid out clearly.",
     category: "Wellness",
     year: "2024",
     client: "Blissful Existence Healing Acres",
-    role: "Designer & Developer",
-    tools: [
-      "Story-driven design",
-      "Event + booking flow",
-      "Automation-ready forms",
-      "Fast, mobile-first build",
-    ],
+    role: "Design and development",
+    tools: ["Photo-led design", "Events and services pages"],
     thumbnail:
       "/images/projects/blissful-existence/blissful-existence-thumb.webp",
     heroImage:
@@ -1429,63 +417,34 @@ export const projects: Project[] = [
       "/images/projects/blissful-existence/blissful-existence-2.webp",
       "/images/projects/blissful-existence/blissful-existence-3.webp",
     ],
-    problem:
-      "Retreats were filling via phone call sign-ups. The team needed a site that reflected the property experience and captured bookings without manual follow-up.",
-    solution:
-      "Built a photo-led website with event and service information, a gallery, and clear pathways to booking and contact.",
-    caseStudy: {
-      headline: "Blissful Existence - Story-Led Retreat Conversion",
-      subheadline:
-        "A wellness web experience that balanced atmosphere with clear booking pathways and automation.",
-      tldr: "Built a retreat website with photography, service information, event listings, and clear booking pathways.",
-      goals: [
-        "Reflect the retreat atmosphere while maintaining conversion clarity",
-        "Increase direct online bookings",
-        "Reduce manual follow-up and confirmation overhead",
-      ],
-      whyItWorks: [
-        "Photo-first storytelling supported emotional connection",
-        "Scannable offerings reduced decision friction",
-        "Automated confirmations improved operational consistency",
-      ],
+    story: {
+      summary:
+        "A photo-led website for an equine-assisted gestalt therapy farm, with its sessions, group experiences, and workshops laid out clearly.",
+      businessType: "Equine-assisted therapy farm",
+      location: "East Stroudsburg, Pennsylvania",
+      whatIDid: "Design and development",
     },
     process: [
       {
-        title: "Events & Services Page Design",
+        title: "Events and services",
         description:
-          "Built a photo-first events/services layout with clear headings and CTAs so visitors can quickly understand offerings and join.",
+          "Each offering has a clear heading and a next step, so visitors can see what’s available and how to join.",
         image: "/images/projects/blissful-existence/blissful-existence-1.webp",
       },
       {
-        title: "Gallery Layout System",
+        title: "A gallery of the land",
         description:
-          "Created a distinctive gallery pattern to showcase the land, horses, and community moments while keeping the page airy and calm.",
+          "The farm, the horses, and the community, laid out so the page stays calm.",
         image: "/images/projects/blissful-existence/blissful-existence-2.webp",
       },
       {
-        title: "Offerings Breakdown",
+        title: "Offerings in scannable sections",
         description:
-          "Structured offerings into scannable sections that support the story (community, workshops, and experiences) without overwhelming the reader.",
+          "Coaching, group experiences, and workshops each get their own section.",
         image: "/images/projects/blissful-existence/blissful-existence-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Online Bookings",
-        value: "2x",
-        description: "Doubled within 90 days of launch",
-      },
-      {
-        metric: "Admin Time",
-        value: "-6 hrs/week",
-        description: "Saved through automated confirmations and reminders",
-      },
-      {
-        metric: "Engagement",
-        value: "More time-on-site",
-        description: "Higher time-on-site and return visits",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#10b981",
     externalUrl: "https://blissfulexistencehealingacres.com",
@@ -1496,19 +455,14 @@ export const projects: Project[] = [
     kind: "Client",
     industries: ["real-estate"],
     tagline:
-      "A clear home for property services, investors, and tenant resources.",
+      "Separate paths for tenants and investors, with TenantCloud onboarding.",
     description:
-      "Modern hub that highlights the portfolio, builds trust with proof, and routes tenants to the right next step—including the TenantCloud portal.",
+      "A website for a Stroudsburg, PA rental property company, with separate paths for tenants and investors and an introduction to the TenantCloud tenant portal.",
     category: "Real Estate",
     year: "2023",
     client: "Three Penn Properties, LLC",
-    role: "Designer & Developer",
-    tools: [
-      "Portfolio + proof sections",
-      "Tenant / investor pathways",
-      "CMS for easy updates",
-      "Fast, mobile-first build",
-    ],
+    role: "Design and development",
+    tools: ["Tenant and investor paths", "TenantCloud portal link"],
     thumbnail: "/images/projects/threepenn/threepenn-thumb.webp",
     heroImage: "/images/projects/threepenn/threepenn-hero.webp",
     images: [
@@ -1516,483 +470,82 @@ export const projects: Project[] = [
       "/images/projects/threepenn/threepenn-2.webp",
       "/images/projects/threepenn/threepenn-3.webp",
     ],
-    problem:
-      "Investors and tenants received PDFs and ad-hoc updates. Leadership wanted a modern hub that showcased portfolio metrics and routed leads correctly.",
-    solution:
-      "Created a modern hub with portfolio highlights, clear tenant/investor pathways, and TenantCloud onboarding so leads and requests route correctly.",
-    caseStudy: {
-      headline: "Three Penn Properties - Multi-Audience Clarity",
-      subheadline:
-        "A modern property hub that serves investors and tenants with clearer pathways and faster support routing.",
-      tldr: "Built a central website with dedicated investor and tenant pathways and a connection to TenantCloud.",
-      goals: [
-        "Create a clearer multi-audience navigation structure",
-        "Improve investor confidence with stronger proof presentation",
-        "Route tenant support and onboarding more efficiently",
-      ],
-      whyItWorks: [
-        "Audience-specific pathways reduced navigation confusion",
-        "Portfolio proof improved investor trust signals",
-        "TenantCloud integration lowered support friction",
-      ],
+    story: {
+      summary:
+        "A website for a rental property company, with separate paths for tenants and investors and an introduction to the TenantCloud tenant portal.",
+      businessType: "Rental property company",
+      location: "Stroudsburg, Pennsylvania",
+      whatIDid: "Design and development",
     },
     process: [
       {
-        title: "Brand & Hero Refresh",
+        title: "Who they are, up front",
         description:
-          "Updated the hero and messaging to quickly establish credibility and set context for both investors and tenants.",
+          "The company’s story and what it offers tenants, in its own words.",
         image: "/images/projects/threepenn/threepenn-1.webp",
       },
       {
-        title: "Proof Through Portfolio",
+        title: "The properties, in photos",
         description:
-          "Designed a gallery-forward section that showcases outcomes and builds trust through visuals.",
+          "A gallery of renovated units shows the work instead of describing it.",
         image: "/images/projects/threepenn/threepenn-2.webp",
       },
       {
-        title: "Tenant Portal Integration",
+        title: "Tenants know where to go",
         description:
-          "Added a dedicated TenantCloud explainer so renters know how to submit requests, pay invoices, and contact the office.",
+          "A TenantCloud section explains how to submit maintenance requests, pay invoices, and reach the office, with office hours alongside.",
         image: "/images/projects/threepenn/threepenn-3.webp",
       },
     ],
-    outcomes: [
-      {
-        metric: "Investor Inquiries",
-        value: "+55%",
-        description: "Increase in qualified investor leads",
-      },
-      {
-        metric: "Response Time",
-        value: "<12 hrs",
-        description: "Support ticket response time",
-      },
-      {
-        metric: "Performance",
-        value: "95+",
-        description: "Speed + accessibility scores across key pages",
-      },
-    ],
+    outcomes: [],
     featured: true,
     color: "#f59e0b",
     externalUrl: "https://threepenn.com",
   },
-  {
-    slug: "northpoint-realty",
-    title: "NorthPoint Realty Group",
-    kind: "Concept",
-    industries: ["real-estate"],
-    metaTitle: "NorthPoint Realty Group - Lead-Gen Real Estate Website Concept",
-    metaDescription:
-      "Concept website design for a real estate team with dual buyer/seller funnels, market stats, scrolling testimonials, and prominent intake forms.",
-    socialCaption:
-      "Concept design: a real estate team website for the fictional NorthPoint Realty Group — dual buyer/seller funnels, market stats, and prominent lead capture.",
-    tags: [
-      "Web Design",
-      "Lead Generation",
-      "Real Estate",
-      "Conversion Design",
-      "Mobile-First",
-    ],
-    tagline:
-      "Concept real estate team site with separate buyer and seller inquiry paths",
-    description:
-      "Concept design for a real estate team website with dual buyer/seller pathways, scrolling testimonials, market stats, and prominent intake forms throughout.",
-    category: "Real Estate",
-    year: "2026",
-    client: "NorthPoint Realty Group",
-    role: "Web Design, UI/UX, Front-End Development",
-    tools: [
-      "HTML/CSS/JS",
-      "Mobile-first design",
-      "Lead capture forms",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/northpoint-realty/northpoint-thumb.webp",
-    heroImage: "/images/projects/northpoint-realty/northpoint-hero.webp",
-    images: [
-      "/images/projects/northpoint-realty/northpoint-1.webp",
-      "/images/projects/northpoint-realty/northpoint-2.webp",
-      "/images/projects/northpoint-realty/northpoint-hero.webp",
-    ],
-    problem:
-      "NorthPoint Realty Group needed a website that could generate leads for both buyers and sellers while establishing trust quickly. Their previous site lacked clear conversion paths and didn't showcase their team's experience or market expertise.",
-    solution:
-      "Designed a website with separate buyer and seller pathways, each with dedicated intake forms. Added scrolling testimonials, real-time market stats, and trust badges to build credibility. The design uses a professional deep blue and red color scheme that conveys confidence.",
-    caseStudy: {
-      headline: "NorthPoint Realty — Your Next Move Starts Here",
-      subheadline:
-        "A real estate website designed to capture buyer and seller leads through credibility and clear pathways.",
-      tldr: "Built a lead-generation website for NorthPoint Realty Group with separate buyer/seller funnels, prominent intake forms, scrolling testimonials, and market stats. The design prioritizes conversions while building trust through social proof and a professional aesthetic.",
-      goals: [
-        "Create separate, optimized pathways for buyers and sellers",
-        "Establish immediate trust and authority",
-        "Drive qualified lead submissions through prominent intake forms",
-        "Showcase market expertise with real-time stats",
-      ],
-      constraints: [
-        "Mobile-first design for on-the-go real estate clients",
-        "Professional color palette (deep blue, white, red accents)",
-        "Fast load times for SEO and user experience",
-        "Clear CTAs visible without scrolling",
-      ],
-      delivered: [
-        "Dual-pathway hero with 'I'm Buying' and 'I'm Selling' CTAs",
-        "Trust badges showing 500+ homes sold, 15+ years, 98% satisfaction",
-        "Dedicated buyer section with personalized search form",
-        "Seller section with free home valuation form",
-        "Market stats section with median price, days on market, sale-to-list ratio",
-        "Infinite-scroll testimonials strip with client stories",
-        "Team section showcasing agent expertise",
-        "Contact section with multiple pathways (call, email, form)",
-      ],
-      whyItWorks: [
-        "Dual pathways reduce friction—visitors immediately see their relevant path",
-        "Trust badges and testimonials overcome initial skepticism",
-        "Market stats position the team as local experts",
-        "Prominent forms on every section maximize conversion opportunities",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
-    },
-    cta: {
-      headline: "Want a real estate site built around lead capture?",
-      body: "I design real estate websites around clear buyer and seller pathways, credible proof, and intake forms that are easy to complete.",
-      ctaText: "Start a conversation",
-      href: "/contact?source=case-study-northpoint-realty",
-    },
-    process: [
-      {
-        title: "Dual-Pathway Hero",
-        description:
-          "Split CTA design immediately segments visitors into buyer or seller pathways, reducing decision friction and increasing relevance of the experience.",
-        image: "/images/projects/northpoint-realty/northpoint-hero.webp",
-      },
-      {
-        title: "Trust-Building Sections",
-        description:
-          "Market stats, scrolling testimonials, and team profiles work together to establish authority and overcome initial skepticism.",
-        image: "/images/projects/northpoint-realty/northpoint-2.webp",
-      },
-      {
-        title: "Strategically Placed Forms",
-        description:
-          "Prominent intake forms in buyer and seller sections capture leads with minimal friction—budget, timeline, and contact info all in one place.",
-        image: "/images/projects/northpoint-realty/northpoint-1.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Lead Pathways",
-        value: "2",
-        description: "Separate buyer and seller funnels",
-      },
-      {
-        metric: "Trust Signals",
-        value: "Layered",
-        description: "Stats, testimonials, and team profiles",
-      },
-      {
-        metric: "Intake Forms",
-        value: "3",
-        description: "Strategically placed throughout the site",
-      },
-    ],
-    featured: false,
-    color: "#0A2540",
-    externalUrl: "https://northpoint-realty-group.vercel.app/",
-  },
-  {
-    slug: "momentum-coaching",
-    title: "Momentum Real Estate Coaching",
-    kind: "Concept",
-    industries: ["real-estate", "coaching"],
-    metaTitle: "Momentum Real Estate Coaching - Premium Coaching Website",
-    metaDescription:
-      "Premium website for a real estate coaching program with bold typography, tiered pricing cards, and results-focused testimonials.",
-    socialCaption:
-      "Concept design: a premium coaching website for the fictional Momentum Real Estate Coaching — bold typography, tiered pricing, and a results-focused layout.",
-    tags: [
-      "Web Design",
-      "Premium Design",
-      "Coaching",
-      "Real Estate",
-      "Conversion Design",
-    ],
-    tagline:
-      "Premium coaching website for real estate professionals building empires",
-    description:
-      "Bold, high-contrast website featuring dramatic typography, premium pricing tiers, results-driven testimonials, and a confident black/white/gold aesthetic.",
-    category: "Real Estate",
-    year: "2026",
-    client: "Momentum Real Estate Coaching",
-    role: "Web Design, UI/UX, Front-End Development",
-    tools: [
-      "HTML/CSS/JS",
-      "Premium typography",
-      "Pricing cards",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/momentum-coaching/momentum-thumb.webp",
-    heroImage: "/images/projects/momentum-coaching/momentum-hero.webp",
-    images: [
-      "/images/projects/momentum-coaching/momentum-1.webp",
-      "/images/projects/momentum-coaching/momentum-2.webp",
-      "/images/projects/momentum-coaching/momentum-hero.webp",
-    ],
-    problem:
-      "Momentum Real Estate Coaching needed a website that matched the premium positioning of their coaching programs. They wanted to attract serious real estate professionals—not tire kickers—with a bold, confident design that justified their high-ticket pricing.",
-    solution:
-      "Created a high-contrast, text-driven website with dramatic typography, a black/white/gold color scheme, and premium pricing cards. The design leads with bold claims backed by specific results, uses social proof from major brokerages, and presents three clear program tiers with transparent pricing.",
-    caseStudy: {
-      headline: "Momentum — Stop Chasing Deals. Build an Empire.",
-      subheadline:
-        "A premium coaching website that commands authority and justifies high-ticket pricing through bold design and results-driven messaging.",
-      tldr: "Built a high-end coaching website with dramatic black/gold aesthetic, tiered pricing ($1,497–$7,500/month), and results-focused testimonials. The design positions Momentum as the elite choice for serious real estate professionals ready to scale.",
-      goals: [
-        "Establish premium positioning that justifies high-ticket pricing",
-        "Attract serious real estate professionals, not beginners",
-        "Showcase specific, measurable client results",
-        "Drive strategy call bookings for qualified leads",
-      ],
-      constraints: [
-        "High-contrast black/white/gold color palette",
-        "Text-driven design with large, bold typography",
-        "Premium feel without being flashy or gimmicky",
-        "Mobile-first with smooth hover interactions",
-      ],
-      delivered: [
-        "Dramatic hero with 'Stop Chasing Deals. Build an Empire.' headline",
-        "Stats bar showing $847M+ volume, 2,400+ agents, 94% goal achievement",
-        "Social proof banner with major brokerage names",
-        "Problem/solution section addressing pain points",
-        "Three-tier pricing cards (Accelerate, Elite, Empire)",
-        "Results testimonials with specific metrics ($1.2M to $4.8M GCI)",
-        "Bold CTA section driving strategy call bookings",
-      ],
-      whyItWorks: [
-        "Black/gold aesthetic signals premium positioning and authority",
-        "Specific numbers in testimonials prove real results",
-        "Transparent pricing filters for serious buyers",
-        "Bold claims backed by social proof build immediate trust",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
-    },
-    cta: {
-      headline: "Need a website that commands premium prices?",
-      body: "I build bold, high-end websites for coaches and consultants who want their web presence to match their expertise—and their pricing.",
-      ctaText: "Let's talk",
-      href: "/contact?source=case-study-momentum-coaching",
-    },
-    process: [
-      {
-        title: "Premium Hero",
-        description:
-          "Dramatic typography and bold claims establish premium positioning immediately. Stats and brokerage logos build credibility without lengthy explanations.",
-        image: "/images/projects/momentum-coaching/momentum-hero.webp",
-      },
-      {
-        title: "Tiered Pricing Strategy",
-        description:
-          "Three clear program levels with transparent pricing help visitors self-select. The featured 'Elite' tier uses visual hierarchy to drive most conversions.",
-        image: "/images/projects/momentum-coaching/momentum-1.webp",
-      },
-      {
-        title: "Results-Driven Testimonials",
-        description:
-          "Each testimonial leads with specific numbers—$1.2M to $4.8M, 47 to 112 transactions—proving tangible outcomes rather than vague praise.",
-        image: "/images/projects/momentum-coaching/momentum-2.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Pricing Tiers",
-        value: "3",
-        description: "Accelerate, Elite, Empire programs",
-      },
-      {
-        metric: "Trust Signals",
-        value: "5+",
-        description: "Major brokerage logos displayed",
-      },
-      {
-        metric: "Results Shown",
-        value: "Specific",
-        description: "Exact revenue and transaction growth",
-      },
-    ],
-    featured: false,
-    color: "#C9A227",
-    externalUrl: "https://momentum-real-estate-coaching.vercel.app/",
-  },
-  {
-    slug: "clarity-growth",
-    title: "Clarity Growth Co",
-    kind: "Concept",
-    industries: ["wellness", "coaching"],
-    metaTitle: "Clarity Growth Co - Scroll-Driven Business Coaching Website",
-    metaDescription:
-      "Editorial coaching website with scroll-driven sections, GSAP motion, and a calm visual system designed for clarity and sustainable growth.",
-    socialCaption:
-      "Concept design: a scroll-driven editorial website for the fictional Clarity Growth Co — pinned sections, GSAP animations, and a calm, tactile feel.",
-    tags: ["Web Design", "Motion Design", "React", "GSAP", "Scroll Animations"],
-    tagline:
-      "Scroll-driven editorial website for busy founders seeking work-life balance",
-    description:
-      "Airy, editorial website with scroll-driven pinned sections, tactile paper textures, hand-drawn accents, and organic animations that feel like a curated workbook.",
-    category: "Wellness",
-    year: "2026",
-    client: "Clarity Growth Co",
-    role: "Motion Design, UI/UX, Front-End Development",
-    tools: [
-      "React + Vite",
-      "GSAP ScrollTrigger",
-      "Custom animations",
-      "Vercel hosting",
-    ],
-    thumbnail: "/images/projects/clarity-growth/clarity-thumb.webp",
-    heroImage: "/images/projects/clarity-growth/clarity-hero.webp",
-    images: [
-      "/images/projects/clarity-growth/clarity-1.webp",
-      "/images/projects/clarity-growth/clarity-2.webp",
-      "/images/projects/clarity-growth/clarity-hero.webp",
-    ],
-    problem:
-      "Clarity Growth Co needed a website that embodied their brand promise: helping busy founders build businesses that fit their lives. Generic coaching sites felt too corporate or too 'hustle culture'—they wanted something calm, editorial, and intentionally designed.",
-    solution:
-      "Designed an airy, scroll-driven website that feels like a curated workbook. Each section pins in place with smooth GSAP animations, using tactile paper textures, hand-drawn circle markers, and friendly flat illustrations. The experience is calm and intentional, matching the brand's promise of sustainable growth.",
-    caseStudy: {
-      headline:
-        "Clarity Growth Co — Build a business that still fits your life.",
-      subheadline:
-        "A scroll-driven editorial website that embodies calm, intentional growth for busy founders.",
-      tldr: "Built a scroll-driven website with GSAP pinned sections, tactile paper textures, and friendly flat illustrations. The design feels like a curated workbook—airy, editorial, and calm—matching Clarity's promise of sustainable business growth without burnout.",
-      goals: [
-        "Embody the brand promise of calm, sustainable growth",
-        "Create a unique scroll-driven interactive experience",
-        "Feel editorial and tactile, like a designed workbook",
-        "Drive quiz completions and discovery call bookings",
-      ],
-      constraints: [
-        "Warm paper textures with limited color palette (cream, navy, sky blue)",
-        "GSAP ScrollTrigger for pinned section animations",
-        "Performance-optimized despite rich animations",
-        "Mobile-responsive with reduced motion fallbacks",
-      ],
-      delivered: [
-        "7 pinned scroll sections with 3-phase animation (entrance/settle/exit)",
-        "Hero with auto-play entrance animation and illustrated workspace",
-        "Problem/solution section establishing the brand narrative",
-        "Social proof section with specific outcome metrics",
-        "Signature offers card with 'sticky note' design treatment",
-        "3-step process section (Map it, Cut it, Protect it)",
-        "Lead gen section for free guide download",
-        "Quiz intake form for qualified lead capture",
-      ],
-      whyItWorks: [
-        "Scroll-driven animations create engagement without feeling busy",
-        "Paper textures and hand-drawn elements feel warm and approachable",
-        "Pinned sections give each message dedicated attention",
-        "The calm aesthetic matches the brand promise of less hustle, more margin",
-      ],
-      approval:
-        "Self-initiated concept project for a fictional brand — a design exploration to show range, not commissioned client work. Names, stats, and testimonials shown in the mockups are placeholder content, not real results.",
-    },
-    cta: {
-      headline: "Need a website that feels different?",
-      body: "I build scroll-driven, motion-rich websites that create unique experiences—perfect for brands that want to stand out from cookie-cutter templates.",
-      ctaText: "Send a message",
-      href: "/contact?source=case-study-clarity-growth",
-    },
-    process: [
-      {
-        title: "Editorial Hero Experience",
-        description:
-          "Auto-play entrance animations and a friendly workspace illustration immediately establish the calm, intentional brand tone.",
-        image: "/images/projects/clarity-growth/clarity-hero.webp",
-      },
-      {
-        title: "Signature Offer Card",
-        description:
-          "The 'Clarity Sprint' product is presented as a tactile sticky note with rounded corners, soft shadows, and a navy accent circle—feeling like something you'd want to pick up.",
-        image: "/images/projects/clarity-growth/clarity-1.webp",
-      },
-      {
-        title: "Process Visualization",
-        description:
-          "The 3-step system (Map it, Cut it, Protect it) uses large typography and a friendly illustration to make the method feel simple and repeatable.",
-        image: "/images/projects/clarity-growth/clarity-2.webp",
-      },
-    ],
-    outcomes: [
-      {
-        metric: "Animation Style",
-        value: "Scroll-Driven",
-        description: "GSAP pinned sections with 3-phase motion",
-      },
-      {
-        metric: "Sections",
-        value: "7",
-        description: "Each with unique entrance/settle/exit choreography",
-      },
-      {
-        metric: "Design Feel",
-        value: "Editorial",
-        description: "Tactile paper textures and hand-drawn accents",
-      },
-    ],
-    featured: false,
-    color: "#1B2B40",
-    externalUrl: "https://clarity-growth-co.vercel.app/",
-  },
 ];
 
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured);
-}
 
-// --- Honest classification selectors -------------------------------------
-// Use these instead of hardcoding demo slugs so trust sections only ever
-// surface real client work (and clearly-labeled products/concepts).
-
-/** Real, paid client work. Safe to present as client proof anywhere. */
-export function getClientProjects(): Project[] {
-  return projects.filter((p) => p.kind === "Client");
-}
-
-/** Internal products/tools built by Multimedium. Label as products, never clients. */
-export function getProductProjects(): Project[] {
-  return projects.filter((p) => p.kind === "Product");
-}
-
-/** Self-initiated concept/demo/spec designs for fictional brands. Never client proof. */
-export function getConceptProjects(): Project[] {
-  return projects.filter((p) => p.kind === "Concept");
-}
-
-/** Real client work, optionally narrowed to an industry tag. */
-export function getClientProjectsByIndustry(industry?: string): Project[] {
-  const clients = getClientProjects();
-  if (!industry) return clients;
-  return clients.filter((p) => p.industries?.includes(industry));
-}
-
-/** Concept designs, optionally narrowed to an industry tag. */
-export function getConceptProjectsByIndustry(industry?: string): Project[] {
-  const concepts = getConceptProjects();
-  if (!industry) return concepts;
-  return concepts.filter((p) => p.industries?.includes(industry));
-}
-
-/**
- * Homepage "Selected work" — real client work only, in priority order.
- * Do NOT add concept/demo slugs here; that is what broke trust before.
- */
-const homeFeaturedProjectSlugs: string[] = [
+// Client work order from the brief (§8): Haven Compass Realty first, then
+// the TC companies, then older real estate work. Blissful Existence is shown
+// last, under "Other work".
+const clientWorkOrder = [
+  "haven-compass-realty",
+  "structured-closings",
   "pa-real-estate-support",
   "tag-landing-page",
   "three-penn-properties",
+  "blissful-existence",
+];
+
+/** Real, paid client work in brief order. Safe to present as client proof. */
+export function getClientProjects(): Project[] {
+  const rank = (p: Project) => {
+    const i = clientWorkOrder.indexOf(p.slug);
+    return i === -1 ? clientWorkOrder.length : i;
+  };
+  return projects
+    .filter((p) => p.kind === "Client")
+    .sort((a, b) => rank(a) - rank(b));
+}
+
+/** Client work split for /work: real estate first, everything else after. */
+export function getClientWork() {
+  const clients = getClientProjects();
+  return {
+    realEstate: clients.filter((p) => p.category === "Real Estate"),
+    other: clients.filter((p) => p.category !== "Real Estate"),
+  };
+}
+
+/** Internal products/tools built by Multimedium. Label as products, never clients. */
+/** Self-initiated concept/demo/spec designs for fictional brands. Never client proof. */
+/**
+ * Homepage "Recent work": real client work only, in priority order.
+ * Do NOT add concept/demo slugs here; that is what broke trust before.
+ */
+const homeFeaturedProjectSlugs: string[] = [
+  "haven-compass-realty",
+  "structured-closings",
 ];
 
 export function getHomeFeaturedProjects(): Project[] {
@@ -2007,6 +560,7 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
+/** Case study routes: client work only. */
 export function getAllProjectSlugs(): string[] {
-  return projects.map((p) => p.slug);
+  return getClientProjects().map((p) => p.slug);
 }

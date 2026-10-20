@@ -1,21 +1,14 @@
 export const siteName = "Multimedium";
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.multimedium.dev";
 export const siteEmail = "haydn@multimedium.dev";
-export const sitePhone = "+1-570-994-6186";
-export const sitePhoneDisplay = "(570) 994-6186";
 export const siteOwnerName = "Haydn";
-export const siteLocationLabel = "Poconos, PA";
 export const siteAddress = {
     locality: "Poconos",
     region: "PA",
     country: "US",
 };
-export const siteServiceAreas = [
-    "Poconos, PA",
-    "Northeastern Pennsylvania",
-    "Pennsylvania",
-    "Remote across the United States",
-];
+// Brief §2: remote and nationwide, based in the Poconos.
+export const siteServiceAreas = ["United States", "Puerto Rico"];
 
 export function absoluteUrl(path = "/") {
     const normalizedPath = path.startsWith("/") ? path : `/${path}`;

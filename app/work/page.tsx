@@ -1,73 +1,50 @@
-import Link from "next/link";
 import {
   PageIntro,
   ProjectTile,
   ProjectCTA,
+  SectionHeading,
 } from "@/components/marketing/Studio";
-import { getClientProjectsByIndustry } from "@/content/projects";
+import { getClientWork } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
+
 export const metadata = createPageMetadata({
-  title: "Selected Client Websites",
+  title: "Client Work — Real Estate Websites",
   description:
-    "Custom websites for transaction coordinators, real estate businesses, and service providers. Explore real projects designed and built by Haydn at Multimedium.",
+    "Websites for a Connecticut brokerage, transaction coordination companies, and real estate businesses, designed and built by Haydn at Multimedium.",
   path: "/work",
 });
-export default async function Work({
-  searchParams,
-}: {
-  searchParams: Promise<{ industry?: string }>;
-}) {
-  const { industry } = await searchParams;
-  const work = getClientProjectsByIndustry(industry);
+
+export default function Work() {
+  const { realEstate, other } = getClientWork();
   return (
     <>
       <PageIntro
-        eyebrow="Selected client work"
-        title="Custom websites for real businesses."
-        body="A closer look at the sites I’ve designed and developed—from transaction coordination and property services to a wellness business with a very different story."
+        eyebrow="Client work"
+        title={
+          <>
+            Real estate websites, built for <em>real businesses.</em>
+          </>
+        }
+        body="Brokerages, transaction coordination companies, and the people behind them. Every project here is real client work."
       />
       <section className="studio-shell pb-20">
-        <nav className="filters" aria-label="Filter client work">
-          {[
-            ["", "All client work"],
-            ["tc", "Transaction coordination"],
-            ["real-estate", "Real estate"],
-          ].map(([v, l]) => (
-            <Link
-              key={v}
-              href={v ? "/work?industry=" + v : "/work"}
-              aria-current={(industry || "") === v ? "page" : undefined}
-            >
-              {l}
-            </Link>
+        <h2 className="sr-only">Real estate clients</h2>
+        <div className="project-grid">
+          {realEstate.map((p, i) => (
+            <ProjectTile key={p.slug} project={p} priority={i < 2} />
           ))}
-        </nav>
-        {work.length ? (
-          <div className="project-grid">
-            {work.map((p, i) => (
-              <ProjectTile key={p.slug} project={p} priority={i < 2} />
-            ))}
-          </div>
-        ) : (
-          <div className="detail-panel">
-            <h2>No client projects in this category yet.</h2>
-            <Link href="/work" className="text-link">
-              View all client work ↗
-            </Link>
-          </div>
-        )}
-        <div className="mt-14 border-t border-border pt-7 flex flex-wrap gap-6">
-          <p className="text-muted-foreground">
-            Want to see the technical side?
-          </p>
-          <Link href="/tools" className="text-link">
-            Products I’ve built ↗
-          </Link>
-          <Link href="/lab" className="text-link">
-            Concepts & experiments ↗
-          </Link>
         </div>
       </section>
+      {other.length > 0 && (
+        <section className="studio-shell studio-section rule-top">
+          <SectionHeading title="Other work" />
+          <div className="project-grid">
+            {other.map((p) => (
+              <ProjectTile key={p.slug} project={p} />
+            ))}
+          </div>
+        </section>
+      )}
       <ProjectCTA />
     </>
   );
