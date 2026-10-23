@@ -262,7 +262,7 @@ export default function FlyerPage() {
               >
                 {[
                   "Positioning + messaging tailored to your TC business",
-                  "Custom design — not a template with your logo on it",
+                  "Custom design, not a template with your logo on it",
                   "Lead capture that qualifies and filters for fit",
                   "Mobile-first, fast, and accessible from day one",
                   "Copy and content guidance (you won't stare at blank pages)",
@@ -341,7 +341,7 @@ export default function FlyerPage() {
                     lineHeight: 1.35,
                   }}
                 >
-                  3 months of free hosting & care — not a coupon.
+                  3 months of free hosting & care. Not a coupon.
                 </p>
                 <p
                   style={{
@@ -352,7 +352,7 @@ export default function FlyerPage() {
                   }}
                 >
                   Every project includes the first month of hosting & care. As
-                  a My TC Academy student, you get 3 more months on top — four
+                  a My TC Academy student, you get 3 more months on top: four
                   months before the $59/month begins.
                 </p>
               </div>
@@ -482,7 +482,7 @@ export default function FlyerPage() {
               multimedium.dev/mytcacademy
             </p>
             <p style={{ fontSize: "11px", color: "#5a5e6e", margin: 0 }}>
-              This link is for My TC Academy students only — please don&apos;t
+              This link is for My TC Academy students only. Please don&apos;t
               share publicly.
             </p>
           </div>

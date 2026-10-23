@@ -86,12 +86,12 @@ export default async function TcTaskListResourcePage({
         error={error}
         errorMessage="Please enter a valid name and email."
         coverageTitle="What this transaction coordinator task list covers"
-        coverageIntro="Based on a real Poconos workflow — organized by phase so every deadline and handoff has a clear place in the process."
+        coverageIntro="Based on a real Poconos workflow and organized by phase, so every deadline and handoff has a clear place in the process."
         coverage={[
           {
             label: "Contract execution phase",
             detail:
-              "Tasks to complete immediately after contract is signed — document collection, deadline entry, and party notifications.",
+              "Tasks to complete right after the contract is signed: document collection, deadline entry, and party notifications.",
           },
           {
             label: "Inspection and contingency period",
@@ -119,7 +119,7 @@ export default async function TcTaskListResourcePage({
               "Commission disbursement follow-up, compliance checklist submission, file archiving, and agent feedback.",
           },
         ]}
-        coverageNote="This is a Poconos-specific example — rules, timelines, and requirements vary by state and brokerage. Use it as a reference to build your own, or as a starting point to standardize your workflow across files."
+        coverageNote="This is a Poconos-specific example. Rules, timelines, and requirements vary by state and brokerage. Use it as a reference to build your own, or as a starting point to standardize your workflow across files."
         ctaTitle="Need a website that matches your professionalism?"
         ctaBody="I build websites specifically for transaction coordinators, starting at $750 for a one-page site. Every package includes copywriting, so your services read as clearly as your checklists."
         ctaSource="tc-task-list"

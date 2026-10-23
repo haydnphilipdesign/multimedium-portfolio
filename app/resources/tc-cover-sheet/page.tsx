@@ -86,7 +86,7 @@ export default async function TcCoverSheetResourcePage({
         error={error}
         errorMessage="Please enter a valid name and email."
         coverageTitle="What’s in this transaction coordinator cover sheet"
-        coverageIntro="The template is designed to capture everything you need at the start of a file — in one clean, printable document."
+        coverageIntro="The template is designed to capture everything you need at the start of a file, in one clean, printable document."
         coverage={[
           {
             label: "Property details",
@@ -116,7 +116,7 @@ export default async function TcCoverSheetResourcePage({
         ]}
         coverageNote="The layout is clean and print-ready. You can use it as-is or adapt the fields for your state or brokerage."
         ctaTitle="Need a website that attracts better-fit leads?"
-        ctaBody="A clean cover sheet starts the file right — a clear website starts the relationship right. TC websites run from a $750 one-page site to builds with a full Start a File page."
+        ctaBody="A clean cover sheet starts the file right. A clear website starts the relationship right. TC websites run from a $750 one-page site to builds with a full Start a File page."
         ctaSource="tc-cover-sheet"
       />
     </>

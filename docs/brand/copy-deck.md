@@ -1,11 +1,13 @@
 # Copy Deck — Redesign (Phase 2 input)
 
-**Status:** Draft for Haydn's review · **Last updated:** 2026-10-20
+**Status:** Draft for Haydn's review · **Last updated:** 2026-10-23 (resource guides §9, punctuation rule §0)
 Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. Package terms were approved 2026-10-20. *Italic* marks the one serif-italic accent allowed per page. → links stay on the site; ↗ links leave it.
 
 ---
 
 ## 0. Global
+
+**Punctuation (2026-10-23):** no em dashes in anything a visitor sees, including page titles and descriptions. They read as AI-written. Use a period, comma, colon, or parentheses instead. Page titles join their parts with a colon ("Pricing: Real Estate Websites from $750"); the site adds " | Multimedium". En dashes in number ranges ("3–4 weeks") are fine. The "—" in this document is layout notation only.
 
 **Default site title:** Websites for Transaction Coordinators, Agents & Brokerages | Multimedium
 **Default description:** Custom websites for transaction coordinators, real estate agents, and brokerages, designed, written, and built by Haydn. One-page sites from $750. Full websites from $1,500.
@@ -131,9 +133,9 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 - Link: About Norma Suite →
 
 **Free resources**
-- H2: Free TC templates
-- Body: A task list, a cover sheet, an intake checklist, and a guide to what every TC website needs. Free to download directly, or have the link emailed to you.
-- Link: Get the templates →
+- H2: Free TC templates and guides
+- Body: A task list, a cover sheet, and an intake checklist, free to download. Plus short guides to what every TC website needs, what an intake form should ask, and what a TC website costs.
+- Link: Get the templates and guides →
 
 **FAQ**
 - **I'm just starting out. Which package should I choose?** Usually the one-page site. It gives agents everything they need to trust you and send a file, and it can grow into a full website later without starting over.
@@ -187,7 +189,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 
 ## 4. Pricing `/pricing`
 
-**Meta title:** Pricing — Real Estate Websites from $750 | Multimedium
+**Meta title:** Pricing: Real Estate Websites from $750 | Multimedium
 **Meta description:** Three website packages for transaction coordinators, agents, and brokerages: one-page sites from $750, full websites from $1,500, custom builds from $3,000. Hosting $59/month.
 
 **Hero**
@@ -199,7 +201,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 **Every package includes:** (list from §A2)
 
 **Hosting & care** (id `hosting`)
-- H2: Hosting & care — $59/month
+- H2: Hosting & care: $59/month
 - Body: Your first month is included. After that, $59/month covers: (list from §A4). Bigger changes, like new pages or features, are quoted first.
 
 **Not included:** (list from §A3)
@@ -247,7 +249,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 
 ## 6. Work `/work`
 
-**Meta title:** Client Work — Real Estate Websites | Multimedium
+**Meta title:** Client Work: Real Estate Websites | Multimedium
 **Meta description:** Websites for a Connecticut brokerage, transaction coordination companies, and real estate businesses, designed and built by Haydn at Multimedium.
 
 - Eyebrow: Client work
@@ -287,7 +289,64 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 
 ## 8. Smaller updates
 
-- **Case study pages:** see `docs/brand/case-studies.md` §3–4.
-- **Resources:** keep the copy. Remove "Tools you can use." ("since 2013" is confirmed.) Restyle in Phase 2. In Phase 3, update internal links that point to `/industries/transaction-coordinators#automation` (e.g., in `app/resources/tc-cover-sheet/page.tsx`): the redirect drops the anchor.
+- **Case study pages:** see `docs/brand/case-studies.md` §3–4. Meta titles follow "Client: what it is" (e.g., "Haven Compass Realty: Website for a New Connecticut Brokerage"), set in `content/projects.ts`.
+- **Resources:** keep the copy, except for the edits below. Remove "Tools you can use." ("since 2013" is confirmed.) Restyle in Phase 2. In Phase 3, update internal links that point to `/industries/transaction-coordinators#automation` (e.g., in `app/resources/tc-cover-sheet/page.tsx`): the redirect drops the anchor.
+  - **2026-10-23:** em dashes removed from the hub and the three PDF pages (wording otherwise unchanged).
+  - **2026-10-23, "What every TC website needs":** em dashes removed. Must-have 7 is now "A real photo and consistent branding" (a phone photo in good light is enough; the Canva jab is gone). The template FAQ now says a DIY template site can do the job if the generic text is replaced; it no longer recommends templates. Two unbacked claims softened ("patterns I see over and over" → "Most of these are quick to fix once you know to look for them"; "leaving trust and leads on the table" → "start with the first three").
 - **`/mytcacademy`:** keep the TC-branded names, mapped as TC Starter = One-page site ($750), TC Growth = Full website ($1,500), TC Pro = Custom build (from $3,000). Point package links to `/transaction-coordinators#packages`.
+  - **2026-10-23:** em dashes removed from the page and the flyer. The rest of the copy still predates this deck and breaks the brief's voice rules: "we", "converts", "drives action", "resonates", and an FAQ offering "a headless CMS, or a managed platform", which contradicts "no page-builder templates". Rewrite it before sending more students there.
+
+---
+
+## 9. Resource guides (added 2026-10-23)
+
+Three written guides for TCs, each aimed at a specific search. Same layout as "What every TC website needs": eyebrow "Free resource · Guide", an Article schema, a "Common questions" FAQ, then "More for TC websites" (links to the other guides, `components/marketing/TcGuides.tsx`) and the closing CTA. Proof comes only from `content/projects.ts`; prices only from `content/packages.ts`.
+
+**Resources hub cards** (`/resources`), each with badge "Guide" and link "Read the guide →":
+- TC Website Examples: Three real TC websites with screenshots, and the decisions worth borrowing from each.
+- What a TC Intake Form Should Ask: The fields you need to open a file, what to leave out, and which form tools work.
+- What a TC Website Costs: Doing it yourself versus hiring someone, the ongoing costs either way, and my published prices.
+
+### 9.1 TC website examples `/resources/transaction-coordinator-website-examples`
+
+**Meta title:** Transaction Coordinator Website Examples | Multimedium
+**Meta description:** Three real transaction coordinator websites with screenshots: how each one explains its services, gets agents to start a file, and answers questions before the call.
+
+- H1: Transaction coordinator website examples
+- Intro: Three real TC websites, what each one does, and why. All three are sites I built, so this isn't a neutral roundup. It's a close look at decisions you can borrow for your own site, whoever builds it.
+- One section per site (Structured Closings, PA Real Estate Support Services, TAG): business type · package, a short intro, the relationship disclosure where one exists (PA RESS), "What I did", links to the case study → and live site ↗, three "Worth borrowing" points, and the case study's annotated screenshots.
+- H2: What all three have in common: One main action, everywhere · Written for one reader · Questions answered before the call
+- H2: Which size of site do you need? (TAG = one page; the other two = full websites) → What a TC website costs
+- FAQ: Can I copy these layouts? · Does a new TC need a multi-page site? · Why are all of these your own work?
+
+### 9.2 TC intake form `/resources/transaction-coordinator-intake-form`
+
+**Meta title:** Transaction Coordinator Intake Form: What to Ask Agents | Multimedium
+**Meta description:** What a transaction coordinator intake form should ask agents: the fields you need to open a file, what to leave out, which form tools work, and where the form goes on your site.
+
+- H1: What a transaction coordinator intake form should ask
+- Intro: An intake form is how an agent hands you a file. A good one gets you everything you need to open it in one go, without a week of follow-up emails. Here's what to ask, what to leave out, and where the form should live on your site.
+- Credential line: I built my mom's start-a-file form (she's been a TC since 2013), and I build intake software for TCs.
+- H2: The short version
+- H2: The six groups of questions: The service and how you get paid · The property and the deal · Key dates · The people · Documents · Communication and access (each with the fields and a one-line "Why")
+- H2: What to leave out: bank, wiring, or SSN details · questions you never act on · free text where a choice would do · required fields the agent may not know yet
+- H2: Which tool to use: Google Forms (uploads need a Google sign-in) · Jotform or Cognito Forms (Structured Closings uses Cognito) · a form built into your site · Norma Intake (disclosed as mine; free tier of five intakes a month, per brief §4)
+- H2: Where the form goes on your site (Start a File page + nav button, as on PA RESS; prices inside the form, as on Structured Closings)
+- H2: Want it on paper? → the TC intake checklist PDF
+- FAQ: On my site or a separate link? · How long should it be? · Should agents fill it out, or should I?
+- **Check periodically:** the third-party tool details (Google sign-in for uploads, free plans) are true as of 2026-10 and can change.
+
+### 9.3 TC website cost `/resources/transaction-coordinator-website-cost`
+
+**Meta title:** How Much Does a Transaction Coordinator Website Cost? | Multimedium
+**Meta description:** What a transaction coordinator website costs to build yourself or hire out, the ongoing costs either way, and my published prices: $750 for a one-page site, $1,500 for a full website. (Prices pulled from `content/packages.ts`.)
+
+- H1: What does a transaction coordinator website cost?
+- Intro: It depends on two things: how much of the work you do yourself, and how many pages and forms you need. Here's what goes into the cost, what you'll pay either way, and my prices, since I publish them.
+- H2: The short answer (DIY costs; my three package prices plus hosting & care; "The writing is included.")
+- H2: What you pay either way: a domain name · email on your domain · a form tool, if you use one · hosting. No third-party prices are quoted.
+- H2: What changes the price: How many pages · Who writes it · Forms and integrations · Extra features
+- H2: Do it yourself, or hire someone? (when each makes sense, and what to ask anyone you hire) → the TC website checklist
+- H2: My packages for TCs (the package cards, `source=tc-cost-guide`) and "Included in every package"
+- FAQ: Which package for a new TC? · What does hosting cost? · Do I own my website? · Is a website worth it if most of my work comes from referrals?
 - **404:** already updated in Phase 0. Update its links to the new pages in Phase 3.

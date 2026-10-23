@@ -105,7 +105,7 @@ export const projects: Project[] = [
     title: "Haven Compass Realty",
     kind: "Client",
     industries: ["real-estate", "brokerage"],
-    metaTitle: "Haven Compass Realty — Website for a New Connecticut Brokerage",
+    metaTitle: "Haven Compass Realty: Website for a New Connecticut Brokerage",
     metaDescription:
       "A launch website for a new Connecticut brokerage: seller packages priced in plain sight, real client reviews linked to the originals, and clear paths for buyers and sellers.",
     socialCaption:
@@ -190,7 +190,7 @@ export const projects: Project[] = [
     title: "Structured Closings",
     kind: "Client",
     industries: ["tc"],
-    metaTitle: "Structured Closings — Website for a Transaction Coordination Company",
+    metaTitle: "Structured Closings: Website for a Transaction Coordination Company",
     metaDescription:
       "A website for a growing transaction coordination company that explains every service, including investor and luxury deals, and gives agents one form to start a file.",
     socialCaption:
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     title: "Transaction Authority Group (TAG)",
     kind: "Client",
     industries: ["tc"],
-    metaTitle: "Transaction Authority Group — One-Page Site for a TC Company",
+    metaTitle: "Transaction Authority Group: One-Page Site for a TC Company",
     metaDescription:
       "A one-page site that tells established transaction coordinators what Transaction Authority Group is, who it’s for, and who it isn’t for, then books a discovery call.",
     socialCaption:
@@ -327,7 +327,7 @@ export const projects: Project[] = [
     title: "PA Real Estate Support Services",
     kind: "Client",
     industries: ["tc", "real-estate"],
-    metaTitle: "PA Real Estate Support Services — Website for a TC Business",
+    metaTitle: "PA Real Estate Support Services: Website for a TC Business",
     metaDescription:
       "A redesign for a Pocono-area transaction coordination business, built around the question agents ask first: “How do I send you a file?”",
     socialCaption:

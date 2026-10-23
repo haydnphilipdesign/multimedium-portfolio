@@ -18,7 +18,7 @@ import { createPageMetadata } from "@/lib/seo";
 import { getServiceStructuredData } from "@/lib/structuredData";
 
 export const metadata = createPageMetadata({
-  title: "Pricing — Real Estate Websites from $750",
+  title: "Pricing: Real Estate Websites from $750",
   description:
     "Three website packages for transaction coordinators, agents, and brokerages: one-page sites from $750, full websites from $1,500, custom builds from $3,000. Hosting $59/month.",
   path: "/pricing",
@@ -106,7 +106,7 @@ export default function Pricing() {
       <section id="hosting" className="tint-band">
         <div className="studio-shell studio-section split-section">
           <div>
-            <h2>Hosting & care — {hosting.price}</h2>
+            <h2>Hosting & care: {hosting.price}</h2>
             <p className="mt-5">
               {hosting.firstMonth} After that, {hosting.price} covers:
             </p>

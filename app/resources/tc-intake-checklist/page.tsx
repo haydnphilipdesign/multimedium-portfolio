@@ -81,12 +81,12 @@ export default async function TcIntakeChecklistPage({
         error={error}
         errorMessage="Please enter your name and a valid email."
         coverageTitle="What’s in this transaction coordinator intake checklist"
-        coverageIntro="The checklist is organized to capture everything needed to qualify a new lead and start a file cleanly — before the back-and-forth begins."
+        coverageIntro="The checklist is organized to capture everything needed to qualify a new lead and start a file cleanly, before the back-and-forth begins."
         coverage={[
           {
             label: "Transaction type and side",
             detail:
-              "Buyer, seller, or dual representation — and whether it’s a purchase, refinance, or listing coordination.",
+              "Buyer, seller, or dual representation, and whether it’s a purchase, refinance, or listing coordination.",
           },
           {
             label: "Agent and brokerage info",

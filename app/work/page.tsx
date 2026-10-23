@@ -8,7 +8,7 @@ import { getClientWork } from "@/content/projects";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Client Work — Real Estate Websites",
+  title: "Client Work: Real Estate Websites",
   description:
     "Websites for a Connecticut brokerage, transaction coordination companies, and real estate businesses, designed and built by Haydn at Multimedium.",
   path: "/work",
