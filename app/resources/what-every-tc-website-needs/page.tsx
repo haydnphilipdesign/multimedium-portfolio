@@ -29,7 +29,7 @@ const mustHaves = [
   {
     title: "A clear 'who you are' positioning",
     description:
-      "Agents want to know you're a real person with real experience — not a faceless service. Your name, your photo, your story. Don't hide behind a brand wall.",
+      "Agents want to know you're a real person with real experience, not a faceless service. Your name, your photo, your story. Don't hide behind a brand wall.",
   },
   {
     title: "Services page with specifics",
@@ -54,12 +54,12 @@ const mustHaves = [
   {
     title: "Fast load speed",
     description:
-      "Page builders and heavy frameworks create bloated sites that load slowly. Clean code loads fast — which matters for both user experience and search rankings.",
+      "Page builders and heavy frameworks create bloated sites that load slowly. Clean code loads fast, which matters both to the agent waiting on it and to search rankings.",
   },
   {
-    title: "Professional headshot and branding",
+    title: "A real photo and consistent branding",
     description:
-      "A real photo of you builds instant trust. Pair it with consistent colors and a logo that looks intentional, not thrown together in Canva.",
+      "A real photo of you builds trust faster than any graphic. It doesn't need a photo shoot: good light and a plain background are enough. Use the same colors and logo everywhere so your site, email, and forms look like one business.",
   },
   {
     title: "Clear contact info and a CTA on every page",
@@ -74,15 +74,15 @@ const mustHaves = [
 ];
 
 const commonMistakes = [
-  "Using a generic Wix/Squarespace template with no TC-specific content",
-  "No intake form — relying on email or phone to start transactions",
+  "Keeping a template's generic text instead of writing about TC work",
+  "No intake form, so every transaction starts by email or phone",
   "Missing or buried contact information",
-  "No mobile optimization — site looks broken on phones",
-  "Stock photos of random offices instead of a real headshot",
+  "No mobile layout, so the site looks broken on phones",
+  "Stock photos of random offices instead of a real photo of you",
   "Vague service descriptions ('We coordinate transactions') instead of specifics",
-  "No SEO setup — no meta tags, no page titles, no Google presence",
+  "No search setup: no page titles, no descriptions, no Google presence",
   "A Careers page that doesn't explain why someone would want to work with you",
-  "No About section — agents want to know who they're hiring",
+  "No About section, when agents want to know who they're hiring",
   "Slow load times from bloated page builders or oversized images",
 ];
 
@@ -93,14 +93,14 @@ const faqs = [
   },
   {
     q: "Can I just use a Wix or Squarespace template?",
-    a: "You can, but most templates aren't built for TC businesses. You'll end up with generic sections that don't map to your workflow, no intake forms, and a site that looks like every other small business. Custom or TC-specific templates solve this.",
+    a: "Yes, and plenty of new TCs start that way. The template isn't the problem; the generic text is. Replace it with what you actually handle, add an intake form, and use a real photo, and a DIY site can do the job. A plain site that clearly explains your services will do better than a polished one that says nothing.",
   },
   {
     q: "How much should a TC website cost?",
     a: "My packages are a one-page site at $750, a full website at $1,500, and a custom build from $3,000. The key is matching the package to the job: credibility, clearer services, less back-and-forth, or a fuller intake system.",
   },
   {
-    q: "What's more important — how it looks or what it says?",
+    q: "What's more important, how it looks or what it says?",
     a: "What it says. Design gets attention, but messaging converts. If your copy clearly explains what you do, who you do it for, and why agents should trust you, the site will work. Pretty design with vague copy won't.",
   },
 ];
@@ -133,8 +133,8 @@ export default function WhatEveryTCWebsiteNeedsPage() {
       <section className="studio-shell studio-section rule-top">
         <SectionHeading title="The 9 things your TC website must have">
           <p className="section-aside">
-            If your site is missing any of these, it’s leaving trust — and
-            leads — on the table.
+            If your site is missing several of these, start with the first
+            three. They’re what agents look for first.
           </p>
         </SectionHeading>
         <ol className="numbered-list">
@@ -152,8 +152,7 @@ export default function WhatEveryTCWebsiteNeedsPage() {
           <div>
             <h2>10 mistakes most TC websites make</h2>
             <p className="mt-5">
-              These are the patterns I see over and over when reviewing TC
-              sites.
+              Most of these are quick to fix once you know to look for them.
             </p>
           </div>
           <ul className="plain-list mistake-list">

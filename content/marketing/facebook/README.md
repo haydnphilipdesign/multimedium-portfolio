@@ -1,15 +1,15 @@
 # Facebook Content Index
 
-## Files
-- Group strategy + post library: `content/marketing/facebook/facebook-posts-group-playbook-2026-02-09.md`
-- Business page post bank: `content/marketing/facebook/facebook-business-page-posts-2026-02-09.md`
+## Current
+- Group test plan, profile copy, posts, reply templates, schedule: `content/marketing/facebook/facebook-groups-web-design-plan-2026-10.md`
+- Posting log (web design and UtilitySheet): `content/marketing/facebook/posting-log.md`
+- Group list: `content/marketing/facebook/my_fb_groups.txt`
 
-## Quick Post-ID Map
-- Real estate / TC groups: `RE-TC-01` to `RE-TC-06`
-- Small business groups: `SB-01` to `SB-06`
-- Community/local groups: `LOCAL-01` to `LOCAL-03`
-- Event/activity groups: `EVENT-01` to `EVENT-02`
-- Job groups: `JOB-01` to `JOB-03`
-- Marketplace groups: `MKT-01` to `MKT-02`
-- Business page posts: `PAGE-01` to `PAGE-16`
+## Superseded (don't use)
+These are from February 2026 and predate `docs/brand/brief.md`. They link to retired URLs and use claims and wording the brief no longer allows.
+- `facebook-posts-group-playbook-2026-02-09.md`
+- `facebook-business-page-posts-2026-02-09.md`
+- `facebook-posts-tc-real-estate.md`
 
+## Older, reuse with edits
+- `facebook-posts-free-tc-resources.md`: free PDF posts. The links still work, but the copy uses em dashes and "comment a keyword for the link" prompts. Rewrite it in the current voice before using it.
