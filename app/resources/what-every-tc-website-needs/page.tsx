@@ -6,6 +6,7 @@ import {
   PageIntro,
   SectionHeading,
 } from "@/components/marketing/Studio";
+import { TcGuides } from "@/components/marketing/TcGuides";
 import { createPageMetadata } from "@/lib/seo";
 import {
   getBreadcrumbStructuredData,
@@ -164,6 +165,7 @@ export default function WhatEveryTCWebsiteNeedsPage() {
       </section>
 
       <FaqList faqs={faqs} title="Common questions" />
+      <TcGuides current="/resources/what-every-tc-website-needs" />
 
       <section className="studio-shell studio-section rule-top split-section">
         <h2>Want a website that checks every box?</h2>

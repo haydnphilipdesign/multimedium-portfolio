@@ -29,13 +29,15 @@ type Resource = {
     image?: string;
     badge: string;
     ctaText: string;
+    /** Shown in place of a thumbnail image. */
+    thumbText?: string;
 };
 
 const resources: Resource[] = [
     {
         title: "TC Task List Sheet (example)",
         description:
-            "A real transaction task list built for the Poconos region—use it as a reference or starting point for your own workflow.",
+            "A real transaction task list built for the Poconos region. Use it as a reference or a starting point for your own workflow.",
         href: "/resources/tc-task-list",
         image: "/resources/tc-task-list.webp",
         badge: "PDF template",
@@ -44,7 +46,7 @@ const resources: Resource[] = [
     {
         title: "TC Cover Sheet / Quick Reference",
         description:
-            "A clean cover-sheet style summary you can drop into a file—designed to be useful for most TC workflows.",
+            "A clean cover-sheet summary you can drop into a file, designed to work for most TC workflows.",
         href: "/resources/tc-cover-sheet",
         image: "/resources/tc-cover-sheet.webp",
         badge: "PDF template",
@@ -53,7 +55,7 @@ const resources: Resource[] = [
     {
         title: "TC Lead Intake Checklist",
         description:
-            "A clean, printable lead intake checklist PDF—so you qualify faster and start every file clean.",
+            "A clean, printable lead intake checklist PDF, so you qualify faster and start every file clean.",
         href: "/resources/tc-intake-checklist",
         image: "/resources/tc-intake-checklist.webp",
         badge: "PDF template",
@@ -66,6 +68,34 @@ const resources: Resource[] = [
         href: "/resources/what-every-tc-website-needs",
         badge: "Guide",
         ctaText: "Read the guide",
+        thumbText: "9 must-haves · 10 mistakes",
+    },
+    {
+        title: "TC Website Examples",
+        description:
+            "Three real TC websites with screenshots, and the decisions worth borrowing from each.",
+        href: "/resources/transaction-coordinator-website-examples",
+        badge: "Guide",
+        ctaText: "Read the guide",
+        thumbText: "3 real TC sites",
+    },
+    {
+        title: "What a TC Intake Form Should Ask",
+        description:
+            "The fields you need to open a file, what to leave out, and which form tools work.",
+        href: "/resources/transaction-coordinator-intake-form",
+        badge: "Guide",
+        ctaText: "Read the guide",
+        thumbText: "6 groups of questions",
+    },
+    {
+        title: "What a TC Website Costs",
+        description:
+            "Doing it yourself versus hiring someone, the ongoing costs either way, and my published prices.",
+        href: "/resources/transaction-coordinator-website-cost",
+        badge: "Guide",
+        ctaText: "Read the guide",
+        thumbText: "DIY or hire",
     },
 ];
 
@@ -107,7 +137,7 @@ export default function ResourcesPage() {
                                         quality={68}
                                     />
                                 ) : (
-                                    <span className="resource-thumb-text">9 must-haves · 10 mistakes</span>
+                                    <span className="resource-thumb-text">{res.thumbText}</span>
                                 )}
                             </Link>
                             <p className="eyebrow">{res.badge}</p>

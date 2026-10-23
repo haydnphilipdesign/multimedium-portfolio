@@ -123,15 +123,15 @@ export default function TransactionCoordinators() {
       </section>
 
       <section className="studio-shell studio-section rule-top split-section">
-        <h2>Free TC templates</h2>
+        <h2>Free TC templates and guides</h2>
         <div>
           <p>
-            A task list, a cover sheet, an intake checklist, and a guide to what
-            every TC website needs. Free to download directly, or have the link
-            emailed to you.
+            A task list, a cover sheet, and an intake checklist, free to
+            download. Plus short guides to what every TC website needs, what an
+            intake form should ask, and what a TC website costs.
           </p>
           <Link href="/resources" className="text-link">
-            Get the templates →
+            Get the templates and guides →
           </Link>
         </div>
       </section>

@@ -18,6 +18,9 @@ const pages: [path: string, priority: number][] = [
   ["/resources/tc-cover-sheet", 0.6],
   ["/resources/tc-intake-checklist", 0.6],
   ["/resources/what-every-tc-website-needs", 0.6],
+  ["/resources/transaction-coordinator-website-examples", 0.6],
+  ["/resources/transaction-coordinator-intake-form", 0.6],
+  ["/resources/transaction-coordinator-website-cost", 0.6],
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

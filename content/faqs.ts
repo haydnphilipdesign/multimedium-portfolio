@@ -18,6 +18,16 @@ export const timelineFaq: Faq = {
   a: "About 2 weeks for a one-page site, 3–4 weeks for a full website, and 5–8 weeks for a custom build. The schedule starts when your questionnaire and photos are in.",
 };
 
+export const hostingFaq: Faq = {
+  q: "What does hosting cost?",
+  a: "$59/month after your first month, which is included. That covers hosting, security updates, monitoring, and small edits each month.",
+};
+
+export const starterPackageFaq: Faq = {
+  q: "I’m just starting out. Which package should I choose?",
+  a: "Usually the one-page site. It gives agents everything they need to trust you and send a file, and it can grow into a full website later without starting over.",
+};
+
 export const homeFaqs: Faq[] = [
   mlsFaq,
   ownershipFaq,
@@ -26,10 +36,7 @@ export const homeFaqs: Faq[] = [
     a: "A short questionnaire, your logo and photos, any reviews you’d like to use, and time to review drafts. I handle the writing, design, and build.",
   },
   timelineFaq,
-  {
-    q: "What does hosting cost?",
-    a: "$59/month after your first month, which is included. That covers hosting, security updates, monitoring, and small edits each month.",
-  },
+  hostingFaq,
   {
     q: "Do you work outside real estate?",
     a: "Occasionally, by referral. Most of my work, and all of my software, is for real estate professionals.",
@@ -37,10 +44,7 @@ export const homeFaqs: Faq[] = [
 ];
 
 export const tcFaqs: Faq[] = [
-  {
-    q: "I’m just starting out. Which package should I choose?",
-    a: "Usually the one-page site. It gives agents everything they need to trust you and send a file, and it can grow into a full website later without starting over.",
-  },
+  starterPackageFaq,
   {
     q: "Can you connect the intake form I already use?",
     a: "Yes. I can embed or link the tools TCs commonly use, such as Cognito Forms or Jotform, or build a simple form that emails you each submission.",
