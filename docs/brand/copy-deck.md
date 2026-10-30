@@ -67,7 +67,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 - H2: Three ways to work together
 - One-page site — $750 — One focused page, written for you. About 2 weeks.
 - Full website — $1,500 — Up to 5 pages, intake forms, copy written for you. About 3–4 weeks.
-- Custom build — from $3,000 — Brokerages, TC companies, and bigger projects. About 5–8 weeks.
+- Custom build — from $3,000 — Brokerages, TC companies with a team, and bigger projects. About 5–8 weeks.
 - Line: Hosting & care is $59/month, and your first month is included.
 - Link: Compare packages →
 
@@ -123,7 +123,7 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
 - H2: Packages for TCs
 - One-page site — $750: Hero · what you handle · how to start a file · about · contact. For new solo TCs.
 - Full website — $1,500: Home · Services · Start a File · About · Careers or Contact. For established TCs.
-- Custom build — from $3,000: Everything in Full, plus service tiers, team bios, partner pages, multi-step intake. For TC companies.
+- Custom build — from $3,000: Everything in Full, plus service tiers, team bios, partner pages, multi-step intake. For TC companies with a team.
 - Line: Hosting & care $59/month after your first month. Full details on the pricing page →
 - Each card button: Discuss this package → (`/contact?source=tc-packages&package=…`)
 

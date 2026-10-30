@@ -88,9 +88,9 @@ export const packages: Package[] = [
     price: "from $3,000",
     startingPrice: 3000,
     summary:
-      "Brokerages, TC companies, and bigger projects. About 5–8 weeks.",
+      "Brokerages, TC companies with a team, and bigger projects. About 5–8 weeks.",
     bestFor:
-      "TC companies, brokerages, teams, or anything beyond 5 pages",
+      "TC companies with a team, brokerages, teams, or anything beyond 5 pages",
     pages: "6+ pages, or anything with special features",
     copywriting: "I write every page from a 60-minute discovery session",
     forms: "Multi-step intake, multiple forms, scoped integrations",

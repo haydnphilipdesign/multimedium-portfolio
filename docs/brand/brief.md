@@ -101,7 +101,7 @@ Details and terms are in `docs/brand/packages-and-sop.md`. Public summary:
 |---|---|---|
 | One-page site | $750 | New TCs or agents who need a credible home quickly |
 | Full website | $1,500 | Established TCs, agents, and small offices ready for a complete site |
-| Custom build | from $3,000 | TC companies, brokerages, teams, or anything beyond five pages |
+| Custom build | from $3,000 | TC companies with a team, brokerages, teams, or anything beyond five pages |
 | Hosting & care | $59/month (first month included) | Every site Multimedium hosts |
 
 The same three packages serve every audience. Audience pages describe what each package contains for that audience. The TC-branded names (TC Starter / Growth / Pro) appear only on `/mytcacademy` for continuity, mapped one-to-one.

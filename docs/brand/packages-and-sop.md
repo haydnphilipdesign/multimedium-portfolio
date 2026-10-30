@@ -1,6 +1,6 @@
 # Packages, Terms & Project SOP
 
-**Status:** Approved by Haydn 2026-10-20 (except the hourly rate) · **Last updated:** 2026-10-20
+**Status:** Approved by Haydn 2026-10-20 (except the hourly rate) · **Last updated:** 2026-10-30
 These terms are approved. The one open item is the hourly rate, marked **[SET]**. This document drives `content/packages.ts`, the Pricing page, and your proposals.
 
 ---
@@ -12,7 +12,7 @@ These terms are approved. The one open item is the hourly rate, marked **[SET]**
 | | **One-page site** | **Full website** | **Custom build** |
 |---|---|---|---|
 | **Price** | $750 | $1,500 | from $3,000 |
-| **Best for** | New solo TCs or agents who need a credible home quickly | Established TCs, agents, and small offices ready for a complete site | TC companies, brokerages, teams, or anything beyond 5 pages |
+| **Best for** | New solo TCs or agents who need a credible home quickly | Established TCs, agents, and small offices ready for a complete site | TC companies with a team, brokerages, teams, or anything beyond 5 pages |
 | **Pages** | 1 scrolling page | Up to 5 pages | 6+ pages, or anything with special features |
 | **Copywriting** | You fill in a short questionnaire; I write the page from it | I write every page from your questionnaire + a 30-minute call | I write every page from a 60-minute discovery session |
 | **Forms** | 1 form (contact or simple file start), delivered to your email | Up to 2 forms. A built-in form, or I connect your form tool (e.g., Cognito Forms, Jotform) | Multi-step intake, multiple forms, scoped integrations |
