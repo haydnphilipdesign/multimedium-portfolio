@@ -1,6 +1,6 @@
 # Multimedium — Brand & Site Brief (source of truth)
 
-**Owner:** Haydn · **Last updated:** 2026-10-20 · **Status:** Approved by Haydn 2026-10-20. Remaining open items are marked ⚠️ (Norma Reports status; hourly rate in the packages doc).
+**Owner:** Haydn · **Last updated:** 2026-10-20 · **Status:** Approved by Haydn 2026-10-20. Remaining open items are marked ⚠️ (Norma Reports status).
 
 This is the **single source of truth** for positioning, audience, voice, proof, offers, and site structure. If any other document in this repo disagrees with this one, this one wins. Older strategy docs live in `docs/archive/` for history only. Do not use them as instructions.
 
@@ -89,7 +89,7 @@ Companion documents:
 | PA Real Estate Support Services redesign, 2024 | `content/projects.ts`; owner | ✅ |
 | Three Penn Properties (2023), Blissful Existence Healing Acres (2024) | `content/projects.ts`; owner | ✅ May be shown as past work. No quotes or metrics. |
 | Reply within one business day | Owner, 2026-10-20 | ✅ |
-| Prices and terms | `packages-and-sop.md` | ✅ Approved 2026-10-20 (hourly rate still to set) |
+| Prices and terms | `packages-and-sop.md` | ✅ Approved 2026-10-20 (hourly rate approved 2026-10-30) |
 
 **Not approved (remove if found):** any outcome percentages, "trusted by … teams", transaction or volume counts attributed to Multimedium, and "years of experience" claims for Haydn (none provided yet).
 

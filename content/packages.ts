@@ -132,12 +132,11 @@ export const includedInEveryPackage = [
   "A walkthrough at handoff and a 14-day post-launch fix window. Anything I built that isn’t working is fixed free.",
 ];
 
-// TODO(pricing): the hourly rate for out-of-scope work is still unset in
-// packages-and-sop.md §A3. Add it here (and to the pricing page) once set.
 export const notIncluded = [
   "Paid directly by you: domain registration, email (e.g., Google Workspace), form tool subscriptions, MLS/IDX vendor fees, and stock photography or photographers",
   "Logo design: from $300",
   "An extra standard page beyond your package: $250 each",
+  "Changes outside scope and extra revision rounds: $100/hour, billed in 30-minute increments",
   "Ongoing SEO campaigns, ads, and social media management",
   "MLS/IDX listings: not a standard offer yet; scoped per MLS",
 ];

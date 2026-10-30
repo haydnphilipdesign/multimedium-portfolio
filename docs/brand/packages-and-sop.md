@@ -1,7 +1,7 @@
 # Packages, Terms & Project SOP
 
-**Status:** Approved by Haydn 2026-10-20 (except the hourly rate) · **Last updated:** 2026-10-30
-These terms are approved. The one open item is the hourly rate, marked **[SET]**. This document drives `content/packages.ts`, the Pricing page, and your proposals.
+**Status:** Approved by Haydn 2026-10-20 (hourly rate approved 2026-10-30) · **Last updated:** 2026-10-30
+These terms are approved. This document drives `content/packages.ts`, the Pricing page, and your proposals.
 
 ---
 
@@ -47,7 +47,7 @@ Real examples to link from each column: One-page → TAG · Full → Structured 
 - Extra standard page beyond a package: **$250 each**
 - Ongoing SEO campaigns, ads, social media management
 - MLS/IDX listings: not a standard offer yet; scoped per MLS (see brief §7)
-- Hourly rate for changes outside scope and for extra revision rounds: **$[SET]/hour**
+- Hourly rate for changes outside scope and for extra revision rounds: **$100/hour**, billed in 30-minute increments
 
 ### A4. Hosting & care — $59/month (first month included)
 
