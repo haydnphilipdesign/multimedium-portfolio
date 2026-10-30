@@ -6,6 +6,7 @@ import {
   IconPhone,
   IconWorld,
 } from "@tabler/icons-react";
+import { hosting } from "@/content/packages";
 
 export const metadata: Metadata = {
   title: "My TC Academy Referral Flyer",
@@ -119,7 +120,7 @@ export default function FlyerPage() {
                   letterSpacing: "-0.015em",
                 }}
               >
-                Web Design for
+                Websites for
                 <br />
                 Transaction Coordinators
               </h1>
@@ -157,12 +158,10 @@ export default function FlyerPage() {
                 margin: 0,
               }}
             >
-              Hi! I&apos;m Haydn, the designer behind Multimedium. Jennifer
-              connected you with this page because she trusts the work I do for
-              transaction coordinators and real estate professionals. I build
-              websites that help TCs look
-              credible, explain their services clearly, and turn visitors into
-              real leads.
+              Hi, I&apos;m Haydn. I design, write, and build websites for
+              transaction coordinators. My mom has been a TC since 2013, and
+              I&apos;ve built websites for two of Jennifer&apos;s businesses,
+              Structured Closings and Transaction Authority Group.
             </p>
           </div>
 
@@ -184,7 +183,7 @@ export default function FlyerPage() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                Why Your Website Matters
+                Why It Matters
               </h2>
               <div
                 style={{
@@ -195,20 +194,20 @@ export default function FlyerPage() {
               >
                 {[
                   {
-                    title: "Instant credibility",
-                    text: "Agents and clients look you up before they reach out. A polished site signals you run a real operation.",
+                    title: "Agents look you up first",
+                    text: "Even with a referral, an agent checks your site before sending a file.",
                   },
                   {
-                    title: "Explain your services clearly",
-                    text: "A well-structured page tells prospects exactly what you do and why you're the right fit.",
+                    title: "What you handle, in agents' words",
+                    text: "Listing, contract to close, compliance, in plain terms.",
                   },
                   {
-                    title: "Stand out in a growing field",
-                    text: "More people are becoming TCs. A generic template won't differentiate you from the rest.",
+                    title: "Starting a file in one step",
+                    text: "One form agents fill out when a file goes under contract.",
                   },
                   {
-                    title: "Build a stronger foundation",
-                    text: "Your website is the hub for referrals, testimonials, and intake. Get it right early.",
+                    title: "Room to grow",
+                    text: "Start with one page and add more as you grow.",
                   },
                 ].map((item) => (
                   <div key={item.title}>
@@ -261,12 +260,12 @@ export default function FlyerPage() {
                 }}
               >
                 {[
-                  "Positioning + messaging tailored to your TC business",
-                  "Custom design, not a template with your logo on it",
-                  "Lead capture that qualifies and filters for fit",
-                  "Mobile-first, fast, and accessible from day one",
-                  "Copy and content guidance (you won't stare at blank pages)",
-                  "Launch-ready build you can maintain and grow with",
+                  "Copy written for you from a short questionnaire",
+                  "Custom design, with no page-builder templates",
+                  "A simple way for agents to start a file",
+                  "Works on phones, loads fast, and meets accessibility basics",
+                  "Page titles and descriptions set up for search",
+                  "Your site and domain are yours once it's paid in full",
                 ].map((item) => (
                   <div
                     key={item}
@@ -341,7 +340,7 @@ export default function FlyerPage() {
                     lineHeight: 1.35,
                   }}
                 >
-                  3 months of free hosting & care. Not a coupon.
+                  3 extra months of hosting & care, free
                 </p>
                 <p
                   style={{
@@ -351,9 +350,9 @@ export default function FlyerPage() {
                     lineHeight: 1.55,
                   }}
                 >
-                  Every project includes the first month of hosting & care. As
-                  a My TC Academy student, you get 3 more months on top: four
-                  months before the $59/month begins.
+                  Every client gets the first month included. Students get three
+                  more, so the {hosting.price} starts in month five. Package
+                  prices are the same for everyone.
                 </p>
               </div>
             </div>
@@ -387,12 +386,12 @@ export default function FlyerPage() {
                 {
                   step: "2",
                   title: "Tell me about your business",
-                  text: "Mention My TC Academy in your message so I know Jennifer sent you.",
+                  text: "The form there notes that you're a My TC Academy student.",
                 },
                 {
                   step: "3",
-                  title: "Get a clear proposal",
-                  text: "I'll reply within 1 business day with scope, timeline, and your referral perk.",
+                  title: "Get a written proposal",
+                  text: "I reply within one business day. If it's a fit, you get your pages, timeline, and price in writing.",
                 },
               ].map((item) => (
                 <div

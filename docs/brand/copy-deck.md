@@ -294,7 +294,14 @@ Follows `docs/brand/brief.md`: voice §3, proof rules §5, facts register §6. P
   - **2026-10-23:** em dashes removed from the hub and the three PDF pages (wording otherwise unchanged).
   - **2026-10-23, "What every TC website needs":** em dashes removed. Must-have 7 is now "A real photo and consistent branding" (a phone photo in good light is enough; the Canva jab is gone). The template FAQ now says a DIY template site can do the job if the generic text is replaced; it no longer recommends templates. Two unbacked claims softened ("patterns I see over and over" → "Most of these are quick to fix once you know to look for them"; "leaving trust and leads on the table" → "start with the first three").
 - **`/mytcacademy`:** keep the TC-branded names, mapped as TC Starter = One-page site ($750), TC Growth = Full website ($1,500), TC Pro = Custom build (from $3,000). Point package links to `/transaction-coordinators#packages`.
-  - **2026-10-23:** em dashes removed from the page and the flyer. The rest of the copy still predates this deck and breaks the brief's voice rules: "we", "converts", "drives action", "resonates", and an FAQ offering "a headless CMS, or a managed platform", which contradicts "no page-builder templates". Rewrite it before sending more students there.
+  - **2026-10-23, rewritten** (page and flyer) to the brief's voice. What changed and why:
+    - **No endorsement words for Jennifer.** "She trusts the work" and "Jennifer wants her students to have access to a designer who understands the TC space" are gone; she's a paid partner, and those were paraphrased endorsements without her quote. The page now states facts: she shared the page, and I built two of her businesses' sites (Structured Closings, TAG).
+    - **Unsourced claims removed:** "More people are becoming TCs every year", "a $177 value", "a perk she set up", "Not a coupon."
+    - **Hero:** H1 "A website for the TC business you're *building.*" Intro: "I'm Haydn. I design, write, and build websites for transaction coordinators. Jennifer Cortes shared this page with My TC Academy students, and I've built websites for two of her businesses, Structured Closings and Transaction Authority Group."
+    - **Perk wording** (page and flyer): every client gets the first month of hosting & care; students get three more free, so the $59/month starts in month five. Package prices are the same for everyone.
+    - **"What you get"** now lists real package inclusions (copy written for you, custom design, a way to start a file, every screen, set up for search, yours to keep). The "headless CMS or managed platform" FAQ is replaced with how sites are actually built and hosted.
+    - **Prices and timelines** in the FAQ are generated from `content/packages.ts`, as is the hosting price on the flyer.
+    - **Flyer** still fits one letter page (checked in the browser after the edit).
 
 ---
 

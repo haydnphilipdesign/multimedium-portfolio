@@ -6,12 +6,21 @@ import {
   SectionHeading,
 } from "@/components/marketing/Studio";
 import { getProjectBySlug } from "@/content/projects";
-import { packages, packageContactHref } from "@/content/packages";
+import { packages, packageContactHref, hosting } from "@/content/packages";
+
+// TC-branded names appear only on this page, mapped one-to-one to the
+// public packages (brief §7).
+const tcNames = {
+  "one-page": "TC Starter",
+  full: "TC Growth",
+  custom: "TC Pro",
+} as const;
+
+const [onePage] = packages;
 
 export const metadata: Metadata = {
   title: "My TC Academy Students: Private Referral",
-  description:
-    "A private referral page for My TC Academy students. Web design built specifically for transaction coordinators: professional messaging, fast performance, and pages that turn visitors into real leads.",
+  description: `A private page for My TC Academy students: websites for transaction coordinators, written, designed, and built by Haydn. One-page sites from ${onePage.price}.`,
   robots: {
     index: false,
     follow: false,
@@ -23,102 +32,110 @@ export const metadata: Metadata = {
 
 const whyWebsite = [
   {
-    title: "Instant credibility",
+    title: "Agents look you up first",
     description:
-      "Agents and clients check you out before they reach out. A polished site signals that you run a real operation, not a side hustle.",
+      "Even when an agent hears about you by referral, they look you up before sending a file. A clear site confirms what they heard.",
   },
   {
-    title: "Explain your services clearly",
+    title: "What you handle, in agents’ words",
     description:
-      "Most TC websites bury the offer. A clear, well-structured page tells prospects exactly what you do, who you serve, and why you're the right fit, before the first call.",
+      "Listing coordination, contract to close, compliance: described the way agents think about them, so they can tell in a few seconds whether you fit.",
   },
   {
-    title: "Stand out in a growing field",
+    title: "Starting a file in one step",
     description:
-      "More people are becoming TCs every year. A generic template or a basic Wix page won't differentiate you. Your website should reflect the same professionalism you bring to every transaction.",
+      "A form agents fill out when a file goes under contract, instead of a chain of emails and texts.",
   },
   {
-    title: "Build a stronger foundation",
+    title: "Room to grow",
     description:
-      "Your website is the hub for everything: referrals, testimonials, intake, and positioning. Getting it right early means you grow on solid ground instead of patching things together later.",
+      "Start with one page. Add a services page, a Start a File page, or a careers page as your business grows, without starting over.",
   },
 ];
 
 const included = [
   {
-    title: "Positioning + messaging",
+    title: "Copy written for you",
     description:
-      "We define who you serve, what you offer, and why someone should choose you, written in language that resonates with agents and clients, not generic filler.",
+      "You answer a short questionnaire about your services and how you work. I write the pages, and you review them.",
   },
   {
-    title: "Custom design, not a template",
+    title: "Custom design",
     description:
-      "A professional, mobile-first design built around your brand, not a cookie-cutter theme with your logo pasted on top.",
+      "Designed around your logo and colors, with no page-builder templates.",
   },
   {
-    title: "Lead capture that qualifies",
+    title: "A way to start a file",
     description:
-      "Contact forms, intake flows, and CTAs designed to attract the right leads and filter out the ones that waste your time.",
+      "Every package includes at least one form. On a full website, I can connect the form tool you already use, like Cognito Forms or Jotform.",
   },
   {
-    title: "Fast, polished, and accessible",
+    title: "Works on every screen",
     description:
-      "Speed and mobile performance built in from the start, because most of your visitors are checking you out from their phones.",
+      "Mobile, tablet, and desktop layouts, fast loading, and the accessibility basics: readable contrast, keyboard navigation, and labeled forms.",
   },
   {
-    title: "Copy + content guidance",
+    title: "Set up for search",
     description:
-      "Messaging and page copy are part of the build. You won't be left staring at blank sections trying to figure out what to write.",
+      "Page titles, descriptions, and social share previews, so search results and shared links show your business properly.",
   },
   {
-    title: "Launch-ready and easy to maintain",
+    title: "Yours to keep",
     description:
-      "A clean, modern build that doesn't require a developer on retainer to update. You'll own the site and be able to grow with it.",
+      "Once it’s paid in full, your content, domain, and site are yours. You get a walkthrough at launch and a 14-day window to fix anything that isn’t working.",
   },
 ];
+
+const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+const andList = (items: string[]) =>
+  items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
 
 const faqs = [
   {
-    q: "How is this different from a template or DIY site?",
-    a: "Templates give you a layout. This gives you a strategy. We start with your positioning (who you serve, what you offer, and why you're the right choice) and build a site around that. The result looks, reads, and converts better because it was built for your specific business, not for a generic audience.",
+    q: "How is this different from a template or a DIY site?",
+    a: "A template gives you a layout, and you still write every word. With me, you answer a questionnaire, I write the copy, and then I design and build the site around it. A DIY site can work if you have the time to write it well.",
   },
   {
-    q: "I'm just starting out. Is it too early to invest in a website?",
-    a: "It's actually the best time. You're building your reputation right now, and the agents, brokers, and clients you want to work with are going to look you up. A professional site gives you credibility from day one and a foundation you can grow with, instead of something you'll need to replace in six months.",
+    q: "I’m just starting out. Is it too early for a website?",
+    a: "Not if agents are going to look you up, and they will. A one-page site covers what you handle, how to start a file, who you are, and how to reach you, and it can grow into a full website later without starting over.",
   },
   {
-    q: "Do you write the copy, or do I need to provide it?",
-    a: "Copy and messaging are included. We'll work together to define your offer, services, and positioning. Then I'll write the page content so it sounds like you, speaks to the right audience, and drives action. You won't be staring at blank pages.",
+    q: "Do you write the copy, or do I?",
+    a: "I do, in every package. You answer a questionnaire about your services and how you work, I write the pages, and you review them before anything is designed.",
   },
   {
-    q: "What platform do you build on?",
-    a: "It depends on your needs and goals. I work with modern frameworks and platforms and will recommend the best option for your situation, whether that's a custom build, a headless CMS, or a managed platform. The goal is a site that's fast, clean, and easy for you to maintain.",
+    q: "What do you build the site with?",
+    a: "I build each site by hand with modern web code, not a page builder, and host it as part of hosting & care. Small edits, like text changes or a photo swap, are included each month. If you ever move hosting, you get a complete copy of your site files.",
   },
   {
     q: "How much does a TC website cost?",
-    a: "TC Starter (a one-page site) is $750. TC Growth (a full website with up to 5 pages and intake) is $1,500. TC Pro (a custom build) starts at $3,000. Every project includes the first month of hosting & care, and as a My TC Academy student you get 3 more months on top: four months before the $59/month begins.",
+    a:
+      andList(
+        packages.map(
+          (p) => `${tcNames[p.id]} (${lowerFirst(p.name)}) is ${p.price}`,
+        ),
+      ) +
+      `. Hosting & care is ${hosting.price} after the first month, and My TC Academy students get three more months free.`,
   },
   {
-    q: "How long does a project typically take?",
-    a: "TC Starter takes about 2 weeks. TC Growth takes about 3–4 weeks. TC Pro takes about 5–8 weeks. I'll give you a clear timeline after we talk through your goals.",
+    q: "How long does a project take?",
+    a:
+      andList(
+        packages.map(
+          (p, i) =>
+            `${i ? lowerFirst(p.timeline) : p.timeline} for ${tcNames[p.id]}`,
+        ),
+      ) + ". The schedule starts when your questionnaire and photos are in.",
   },
   {
-    q: "What's the My TC Academy referral perk?",
-    a: "Every project includes the first month of hosting & care. Because Jennifer sent you, you get 3 more months on top, so four months total before the $59/month begins (a $177 value on the referral perk). It isn't a discount; it's a perk she set up so her students start without the hosting cost upfront.",
+    q: "What’s the My TC Academy perk?",
+    a: `Three extra months of hosting & care, free. Every client gets the first month included; students get four months before the ${hosting.price} starts. Package prices are the same for everyone.`,
   },
   {
-    q: "What if I already have a website and just want it improved?",
-    a: "That works too. Whether it's a full rebuild or a focused refresh (better messaging, stronger design, faster performance), we can scope the project to match what you actually need. The referral perk still applies.",
+    q: "Can you improve a website I already have?",
+    a: "Yes. Tell me what you have and what isn’t working, and I’ll recommend the package that fits, or a smaller quoted fix if that’s all it needs. The student perk applies either way.",
   },
 ];
-
-// TC-branded names appear only on this page, mapped one-to-one to the
-// public packages (brief §7).
-const tcNames = {
-  "one-page": "TC Starter",
-  full: "TC Growth",
-  custom: "TC Pro",
-} as const;
 
 const contactHref = "/contact?source=mytcacademy";
 
@@ -136,41 +153,40 @@ export default function MyTCAcademyPage() {
         <div>
           <p className="eyebrow">Private referral · My TC Academy</p>
           <h1>
-            A website that matches the business you&apos;re building.
+            A website for the TC business you’re <em>building.</em>
           </h1>
           <p className="intro-copy">
-            Jennifer connected you with this page because she trusts the work. I
-            design websites specifically for transaction coordinators and real
-            estate professionals, built to win trust, explain your services
-            clearly, and turn visitors into real leads.
+            I’m Haydn. I design, write, and build websites for transaction
+            coordinators. Jennifer Cortes shared this page with My TC Academy
+            students, and I’ve built websites for two of her businesses,
+            Structured Closings and Transaction Authority Group.
           </p>
           <div className="hero-actions">
             <Link href={contactHref} className="btn-primary">
               Start a conversation <span aria-hidden="true">→</span>
             </Link>
-            <a href="#why" className="text-link">
-              See why it matters ↓
+            <a href="#packages" className="text-link">
+              See the packages ↓
             </a>
           </div>
           <p className="hero-price">
-            Response within 1 business day. No pressure, no obligation.
+            I reply within one business day. No pressure.
           </p>
         </div>
         <div className="academy-panel">
           <h2>For My TC Academy students</h2>
           <p>
-            You&apos;ve already made a serious investment in building your TC
-            career. This is a private resource, not a public offer, for
-            students who want a web presence that reflects the level of
-            professionalism they&apos;re building toward.
+            This page isn’t listed on the site. It has the same packages and
+            prices as everyone else, plus three extra months of free hosting &
+            care for students.
           </p>
           <ul className="check-list">
             {[
-              "Niche expertise in the TC industry",
-              "Strategy, messaging, design, and code, with one point of contact",
-              "Positioning that attracts better-fit leads",
-              "Sites built to grow with your business",
-              "3 months free hosting & care: a My TC Academy perk",
+              "Built by someone whose mom has been a TC since 2013",
+              "One person from the first call through launch and after",
+              "I write the copy; you review it",
+              "A simple way for agents to start a file, in every package",
+              "3 extra months of free hosting & care for students",
             ].map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -178,12 +194,12 @@ export default function MyTCAcademyPage() {
         </div>
       </section>
 
-      <section id="why" className="studio-shell studio-section rule-top">
+      <section className="studio-shell studio-section rule-top">
         <SectionHeading title="The first thing an agent does is look you up.">
           <p className="section-aside">
-            You&apos;re investing in your skills and your business through My
-            TC Academy. Your online presence should reflect that same level of
-            seriousness.
+            Before an agent sends you a first file, they check two things: what
+            you handle, and whether you look organized. Your website answers
+            both.
           </p>
         </SectionHeading>
         <div className="feature-list">
@@ -200,9 +216,8 @@ export default function MyTCAcademyPage() {
         <div className="studio-shell studio-section">
           <SectionHeading title="What you get">
             <p className="section-aside">
-              Every TC website project includes strategy, design, and
-              development, built around your specific business and the clients
-              you want to attract.
+              Every package includes the writing, the design, and the build,
+              all done by me.
             </p>
           </SectionHeading>
           <div className="reasons-grid">
@@ -219,9 +234,9 @@ export default function MyTCAcademyPage() {
       <section id="packages" className="studio-shell studio-section">
         <SectionHeading title="Three packages, one for each stage." />
         <p className="academy-perk">
-          <strong>My TC Academy referral perk:</strong> 3 extra months of free
-          hosting & care on top of the first month every project includes. That&apos;s a
-          $177 value, because Jennifer sent you.
+          <strong>My TC Academy perk:</strong> every client gets the first month
+          of hosting & care included. Students get three more months free, so
+          the {hosting.price} starts in month five.
         </p>
         <div className="package-grid">
           {packages.map((p) => (
@@ -268,24 +283,28 @@ export default function MyTCAcademyPage() {
 
       <section className="studio-shell studio-section rule-top split-section">
         <div>
-          <h2>Jennifer sent you here for a reason.</h2>
+          <h2>Same prices, plus hosting for students.</h2>
           <p className="mt-5">
-            This isn&apos;t a discount page. It&apos;s a private referral
-            because Jennifer wants her students to have access to a designer
-            who actually understands the TC space. The 3 months of free hosting
-            is her way of making sure you&apos;re taken care of.
+            Students pay the same package prices as everyone else. The
+            difference is hosting & care: every client gets the first month
+            included, and My TC Academy students get three more months free.
           </p>
         </div>
         <div>
           <h3 className="steps-list-title">How it works</h3>
           <ol className="steps-list">
-            <li>Pick a package and reach out through this page</li>
             <li>
-              We&apos;ll have a quick conversation about your business and goals
+              Tell me about your business through this page. The form notes
+              that you’re a My TC Academy student.
             </li>
             <li>
-              I&apos;ll send a clear proposal with your 3 months free hosting
-              included
+              If it looks like a fit, we have a short call about your business
+              and what the site needs to do.
+            </li>
+            <li>
+              You get a written proposal with your pages, timeline, and price,
+              including the extra hosting months, within two business days of
+              the call.
             </li>
           </ol>
         </div>
@@ -293,7 +312,7 @@ export default function MyTCAcademyPage() {
 
       <section className="tint-band">
         <div className="studio-shell studio-section">
-          <SectionHeading title="Real projects in the TC + real estate space">
+          <SectionHeading title="Websites I’ve built for TCs and real estate businesses">
             <Link href="/work?source=mytcacademy" className="text-link">
               All client work →
             </Link>
@@ -310,13 +329,12 @@ export default function MyTCAcademyPage() {
 
       <section className="project-cta">
         <div className="studio-shell cta-layout">
-          <h2>Ready to get your website started?</h2>
+          <h2>Tell me about your TC business.</h2>
           <div>
             <p>
-              Pick a package, tell me about your TC business, and mention that
-              you&apos;re a My TC Academy student. I&apos;ll respond within one
-              business day with a clear proposal. 3 months of free hosting is
-              included.
+              I’ll reply personally within one business day with a few
+              questions or a recommended package. Your three extra months of
+              hosting & care are written into the proposal.
             </p>
             <Link href={contactHref} className="btn-on-dark">
               Start a conversation <span aria-hidden="true">→</span>
